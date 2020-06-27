@@ -1,0 +1,3 @@
+10:24 11/03/2020: Made the animation revolution and created a changelog tab.
+22:21 01/04/2020: I used the "Media Reader" from the 2019 website to write the medias on the Archived > 2019 Tab
+21:02 17/04/2020: I added the new "Media Reader" from the website 2019 and 2018 on tabs "Archived > 2018" and "Archived > 2019

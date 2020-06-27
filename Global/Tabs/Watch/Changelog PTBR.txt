@@ -1,0 +1,3 @@
+10:24 11/03/2020: Fiz a revolução da animação e criei uma aba de registro mudanças.
+22:21 01/04/2020: Usei o "Leitor de Mídias" do site 2019 para escrever as mídias na aba Arquivado > 2019
+21:02 17/04/2020: Adicionei o novo "Leitor de Mídias" do site 2019 e 2018 nas abas "Arquivado > 2018" e "Arquivado > 2019"
