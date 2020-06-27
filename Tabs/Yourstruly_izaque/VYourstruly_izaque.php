@@ -11,8 +11,8 @@ $colorsubtext2 = 'w3-text-black';
 $sitehr = 'greyhr';
 $sitehr2 = 'greyhr';
 $sitehr3 = 'greyhr';
-$spanstyle = "";
-$formbtnstyle = "";
+$spanstyle = '';
+$formbtnstyle = '';
 
 #Variables that mixes CSS tags
 $textstyle = $colortext.' blue2';
@@ -41,7 +41,7 @@ $m = 'h5';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $sitephpfolder.$global.'/'.$folder1.'/'.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
 $storyfolder = $sistoryfolder;
 
 #Defines the folder for the chapter text files that are going to be read

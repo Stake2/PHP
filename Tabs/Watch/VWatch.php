@@ -27,16 +27,16 @@ $moviesnumb = 0;
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $sitephpfoldergeraltabs.ucwords($site).'/';
+$sitephpfolder2 = $phptabs.ucwords($site).'/';
 
 #Comment links
 $cmntlinks = array(
-$cdn.'/txt/Movie Comments/Hoje, Sexta (Vingadores Guerra Infinita).txt', 
-$cdn.'/txt/Movie Comments/Hoje, Segunda (Power Rangers 2017).txt', 
-$cdn.'/txt/Movie Comments/Hoje, Sabado (Detona Ralph 2 Ralph Quebra a Internet).txt', 
-$cdn.'/txt/Movie Comments/Hoje, Domingo (Equestria Girls Spring Breakdown).txt', 
-$cdn.'/txt/Movie Comments/Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
-$cdn.'/txt/Movie Comments/Homem-Aranha Longe de Casa 2019.txt',
+$cdntxt.'Movie Comments/Hoje, Sexta (Vingadores Guerra Infinita).txt', 
+$cdntxt.'Movie Comments/Hoje, Segunda (Power Rangers 2017).txt', 
+$cdntxt.'Movie Comments/Hoje, Sabado (Detona Ralph 2 Ralph Quebra a Internet).txt', 
+$cdntxt.'Movie Comments/Hoje, Domingo (Equestria Girls Spring Breakdown).txt', 
+$cdntxt.'Movie Comments/Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
+$cdntxt.'Movie Comments/Homem-Aranha Longe de Casa 2019.txt',
 );
 
 #Comments buttons

@@ -47,14 +47,14 @@ include $storyvarsphp;
 include $watchtextsphp;
 
 #Folder variables
-$siteurlgeral = $url.$siteurlcodes[0]."/";
-$siteurlgeral2 = $url.$siteurlcodes[1]."/";
-$sitephpfolder2 = $sitephpfolder.$global.'/'.$folder1.'/'.ucwords($sitethingsido).'/';
+$siteurlgeral = $url.$siteurlcodes[0].'/';
+$siteurlgeral2 = $url.$siteurlcodes[1].'/';
+$sitephpfolder2 = $phptabs.ucwords($sitethingsido).'/';
 $imageswebfolder = 'C:/Mega/Diario/cdn/img/drawings/';
 $drawingswebfolder = $url.'cdn'.'/'.'img'.'/'.'drawings'.'/';
 
-$mediareader2018 = $sitephpfoldergeraltabs.'/'.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
-$mediareader2019 = $sitephpfoldergeraltabs.'/'.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
+$mediareader2018 = $phptabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
+$mediareader2019 = $phptabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
 
 if ($lang == $langs[0] or $lang == $langs[1]) {
 	$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
@@ -65,7 +65,7 @@ if ($lang == $langs[2]) {
 }
 
 $watchedtypefile2019 = $maintextfolder2.'Anos/'.$site2019.'/Watched VideoTypes.txt';
-$yearmakerfilephp2test = $sitephpfoldergeraltabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$yearmakerfilephp2test = $phptabs.ucwords($sitetextmaker).'/YearMaker2.php';
 $yearmakerfilephp2test = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearmakerfilephp2test);
 
 if (file_exists($watchedtypefile2018) == true) {

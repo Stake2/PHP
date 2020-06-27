@@ -38,7 +38,7 @@ $border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$roun
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder."/";
-$sitephpfolder2 = $sitephpfolder.$global.'/'.$folder1.'/'.ucwords($sitenazzevo).'/';
+$sitephpfolder2 = $phptabs.ucwords($sitenazzevo).'/';
 $storyfolder = $nazzevostoryfolder;
 
 #Form code for the comment and read forms

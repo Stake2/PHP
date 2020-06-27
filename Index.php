@@ -10,14 +10,19 @@ $folder2 = 'Variables';
 $folder3 = 'Years';
 $global = 'Global';
 $generic = 'Generic';
-$sitephpfolder = 'C:/Mega/Diario/PHP/';
-$sitephpfoldergeraltabs = $sitephpfolder.$global.'/'.$folder1.'/';
-$sitephpfoldergeralvars = $sitephpfolder.$global.'/'.$folder2.'/';
-$sitetabsgeralfolder = $sitephpfolder.$global.'/'.$folder1.'/'.$generic.$folder1.'/';
-$siteglobaltabsfolder = $sitephpfolder.$global.'/'.$folder1.'/'.$global.$folder1.'/';
-$websiteselectorfile = $sitephpfoldergeralvars.'Website Selector.php';
-$genericcitiesgeneratorfile = $sitephpfoldergeralvars.'GenericCities Generator.php';
-$settingsparamsfile = $sitephpfoldergeralvars.'Settings Params.php';
+$sitephpfolder = 'C:/Mega/PHP/';
+$sitephpfoldertabs = $sitephpfolder.$folder1.'/';
+$sitephpfoldervars = $sitephpfolder.$folder2.'/';
+$sitetabsgeralfolder = $sitephpfolder.$folder1.'/'.$generic.$folder1.'/';
+$siteglobaltabsfolder = $sitephpfolder.$folder1.'/'.$global.$folder1.'/';
+
+$phptabs = $sitephpfoldertabs;
+$phpvars = $sitephpfoldervars;
+$phpglobaltabs = $siteglobaltabsfolder;
+
+$websiteselectorfile = $phpvars.'Website Selector.php';
+$genericcitiesgeneratorfile = $phpvars.'GenericCities Generator.php';
+$settingsparamsfile = $phpvars.'Settings Params.php';
 
 #Queries for parameters
 $params = array(
@@ -160,7 +165,7 @@ foreach ($sitetitlesarray as $value) {
 #Array of the paths of the website folders in the local drive
 $i = 0;
 foreach ($sitenamesarray as $value) {
-    ${"sitefolder_$value"} = $sitephpfoldergeraltabs.ucwords($sitearray[$i]).'/';
+    ${"sitefolder_$value"} = $phptabs.ucwords($sitearray[$i]).'/';
 
 	$sitefolders[$i] = ${"sitefolder_$value"};
 
@@ -179,7 +184,7 @@ foreach ($sitefolders as $folder) {
 #V[Site].php Files array
 $i = 0;
 foreach ($sitearray as $value) {
-	$varsfile = $sitephpfoldergeraltabs.ucwords($value).'/'.'V'.ucwords($value).'.php';
+	$varsfile = $phptabs.ucwords($value).'/'.'V'.ucwords($value).'.php';
 	if (file_exists($varsfile)) {
 		$sitefilevars[$i] = $varsfile;
 	}
@@ -194,7 +199,7 @@ foreach ($sitearray as $value) {
 #Website.php Files array
 $i = 0;
 foreach ($sitearray as $value) {
-	$websitefile = $sitephpfoldergeraltabs.ucwords($value).'/'.'Website.php';
+	$websitefile = $phptabs.ucwords($value).'/'.'Website.php';
 
 	if (file_exists($websitefile)) {
 		$sitewebsitefiles[$i] = $websitefile;
@@ -341,7 +346,7 @@ if (!isset($sitename) and !isset($site)) {
 }
 
 #VGlobal.php variables file includer
-require $sitephpfoldergeralvars.'VGlobal.php';
+require $phpvars.'VGlobal.php';
 
 ?>
 <!DOCTYPE html>
@@ -363,7 +368,7 @@ if ($sitehasnotifications == true and $deactivatenotification == false) {
 
 if ($deactivatetabs == false) {
 	#Tabs loader
-	include $sitephpfoldergeralvars.'Tab Loader.php';
+	include $phpvars.'Tab Loader.php';
 }
 
 echo $animationstylecss."\n"."\n";
@@ -382,7 +387,7 @@ a:active {color: blue!important;}
 if ($siteuseschapteropener == true) {
 	echo "\n";
 	echo '<script>'."\n";
-	include $sitephpfoldergeralvars.'OpenChapterScript'.'.php';
+	include $phpvars.'OpenChapterScript.php';
 	echo '</script>'."\n";
 	echo "\n";
 }

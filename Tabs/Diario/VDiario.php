@@ -35,7 +35,7 @@ $border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$roun
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $sitephpfolder.$global.'/'.$folder1.'/'.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
 $blockreaderphp = $sitephpfolder2.'BlockReader.php';
 
 #Diario name in English and Brazilian Portuguese language

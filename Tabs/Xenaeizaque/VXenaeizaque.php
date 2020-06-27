@@ -11,8 +11,8 @@ $colorsubtext2 = 'w3-text-white';
 $sitehr = 'pinkhr';
 $sitehr2 = 'pinkhr';
 $sitehr3 = 'pinkhr';
-$spanstyle = "";
-$formbtnstyle = "";
+$spanstyle = '';
+$formbtnstyle = '';
 
 #Variables that mixes CSS tags
 $textstyle = $colortext.' darkpink';
@@ -39,8 +39,8 @@ $widthsize = '';
 $size = '';
 
 #Folder variables
-$siteurlgeral = $url.$sitefolder."/";
-$sitephpfolder2 = $sitephpfolder.$global.'/'.$folder1.'/'.ucwords($choosenwebsite).'/';
+$siteurlgeral = $url.$sitefolder.'/';
+$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
 $storyfolder = $pqntstoryfolder;
 
 #Site image vars

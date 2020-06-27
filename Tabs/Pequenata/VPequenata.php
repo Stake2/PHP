@@ -40,7 +40,7 @@ $size = '';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $sitephpfolder.$global.'/'.$folder1.'/'.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
 $storyfolder = $pqntstoryfolder;
 
 #Form code for the comment and read forms

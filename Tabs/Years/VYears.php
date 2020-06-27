@@ -1,74 +1,72 @@
 <?php
 
-if (in_array($sitename, $yeararray)) {
-	#CSS style variables
-	$color2 = 'yellow';
-	$color4 = 'white';
-	$colortext = 'w3-text-white';
-	$sitehr = 'whitehr';
-	$textstyle = 'w3-black w3-text-white';
+#CSS style variables
+$color2 = 'yellow';
+$color4 = 'white';
+$colortext = 'w3-text-white';
+$sitehr = 'whitehr';
+$textstyle = 'w3-black w3-text-white';
 
-	#Variables that mixes CSS tags
-	$btnstyle = $color2.' '.$cssbtn1;
-	$btnstyle2 = $color2.' '.$cssbtn1;
-	$sitewhilestyle = $color2;
+#Variables that mixes CSS tags
+$btnstyle = $color2.' '.$cssbtn1;
+$btnstyle2 = $color2.' '.$cssbtn1;
+$sitewhilestyle = $color2;
 
-	#HTML and HTML Style variables
-	$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color2.';border-style:solid;'.$roundedborderstyle2.'">';
-	$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color2.';border-style:solid;'.$roundedborderstyle2.'">';
-	$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color2.';border-style:solid;'.$roundedborderstyle2.'">';
-	$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
-	$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
-	$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
-	$border = 'border-width:4px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
-	$border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
+#HTML and HTML Style variables
+$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color2.';border-style:solid;'.$roundedborderstyle2.'">';
+$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color2.';border-style:solid;'.$roundedborderstyle2.'">';
+$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color2.';border-style:solid;'.$roundedborderstyle2.'">';
+$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
+$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
+$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
+$border = 'border-width:4px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
+$border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
 
-	#Folder variables
-	$yeartxtfolder = $maintextfolder2.'/Anos/';
-	$siteurlgeral = $url.'/'.$sitefolder.'/'.$ano.'/';
-	$sitephpfolder2 = $sitephpfolder.$global.'/'.$folder1.'/'.$ano.'/';
-	$anosnumb = 3;
+#Folder variables
+$yeartxtfolder = $maintextfolder2.'/Anos/';
+$siteurlgeral = $url.'/'.$sitefolder.'/'.$ano.'/';
+$sitephpfolder2 = $phptabs.$ano.'/';
+$anosnumb = 3;
 
-	#VYears PHP files
-	$yearmakerfilephp = $sitephpfoldergeraltabs.ucwords($sitetextmaker).'/YearMaker.php';
-	$yearmakerfilephp2 = $sitephpfoldergeraltabs.ucwords($sitetextmaker).'/YearMaker2.php';
-	$yearmakerfilephp2test = $sitephpfoldergeraltabs.ucwords($sitetextmaker).'/YearMaker2.php';
-	$yearsbuttonsgenerator = $sitephpfoldergeraltabs.'Years/'.'YearsButtons Generator.php';
+#VYears PHP files
+$yearmakerfilephp = $phptabs.ucwords($sitetextmaker).'/YearMaker.php';
+$yearmakerfilephp2 = $phptabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$yearmakerfilephp2test = $phptabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$yearsbuttonsgenerator = $phptabs.'Years/'.'YearsButtons Generator.php';
 
-	#English texts for all websites
-	if ($lang == $langs[0] or $lang == $langs[1]) {
-		$marginstyle4 = 'style="margin-right:75%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
-		$marginstyle22 = 'style="margin-right:73%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
-	}
-
-	#Brazilian Portuguese texts for all websites
-	if ($lang == $langs[2]) {
-		$marginstyle4 = 'style="margin-right:78%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
-		$marginstyle22 = 'style="margin-right:76%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
-	}
-
-	#Previous year button
-	$anoanteriorbtn = '<button class="w3-btn '.$btnstyle.'" onclick="window.open('."'https://diario.netlify.com/years/".$anoanterior."/'".')"><'.$n.'>'.$anoanterior.': <i class="fas fa-globe-americas"></i></'.$n.'></button>';
-
-	#Mobile previous year button
-	$anoanteriorbtnm = '<button class="w3-btn '.$btnstyle.'" onclick="window.open('."'https://diario.netlify.com/years/".$anoanterior."/'".')"><'.$m.'>'.$anoanterior.': <i class="fas fa-globe-americas"></i></'.$m.'></button>';
-
-	#Site image link and image size
-	$siteimage = $ano;
-	$siteimage = $cdn."/img/".$siteimage.".png";
-	$imglink = $siteimage;
-	$imagesize1 = 25;
-	$imagesize2 = 66;
-	$screenshotlink = '<a href="'.$cdn.'/img/Jogos 616-691.gif" class="w3-text-blue">Jogos 616-691.gif</a>';
-
-	#Site descriptions
-	$sitedescs = array('Website to show my '.$ano.', Site para mostar o meu '.$ano.' (stake2)', 
-	'Website to show my '.$ano.'. (stake2)',
-	'Site para mostar o meu '.$ano.' (stake2)');
-
-	$descs = array('Description: A website to show how my year '.$orangespan.'('.$ano.')'.$spanc.' was and what I did during it, I am '.$orangespan.'stake2'.$spanc.', or '.$orangespan.'Izaque'.$spanc, 
-	'Descrição: Um site para mostar como meu ano '.$orangespan.'('.$ano.')'.$spanc.' foi e o que eu fiz durante ele, eu sou '.$orangespan.'stake2'.$spanc.', ou '.$orangespan.'Izaque'.$spanc);
+#English texts for all websites
+if ($lang == $langs[0] or $lang == $langs[1]) {
+	$marginstyle4 = 'style="margin-right:75%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
+	$marginstyle22 = 'style="margin-right:73%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
 }
+
+#Brazilian Portuguese texts for all websites
+if ($lang == $langs[2]) {
+	$marginstyle4 = 'style="margin-right:78%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
+	$marginstyle22 = 'style="margin-right:76%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
+}
+
+#Previous year button
+$anoanteriorbtn = '<button class="w3-btn '.$btnstyle.'" onclick="window.open('."'https://diario.netlify.com/years/".$anoanterior."/'".')"><'.$n.'>'.$anoanterior.': <i class="fas fa-globe-americas"></i></'.$n.'></button>';
+
+#Mobile previous year button
+$anoanteriorbtnm = '<button class="w3-btn '.$btnstyle.'" onclick="window.open('."'https://diario.netlify.com/years/".$anoanterior."/'".')"><'.$m.'>'.$anoanterior.': <i class="fas fa-globe-americas"></i></'.$m.'></button>';
+
+#Site image link and image size
+$siteimage = $ano;
+$siteimage = $cdn."/img/".$siteimage.".png";
+$imglink = $siteimage;
+$imagesize1 = 25;
+$imagesize2 = 66;
+$screenshotlink = '<a href="'.$cdn.'/img/Jogos 616-691.gif" class="w3-text-blue">Jogos 616-691.gif</a>';
+
+#Site descriptions
+$sitedescs = array('Website to show my '.$ano.', Site para mostar o meu '.$ano.' (stake2)', 
+'Website to show my '.$ano.'. (stake2)',
+'Site para mostar o meu '.$ano.' (stake2)');
+
+$descs = array('Description: A website to show how my year '.$orangespan.'('.$ano.')'.$spanc.' was and what I did during it, I am '.$orangespan.'stake2'.$spanc.', or '.$orangespan.'Izaque'.$spanc, 
+'Descrição: Um site para mostar como meu ano '.$orangespan.'('.$ano.')'.$spanc.' foi e o que eu fiz durante ele, eu sou '.$orangespan.'stake2'.$spanc.', ou '.$orangespan.'Izaque'.$spanc);
 
 #Year texts and YearNumbs.txt reader
 include $yearsvarsfilephp;

@@ -26,7 +26,7 @@ $sitedesc2 = 'tet';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder."/";
-$sitephpfolder2 = $sitephpfoldergeraltabs.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
 $yeartxtfolder = $maintextfolder2.'Anos/';
 
 #Site image vars
@@ -44,8 +44,8 @@ $sitedescs = array(
 
 #Year Numbers.txt file and YearMaker.php file definers
 $yearnumbsfile = $yeartxtfolder.'2019/'.'2019 Numbers'.'.txt';
-$yearmakerfilephp = $sitephpfoldergeraltabs.ucwords($site).'/YearMaker.php';
-$yearmakerfilephp2 = $sitephpfoldergeraltabs.ucwords($site).'/YearMaker2.php';
+$yearmakerfilephp = $phptabs.ucwords($site).'/YearMaker.php';
+$yearmakerfilephp2 = $phptabs.ucwords($site).'/YearMaker2.php';
 $storynumbsfile = $rootstoryfolder.'Story Numbers'.'.txt';
 
 #Story text file definer
@@ -58,7 +58,7 @@ if ($lang == $langs[2]) {
 }
 
 #StoryMaker.php definer
-$storymakerfilephp = $sitephpfoldergeraltabs.ucwords($site).'/StoryMaker.php';
+$storymakerfilephp = $phptabs.ucwords($site).'/StoryMaker.php';
 
 #YearsVars.php file includer
 include $yearsvarsfilephp;
