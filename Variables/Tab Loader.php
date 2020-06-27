@@ -28,7 +28,7 @@ if ($sitetype1 == $types[1]) {
 		$pqntcr = false;
 	}
 
-	include $chapterreaderglobal;
+	include $chaptergeneratorglobal;
 }
 
 if ($sitename == $sitediario or $sitename == ucwords($sitediario) or $site == $sitediario) {

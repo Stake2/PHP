@@ -39,12 +39,15 @@ $sitesbuttonscreator = $phptabs.'Sites Buttons Tab'.'/'.'Sites Button Creator.ph
 
 #GlobalTabs array
 $globaltabs = array(
-$chapterreaderglobal = $phpglobaltabs.'Chapters Generator '.$global.'.php',
+$chaptergeneratorglobal = $phpglobaltabs.'Chapters Generator '.$global.'.php',
 $readersglobal = $phpglobaltabs.'Readers'.$global.'.php',
 $commentsglobal = $phpglobaltabs.'Comments'.$global.'.php',
 $writeglobal = $phpglobaltabs.'Write'.$global.'.php',
 $storiesglobal = $phpglobaltabs.'Stories'.$global.'.php',
 );
+
+$chapterwriterdisplayer = $phpvars.'Chapter Files/'.'Chapter Writer Displayer.php';
+$chaptertextdisplayer = $phpvars.'Chapter Files/'.'Chapter Text Displayer.php';
 
 #Global files array
 $globalfiles = array(
