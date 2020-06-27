@@ -39,7 +39,7 @@ $sitesbuttonscreator = $phptabs.'Sites Buttons Tab'.'/'.'Sites Button Creator.ph
 
 #GlobalTabs array
 $globaltabs = array(
-$chapterreaderglobal = $phpglobaltabs.'ChapterDisplayer '.$global.'.php',
+$chapterreaderglobal = $phpglobaltabs.'Chapters Generator '.$global.'.php',
 $readersglobal = $phpglobaltabs.'Readers'.$global.'.php',
 $commentsglobal = $phpglobaltabs.'Comments'.$global.'.php',
 $writeglobal = $phpglobaltabs.'Write'.$global.'.php',
