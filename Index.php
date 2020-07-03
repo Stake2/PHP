@@ -15,7 +15,7 @@ $sitephpfoldertabs = $sitephpfolder.$folder1.'/';
 $sitephpfoldervars = $sitephpfolder.$folder2.'/';
 $sitetabsgeralfolder = $sitephpfolder.$folder1.'/'.$generic.$folder1.'/';
 $siteglobaltabsfolder = $sitephpfolder.$folder1.'/'.$global.$folder1.'/';
-$ata = 'ata';
+
 $phptabs = $sitephpfoldertabs;
 $phpvars = $sitephpfoldervars;
 $phpglobaltabs = $siteglobaltabsfolder;

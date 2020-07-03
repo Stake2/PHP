@@ -130,7 +130,7 @@ if ($sitetype1 == $types[1]) {
 }
 
 if ($sitehasnotifications == true and $deactivatenotification == false) {
-	echo '<script>
+	$changetitlescript = '<script>
 var olddocumenttitle = "";
 
 function ChangeTitle() {
@@ -147,6 +147,8 @@ function ResetTitle() {
 }
 
 else {
+	$changetitlescript = '';
+
 	$sitenotification = '';
 }
 
@@ -169,6 +171,8 @@ $sitejs.
 <body>
 <center>'."\n".
 $buttons."\n".
+
+$changetitlescript."\n".
 
 $sitewrappershow."\n".
 
