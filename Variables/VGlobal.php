@@ -157,6 +157,7 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 			$watchedfile2019 = explode("\n", fread($fp, filesize($watchedtypefile2019)));
 		}
 	}
+	echo $mediareader2018, $mediareader2019;
 }
 
 #Css definers for specific websites

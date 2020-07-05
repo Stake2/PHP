@@ -9,6 +9,9 @@ if (strpos ($host, $params[0].'='.$sitetextmaker) == true) {
 	$sitename = $choosenwebsite;
 	$setsitecssfile = $pocbcss;
 
+	#Site settings setter file includer
+	include $settingsparamsfile;
+
 	#Site Tabs array
 	$tabs = array('Output', 'My Year', 'My Stories');
 

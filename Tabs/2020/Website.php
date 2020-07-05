@@ -9,6 +9,9 @@ if (strpos ($host, $params[0].'='.$site2020) == true) {
 	$sitename = $choosenwebsite;
 	$setsitecssfile = $pocbcss;
 
+	#Site settings setter file includer
+	include $settingsparamsfile;
+
 	$tabs = array($ano, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 
 	if ($lang == $langs[0] or $lang == $langs[1]) {

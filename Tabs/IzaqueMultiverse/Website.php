@@ -8,10 +8,14 @@ if (strpos ($host, $params[0].'='.$siteizaquemultiverse) == true) {
 	$sitename = $choosenwebsite;
 	$setsitecssfile = $pocbcss;
 
+	#Site settings
 	$siteusescitybodygenerator = true;
 	$siteusesuniversalfilereader = true;
 
 	$tabs = array();
+
+	#Site settings setter file includer
+	include $settingsparamsfile;
 
 	if ($lang == $langs[0] or $lang == $langs[1]) {
 		$tabnames = array('First Tab');

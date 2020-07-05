@@ -15,6 +15,9 @@ if (strpos ($host, $params[0].'='.$sitethingsido) == true) {
 	$showplaylistembed = false; #If site shows Youtube playlist embeds
 	$sitehasstories = true; #If site has a Stories Tab
 
+	#Site settings setter file includer
+	include $settingsparamsfile;
+
 	#Site Tabs array
 	$tabs = array('Productive Things', 'Not Productive Things');
 
