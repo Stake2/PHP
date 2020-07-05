@@ -129,8 +129,8 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	'2020',
 	);
 
-	$mediareader2018 = $phptabs.'/'.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
-	$mediareader2019 = $phptabs.'/'.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
+	$mediareader2018 = $phptabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
+	$mediareader2019 = $phptabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
 
 	if ($lang == $langs[0] or $lang == $langs[1]) {
 		$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
@@ -157,7 +157,6 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 			$watchedfile2019 = explode("\n", fread($fp, filesize($watchedtypefile2019)));
 		}
 	}
-	echo $mediareader2018, $mediareader2019;
 }
 
 #Css definers for specific websites
@@ -245,7 +244,7 @@ require $sitesbuttonsattributes;
 
 #VYears.php file loader for YearsSites
 if (in_array($sitename, $yeararray)) {
-	require $phptabs.'/'.$folder3.'/'.'V'.$folder3.'.php';
+	require $phptabs.$folder3.'/'.'V'.$folder3.'.php';
 }
 
 #Websites array

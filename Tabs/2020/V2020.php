@@ -15,10 +15,35 @@ $citytxt4 = '<'.$txts.'>'.$citytxt4_.'</'.$txts.'>';
 $citytxt5 = '<'.$txts.'>'.$citytxt5_.'</'.$txts.'>';
 $citytxt6 = '<'.$txts.'>'.$citytxt6_.'</'.$txts.'>';
 
-$tabcode = array($ano, $ano.strtolower($tabnames[1]), $ano.strtolower($tabnames[2]), $ano.strtolower($tabnames[3]), $ano.strtolower($tabnames[4]), $ano.strtolower($tabnames[5]));
-$tabtxt = array($citytxt1, $citytxt2, $citytxt3, $citytxt4, $citytxt5, $citytxt6);
-$yeartabcode = array($yearlinks[0], $yearlinks[1], $yearlinks[2]);
-$yeartabtxt = array($yeararray[0], $yeararray[1], $yeararray[2]);
+$tabcode = array(
+$ano,
+$ano.strtolower($tabnames[1]),
+$ano.strtolower($tabnames[2]),
+$ano.strtolower($tabnames[3]),
+$ano.strtolower($tabnames[4]),
+$ano.strtolower($tabnames[5]),
+);
+
+$tabtxt = array(
+$citytxt1,
+$citytxt2,
+$citytxt3,
+$citytxt4,
+$citytxt5,
+$citytxt6,
+);
+
+$yeartabcode = array(
+$yearlinks[0],
+$yearlinks[1],
+$yearlinks[2],
+);
+
+$yeartabtxt = array(
+$yeararray[0],
+$yeararray[1],
+$yeararray[2],
+);
 
 $txts = 'h4';
 $citytxt1 = '<'.$txts.'>'.$citytxt1_.'</'.$txts.'>';
@@ -28,8 +53,23 @@ $citytxt4 = '<'.$txts.'>'.$citytxt4_.'</'.$txts.'>';
 $citytxt5 = '<'.$txts.'>'.$citytxt5_.'</'.$txts.'>';
 $citytxt6 = '<'.$txts.'>'.$citytxt6_.'</'.$txts.'>';
 
-$tabcodem = array($tabcode[0].'m', $tabcode[1].'m', $tabcode[2].'m', $tabcode[3].'m', $tabcode[4].'m', $tabcode[5].'m');
-$tabtxtm = array($citytxt1, $citytxt2, $citytxt3, $citytxt4, $citytxt5, $citytxt6);
+$tabcodem = array(
+$tabcode[0].'m',
+$tabcode[1].'m', 
+$tabcode[2].'m',
+$tabcode[3].'m',
+$tabcode[4].'m',
+$tabcode[5].'m',
+);
+
+$tabtxtm = array(
+$citytxt1,
+$citytxt2,
+$citytxt3,
+$citytxt4,
+$citytxt5,
+$citytxt6,
+);
 
 $thingsnumb = 524;
 $watchednumb = 294;
@@ -57,14 +97,29 @@ $cartoonsline = $original3;
 $animesline = $original4;
 $videosline = $original5;
 
-if ($lang == 'enus' or $lang == 'geral') {$stry5 = 'Littletato';}
-if ($lang == 'ptbr') {$stry5 = 'Pequenata';}
-$strynames = array('A Perfect World', 'SpaceLiving', 'A História dos irmãos Nazzevo', 'A Visita de Luiza (The Visit of Luiza)',  $stry5);
-$strylnks = array('<a href="https://diario.netlify.com/lonely%20stories/" class="'.$colortext2.'">'.$strynames[0].'</a>', 
+if ($lang == 'enus' or $lang == 'geral') {
+	$stry5 = 'Littletato';
+}
+
+if ($lang == 'ptbr') {
+	$stry5 = 'Pequenata';
+}
+
+$strynames = array(
+'A Perfect World', 
+'SpaceLiving', 
+'A História dos irmãos Nazzevo', 
+'A Visita de Luiza (The Visit of Luiza)',  
+$stry5,
+);
+
+$strylnks = array(
+'<a href="https://diario.netlify.com/lonely%20stories/" class="'.$colortext2.'">'.$strynames[0].'</a>', 
 '<a href="https://diario.netlify.com/new_world/spaceliving/" class="'.$colortext2.'">'.$strynames[1].'</a>', 
 '<a href="https://diario.netlify.com/nazzevo/" class="'.$colortext2.'">'.$strynames[2].'</a>', 
 '<a href="https://diario.netlify.com/luiza/" class="'.$colortext2.'">'.$strynames[3].'</a>', 
 '<a href="https://diario.netlify.com/pequenata/" class="'.$colortext2.'">'.$strynames[4].'</a>', );
+
 $strycapnumb = array(1, 13, 5, 1, 15);
 $strywordnumb = array(512, 17.374, '7.440', 1.218, 7.401);
 $strycharnumb = 41.162;
@@ -77,13 +132,23 @@ $date2 = $datetxt2.': '.$date2;
 $dates = $date1.'<br />'.'
 '.$date2.'<br /><br />';
 
-$pastebinlinks = array('<a href="https://pastebin.com/4j99vwMy">https://pastebin.com/4j99vwMy</a>', '<a href="https://pastebin.com/cx0jA1fx">https://pastebin.com/cx0jA1fx</a>',
-'<a href="https://pastebin.com/FaGftvR0">https://pastebin.com/FaGftvR0</a>');
+$pastebinlinks = array(
+'<a href="https://pastebin.com/4j99vwMy">https://pastebin.com/4j99vwMy</a>', 
+'<a href="https://pastebin.com/cx0jA1fx">https://pastebin.com/cx0jA1fx</a>',
+'<a href="https://pastebin.com/FaGftvR0">https://pastebin.com/FaGftvR0</a>',
+);
 
-$citybodyfiles = array($sitephpfolder2.'CityBody1.php', $sitephpfolder2.'CityBody2.php', $sitephpfolder2.'CityBody3.php', $sitephpfolder2.'CityBody4.php', $sitephpfolder2.'CityBody5.php', $sitephpfolder2.'CityBody6.php');
+$citybodyfiles = array(
+$sitephpfolder2.'CityBody1.php', 
+$sitephpfolder2.'CityBody2.php', 
+$sitephpfolder2.'CityBody3.php', 
+$sitephpfolder2.'CityBody4.php',
+$sitephpfolder2.'CityBody5.php', 
+$sitephpfolder2.'CityBody6.php',
+);
 
 ob_start();
-include "C:/Mega/Diario/PHP/Global/Variables/Btns.php";
+include $phptabs.'Btns.php';
 $buttons = ob_get_clean();
 
 include $citybodyfiles[0];
@@ -109,7 +174,19 @@ ob_start();
 include $sitephpfolder2.'CityContent6.php';
 $citycontents6 = ob_get_clean();
 
-$citycontents = array($sitephpfolder2.'CityContent2.php', $sitephpfolder2.'CityContent3.php', $sitephpfolder2.'CityContent5.php');
-$citiescontent = array($citytitle1.$citybody1, $citytitle2.$citybody2.$citycontents2, $citytitle3.$citybody3.$citycontents3, $citytitle4.$citybody4, $citytitle5.$citybody5.$citycontents5, $citytitle6.$citybody6.$citycontents6);
+$citycontents = array(
+$sitephpfolder2.'CityContent2.php',
+$sitephpfolder2.'CityContent3.php',
+$sitephpfolder2.'CityContent5.php',
+);
+
+$citiescontent = array(
+$citytitle1.$citybody1,
+$citytitle2.$citybody2.$citycontents2,
+$citytitle3.$citybody3.$citycontents3,
+$citytitle4.$citybody4,
+$citytitle5.$citybody5.$citycontents5,
+$citytitle6.$citybody6.$citycontents6,
+);
 
 ?>
