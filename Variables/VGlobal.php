@@ -32,9 +32,9 @@ $capbtngeneratorphp = $phpvars.'CapButton Generator.php',
 $newdesignphp = $phpvars.'NewDesignScript.php',
 $newdesignsitephp = $phpvars.'NewDesignSite.php',
 $citybodiesgeneratorphp = $phpvars.'CityBodies Generator.php',
-$sitesbuttonsattributes = $phptabs.'Sites Buttons Tab'.'/'.'SitesButtons Attributes.php',
-$sitesbuttonstab = $phptabs.'Sites Buttons Tab'.'/'.'SitesButtons Tab.php',
-$sitesbuttonscreator = $phptabs.'Sites Buttons Tab'.'/'.'Sites Button Creator.php',
+$sitesbuttonsattributes = $phptabs.'Sites Buttons Tab/SitesButtons Attributes.php',
+$sitesbuttonstab = $phptabs.'Sites Buttons Tab/SitesButtons Tab.php',
+$sitesbuttonscreator = $phptabs.'Sites Buttons Tab/Sites Button Creator.php',
 );
 
 #GlobalTabs array
