@@ -46,8 +46,8 @@ $writeglobal = $phpglobaltabs.'Write'.$global.'.php',
 $storiesglobal = $phpglobaltabs.'Stories'.$global.'.php',
 );
 
-$chapterwriterdisplayer = $phpvars.'Chapter Files/'.'Chapter Writer Displayer.php';
-$chaptertextdisplayer = $phpvars.'Chapter Files/'.'Chapter Text Displayer.php';
+$chapterwriterdisplayer = $phpvars.'Chapter Files/Chapter Writer Displayer.php';
+$chaptertextdisplayer = $phpvars.'Chapter Files/Chapter Text Displayer.php';
 
 #Global files array
 $globalfiles = array(
