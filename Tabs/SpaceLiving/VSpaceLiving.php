@@ -90,20 +90,29 @@ if ($storyhascovers == true) {
 
 else {
 	$siteimage = $cdn.'/'.'img'.'/'.$siteimage.'.jpg';
-	$imagesize1 = 66;
-	$imagesize2 = 88;
+	$imagesize1 = 55;
+	$imagesize2 = 99;
 }
 
 $imglink = $siteimage;
 
 #Site numbers
 $crossover = 9;
-#$commentsnumb = 0;
-#$commentsnumbtext = $commentsnumb + 1;
-#$commentsnormalnumb = 10;
-#$commentsnormalnumbtowrite = $commentsnormalnumb - 1;
-#$commentschapternumb = $commentsnumbtext - $commentsnormalnumb;
-#$readednumb = 0;
+$commentsnumb = 0;
+$commentsnormalnumb = 0;
+
+if ($sitehascomments == true) {
+	$commentsnumbtext = $commentsnumb + 1;
+	$commentsnormalnumbtowrite = $commentsnormalnumb - 1;
+}
+
+else {
+	$commentsnumbtext = $commentsnumb;
+	$commentsnormalnumbtowrite = $commentsnormalnumb;	
+}
+
+$commentschapternumb = $commentsnumbtext - $commentsnormalnumb;
+$readednumb = 0;
 
 #Non-language dependent texts
 $authorname = 'Izaque Sanvezzo (stake2)';
@@ -253,7 +262,7 @@ if ($lang == $langs[0]) {
 	
 	$sitetitulo = $storyfolder;
 	$sitetitulo2 = $storyfolder.': '.$icons[11];
-	$siteurl = $sitepqntlink;
+	$siteurl = $sitesllink;
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
 	$lang = $langs[0];
@@ -266,7 +275,7 @@ if ($lang == $langs[1]) {
 	
 	$sitetitulo = $story;
 	$sitetitulo2 = $story.': '.$icons[11];
-	$siteurl = $sitepqntlink.strtolower($lang2).'/';
+	$siteurl = $sitesllink.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
 }
@@ -278,7 +287,7 @@ if ($lang == $langs[2]) {
 
 	$sitetitulo = $story;
 	$sitetitulo2 = $story.': '.$icons[11];
-	$siteurl = $sitepqntlink.strtolower($lang2).'/';
+	$siteurl = $sitesllink.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[1];
 	$sitedesc2 = $descs[1];
 }

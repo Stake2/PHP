@@ -11,6 +11,7 @@ if (strpos ($host, $params[0].'='.$sitepequenata) == true) {
 	#Site settings definer
 	$sitehasnotifications = true; #Defines if site has notifications on
 	$sitehascommentstab = true; #Defines if site has a Comments Tab variable
+	$sitehascomments = true;
 	$siteshowscomments = true; #Defines if site shows the comments on the Comments Tab
 	$sitehasstories = true; #Defines if site has a Stories Tab
 	$sitehaschangelog = true; #Defines if site has a changelog tab and file to be read

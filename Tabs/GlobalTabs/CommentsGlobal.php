@@ -6,7 +6,7 @@ echo $divzoomanim."\n";
 echo $formcmnt;
 echo "\n".'</b>'."\n".'</'.$m.'>'."\n";
 
-if ($sitehascommentstab == true) {
+if ($sitehascommentstab == true and $sitehascomments == true) {
 	if ($siteshowscomments == true) {
 		$c = 0;
 		$i = 0;

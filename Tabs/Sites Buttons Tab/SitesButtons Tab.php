@@ -33,6 +33,11 @@ if ($sitename != $sitewatch and $sitename != $sitepequenata and $sitename != $si
 	$sitenumbhovercolor = $cssbtn5;
 }
 
+if ($sitename == $sitespaceliving) {
+	$sitenumbcolor = $subtextspan;
+	$sitenumbhovercolor = $cssbtn5;
+}
+
 if ($sitename == $sitexenaeizaque) {
 	$sitedivcolor = $color5;
 }

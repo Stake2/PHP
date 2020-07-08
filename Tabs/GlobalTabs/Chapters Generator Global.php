@@ -348,8 +348,9 @@ while ($capnum1 <= $chapters) {
 		echo $divc."\n";
 		echo '<br /><div class="'.$mobilevar.'"><br /><br />'."\n".'</div>'."\n";
 		echo '<hr class="'.$sitehr3.'" />'."\n";
-		echo '</h5>'."\n";
 	}
+
+	echo '</h5>'."\n";
 
 	#Readings and Comments displayer on chapters
 	if ($sitename == $sitenazzevo) {
@@ -451,9 +452,11 @@ while ($capnum1 <= $chapters) {
 	$i2++;
 	$a++;
 	$a2++;
-	
-	if ($h != 0) {
-		$h--;
+
+	if (isset($h) == true) {
+		if ($h != 0) {
+			$h--;
+		}
 	}
 
     $capnum1++;

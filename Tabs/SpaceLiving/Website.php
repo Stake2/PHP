@@ -11,8 +11,9 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 
 	#Site settings
 	$sitehasnotifications = false; #If site has notifications on
-	$sitehascommentstab = false; #If site has a Comments Tab variable
+	$sitehascommentstab = true; #If site has a Comments Tab variable
 	$sitehidescommentstab = false; #If site has a Comments Tab variable
+	$sitehascomments = false;
 	$siteshowscomments = true; #If site shows the comments on the Comments Tab
 	$sitehasstories = true; #If site has a Stories Tab
 	$sitehaschangelog = false; #If site has a changelog tab and file to be read
@@ -24,7 +25,7 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	$sitehidenotifonclickreadtab = false; #If site hides the notification when you click on the "Read story" button
 	$siteuseschapteropener = true; #If site uses the Chapter Opener script
     $siteusescitybodygenerator = true;
-	$storyhasreads = false; #Defines if the story website has "reads" number, file and elements
+	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
 
 	#Site settings setter file includer
 	include $settingsparamsfile;

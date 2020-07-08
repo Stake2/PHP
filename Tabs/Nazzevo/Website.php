@@ -12,6 +12,7 @@ if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
 	#Site settings
 	$sitehasnotifications = false; #If site has notifications on
 	$sitehascommentstab = true; #If site has a Comments Tab variable
+	$sitehascomments = true;
 	$siteshowscomments = true; #If site shows the comments on the Comments Tab
 	$sitehasstories = true; #If site has a Stories Tab
 	$storyhascovers = true; #If site has book covers for the story

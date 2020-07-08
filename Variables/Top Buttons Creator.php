@@ -92,7 +92,7 @@ if ($deactivatetopbtns == false) {
 		}
 	
 		if ($i <= $tabnumb2 and $sitename != $site2019) {
-			if (strpos($btns[$i], 'Comment') or strpos($btns[$i], 'Comentar') ) {
+			if (strpos($btns[$i], 'Comment') and strpos($btns[$i], 'Comentar' and $sitehidescommentstab == true)) {
 				#echo $btns[$i];
 			}
 
