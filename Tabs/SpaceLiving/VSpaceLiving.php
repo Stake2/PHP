@@ -134,6 +134,8 @@ else {
 	$sitestorywritechapter = (int)$chaptertowrite;
 }
 
+include $storyvarsphp;
+
 #Reviewed chapter number
 $reviewedcap = 10;
 
@@ -273,7 +275,7 @@ if ($lang == $langs[1]) {
 	$lang2 = substr_replace($lang2, '-', 2, 0);
 	$sitename = $choosenwebsite;
 	
-	$sitetitulo = $story;
+	$sitetitulo = $story.' '.$lang2;
 	$sitetitulo2 = $story.': '.$icons[11];
 	$siteurl = $sitesllink.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[0];
@@ -285,7 +287,7 @@ if ($lang == $langs[2]) {
 	$lang2 = substr_replace($lang2, '-', 2, 0);
 	$sitename = $choosenwebsite;
 
-	$sitetitulo = $story;
+	$sitetitulo = $story.' '.$lang2;
 	$sitetitulo2 = $story.': '.$icons[11];
 	$siteurl = $sitesllink.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[1];

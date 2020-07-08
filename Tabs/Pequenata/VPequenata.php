@@ -121,6 +121,8 @@ else {
 	$sitestorywritechapter = (int)$chaptertowrite;
 }
 
+include $storyvarsphp;
+
 #Reviewed chapter number
 $reviewedcap = 10;
 
