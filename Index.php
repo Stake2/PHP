@@ -291,6 +291,8 @@ $notsomuchspace = false;
 $storywritesstoryfiles = false;
 $siteusescitybodygenerator = false;
 $siteusesuniversalfilereader = false;
+$sitehidescommentstab = false;
+$storyhaswriteform = false;
 
 #Website selector file includer
 require $websiteselectorfile;

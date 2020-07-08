@@ -183,7 +183,7 @@ if ($sitename == $sitethingsido or $site == $sitethingsido) {
 }
 
 #Comments Tab includer if the setting is true
-if ($sitehascommentstab == true) {
+if ($sitehascommentstab == true or $storyhaswriteform == true) {
 	include $formfile;
 }
 

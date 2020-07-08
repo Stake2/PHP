@@ -22,6 +22,7 @@ if (strpos ($host, $params[0].'='.$sitepequenata) == true) {
 	$siteuseschapteropener = true; #Defines if the website uses the ChapterOpener Script
 	$newwritestyle = false; #Defines if the website uses the new writing style for chapters
 	$storywritesstoryfiles = false; #Defines if the story website creates text files with the story text (chapters)
+	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
 
 	#Site settings setter file includer
 	include $settingsparamsfile;

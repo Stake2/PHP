@@ -37,6 +37,10 @@ if ($sitename == $sitepequenata) {
 	$tabnumb2 = $tabnumb - 1;
 }
 
+if ($sitename == $sitespaceliving) {
+	$tabnumb2 = $tabnumb ;
+}
+
 if ($sitename == $sitenazzevo) {
 	$tabnumb2 = $tabnumb - 1;
 }
@@ -88,7 +92,13 @@ if ($deactivatetopbtns == false) {
 		}
 	
 		if ($i <= $tabnumb2 and $sitename != $site2019) {
-			echo $btns[$i];
+			if (strpos($btns[$i], 'Comment') or strpos($btns[$i], 'Comentar') ) {
+				#echo $btns[$i];
+			}
+
+			else {
+				echo $btns[$i];
+			}
 		}
 	
 		if ($i <= $tabnumb and $sitename == $site2019) {

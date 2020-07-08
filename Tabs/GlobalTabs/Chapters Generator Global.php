@@ -19,7 +19,7 @@ $z = 1;
 while ($a <= $chapters) {
 	$a2 = $a - 1;
 	$caps[$a] = $rootstoryfolder2.$z.' - '.$titles[$a2].'.txt';
-	$caps[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "<br />", $caps[$a]);
+	$caps[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $caps[$a]);
 
 	$z++;
 	$a++;
@@ -98,56 +98,63 @@ echo '<style>
 </style>';
 echo "\n";
 
-$i = 0;
-$z = 1;
-$a = 1;
-$a2 = 1;
-$b1 = 0;
-$b2 = 0;
-$b4 = 0;
-$v1 = 0;
-$v2 = 0;
-#Read date converter, that converts the date of the readings into a date format
-while ($v2 <= $readsfilenumb) {
-	$v3 = $v2 + 2;
-	$readstxt[$v3] = substr($readstxt[$v3], 0, -1);
-	$readstxt[$v3] = date("H:i d/m/Y", strtotime($readstxt[$v3]));
+if ($storyhasreads == true) {
+	$i = 0;
+	$z = 1;
+	$a = 1;
+	$a2 = 1;
+	$b1 = 0;
+	$b2 = 0;
+	$b4 = 0;
+	$v1 = 0;
+	$v2 = 0;
+	#Read date converter, that converts the date of the readings into a date format
+	while ($v2 <= $readsfilenumb) {
+		$v3 = $v2 + 2;
+		$readstxt[$v3] = substr($readstxt[$v3], 0, -1);
+		$readstxt[$v3] = date("H:i d/m/Y", strtotime($readstxt[$v3]));
 
-	$v2++;
-	$v2++;
-	$v2++;
-}
-echo $chaptertowrite;
-$v1 = 0;
-$readednumb = 0;
-#"Reads" array generator, it generates the array of the readings
-while ($b1 <= $readsfilenumb) {
-	$b22 = $b1 + 1;
-	$b3 = $b1 + 2;
+		$v2++;
+		$v2++;
+		$v2++;
+	}
 
-	$reads[$v1] = $margin.'<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
-	#Reader text and name
-	$readtxts[7].': </b>'.$readstxt[$b1].'<br /><b>'.
+	#echo $chaptertowrite;
+	$v1 = 0;
+	$readednumb = 0;
+	#"Reads" array generator, it generates the array of the readings
+	while ($b1 <= $readsfilenumb) {
+		$b22 = $b1 + 1;
+		$b3 = $b1 + 2;
 
-	#Chapter text and title
-	#substr($captxt, 0, -1).':</b> '.$readstxt[$b22].'<br />'.'<b>'.
+		$reads[$v1] = $margin.'<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
+		#Reader text and name
+		$readtxts[7].': </b>'.$readstxt[$b1].'<br /><b>'.
 
-	#Read time text and time
-	$timetxt.':</b> '.$readstxt[$b3].' <br /><br />'.$divc.'</'.$m.'>'.$divc."\n";
+		#Chapter text and title
+		#substr($captxt, 0, -1).':</b> '.$readstxt[$b22].'<br />'.'<b>'.
 
-	$readednumb++;
-	$b1++;
-	$b1++;
-	$b1++;
-	$v1++;
-	$b4++;
+		#Read time text and time
+		$timetxt.':</b> '.$readstxt[$b3].' <br /><br />'.$divc.'</'.$m.'>'.$divc."\n";
+
+		$readednumb++;
+		$b1++;
+		$b1++;
+		$b1++;
+		$v1++;
+		$b4++;
+	}
 }
 
 $z123 = 0;
 $chapter_line_number = 0;
 $b1 = 0;
 $b2 = 1;
-$h = $readednumb;
+
+if ($storyhasreads == true) {
+	$h = $readednumb;
+}
+
 $zw = 1;
 $zq = 1;
 $za = 2;
@@ -266,9 +273,9 @@ while ($capnum1 <= $chapters) {
 	echo '<div id="'.$captextdiv.$capnum1.'">'."\n";
 
 	if ($newwritestyle == true) {
-		$writestorybtn = '<span id="writebtnattribute'.$capnum1.'" style="display:none;">WriteContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" title="" class="w3-btn bg borderbtn" style="border-radius: 50px;" onclick="WriteChapter(WriteContent'.$capnum1.');"><'.$n.'><i class="fas fa-pen"></i></'.$n.'></button><br /><br />'."\n";
+		$writestorybtn = '<span id="writebtnattribute'.$capnum1.'" style="display:none;">WriteContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" title="" class="w3-btn '.$btnstyle.'" style="border-radius: 50px;" onclick="WriteChapter(WriteContent'.$capnum1.');"><'.$n.'><i class="fas fa-pen"></i></'.$n.'></button><br /><br />'."\n";
 
-		$readstorybtn = '<span id="readbtnattribute'.$capnum1.'" style="display:none;">ReadContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" class="w3-btn bg borderbtn" style="border-radius: 50px;" onclick="OpenChapter2(ReadContent'.$capnum1.');"><'.$n.'><i class="fas fa-book"></i></'.$n.'></button><br /><br />'."\n";
+		$readstorybtn = '<span id="readbtnattribute'.$capnum1.'" style="display:none;">ReadContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" class="w3-btn '.$btnstyle.'" style="border-radius: 50px;" onclick="OpenChapter2(ReadContent'.$capnum1.');"><'.$n.'><i class="fas fa-book"></i></'.$n.'></button><br /><br />'."\n";
 	}
 
 	#Chapter writer tab displayer
@@ -297,15 +304,19 @@ while ($capnum1 <= $chapters) {
 	}
 
 	#Computer Comment button
-	echo '<div class="'.$computervar.'">'."\n";
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><h3><b>'.$cmntstxts[1].' '.$icons[12].' ('.$commentschapternumb.')</b></h3></button>'."\n";
-	echo $divc."\n";
+	if ($sitehascommentstab == true) {
+		echo '<div class="'.$computervar.'">'."\n";
+		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><h3><b>'.$cmntstxts[1].' '.$icons[12].' ('.$commentschapternumb.')</b></h3></button>'."\n";
+		echo $divc."\n";
+	}
 
 	#Computer "I Read it" button
-	echo '<div class="'.$computervar.'">'."\n";
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><h3><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></h3></button>'."\n";
-	echo $divc."\n";
-	echo '<div class="'.$mobilevar.'"><br /><br /><br />'.$divc.'<div class="'.$computervar.'"><br /><br /><br /><br /><br />'.$divc."\n";
+	if ($storyhasreads == true) {
+		echo '<div class="'.$computervar.'">'."\n";
+		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><h3><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></h3></button>'."\n";
+		echo $divc."\n";
+		echo '<div class="'.$mobilevar.'"><br /><br /><br />'.$divc.'<div class="'.$computervar.'"><br /><br /><br /><br /><br />'.$divc."\n";
+	}
 
 	#"You're Reading [Story]" bottom text
 	if ($capnum1 == $chapters and $storystatus != $storystatuses[0] and $storystatus != $storystatuses[3]) {
@@ -321,20 +332,24 @@ while ($capnum1 <= $chapters) {
 	}
 
 	#Mobile Comment button
-	echo "\n";
-	echo '<div class="'.$mobilevar.'"><br /><br />'."\n".$divc."\n";
-	echo '<div class="'.$mobilevar.'">'."\n";
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="commentbtn'.$a.'m" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$m.'><b>'.$cmntstxts[1].' '.$icons[12].' ('.$commentschapternumb.')</b></'.$m.'></button>'."\n";
-	echo '<br /><br />'."\n";
-	echo $divc."\n";
+	if ($sitehascommentstab == true) {
+		echo "\n";
+		echo '<div class="'.$mobilevar.'"><br /><br />'."\n".$divc."\n";
+		echo '<div class="'.$mobilevar.'">'."\n";
+		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="commentbtn'.$a.'m" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$m.'><b>'.$cmntstxts[1].' '.$icons[12].' ('.$commentschapternumb.')</b></'.$m.'></button>'."\n";
+		echo '<br /><br />'."\n";
+		echo $divc."\n";
+	}
 
 	#Mobile "I Read it" button
-	echo '<div class="'.$mobilevar.'">'."\n";
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="readbtn'.$a2.'m" style="margin-left:15px;float:right;'.$roundedborderstyle2.'" onclick="openCity('."'".'modal-read-'.$a2."m')".'"><'.$m.'><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></'.$m.'></button>'."\n";
-	echo $divc."\n";
-	echo '<br /><div class="'.$mobilevar.'"><br /><br />'."\n".'</div>'."\n";
-	echo '<hr class="'.$sitehr3.'" />'."\n";
-	echo '</h5>'."\n";
+	if ($storyhasreads == true) {
+		echo '<div class="'.$mobilevar.'">'."\n";
+		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="readbtn'.$a2.'m" style="margin-left:15px;float:right;'.$roundedborderstyle2.'" onclick="openCity('."'".'modal-read-'.$a2."m')".'"><'.$m.'><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></'.$m.'></button>'."\n";
+		echo $divc."\n";
+		echo '<br /><div class="'.$mobilevar.'"><br /><br />'."\n".'</div>'."\n";
+		echo '<hr class="'.$sitehr3.'" />'."\n";
+		echo '</h5>'."\n";
+	}
 
 	#Readings and Comments displayer on chapters
 	if ($sitename == $sitenazzevo) {

@@ -11,16 +11,20 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 
 	#Site settings
 	$sitehasnotifications = false; #If site has notifications on
-	$sitehascommentstab = true; #If site has a Comments Tab variable
+	$sitehascommentstab = false; #If site has a Comments Tab variable
+	$sitehidescommentstab = false; #If site has a Comments Tab variable
 	$siteshowscomments = true; #If site shows the comments on the Comments Tab
 	$sitehasstories = true; #If site has a Stories Tab
 	$sitehaschangelog = false; #If site has a changelog tab and file to be read
 	$storyhascovers = false; #If site has book covers for the story
+	$storyhaswriteform = true; #If site has writing form to write the story
 	$sitestorywrite = false; #If site has a story writing chapter
 	$showwriteformtext = false; #If site shows title and story text on the writing chapter
 	$showchaptertext = false; #If site shows the chapter text on the writing chapter form
 	$sitehidenotifonclickreadtab = false; #If site hides the notification when you click on the "Read story" button
 	$siteuseschapteropener = true; #If site uses the Chapter Opener script
+    $siteusescitybodygenerator = true;
+	$storyhasreads = false; #Defines if the story website has "reads" number, file and elements
 
 	#Site settings setter file includer
 	include $settingsparamsfile;
@@ -38,7 +42,7 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	}
 
 	#Number of tabs
-	$tabnumb = 6;
+	$tabnumb = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $genericcitiesgeneratorfile;

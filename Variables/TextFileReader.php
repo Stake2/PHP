@@ -583,14 +583,20 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 	}
 
 	#File line number fixers
-	$cmntsfile = $cmntsnumb - 1;
-	$cmntstxt = $cmntsnumb;
+    if (isset($cmntsnumb)) {
+        $cmntsfile = $cmntsnumb - 1;
+        $cmntstxt = $cmntsnumb;
+    }
 
-	$readersfilenumb = $readersnumb - 1;
-	$readerstxt = $readersnumb;
+    if (isset($readersnumb)) {
+        $readersfilenumb = $readersnumb - 1;
+        $readerstxt = $readersnumb;
+    }
 
-	$readsfilenumb = $readsnumb - 1;
-	$readsfiletxt = $readsnumb;
+    if (isset($readsnumb)) {
+        $readsfilenumb = $readsnumb - 1;
+        $readsfiletxt = $readsnumb;
+    }
 
 	#File text readers
 	if (file_exists($titlesfile) == true) {
@@ -652,12 +658,29 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 	}
 
 	#File character replacers
-	$titles = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $titles);
-	$readers = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $readers);
-	$comments = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $comments);
-	$readstxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $readstxt);
-	$storydate = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $storydate);
-	$synopsis = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $synopsis);
+    if (isset($titles)) {
+		$titles = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $titles);
+    }
+
+	if (isset($readers)) {
+		$readers = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $readers);
+	}
+
+	if (isset($comments)) {
+		$comments = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $comments);
+	}
+
+	if (isset($readstxt)) {
+		$readstxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $readstxt);
+	}
+
+	if (isset($storydate)) {
+		$storydate = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $storydate);
+	}
+
+	if (isset($synopsis)) {
+		$synopsis = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $synopsis);
+	}
 
 	if ($sitename == $sitenazzevo) {
 		$chapters = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $chapters);
