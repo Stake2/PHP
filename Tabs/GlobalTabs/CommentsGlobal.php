@@ -68,7 +68,7 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		$b = 0;
 		$commentschapternumb = 0;
 		while ($c <= $commentsnumb) {
-			if (strlen($commentformname[$a]) == 45 or strlen($commentformname[$a]) == 52 and $sitename == $sitepqnt or strlen($commentformname[$a]) == 43 and $sitename == $sitenazzevo) {
+			if (strlen($commentformname[$a]) == 45 or strlen($commentformname[$a]) == 52 and $sitename == $sitepequenata or strlen($commentformname[$a]) == 43 and $sitename == $sitenazzevo) {
 				$cmntsgeral[$b] = '<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$sitehr3.'" />'."\n".$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$divc."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
 				if ($sitename == $sitenazzevo and strlen($commentformname[$a]) == 43) {
