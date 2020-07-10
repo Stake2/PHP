@@ -10,9 +10,16 @@ if (strpos ($host, $params[0].'='.$sitediario) == true) {
 	$setsitecssfile = $pocbcss;
 
 	#Site settings
-	$sitesbuttonintab = true; #If site has the Sites Button on the top bar
-	$sitehascommentstab = true; #If site has a Comments Tab
-	$siteshowscomments = false; #If site shows the comments on the Comments Tab
+	$sitesbuttonintab = true; #Defines if site has the Sites Button on the top bar
+	$sitehascommentstab = true; #Defines if site has a Comments Tab
+	$sitehascomments = true; #Defines if the site has comments
+	$siteshowscomments = false; #Defines if site shows the comments on the Comments Tab
+	$storyhasdates = false; #Defines if the story has dates
+	$storyhastitles = false; #Defines if the story has titles
+	$storyusestatus = false; #Defines if the story uses the story statuses
+	$storyhaschaptercomments = false; #Defines if the story has comments on the chapter
+	$storycontainsreads = false; #Defines if the story has reads on it
+	$storycontainscomments = false; #Defines if the story has comments on it
 
 	#Site settings setter file includer
 	include $settingsparamsfile;

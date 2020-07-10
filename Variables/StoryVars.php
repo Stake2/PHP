@@ -11,7 +11,7 @@ $status = array(
 'finished and publishing',
 );
 
-if ($sitetype1 == $types[0]) {
+if ($sitetype1 == $types[0] and $sitename != $sitediario) {
 	$story = '';
 }
 

@@ -1,6 +1,6 @@
 <?php 
 
-if ($sitename == $sitepqnt) {
+if ($sitename == $sitepequenata) {
 	$hidenotifattribute = 'hidenotif();hidenotifm();';
 }
 
@@ -13,7 +13,7 @@ $reviewedcap = 0;
 echo '<'.$m.'>'.'<b>'."\n";
 echo $divzoomanim."\n";
 
-include $capbtngeneratorphp;
+require $capbtngeneratorphp;
 
 echo $divc."\n";
 echo '</b>'.'</'.$m.'>'."\n";

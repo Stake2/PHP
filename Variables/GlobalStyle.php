@@ -56,6 +56,7 @@ $divc = '</div>';
 $h2c = '</h2>';
 $h4c = '</h4>';
 $bigspace = '<div class="'.$computervar.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
+$bigspacemobileandcomputer = '<div class="'.$mobilevar.'"><br /><br /><br />'.$divc."\n".'<div class="'.$computervar.'"><br /><br /><br /><br /><br />'.$divc."\n";
 $margin = '<div style="margin:3%;">';
 $margin2 = '<div style="margin:3%;">';
 $margin3 = '<div style="margin:5%;">';

@@ -11,19 +11,26 @@ if (strpos ($host, $params[0].'='.$sitepequenata) == true) {
 	#Site settings definer
 	$sitehasnotifications = true; #Defines if site has notifications on
 	$sitehascommentstab = true; #Defines if site has a Comments Tab variable
-	$sitehascomments = true;
+	$sitehascomments = true; #Defines the site has comments
 	$siteshowscomments = true; #Defines if site shows the comments on the Comments Tab
 	$sitehasstories = true; #Defines if site has a Stories Tab
 	$sitehaschangelog = true; #Defines if site has a changelog tab and file to be read
-	$storyhascovers = true; #Defines if site has book covers for the story
 	$sitestorywrite = false; #Defines if site has a story writing chapter
 	$showwriteformtext = false; #Defines if site shows title and story text on the writing chapter
 	$showchaptertext = false; #Defines if site shows the chapter text on the writing chapter form
 	$sitehidenotifonclickreadtab = false; #Defines if site hides the notification when you click on the "Read story" button
 	$siteuseschapteropener = true; #Defines if the website uses the ChapterOpener Script
+
 	$newwritestyle = false; #Defines if the website uses the new writing style for chapters
+	$storyhascovers = true; #Defines if site has book covers for the story
 	$storywritesstoryfiles = false; #Defines if the story website creates text files with the story text (chapters)
 	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
+	$storyhaschaptercomments = true; #Defines if the story has comments on the chapter
+	$storyhasdates = true; #Defines if the story has dates
+	$storyhastitles = true; #Defines if the story has titles
+	$storyusestatus = true; #Defines if the story uses the story statuses
+	$storycontainsreads = true; #Defines if the story has reads on it
+	$storycontainscomments = true; #Defines if the story has comments on it
 
 	#Site settings setter file includer
 	include $settingsparamsfile;

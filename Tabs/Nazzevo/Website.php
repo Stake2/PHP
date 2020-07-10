@@ -10,12 +10,19 @@ if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
 	$setsitecssfile = $pqntcss;
 
 	#Site settings
-	$sitehasnotifications = false; #If site has notifications on
-	$sitehascommentstab = true; #If site has a Comments Tab variable
-	$sitehascomments = true;
-	$siteshowscomments = true; #If site shows the comments on the Comments Tab
-	$sitehasstories = true; #If site has a Stories Tab
-	$storyhascovers = true; #If site has book covers for the story
+	$sitehasnotifications = false; #Defines if site has notifications on
+	$sitehascommentstab = true; #Defines if site has a Comments Tab variable
+	$sitehascomments = true; #Defines the site has comments
+	$siteshowscomments = true; #Defines if site shows the comments on the Comments Tab
+	$sitehasstories = true; #Defines if site has a Stories Tab
+	$storyhascovers = true; #Defines if site has book covers for the story
+	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
+	$storyhaschaptercomments = true; #Defines if the story has comments on the chapter
+	$storyhasdates = false; #Defines if the story has dates
+	$storyhastitles = true; #Defines if the story has titles
+	$storyusestatus = true; #Defines if the story uses the story statuses
+	$storycontainsreads = true; #Defines if the story has reads on it
+	$storycontainscomments = true; #Defines if the story has comments on it
 
 	#Site Tabs array
 	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog');

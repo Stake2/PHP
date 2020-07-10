@@ -47,6 +47,8 @@ $formcode = 'nazzevo';
 #Defines the folder for the chapter text files that are going to be read
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
+
+	$nolangstoryfolder = $rootstoryfolder.$storyfolder;
 	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {
@@ -58,6 +60,7 @@ if ($lang == $langs[0]) {
 }
 
 else {
+	$nolangstoryfolder = $rootstoryfolder.$storyfolder;
 	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {

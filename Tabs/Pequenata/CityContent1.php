@@ -11,7 +11,7 @@ else {
 echo '<'.$m.'>'.'<b>'."\n";
 echo $divzoomanim."\n";
 
-include $capbtngeneratorphp;
+require $capbtngeneratorphp;
 
 echo $divc."\n";
 echo '</b>'.'</'.$m.'>'."\n";

@@ -49,6 +49,8 @@ $formcode = 'pequenata';
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
+
+	$nolangstoryfolder = $rootstoryfolder.$storyfolder;
 	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {
@@ -60,6 +62,7 @@ if ($lang == $langs[0]) {
 }
 
 else {
+	$nolangstoryfolder = $rootstoryfolder.$storyfolder;
 	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {
@@ -121,6 +124,7 @@ else {
 	$sitestorywritechapter = (int)$chaptertowrite;
 }
 
+#Re include of the StoryVars.php file to set the story name
 include $storyvarsphp;
 
 #Reviewed chapter number

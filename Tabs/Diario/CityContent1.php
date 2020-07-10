@@ -3,6 +3,13 @@
 echo '<'.$m.'>'.'<b>';
 echo $divzoomanim;
 
+#echo
+
+$reviewedcap = 0;
+
+require $capbtngeneratorphp;
+
+/*
 $blocknum1 = 1;
 while ($blocknum1 <= $publishedblocks) {
 	if ($blocknum1 == $publishedblocks and $blocknum1 != 1) {
@@ -14,7 +21,7 @@ while ($blocknum1 <= $publishedblocks) {
 	}
 
 	$blocknum1++;
-}
+}*/
 
 echo $divc;
 echo '</b>'.'</'.$m.'>';

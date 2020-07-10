@@ -61,7 +61,7 @@ if ($showchaptertext == true) {
 
 echo '</textarea>'."\n";
 
-if ($showchaptertext == true) {
+if ($showchaptertext == true and $storyhasdates == true) {
 	#Chapter date displayer
 	if ($sitename != $sitenazzevo) {
 		if (file_exists($capdatesfile) == true) {
@@ -135,7 +135,7 @@ if ($newwritestyle == true) {
 
 	echo '</textarea>'."\n";
 
-	if ($showchaptertext == true) {
+	if ($showchaptertext == true and $storyhasdates == true) {
 		#Chapter date displayer
 		if ($sitename != $sitenazzevo) {
 			if (file_exists($capdatesfile) == true) {

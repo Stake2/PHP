@@ -52,7 +52,7 @@ else {
 }
 
 #Chapter date displayer
-if ($sitename != $sitenazzevo) {
+if ($sitename != $sitenazzevo and $storyhasdates == true) {
 	if (file_exists($capdatesfile) == true) {
 		$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
 		if ($fp) {
@@ -124,7 +124,7 @@ if ($newwritestyle == true) {
 	}
 
 	#Chapter date displayer
-	if ($sitename != $sitenazzevo) {
+	if ($sitename != $sitenazzevo and $storyhasdates == true) {
 		if (file_exists($capdatesfile) == true) {
 			$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
 			if ($fp) {
@@ -202,7 +202,7 @@ if ($newwritestyle == true) {
 
 	echo '</textarea>'."\n";
 
-	if ($showchaptertext == true) {
+	if ($showchaptertext == true and $storyhasdates == true) {
 		#Chapter date displayer
 		if ($sitename != $sitenazzevo) {
 			if (file_exists($capdatesfile) == true) {

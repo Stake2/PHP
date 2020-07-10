@@ -18,8 +18,16 @@ $a = 1;
 $z = 1;
 while ($a <= $chapters) {
 	$a2 = $a - 1;
-	$caps[$a] = $rootstoryfolder2.$z.' - '.$titles[$a2].'.txt';
-	$caps[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $caps[$a]);
+
+	if ($storyhastitles == true) {
+		$caps[$a] = $rootstoryfolder2.$z.' - '.$titles[$a2].'.txt';
+		$caps[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $caps[$a]);
+	}
+
+	else {
+		$caps[$a] = $rootstoryfolder2.$z.'.txt';
+		$caps[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $caps[$a]);
+	}
 
 	$z++;
 	$a++;
@@ -28,11 +36,19 @@ while ($a <= $chapters) {
 #Chapter file text link array generator for the English language, it generates the array to access the English text files of the chapters
 $a = 1;
 $z = 1;
-$rootstoryfolder3 = $rootstoryfolder.$storyfolder.'/'.strtoupper($langs[1]).'/';
+$rootstoryfolder3 = $nolangstoryfolder.strtoupper($langs[1]).'/';
 while ($a <= $chapters) {
 	$a2 = $a - 1;
-	$capsenus[$a] = $rootstoryfolder3.$z.' - '.$titles[$a2].'.txt';
-	$capsenus[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $capsenus[$a]);
+
+	if ($storyhastitles == true) {
+		$capsenus[$a] = $rootstoryfolder3.$z.' - '.$titles[$a2].'.txt';
+		$capsenus[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $capsenus[$a]);
+	}
+
+	else {
+		$capsenus[$a] = $rootstoryfolder3.$z.'.txt';
+		$capsenus[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $caps[$a]);
+	}
 
 	$z++;
 	$a++;
@@ -41,15 +57,18 @@ while ($a <= $chapters) {
 #Chapter date file reader, it generates the capdate array which contains the date that the chapter was written
 $a = 0;
 $z = 0;
-if ($sitename != $sitenazzevo) {
+if ($sitename != $sitenazzevo and $storyhasdates == true) {
 	while ($a <= $chapters) {
 		$a2 = $a - 1;
+
 		$capdatesfile = $rootstoryfolder.$storyfolder."/".'Datas.txt';
+
 		$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
 		if ($fp) {
 			$capdates = explode("\n", fread($fp, filesize($capdatesfile)));
 			$capdates = str_replace("^", "", $capdates);
 		}
+
 		$capdates[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $capdates[$a]);
 	
 		$z++;
@@ -168,15 +187,31 @@ while ($capnum1 <= $chapters) {
 
 	#Defines the top and bottom texts
 	if ($sitestorywrite == true and $sitestorywritechapter == $capnum1) {
-		$topandbottomtxt = '<b>'.$writetxts[2].'</b>'.
-		'<br />'.
-		'<b>'.$captxtname.': '.$capnum1.' - '.$titles[$capnum4];
+		if ($storyhastitles == true) {
+			$topandbottomtxt = '<b>'.$writetxts[2].'</b>'.
+			'<br />'.
+			'<b>'.$captxtname.': '.$capnum1.' - '.$titles[$capnum4].'</b>';
+		}
+
+		else {
+			$topandbottomtxt = '<b>'.$writetxts[2].'</b>'.
+			'<br />'.
+			'<b>'.$captxtname.': '.$capnum1.'</b>';
+		}
 	}
 
 	else {
-		$topandbottomtxt = '<b>'.$readtxts[1].'</b>'.
-		'<br />'.
-		'<b>'.$captxtname.': '.$capnum1.' - '.$titles[$capnum4];
+		if ($storyhastitles == true) {
+			$topandbottomtxt = '<b>'.$readtxts[1].'</b>'.
+			'<br />'.
+			'<b>'.$captxtname.': '.$capnum1.' - '.$titles[$capnum4].'</b>';
+		}
+
+		else {
+			$topandbottomtxt = '<b>'.$readtxts[1].'</b>'.
+			'<br />'.
+			'<b>'.$captxtname.': '.$capnum1.'</b>';
+		}
 	}
 
 	#New design div
@@ -195,34 +230,54 @@ while ($capnum1 <= $chapters) {
 	echo '<br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" />'."\n";
 	echo '<br />'."\n";
 
-	#"You're Reading [Story]" top text shower
-	if ($capnum1 == $chapters and $storystatus != $storystatuses[0] and $storystatus != $storystatuses[3]) {
-		echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.'</b>'.' <span class="w3-text-yellow"><b>['.$newtxt.'!]</b></span><br />'.$divc.'</'.$n.'>'.$divc."\n";
+	#"You're Reading [Story]" top text displayer
+	if ($storyusestatus == true) {
+		if ($capnum1 == $chapters and $storystatus != $storystatuses[0] and $storystatus != $storystatuses[3]) {
+			echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$divc.'</'.$n.'>'.$divc."\n";
 
-		echo '<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.'</b>'.' <span class="w3-text-yellow"><b>['.$newtxt.'!]</b></span>'.$divc.'</'.$m.'>'.$divc."\n";
+			echo '<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.$divc.'</'.$m.'>'.$divc."\n";
 
-		$capnum4++;
+			$capnum4++;
+		}
+
+		else {
+			echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$divc.'</'.$n.'>'.$divc."\n";
+
+			echo $margin.'<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$divc.'</'.$m.'>'.$divc."\n".$divc."\n";
+		
+			$capnum4++;
+		}
 	}
 
 	else {
-		echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.'</b>'.$divc.'</'.$n.'>'.$divc."\n";
+		if ($capnum1 == $chapters) {
+			echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$divc.'</'.$n.'>'.$divc."\n";
 
-		echo $margin.'<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.'</b>'.$divc.'</'.$m.'>'.$divc."\n".$divc."\n";
-	
-		$capnum4++;
+			echo '<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.$divc.'</'.$m.'>'.$divc."\n";
+
+			$capnum4++;
+		}
+
+		else {
+			echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$divc.'</'.$n.'>'.$divc."\n";
+
+			echo $margin.'<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$divc.'</'.$m.'>'.$divc."\n".$divc."\n";
+		
+			$capnum4++;
+		}
 	}
 
 	#H5 header and hr creator
 	echo "\n";
 	echo '<h5 class="'.$textstylecap.'" style="'.$hstyle.'text-align:left;"><hr class="'.$sitehr3.'" />'."\n";
 
+	#Top Previous chapter button
 	if ($capnum1 != 1) {
-		#Top Previous chapter button
 		echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum3."');".'DefineChapter('.$capnum3.');OpenChapter2(ReadContent'.$capnum3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 	}
 
+	#Top Next chapter button
 	if ($capnum1 != $chapters) {
-		#Top Next chapter button
 		echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum2."');".'DefineChapter('.$capnum2.');OpenChapter2(ReadContent'.$capnum2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 	}
 
@@ -241,7 +296,7 @@ while ($capnum1 <= $chapters) {
 	}
 
 	#Story cover shower if story has the storyhascovers setting as true
-	if ($storyhascovers == true and $capnum1 <= 10) {
+	if ($storyhascovers == true or $storyhascovers == true and $sitename == $sitepequenata and $capnum1 <= 10) {
 		echo '<center>'."\n";
 
 		if (isset($files[$capnum1]) == true) {
@@ -293,18 +348,18 @@ while ($capnum1 <= $chapters) {
 		require($chaptertextdisplayer);
 	}
 
+	#Bottom Previous chapter button
 	if ($capnum1 != 1) {
-		#Bottom Previous chapter button
 		echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum3."');".'DefineChapter('.$capnum3.');OpenChapter2(ReadContent'.$capnum3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 	}
 
+	#Bottom Next chapter button
 	if ($capnum1 != $chapters) {
-		#Bottom Next chapter button
 		echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;margin-left:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum2."');".'DefineChapter('.$capnum2.');OpenChapter2(ReadContent'.$capnum2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 	}
 
 	#Computer Comment button
-	if ($sitehascommentstab == true) {
+	if ($sitehascommentstab == true and $storyhaschaptercomments == true) {
 		echo '<div class="'.$computervar.'">'."\n";
 		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><h3><b>'.$cmntstxts[1].' '.$icons[12].' ('.$commentschapternumb.')</b></h3></button>'."\n";
 		echo $divc."\n";
@@ -315,24 +370,70 @@ while ($capnum1 <= $chapters) {
 		echo '<div class="'.$computervar.'">'."\n";
 		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><h3><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></h3></button>'."\n";
 		echo $divc."\n";
-		echo '<div class="'.$mobilevar.'"><br /><br /><br />'.$divc.'<div class="'.$computervar.'"><br /><br /><br /><br /><br />'.$divc."\n";
+		echo $bigspacemobileandcomputer;
+	}
+
+	if ($storyhaschaptercomments == false and $storyhasreads == false) {
+		echo '<br /><br />'."\n";
 	}
 
 	#"You're Reading [Story]" bottom text
-	if ($capnum1 == $chapters and $storystatus != $storystatuses[0] and $storystatus != $storystatuses[3]) {
-		echo '<div style="text-align:center;">'.$divzoomanim.'<span class="'.$textstylecap.'"><br />'.$topandbottomtxt.' <span class="w3-text-yellow">['.$newtxt.'!]</span>'.'</b><br /></span>'.$divc."\n".$divc."\n";
+	if ($storyusestatus == true) {
+		if ($capnum1 == $chapters and $storystatus != $storystatuses[0] and $storystatus != $storystatuses[3]) {
+			echo '<div style="text-align:center;">'."\n".
+			$divzoomanim."\n".
+			'<span class="'.$textstylecap.'">'."\n".
+			'<br />'.$topandbottomtxt."\n".
+			'<b>'.$yellowspan.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
+			'<br /></span>'."\n".
+			$divc."\n".
+			$divc."\n";
 
-		$capnum7++;
-	} 
+			$capnum7++;
+		} 
+
+		else {
+			echo '<div style="text-align:center;">'."\n".
+			$divzoomanim."\n".
+			'<span class="'.$textstylecap.'">'."\n".
+			'<br />'.$topandbottomtxt.'<br />'."\n".
+			'</span>'."\n".
+			$divc."\n".
+			$divc."\n";
+
+			$capnum7++;
+		}
+	}
 
 	else {
-		echo '<div style="text-align:center;">'.$divzoomanim.'<span class="'.$textstylecap.'"><br />'.$topandbottomtxt.'</b><br /></span>'.$divc."\n".$divc."\n";
+		if ($capnum1 == $chapters) {
+			echo '<div style="text-align:center;">'."\n".
+			$divzoomanim."\n".
+			'<span class="'.$textstylecap.'">'."\n".
+			'<br />'.$topandbottomtxt."\n".
+			'<b>'.$yellowspan.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
+			'<br /></span>'."\n".
+			$divc."\n".
+			$divc."\n";
 
-		$capnum7++;
+			$capnum7++;
+		} 
+
+		else {
+			echo '<div style="text-align:center;">'."\n".
+			$divzoomanim."\n".
+			'<span class="'.$textstylecap.'">'."\n".
+			'<br />'.$topandbottomtxt.'<br />'."\n".
+			'</span>'."\n".
+			$divc."\n".
+			$divc."\n";
+
+			$capnum7++;
+		}
 	}
 
 	#Mobile Comment button
-	if ($sitehascommentstab == true) {
+	if ($sitehascommentstab == true and $storyhaschaptercomments == true) {
 		echo "\n";
 		echo '<div class="'.$mobilevar.'"><br /><br />'."\n".$divc."\n";
 		echo '<div class="'.$mobilevar.'">'."\n";
@@ -347,13 +448,17 @@ while ($capnum1 <= $chapters) {
 		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="readbtn'.$a2.'m" style="margin-left:15px;float:right;'.$roundedborderstyle2.'" onclick="openCity('."'".'modal-read-'.$a2."m')".'"><'.$m.'><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></'.$m.'></button>'."\n";
 		echo $divc."\n";
 		echo '<br /><div class="'.$mobilevar.'"><br /><br />'."\n".'</div>'."\n";
+	}
+
+	#Hr displayer if the story has comments or reads
+	if ($storyhaschaptercomments == true and $storycontainscomments == true or $storyhasreads == true and $storycontainsreads == true) {
 		echo '<hr class="'.$sitehr3.'" />'."\n";
 	}
 
 	echo '</h5>'."\n";
 
 	#Readings and Comments displayer on chapters
-	if ($sitename == $sitenazzevo) {
+	if ($sitename == $sitenazzevo and $storyhaschaptercomments == true) {
 		if ($capnum1 == 1) {
 			echo $commentheader."\n";
 
@@ -364,7 +469,7 @@ while ($capnum1 <= $chapters) {
 		}
 	}
 
-	if ($sitename == $sitepequenata) {
+	if ($sitename == $sitepequenata and $storyhaschaptercomments == true) {
 		if ($capnum1 == 1) {
 			echo $commentheader."\n";
 

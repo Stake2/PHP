@@ -70,7 +70,7 @@ if (!isset($sitetitulo2) and !isset($sitedesc)) {
 
 if ($sitetype1 == $types[0] or $sitetype1 == 'Years') {
 	if ($site == $sitediario) {
-		$blockstextonheader = $blockstext.'<br /> <b>'.$divzoomanimlouco.$bluespan.$redondodesc.$spanc.$divc.'</b>'."\n";
+		$blockstextonheader = $blockstext.'<br />'."\n";
 		$diariostuff1 = '<'.$n.' class="'.$colortext.' '.$computervar.'">'.$blockstextonheader.'</'.$n.'>
 		';
 		$diariostuff2 = '<'.$m.' class="'.$colortext.' '.$mobilevar.'">'.$blockstextonheader.'</'.$m.'>

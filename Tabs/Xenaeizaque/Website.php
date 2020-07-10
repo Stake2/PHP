@@ -9,8 +9,8 @@ if (strpos ($host, $params[0].'='.$sitexenaeizaque) == true) {
 	$sitename = $choosenwebsite;
 	$setsitecssfile = $pocbcss;
 
-	$siteusescitybodygenerator = true;
-	$siteusesuniversalfilereader = true;
+	$siteusescitybodygenerator = true; #Defines if the site uses the CityBody generator
+	$siteusesuniversalfilereader = true; #Defines if teh site uses the Universal TextFileReader
 
 	#Site settings setter file includer
 	include $settingsparamsfile;

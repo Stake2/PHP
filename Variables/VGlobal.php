@@ -12,8 +12,8 @@ $fontawesomelink = 'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
 $maintextfolder = 'C:/Mega/Bloco De Notas/';
 $maintextfolder2 = $maintextfolder.'Dedicação/';
 $rootstoryfolder = $maintextfolder2.'Historias/';
-$diariofolder = $maintextfolder.'/Diario/Blocks/';
-$diariofolder2 = $maintextfolder.'/Diario/';
+$diariofolder = $maintextfolder.'Diario/Blocks/';
+$diariofolder2 = $maintextfolder.'Diario/';
 
 #PHP Files
 $globalfilesphp = array(
@@ -82,6 +82,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 	$copybtntxt2 = 'Copy text';
 	$redondodesc = 'Round revolution ahead!';
 	$covertxt = 'Cover';
+	$cannotfindfiletxt = 'This file could not be found.';
 
 	if ($newdesign == true) {
 		$newdesigntxts = array(
@@ -109,6 +110,7 @@ if ($lang == $langs[2]) {
 	$copybtntxt2 = 'Copiar texto';
 	$redondodesc = 'Revolução redonda avante!';
 	$covertxt = 'Capa';
+	$cannotfindfiletxt = 'Não foi possível encontrar este arquivo.';
 
 	if ($newdesign == true) {
 		$newdesigntxts = array(

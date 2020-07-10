@@ -18,6 +18,7 @@ $textstyle = $colortext.' black';
 $textstyle2 = 'w3-text-black grey';
 $btnstyle = $color4.' '.$cssbtn1;
 $btnstyle2 = $color2.' '.$cssbtn1;
+$btnstyle3 = $color2.' '.$cssbtn1;
 $sitewhilestyle = $color4;
 $formcolor = $colortext2;
 
@@ -37,6 +38,32 @@ $border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$roun
 $siteurlgeral = $url.$sitefolder.'/';
 $sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
 $blockreaderphp = $sitephpfolder2.'BlockReader.php';
+$storyfolder = $diariofolder;
+
+#Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
+if ($lang == $langs[0]) {
+	$lang = $langs[1];
+
+	$nolangstoryfolder = $storyfolder;
+	$rootstoryfolder2 = $storyfolder;
+
+	if ($storyhascovers == true) {
+		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.'kids'.'/'.strtoupper($lang).'/';
+		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($lang).'/';
+	}
+
+	$lang = $langs[0];
+}
+
+else {
+	$nolangstoryfolder = $storyfolder;
+	$rootstoryfolder2 = $storyfolder;
+
+	if ($storyhascovers == true) {
+		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'capas'.'/'.'kids'.'/'.strtoupper($lang).'/';
+		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($lang).'/';
+	}
+}
 
 #Diario name in English and Brazilian Portuguese language
 $diarionames = array(
@@ -98,11 +125,17 @@ include $textfilereaderphp;
 #Site numbers
 $blocks = 118;
 $publishedblocks = $blocksnumber[0];
+$chapters = $publishedblocks;
+
 $commentsnumb = 0;
 $commentsnumbtext = $commentsnumb + 1;
+$commentschapternumb = 0;
 
 $formcode = 'diario';
 $blockdiv = $chaptertxt.'-';
+
+#Re include of the StoryVars.php file to set the story name
+include $storyvarsphp;
 
 #Texts for English language
 if ($lang == $langs[0] or $lang == $langs[1]) {
