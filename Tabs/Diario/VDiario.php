@@ -40,11 +40,12 @@ $sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
 $blockreaderphp = $sitephpfolder2.'BlockReader.php';
 $storyfolder = $diariofolder;
 
+$nolangstoryfolder = $storyfolder;
+
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
 
-	$nolangstoryfolder = $storyfolder;
 	$rootstoryfolder2 = $storyfolder;
 
 	if ($storyhascovers == true) {
@@ -56,7 +57,6 @@ if ($lang == $langs[0]) {
 }
 
 else {
-	$nolangstoryfolder = $storyfolder;
 	$rootstoryfolder2 = $storyfolder;
 
 	if ($storyhascovers == true) {

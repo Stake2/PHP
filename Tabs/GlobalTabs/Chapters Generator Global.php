@@ -41,7 +41,7 @@ while ($a <= $chapters) {
 	$a2 = $a - 1;
 
 	if ($storyhastitles == true) {
-		$capsenus[$a] = $rootstoryfolder3.$z.' - '.$titles[$a2].'.txt';
+		$capsenus[$a] = $rootstoryfolder3.$z.' - '.$titlesenus[$a2].'.txt';
 		$capsenus[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $capsenus[$a]);
 	}
 
@@ -57,7 +57,7 @@ while ($a <= $chapters) {
 #Chapter date file reader, it generates the capdate array which contains the date that the chapter was written
 $a = 0;
 $z = 0;
-if ($sitename != $sitenazzevo and $storyhasdates == true) {
+if ($storyhasdates == true) {
 	while ($a <= $chapters) {
 		$a2 = $a - 1;
 
@@ -336,8 +336,13 @@ while ($capnum1 <= $chapters) {
 	#Chapter writer tab displayer
 	if ($sitestorywrite == true and $sitestorywritechapter == $capnum1 or $sitestorywrite == true and $sitestorywritechapter.(int)'0' == $capnum1 and $capnum1 != 0) {
 		require($chapterwriterdisplayer);
-		echo "$chapterwriterdisplayer was loaded.";
-		echo $newwritestylescript."\n";
+
+		#echo "$chapterwriterdisplayer was loaded.";
+
+		if ($newwritestyle == true) {
+			echo $newwritestylescript."\n";
+		}
+
 		echo $divc."\n";
 		echo $divc."\n";
 		echo '<br /><br />'."\n";

@@ -50,9 +50,12 @@ $storyfolder = $slstoryfolder;
 #Form code for the comment and read forms
 $formcode = 'spaceliving';
 
+$nolangstoryfolder = $rootstoryfolder.$storyfolder.'/';
+
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
+
 	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {

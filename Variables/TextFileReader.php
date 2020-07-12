@@ -534,6 +534,8 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		$chapternumberfile = $rootstoryfolder.$storyfolder.'/ChaptersNumber.txt'; 
 	}
 
+	$titlesenusfile = $rootstoryfolder.$storyfolder.'/CapTitles '.$langs[1].'.txt';
+
 	#Language-dependent text files
 	if ($lang == $langs[0] or $lang == $langs[1]) {
 		$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.$langs[1].'.txt';
@@ -607,6 +609,14 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		}
 	}
 
+	if (file_exists($titlesenusfile) == true) {
+		$fp = fopen($titlesenusfile, 'r', 'UTF-8'); 
+		if ($fp) {
+			$titlesenustxt = explode("\n", fread($fp, filesize($titlesenusfile)));
+			$titlesenus = str_replace("^", "", $titlesenustxt);
+		}
+	}
+
 	if (file_exists($readersfile) == true) {
 		$fp = fopen($readersfile, 'r', 'UTF-8'); 
 		if ($fp) {
@@ -658,6 +668,10 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 	}
 
 	#File character replacers
+    if (isset($titlesenus)) {
+		$titlesenus = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $titlesenus);
+    }
+
     if (isset($titles)) {
 		$titles = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $titles);
     }

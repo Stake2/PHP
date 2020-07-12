@@ -6,23 +6,36 @@ if ($newwritestyle == true) {
 	echo $writestorybtn;
 }
 
-#Shows the text area
+#Shows the text area where the title of the chapter is shown
 echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
 #Checks if the variable showchaptertext is set to true
 if ($showchaptertext == true) {
-	#Checks if the variable showwriteformtext is set to true and shows the title text
+	# Shows the chapter title if the setting is set to true
 	if ($showwriteformtext == true) {
-		echo $titletxt.': '."\n".$capnum1.' - '.$titles[($capnum4 - 1)];
+		if ($translatestory == true) {
+			echo $titletxt.': '."\n".$capnum1.' - '.$titlesenus[($capnum4 - 1)];
+		}
+
+		if ($translatestory == false) {
+			echo $titletxt.': '."\n".$capnum1.' - '.$titles[($capnum4 - 1)];
+		}
 	}
 
 	else {
-		echo $capnum1.' - '.$titles[($capnum4 - 1)];
+		if ($translatestory == true) {
+			echo $capnum1.' - '.$titlesenus[($capnum4 - 1)];
+		}
+
+		if ($translatestory == false) {
+			echo $capnum1.' - '.$titles[($capnum4 - 1)];
+		}
 	}
 }
 
 echo '</textarea>'."\n";
 
+#Shows the text area  where the text of the chapter is shown
 echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$storytxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
 if ($showwriteformtext == true) {
@@ -30,7 +43,7 @@ if ($showwriteformtext == true) {
 }
 
 if ($showchaptertext == true) {
-	if (strpos($host, $settingsparams[8].'='.'true')) {
+	if ($translatestory == true) {
 		#Chapter text reader
 		if (file_exists($capsenus[$capnum1]) == true) {
 			if ($file = fopen($capsenus[$capnum1], "r")) {

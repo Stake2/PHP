@@ -46,11 +46,12 @@ $storyfolder = $pqntstoryfolder;
 #Form code for the comment and read forms
 $formcode = 'pequenata';
 
+$nolangstoryfolder = $rootstoryfolder.$storyfolder.'/';
+
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
 
-	$nolangstoryfolder = $rootstoryfolder.$storyfolder;
 	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {
@@ -62,7 +63,6 @@ if ($lang == $langs[0]) {
 }
 
 else {
-	$nolangstoryfolder = $rootstoryfolder.$storyfolder;
 	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {

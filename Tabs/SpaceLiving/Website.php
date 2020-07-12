@@ -22,9 +22,10 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	$sitehidenotifonclickreadtab = false; #Defines if site hides the notification when you click on the "Read story" button
 	$siteuseschapteropener = true; #Defines if site uses the Chapter Opener script
     $siteusescitybodygenerator = true; #Defines if the site uses the CityBody generator
+
 	$sitestorywrite = false; #Defines if site has a story writing chapter
 	$storyhascovers = false; #Defines if site has book covers for the story
-	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
+	$storyhasreads = false; #Defines if the story website has "reads" number, file and elements
 	$storyhasdates = false; #Defines if the story has dates
 	$storyhastitles = true; #Defines if the story has titles
 	$storyusestatus = true; #Defines if the story uses the story statuses

@@ -103,6 +103,13 @@ else {
 	$showchaptertext = $showchaptertext;
 }
 
+if (strpos($host, $settingsparams[8].'='.'true') == true) {
+	$translatestory = true;#
+}
+
+if (strpos($host, $settingsparams[8].'='.'false') == true) {
+	$translatestory = false;
+}
 
 $i = 1;
 $c = 1;

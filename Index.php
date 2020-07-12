@@ -41,7 +41,7 @@ $settingsparams = array(
 'writestory',
 'writeformtxt',
 'showchaptertext', #7
-'translate',
+'translatestory',
 'chaptertowrite',
 'storyhascovers',
 'deactivatetopbtns',
@@ -286,6 +286,7 @@ $deactivateheader = false;
 $deactivatesitesbtn = false;
 $newdesign = false;
 $newwritestyle = false;
+$translatestory = false;
 $hidecitysetting = true;
 $notsomuchspace = false;
 $storyhascovers = false;
