@@ -25,13 +25,13 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 
 	$sitestorywrite = false; #Defines if site has a story writing chapter
 	$storyhascovers = false; #Defines if site has book covers for the story
-	$storyhasreads = false; #Defines if the story website has "reads" number, file and elements
+	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
 	$storyhasdates = false; #Defines if the story has dates
 	$storyhastitles = true; #Defines if the story has titles
 	$storyusestatus = true; #Defines if the story uses the story statuses
 	$storyhaschaptercomments = true; #Defines if the story has comments on the chapter
 	$storyhaswriteform = true; #Defines if the story has writing form to write the story
-	$storycontainsreads = false; #Defines if the story has reads on it
+	$storycontainsreads = true; #Defines if the story has reads on it
 	$storycontainscomments = false; #Defines if the story has comments on it
 
 	#Site settings setter file includer

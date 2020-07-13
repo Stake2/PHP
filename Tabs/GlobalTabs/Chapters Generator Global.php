@@ -371,7 +371,7 @@ while ($capnum1 <= $chapters) {
 	}
 
 	#Computer "I Read it" button
-	if ($storyhasreads == true) {
+	if ($storyhasreads == true and $storycontainsreads == true) {
 		echo '<div class="'.$computervar.'">'."\n";
 		echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$roundedborderstyle2.'"><h3><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></h3></button>'."\n";
 		echo $divc."\n";

@@ -534,17 +534,17 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		$chapternumberfile = $rootstoryfolder.$storyfolder.'/ChaptersNumber.txt'; 
 	}
 
-	$titlesenusfile = $rootstoryfolder.$storyfolder.'/CapTitles '.$langs[1].'.txt';
+	$titlesenusfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($langs[1]).'.txt';
 
 	#Language-dependent text files
 	if ($lang == $langs[0] or $lang == $langs[1]) {
-		$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.$langs[1].'.txt';
-		$readsfile = $rootstoryfolder.$storyfolder.'/Leituras '.$langs[1].'.txt';
+		$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($langs[1]).'.txt';
+		$readsfile = $rootstoryfolder.$storyfolder.'/Leituras '.strtoupper($langs[1]).'.txt';
 	}
 
 	if ($lang == $langs[2]) {
-		$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.$langs[2].'.txt';
-		$readsfile = $rootstoryfolder.$storyfolder.'/Leituras '.$langs[2].'.txt';
+		$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($langs[2]).'.txt';
+		$readsfile = $rootstoryfolder.$storyfolder.'/Leituras '.strtoupper($langs[2]).'.txt';
 	}
 
 	#File line number counters

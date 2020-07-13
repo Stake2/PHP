@@ -115,7 +115,6 @@ else {
 }
 
 $commentschapternumb = $commentsnumbtext - $commentsnormalnumb;
-$readednumb = 0;
 
 #Non-language dependent texts
 $authorname = 'Izaque Sanvezzo (stake2)';
@@ -124,6 +123,8 @@ $authorname = 'Izaque Sanvezzo (stake2)';
 
 #TextFileReader.php file includer
 include $textfilereaderphp;
+
+$readsfilenumb = 5;
 
 #Story date definer using story date text file
 $storydate = $storydate[0];
