@@ -261,7 +261,14 @@ if (in_array($lang, $pt_langs)) {
 	$lang2 = substr_replace($lang2, '-', 2, 0);
 	$sitename = $choosenwebsite;
 
-	$sitetitulo = $story;
+	if ($lang == $ptpt_lang) {
+		$sitetitulo = $story.' '.strtoupper($lang2);
+	}
+
+	else {
+		$sitetitulo = $story;
+	}
+
 	$sitetitulo2 = $story.': '.$icons[11];
 	$siteurl = $sitepqntlink.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[1];

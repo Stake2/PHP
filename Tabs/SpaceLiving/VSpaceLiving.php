@@ -247,7 +247,7 @@ if ($lang == $langs[0]) {
 	$sitename = $choosenwebsite;
 
 	$lang = $langs[0];
-	
+
 	$sitetitulo = $storyfolder;
 	$sitetitulo2 = $storyfolder.': '.$icons[11];
 	$siteurl = $sitesllink;
@@ -261,7 +261,7 @@ if ($lang == $langs[1]) {
 	$lang2 = strtoupper($lang);
 	$lang2 = substr_replace($lang2, '-', 2, 0);
 	$sitename = $choosenwebsite;
-	
+
 	$sitetitulo = $story.' '.$lang2;
 	$sitetitulo2 = $story.': '.$icons[11];
 	$siteurl = $sitesllink.strtolower($lang2).'/';
