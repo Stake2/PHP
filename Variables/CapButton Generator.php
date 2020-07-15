@@ -40,7 +40,13 @@ while ($capnum1 <= $chapters) {
 	}
 
 	if ($capnum1 == $chapters) {
-		$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');DefineChapter('.$capnum1.');';
+		if ($newwritestyle == true) {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');DefineChapter('.$capnum1.');';
+		}
+
+		else {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');';
+		}
 
 		if ($capnum1 == $reviewedcap and $sitehasnotifications == true) {
 			echo '<div class="'.$shakesidetosideanim.'">'."\n";
@@ -92,7 +98,14 @@ while ($capnum1 <= $chapters) {
 	}
 
 	else {
-		$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');DefineChapter('.$capnum1.');';
+		if ($newwritestyle == true) {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');DefineChapter('.$capnum1.');';
+		}
+
+		else {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');';
+		}
+
 		if ($capnum1 == $reviewedcap and $sitehasnotifications == true) {
 			echo '<div class="'.$shakesidetosideanim.'">'."\n";
 

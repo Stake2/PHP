@@ -24,6 +24,7 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
     $siteusescitybodygenerator = true; #Defines if the site uses the CityBody generator
 
 	$sitestorywrite = false; #Defines if site has a story writing chapter
+	$newwritestyle = false; #Defines if the website uses the new writing style for chapters
 	$storyhascovers = false; #Defines if site has book covers for the story
 	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
 	$storyhasdates = false; #Defines if the story has dates

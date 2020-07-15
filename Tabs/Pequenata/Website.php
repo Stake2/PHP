@@ -15,12 +15,12 @@ if (strpos ($host, $params[0].'='.$sitepequenata) == true) {
 	$siteshowscomments = true; #Defines if site shows the comments on the Comments Tab
 	$sitehasstories = true; #Defines if site has a Stories Tab
 	$sitehaschangelog = true; #Defines if site has a changelog tab and file to be read
-	$sitestorywrite = false; #Defines if site has a story writing chapter
 	$showwriteformtext = false; #Defines if site shows title and story text on the writing chapter
 	$showchaptertext = false; #Defines if site shows the chapter text on the writing chapter form
 	$sitehidenotifonclickreadtab = false; #Defines if site hides the notification when you click on the "Read story" button
 	$siteuseschapteropener = true; #Defines if the website uses the ChapterOpener Script
 
+	$sitestorywrite = false; #Defines if site has a story writing chapter
 	$newwritestyle = false; #Defines if the website uses the new writing style for chapters
 	$storyhascovers = true; #Defines if site has book covers for the story
 	$storywritesstoryfiles = false; #Defines if the story website creates text files with the story text (chapters)
