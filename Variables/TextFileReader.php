@@ -43,11 +43,11 @@ if ($siteusesuniversalfilereader == true) {
 }
 /*
 if ($sitename == $sitexenaeizaque) {
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$tabdescfile = 'TabDescription1ENUS';
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$tabdescfile = 'TabDescription1';
 	}
 
@@ -93,33 +93,33 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	$watched2018textfile = $maintextfolder2."Networks/Media Network/Watch History/".$site2018."/Watched".$site2018.".txt";
 	$watched2018timefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2018."/Watched".$site2018."Time.txt";
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$watched2018mediatypefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2018."/Watched".$site2018.'MediaTypeENUS.txt';
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$watched2018mediatypefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2018."/Watched".$site2018.'MediaTypePTBR.txt';
 	}
 
 	$watched2019textfile = $maintextfolder2."Networks/Media Network/Watch History/".$site2019."/Watched".$site2019.".txt";
 	$watched2019timefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2019."/Watched".$site2019."Time.txt";
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$watched2019mediatypefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2019."/Watched".$site2019.'MediaTypeENUS.txt';
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$watched2019mediatypefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2019."/Watched".$site2019.'MediaTypePTBR.txt';
 	}
 
 	$watched2020textfile = $maintextfolder2."Networks/Media Network/Watch History/".$site2020."/Watched".$site2020.".txt";
 	$watched2020timefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2020."/Watched".$site2020."Time.txt";
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$watched2020mediatypefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2020."/Watched".$site2020.'MediaTypeENUS.txt';
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$watched2020mediatypefile = $maintextfolder2."Networks/Media Network/Watch History/".$site2020."/Watched".$site2020.'MediaTypePTBR.txt';
 	}
 
@@ -135,11 +135,11 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	$twstatusfile = $maintextfolder2."Networks/Media Network/Watch History/ToWatchStatus.txt";
 	$twmediafile = $maintextfolder2."Networks/Media Network/Watch History/ToWatchMedia.txt";
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$twmediatypefile = $maintextfolder2."Networks/Media Network/Watch History/ToWatchMediaTypeENUS.txt";
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$twmediatypefile = $maintextfolder2."Networks/Media Network/Watch History/ToWatchMediaTypePTBR.txt";
 	}
 
@@ -537,12 +537,12 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 	$titlesenusfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($langs[1]).'.txt';
 
 	#Language-dependent text files
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($langs[1]).'.txt';
 		$readsfile = $rootstoryfolder.$storyfolder.'/Leituras '.strtoupper($langs[1]).'.txt';
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($langs[2]).'.txt';
 		$readsfile = $rootstoryfolder.$storyfolder.'/Leituras '.strtoupper($langs[2]).'.txt';
 	}
@@ -704,22 +704,22 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 if ($sitehaschangelog == true) {
 	#Changelog text file definer
 	if ($sitename == $sitewatch) {
-		if ($lang == $langs[0] or $lang == $langs[1]) {
+		if (in_array($lang, $en_langs)) {
 			$changelogfile = $sitephpfolder2.'Changelog '.$langs[1].'.php';
 		}
 
-		if ($lang == $langs[2]) {
+		if (in_array($lang, $pt_langs)) {
 			$changelogfile = $sitephpfolder2.'Changelog '.$langs[2].'.php';
 		}
 	}
 
 	#Changelog text file definer
 	else {
-		if ($lang == $langs[0] or $lang == $langs[1]) {
+		if (in_array($lang, $en_langs)) {
 			$changelogfile = $sitephpfolder2.'Changelog '.$langs[1].'.txt';
 		}
 
-		if ($lang == $langs[2]) {
+		if (in_array($lang, $pt_langs)) {
 			$changelogfile = $sitephpfolder2.'Changelog '.$langs[2].'.txt';
 		}
 	}

@@ -39,12 +39,12 @@ if (strpos ($host, $params[0].'='.$sitepequenata) == true) {
 	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog');
 
 	#Site Tabnames array
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog', 'Chapters', 'Comments');
 		$site = ucwords('littletato');
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Registro de Mudanças', 'Capítulos', 'Comentários');
 		$site = ucwords($choosenwebsite);
 	}

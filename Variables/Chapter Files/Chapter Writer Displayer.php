@@ -55,6 +55,10 @@ if ($showchaptertext == true) {
 				fclose($file);
 			}
 		}
+
+		else {
+			echo $cannotfindfiletxt.': <br />'.$capsenus[$capnum1].'<br />';
+		}
 	}
 
 	else {
@@ -68,6 +72,10 @@ if ($showchaptertext == true) {
 			}
 				fclose($file);
 			}
+		}
+
+		else {
+			echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
 		}
 	}
 }
@@ -129,6 +137,10 @@ if ($newwritestyle == true) {
 					fclose($file);
 				}
 			}
+
+			else {
+				echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
+			}
 		}
 
 		else {
@@ -142,6 +154,10 @@ if ($newwritestyle == true) {
 				}
 					fclose($file);
 				}
+			}
+
+			else {
+				echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
 			}
 		}
 	}

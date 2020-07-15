@@ -35,11 +35,11 @@ $sitecodes = array(
 'stake2',
 );
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$thingsIdolink = $url.$sitecodes[7].'/';
 }
 
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$thingsIdolink = $url.'coisas_que_eu_faço'.'/';
 }
 
@@ -76,7 +76,7 @@ $sitename_nazzevo = $nazzevostoryname.' '.$siteicons[0],
 $sitename_lonelystories = $lonelystoryname.' '.$siteicons[0],
 );
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$replacesitenamesarray = array(
 	$sitename_diario = 'Diary'.' '.$siteicons[0],
 	$sitename_music = 'Music'.' '.$siteicons[5],
@@ -91,7 +91,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 	);
 }
 
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$replacesitenamesarray = array(
 	$sitename_diario = 'Diário'.' '.$siteicons[0],
 	$sitename_music = 'Música'.' '.$siteicons[5],
@@ -133,7 +133,7 @@ $sitename_websitetemplate,
 );
 
 /*
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$replacesitenamesarray = array(
 	$sitename_diario = 'Diary'.' '.$siteicons[0],
 	$sitename_music = 'Music'.' '.$siteicons[5],
@@ -148,7 +148,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 	);
 }
 
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$replacesitenamesarray = array(
 	$sitename_diario = 'Diário'.' '.$siteicons[0],
 	$sitename_music = 'Música'.' '.$siteicons[5],

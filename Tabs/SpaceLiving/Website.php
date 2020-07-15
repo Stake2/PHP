@@ -10,7 +10,7 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	$setsitecssfile = $slcss;
 
 	#Site settings
-	$sitehasnotifications = false; #Defines if site has notifications on
+	$sitehasnotifications = true; #Defines if site has notifications on
 	$sitehascommentstab = true; #Defines if site has a Comments Tab variable
 	$sitehidescommentstab = false; #Defines if site has a Comments Tab variable
 	$sitehascomments = false; #Defines the site has comments
@@ -31,7 +31,7 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	$storyusestatus = true; #Defines if the story uses the story statuses
 	$storyhaschaptercomments = true; #Defines if the story has comments on the chapter
 	$storyhaswriteform = true; #Defines if the story has writing form to write the story
-	$storycontainsreads = true; #Defines if the story has reads on it
+	$storycontainsreads = false; #Defines if the story has reads on it
 	$storycontainscomments = false; #Defines if the story has comments on it
 
 	#Site settings setter file includer
@@ -41,11 +41,11 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories');
 
 	#Site Tabnames array
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
 	}
 

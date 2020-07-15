@@ -4,11 +4,11 @@
 $sitebtnicon = '<i class="fas fa-globe-americas"></i>';
 $sitebtnname = 'Sites: ';
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$sitestabscode = 'Websites tab';
 }
 
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$sitestabscode = 'Aba de sites';
 }
 

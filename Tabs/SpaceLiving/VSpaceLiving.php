@@ -53,27 +53,7 @@ $formcode = 'spaceliving';
 $nolangstoryfolder = $rootstoryfolder.$storyfolder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
-
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
-
-	if ($storyhascovers == true) {
-		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.'kids'.'/'.strtoupper($lang).'/';
-		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($lang).'/';
-	}
-
-	$lang = $langs[0];
-}
-
-else {
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
-
-	if ($storyhascovers == true) {
-		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'capas'.'/'.'kids'.'/'.strtoupper($lang).'/';
-		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($lang).'/';
-	}
-}
+include $coverimagesgeneratorphp;
 
 #Story name definer
 $story = $slstoryname;
@@ -82,7 +62,7 @@ $story = $slstoryname;
 $storystatus = $status[2];
 
 #Site image vars
-$siteimage = 'spacelivinglogo';
+$siteimage = 'SpaceLiving Logo';
 
 #Defines the site image if the site has book covers or not
 if ($storyhascovers == true) {
@@ -141,7 +121,7 @@ else {
 include $storyvarsphp;
 
 #Reviewed chapter number
-$reviewedcap = 10;
+$reviewedcap = 1;
 
 #Site descriptions
 $sitedescs = array(
@@ -216,7 +196,7 @@ if ($storyhascovers == true) {
 }
 
 #English texts for Pequenata website
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$readtxts = array(
 	$readingtxt = "You're reading",
 	$readingtxt.': '.ucwords($story),
@@ -236,7 +216,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 }
 
 #Brazilian Portuguese texts for Pequenata website
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$readtxts = array(
 	$readingtxt = "Você está lendo",
 	$readingtxt.': '.ucwords($story),
@@ -261,9 +241,11 @@ $statustxt = '['.ucfirst($storystatus).']';
 #Site name, title, URL and description setter, by language
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
+
 	$lang2 = strtoupper($lang);
 	$lang2 = substr_replace($lang2, '-', 2, 0);
 	$sitename = $choosenwebsite;
+
 	$lang = $langs[0];
 	
 	$sitetitulo = $storyfolder;
@@ -271,6 +253,7 @@ if ($lang == $langs[0]) {
 	$siteurl = $sitesllink;
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
+
 	$lang = $langs[0];
 }
 
@@ -286,7 +269,7 @@ if ($lang == $langs[1]) {
 	$sitedesc2 = $descs[0];
 }
 
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$lang2 = strtoupper($lang);
 	$lang2 = substr_replace($lang2, '-', 2, 0);
 	$sitename = $choosenwebsite;
@@ -300,7 +283,7 @@ if ($lang == $langs[2]) {
 
 #Buttons and tabs definer
 #Tab names replacer for langs
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$tabnames[5] = substr_replace($tabnames[5], '-', 6, 0);
 	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
 }

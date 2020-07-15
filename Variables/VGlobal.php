@@ -1,11 +1,13 @@
 <?php
 
 #VGlobal.php site folder, site, cdn and fontawesome link variables
-@$sitefolder = strtolower($site);
+$sitefolder = strtolower($site);
 $site = $sitefolder;
 $cdn = $url.'cdn';
 $cdnimg = $cdn.'/img/';
 $cdntxt = $cdn.'/txt/';
+$cdnjs = $cdn.'/js/';
+$cdncss = $cdn.'/css/';
 $fontawesomelink = 'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
 
 #PHP Folders variables
@@ -29,6 +31,7 @@ $textfilereaderphp = $phpvars.'TextFileReader.php',
 $tabgeneratorphp = $phpvars.'Tab Generator.php',
 $storyvarsphp = $phpvars.'StoryVars.php',
 $capbtngeneratorphp = $phpvars.'CapButton Generator.php',
+$coverimagesgeneratorphp = $phpvars.'Cover Images Displayer.php',
 $newdesignphp = $phpvars.'NewDesignScript.php',
 $newdesignsitephp = $phpvars.'NewDesignSite.php',
 $citybodiesgeneratorphp = $phpvars.'CityBodies Generator.php',
@@ -66,7 +69,7 @@ $watchtextsphp = $phptabs.'Watch/WatchTexts.php';
 $yearsvarsfilephp = $phptabs.'Years/YearsVars.php';
 
 #English texts for all websites
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$andtxt = 'and';
 	$newtxt = 'New';
 	$ortxt = 'or';
@@ -82,7 +85,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 	$copybtntxt2 = 'Copy text';
 	$redondodesc = 'Round revolution ahead!';
 	$covertxt = 'Cover';
-	$cannotfindfiletxt = 'This file could not be found.';
+	$cannotfindfiletxt = 'This file could not be found, sorry';
 
 	if ($newdesign == true) {
 		$newdesigntxts = array(
@@ -93,7 +96,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 }
 
 #Brazilian Portuguese texts for all websites
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$andtxt = 'e';
 	$newtxt = 'Novo';
 	$newtxt2 = 'Nova';
@@ -110,7 +113,7 @@ if ($lang == $langs[2]) {
 	$copybtntxt2 = 'Copiar texto';
 	$redondodesc = 'Revolução redonda avante!';
 	$covertxt = 'Capa';
-	$cannotfindfiletxt = 'Não foi possível encontrar este arquivo.';
+	$cannotfindfiletxt = 'Não foi possível encontrar este arquivo, desculpe';
 
 	if ($newdesign == true) {
 		$newdesigntxts = array(
@@ -134,11 +137,11 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	$mediareader2018 = $phptabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
 	$mediareader2019 = $phptabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[2].'.txt';
 	}
 
@@ -165,7 +168,7 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 $sitecssfile = $setsitecssfile;
 
 if ($newwritestyle == true) {
-	$newwritestylescript = '<script src="'.$cdn.'/js/WriteChapter.js"></script>'."\n";
+	$newwritestylescript = '<script src="'.$cdnjs.'WriteChapter.js"></script>'."\n";
 }
 
 else {
@@ -188,9 +191,9 @@ else {
 
 #Notifications CSS and script includer
 if ($sitehasnotifications == true) {
-	$notificationcss = '<link rel="stylesheet" type="text/css" href="'.$cdn.'/css/Notification.css" />'."\n";
-	$notificationscript = '<script src="'.$cdn.'/js/Notification.js"></script>'."\n".
-	'<script src="'.$cdn.'/js/HideNotification.js"></script>';
+	$notificationcss = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Notification.css" />'."\n";
+	$notificationscript = '<script src="'.$cdnjs.'Notification.js"></script>'."\n".
+	'<script src="'.$cdnjs.'HideNotification.js"></script>';
 }
 
 if ($sitehasnotifications == false) {
@@ -199,7 +202,7 @@ if ($sitehasnotifications == false) {
 }
 
 if ($sitename == $sitetextmaker) {
-	$editbtnscript = '<script src="'.$cdn.'/js/EditBtn.js"></script>';
+	$editbtnscript = '<script src="'.$cdnjs.'EditBtn.js"></script>';
 }
 
 else {
@@ -207,22 +210,23 @@ else {
 }
 
 #Site CSS definer
-$sitecss = '<link rel="stylesheet" type="text/css" href="'.$cdn.'/css/'.$sitecssfile.'.css" />
+$sitecss = '<link rel="stylesheet" type="text/css" href="'.$cdncss.$sitecssfile.'.css" />
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
-<link rel="stylesheet" type="text/css" href="'.$cdn.'/css/w3.css" />
-<link rel="stylesheet" type="text/css" href="'.$cdn.'/css/Colors.css" />
-<link rel="stylesheet" type="text/css" href="'.$cdn.'/css/Stories.css" />
-<link rel="stylesheet" type="text/css" href="'.$cdn.'/css/Mobile.css" />
-<link rel="stylesheet" type="text/css" href="'.$cdn.'/css/ImgHover.css" />'."\n".
+<link rel="stylesheet" type="text/css" href="'.$cdncss.'w3.css" />
+<link rel="stylesheet" type="text/css" href="'.$cdncss.'Colors.css" />
+<link rel="stylesheet" type="text/css" href="'.$cdncss.'Stories.css" />
+<link rel="stylesheet" type="text/css" href="'.$cdncss.'Mobile.css" />
+<link rel="stylesheet" type="text/css" href="'.$cdncss.'ImgHover.css" />'."\n".
 $notificationcss.
 $newdesigncss;
 
 #Site JavaScript definer
-$sitejs = '<script src="'.$cdn.'/js/myFunction.js"></script>
-<script src="'.$cdn.'/js/Tabs.js"></script>
-<script src="'.$cdn.'/js/Redirect.js" onLoad="Rodar();"></script>
-<script src="'.$cdn.'/js/ShowHide.js"></script>
-<script src="'.$cdn.'/js/SideMenu.js"></script>'."\n".
+$sitejs = '<script src="'.$cdnjs.'Search.js"></script>
+<script src="'.$cdnjs.'Tabs.js"></script>
+<script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
+<script src="'.$cdnjs.'ShowHide.js"></script>
+<script src="'.$cdnjs.'SideMenu.js"></script>
+<script src="'.$cdnjs.'Set Revised Date.js"></script>'."\n".
 $editbtnscript.
 $newdesignscript.
 $newwritestylescript.

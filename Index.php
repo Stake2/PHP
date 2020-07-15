@@ -67,6 +67,24 @@ $langs = array(
 'geral',
 'enus',
 'ptbr',
+'ptpt',
+);
+
+$geral_lang = $langs[0];
+$enus_lang = $langs[1];
+$ptbr_lang = $langs[2];
+$ptpt_lang = $langs[3];
+
+#Array of Portuguese languages
+$pt_langs = array(
+'ptbr',
+'ptpt',
+);
+
+#Array of English languages
+$en_langs = array(
+'geral',
+'enus',
 );
 
 #CSS file variables
@@ -241,6 +259,10 @@ if (strpos ($host, $params[2].'='.$langs[2]) == true) {
     $lang = $langs[2];
 }
 
+if (strpos ($host, $params[2].'='.$langs[3]) == true) {
+    $lang = $langs[3];
+}
+
 #Normal site type definer
 if (strpos ($host, $params[1].'='.$types[0]) == true) {
 	#Sitetype definer
@@ -368,6 +390,11 @@ if ($sitehasnotifications == true) {
 ChangeTitle();
 </script>';
 }
+
+#Inserts a CSS style tag for a style used in all the websites
+echo '<style>
+textarea {outline: none!important;}
+</style>';
 
 #Site notification file includer if setting is true
 if ($sitehasnotifications == true and $deactivatenotification == false) {

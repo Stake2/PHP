@@ -8,10 +8,10 @@ echo 'function OpenChapter() {'."\n".
 	'.
 
 	'
-	if (userLang === "pt-BR") {
+	if (userLang == "pt-BR" || userLang == "pt-PT") {
 		var captext2 = "ler-capitulo-";
 	}
-	
+
 	else {
 		var captext2 = "read-chapter-";
 	}

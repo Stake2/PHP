@@ -14,29 +14,29 @@ if (file_exists($caps[$capnum1]) == true) {
 	}
 
 	if ($file = fopen($caps[$capnum1], "r")) {
-	while(!feof($file)) {
-		$line = fgets($file);
-		$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $line);
+		while(!feof($file)) {
+			$line = fgets($file);
+			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $line);
 
-		if ($storywritesstoryfiles == true) {
-			if (file_exists($writefolder) == true) {
-				$chapter_text[$z123] = $line;
-				$chapter_line_number++;
-				$chapter_lines_array[$capnum1] = $chapter_line_number;
-				$z123++;
+			if ($storywritesstoryfiles == true) {
+				if (file_exists($writefolder) == true) {
+					$chapter_text[$z123] = $line;
+					$chapter_line_number++;
+					$chapter_lines_array[$capnum1] = $chapter_line_number;
+					$z123++;
 
-				if (feof($file)) {
-					fwrite($chapter_test_file, $line);
-				}
-				
-				else {
-					fwrite($chapter_test_file, $line."\n");
+					if (feof($file)) {
+						fwrite($chapter_test_file, $line);
+					}
+					
+					else {
+						fwrite($chapter_test_file, $line."\n");
+					}
 				}
 			}
-		}
 
-		echo $line."\n".'<br />';
-	}
+			echo $line."\n".'<br />';
+		}
 		fclose($file);
 
 		if ($storywritesstoryfiles == true) {
@@ -45,10 +45,14 @@ if (file_exists($caps[$capnum1]) == true) {
 			}
 		}
 	}
+
+	else {
+		echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
+	}
 }
 
 else {
-	echo 'This file could not be found, sorry: <br />'.$caps[$capnum1].'<br />';
+	echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
 }
 
 #Chapter date displayer
@@ -120,7 +124,7 @@ if ($newwritestyle == true) {
 	}
 
 	else {
-		echo 'This file could not be found, sorry:<br />'.$caps[$capnum1].'<br />';
+		echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
 	}
 
 	#Chapter date displayer
@@ -183,6 +187,10 @@ if ($newwritestyle == true) {
 					fclose($file);
 				}
 			}
+
+			else {
+				echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
+			}
 		}
 
 		else {
@@ -196,6 +204,10 @@ if ($newwritestyle == true) {
 				}
 					fclose($file);
 				}
+			}
+
+			else {
+				echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
 			}
 		}
 	}

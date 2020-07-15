@@ -16,7 +16,7 @@ if ($sitetype1 == $types[0] and $sitename != $sitediario) {
 }
 
 #English texts for story websites
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if (in_array($lang, $en_langs)) {
 	$storystatuses = array(
 	'finished',
 	'writing',
@@ -82,7 +82,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 }
 
 #Brazilian Portuguese texts for story websites
-if ($lang == $langs[2]) {
+if (in_array($lang, $pt_langs)) {
 	$storystatuses = array(
 	'terminada',
 	'escrevendo',
