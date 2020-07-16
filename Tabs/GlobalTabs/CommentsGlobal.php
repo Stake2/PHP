@@ -6,6 +6,9 @@ echo $divzoomanim."\n";
 echo $formcmnt;
 echo "\n".'</b>'."\n".'</'.$m.'>'."\n";
 
+$commentslens = array(45, 47, 52, 43, 49, 56, 21);
+$commentslens2 = array(45, 52);
+
 if ($sitehascommentstab == true and $sitehascomments == true) {
 	if ($siteshowscomments == true) {
 		$c = 0;
@@ -28,8 +31,11 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 			$z++;
 		}
 
-		echo '<hr class="'.$sitehr2.'" />'."\n";
-		echo $divzoomanim.'<'.$n.'><p></p><br /><b>'.$tabnames[7].': '.$orangespan.$commentsnormalnumb.$spanc.' '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr.'" />'."\n";
+		if ($commentsnormalnumb != 0) {
+			echo '<hr class="'.$sitehr2.'" />'."\n";
+
+			echo $divzoomanim.'<'.$n.'><p></p><br /><b>'.$tabnames[7].': '.$orangespan.$commentsnormalnumb.$spanc.' '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr.'" />'."\n";
+		}
 
 		$i = 0;
 		$z = 0;
@@ -44,11 +50,11 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		$z = 0;
 		$i = 0;
 		while ($a <= $commentsnumb) {
-			if ($lang == $langs[0] or $lang == $langs[1]) {
+			if (in_array($lang, $en_langs)) {
 				$commentformname[$i] = '<b>'.$cmntstxts[2].' '.$cmntstxts[4].' '.strtolower($formtxt).':</b> "'.ucwords($commentformname[$i]).'"';
 			}
 
-			if ($lang == $langs[2]) {
+			if (in_array($lang, $pt_langs)) {
 				$commentformname[$i] = '<b>'.$cmntstxts[2].' '.$cmntstxts[3].' '.strtolower($formtxt).':</b> "'.ucwords($commentformname[$i]).'"';
 			}
 
@@ -68,7 +74,7 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		$b = 0;
 		$commentschapternumb = 0;
 		while ($c <= $commentsnumb) {
-			if (strlen($commentformname[$a]) == 45 or strlen($commentformname[$a]) == 52 and $sitename == $sitepequenata or strlen($commentformname[$a]) == 43 and $sitename == $sitenazzevo) {
+			if (in_array(strlen($commentformname[$a]), $commentslens) and $sitename == $sitenazzevo) {
 				$cmntsgeral[$b] = '<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$sitehr3.'" />'."\n".$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$divc."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
 				if ($sitename == $sitenazzevo and strlen($commentformname[$a]) == 43) {
@@ -79,15 +85,27 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 				$b++;
 			}
 
-			if (strlen($commentformname[$a]) == 47 or strlen($commentformname[$a]) == 54 or strlen($commentformname[$a]) == 43 and $sitename != $sitenazzevo) {
+			if (in_array(strlen($commentformname[$a]), $commentslens) and $sitename != $sitenazzevo) {
+				$cmntsgeral[$b] = '<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$sitehr3.'" />'."\n".$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$divc."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+
+				if ($sitename == $sitenazzevo and strlen($commentformname[$a]) == 43) {
+					echo $cmntsgeral[$b];
+				}
+
+				$a2++;
+				$b++;
+			}
+
+			if (in_array(strlen($commentformname[$a]), $commentslens) and $sitename != $sitenazzevo) {
 				$cmntschapter[$v] = '<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$sitehr3.'" />'.$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$divc."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
 				#echo $cmntschapter[$z];
+
 				$v++;
 				$commentschapternumb++;
 			}
 
-			if ($sitename == $sitenazzevo and strlen($commentformname[$a]) == 45 or strlen($commentformname[$a]) == 52) {
+			if ($sitename == $sitenazzevo and in_array(strlen($commentformname[$a]), $commentslens2)) {
 				$a2 = $a2;
 				$cmntschapter[$v] = '<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$sitehr3.'" />'.$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$divc."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
@@ -106,7 +124,9 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		$c = 0;
 		while ($c <= $commentsnormalnumbtowrite) {
 			if ($sitename == $sitepequenata) {
-				echo $cmntsgeral[$z];
+				if (!strpos($cmntsgeral[$z], 'comment-')) {
+					echo $cmntsgeral[$z];
+				}
 			}
 
 			$z++;

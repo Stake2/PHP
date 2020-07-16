@@ -104,8 +104,6 @@ $authorname = 'Izaque Sanvezzo (stake2)';
 #TextFileReader.php file includer
 include $textfilereaderphp;
 
-$readsfilenumb = 5;
-
 #Story date definer using story date text file
 $storydate = $storydate[0];
 

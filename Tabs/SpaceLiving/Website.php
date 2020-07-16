@@ -13,7 +13,7 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	$sitehasnotifications = true; #Defines if site has notifications on
 	$sitehascommentstab = true; #Defines if site has a Comments Tab variable
 	$sitehidescommentstab = false; #Defines if site has a Comments Tab variable
-	$sitehascomments = false; #Defines the site has comments
+	$sitehascomments = true; #Defines the site has comments
 	$siteshowscomments = true; #Defines if site shows the comments on the Comments Tab
 	$sitehasstories = true; #Defines if site has a Stories Tab
 	$sitehaschangelog = false; #Defines if site has a changelog tab and file to be read
@@ -32,8 +32,8 @@ if (strpos ($host, $params[0].'='.$sitespaceliving) == true) {
 	$storyusestatus = true; #Defines if the story uses the story statuses
 	$storyhaschaptercomments = true; #Defines if the story has comments on the chapter
 	$storyhaswriteform = true; #Defines if the story has writing form to write the story
-	$storycontainsreads = false; #Defines if the story has reads on it
-	$storycontainscomments = false; #Defines if the story has comments on it
+	$storycontainsreads = true; #Defines if the story has reads on it
+	$storycontainscomments = true; #Defines if the story has comments on it
 
 	#Site settings setter file includer
 	include $settingsparamsfile;
