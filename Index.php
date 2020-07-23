@@ -385,7 +385,7 @@ require $phpvars.'VGlobal.php';
 #Siteheader displayer
 echo $siteheader;
 
-if ($sitehasnotifications == true) {
+if ($sitehasnotifications == true and $deactivatenotification != true) {
 	echo '<script>
 ChangeTitle();
 </script>';

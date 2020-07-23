@@ -48,6 +48,14 @@ while ($capnum1 <= $chapters) {
 			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');';
 		}
 
+		if ($deactivatenotification == true) {
+			$hidenotifattribute = '';
+		}
+
+		else {
+			$hidenotifattribute = $hidenotifattribute;
+		}
+
 		if ($capnum1 == $reviewedcap and $sitehasnotifications == true) {
 			echo '<div class="'.$shakesidetosideanim.'">'."\n";
 
@@ -104,6 +112,15 @@ while ($capnum1 <= $chapters) {
 
 		else {
 			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');';
+		}
+
+
+		if ($deactivatenotification == true) {
+			$hidenotifattribute = '';
+		}
+
+		else {
+			$hidenotifattribute = $hidenotifattribute;
 		}
 
 		if ($capnum1 == $reviewedcap and $sitehasnotifications == true) {

@@ -299,7 +299,7 @@ while ($capnum1 <= $chapters) {
 	if ($storyhascovers == true or $storyhascovers == true and $sitename == $sitepequenata and $capnum1 <= 10) {
 		echo '<center>'."\n";
 
-		if (isset($files[$capnum1]) == true) {
+		if (@isset($files[$capnum1]) == true) {
 
 			if ($capnum1 == 2 and $sitename != $sitenazzevo) {
 				#echo $coverimages[3];
@@ -316,8 +316,8 @@ while ($capnum1 <= $chapters) {
 			}
 
 			else {
-				echo $coverimages[$covernumb];
-				echo $coverimagesm[$covernumb];
+				echo @$coverimages[$covernumb];
+				echo @$coverimagesm[$covernumb];
 			}
 		}
 
@@ -328,9 +328,9 @@ while ($capnum1 <= $chapters) {
 	echo '<div id="'.$captextdiv.$capnum1.'">'."\n";
 
 	if ($newwritestyle == true) {
-		$writestorybtn = '<span id="writebtnattribute'.$capnum1.'" style="display:none;">WriteContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" title="" class="w3-btn '.$btnstyle.'" style="border-radius: 50px;" onclick="WriteChapter(WriteContent'.$capnum1.');"><'.$n.'><i class="fas fa-pen"></i></'.$n.'></button><br /><br />'."\n";
+		$writestorybtn = '<span id="writebtnattribute'.$capnum1.'" style="display:none;">WriteContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" title="" class="w3-btn '.$btnstyle2.'" style="border-radius: 50px;" onclick="WriteChapter(WriteContent'.$capnum1.');"><'.$n.'><i class="fas fa-pen"></i></'.$n.'></button><br /><br />'."\n";
 
-		$readstorybtn = '<span id="readbtnattribute'.$capnum1.'" style="display:none;">ReadContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" class="w3-btn '.$btnstyle.'" style="border-radius: 50px;" onclick="OpenChapter2(ReadContent'.$capnum1.');"><'.$n.'><i class="fas fa-book"></i></'.$n.'></button><br /><br />'."\n";
+		$readstorybtn = '<span id="readbtnattribute'.$capnum1.'" style="display:none;">ReadContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" class="w3-btn '.$btnstyle2.'" style="border-radius: 50px;" onclick="OpenChapter2(ReadContent'.$capnum1.');"><'.$n.'><i class="fas fa-book"></i></'.$n.'></button><br /><br />'."\n";
 	}
 
 	#Chapter writer tab displayer
