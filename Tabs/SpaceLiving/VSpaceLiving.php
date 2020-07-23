@@ -116,10 +116,11 @@ else {
 	$sitestorywritechapter = (int)$chaptertowrite;
 }
 
+#StoryVars.php file includer
 include $storyvarsphp;
 
 #Reviewed chapter number
-$reviewedcap = 1;
+$reviewedcap = 2;
 
 #Site descriptions
 $sitedescs = array(

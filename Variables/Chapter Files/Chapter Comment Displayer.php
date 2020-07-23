@@ -76,7 +76,7 @@ if ($sitename == $sitenazzevo and $storyhaschaptercomments == true) {
 	}
 }
 
-if ($sitename == $sitenazzevo and $storycontaisreads) {
+if ($sitename == $sitenazzevo and $storycontainsreads) {
 	if ($capnum1 == 1) {
 		echo $readingsheader."\n";
 
