@@ -27,16 +27,16 @@ $moviesnumb = 0;
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $phptabs.ucwords($site).'/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($site).'/';
 
 #Comment links
 $cmntlinks = array(
-$cdntxt.'Movie Comments/Hoje, Sexta (Vingadores Guerra Infinita).txt', 
-$cdntxt.'Movie Comments/Hoje, Segunda (Power Rangers 2017).txt', 
-$cdntxt.'Movie Comments/Hoje, Sabado (Detona Ralph 2 Ralph Quebra a Internet).txt', 
-$cdntxt.'Movie Comments/Hoje, Domingo (Equestria Girls Spring Breakdown).txt', 
-$cdntxt.'Movie Comments/Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
-$cdntxt.'Movie Comments/Homem-Aranha Longe de Casa 2019.txt',
+$cdn_txt_moviecomments.'Hoje, Sexta (Vingadores Guerra Infinita).txt', 
+$cdn_txt_moviecomments.'Hoje, Segunda (Power Rangers 2017).txt', 
+$cdn_txt_moviecomments.'Hoje, Sabado (Detona Ralph 2 Ralph Quebra a Internet).txt', 
+$cdn_txt_moviecomments.'Hoje, Domingo (Equestria Girls Spring Breakdown).txt', 
+$cdn_txt_moviecomments.'Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
+$cdn_txt_moviecomments.'Homem-Aranha Longe de Casa 2019.txt',
 );
 
 #Comments buttons
@@ -51,7 +51,7 @@ $cmnts = array(
 
 #Site image link and image size
 $siteimage = 'WH';
-$siteimage = $cdn."/img/".$siteimage.".png";
+$siteimage = $cdnimg.$siteimage.".png";
 $imglink = $siteimage;
 $imagesize1 = 27;
 $imagesize2 = 61;
@@ -86,12 +86,12 @@ $linkmedias = array(
 
 #Image links for the Links tab
 $linkimgs = array(
-$cdn.'/img/twd.jpg', 
-$cdn.'/img/mlp.png', 
-$cdn.'/img/ben10.jpg', 
-$cdn.'/img/alan.jpg', 
-$cdn.'/img/saoa.jpg', 
-$cdn.'/img/bg.jpg',
+$cdnimg.'twd.jpg', 
+$cdnimg.'mlp.png', 
+$cdnimg.'ben10.jpg', 
+$cdnimg.'alan.jpg', 
+$cdnimg.'saoa.jpg', 
+$cdnimg.'bg.jpg',
 );
 
 #TextFileReader.php file includer
@@ -112,7 +112,7 @@ if ($lang == $langs[0]) {
 	$sitename = $site;
 	
 	$sitetitulo = ucwords($site).' History';
-	$sitetitulo2 = ucwords($site).' History'.': '.$icons[5].' <span class="w3-text-yellow">['.$everywatchednumb." ".$mediastxt.']</span>';
+	$sitetitulo2 = ucwords($site).' History'.': '.$icons[5].$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
 	$siteurl = $siteurlgeral;
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
@@ -125,7 +125,7 @@ if ($lang == $langs[1]) {
 	$sitename = $site;
 	
 	$sitetitulo = ucwords($site).' History '.$lang2;
-	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].' <span class="w3-text-yellow">['.$everywatchednumb." ".$mediastxt.']</span>';
+	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
 	$siteurl = $siteurlgeral.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
@@ -138,7 +138,7 @@ if ($lang == $langs[2]) {
 	$sitename = $site;
 
 	$sitetitulo = ucwords($site).' History '.$lang2;
-	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].' <span class="w3-text-yellow">['.$everywatchednumb." ".$mediastxt.']</span>';
+	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
 	$siteurl = $siteurlgeral.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[1];

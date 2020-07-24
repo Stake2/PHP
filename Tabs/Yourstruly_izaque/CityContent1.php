@@ -2,6 +2,9 @@
 
 echo $divzoomanim."\n";
 
+echo '<'.$m.'>'."\n";
+echo $textalign_left;
+
 #Chapter file text link array generator, it generates the array to access the text files of the chapters
 $a = 0;
 $z = 1;
@@ -12,6 +15,8 @@ while ($a <= $chapters) {
 	$a++;
 	$z++;
 }
+
+echo $blackspan."\n";
 
 $array = $caps;
 $capnum1 = 0;
@@ -31,6 +36,11 @@ while ($c <= count($array) - 1) {
 	$capnum1++;
 	$c++;
 }
+
+echo $spanc."\n";
+
+echo $divc."\n";
+echo '</'.$m.'>'."\n";
 
 echo $divc."\n";
 

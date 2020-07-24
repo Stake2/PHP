@@ -2,15 +2,15 @@
 
 #CSS color and text style variables
 $color2 = 'blue2';
-$color3 = 'white';
+$color3 = 'black';
 $color4 = 'blue2';
 $color5 = 'blue2';
 $colortext = 'w3-text-white';
 $colorsubtext = 'w3-text-black';
 $colorsubtext2 = 'w3-text-black';
-$sitehr = 'greyhr';
-$sitehr2 = 'greyhr';
-$sitehr3 = 'greyhr';
+$sitehr = 'blackhr';
+$sitehr2 = 'blackhr';
+$sitehr3 = 'blackhr';
 $spanstyle = '';
 $formbtnstyle = '';
 
@@ -41,28 +41,28 @@ $m = 'h5';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
 $storyfolder = $sistoryfolder;
 
 #Defines the folder for the chapter text files that are going to be read
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
-	$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($lang).'.txt';
+	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
+	$titlesfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($lang).'.txt';
 
 	$lang = $langs[0];
 }
 
 else {
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
-	$titlesfile = $rootstoryfolder.$storyfolder.'/CapTitles '.strtoupper($lang).'.txt';
+	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
+	$titlesfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($lang).'.txt';
 }
 
 #Site image vars
 $siteimage = 'Eu e o computador (Stake2)';
 
 #Defines the site image if the site has book covers or not
-$siteimage = $cdn.'/'.'img'.'/'.$siteimage.'.png';
+$siteimage = $cdnimg.$siteimage.'.png';
 $imagesize1 = 60;
 $imagesize2 = 100;
 
@@ -141,7 +141,7 @@ if ($lang == $langs[2]) {
 #Buttons and tabs definer
 #Tab titles definer
 $tabtitles = array(
-$tabnames[0],
+$blackspan.$tabnames[0].$spanc,
 );
 
 #Button names definer

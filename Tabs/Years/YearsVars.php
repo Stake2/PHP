@@ -38,16 +38,16 @@ $luiza,
 
 #Story links array
 $storylinks = array(
-'https://diario.netlify.com/pequenata/',
-'https://diario.netlify.com/new_world/spaceliving/',
-'https://diario.netlify.com/lonely stories/',
-'https://diario.netlify.com/nazzevo/',
-'https://diario.netlify.com/luiza/',
+$url.'pequenata/',
+$url.'new_world/spaceliving/',
+$url.'lonely stories/',
+$url.'nazzevo/',
+$url.'luiza/',
 );
 
 #Links array
 $links = array(
-'https://diario.netlify.com/stake2/',
+$url.'stake2/',
 );
 
 #English texts
@@ -135,26 +135,30 @@ if ($lang == $langs[2]) {
 }
 
 #Years folder
-$yeartxtfolder = $maintextfolder2.'/Anos/';
+$yeartxtfolder = $notepad_years_folder_variable;
 
 #YearsNumbers.txt files
-$yearnumbsfile2018 = $yeartxtfolder.''.$site2018.'/'.$site2018.' Numbers'.'.txt';
-$yearnumbsfile2019 = $yeartxtfolder.''.$site2019.'/'.$site2019.' Numbers'.'.txt';
+$yearnumbsfile2018 = $yeartxtfolder.$site2018.'/'.$site2018.' Numbers.txt';
+$yearnumbsfile2019 = $yeartxtfolder.$site2019.'/'.$site2019.' Numbers.txt';
 
 #YearNumbers.txt 2018 number counter
 $yearnumbsnumber2018 = 0;
-$handle = fopen ($yearnumbsfile2018, "r");
-while (!feof ($handle)){
-	$line = fgets ($handle);
-	$yearnumbsnumber2018++;
+if (file_exists($yearnumbsfile2018)) {
+	$handle = fopen ($yearnumbsfile2018, "r");
+	while (!feof ($handle)){
+		$line = fgets ($handle);
+		$yearnumbsnumber2018++;
+	}
 }
 
 #YearNumbers.txt 2019 number counter
 $yearnumbsnumber2019 = 0;
-$handle = fopen ($yearnumbsfile2019, "r");
-while (!feof ($handle)){
-	$line = fgets ($handle);
-	$yearnumbsnumber2019++;
+if (file_exists($yearnumbsfile2019)) {
+	$handle = fopen ($yearnumbsfile2019, "r");
+	while (!feof ($handle)){
+		$line = fgets ($handle);
+		$yearnumbsnumber2019++;
+	}
 }
 
 #YearNumbers.txt 2018 and 2019 numbers
@@ -165,17 +169,21 @@ $yearnumbsnumb2019file = $yearnumbsnumber2019 - 1;
 $yearnumbsnumb2019filetxt = $yearnumbsnumber2019;
 
 #YearNumbers.txt 2018 file reader
-$yearnumbs2018fp = @fopen($yearnumbsfile2018, 'r', 'UTF-8');
-if ($yearnumbs2018fp) {
-	$yearnumbs2018root = explode("\n", fread($yearnumbs2018fp, filesize($yearnumbsfile2018)));
-	$yearnumbs2018txt = str_replace("^", "", $yearnumbs2018root);
+if (file_exists($yearnumbsfile2018)) {
+	$yearnumbs2018fp = fopen($yearnumbsfile2018, 'r', 'UTF-8');
+	if ($yearnumbs2018fp) {
+		$yearnumbs2018root = explode("\n", fread($yearnumbs2018fp, filesize($yearnumbsfile2018)));
+		$yearnumbs2018txt = str_replace("^", "", $yearnumbs2018root);
+	}
 }
 
 #YearNumbers.txt 2019 file reader
-$yearnumbs2019fp = @fopen($yearnumbsfile2019, 'r', 'UTF-8');
-if ($yearnumbs2019fp) {
-	$yearnumbs2019root = explode("\n", fread($yearnumbs2019fp, filesize($yearnumbsfile2019)));
-	$yearnumbs2019txt = str_replace("^", "", $yearnumbs2019root);
+if (file_exists($yearnumbsfile2019)) {
+	$yearnumbs2019fp = fopen($yearnumbsfile2019, 'r', 'UTF-8');
+	if ($yearnumbs2019fp) {
+		$yearnumbs2019root = explode("\n", fread($yearnumbs2019fp, filesize($yearnumbsfile2019)));
+		$yearnumbs2019txt = str_replace("^", "", $yearnumbs2019root);
+	}
 }
 
 #Replacer for characters

@@ -44,13 +44,13 @@ $size = '';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
 $storyfolder = $slstoryfolder;
 
 #Form code for the comment and read forms
 $formcode = 'spaceliving';
 
-$nolangstoryfolder = $rootstoryfolder.$storyfolder.'/';
+$nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 include $coverimagesgeneratorphp;

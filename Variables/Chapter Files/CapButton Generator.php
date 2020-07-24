@@ -52,7 +52,7 @@ while ($capnum1 <= $chapters) {
 			$hidenotifattribute = '';
 		}
 
-		else {
+		elseif (isset($hidenotifattribute)) {
 			$hidenotifattribute = $hidenotifattribute;
 		}
 
@@ -119,7 +119,7 @@ while ($capnum1 <= $chapters) {
 			$hidenotifattribute = '';
 		}
 
-		else {
+		elseif (isset($hidenotifattribute)) {
 			$hidenotifattribute = $hidenotifattribute;
 		}
 

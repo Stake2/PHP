@@ -65,8 +65,8 @@ $stry5,
 $stry6);
 
 $strylnks = array(
-'<a href="https://diario.netlify.com/📘/" class="'.$colortext2.'">'.$strynames[1].'</a>', 
-'<a href="https://diario.netlify.com/'.$pqntlink.'/" class="'.$colortext2.'">'.$strynames[0].'</a>',
+'<a href="'.$url.'📘/" class="'.$colortext2.'">'.$strynames[1].'</a>', 
+'<a href="'.$url.$pqntlink.'/" class="'.$colortext2.'">'.$strynames[0].'</a>',
 );
 
 $strycapnumb = array(22, 7);

@@ -40,13 +40,15 @@ $size = '';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
 $storyfolder = $pqntstoryfolder;
 
 #Form code for the comment and read forms
 $formcode = 'pequenata';
 
-$nolangstoryfolder = $rootstoryfolder.$storyfolder.'/';
+$nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
+
+$cover_folder = $cdn_image_stories.'/Pequenata/Capas/Kids/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 include $coverimagesgeneratorphp;
@@ -68,7 +70,7 @@ if ($storyhascovers == true) {
 }
 
 else {
-	$siteimage = $cdn.'/'.'img'.'/'.$siteimage.'.jpg';
+	$siteimage = $cdnimg.$siteimage.'.jpg';
 	$imagesize1 = 30;
 	$imagesize2 = 77;
 }

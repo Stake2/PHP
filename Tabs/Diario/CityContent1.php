@@ -7,7 +7,7 @@ echo $divzoomanim;
 
 $reviewedcap = 0;
 
-require $capbtngeneratorphp;
+require $chapter_button_generator_php;
 
 /*
 $blocknum1 = 1;

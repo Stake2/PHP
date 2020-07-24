@@ -20,11 +20,15 @@ $divshakeanim = '<div class="animationthing">';
 $divzoomanimlouco = '<div class="animationthing2">';
 
 $divtextalignleft = '<div style="text-align:left;">';
+$textalign_left = '<div style="text-align:left;">';
 
 $mobilevar = 'mobileShow';
 $computervar = 'mobileHide';
 $mobilediv = '<div class="'.$mobilevar.'">';
 $computerdiv = '<div class="'.$computervar.'">';
+
+$mobile_div = $mobilediv;
+$computer_div = $computerdiv;
 
 $citystyle = 'city '.$computervar;
 $citystylem = 'city '.$mobilevar;
@@ -53,15 +57,19 @@ $iframestyle = 'width="100%" height="650"';
 $iframestylem = 'width="350" height="300"';
 
 $divc = '</div>';
+$h1c = '</h1>';
 $h2c = '</h2>';
 $h4c = '</h4>';
 $bigspace = '<div class="'.$computervar.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
 $bigspacemobileandcomputer = '<div class="'.$mobilevar.'"><br /><br /><br />'.$divc."\n".'<div class="'.$computervar.'"><br /><br /><br /><br /><br />'.$divc."\n";
+
 $margin = '<div style="margin:3%;">';
 $margin2 = '<div style="margin:3%;">';
 $margin3 = '<div style="margin:5%;">';
 $notifbtncss1 = 'float:left;margin-left:-10%;';
 $notifbtncss2 = 'float:left;';
+
+$margin_3_h1 = '<h1 style="margin-left:3%;">'.'<b>';
 
 if ($roundedbuttonson == true) {
 	$roundedborderstyle = 'style="border-radius: 50px;"';

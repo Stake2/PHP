@@ -28,16 +28,16 @@ if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
 	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog');
 
 	#Site Tabnames array
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog', 'Chapters', 'Comments');
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Registro de Mudanças', 'Capítulos', 'Comentários');
 	}
 
 	#Number of tabs
-	$tabnumb = 5;
+	$tabnumb = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $genericcitiesgeneratorfile;

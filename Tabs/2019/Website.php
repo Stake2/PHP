@@ -9,20 +9,22 @@ if (strpos ($host, $params[0].'='.$site2019) == true) {
 	$sitename = $choosenwebsite;
 	$setsitecssfile = $pocbcss;
 
+	$siteusescitybodygenerator = false;
+
 	#Site settings setter file includer
 	include $settingsparamsfile;
 
 	$tabs = array($ano, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$tabnames = array($ano, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$tabnames = array($ano, 'Mídia', 'Amigos', 'Prints', 'Tarefas', 'Anos');
 	}
 
-	$tabnumb = 5;
+	$tabnumb = count($tabnames) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $genericcitiesgeneratorfile;

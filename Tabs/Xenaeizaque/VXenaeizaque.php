@@ -40,8 +40,8 @@ $size = '';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
-$storyfolder = $pqntstoryfolder;
+$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
+#$storyfolder = $pqntstoryfolder;
 
 #Site image vars
 $siteimage = 'Eu e ela juntos';

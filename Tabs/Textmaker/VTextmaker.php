@@ -26,12 +26,12 @@ $sitedesc2 = 'tet';
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder."/";
-$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
-$yeartxtfolder = $maintextfolder2.'Anos/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
+$yeartxtfolder = $notepad_years_folder_variable;
 
 #Site image vars
 $siteimage = 'TM';
-$siteimage = $cdn."/img/".$siteimage.".png";
+$siteimage = $cdnimg.$siteimage.".png";
 $imglink = $siteimage;
 $imagesize1 = 27;
 $imagesize2 = 61;
@@ -43,22 +43,22 @@ $sitedescs = array(
 );
 
 #Year Numbers.txt file and YearMaker.php file definers
-$yearnumbsfile = $yeartxtfolder.'2019/'.'2019 Numbers'.'.txt';
-$yearmakerfilephp = $phptabs.ucwords($site).'/YearMaker.php';
-$yearmakerfilephp2 = $phptabs.ucwords($site).'/YearMaker2.php';
-$storynumbsfile = $rootstoryfolder.'Story Numbers'.'.txt';
+$yearnumbsfile = $yeartxtfolder.'2019/2019 Numbers.txt';
+$yearmakerfilephp = $php_tabs_variable.ucwords($site).'/YearMaker.php';
+$yearmakerfilephp2 = $php_tabs_variable.ucwords($site).'/YearMaker2.php';
+$storynumbsfile = $notepad_stories_folder_variable.'Story Numbers'.'.txt';
 
 #Story text file definer
 if ($lang == $langs[0] or $lang == $langs[1]) {
-	$storytxtsfile = $rootstoryfolder.'My Stories'.'.txt';
+	$storytxtsfile = $notepad_stories_folder_variable.'My Stories.txt';
 }
 
 if ($lang == $langs[2]) {
-	$storytxtsfile = $rootstoryfolder.'Minhas Histórias'.'.txt';
+	$storytxtsfile = $notepad_stories_folder_variable.'Minhas Histórias.txt';
 }
 
 #StoryMaker.php definer
-$storymakerfilephp = $phptabs.ucwords($site).'/StoryMaker.php';
+$storymakerfilephp = $php_tabs_variable.ucwords($site).'/StoryMaker.php';
 
 #YearsVars.php file includer
 include $yearsvarsfilephp;
@@ -67,8 +67,8 @@ include $yearsvarsfilephp;
 if ($lang == $langs[0]) {
 	$lang2 = strtoupper($lang);
 	$lang2 = substr_replace($lang2, '-', 2, 0);
+
 	$sitename = $site;
-	
 	$sitetitulo = $sitename2;
 	$sitetitulo2 = $sitename2;
 	$siteurl = $siteurlgeral;
@@ -78,8 +78,8 @@ if ($lang == $langs[0]) {
 if ($lang == $langs[1]) {
 	$lang2 = strtoupper($lang);
 	$lang2 = substr_replace($lang2, '-', 2, 0);
+
 	$sitename = $site;
-	
 	$sitetitulo = $sitename2;
 	$sitetitulo2 = $sitename2;
 	$siteurl = $siteurlgeral.strtolower($lang2).'/';
@@ -89,8 +89,8 @@ if ($lang == $langs[1]) {
 if ($lang == $langs[2]) {
 	$lang2 = strtoupper($lang);
 	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $site;
 
+	$sitename = $site;
 	$sitetitulo = $sitename2;
 	$sitetitulo2 = $sitename2;
 	$siteurl = $siteurlgeral.strtolower($lang2).'/';

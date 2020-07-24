@@ -38,7 +38,7 @@ $siteurlgeral = $url.$sitefolder.'/';
 $sitephpfolder2 = $sitefolder_izaquemultiverse;
 
 $siteimagename = 'stk2';
-$siteimage = $cdn.'/img/'.$siteimagename.'.png';
+$siteimage = $cdnimg.$siteimagename.'.png';
 $imglink = $siteimage;
 $imagesize1 = 30;
 $imagesize2 = 66;

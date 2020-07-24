@@ -1,45 +1,74 @@
 <?php
 
-#VGlobal.php site folder, site, cdn and fontawesome link variables
+#VGlobal.php $sitefolder, site, cdn and fontawesome link variables
 $sitefolder = strtolower($site);
 $site = $sitefolder;
-$cdn = $url.'cdn';
-$cdnimg = $cdn.'/img/';
-$cdntxt = $cdn.'/txt/';
-$cdnjs = $cdn.'/js/';
-$cdncss = $cdn.'/css/';
+$cdn = $url.'cdn/';
+$local_cdn = $mega_folder_diario.'cdn/';
+
+$cdnimg = $cdn.'img/';
+$local_cdn_img = $local_cdn.'img/';
+$cdn_image_stories = $cdnimg.'Stories/';
+$cdn_image_drawings = $cdnimg.'Drawings/';
+$local_cdn_image_drawings = $local_cdn_img.'Drawings/';
+
+$cdntxt = $cdn.'txt/';
+$cdn_txt_moviecomments = $cdntxt.'Movie Comments/';
+
+$cdnjs = $cdn.'js/';
+$cdncss = $cdn.'css/';
+
 $fontawesomelink = 'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
 
-#PHP Folders variables
-$maintextfolder = 'C:/Mega/Bloco De Notas/';
-$maintextfolder2 = $maintextfolder.'Dedicação/';
-$rootstoryfolder = $maintextfolder2.'Historias/';
-$diariofolder = $maintextfolder.'Diario/Blocks/';
-$diariofolder2 = $maintextfolder.'Diario/';
+#Notepad/Bloco De Notas folder variables
+$notepad_folder = $mega_folder.'Bloco De Notas/';
+
+$notepad_folder_effort = $notepad_folder.'Dedicação/';
+$notepad_folder_effort_networks = $notepad_folder_effort.'Networks/';
+$notepad_folder_effort_medianetwork = $notepad_folder_effort_networks.'Media Network/';
+
+$diario_folder = $notepad_folder.'Diario/';
+$diario_folder_blocks = $diario_folder.'Blocks/';
+
+$notepad_stories_folder = $notepad_folder_effort.'Historias/';
+$notepad_years_folder = $notepad_folder_effort.'Anos/';
+
+$notepad_stories_folder_variable = $notepad_stories_folder;
+$notepad_years_folder_variable = $notepad_years_folder;
+$notepad_folder_effort_variable = $notepad_folder_effort;
+
+$siteheaderfilephp = $php_variables.'SiteHeader.php';
+$globalstylefilephp = $php_variables.'GlobalStyle.php';
+$tabgeneratorphp = $php_variables.'Tab Generator.php';
+$topbuttonscreator = $php_variables.'Top Buttons Creator.php';
+$topbuttonsloader = $php_variables.'Buttons PHP File Loader.php';
+$textfilereaderphp = $php_variables.'TextFileReader.php';
+
+$stylefilephp = $php_variables.'SiteStyle.php';
+
+$newdesignphp = $php_variables.'New Design/NewDesignScript.php';
+$newdesignsitephp = $php_variables.'New Design/NewDesignSite.php';
+
+$vyears_php = $php_tabs_variable.$folder3.'/'.'V'.$folder3.'.php';
 
 #PHP Files
 $globalfilesphp = array(
-$siteheaderfile = $phpvars.'SiteHeader.php',
-$stylefilephp = $phpvars.'SiteStyle.php',
-$globalstylefilephp = $phpvars.'GlobalStyle.php',
-$formfile = $phpvars.'FormFile.php',
-$storieslinksphp = $phpvars.'StoriesLinks.php',
-$topbuttonscreator = $phpvars.'Top Buttons Creator.php',
-$topbuttonsloader = $phpvars.'Buttons PHP File Loader.php',
-$notificationsphp = $phpvars.'Notifications.php',
-$textfilereaderphp = $phpvars.'TextFileReader.php',
-$tabgeneratorphp = $phpvars.'Tab Generator.php',
-$storyvarsphp = $phpvars.'StoryVars.php',
-$capbtngeneratorphp = $phpvars.'Chapter Files/CapButton Generator.php',
-$coverimagesgeneratorphp = $phpvars.'Cover Images Displayer.php',
-$chaptercommentdisplayerphp = $phpvars.'Chapter Files/Chapter Comment Displayer.php',
-$newdesignphp = $phpvars.'NewDesignScript.php',
-$newdesignsitephp = $phpvars.'NewDesignSite.php',
-$citybodiesgeneratorphp = $phpvars.'CityBodies Generator.php',
-$sitesbuttonsattributes = $phptabs.'Sites Buttons Tab/SitesButtons Attributes.php',
-$sitesbuttonstab = $phptabs.'Sites Buttons Tab/SitesButtons Tab.php',
-$sitesbuttonscreator = $phptabs.'Sites Buttons Tab/Sites Button Creator.php',
+$formfile = $php_variables.'FormFile.php',
+$notificationsphp = $php_variables.'Notifications.php',
+$storyvarsphp = $php_variables.'StoryVars.php',
+$coverimagesgeneratorphp = $php_variables.'Cover Images Displayer.php',
+$citybodiesgeneratorphp = $php_variables.'CityBodies Generator.php',
+$sitesbuttonsattributes = $php_tabs.'Sites Buttons Tab/SitesButtons Attributes.php',
+$sitesbuttonstab = $php_tabs.'Sites Buttons Tab/SitesButtons Tab.php',
+$sitesbuttonscreator = $php_tabs.'Sites Buttons Tab/Sites Button Creator.php',
 );
+
+#Chapter Generator PHP files
+$chapter_button_generator_php = $php_variables.'Chapter Files/CapButton Generator.php';
+$chaptercommentdisplayerphp = $php_variables.'Chapter Files/Chapter Comment Displayer.php';
+$chapterwriterdisplayer = $php_variables.'Chapter Files/Chapter Writer Displayer.php';
+$chaptertextdisplayer = $php_variables.'Chapter Files/Chapter Text Displayer.php';
+$storieslinksphp = $php_variables.'StoriesLinks.php';
 
 #GlobalTabs array
 $globaltabs = array(
@@ -50,24 +79,14 @@ $writeglobal = $phpglobaltabs.'Write'.$global.'.php',
 $storiesglobal = $phpglobaltabs.'Stories'.$global.'.php',
 );
 
-$chapterwriterdisplayer = $phpvars.'Chapter Files/Chapter Writer Displayer.php';
-$chaptertextdisplayer = $phpvars.'Chapter Files/Chapter Text Displayer.php';
-
-#Global files array
-$globalfiles = array(
-$stylefilephp, 
-$siteheaderfile, 
-$globalstylefilephp,
-);
-
 #Watch PHP files
-$mediaarraygenerator = $phptabs.'Watch/MediaArrayGenerator.php';
-$mediastyler = $phptabs.'Watch/MediaStyler.php';
-$watchedmediageneratorphp = $phptabs.'Watch/WatchedMedia2020 Generator.php';
-$watchtextsphp = $phptabs.'Watch/WatchTexts.php';
+$mediaarraygenerator = $php_tabs.'Watch/MediaArrayGenerator.php';
+$mediastyler = $php_tabs.'Watch/MediaStyler.php';
+$watchedmediageneratorphp = $php_tabs.'Watch/WatchedMedia2020 Generator.php';
+$watchtextsphp = $php_tabs.'Watch/WatchTexts.php';
 
 #Years PHP Files
-$yearsvarsfilephp = $phptabs.'Years/YearsVars.php';
+$yearsvarsfilephp = $php_tabs.'Years/YearsVars.php';
 
 #English texts for all websites
 if (in_array($lang, $en_langs)) {
@@ -135,19 +154,19 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	'2020',
 	);
 
-	$mediareader2018 = $phptabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
-	$mediareader2019 = $phptabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
+	$mediareader2018 = $php_tabs_variable.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
+	$mediareader2019 = $php_tabs_variable.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
 
 	if (in_array($lang, $en_langs)) {
-		$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
+		$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[2].'.txt';
+		$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$langs[2].'.txt';
 	}
 
-	$watchedtypefile2019 = $maintextfolder2.'Anos/'.$site2019.'/Watched VideoTypes.txt';
-	$yearmakerfilephp2test = $phptabs.ucwords($sitetextmaker).'/YearMaker2.php';
+	$watchedtypefile2019 = $notepad_years_folder_variable.$site2019.'/Watched VideoTypes.txt';
+	$yearmakerfilephp2test = $php_tabs_variable.ucwords($sitetextmaker).'/YearMaker2.php';
 	$yearmakerfilephp2test = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearmakerfilephp2test);
 
 	if (file_exists($watchedtypefile2018) == true) {
@@ -238,10 +257,10 @@ date_default_timezone_set("America/Sao_Paulo");
 $data = date("d/m/Y");
 
 #SiteStyle.php includer
-include $globalfiles[0];
+include $stylefilephp;
 
 #Global CSS variables
-require $globalfiles[2];
+require $globalstylefilephp;
 
 #Stories variables includer if the site is a story site
 require $storyvarsphp;
@@ -251,7 +270,7 @@ require $sitesbuttonsattributes;
 
 #VYears.php file loader for YearsSites
 if (in_array($sitename, $yeararray)) {
-	require $phptabs.$folder3.'/'.'V'.$folder3.'.php';
+	require $vyears_php;
 }
 
 #Websites array
@@ -332,6 +351,6 @@ if ($sitename != $sitetextmaker) {
 	$sitedesc = $sitedesc;
 }
 
-require $globalfiles[1];
+require $siteheaderfilephp;
 
 ?>

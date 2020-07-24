@@ -45,6 +45,8 @@ if ($sitename != $sitewatch) {
 }
 
 $a2019 = false;
+$a2018text = true;
+$a2019text = false;
 $regeneratemedias2019 = true;
 $generate2019 = false;
 #YearMaker2.php reader

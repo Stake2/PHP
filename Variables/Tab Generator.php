@@ -112,10 +112,14 @@ if ($hidecitysetting != true) {
 if ($siteusescitybodygenerator == false) {
 	#Array of the city body files
 	$i = 0;
+	$i2 = $i + 1;
+
+	#$citybodyfiles_array[$i] = $sitephpfolder2.'CityBody'.$i2.'.php';
 
 	if (file_exists($sitephpfolder2.'CityBody'.$i2.'.php')) {
 		while ($i <= $tabnumb) {
 			$i2 = $i + 1;
+
 			$citybodyfiles[$i] = $sitephpfolder2.'CityBody'.$i2.'.php';
 
 			$i++;
@@ -230,11 +234,24 @@ while ($i <= $tabnumb) {
 	$i2 = $i + 1;
 
 	if (isset($citybodies[$i])) {
-		$citiescontent[$i] = $citytitles[$i].$citybodies[$i].$citycontents[$i];
+		if (isset($citytitles)) {
+			$citiescontent[$i] = $citytitles[$i].$citybodies[$i].$citycontents[$i];
+		}
+
+		if (!isset($citytitles)) {
+			$citiescontent[$i] = $citybodies[$i].$citycontents[$i];
+		}
 	}
 
 	else {
-		$citiescontent[$i] = $citytitles[$i].$citycontents[$i];
+		#print_r($citytitles);
+		if (isset($citytitles)) {
+			$citiescontent[$i] = $citytitles[$i].$citycontents[$i];
+		}
+
+		if (!isset($citytitles)) {
+			$citiescontent[$i] = $citycontents[$i];
+		}
 	}
 
 	$i++;

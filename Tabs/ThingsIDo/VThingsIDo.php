@@ -49,23 +49,23 @@ include $watchtextsphp;
 #Folder variables
 $siteurlgeral = $url.$siteurlcodes[0].'/';
 $siteurlgeral2 = $url.$siteurlcodes[1].'/';
-$sitephpfolder2 = $phptabs.ucwords($sitethingsido).'/';
-$imageswebfolder = 'C:/Mega/Diario/cdn/img/drawings/';
-$drawingswebfolder = $url.'cdn'.'/'.'img'.'/'.'drawings'.'/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($sitethingsido).'/';
+$imageswebfolder = $local_cdn_image_drawings;
+$drawingswebfolder = $cdn_image_drawings;
 
-$mediareader2018 = $phptabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
-$mediareader2019 = $phptabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
+$mediareader2018 = $php_tabs_variable.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
+$mediareader2019 = $php_tabs_variable.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
 
 if ($lang == $langs[0] or $lang == $langs[1]) {
-	$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
+	$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
 }
 
 if ($lang == $langs[2]) {
-	$watchedtypefile2018 = $maintextfolder2.'Anos/'.$site2018.'/Watched VideoTypes '.$langs[2].'.txt';
+	$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$langs[2].'.txt';
 }
 
-$watchedtypefile2019 = $maintextfolder2.'Anos/'.$site2019.'/Watched VideoTypes.txt';
-$yearmakerfilephp2test = $phptabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$watchedtypefile2019 = $notepad_years_folder_variable.$site2019.'/Watched VideoTypes.txt';
+$yearmakerfilephp2test = $php_tabs_variable.ucwords($sitetextmaker).'/YearMaker2.php';
 $yearmakerfilephp2test = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearmakerfilephp2test);
 
 if (file_exists($watchedtypefile2018) == true) {
@@ -110,7 +110,7 @@ if ($lang == $langs[2]) {
 
 #Site image variables
 $siteimage = $siteimage;
-$siteimage = $cdn."/img/".$siteimage.".png";
+$siteimage = $cdnimg.$siteimage.".png";
 $imglink = $siteimage;
 $imagesize1 = 30;
 $imagesize2 = 66;

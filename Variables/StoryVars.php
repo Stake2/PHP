@@ -187,22 +187,22 @@ $sistoryfolder = 'Yours truly, Izaque',
 );
 
 if ($sitetype1 == $types[1]) {
-	$commentheader = '<div class="'.$computervar.'">'.'<br />'.$divc.
-	'<div class="'.$mobilevar.'">'.'<br /><br />'.$divc.
-	'<div class="'.$computervar.'">'.'<'.$n.'><b>'.$cmntstxts[0].'s:</b> '.$icons[12].'</'.$n.'>'.$divc.
-	'<div class="'.$mobilevar.'">'.'<'.$m.'><b>'.$cmntstxts[0].'s:</b> '.$icons[12].'</'.$m.'>'.$divc.
+	$commentheader = $computer_div.'<br />'.$divc.
+	$mobile_div.'<br /><br />'.$divc.
+	$computer_div.'<'.$n.'><b>'.$cmntstxts[0].'s:</b> '.$icons[12].'</'.$n.'>'.$divc.
+	$mobile_div.'<'.$m.'><b>'.$cmntstxts[0].'s:</b> '.$icons[12].'</'.$m.'>'.$divc.
 	''.
-	'<div class="'.$mobilevar.'">'.'<br /><br />'.$divc.
-	'<div class="'.$computervar.'">'.'<br /><br />'.$divc.
+	$mobile_div.'<br /><br />'.$divc.
+	$computer_div.'<br /><br />'.$divc.
 	$margin;
 	
-	$readingsheader = '<div class="'.$computervar.'">'.'<br />'.$divc.
-	'<div class="'.$mobilevar.'">'.'<br />'.$divc.
-	'<div class="'.$computervar.'">'.'<'.$n.'><b>'.$readtxts[5].': ✓</b></'.$n.'>'.$divc.
-	'<div class="'.$mobilevar.'">'.'<'.$m.'><b>'.$readtxts[5].': ✓</b></'.$m.'>'.$divc.
+	$readingsheader = $computer_div.'<br />'.$divc.
+	$mobile_div.'<br />'.$divc.
+	$computer_div.'<'.$n.'><b>'.$readtxts[5].': ✓</b></'.$n.'>'.$divc.
+	$mobile_div.'<'.$m.'><b>'.$readtxts[5].': ✓</b></'.$m.'>'.$divc.
 	''.
-	'<div class="'.$computervar.'">'.'<br /><br />'.$divc.
-	'<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
+	$computer_div.'<br /><br />'.$divc.
+	$mobile_div.'<br /><br />'.$divc;
 }
 
 ?>

@@ -7,7 +7,10 @@ if ($site == $site2018 and $a2019 == false) {
 	$v = 0;
 	#Medias array displayer and generator
 	while ($bb <= 10) {
-		$medias[$v] = '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$bb].'</a>'.': '.$spanc.$bluespan.$yearnumbsfile2019[$bb].$spanc.'<br />'."\n";
+		$medias[$v] = '<a href="'.$url.'watch/" class="w3-text-white">'.$txts[$bb].'</a>'.': '.$spanc.$bluespan.$yearnumbsfile2019[$bb].$spanc.'<br />'."\n";
+
+		$mediastexts[$v] = $txts[$bb].'2018';
+
 		$bb++;
 		$v++;
 	}
@@ -20,7 +23,10 @@ if ($site == $site2018 and $a2019 == true) {
 	$v = 0;
 	#Medias array displayer and generator
 	while ($bb <= 10) {
-		$medias[$v] = '<b>'.'<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$bb].'</a>'.': '.'</b>'.$spanc.$bluespan.'<b>'.$yearnumbs2018txt[$bb].'</b>'.$spanc.'<br />'."\n";
+		$medias[$v] = '<b>'.'<a href="'.$url.'watch/" class="w3-text-white">'.$txts[$bb].'</a>'.': '.'</b>'.$spanc.$bluespan.'<b>'.$yearnumbs2018txt[$bb].'</b>'.$spanc.'<br />'."\n";
+
+		$mediastexts[$v] = $txts[$bb].'2018';
+
 		$bb++;
 		$v++;
 	}
@@ -93,15 +99,15 @@ if ($site == $site2019 and $generate2019 == true) {
 	echo $txts[$i].': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
 	echo '<br />'."\n";
 	$i++;
-	echo '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
+	echo '<a href="'.$url.'watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
 	$i++;
 	echo $txts[$i].': '.'<a href="'.$yearnumbs2019txt[$i].'">'.$bluespan.$yearnumbs2019txt[$i].$spanc.'</a>'.'<br />'."\n";
 	$i++;
 	$v = 0;
 	#Medias array displayer and generator
 	while ($i <= 10) {
-		echo '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
-		$medias[$v] = '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
+		echo '<a href="'.$url.'watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
+		$medias[$v] = '<a href="'.$url.'watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
 		$i++;
 		$v++;
 	}
@@ -235,8 +241,8 @@ if ($site == $site2019 and $generate2019 == true) {
 	$v = 0;
 	#Medias array displayer and generator
 	while ($i <= 10) {
-		echo '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
-		$medias[$v] = '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
+		echo '<a href="'.$url.'watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
+		$medias[$v] = '<a href="'.$url.'watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
 		$i++;
 		$v++;
 	}

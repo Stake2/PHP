@@ -2,7 +2,7 @@
 
 $i = 2;
 $i2 = $i + 2;
-echo '<div class="'.$computervar.'">';
+echo $computer_div;
 echo '<a href="#'.$tabcodes[$i].'" style="float:left;"><button class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".'">'.$icons[28].'</button></a>'."\n";
 
 echo '<a href="#'.$tabcodes[$i2].'" style="float:right;"><button class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
@@ -10,7 +10,7 @@ echo '<a href="#'.$tabcodes[$i2].'" style="float:right;"><button class="w3-btn '
 echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$btnstyle.'" style="float:left;margin-left:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 echo $divc."\n";
 
-echo '<div class="'.$mobilevar.'">';
+echo $mobile_div;
 echo '<a href="#'.$tabcodesm[$i].'" style="float:left;"><button class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".'">'.$icons[28].'</button></a>'."\n";
 
 echo '<a href="#'.$tabcodesm[$i2].'" style="float:right;"><button class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
@@ -20,7 +20,7 @@ echo $divc."\n";
 
 echo '<br /><br />';
 
-echo '<div class="'.$computervar.'">'."\n";
+echo $computer_div."\n";
 echo $margin."\n";
 echo '<div class="'.$textstyle2.'" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n";
 echo $margin."\n";
@@ -50,7 +50,7 @@ while ($c <= $sitenumb) {
 
 echo $divc."\n";
 
-echo '<div class="'.$mobilevar.'">'."\n";
+echo $mobile_div."\n";
 echo $margin."\n";
 echo '<div class="'.$textstyle2.'" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n";
 echo $margin."\n";
@@ -59,7 +59,6 @@ echo '<p style="margin-bottom:7%;">'.$tabdescriptions[2].$pc."\n";
 echo $divc."\n";
 echo $divc."\n";
 echo $divc."\n";
-
 
 echo $margin."\n";
 echo $margin."\n";

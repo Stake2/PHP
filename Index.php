@@ -5,24 +5,32 @@ $host = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "htt
 
 #Site variables
 $url = 'https://diario.netlify.app/';
+$mega_folder = 'C:/Mega/';
+$mega_folder_diario = $mega_folder.'Diario/';
+$sitephpfolder = $mega_folder.'PHP/';
+
 $folder1 = 'Tabs';
 $folder2 = 'Variables';
 $folder3 = 'Years';
 $global = 'Global';
 $generic = 'Generic';
-$sitephpfolder = 'C:/Mega/PHP/';
+
 $sitephpfoldertabs = $sitephpfolder.$folder1.'/';
 $sitephpfoldervars = $sitephpfolder.$folder2.'/';
 $sitetabsgeralfolder = $sitephpfolder.$folder1.'/'.$generic.$folder1.'/';
 $siteglobaltabsfolder = $sitephpfolder.$folder1.'/'.$global.$folder1.'/';
 
-$phptabs = $sitephpfoldertabs;
-$phpvars = $sitephpfoldervars;
+$php_tabs = $sitephpfoldertabs;
+$php_variables = $sitephpfoldervars;
 $phpglobaltabs = $siteglobaltabsfolder;
 
-$websiteselectorfile = $phpvars.'Website Selector.php';
-$genericcitiesgeneratorfile = $phpvars.'GenericCities Generator.php';
-$settingsparamsfile = $phpvars.'Settings Params.php';
+$php_tabs_variable = $php_tabs;
+
+$vglobal_php = $php_variables.'VGlobal.php';
+
+$websiteselectorfile = $php_variables.'Website Selector.php';
+$genericcitiesgeneratorfile = $php_variables.'GenericCities Generator.php';
+$settingsparamsfile = $php_variables.'Settings Params.php';
 
 #Queries for parameters
 $params = array(
@@ -183,7 +191,7 @@ foreach ($sitetitlesarray as $value) {
 #Array of the paths of the website folders in the local drive
 $i = 0;
 foreach ($sitenamesarray as $value) {
-    ${"sitefolder_$value"} = $phptabs.ucwords($sitearray[$i]).'/';
+    ${"sitefolder_$value"} = $php_tabs.ucwords($sitearray[$i]).'/';
 
 	$sitefolders[$i] = ${"sitefolder_$value"};
 
@@ -202,7 +210,7 @@ foreach ($sitefolders as $folder) {
 #V[Site].php Files array
 $i = 0;
 foreach ($sitearray as $value) {
-	$varsfile = $phptabs.ucwords($value).'/'.'V'.ucwords($value).'.php';
+	$varsfile = $php_tabs.ucwords($value).'/'.'V'.ucwords($value).'.php';
 	if (file_exists($varsfile)) {
 		$sitefilevars[$i] = $varsfile;
 	}
@@ -217,7 +225,7 @@ foreach ($sitearray as $value) {
 #Website.php Files array
 $i = 0;
 foreach ($sitearray as $value) {
-	$websitefile = $phptabs.ucwords($value).'/'.'Website.php';
+	$websitefile = $php_tabs.ucwords($value).'/'.'Website.php';
 
 	if (file_exists($websitefile)) {
 		$sitewebsitefiles[$i] = $websitefile;
@@ -376,7 +384,7 @@ if (!isset($sitename) and !isset($site)) {
 }
 
 #VGlobal.php variables file includer
-require $phpvars.'VGlobal.php';
+require $vglobal_php;
 
 ?>
 <!DOCTYPE html>
@@ -394,7 +402,7 @@ ChangeTitle();
 #Inserts a CSS style tag for a style used in all the websites
 echo '<style>
 textarea {outline: none!important;}
-</style>';
+</style>'."\n"."\n";
 
 #Site notification file includer if setting is true
 if ($sitehasnotifications == true and $deactivatenotification == false) {
@@ -403,7 +411,7 @@ if ($sitehasnotifications == true and $deactivatenotification == false) {
 
 if ($deactivatetabs == false) {
 	#Tabs loader
-	include $phpvars.'Tab Loader.php';
+	include $php_variables.'Tab Loader.php';
 }
 
 echo $animationstylecss."\n"."\n";
@@ -422,7 +430,7 @@ a:active {color: blue!important;}
 if ($siteuseschapteropener == true) {
 	echo "\n";
 	echo '<script>'."\n";
-	include $phpvars.'OpenChapterScript.php';
+	include $php_variables.'OpenChapterScript.php';
 	echo '</script>'."\n";
 	echo "\n";
 }

@@ -36,9 +36,9 @@ $border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$roun
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $phptabs.ucwords($choosenwebsite).'/';
+$sitephpfolder2 = $php_tabs.ucwords($choosenwebsite).'/';
 $blockreaderphp = $sitephpfolder2.'BlockReader.php';
-$storyfolder = $diariofolder;
+$storyfolder = $diario_folder_blocks;
 
 $nolangstoryfolder = $storyfolder;
 
@@ -83,7 +83,7 @@ if ($lang == $langs[2]) {
 	$siteimage = 'diario 2';
 }
 
-$siteimage = $cdn."/img/".$siteimage.".png";
+$siteimage = $cdnimg.$siteimage.".png";
 $imglink = $siteimage;
 $imagesize1 = 30;
 $imagesize2 = 66;
@@ -114,12 +114,13 @@ if ($lang == $langs[2]) {
 
 #Characters array
 $characters = array(
-'<h1 style="margin-left:3%;">'.'<b>'.$orangespan.'Izaque (stake2):'.$spanc.'</b>'.'</h1>',
-'<h1 style="margin-left:3%;">'.'<b>'.$bluespan.$nodusname.':'.$spanc.'</b>'.'</h1>',
-'<h1 style="margin-left:3%;">'.'<b>'.$cyanspan.$tedname.':'.$spanc.'</b>'.'</h1>',
+$margin_3_h1.'<b>'.$orangespan.'Izaque (stake2):'.$spanc.'</b>'.$h1c,
+$margin_3_h1.'<b>'.$bluespan.$nodusname.':'.$spanc.'</b>'.$h1c,
+$margin_3_h1.'<b>'.$cyanspan.$tedname.':'.$spanc.'</b>'.$h1c,
 );
 
 #TextFileReader.php file includer
+$used_folder = $diario_folder;
 include $textfilereaderphp;
 
 #Site numbers

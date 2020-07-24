@@ -54,6 +54,11 @@ if ($sitename == $sitewatch and $thingsidofake == null or $thingsidofake == fals
 	$a2019 = true;
 }
 
+if ($sitename == $site2018) {
+	$regeneratemedias2019 = false;
+	$a2019 = true;
+}
+
 #YearMaker2.php reader
 include $yearmakerfilephp2test;
 echo '<br />'."\n";

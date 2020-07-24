@@ -61,7 +61,7 @@ if ($storyhasdates == true) {
 	while ($a <= $chapters) {
 		$a2 = $a - 1;
 
-		$capdatesfile = $rootstoryfolder.$storyfolder."/".'Datas.txt';
+		$capdatesfile = $notepad_stories_folder_variable.$storyfolder.'/Datas.txt';
 
 		$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
 		if ($fp) {

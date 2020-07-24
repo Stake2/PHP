@@ -1,7 +1,7 @@
 <?php 
 
 $i = 3;
-echo '<div class="'.$computervar.'">';
+echo $computer_div."\n";
 echo '<a class="link" href="#'.$tabcodes[$i].'" style="float:right;"><button class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".'">'.$icons[29].'</button></a>'."\n";
 echo '<a class="link" href="#'.$citycodes[0].'"><button class="w3-btn '.$btnstyle.'" style="float:left;margin-left:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 echo $divc."\n";
@@ -11,9 +11,9 @@ echo '<a class="link" href="#'.$tabcodesm[$i].'" style="float:right;"><button cl
 echo '<a class="link" href="#'.$citycodes[0].'"><button class="w3-btn '.$btnstyle.'" style="float:left;margin-left:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 echo $divc."\n";
 
-echo '<br /><br />';
+echo '<br /><br />'."\n";
 
-echo '<div class="'.$computervar.'">'."\n";
+echo $computer_div."\n";
 echo $margin."\n";
 echo '<div class="'.$textstyle2.'" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n";
 echo $margin."\n";
@@ -35,7 +35,7 @@ include $storiesglobal;
 
 echo $divc."\n";
 
-echo '<div class="'.$mobilevar.'">'."\n";
+echo $mobile_div."\n";
 echo $margin."\n";
 echo '<div class="'.$textstyle2.'" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'">'."\n";
 echo $margin."\n";

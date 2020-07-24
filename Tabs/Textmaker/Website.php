@@ -9,6 +9,8 @@ if (strpos ($host, $params[0].'='.$sitetextmaker) == true) {
 	$sitename = $choosenwebsite;
 	$setsitecssfile = $pocbcss;
 
+	$siteusescitybodygenerator = false;
+
 	#Site settings setter file includer
 	include $settingsparamsfile;
 
@@ -25,7 +27,7 @@ if (strpos ($host, $params[0].'='.$sitetextmaker) == true) {
 	}
 
 	#Number of tabs
-	$tabnumb = 2;
+	$tabnumb = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $genericcitiesgeneratorfile;

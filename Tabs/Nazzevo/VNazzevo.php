@@ -38,19 +38,19 @@ $border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$roun
 
 #Folder variables
 $siteurlgeral = $url.$sitefolder."/";
-$sitephpfolder2 = $phptabs.ucwords($sitenazzevo).'/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($sitenazzevo).'/';
 $storyfolder = $nazzevostoryfolder;
 
 #Form code for the comment and read forms
 $formcode = 'nazzevo';
 
-$nolangstoryfolder = $rootstoryfolder.$storyfolder;
+$nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder;
 
 #Defines the folder for the chapter text files that are going to be read
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
 
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
+	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {
 		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.strtoupper($lang).'/';
@@ -61,7 +61,7 @@ if ($lang == $langs[0]) {
 }
 
 else {
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder.'/'.strtoupper($lang).'/';
+	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {
 		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.strtoupper($lang).'/';

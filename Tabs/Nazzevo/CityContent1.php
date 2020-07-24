@@ -13,7 +13,7 @@ $reviewedcap = 0;
 echo '<'.$m.'>'.'<b>'."\n";
 echo $divzoomanim."\n";
 
-require $capbtngeneratorphp;
+require $chapter_button_generator_php;
 
 echo $divc."\n";
 echo '</b>'.'</'.$m.'>'."\n";

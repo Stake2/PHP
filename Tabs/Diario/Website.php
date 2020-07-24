@@ -32,7 +32,7 @@ if (strpos ($host, $params[0].'='.$sitediario) == true) {
 	}
 
 	#Site Tabnames array
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if (in_array($lang, $en_langs)) {
 		$tabnames = array('Read the Diary', 'Characters', 'Comment');
 
 		if ($sitehasstories == true) {
@@ -40,7 +40,7 @@ if (strpos ($host, $params[0].'='.$sitediario) == true) {
 		}
 	}
 
-	if ($lang == $langs[2]) {
+	if (in_array($lang, $pt_langs)) {
 		$tabnames = array('Ler o Diário', 'Personagens', 'Comentar');
 
 		if ($sitehasstories == true) {
