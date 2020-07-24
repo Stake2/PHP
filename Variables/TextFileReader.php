@@ -523,10 +523,26 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	}
 }
 
+function print_var_name(){
+    // read backtrace
+    $bt   = debug_backtrace();
+    // read file
+    $file = file($bt[0]['file']);
+    // select exact print_var_name($varname) line
+    $src  = $file[$bt[0]['line']-1];
+    // search pattern
+    $pat = '#(.*)'.__FUNCTION__.' *?\( *?(.*) *?\)(.*)#i';
+    // extract $varname from match no 2
+    $var  = preg_replace($pat, '$2', $src);
+    // print to browser
+    return trim($var);
+}
+
 if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $types[1]) {
 	#Readers, comments, readings, synopsis and story date file links
 	$readersfile = $notepad_stories_folder_variable.$storyfolder.'/Readers.txt';
 	$commentsfile = $notepad_stories_folder_variable.$storyfolder.'/Comments.txt';
+	$comments_check_file = $notepad_stories_folder_variable.$storyfolder.'/CommentsCheck.txt';
 	$storydatefile = $notepad_stories_folder_variable.$storyfolder.'/Story date.txt';
 	$synopsisfile = $notepad_stories_folder_variable.$storyfolder.'/Synopsis.txt';
 
@@ -563,6 +579,17 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		while (!feof ($handle)){
 			$line = fgets ($handle);
 			$cmntsnumb++;
+		}
+	}
+
+	$file = $comments_check_file;
+	if (file_exists($file) == true) {
+		${str_replace("file", "number", "$file")} = 0;
+		$handle = fopen ($file, "r");
+		while (!feof ($handle)){
+			$line = fgets ($handle);
+			${str_replace("file", "number", print_var_name($comments_check_file))}++;
+			$newvar = ${str_replace("file", "number", print_var_name($comments_check_file))};
 		}
 	}
 

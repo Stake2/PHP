@@ -6,7 +6,7 @@ echo $divzoomanim."\n";
 echo $formcmnt;
 echo "\n".'</b>'."\n".'</'.$m.'>'."\n";
 
-$commentslens = array(45, 47, 52, 43, 49, 56, 21);
+$commentslens = array(45, 47, 52, 43, 49, 56, 21, 22);
 $commentslens2 = array(45, 52);
 
 if ($sitehascommentstab == true and $sitehascomments == true) {

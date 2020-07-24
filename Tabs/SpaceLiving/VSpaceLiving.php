@@ -72,7 +72,7 @@ if ($storyhascovers == true) {
 }
 
 else {
-	$siteimage = $cdn.'/'.'img'.'/'.$siteimage.'.jpg';
+	$siteimage = $cdnimg.$siteimage.'.jpg';
 	$imagesize1 = 55;
 	$imagesize2 = 99;
 }
@@ -81,7 +81,7 @@ $imglink = $siteimage;
 
 #Site numbers
 $crossover = 9;
-$commentsnumb = 0;
+#$commentsnumb = 1;
 $commentsnormalnumb = 0;
 
 if ($sitehascomments == true) {
@@ -103,6 +103,8 @@ $authorname = 'Izaque Sanvezzo (stake2)';
 
 #TextFileReader.php file includer
 include $textfilereaderphp;
+
+$commentsnumb = $comments_check_number + 1;
 
 #Story date definer using story date text file
 $storydate = $storydate[0];

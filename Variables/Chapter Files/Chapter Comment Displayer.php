@@ -89,7 +89,15 @@ if ($sitename == $sitespaceliving and $storyhaschaptercomments == true and $stor
 	if ($capnum1 == 1) {
 		echo $commentheader."\n";
 
-		echo $cmntschapter[0]."\n";
+		$i = 0;
+		while ($i <= count($cmntschapter) - 1) {
+			echo $cmntschapter[$i]."\n";
+
+			$i++;
+		}
+
+		#echo $cmntschapter[0]."\n";
+		#echo $cmntschapter[1]."\n";
 
 		echo $divc."\n";
 	}
@@ -100,6 +108,7 @@ if ($sitename == $sitespaceliving and $storycontainsreads) {
 		echo $readingsheader."\n";
 
 		echo $reads[0]."\n";
+		echo $reads[1]."\n";
 	}
 }
 
