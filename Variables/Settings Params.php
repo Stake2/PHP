@@ -248,4 +248,12 @@ if (strpos ($host, $settingsparams[16].'='.'false') == true) {
     $newwatchedstyle = false;
 }
 
+if (strpos ($host, 'hidecities=true') == true) {
+    $hidecitysetting = true;
+}
+
+if (strpos ($host, 'hidecities=false') == true) {
+    $hidecitysetting = false;
+}
+
 ?>

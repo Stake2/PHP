@@ -124,6 +124,12 @@ $iconarrowright = '<i class="fas fa-arrow-circle-right"></i>', #29
 $iconyoutube = '<i class="fab fa-youtube"></i>', #30
 );
 
+$icon_heart = '<i class="fas fa-heart"></i>';
+$icon_heart_painted_red = $redspan.$icon_heart.$spanc;
+
+$icon_smile_beam = '<i class="fas fa-smile-beam"></i>';
+$icon_smile_beam_painted_yellow = $yellowspan.$icon_smile_beam.$spanc;
+
 $hstyle = 'margin:5%;';
 $hstyle2 = 'margin:10%;border-width:3px;border-color:'.$color.';border-style:solid;';
 $readmorestyle = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';

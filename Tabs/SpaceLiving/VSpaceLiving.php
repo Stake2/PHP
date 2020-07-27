@@ -298,8 +298,8 @@ if ($writingpack == true) {
 
 #Button names
 $citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.'<span class="w3-text-yellow"> ['.$newtxt.' '.$chapters.']</span>',
-$tabnames[1].': '.$icons[20].' ❤️ 😊',
+$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],
 $tabnames[4].': '.$icons[11],
@@ -309,8 +309,8 @@ $icons[13],
 #Buttons and tabs definer
 #Tab titles definer
 $tabtitles = array(
-$tabnames[0].': '.$icons[21].' '.'<span class="w3-text-yellow"> ['.$newtxt.' '.$chapters.']</span>',
-$tabnames[1].': '.$icons[20].' ❤️ 😊',
+$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],
 $tabnames[4].': '.$icons[11],

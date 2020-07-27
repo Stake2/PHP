@@ -18,7 +18,9 @@ $cdn_txt_moviecomments = $cdntxt.'Movie Comments/';
 $cdnjs = $cdn.'js/';
 $cdncss = $cdn.'css/';
 
-$fontawesomelink = 'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
+$fontawesome_link = 'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
+#$fontawesome_link = 'https://use.fontawesome.com/releases/v5.14.0/css/all.css';
+$fontawesome_script = '<script src="https://kit.fontawesome.com/df0c191291.js" crossorigin="anonymous"></script>';
 
 #Notepad/Bloco De Notas folder variables
 $notepad_folder = $mega_folder.'Bloco De Notas/';
@@ -37,6 +39,16 @@ $notepad_stories_folder_variable = $notepad_stories_folder;
 $notepad_years_folder_variable = $notepad_years_folder;
 $notepad_folder_effort_variable = $notepad_folder_effort;
 
+$story_files_php_folder = $php_variables.'Story PHP Files/';
+$newdesign_php_folder = $php_variables.'New Design/';
+
+$story_files_php_folder_variable = $story_files_php_folder;
+$newdesign_php_folder_variable = $newdesign_php_folder;
+
+$sitebuttons_files_php_folder = $php_tabs.'Sites Buttons Tab/';
+$sitebuttons_files_php_folder_variable = $sitebuttons_files_php_folder;
+
+#Global PHP Files
 $siteheaderfilephp = $php_variables.'SiteHeader.php';
 $globalstylefilephp = $php_variables.'GlobalStyle.php';
 $tabgeneratorphp = $php_variables.'Tab Generator.php';
@@ -44,10 +56,12 @@ $topbuttonscreator = $php_variables.'Top Buttons Creator.php';
 $topbuttonsloader = $php_variables.'Buttons PHP File Loader.php';
 $textfilereaderphp = $php_variables.'TextFileReader.php';
 
+#Useless SiteStyle PHP file
 $stylefilephp = $php_variables.'SiteStyle.php';
 
-$newdesignphp = $php_variables.'New Design/NewDesignScript.php';
-$newdesignsitephp = $php_variables.'New Design/NewDesignSite.php';
+#New Design PHP Files
+$newdesignphp = $newdesign_php_folder_variable.'NewDesignScript.php';
+$newdesignsitephp = $newdesign_php_folder_variable.'NewDesignSite.php';
 
 $vyears_php = $php_tabs_variable.$folder3.'/'.'V'.$folder3.'.php';
 
@@ -55,29 +69,45 @@ $vyears_php = $php_tabs_variable.$folder3.'/'.'V'.$folder3.'.php';
 $globalfilesphp = array(
 $formfile = $php_variables.'FormFile.php',
 $notificationsphp = $php_variables.'Notifications.php',
-$storyvarsphp = $php_variables.'StoryVars.php',
 $coverimagesgeneratorphp = $php_variables.'Cover Images Displayer.php',
-$citybodiesgeneratorphp = $php_variables.'CityBodies Generator.php',
-$sitesbuttonsattributes = $php_tabs.'Sites Buttons Tab/SitesButtons Attributes.php',
-$sitesbuttonstab = $php_tabs.'Sites Buttons Tab/SitesButtons Tab.php',
-$sitesbuttonscreator = $php_tabs.'Sites Buttons Tab/Sites Button Creator.php',
+$city_bodies_generator_php = $php_variables.'CityBodies Generator.php',
+$sitesbuttonsattributes = $sitebuttons_files_php_folder_variable.'SitesButtons Attributes.php',
+$sitesbuttonstab = $sitebuttons_files_php_folder_variable.'SitesButtons Tab.php',
+$sitesbuttonscreator = $sitebuttons_files_php_folder_variable.'Sites Button Creator.php',
 );
 
-#Chapter Generator PHP files
-$chapter_button_generator_php = $php_variables.'Chapter Files/CapButton Generator.php';
-$chaptercommentdisplayerphp = $php_variables.'Chapter Files/Chapter Comment Displayer.php';
-$chapterwriterdisplayer = $php_variables.'Chapter Files/Chapter Writer Displayer.php';
-$chaptertextdisplayer = $php_variables.'Chapter Files/Chapter Text Displayer.php';
-$storieslinksphp = $php_variables.'StoriesLinks.php';
+$city_bodies_generator_php_variable = $city_bodies_generator_php;
+
+#Story PHP files
+$story_variables_php = $story_files_php_folder_variable.'StoryVars.php';
+$story_links_php = $story_files_php_folder_variable.'Story Links.php';
+$chapter_button_generator_php = $story_files_php_folder_variable.'CapButton Generator.php';
+$chapter_text_displayer_php = $story_files_php_folder_variable.'Chapter Text Displayer.php';
+$chapter_writer_displayer_php = $story_files_php_folder_variable.'Chapter Writer Displayer.php';
+$chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'Chapter Comment And Read Displayer.php';
+$new_chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'New Chapter Comment And Read Displayer.php';
+$story_reads_generator_php = $story_files_php_folder_variable.'Story Reads Generator.php';
+$read_modal_generator_php = $story_files_php_folder_variable.'Read Modal Generator.php';
+$comment_modal_generator_php = $story_files_php_folder_variable.'Comment Modal Generator.php';
+
+$story_links_php_variable = $story_links_php;
+$chapter_button_generator_php_variable = $chapter_button_generator_php;
+$chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_displayer_php;
+$new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
+$story_reads_generator_php_variable = $story_reads_generator_php;
+$read_modal_generator_php_variable = $read_modal_generator_php;
+$comment_modal_generator_php_variable = $comment_modal_generator_php;
 
 #GlobalTabs array
 $globaltabs = array(
-$chaptergeneratorglobal = $phpglobaltabs.'Chapters Generator '.$global.'.php',
-$readersglobal = $phpglobaltabs.'Readers'.$global.'.php',
-$commentsglobal = $phpglobaltabs.'Comments'.$global.'.php',
-$writeglobal = $phpglobaltabs.'Write'.$global.'.php',
-$storiesglobal = $phpglobaltabs.'Stories'.$global.'.php',
+$chapter_generator_global = $php_global_tabs.'Chapters Generator '.$global.'.php',
+$readersglobal = $php_global_tabs.'Readers'.$global.'.php',
+$commentsglobal = $php_global_tabs.'Comments'.$global.'.php',
+$writeglobal = $php_global_tabs.'Write'.$global.'.php',
+$storiesglobal = $php_global_tabs.'Stories'.$global.'.php',
 );
+
+$chapter_generator_global_variable = $chapter_generator_global;
 
 #Watch PHP files
 $mediaarraygenerator = $php_tabs.'Watch/MediaArrayGenerator.php';
@@ -263,7 +293,7 @@ include $stylefilephp;
 require $globalstylefilephp;
 
 #Stories variables includer if the site is a story site
-require $storyvarsphp;
+require $story_variables_php;
 
 #SitesButtons Attributes.php includer
 require $sitesbuttonsattributes;
@@ -336,8 +366,9 @@ $sitehead = '
 '.$sitecss.
 '<meta name="revised" content="'."Stake's Enterprisetm".', '.$data.'" />
 <meta name="author" content="Stake Ferreira" />
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
-<link rel="stylesheet" href="'.$fontawesomelink.'" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />';
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />'.
+"\n".$fontawesome_script
+/*'<link rel="stylesheet" href="'.$fontawesome_link.'" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />'*/;
 
 if ($sitename == $sitetextmaker) {
 	$sitedesc = $sitedesc;

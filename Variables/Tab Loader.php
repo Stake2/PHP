@@ -15,7 +15,7 @@ while ($i <= $tabnumb) {
 #Diario site php file loader
 if ($sitename == $sitediario or $sitename == ucwords($sitediario) or $site == $sitediario) {
 	include $sitesbuttonstab;
-	include $chaptergeneratorglobal;
+	require $chapter_generator_global_variable;
 }
 
 #ChapterReader.php includer for Pequenata website
@@ -28,7 +28,7 @@ if ($sitetype1 == $types[1]) {
 		$pqntcr = false;
 	}
 
-	include $chaptergeneratorglobal;
+	require $chapter_generator_global_variable;
 }
 
 if ($sitename == $sitediario or $sitename == ucwords($sitediario) or $site == $sitediario) {

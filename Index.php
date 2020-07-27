@@ -22,7 +22,7 @@ $siteglobaltabsfolder = $sitephpfolder.$folder1.'/'.$global.$folder1.'/';
 
 $php_tabs = $sitephpfoldertabs;
 $php_variables = $sitephpfoldervars;
-$phpglobaltabs = $siteglobaltabsfolder;
+$php_global_tabs = $siteglobaltabsfolder;
 
 $php_tabs_variable = $php_tabs;
 
@@ -329,6 +329,7 @@ $storyhaschaptercomments = false;
 $siteusescitybodygenerator = false;
 $siteusesuniversalfilereader = false;
 $sitehidescommentstab = false;
+$site_uses_new_comment_and_read_displayer = false;
 
 #Website selector file includer
 require $websiteselectorfile;
@@ -460,51 +461,22 @@ VALUES ('SITEDIARIO')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
-} else {
+}
+
+else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
 */
 
+
+#Test for the new arrays for the Comment generation
 /*
-$comments = array(
-null,
-$cmntschapter[1],
-[$cmntschapter[2], $cmntschapter[5]],
-[$cmntschapter[3], $cmntschapter[6]],
-null,
-null,
-null,
-$cmntschapter[0],
-$cmntschapter[4],
-);
-
-$array = array();
-
-$names = array(
-'Comment 1 on chapter 1',
-'Comment 2 on chapter 1',
-'Comment 1 on chapter 2',
-);
-
 echo '<'.$n.' class="w3-text-white">'."\n";
 
-$i = 0;
-while ($i <= count($names) - 1) {
-	$array[0][$i] = $names[$i];
-
-	$i++;
-}
-
-$i = 0;
-while ($i <= count($array[0]) - 1) {
-	echo $array[0][$i].'<br />'."\n";
-
-	$i++;
-}
-
-print_r($array);
+#echo $cmntschapter[0];
+print_r($reads);
 
 echo '</'.$n.'>'."\n";
 
@@ -536,6 +508,10 @@ while ($i <= count($comments) - 1) {
 
 	$i++;
 }
+
+$i = 7;
+$number_variable = $capnum1;
+require $new_chapter_comment_and_read_displayer_php_variable;
 */
 
 ?>

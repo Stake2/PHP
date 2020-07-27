@@ -118,51 +118,9 @@ echo '<style>
 echo "\n";
 
 if ($storyhasreads == true) {
-	$i = 0;
-	$z = 1;
-	$a = 1;
-	$a2 = 1;
-	$b1 = 0;
-	$b2 = 0;
-	$b4 = 0;
-	$v1 = 0;
-	$v2 = 0;
-	#Read date converter, that converts the date of the readings into a date format
-	while ($v2 <= $readsfilenumb) {
-		$v3 = $v2 + 2;
-		$readstxt[$v3] = substr($readstxt[$v3], 0, -1);
-		$readstxt[$v3] = date("H:i d/m/Y", strtotime($readstxt[$v3]));
+	require $story_reads_generator_php_variable;
 
-		$v2++;
-		$v2++;
-		$v2++;
-	}
-
-	#echo $chaptertowrite;
-	$v1 = 0;
-	$readednumb = 0;
-	#"Reads" array generator, it generates the array of the readings
-	while ($b1 <= $readsfilenumb) {
-		$b22 = $b1 + 1;
-		$b3 = $b1 + 2;
-
-		$reads[$v1] = $margin.'<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
-		#Reader text and name
-		$readtxts[7].': </b>'.$readstxt[$b1].'<br /><b>'.
-
-		#Chapter text and title
-		#substr($captxt, 0, -1).':</b> '.$readstxt[$b22].'<br />'.'<b>'.
-
-		#Read time text and time
-		$timetxt.':</b> '.$readstxt[$b3].' <br /><br />'.$divc.'</'.$m.'>'.$divc."\n";
-
-		$readednumb++;
-		$b1++;
-		$b1++;
-		$b1++;
-		$v1++;
-		$b4++;
-	}
+	$h = $readednumb;
 }
 
 $z123 = 0;
@@ -170,8 +128,36 @@ $chapter_line_number = 0;
 $b1 = 0;
 $b2 = 1;
 
-if ($storyhasreads == true) {
-	$h = $readednumb;
+if ($site_uses_new_comment_and_read_displayer == true) {
+	$comments_array = array(
+	null,
+	$cmntschapter[1],
+	[$cmntschapter[2], $cmntschapter[8]],
+	[$cmntschapter[3], $cmntschapter[9]],
+	null,
+	null,
+	null,
+	$cmntschapter[0],
+	$cmntschapter[6],
+	);
+
+	$reads_array = array(
+	null,
+	[$reads[0], $reads[1]],
+	[$reads[2], $reads[11]],
+	$reads[10],
+	$reads[9],
+	$reads[8],
+	$reads[7],
+	$reads[6],
+	$reads[5],
+	$reads[4],
+	$reads[3],
+	);
+
+	$array1 = $comments_array;
+	$array2 = $reads_array;
+	$number_variable = $capnum1;
 }
 
 $zw = 1;
@@ -180,10 +166,14 @@ $za = 2;
 $mzz = 10;
 $zzcxx = 3;
 $covernumb = 1;
-#Chapter reader/writer, it makes the tabs for the chapters to be read
+#Chapter reader/writer/displayer, it generates the tabs for the chapters to be read by the user
 while ($capnum1 <= $chapters) {
 	$i2 = $i + 1;
 	$i3 = $i + 2;
+
+	if ($site_uses_new_comment_and_read_displayer == true) {
+		$number_variable = $capnum1;
+	}
 
 	#Defines the top and bottom texts
 	if ($sitestorywrite == true and $sitestorywritechapter == $capnum1) {
@@ -299,7 +289,7 @@ while ($capnum1 <= $chapters) {
 	if ($storyhascovers == true or $storyhascovers == true and $sitename == $sitepequenata and $capnum1 <= 10) {
 		echo '<center>'."\n";
 
-		if (@isset($files[$capnum1]) == true) {
+		if (isset($files[$capnum1]) == true) {
 
 			if ($capnum1 == 2 and $sitename != $sitenazzevo) {
 				#echo $coverimages[3];
@@ -316,8 +306,8 @@ while ($capnum1 <= $chapters) {
 			}
 
 			else {
-				echo @$coverimages[$covernumb];
-				echo @$coverimagesm[$covernumb];
+				echo $coverimages[$covernumb];
+				echo $coverimagesm[$covernumb];
 			}
 		}
 
@@ -335,9 +325,9 @@ while ($capnum1 <= $chapters) {
 
 	#Chapter writer tab displayer
 	if ($sitestorywrite == true and $sitestorywritechapter == $capnum1 or $sitestorywrite == true and $sitestorywritechapter.(int)'0' == $capnum1 and $capnum1 != 0) {
-		require($chapterwriterdisplayer);
+		require $chapter_writer_displayer_php;
 
-		#echo "$chapterwriterdisplayer was loaded.";
+		#echo "$chapter_writer_displayer_php was loaded.";
 
 		if ($newwritestyle == true) {
 			echo $newwritestylescript."\n";
@@ -350,7 +340,7 @@ while ($capnum1 <= $chapters) {
 
 	#Chapter text tab displayer
 	else {
-		require($chaptertextdisplayer);
+		require $chapter_text_displayer_php;
 	}
 
 	#Bottom Previous chapter button
@@ -456,13 +446,27 @@ while ($capnum1 <= $chapters) {
 	}
 
 	#Hr displayer if the story has comments or reads
-	if ($storyhaschaptercomments == true and $storycontainscomments == true or $storyhasreads == true and $storycontainsreads == true) {
+	if ($site_uses_new_comment_and_read_displayer == true) {
+		if (isset($array1[$number_variable]) or isset($array2[$number_variable])) {
+			echo '<hr class="'.$sitehr3.'" />'."\n";
+		}
+	}
+
+	else if ($storyhaschaptercomments == true and $storycontainscomments == true or $storyhasreads == true and $storycontainsreads == true) {
 		echo '<hr class="'.$sitehr3.'" />'."\n";
 	}
 
 	echo '</h5>'."\n";
 
-	include $chaptercommentdisplayerphp;
+	if ($site_uses_new_comment_and_read_displayer == true) {
+		if ($storyhaschaptercomments == true and $storycontainscomments == true) {
+			require $new_chapter_comment_and_read_displayer_php_variable;
+		}
+	}
+
+	else if ($storyhaschaptercomments == true and $storycontainscomments == true) {
+		require $chapter_comment_and_read_displayer_php_variable;
+	}
 
 	echo $divc."\n";
 
@@ -500,286 +504,14 @@ while ($capnum1 <= $chapters) {
 	echo $testscript;
 }
 
-$i = 1;
-$i22 = 1;
-$a = 1;
-$a2 = 1;
-$z = 1;
-$z2 = 1;
-$c = 0;
-$c22 = 0;
-$capnum1 = 1;
-$capnum12 = 1;
-$capnum4 = 0;
-$capnum42 = 0;
-
-#Read-modal Tab generation
-while ($capnum1 <= $chapters) {
-	$i2 = $i + 1;
-	$i3 = $i + 2;
-	$c2 = $c + 1;
-
-	echo "\n";
-	
-	#Computer Read-modal Tab div id
-	echo '<a name="modal-read-'.$a.'"></a>'."\n";
-	echo '<div id="modal-read-'.$a.'" class="modal" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo $divzoomanim;
-	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
-	echo '<div class="'.$computervar.'" '.$roundedborderstyle.'>';
-	
-	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' close" '.$roundedborderstyle.' id="closereadmodal'.$a.'">&times;</button>'."\n";
-	
-	#Computer Read-modal form
-	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$readtxts[3].': '.$capnum1.' - '.$titles[$capnum4].'</b></'.$n.'>'.$divc."\n";
-	echo $margin2;
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$divc."\n";
-	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" style="margin-top:1px;margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$n.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
-	echo $divc;
-	echo '<input type="text" name="'.$formcode.'-read" value="'.$readtxts[3].': '.$i.' - '.$titles[$c].'" class="'.$formcolor.' w3-input" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo '<br /><br /><br /><br />';
-	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-
-	echo "\n";
-
-	#Mobile Read-modal Tab div id
-	echo '<a name="modal-read-'.$a2.'m"></a>'."\n";
-	echo '<div id="modal-read-'.$a2.'m" class="modal" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo $divzoomanim;
-	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
-	echo '<div class="'.$mobilevar.'" '.$roundedborderstyle.'>';
-
-	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' close" '.$roundedborderstyle.' id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
-
-	#Mobile Read-modal form
-	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$readtxts[3].': '.$capnum12.' - '.$titles[$capnum42].'</b></'.$m.'>'.$divc."\n";
-	echo $margin2;
-	echo '<br />';
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$divc."\n";
-	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" style="margin-top:1px;margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
-	echo $divc;
-	echo '<input type="text" name="'.$formcode.'-read" value="'.$readtxts[3].': '.$i22.' - '.$titles[$c22].'" class="'.$formcolor.' w3-input" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo '<br /><br /><br /><br />';
-	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-
-	echo "\n";
-
-	#Computer Read-modal open and close script
-	echo '<script>
-var readmodal'.$a.' = document.getElementById("modal-read-'.$a.'");
-
-var readbtn'.$a.' = document.getElementById("readbtn'.$a.'");
-
-var readclosebtn'.$a.' = document.getElementById("closereadmodal'.$a.'");
-
-readbtn'.$a.'.onclick = function() {
-	readmodal'.$a.'.style.display = "block";
+if ($storyhasreads == true) {
+	#Read-modal Tab generator PHP file
+	require $read_modal_generator_php_variable;
 }
 
-readclosebtn'.$a.'.onclick = function() {
-	readmodal'.$a.'.style.display = "none";
-}
-
-readmodal'.$a.'.onclick = function(event) {
-	if (event.target == readmodal'.$a.') {
-		readmodal'.$a.'.style.display = "none";
-	}
-}
-</script>';
-
-	echo "\n";
-
-	#Mobile Read-modal open and close script
-	echo '<script>
-var readmodal'.$a2.'m = document.getElementById("modal-read-'.$a2.'m");
-
-var readbtn'.$a2.'m = document.getElementById("readbtn'.$a2.'m");
-
-var readclosebtn'.$a2.'m = document.getElementById("closereadmodal'.$a2.'m");
-
-readbtn'.$a2.'m.onclick = function() {
-	readmodal'.$a2.'m.style.display = "block";
-}
-
-readclosebtn'.$a2.'m.onclick = function() {
-	readmodal'.$a2.'m.style.display = "none";
-}
-
-readmodal'.$a2.'m.onclick = function(event) {
-	if (event.target == readmodal'.$a2.'m) {
-		readmodal'.$a2.'m.style.display = "none";
-	}
-}
-</script>';
-	echo "\n";
-	$c++;
-	$c22++;
-	$capnum1++;
-	$capnum4++;
-	$i++;
-	$z++;
-	$a++;
-	$capnum12++;
-	$capnum42++;
-	$i22++;
-	$z2++;
-	$a2++;
-}
-
-$i = 1;
-$i22 = 1;
-$a = 1;
-$a2 = 1;
-$z = 1;
-$z2 = 1;
-$c = 0;
-$c22 = 0;
-$capnum1 = 1;
-$capnum12 = 1;
-$capnum4 = 0;
-$capnum42 = 0;
-
-#Comment-modal Tab generation
-while ($capnum1 <= $chapters) {
-	$i2 = $i + 1;
-	$i3 = $i + 2;
-	$c2 = $c + 1;
-
-	echo "\n";
-
-	#Computer comment-modal Tab div id
-	echo '<a name="modal-comment-'.$a.'"></a>'."\n";
-	echo '<div id="modal-comment-'.$a.'" class="modal" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo $divzoomanim."\n";
-	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
-	echo '<div class="'.$computervar.'">'."\n";
-
-    #Close comment-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' close" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button>'."\n";
-
-    #Computer Comment-modal form
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$cmntstxts[3].' '.substr($captxt, 0, -1).' '.$capnum1.' - '.$titles[$capnum4].' '.$icons[12].'</b></'.$n.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
-	echo $margin2."\n";
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$divc."\n";
-	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<br />'."\n";
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$cmntstxts[5].':</b></'.$n.'>'.$divc."\n";
-	echo '<input type="text" name="'.$formcode.'-comment" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" style="margin-top:1px;margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$n.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
-	echo $divc."\n";
-	echo '</form>'."\n";
-	echo $divc."\n";
-	echo '<br /><br /><br /><br />'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-
-	echo "\n";
-
-	#Mobile Comment-modal Tab div id
-	echo '<a name="modal-comment-'.$a2.'m"></a>'."\n";
-	echo '<div id="modal-comment-'.$a2.'m" class="modal" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo $divzoomanim."\n";
-	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
-	echo '<div class="'.$mobilevar.'">'."\n";
-
-    #Close comment-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' close" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
-
-    #Mobile Comment-modal form
-	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$cmntstxts[3].' '.substr($captxt, 0, -1).' '.$capnum12.' - '.$titles[$capnum4].' '.$icons[12].'</b></'.$m.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
-	echo $margin2."\n";
-	echo '<br />'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$divc."\n";
-	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<br />'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$cmntstxts[5].':</b></'.$m.'>'.$divc."\n";
-	echo '<input type="text" name="'.$formcode.'-comment" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" style="margin-top:1px;margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
-	echo $divc."\n";
-	echo '</form>'."\n";
-	echo $divc."\n";
-	echo '<br /><br /><br /><br />'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-
-	echo "\n";
-
-	#Computer Comment-modal open and close script
-	echo '<script>
-var commentmodal'.$a.' = document.getElementById("modal-comment-'.$a.'");
-
-var commentbtn'.$a.' = document.getElementById("commentbtn'.$a.'");
-
-var commentclosebtn'.$a.' = document.getElementById("closecommentmodal'.$a.'");
-
-commentbtn'.$a.'.onclick = function() {
-	commentmodal'.$a.'.style.display = "block";
-}
-
-commentclosebtn'.$a.'.onclick = function() {
-	commentmodal'.$a.'.style.display = "none";
-}
-
-commentmodal'.$a.'.onclick = function(event) {
-	if (event.target == commentmodal'.$a.') {
-		commentmodal'.$a.'.style.display = "none";
-	}
-}
-</script>';
-
-	echo "\n";
-
-	#Mobile Comment-modal open and close script
-	echo '<script>
-var commentmodal'.$a2.'m = document.getElementById("modal-comment-'.$a2.'m");
-
-var commentbtn'.$a2.'m = document.getElementById("commentbtn'.$a2.'m");
-
-var commentclosebtn'.$a2.'m = document.getElementById("closecommentmodal'.$a2.'m");
-
-commentbtn'.$a2.'m.onclick = function() {
-	commentmodal'.$a2.'m.style.display = "block";
-}
-
-commentclosebtn'.$a2.'m.onclick = function() {
-	commentmodal'.$a2.'m.style.display = "none";
-}
-
-commentmodal'.$a2.'m.onclick = function(event) {
-	if (event.target == commentmodal'.$a2.'m) {
-		commentmodal'.$a2.'m.style.display = "none";
-	}
-}
-</script>';
-	echo "\n";
-	$capnum1++;
-	$capnum4++;
-	$i++;
-	$z++;
-	$a++;
-	$capnum12++;
-	$capnum42++;
-	$i22++;
-	$z2++;
-	$a2++;
+if ($sitehascommentstab == true and $storyhaschaptercomments == true) {
+	#Comment-modal Tab generator PHP file
+	require $comment_modal_generator_php_variable;
 }
 
 /*

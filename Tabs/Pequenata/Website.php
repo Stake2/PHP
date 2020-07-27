@@ -19,6 +19,7 @@ if (strpos ($host, $params[0].'='.$sitepequenata) == true) {
 	$showchaptertext = false; #Defines if site shows the chapter text on the writing chapter form
 	$sitehidenotifonclickreadtab = false; #Defines if site hides the notification when you click on the "Read story" button
 	$siteuseschapteropener = true; #Defines if the website uses the ChapterOpener Script
+	$site_uses_new_comment_and_read_displayer = true;
 
 	$sitestorywrite = false; #Defines if site has a story writing chapter
 	$newwritestyle = false; #Defines if the website uses the new writing style for chapters
