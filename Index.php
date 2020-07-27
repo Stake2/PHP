@@ -125,6 +125,7 @@ $sitearray = array(
 'pequenata',
 'spaceliving',
 'nazzevo',
+'desertisland',
 'lonelyStories',
 'yourstruly_izaque',
 'mentalFrameworks',
@@ -155,6 +156,7 @@ $sitetitlesarray = array(
 'Pequenata',
 'SpaceLiving',
 'Nazzevo',
+'Desert Island',
 'Lonely Stories',
 'Yours truly, Izaque.',
 'Mental Frameworks',
@@ -371,39 +373,38 @@ $i = 1;
 $i++;
 
 if (!isset($site)) {
-	echo '<h2>Error '.$i.': Site variable is not defined.</h2>';
+	#echo '<h2>Error '.$i.': Site variable is not defined.</h2>';
 }
 
 $i++;
 
 if (!isset($sitename)) {
-	echo '<h2>Error '.$i.': Sitename variable is not defined.</h2>';
+	#echo '<h2>Error '.$i.': Sitename variable is not defined.</h2>';
 }
 
 if (!isset($sitename) and !isset($site)) {
-	die('<h2>$website, $site, and $sitename variables are not defined.</h2>');
+	#die('<h2>$website, $site, and $sitename variables are not defined.</h2>');
 }
 
 #VGlobal.php variables file includer
-require $vglobal_php;
+if ($sitename != $sitedesertisland) {
+	require $vglobal_php;
+}
 
 ?>
 <!DOCTYPE html>
 <?php 
 
 #Siteheader displayer
-echo $siteheader;
+if ($sitename != $sitedesertisland) {
+	echo $siteheader;
+}
 
 if ($sitehasnotifications == true and $deactivatenotification != true) {
 	echo '<script>
 ChangeTitle();
 </script>';
 }
-
-#Inserts a CSS style tag for a style used in all the websites
-echo '<style>
-textarea {outline: none!important;}
-</style>'."\n"."\n";
 
 #Site notification file includer if setting is true
 if ($sitehasnotifications == true and $deactivatenotification == false) {
@@ -415,7 +416,38 @@ if ($deactivatetabs == false) {
 	include $php_variables.'Tab Loader.php';
 }
 
-echo $animationstylecss."\n"."\n";
+if ($sitename == $sitedesertisland) {
+echo '<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<body>'."
+<style>
+body, h1 {font-family: 'Raleway', sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://diario.netlify.app/cdn/img/stories/desert%20island/capa%20original.jpg');
+  min-height: 100%!important;
+  background-position: center!important;
+  background-size: cover!important;
+}".'
+</style>
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+<center>
+  </center>
+  <div class="w3-display-middle">
+    <h1 class="w3-jumbo w3-animate-top">Em breve:<br />A nova história de Izaque.</h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <p class="w3-large w3-center">Faltam 30 dias para uma grande revelação</p>
+  </div>
+</div>';
+}
+
+if ($sitename != $sitedesertisland) {
+	echo $animationstylecss."\n"."\n";
+}
 
 if ($sitename == $sitethingsido) {
 	echo '
