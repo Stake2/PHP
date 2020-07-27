@@ -6,7 +6,7 @@ echo $divzoomanim."\n";
 echo $formcmnt;
 echo "\n".'</b>'."\n".'</'.$m.'>'."\n";
 
-$commentslens = array(45, 47, 52, 43, 49, 56, 21, 22);
+$commentslens = array(45, 47, 52, 43, 49, 56, 21, 22, 54);
 $commentslens2 = array(45, 52);
 
 if ($sitehascommentstab == true and $sitehascomments == true) {
@@ -123,10 +123,8 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		$z = 0;
 		$c = 0;
 		while ($c <= $commentsnormalnumbtowrite) {
-			if ($sitename == $sitepequenata) {
-				if (!strpos($cmntsgeral[$z], 'comment-')) {
-					echo $cmntsgeral[$z];
-				}
+			if (!strpos($cmntsgeral[$z], 'comment-')) {
+				echo $cmntsgeral[$z];
 			}
 
 			$z++;

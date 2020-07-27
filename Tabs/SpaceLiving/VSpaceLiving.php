@@ -53,7 +53,7 @@ $formcode = 'spaceliving';
 $nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-include $coverimagesgeneratorphp;
+require $cover_images_displayer_php_variable;
 
 #Story name definer
 $story = $slstoryname;
@@ -104,7 +104,7 @@ $authorname = 'Izaque Sanvezzo (stake2)';
 #TextFileReader.php file includer
 include $textfilereaderphp;
 
-$commentsnumb = $comments_check_number + 1;
+$commentsnumb = $comments_check_number + 2;
 
 #Story date definer using story date text file
 $storydate = $storydate[0];

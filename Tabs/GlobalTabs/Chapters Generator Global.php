@@ -129,31 +129,61 @@ $b1 = 0;
 $b2 = 1;
 
 if ($site_uses_new_comment_and_read_displayer == true) {
-	$comments_array = array(
-	null,
-	$cmntschapter[1],
-	[$cmntschapter[2], $cmntschapter[8]],
-	[$cmntschapter[3], $cmntschapter[9]],
-	null,
-	null,
-	null,
-	$cmntschapter[0],
-	$cmntschapter[6],
-	);
+	if ($sitename == $sitepequenata) {
+		$comments_array = array(
+		null,
+		$cmntschapter[1],
+		[$cmntschapter[2], $cmntschapter[8]],
+		[$cmntschapter[3], $cmntschapter[9]],
+		null,
+		null,
+		null,
+		$cmntschapter[0],
+		$cmntschapter[6],
+		);
 
-	$reads_array = array(
-	null,
-	[$reads[0], $reads[1]],
-	[$reads[2], $reads[11]],
-	$reads[10],
-	$reads[9],
-	$reads[8],
-	$reads[7],
-	$reads[6],
-	$reads[5],
-	$reads[4],
-	$reads[3],
-	);
+		$reads_array = array(
+		null,
+		[$reads[0], $reads[1]],
+		[$reads[2], $reads[11]],
+		$reads[10],
+		$reads[9],
+		$reads[8],
+		$reads[7],
+		$reads[6],
+		$reads[5],
+		$reads[4],
+		$reads[3],
+		);
+	}
+
+	if ($sitename == $sitespaceliving) {
+		$comments_array = array(
+		null,
+		[$cmntschapter[1], $cmntschapter[2]],
+		$cmntschapter[0],
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		);
+
+		$reads_array = array(
+		null,
+		[$reads[1], $reads[2]],
+		$reads[0],
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		);
+	}
 
 	$array1 = $comments_array;
 	$array2 = $reads_array;

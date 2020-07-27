@@ -46,28 +46,11 @@ $formcode = 'nazzevo';
 
 $nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder;
 
-#Defines the folder for the chapter text files that are going to be read
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
+$single_cover_folder = 'Capas/';
+$cover_folder = $cdn_image_stories.'Nazzevo/'.$single_cover_folder;
 
-	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
-
-	if ($storyhascovers == true) {
-		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.strtoupper($lang).'/';
-		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.strtoupper($lang).'/';
-	}
-
-	$lang = $langs[0];
-}
-
-else {
-	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
-
-	if ($storyhascovers == true) {
-		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.strtoupper($lang).'/';
-		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.strtoupper($lang).'/';
-	}
-}
+#Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
+require $cover_images_displayer_php_variable;
 
 #Story name definer
 $story = $nazzevostoryname;
@@ -98,13 +81,13 @@ $siteimage = 'nazzevo';
 
 #Defines the site image if the site has book covers or not
 if ($storyhascovers == true) {
-	$siteimage = $coverfolder.'1 '.$covertxt.'.png';
+	$siteimage = $online_cover_folder.'1 '.$covertxt.'.png';
 	$imagesize1 = 60;
 	$imagesize2 = 88;
 }
 
 else {
-	$siteimage = $cdn.'/'.'img'.'/'.$siteimage.'.jpg';
+	$siteimage = $cdnimg.$siteimage.'.jpg';
 	$imagesize1 = 30;
 	$imagesize2 = 77;
 }
@@ -242,57 +225,7 @@ if ($lang == $langs[2]) {
 
 #Reads the book cover image directory if the site has book covers
 if ($storyhascovers == true) {
-	#Sets the local Cover folder and lists the files inside it
-	$dir = $coverfolder2;
-	$x2 = 0;
-	$zz2 = 0;
-	if (is_dir($dir)) {
-		if ($dh = opendir($dir)) {
-			while (($file = readdir($dh)) !== false) {
-				$files[$zz2] = $coverfolder.$file;
-				$x2++;
-				$zz2++;
-			}
-			closedir($dh);
-		}
-	}
-
-	#Cover image array creator
-	$a = 1;
-	$i = 3;
-	$z = 1;
-	$c = 1;
-	while ($c <= (count($files) - 3)) {
-		if (isset($files[$a]) == true) {
-			if ($c == 3) {
-				$z--;
-				$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$files[$i].'" width="50%" height="50%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'" onclick="openCity('."'".$capdiv.$z."'".')" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
-
-				$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$files[$i].'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'" onclick="openCity('."'".$capdiv.$z."'".')" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
-			}
-
-			if ($c == 2) {
-				$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$files[$i].'" width="50%" height="50%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'" onclick="openCity('."'".$capdiv.$z."'".')" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
-
-				$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$files[$i].'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'" onclick="openCity('."'".$capdiv.$z."'".')" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
-			}
-
-			else {
-				$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$files[$i].'" width="50%" height="50%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'" onclick="openCity('."'".$capdiv.$z."'".')" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
-
-				$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$files[$i].'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'" onclick="openCity('."'".$capdiv.$z."'".')" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
-			}
-
-			$a++;
-			$i++;
-			$z++;
-			$c++;
-		}
-	
-		else {
-			$c++;
-		}
-	}
+	require $cover_images_generator_php_variable;
 }
 
 #"You're reading" text definers

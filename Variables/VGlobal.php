@@ -69,7 +69,6 @@ $vyears_php = $php_tabs_variable.$folder3.'/'.'V'.$folder3.'.php';
 $globalfilesphp = array(
 $formfile = $php_variables.'FormFile.php',
 $notificationsphp = $php_variables.'Notifications.php',
-$coverimagesgeneratorphp = $php_variables.'Cover Images Displayer.php',
 $city_bodies_generator_php = $php_variables.'CityBodies Generator.php',
 $sitesbuttonsattributes = $sitebuttons_files_php_folder_variable.'SitesButtons Attributes.php',
 $sitesbuttonstab = $sitebuttons_files_php_folder_variable.'SitesButtons Tab.php',
@@ -81,6 +80,8 @@ $city_bodies_generator_php_variable = $city_bodies_generator_php;
 #Story PHP files
 $story_variables_php = $story_files_php_folder_variable.'StoryVars.php';
 $story_links_php = $story_files_php_folder_variable.'Story Links.php';
+$cover_images_displayer_php = $story_files_php_folder_variable.'Cover Images Displayer.php';
+$cover_images_generator_php = $story_files_php_folder_variable.'Cover Images Generator.php';
 $chapter_button_generator_php = $story_files_php_folder_variable.'CapButton Generator.php';
 $chapter_text_displayer_php = $story_files_php_folder_variable.'Chapter Text Displayer.php';
 $chapter_writer_displayer_php = $story_files_php_folder_variable.'Chapter Writer Displayer.php';
@@ -91,6 +92,8 @@ $read_modal_generator_php = $story_files_php_folder_variable.'Read Modal Generat
 $comment_modal_generator_php = $story_files_php_folder_variable.'Comment Modal Generator.php';
 
 $story_links_php_variable = $story_links_php;
+$cover_images_displayer_php_variable = $cover_images_displayer_php;
+$cover_images_generator_php_variable = $cover_images_generator_php;
 $chapter_button_generator_php_variable = $chapter_button_generator_php;
 $chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_displayer_php;
 $new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
