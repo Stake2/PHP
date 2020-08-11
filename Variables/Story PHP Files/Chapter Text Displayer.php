@@ -16,7 +16,7 @@ if (file_exists($caps[$capnum1]) == true) {
 	if ($file = fopen($caps[$capnum1], "r")) {
 		while(!feof($file)) {
 			$line = fgets($file);
-			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $line);
+			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
 
 			if ($storywritesstoryfiles == true) {
 				if (file_exists($writefolder) == true) {
@@ -61,7 +61,7 @@ if ($sitename != $sitenazzevo and $storyhasdates == true) {
 		$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
 		if ($fp) {
 			$capdatas = explode("\n", fread($fp, filesize($capdatesfile)));
-			$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $capdatas);
+			$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $capdatas);
 		}
 	}
 
@@ -92,7 +92,7 @@ if ($newwritestyle == true) {
 		if ($file = fopen($caps[$capnum1], "r")) {
 		while(!feof($file)) {
 			$line = fgets($file);
-			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $line);
+			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
 
 			if ($storywritesstoryfiles == true) {
 				if (file_exists($writefolder) == true) {
@@ -133,7 +133,7 @@ if ($newwritestyle == true) {
 			$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
 			if ($fp) {
 				$capdatas = explode("\n", fread($fp, filesize($capdatesfile)));
-				$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $capdatas);
+				$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $capdatas);
 			}
 		}
 
@@ -222,7 +222,7 @@ if ($newwritestyle == true) {
 				if ($fp) {
 					$capdatas = explode("\n", fread($fp, filesize($capdatesfile)));
 					$datas = str_replace("^", "", $capdatas);
-					$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $datas);
+					$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $datas);
 				}
 			}
 

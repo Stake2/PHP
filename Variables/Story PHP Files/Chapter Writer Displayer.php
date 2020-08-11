@@ -90,7 +90,7 @@ if ($showchaptertext == true and $storyhasdates == true) {
 			if ($fp) {
 				$capdatas = explode("\n", fread($fp, filesize($capdatesfile)));
 				$datas = str_replace("^", "", $capdatas);
-				$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $datas);
+				$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $datas);
 			}
 		}
 
@@ -172,7 +172,7 @@ if ($newwritestyle == true) {
 				if ($fp) {
 					$capdatas = explode("\n", fread($fp, filesize($capdatesfile)));
 					$datas = str_replace("^", "", $capdatas);
-					$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $datas);
+					$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $datas);
 				}
 			}
 
