@@ -29,11 +29,11 @@ if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
 
 	#Site Tabnames array
 	if (in_array($lang, $en_langs)) {
-		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog', 'Chapters', 'Comments');
+		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Registro de Mudanças', 'Capítulos', 'Comentários');
+		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
 	}
 
 	#Number of tabs

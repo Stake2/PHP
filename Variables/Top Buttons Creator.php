@@ -42,7 +42,7 @@ if ($sitename == $sitespaceliving) {
 }
 
 if ($sitename == $sitenazzevo) {
-	$tabnumb2 = $tabnumb - 1;
+	$tabnumb2 = $tabnumb;
 }
 
 if ($sitename == $sitetextmaker) {

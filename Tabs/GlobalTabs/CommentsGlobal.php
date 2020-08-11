@@ -42,7 +42,13 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		if ($commentsnormalnumb != 0) {
 			echo '<hr class="'.$sitehr2.'" />'."\n";
 
-			echo $divzoomanim.'<'.$n.'><p></p><br /><b>'.$tabnames[7].': '.$orangespan.$commentsnormalnumb.$spanc.' '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr.'" />'."\n";
+			if (isset($tabnames[7])) {
+				echo $divzoomanim.'<'.$n.'><p></p><br /><b>'.$tabnames[7].': '.$orangespan.$commentsnormalnumb.$spanc.' '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr.'" />'."\n";
+			}
+
+			if (!isset($tabnames[7])) {
+				echo $divzoomanim.'<'.$n.'><p></p><br /><b>'.$tabnames[6].': '.$orangespan.$commentsnormalnumb.$spanc.' '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr.'" />'."\n";
+			}
 		}
 
 		$i = 0;
