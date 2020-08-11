@@ -5,24 +5,38 @@ $pqnttext = 'darkpqnttext shakesidetoside';
 $slbg = 'sl3 shakesidetoside';
 $lsbg = 'darksl lstext shakesidetoside';
 
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
+$cover_text = 'Cover';
+$pequenata_online_cover_folder = $cdn_image_stories.'Pequenata/Capas/Kids/';
+$nazzevo_online_cover_folder = $cdn_image_stories.'Nazzevo/Capas/';
+$story_cover_image_filename = '1';
 
-	$pqntimglink = $cdn_image_stories.'pequenata/capas/kids/'.strtoupper($lang).'/'.'1 '.$covertxt.'.png';
-	$nazzevoimglink = $cdn_image_stories.'nazzevo/capas/'.strtoupper($lang).'/'.'1 '.$covertxt.'.png';
+if ($lang == $geral_lang) {
+	$lang = $enus_lang;
 
-	$lang = $langs[0];
+	$pequenata_folder = $pequenata_online_cover_folder.strtoupper($lang).'/'.$cover_text.'/';
+	$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($lang).'/'.$cover_text.'/';
+
+	$pqntimglink = $pequenata_folder.$story_cover_image_filename.'.png';
+	$nazzevoimglink = $nazzevo_folder.$story_cover_image_filename.'.png';
+
+	$lang = $geral_lang;
 }
 
 else {
 	if (in_array($lang, $en_langs)) {
-		$pqntimglink = $cdn_image_stories.'pequenata/capas/kids/'.strtoupper($lang).'/'.'1 '.$covertxt.'.png';
-		$nazzevoimglink = $cdn_image_stories.'nazzevo/capas/'.strtoupper($lang).'/'.'1 '.$covertxt.'.png';
+		$pequenata_folder = $pequenata_online_cover_folder.strtoupper($lang).'/'.$cover_text.'/';
+		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($lang).'/'.$cover_text.'/';
+
+		$pqntimglink = $pequenata_folder.$story_cover_image_filename.'.png';
+		$nazzevoimglink = $nazzevo_folder.$story_cover_image_filename.'.png';
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$pqntimglink = $cdn_image_stories.'pequenata/capas/kids/'.strtoupper($langs[2]).'/'.'1 '.$covertxt.'.png';
-		$nazzevoimglink = $cdn_image_stories.'nazzevo/capas/'.strtoupper($langs[2]).'/'.'1 '.$covertxt.'.png';
+		$pequenata_folder = $pequenata_online_cover_folder.strtoupper($ptbr_lang).'/'.$cover_text.'/';
+		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($ptbr_lang).'/'.$cover_text.'/';
+
+		$pqntimglink = $pequenata_folder.$story_cover_image_filename.'.png';
+		$nazzevoimglink = $nazzevo_folder.$story_cover_image_filename.'.png';
 	}
 }
 

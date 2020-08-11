@@ -6,31 +6,12 @@ $capnum3 = 1;
 $capnum4 = 0;
 while ($capnum1 <= $chapters) {
 	if ($storyhascovers == true) {
-		if (isset($coverimages[$capnum1]) == true and isset($coverimagesm[$capnum1]) == true) {
-			$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum1]."\n".'</a>'."\n"."\n".
-			'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum1]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-
-			//if ($capnum1 == 1) {
-			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum3]."\n".'</a>'."\n"."\n".
-			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum3]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			//}
-			//
-			//if ($capnum1 == 2) {
-			//	$capnum3++;
-			//
-			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum3]."\n".'</a>'."\n"."\n".
-			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum3]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			//}
-			//
-			//if ($capnum1 == 10) {
-			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[2]."\n".'</a>'."\n"."\n".
-			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[2]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			//}
-			//
-			//else {
-			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[($capnum3)]."\n".'</a>'."\n"."\n".
-			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[($capnum3)]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			//}
+		if (isset($coverimages[$capnum1]) and isset($coverimagesm[$capnum1])) {
+			$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum1]."\n".'</a>'.
+			"\n"."\n".
+			'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum1]."\n".'</a>'.
+			"\n".'</center>'.
+			"\n".'<br />'."\n"."\n";
 		}
 
 		else {
@@ -47,7 +28,7 @@ while ($capnum1 <= $chapters) {
 			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');DefineChapter('.$capnum1.');';
 		}
 
-		else {
+		else if ($newwritestyle == false) {
 			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');';
 		}
 
@@ -113,10 +94,9 @@ while ($capnum1 <= $chapters) {
 			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');DefineChapter('.$capnum1.');';
 		}
 
-		else {
+		else if ($newwritestyle == false) {
 			$onclickscript = 'openCity('."'".$capdiv.$capnum1."'".');';
 		}
-
 
 		if ($deactivatenotification == true) {
 			$hidenotifattribute = '';

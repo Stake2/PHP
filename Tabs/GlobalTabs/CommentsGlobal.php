@@ -15,17 +15,25 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		$i = 0;
 		$z = 0;
 		while ($c <= $commentsnumb) {
-			$commentformname[$z] = $comments[$i];
-			$i++;
+			if (isset($comments[$i])) {
+				$commentformname[$z] = $comments[$i];
+				$i++;
+			}
 
-			$commenttername[$z] = $comments[$i];
-			$i++;
+			if (isset($comments[$i])) {
+				$commenttername[$z] = $comments[$i];
+				$i++;
+			}
 
-			$commenttext[$z] = $comments[$i];
-			$i++;
+			if (isset($comments[$i])) {
+				$commenttext[$z] = $comments[$i];
+				$i++;
+			}
 
-			$commenttime[$z] = $comments[$i];
-			$i++;
+			if (isset($comments[$i])) {
+				$commenttime[$z] = $comments[$i];
+				$i++;
+			}
 
 			$c++;
 			$z++;
@@ -39,11 +47,13 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 
 		$i = 0;
 		$z = 0;
-		while ($z <= $commentsnumb) {
-			$commenttime[$z] = substr($commenttime[$z], 0, -1);
-			$commenttime[$z] = date("H:i d/m/Y", strtotime($commenttime[$z]));
+		if (isset($commenttime[$z])) {
+			while ($z <= $commentsnumb) {
+				$commenttime[$z] = substr($commenttime[$z], 0, -1);
+				$commenttime[$z] = date("H:i d/m/Y", strtotime($commenttime[$z]));
 
-			$z++;
+				$z++;
+			}
 		}
 
 		$a = 0;
@@ -123,7 +133,7 @@ if ($sitehascommentstab == true and $sitehascomments == true) {
 		$z = 0;
 		$c = 0;
 		while ($c <= $commentsnormalnumbtowrite) {
-			if (!strpos($cmntsgeral[$z], 'comment-')) {
+			if (!strpos($cmntsgeral[$z], 'comment-') and isset($cmntsgeral[$z])) {
 				echo $cmntsgeral[$z];
 			}
 

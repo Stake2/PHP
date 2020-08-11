@@ -15,22 +15,48 @@ if (is_dir($dir)) {
 	}
 }
 
+$i = 1;
+$cover_number = 10;
+while ($i <= $cover_number) {
+	if ($newwritestyle == true) {
+		$onclickscript = 'openCity('."'".$capdiv.$i."'".');DefineChapter('.$i.');';
+	}
+
+	else if ($newwritestyle == false) {
+		$onclickscript = 'openCity('."'".$capdiv.$i."'".');';
+	}
+
+	$online_image_link = $online_cover_folder.$i.'.png';
+
+	$coverimages[$i] = '<div class="'.$computervar.'">'.'<img src="'.$online_image_link.'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
+
+	$coverimagesm[$i] = '<div class="'.$mobilevar.'">'.'<img src="'.$online_image_link.'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
+
+	$i++;
+}
+
+/*
 #Cover image array creator
 $a = 1;
 $i = 3;
 $z = 1;
 $c = 1;
-while ($c <= (count($files) - 3)) {
-	if (isset($files[$a]) == true) {
-		$onclickscript = 'openCity('."'".$capdiv.$z."'".');DefineChapter('.$z.');';
+while ($c <= (count($files))) {
+	$onclickscript = 'openCity('."'".$capdiv.$z."'".');DefineChapter('.$z.');';
 
-		$online_image_link = $online_cover_folder.$z.'.png';
+	$online_image_link = $online_cover_folder.$z.'.png';
 
-		$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$online_image_link.'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
+	$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$online_image_link.'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
 
-		$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$online_image_link.'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
+	$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$online_image_link.'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
+
+	$a++;
+	$i++;
+	$z++;
+	$c++;
 
 /*
+	if (isset($files[$a]) == true) {
 		if ($c == 3) {
 			$z--;
 			$onclickscript = 'openCity('."'".$capdiv.$z."'".');DefineChapter('.$z.');';
@@ -55,7 +81,7 @@ while ($c <= (count($files) - 3)) {
 
 			$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$files[$i].'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
 		}
-*/
+
 
 		$a++;
 		$i++;
@@ -66,6 +92,7 @@ while ($c <= (count($files) - 3)) {
 	else {
 		$c++;
 	}
-}
+*/
+/*}*/
 
 ?>

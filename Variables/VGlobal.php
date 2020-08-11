@@ -91,6 +91,7 @@ $story_reads_generator_php = $story_files_php_folder_variable.'Story Reads Gener
 $read_modal_generator_php = $story_files_php_folder_variable.'Read Modal Generator.php';
 $comment_modal_generator_php = $story_files_php_folder_variable.'Comment Modal Generator.php';
 
+$story_variables_php_variable = $story_variables_php;
 $story_links_php_variable = $story_links_php;
 $cover_images_displayer_php_variable = $cover_images_displayer_php;
 $cover_images_generator_php_variable = $cover_images_generator_php;
@@ -296,7 +297,7 @@ include $stylefilephp;
 require $globalstylefilephp;
 
 #Stories variables includer if the site is a story site
-require $story_variables_php;
+require $story_variables_php_variable;
 
 #SitesButtons Attributes.php includer
 require $sitesbuttonsattributes;

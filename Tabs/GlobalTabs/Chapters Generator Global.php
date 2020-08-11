@@ -293,12 +293,30 @@ while ($capnum1 <= $chapters) {
 
 	#Top Previous chapter button
 	if ($capnum1 != 1) {
-		echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum3."');".'DefineChapter('.$capnum3.');OpenChapter2(ReadContent'.$capnum3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
+		if ($newwritestyle == true) {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum3."'".');';
+			$onclickscript = $onclickscript.'DefineChapter('.$capnum3.');OpenChapter2(ReadContent'.$capnum3.');';
+		}
+
+		else if ($newwritestyle == false) {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum3."'".');';
+		}
+
+		echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;'.$roundedborderstyle2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 	}
 
 	#Top Next chapter button
 	if ($capnum1 != $chapters) {
-		echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum2."');".'DefineChapter('.$capnum2.');OpenChapter2(ReadContent'.$capnum2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
+		if ($newwritestyle == true) {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum2."'".');';
+			$onclickscript = $onclickscript.'DefineChapter('.$capnum2.');OpenChapter2(ReadContent'.$capnum2.');';
+		}
+
+		else if ($newwritestyle == false) {
+			$onclickscript = 'openCity('."'".$capdiv.$capnum2."'".');';
+		}
+
+		echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;'.$roundedborderstyle2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 	}
 
 	#"Go back to the chapter buttons tab" button
@@ -322,27 +340,6 @@ while ($capnum1 <= $chapters) {
 		if (isset($coverimages[$covernumb]) and isset($coverimagesm[$covernumb])) {
 			echo $coverimages[$covernumb];
 			echo $coverimagesm[$covernumb];
-
-/*
-			if ($capnum1 == 2 and $sitename != $sitenazzevo) {
-				#echo $coverimages[3];
-				#echo $coverimagesm[3];
-
-				$covernumb++;
-			}
-
-			if ($capnum1 == 10) {
-				echo $coverimages[2];
-				echo $coverimagesm[2];
-
-				$covernumb++;
-			}
-
-			else {
-				echo $coverimages[$covernumb];
-				echo $coverimagesm[$covernumb];
-			}
-*/
 		}
 
 		echo '</center>'."\n";

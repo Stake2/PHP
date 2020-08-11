@@ -104,7 +104,7 @@ $authorname = 'Izaque Sanvezzo (stake2)';
 #TextFileReader.php file includer
 include $textfilereaderphp;
 
-$commentsnumb = $comments_check_number + 2;
+$commentsnumb = $comments_check_number - 1;
 
 #Story date definer using story date text file
 $storydate = $storydate[0];
@@ -118,8 +118,8 @@ else {
 	$sitestorywritechapter = (int)$chaptertowrite;
 }
 
-#StoryVars.php file includer
-include $storyvarsphp;
+#Re-include of the StoryVars.php file to set the story name
+include $story_variables_php_variable;
 
 #Reviewed chapter number
 $reviewedcap = 2;
@@ -138,62 +138,7 @@ $descs = array(
 
 #Reads the book cover image directory if the site has book covers
 if ($storyhascovers == true) {
-	#Sets the local Cover folder and lists the files inside it
-	$dir = $coverfolder2;
-	$x2 = 0;
-	$zz2 = 0;
-	if (is_dir($dir)) {
-		if ($dh = opendir($dir)) {
-			while (($file = readdir($dh)) !== false) {
-				$files[$zz2] = $coverfolder.$file;
-				$x2++;
-				$zz2++;
-			}
-			closedir($dh);
-		}
-	}
-
-	#Cover image array creator
-	$a = 1;
-	$i = 3;
-	$z = 1;
-	$c = 1;
-	while ($c <= (count($files) - 3)) {
-		if (isset($files[$a]) == true) {
-			$onclickscript = 'openCity('."'".$capdiv.$z."'".');DefineChapter('.$z.');';
-			if ($c == 3) {
-				$z--;
-				$onclickscript = 'openCity('."'".$capdiv.$z."'".');DefineChapter('.$z.');';
-
-				$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$files[$i].'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
-
-				$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$files[$i].'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
-			}
-
-			if ($c == 2) {
-				$onclickscript = 'openCity('."'".$capdiv.($z + 8)."'".');DefineChapter('.($z + 8).');';
-
-				$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$files[$i].'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
-
-				$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$files[$i].'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
-			}
-
-			else {
-				$coverimages[$a] = '<div class="'.$computervar.'">'.'<img src="'.$files[$i].'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$computervar.'" />'."\n";
-
-				$coverimagesm[$a] = '<div class="'.$mobilevar.'">'.'<img src="'.$files[$i].'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$divc.'<br class="'.$mobilevar.'" />'."\n";
-			}
-
-			$a++;
-			$i++;
-			$z++;
-			$c++;
-		}
-	
-		else {
-			$c++;
-		}
-	}
+	require $cover_images_generator_php_variable;
 }
 
 #English texts for Pequenata website
@@ -296,6 +241,11 @@ if ($writingpack == true) {
 
 #str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filetextarraynames[$i]"});
 
+if ($sitename == $sitespaceliving) {
+	$sitenumbcolor = $subtextspan;
+	$sitenumbhovercolor = $cssbtn5;
+}
+
 #Button names
 $citiestxts = array(
 $tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc,
@@ -313,7 +263,7 @@ $tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc
 $tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$icons[11],
+$tabnames[4].': '.$whitespan.'<span class="'.$sitenumbhovercolor.'">'.$storiesnumb.$spanc.$spanc.' '.$icons[11],
 );
 
 #Button names definer

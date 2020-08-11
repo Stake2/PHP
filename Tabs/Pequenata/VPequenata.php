@@ -110,8 +110,8 @@ else {
 	$sitestorywritechapter = (int)$chaptertowrite;
 }
 
-#Re include of the StoryVars.php file to set the story name
-include $storyvarsphp;
+#Re-include of the StoryVars.php file to set the story name
+include $story_variables_php_variable;
 
 #Reviewed chapter number
 $reviewedcap = 10;
@@ -237,6 +237,7 @@ if ($writingpack == true) {
 	$tabnames[0] = str_replace('Read', 'Write', $tabnames[0]);
 	$tabnames[0] = str_replace('Ler', 'Escrever', $tabnames[0]);
 }
+
 #str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filetextarraynames[$i]"});
 #Button names
 $citiestxts = array(

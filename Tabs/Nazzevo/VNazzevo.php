@@ -44,7 +44,7 @@ $storyfolder = $nazzevostoryfolder;
 #Form code for the comment and read forms
 $formcode = 'nazzevo';
 
-$nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder;
+$nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
 
 $single_cover_folder = 'Capas';
 $cover_folder = $cdn_image_stories.ucwords($formcode).'/'.$single_cover_folder.'/';
