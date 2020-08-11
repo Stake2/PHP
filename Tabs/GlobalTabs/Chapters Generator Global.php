@@ -117,7 +117,7 @@ echo '<style>
 </style>';
 echo "\n";
 
-if ($storyhasreads == true) {
+if ($storyhasreads == true and $storycontainsreads == true) {
 	require $story_reads_generator_php_variable;
 
 	$h = $readednumb;

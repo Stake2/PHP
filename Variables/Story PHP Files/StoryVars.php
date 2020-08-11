@@ -181,7 +181,7 @@ $lonelystoryname,
 $storyfolders = array(
 $pqntstoryfolder = 'Pequenata - Littletato',
 $slstoryfolder = 'SpaceLiving',
-$nazzevostoryfolder = 'A História dos irmãos Nazzevo',
+$nazzevostoryfolder = 'The Story of the Nazzevo Brothers',
 $lsstoryfolder = 'Lonely Stories',
 $sistoryfolder = 'Yours truly, Izaque',
 );

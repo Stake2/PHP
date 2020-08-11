@@ -1,7 +1,9 @@
 <?php
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-if ($lang == $langs[0]) {
+$sub_folder_text = 'Cover';
+
+if ($lang == $geral_lang) {
 	$lang = $enus_lang;
 
 	$rootstoryfolder2 = $nolangstoryfolder.strtoupper($lang).'/';
@@ -10,8 +12,8 @@ if ($lang == $langs[0]) {
 		$online_cover_folder = $cover_folder.strtoupper($lang).'/';
 		$local_cover_folder = $nolangstoryfolder.'Foto/'.$single_cover_folder.strtoupper($lang).'/';
 
-		$online_cover_subfolder = $online_cover_folder.'Cover/';
-		$local_cover_subfolder = $local_cover_folder.'Cover/';
+		$online_cover_subfolder = $online_cover_folder.$sub_folder_text.'/';
+		$local_cover_subfolder = $local_cover_folder.$sub_folder_text.'/';
 	}
 
 	$lang = $geral_lang;
@@ -37,8 +39,8 @@ else {
 			$local_cover_folder = $nolangstoryfolder.'Foto/'.$single_cover_folder.strtoupper($ptbr_lang).'/';
 		}
 
-		$online_cover_subfolder = $online_cover_folder.'Cover/';
-		$local_cover_subfolder = $local_cover_folder.'Cover/';
+		$online_cover_subfolder = $online_cover_folder.$sub_folder_text.'/';
+		$local_cover_subfolder = $local_cover_folder.$sub_folder_text.'/';
 	}
 }
 

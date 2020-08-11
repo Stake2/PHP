@@ -49,8 +49,8 @@ $formcode = 'pequenata';
 $nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
 $no_language_story_folder = $notepad_stories_folder_variable.$storyfolder.'/';
 
-$single_cover_folder = 'Capas/Kids/';
-$cover_folder = $cdn_image_stories.ucwords($formcode).'/'.$single_cover_folder;
+$single_cover_folder = 'Capas/Kids';
+$cover_folder = $cdn_image_stories.ucwords($formcode).'/'.$single_cover_folder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_displayer_php_variable;
@@ -66,7 +66,9 @@ $siteimage = 'pequenata';
 
 #Defines the site image if the site has book covers or not
 if ($storyhascovers == true) {
-	$siteimage = $online_cover_subfolder.'1.png';
+	$story_cover_image_filename = '1';
+
+	$siteimage = $online_cover_subfolder.$story_cover_image_filename.'.png';
 	$imagesize1 = 60;
 	$imagesize2 = 88;
 }

@@ -46,8 +46,8 @@ $formcode = 'nazzevo';
 
 $nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder;
 
-$single_cover_folder = 'Capas/';
-$cover_folder = $cdn_image_stories.'Nazzevo/'.$single_cover_folder;
+$single_cover_folder = 'Capas';
+$cover_folder = $cdn_image_stories.ucwords($formcode).'/'.$single_cover_folder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_displayer_php_variable;
@@ -81,13 +81,16 @@ $siteimage = 'nazzevo';
 
 #Defines the site image if the site has book covers or not
 if ($storyhascovers == true) {
-	$siteimage = $online_cover_folder.'1 '.$covertxt.'.png';
+	$story_cover_image_filename = '1';
+
+	$siteimage = $online_cover_subfolder.$story_cover_image_filename.'.png';
 	$imagesize1 = 60;
 	$imagesize2 = 88;
 }
 
 else {
 	$siteimage = $cdnimg.$siteimage.'.jpg';
+
 	$imagesize1 = 30;
 	$imagesize2 = 77;
 }
