@@ -25,7 +25,7 @@ if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
 	$storycontainscomments = true; #Defines if the story has comments on it
 
 	#Site Tabs array
-	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog');
+	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories');
 
 	#Site Tabnames array
 	if (in_array($lang, $en_langs)) {
