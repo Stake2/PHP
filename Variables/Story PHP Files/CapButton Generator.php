@@ -7,36 +7,39 @@ $capnum4 = 0;
 while ($capnum1 <= $chapters) {
 	if ($storyhascovers == true) {
 		if (isset($coverimages[$capnum1]) == true and isset($coverimagesm[$capnum1]) == true) {
-			if ($capnum1 == 1) {
-				$coverimagebuttom = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum3]."\n".'</a>'."\n"."\n".
-			'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum3]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			}
+			$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum1]."\n".'</a>'."\n"."\n".
+			'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum1]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
 
-			if ($capnum1 == 2) {
-				$capnum3++;
-
-				$coverimagebuttom = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum3]."\n".'</a>'."\n"."\n".
-			'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum3]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			}
-
-			if ($capnum1 == 10) {
-				$coverimagebuttom = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[2]."\n".'</a>'."\n"."\n".
-			'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[2]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			}
-
-			else {
-				$coverimagebuttom = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[($capnum3)]."\n".'</a>'."\n"."\n".
-			'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[($capnum3)]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
-			}
+			//if ($capnum1 == 1) {
+			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum3]."\n".'</a>'."\n"."\n".
+			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum3]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
+			//}
+			//
+			//if ($capnum1 == 2) {
+			//	$capnum3++;
+			//
+			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[$capnum3]."\n".'</a>'."\n"."\n".
+			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[$capnum3]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
+			//}
+			//
+			//if ($capnum1 == 10) {
+			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[2]."\n".'</a>'."\n"."\n".
+			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[2]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
+			//}
+			//
+			//else {
+			//	$cover_image_button = '<center>'."\n".'<a href="#'.$capdiv.''.$capnum1.'" title="'.$capnum1.' - '.$titles[$capnum4].'">'.$coverimages[($capnum3)]."\n".'</a>'."\n"."\n".
+			//'<a href="#'.$capdiv.''.$capnum1.'">'."\n".$coverimagesm[($capnum3)]."\n".'</a>'."\n".'</center>'."\n".'<br />'."\n"."\n";
+			//}
 		}
 
 		else {
-			$coverimagebuttom = '';
+			$cover_image_button = '';
 		}
 	}
 
 	else {
-		$coverimagebuttom = '';
+		$cover_image_button = '';
 	}
 
 	if ($capnum1 == $chapters) {
@@ -71,7 +74,7 @@ while ($capnum1 <= $chapters) {
 
 			echo $chapterbtn;
 
-			echo $coverimagebuttom;
+			echo $cover_image_button;
 
 			echo $divc;
 
@@ -95,7 +98,7 @@ while ($capnum1 <= $chapters) {
 
 			echo $chapterbtn;
 
-			echo $coverimagebuttom;
+			echo $cover_image_button;
 
 			echo $divc;
 
@@ -138,7 +141,7 @@ while ($capnum1 <= $chapters) {
 
 			echo $chapterbtn;
 
-			echo $coverimagebuttom;
+			echo $cover_image_button;
 
 			echo $divc;
 
@@ -162,7 +165,7 @@ while ($capnum1 <= $chapters) {
 
 			echo $chapterbtn;
 
-			echo $coverimagebuttom;
+			echo $cover_image_button;
 
 			echo $divc;
 

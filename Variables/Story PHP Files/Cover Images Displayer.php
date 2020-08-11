@@ -2,37 +2,43 @@
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 if ($lang == $langs[0]) {
-	$lang = $langs[1];
+	$lang = $enus_lang;
 
-	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
+	$rootstoryfolder2 = $nolangstoryfolder.strtoupper($lang).'/';
 
 	if ($storyhascovers == true) {
 		$online_cover_folder = $cover_folder.strtoupper($lang).'/';
-		$local_cover_folder = substr($rootstoryfolder2, 0, -5).'Foto/'.$single_cover_folder.strtoupper($lang).'/';
+		$local_cover_folder = $nolangstoryfolder.'Foto/'.$single_cover_folder.strtoupper($lang).'/';
+
+		$online_cover_subfolder = $online_cover_folder.'Cover/';
+		$local_cover_subfolder = $local_cover_folder.'Cover/';
 	}
 
-	$lang = $langs[0];
+	$lang = $geral_lang;
 }
 
 else {
 	if (in_array($lang, $en_langs)) {
-		$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
+		$rootstoryfolder2 = $nolangstoryfolder.strtoupper($lang).'/';
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($langs[2]).'/';
+		$rootstoryfolder2 = $nolangstoryfolder.strtoupper($ptbr_lang).'/';
 	}
 
 	if ($storyhascovers == true) {
 		if (in_array($lang, $en_langs)) {
 			$online_cover_folder = $cover_folder.strtoupper($lang).'/';
-			$local_cover_folder = substr($rootstoryfolder2, 0, -5).'Foto/'.$single_cover_folder.strtoupper($lang).'/';
+			$local_cover_folder = $nolangstoryfolder.'Foto/'.$single_cover_folder.strtoupper($lang).'/';
 		}
 
 		if (in_array($lang, $pt_langs)) {
-			$online_cover_folder = $cover_folder.strtoupper($langs[2]).'/';
-			$local_cover_folder = substr($rootstoryfolder2, 0, -5).'Foto/'.$single_cover_folder.strtoupper($langs[2]).'/';
+			$online_cover_folder = $cover_folder.strtoupper($ptbr_lang).'/';
+			$local_cover_folder = $nolangstoryfolder.'Foto/'.$single_cover_folder.strtoupper($ptbr_lang).'/';
 		}
+
+		$online_cover_subfolder = $online_cover_folder.'Cover/';
+		$local_cover_subfolder = $local_cover_folder.'Cover/';
 	}
 }
 

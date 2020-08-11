@@ -319,8 +319,11 @@ while ($capnum1 <= $chapters) {
 	if ($storyhascovers == true or $storyhascovers == true and $sitename == $sitepequenata and $capnum1 <= 10) {
 		echo '<center>'."\n";
 
-		if (isset($files[$capnum1]) == true) {
+		if (isset($coverimages[$covernumb]) and isset($coverimagesm[$covernumb])) {
+			echo $coverimages[$covernumb];
+			echo $coverimagesm[$covernumb];
 
+/*
 			if ($capnum1 == 2 and $sitename != $sitenazzevo) {
 				#echo $coverimages[3];
 				#echo $coverimagesm[3];
@@ -339,6 +342,7 @@ while ($capnum1 <= $chapters) {
 				echo $coverimages[$covernumb];
 				echo $coverimagesm[$covernumb];
 			}
+*/
 		}
 
 		echo '</center>'."\n";
