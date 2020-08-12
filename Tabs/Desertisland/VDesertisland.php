@@ -51,12 +51,16 @@ include $story_variables_php_variable;
 #Story name definer
 $story = $desert_island_story_name;
 
+$number_until_date_of_publication = 2;
+$date_to_publish = (string)($number_until_date_of_publication).' '.$months_text;
+
 #English texts for Pequenata website
 if (in_array($lang, $en_langs)) {
 	$website_texts = array(
 	'Coming soon',
 	'The new story of Izaque Sanvezzo',
-	'30 days until a big reveal',
+	$date_to_publish.' until a big reveal...<br />
+	Prepare your boats',
 	);
 }
 
@@ -65,7 +69,8 @@ if (in_array($lang, $pt_langs)) {
 	$website_texts = array(
 	'Em breve',
 	'A nova história de Izaque Sanvezzo',
-	'Faltam 30 dias para uma grande revelação',
+	'Faltam '.$date_to_publish.' para uma grande revelação...<br />
+	Preparem seus barcos',
 	);
 }
 
@@ -76,7 +81,7 @@ $additional_website_content = '
 <h1 class="w3-jumbo w3-animate-top">'.$array[0].':<br /></h1>
 <h3 class="w3-jumbo w3-animate-top">'.$array[1].'.</h3>
 <hr class="w3-border-grey" style="margin:auto;width:40%">
-<h3 class="w3-center">'.$array[2].'...</h3>
+<h3 class="w3-center">'.$array[2].'.</h3>
 </div>
 </div>';
 
