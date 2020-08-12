@@ -17,20 +17,27 @@ echo 'function OpenChapter() {'."\n".
 	}
 	';
 
-$i = 1;
+$i = 0;
 while ($i < $chapters) {
+	$i2 = $i + 1;
+
 	echo '
-	var check'.$i.' = site2.includes(captext2 + "'.$i.'");';
+	var first_check_'.$i2.' = site2.includes(captext2 + "'.$i2.'");
+	var second_check_'.$i2.' = site2.includes(captext2 + "['.$i2.']");
+	var third_check_'.$i2.' = site2.includes(captext2 + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
+	var fourth_check_'.$i2.' = site2.includes(captext2 + "%22'.$i2.'%22");';
 
 	$i++;
 }
 
 echo "\n"."\n";
 
-$i = 1;
+$i = 0;
 while ($i <= $chapters) {
-	echo '	if (check'.$i.' === true) {'."\n";
-	echo '		var captext = captext1 + "'.$i.'";'."\n";
+	$i2 = $i + 1;
+
+	echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true) {'."\n";
+	echo '		var captext = captext1 + "'.$i2.'";'."\n";
 	echo '		openCity(captext);'."\n";
 	echo '		document.getElementById(captext).scrollIntoView();'."\n";
 	echo '	}'."\n";

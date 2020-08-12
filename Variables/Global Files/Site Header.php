@@ -22,8 +22,8 @@ elseif ($notsomuchspace == true) {
 #	$sitedesc2 = $sitedesc2.'<br /> <b>'.$divzoomanimlouco.$bluespan.$redondodesc.$spanc.$divc.'</b>'."\n";
 #}
 
-if (!isset($sitetitulo2) and !isset($sitedesc)) {
-	$siteimage = $cdn.'/img/Template.png';
+if (!isset($sitetitulo2) and !isset($sitedesc) and $deactivateheader == false) {
+	$siteimage = $cdnimg.'Template.png';
 	$imglink = $siteimage;
 	$imagesize1 = 33;
 	$imagesize2 = 44;
@@ -68,7 +68,7 @@ if (!isset($sitetitulo2) and !isset($sitedesc)) {
 	'.$divc."\n";	
 }
 
-if ($sitetype1 == $types[0] or $sitetype1 == 'Years') {
+if ($sitetype1 == $types[0] and $deactivateheader == false or $sitetype1 == 'Years' and $deactivateheader == false) {
 	if ($site == $sitediario) {
 		$blockstextonheader = $blockstext.'<br />'."\n";
 		$diariostuff1 = '<'.$n.' class="'.$colortext.' '.$computervar.'">'.$blockstextonheader.'</'.$n.'>
@@ -160,16 +160,31 @@ if ($deactivateheader == true) {
 	$sitewrappershow = '';
 }
 
-else {
+if ($deactivateheader == false) {
 	$sitewrappershow = $sitewrapper;
+}
+
+if ($deactivate_js == true) {
+	$site_js = null;
+}
+
+if ($deactivate_js == false) {
+	$site_js = $sitejs;
+}
+
+if ($deactivateall == true) {
+	$center = null;
+}
+
+if ($deactivateall == false) {
+	$center = '<center>';
 }
 
 $siteheader = '<head>'.
 $sitehead."\n".
-$sitejs.
+$site_js.
 '</head>
-<body>
-<center>'."\n".
+<body>'.$center."\n".
 $buttons."\n".
 
 $changetitlescript."\n".

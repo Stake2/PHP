@@ -197,10 +197,6 @@ if (strpos($host, $settingsparams[20].'='.'false') == true) {
 	$deactivateheader = false;
 }
 
-else {
-	$deactivateheader = false;
-}
-
 
 if (strpos($host, $settingsparams[13].'='.'true') == true) {
 	$deactivatenotification = true;
@@ -217,12 +213,20 @@ if (strpos($host, $settingsparams[19].'='.'true') == true) {
 	$deactivateheader = true;
 }
 
+if ($deactivateall == true) {
+	$deactivatetopbtns = true;
+	$deactivatetabs = true;
+	$deactivatenotification = true;
+	$deactivateheader = true;
+}
+
 if (strpos($host, $settingsparams[19].'='.'false') == true) {
 	$deactivatetopbtns = false;
 	$deactivatetabs = false;
 	$deactivatenotification = false;
 	$deactivateheader = false;
 }
+
 
 if (strpos($host, $settingsparams[14].'='.'true') == true) {
 	$newdesign = true;

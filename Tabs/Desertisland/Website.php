@@ -5,12 +5,14 @@ if (strpos ($host, $params[0].'='.$sitedesertisland) == true) {
 	$choosenwebsite = $sitedesertisland;
 
 	#Site title and name definer
+	$site = $choosenwebsite;
 	$sitename = $choosenwebsite;
 	$setsitecssfile = $pocbcss;
 
 	#Site settings definer
-	$deactivateheader = true;
-	$deactivatetabs = true;
+	$deactivateall = true;
+	$site_is_prototype = true;
+	$site_haves_additional_website_content = true;
 
 	#Site settings setter file includer
 	include $settingsparamsfile;
