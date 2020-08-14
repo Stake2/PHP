@@ -23,7 +23,86 @@ body, html {
   background-position: center;
   background-size: cover;
 }
-</style>";
+</style>".
+'<script type="text/javascript">
+function pad(
+  a, // the number to convert 
+  b // number of resulting characters
+){
+  return (
+    1e15 + a + // combine with large number
+    "" // convert to string
+  ).slice(-b) // cut leading "1"
+}
+
+var launch_date = new Date(2020, 10, 11);
+
+var launch_date_day = launch_date.getDate();
+
+var launch_date_month = launch_date.getMonth();
+var launch_date_month = pad(launch_date_month, 2);
+
+var launch_date_year = launch_date.getFullYear();
+
+var launch_date = String(launch_date_day) + "/" + String(launch_date_month) + "/" + String(launch_date_year);
+
+var today_date = new Date();
+
+var today_date_day = today_date.getDate();
+
+var today_date_month = today_date.getMonth() + 1;
+var today_date_month = pad(today_date_month, 2);
+
+var today_date_year = today_date.getFullYear();
+
+var today_date = String(today_date_day) + "/" + String(today_date_month) + "/" + String(today_date_year);
+
+var dateFirst = new Date(2020, 10, 11);
+var dateSecond = new Date();
+
+// time difference
+var timeDiff = Math.abs(dateSecond.getTime() - dateFirst.getTime());
+
+var DateDiff = {
+    inDays: function(d1, d2) {
+        var t2 = d2.getTime();
+        var t1 = d1.getTime();
+
+        return parseInt((t2-t1)/(24*3600*1000));
+    },
+
+    inWeeks: function(d1, d2) {
+        var t2 = d2.getTime();
+        var t1 = d1.getTime();
+
+        return parseInt((t2-t1)/(24*3600*1000*7));
+    },
+
+    inMonths: function(d1, d2) {
+        var d1Y = d1.getFullYear();
+        var d2Y = d2.getFullYear();
+        var d1M = d1.getMonth() + 1;
+        var d2M = d2.getMonth();
+
+        return (d2M+12*d2Y)-(d1M+12*d1Y);
+    },
+
+    inYears: function(d1, d2) {
+        return d2.getFullYear()-d1.getFullYear();
+    }
+}
+
+var d1 = new Date();
+var d2 = new Date(2020, 10, 11);
+var months = DateDiff.inYears(d1, d2) * 12;
+var month = DateDiff.inMonths(d1, d2) - months;
+//var days = DateDiff.inYears(d1, d2) * 365;
+//var dy = DateDiff.inDays(d1, d2) - days;
+
+console.log("The launch date is: " + launch_date);
+console.log("Today is: " + today_date);
+</script>
+';
 
 #Site name in English and Brazilian Portuguese language
 $sitenames = array(
@@ -52,14 +131,14 @@ include $story_variables_php_variable;
 $story = $desert_island_story_name;
 
 $number_until_date_of_publication = 2;
-$date_to_publish = (string)($number_until_date_of_publication).' '.$months_text;
+$date_to_publish = (string)($number_until_date_of_publication);
 
 #English texts for Pequenata website
 if (in_array($lang, $en_langs)) {
 	$website_texts = array(
 	'Coming soon',
 	'The new story of Izaque Sanvezzo',
-	$date_to_publish.' until a big reveal...<br />
+	'<span id="launch_date">'.$date_to_publish.'</span> '.$months_text.' until a big reveal...<br />
 	Prepare your boats',
 	);
 }
@@ -69,7 +148,7 @@ if (in_array($lang, $pt_langs)) {
 	$website_texts = array(
 	'Em breve',
 	'A nova história de Izaque Sanvezzo',
-	'Faltam '.$date_to_publish.' para uma grande revelação...<br />
+	'Faltam <span id="launch_date">'.$date_to_publish.'</span> '.$months_text.' para uma grande revelação...<br />
 	Preparem seus barcos',
 	);
 }
@@ -83,7 +162,13 @@ $additional_website_content = '
 <hr class="w3-border-grey" style="margin:auto;width:40%">
 <h3 class="w3-center">'.$array[2].'.</h3>
 </div>
-</div>';
+</div>
+
+<script>
+launch_date_div = document.getElementById("launch_date");
+launch_date_div.innerHTML = month;
+console.log("Replaced the date with the difference between the two dates.");
+</script>';
 
 #Site name, title, url and description setter
 if ($lang == $geral_lang) {
