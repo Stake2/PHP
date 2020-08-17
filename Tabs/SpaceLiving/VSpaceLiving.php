@@ -122,7 +122,7 @@ else {
 include $story_variables_php_variable;
 
 #Reviewed chapter number
-$reviewedcap = 2;
+$reviewedcap = 3;
 
 #Site descriptions
 $sitedescs = array(
