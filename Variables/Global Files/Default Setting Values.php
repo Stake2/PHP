@@ -9,11 +9,18 @@ $siteshowscomments = false;
 $sitehascomments = false;
 $sitehascommentstab = false;
 $sitehaschangelog = false;
-$sitestorywrite = false;
-$chaptertowrite = false;
+
 $writingpack = false;
 $showwriteformtext = false;
+$sitestorywrite = false;
+$chaptertowrite = false;
 $showchaptertext = false;
+$newwritestyle = false;
+$translatestory = false;
+$write_new_chapter = false;
+$show_write_form_text = false;
+$show_title_text = false;
+
 $thingsidofake = false;
 $watchmedias2018 = false;
 $watchmedias2019 = false;
@@ -28,8 +35,7 @@ $deactivatesitesbtn = false;
 $deactivate_js = false;
 
 $newdesign = false;
-$newwritestyle = false;
-$translatestory = false;
+
 $hidecitysetting = true;
 $notsomuchspace = false;
 $storyhascovers = false;

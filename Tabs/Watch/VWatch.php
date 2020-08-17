@@ -112,7 +112,7 @@ if ($lang == $langs[0]) {
 	$sitename = $site;
 	
 	$sitetitulo = ucwords($site).' History';
-	$sitetitulo2 = ucwords($site).' History'.': '.$icons[5].$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$sitetitulo2 = ucwords($site).' History'.': '.$icons[5].' '.$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
 	$siteurl = $siteurlgeral;
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
@@ -125,7 +125,7 @@ if ($lang == $langs[1]) {
 	$sitename = $site;
 	
 	$sitetitulo = ucwords($site).' History '.$lang2;
-	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].' '.$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
 	$siteurl = $siteurlgeral.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
@@ -138,7 +138,7 @@ if ($lang == $langs[2]) {
 	$sitename = $site;
 
 	$sitetitulo = ucwords($site).' History '.$lang2;
-	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].' '.$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
 	$siteurl = $siteurlgeral.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[1];

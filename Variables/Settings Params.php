@@ -1,5 +1,25 @@
 <?php 
 
+$settings_params_array = array(
+'write_new_chapter',
+'show_write_form_text',
+'show_title_text',
+);
+
+foreach ($settings_params_array as $param) {	
+	if (strpos($host, $param.'='.'true') == true) {
+		${"$param"} = true;
+	}
+
+	if (strpos($host, $param.'='.'false') == true) {
+		${"$param"} = false;
+	}
+
+	else {
+		${"$param"} = ${"$param"};
+	}
+}
+
 if (strpos($host, $settingsparams[0].'='.'true') == true) {
 	$sitehasnotifications = true;
 }
@@ -104,7 +124,7 @@ else {
 }
 
 if (strpos($host, $settingsparams[8].'='.'true') == true) {
-	$translatestory = true;#
+	$translatestory = true;
 }
 
 if (strpos($host, $settingsparams[8].'='.'false') == true) {

@@ -41,8 +41,10 @@ $cover_images_generator_php = $story_files_php_folder_variable.'Cover Images Gen
 
 $open_chapter_script_php = $story_files_php_folder_variable.'Open Chapter Script.php';
 $chapter_button_generator_php = $story_files_php_folder_variable.'CapButton Generator.php';
+$chapter_tab_generator_php = $story_files_php_folder_variable.'Chapter Tab Generator.php';
 $chapter_text_displayer_php = $story_files_php_folder_variable.'Chapter Text Displayer.php';
 $chapter_writer_displayer_php = $story_files_php_folder_variable.'Chapter Writer Displayer.php';
+$chapter_writer_form_php = $story_files_php_folder_variable.'Chapter Writer Form.php';
 $chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'Chapter Comment And Read Displayer.php';
 $new_chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'New Chapter Comment And Read Displayer.php';
 
@@ -54,9 +56,16 @@ $story_variables_php_variable = $story_variables_php;
 
 $cover_images_displayer_php_variable = $cover_images_displayer_php;
 $cover_images_generator_php_variable = $cover_images_generator_php;
+
+$open_chapter_script_php_variable = $open_chapter_script_php;
 $chapter_button_generator_php_variable = $chapter_button_generator_php;
+$chapter_tab_generator_php_variable = $chapter_tab_generator_php;
+$chapter_text_displayer_php_variable = $chapter_text_displayer_php;
+$chapter_writer_displayer_php_variable = $chapter_writer_displayer_php;
+$chapter_writer_form_php_variable = $chapter_writer_form_php;
 $chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_displayer_php;
 $new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
+
 $story_reads_generator_php_variable = $story_reads_generator_php;
 $read_modal_generator_php_variable = $read_modal_generator_php;
 $comment_modal_generator_php_variable = $comment_modal_generator_php;

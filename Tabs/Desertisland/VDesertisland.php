@@ -8,6 +8,7 @@ $siteimage = $cdn_image_stories.$site_image;
 $imglink = $siteimage;
 
 $custom_website_head_content = '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 '."<style>
 body, h1, h2, h3 ".'{
 	font-family: "Raleway", sans-serif;
@@ -68,14 +69,14 @@ var DateDiff = {
         var t2 = d2.getTime();
         var t1 = d1.getTime();
 
-        return parseInt((t2-t1)/(24*3600*1000));
+        return parseInt((t2 - t1)/(24 * 3600 * 1000));
     },
 
     inWeeks: function(d1, d2) {
         var t2 = d2.getTime();
         var t1 = d1.getTime();
 
-        return parseInt((t2-t1)/(24*3600*1000*7));
+        return parseInt((t2 - t1) / ( 24 * 3600 * 1000 * 7));
     },
 
     inMonths: function(d1, d2) {
@@ -84,11 +85,11 @@ var DateDiff = {
         var d1M = d1.getMonth() + 1;
         var d2M = d2.getMonth();
 
-        return (d2M+12*d2Y)-(d1M+12*d1Y);
+        return (d2M + 12 * d2Y)-(d1M + 12 * d1Y);
     },
 
     inYears: function(d1, d2) {
-        return d2.getFullYear()-d1.getFullYear();
+        return d2.getFullYear() - d1.getFullYear();
     }
 }
 
@@ -168,7 +169,8 @@ $additional_website_content = '
 launch_date_div = document.getElementById("launch_date");
 launch_date_div.innerHTML = month;
 console.log("Replaced the date with the difference between the two dates.");
-</script>';
+</script>
+';
 
 #Site name, title, url and description setter
 if ($lang == $geral_lang) {

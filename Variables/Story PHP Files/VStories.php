@@ -73,6 +73,8 @@ if (in_array($lang, $en_langs)) {
 	$readersdesc = 'Thanks everyone ♥';
 	$notificationtext = 'New reviewed chapter';
 
+	$write_new_chapter_tab_text = 'write-new-chapter';
+
 	$storynames = array(
 	$pqntstoryname = 'The Life of Littletato',
 	$slstoryname = 'SpaceLiving',
@@ -139,6 +141,8 @@ if (in_array($lang, $pt_langs)) {
 
 	$readersdesc = 'Obrigado a todos ♥';
 	$notificationtext = 'Novo capítulo revisado';
+
+	$write_new_chapter_tab_text = 'escrever-novo-capítulo';
 
 	$storynames = array(
 	$pqntstoryname = 'A Vida de Pequenata',
