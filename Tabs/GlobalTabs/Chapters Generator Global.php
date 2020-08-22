@@ -144,7 +144,7 @@ if ($site_uses_new_comment_and_read_displayer == true) {
 
 		$reads_array = array(
 		null,
-		[$reads[0], $reads[1]],
+		[$reads[0], $reads[1], $reads[12]],
 		[$reads[2], $reads[11]],
 		$reads[10],
 		$reads[9],

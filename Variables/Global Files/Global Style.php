@@ -9,15 +9,17 @@ $colortext2 = 'w3-text-green';
 $bordercolor = 'w3-black';
 $colortext3 = 'w3-text-yellow';
 
-$cssbtn1 = "borderbtn";
-$cssbtn2 = "borderbtn2";
-$cssbtn3 = "borderbtnblack2";
-$cssbtn4 = "borderbtn3";
+$cssbtn1 = 'borderbtn';
+$cssbtn2 = 'borderbtn2';
+$cssbtn3 = 'borderbtnblack2';
+$cssbtn4 = 'borderbtn3';
 $cssbtn5 = 'borderbtnblue';
 $classcsbtn4 = 'class="borderbtn3"';
 $zoomanim = 'w3-animate-zoom';
 $bottanim = 'w3-animate-bottom';
 $shakesidetosideanim = 'shakesidetoside';
+
+$border_button_white = 'border_button_white';
 
 $divzoomanim = '<div class="w3-animate-zoom">';
 $divbottanim = '<div class="w3-animate-bottom">';

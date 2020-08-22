@@ -90,37 +90,37 @@ if ($sitename == $sitediario) {
 
 if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	#Files definer for Watch.php and Years websites
-	$watched2018textfile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2018.'/Watched'.$site2018.'.txt';
-	$watched2018timefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2018.'/Watched'.$site2018.'Time.txt';
+	$watched2018textfile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' Episodes.txt';
+	$watched2018timefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' Time.txt';
 
 	if (in_array($lang, $en_langs)) {
-		$watched2018mediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2018.'/Watched'.$site2018.'MediaType'.ucwords($enus_lang).'.txt';
+		$watched2018mediatypefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' MediaType '.strtoupper($enus_lang).'.txt';
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$watched2018mediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2018.'/Watched'.$site2018.'MediaType'.ucwords($ptbr_lang).'.txt';
+		$watched2018mediatypefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' MediaType '.strtoupper($ptbr_lang).'.txt';
 	}
 
-	$watched2019textfile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2019.'/Watched'.$site2019.'.txt';
-	$watched2019timefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2019.'/Watched'.$site2019.'Time.txt';
+	$watched2019textfile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' Episodes.txt';
+	$watched2019timefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' Time.txt';
 
 	if (in_array($lang, $en_langs)) {
-		$watched2019mediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2019.'/Watched'.$site2019.'MediaType'.ucwords($enus_lang).'.txt';
+		$watched2019mediatypefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' MediaType '.strtoupper($enus_lang).'.txt';
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$watched2019mediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2019.'/Watched'.$site2019.'MediaType'.ucwords($ptbr_lang).'.txt';
+		$watched2019mediatypefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' MediaType '.strtoupper($ptbr_lang).'.txt';
 	}
 
-	$watched2020textfile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2020.'/Watched'.$site2020.'.txt';
-	$watched2020timefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2020.'/Watched'.$site2020.'Time.txt';
+	$watched2020textfile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' Episodes.txt';
+	$watched2020timefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' Time.txt';
 
 	if (in_array($lang, $en_langs)) {
-		$watched2020mediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2020.'/Watched'.$site2020.'MediaType'.ucwords($enus_lang).'.txt';
+		$watched2020mediatypefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' MediaType '.strtoupper($enus_lang).'.txt';
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$watched2020mediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/'.$site2020.'/Watched'.$site2020.'MediaType'.ucwords($ptbr_lang).'.txt';
+		$watched2020mediatypefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' MediaType '.strtoupper($ptbr_lang).'.txt';
 	}
 
 	$watchedmediatypefilearray = array(
@@ -129,22 +129,22 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	$watched2020mediatypefile,
 	);
 
-	$watchedmoviestextfile = $notepad_folder_effort_medianetwork.'/Watch History/WatchedMovies.txt';
-	$watchedmoviestimefile = $notepad_folder_effort_medianetwork.'/Watch History/WatchedMoviestime.txt';
-	$twfile = $notepad_folder_effort_medianetwork.'/Watch History/ToWatch.txt';
-	$twstatusfile = $notepad_folder_effort_medianetwork.'/Watch History/ToWatchStatus.txt';
-	$twmediafile = $notepad_folder_effort_medianetwork.'/Watch History/ToWatchMedia.txt';
+	$watchedmoviestextfile = $notepad_watch_history_folder.'Watched Movies.txt';
+	$watchedmoviestimefile = $notepad_watch_history_folder.'Watched Movies Time.txt';
+	$twfile = $notepad_watch_history_folder.'To Watch Episodes.txt';
+	$twstatusfile = $notepad_watch_history_folder.'To Watch Status.txt';
+	$twmediafile = $notepad_watch_history_folder.'To Watch Folders.txt';
 
 	if (in_array($lang, $en_langs)) {
-		$twmediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/ToWatchMediaType'.ucwords($enus_lang).'.txt';
+		$twmediatypefile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_lang).'.txt';
 	}
 
 	if (in_array($lang, $pt_langs)) {
-		$twmediatypefile = $notepad_folder_effort_medianetwork.'/Watch History/ToWatchMediaType'.ucwords($ptbr_lang).'.txt';
+		$twmediatypefile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_lang).'.txt';
 	}
 
-	$twmediatypeenusfile = $notepad_folder_effort_medianetwork.'/Watch History/ToWatchMediaType'.ucwords($enus_lang).'.txt';
-	$twmediatypeptbrfile = $notepad_folder_effort_medianetwork.'/Watch History/ToWatchMediaType'.ucwords($ptbr_lang).'.txt';
+	#$twmediatypeenusfile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_lang).'.txt';
+	#$twmediatypeptbrfile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_lang).'.txt';
 
 	if (file_exists($watchedmoviestextfile) == true) {
 		$moviesnumber = 0;

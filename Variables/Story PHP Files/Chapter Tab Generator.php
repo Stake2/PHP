@@ -147,15 +147,6 @@ echo '<br /><br /><br /><br />'."\n";
 
 echo $divzoomanim."\n";
 
-#Replaces the "?"s in the chapter 26 file name with nothing
-if ($capnum1 == 26) {
-	$caps[$capnum1] = str_replace(array("?"), "", $caps[$capnum1]);
-}
-
-if ($capnum1 == 26) {
-	$capsenus[$capnum1] = str_replace(array("?"), "", $capsenus[$capnum1]);
-}
-
 #Story cover shower if story has the storyhascovers setting as true
 if ($storyhascovers == true or $storyhascovers == true and $sitename == $sitepequenata and $capnum1 <= 10) {
 	echo '<center>'."\n";
