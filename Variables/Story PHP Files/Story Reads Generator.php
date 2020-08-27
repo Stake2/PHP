@@ -35,7 +35,7 @@ while ($b1 <= $readsfilenumb) {
 	$readtxts[7].': </b>'.$readstxt[$b1].'<br /><b>'.
 
 	#Chapter text and title
-	substr($captxt, 0, -1).':</b> '.$readstxt[$b22].'<br />'.'<b>'.
+	#substr($captxt, 0, -1).':</b> '.$readstxt[$b22].'<br />'.'<b>'.
 
 	#Read time text and time
 	$timetxt.':</b> '.$readstxt[$b3].' <br /><br />'.$divc.'</'.$m.'>'.$divc."\n";
