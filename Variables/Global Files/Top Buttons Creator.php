@@ -56,10 +56,6 @@ if ($sitename == $sitethingsido) {
 	$tabnumb2 = $tabnumb2 - 1;
 }
 
-if ($sitename == $sitexenaeizaque) {
-	$tabnumb2 = $tabnumb;
-}
-
 if ($sitename == $siteyourstruly_izaque) {
 	$tabnumb2 = $tabnumb;
 }

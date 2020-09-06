@@ -41,41 +41,6 @@ if ($siteusesuniversalfilereader == true) {
 		$i++;
 	}
 }
-/*
-if ($sitename == $sitexenaeizaque) {
-	if (in_array($lang, $en_langs)) {
-		$tabdescfile = 'TabDescription1'.ucwords($enus_lang).'';
-	}
-
-	if (in_array($lang, $pt_langs)) {
-		$tabdescfile = 'TabDescription1';
-	}
-
-	$filenamesarray = array(
-	'Descriptions',
-	$tabdescfile,
-	);
-
-	$i = 0;
-	foreach ($filenamesarray as $file) {
-		$filesarray[$i] = $sitephpfolder2.$filenamesarray[$i].'.txt';
-
-		$i++;
-	}
-
-	$i = 0;
-	foreach ($filesarray as $file) {
-		if (file_exists($file) == true) {
-			$filefp = fopen($file, 'r', 'UTF-8');
-			if ($filefp) {
-				${"$filenamesarray[$i]"} = explode("\n", fread($filefp, filesize($file)));
-				${"$filenamesarray[$i]"} = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filenamesarray[$i]"});
-			}
-		}
-
-		$i++;
-	}
-}*/
 
 if ($sitename == $sitediario) {
 	$diarionumbersfile = $used_folder.'Diário Numbers.txt';
@@ -529,11 +494,14 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 	$commentsfile = $notepad_stories_folder_variable.$storyfolder.'/Comments.txt';
 	$comments_check_file = $notepad_stories_folder_variable.$storyfolder.'/CommentsCheck.txt';
 	$storydatefile = $notepad_stories_folder_variable.$storyfolder.'/Story date.txt';
-	$synopsisfile = $notepad_stories_folder_variable.$storyfolder.'/Synopsis.txt';
+	$synopsis_file = $notepad_stories_folder_variable.$storyfolder.'/Synopsis.txt';
+	$synopsis_pt_file = $notepad_stories_folder_variable.$storyfolder.'/Sinopse.txt';
 
 	if ($sitename == $sitenazzevo) {
 		$chapternumberfile = $notepad_stories_folder_variable.$storyfolder.'/ChaptersNumber.txt'; 
 	}
+
+	$chapter_number_file = $notepad_stories_folder_variable.$storyfolder.'/Chapter Number.txt'; 
 
 	$titlesenusfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($langs[1]).'.txt';
 
@@ -673,11 +641,49 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		}
 	}
 
-	if (file_exists($synopsisfile) == true) {
-		$fp = fopen($synopsisfile, 'r', 'UTF-8'); 
+	if (file_exists($synopsis_file) == true) {
+		$fp = fopen($synopsis_file, 'r', 'UTF-8'); 
 		if ($fp) {
-			$synopsistext = explode("\n", fread($fp, filesize($synopsisfile)));
+			$synopsistext = explode("\n", fread($fp, filesize($synopsis_file)));
 			$synopsis = str_replace("^", "", $synopsistext);
+		}
+	}
+
+	if (file_exists($synopsis_file) == true and file_exists($synopsis_pt_file) == true) {
+		$synopsis = '';
+		$file = $synopsis_file;
+		if ($file = fopen($file, "r")) {
+		while(!feof($file)) {
+			$line = fgets($file);
+			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
+
+			if (!feof($file)) {
+				$synopsis .= $line.'<br />';
+			}
+
+			else {
+				$synopsis .= $line;
+			}
+		}
+			fclose($file);
+		}
+
+		$sinopse = '';
+		$file = $synopsis_pt_file;
+		if ($file = fopen($file, "r")) {
+		while(!feof($file)) {
+			$line = fgets($file);
+			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
+
+			if (!feof($file)) {
+				$sinopse .= $line.'<br />';
+			}
+
+			else {
+				$sinopse .= $line;
+			}
+		}
+			fclose($file);
 		}
 	}
 
@@ -688,6 +694,14 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 				$chapterstext = explode("\n", fread($fp, filesize($chapternumberfile)));
 				$chapters = str_replace("^", "", $chapterstext);
 			}
+		}
+	}
+
+	if (file_exists($chapter_number_file) == true) {
+		$fp = fopen($chapter_number_file, 'r', 'UTF-8');
+		if ($fp) {
+			$chapter_number_text = explode("\n", fread($fp, filesize($chapter_number_file)));
+			$chapter_number = str_replace("^", "", $chapter_number_text);
 		}
 	}
 

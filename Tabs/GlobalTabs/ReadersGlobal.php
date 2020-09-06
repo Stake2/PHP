@@ -1,10 +1,20 @@
 <?php 
 
+if ($choosenwebsite != $sitedesertisland) {
+	$span_variable = $whitespan;
+	$hover_variable = $cssbtn4;
+}
+
+if ($choosenwebsite == $sitedesertisland) {
+	$span_variable = $blackspan;
+	$hover_variable = '';
+}
+
 $i = 0;
 while ($i <= $readersfilenumb) {
 	$i2 = $i + 1;
 	
-	echo '<'.$n.' class="'.$cssbtn4.' '.$zoomanim.' '.$computervar.'">'.$whitespan.$i2.$spanc.' - '.$readers[$i].'</'.$n.'>'."\n";
+	echo '<'.$n.' class="'.$hover_variable.' '.$zoomanim.' '.$computervar.'">'.$span_variable.$i2.$spanc.' - '.$readers[$i].'</'.$n.'>'."\n";
 
     $i++;
 }
@@ -15,7 +25,7 @@ $i = 0;
 while ($i <= $readersfilenumb) {
 	$i2 = $i + 1;
 	
-	echo '<'.$m.' class="'.$cssbtn4.' '.$zoomanim.' '.$mobilevar.'">'.$whitespan.$i2.$spanc.' - '.$readers[$i]."</".$m.'>'."\n";
+	echo '<'.$m.' class="'.$hover_variable.' '.$zoomanim.' '.$mobilevar.'">'.$span_variable.$i2.$spanc.' - '.$readers[$i]."</".$m.'>'."\n";
 
     $i++;
 }

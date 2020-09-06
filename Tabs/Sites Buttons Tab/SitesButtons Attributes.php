@@ -11,6 +11,8 @@ $siteicons = array(
 '🗒',
 );
 
+$desert_island_new_link = str_replace(' ', '_', strtolower($sitename_desertisland));
+
 $sitecodes = array(
 'my_little_pony'.' '.$siteicons[1],
 'watch'.' '.$siteicons[2],
@@ -29,6 +31,7 @@ $sitecodes = array(
 'pequenata'.' '.$siteicons[0],
 'new_world'.' '.$siteicons[4].'/'.'spaceliving'.' '.$siteicons[0],
 'nazzevo'.' '.$siteicons[0],
+'desert_island',
 'lonely stories',
 'mental_frameworks',
 'template',
@@ -63,17 +66,19 @@ $url.$sitecodes[13].'/',
 $sitepqntlink = $url.$sitecodes[14].'/',
 $sitesllink = $url.$sitecodes[15].'/',
 $sitenazzevolink = $url.$sitecodes[16].'/',
-$sitelslink = $url.$sitecodes[17].'/',
-$url.$sitecodes[18].'/',
+$site_desert_island_link = $url.$sitecodes[17].'/',
+$sitelslink = $url.$sitecodes[18].'/', #Lonely Stores
 $url.$sitecodes[19].'/',
 $url.$sitecodes[20].'/',
+$url.$sitecodes[21].'/',
 );
 
 $storynames2 = array(
 $sitename_pequenata = $pqntstoryname.' '.$siteicons[0],
 $sitename_spaceliving = $slstoryname.' '.$siteicons[0],
 $sitename_nazzevo = $nazzevostoryname.' '.$siteicons[0],
-$sitename_lonelystories = $lonelystoryname.' '.$siteicons[0],
+$sitename_desertisland = $desert_island_story_name.' '.$siteicons[0],
+$sitename_lonelystories = $lonely_story_name.' '.$siteicons[0],
 );
 
 if (in_array($lang, $en_langs)) {
@@ -126,6 +131,7 @@ $sitename_stories,
 $sitename_pequenata,
 $sitename_spaceliving,
 $sitename_nazzevo,
+$sitename_desertisland,
 $sitename_lonelystories,
 $sitename_mentalframeworks,
 $sitename_websitetemplate,
@@ -207,12 +213,13 @@ $storylinks = array(
 $sitepqntlink,
 $sitesllink,
 $sitenazzevolink,
+$site_desert_island_link,
 $sitelslink,
 );
 
 #$sitesnumb = count($sitenamesarray) - 1; #22
 
-$sitesnumb = 22;
+$sitesnumb = 23;
 $storiessitesnumb = $storiesnumb - 1;
 $sitesnumbtext = count($sitelinks);
 

@@ -69,6 +69,7 @@ $pocbcss = 'Pocb',
 $pqntcss = 'Pequenata',
 $slcss = 'SpaceLiving',
 $watchcss = 'Watch',
+$desert_island_css = 'Desert_Island',
 );
 
 ?>

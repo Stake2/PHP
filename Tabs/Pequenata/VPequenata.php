@@ -1,70 +1,35 @@
 <?php 
 
-#CSS color and text style variables
-$color2 = 'yellow';
-$color3 = '#b88e50';
-$color4 = 'bg2';
-$color5 = 'bg';
-$colortext = 'pqnttext';
-$colorsubtext = 'w3-text-orange';
-$colorsubtext2 = 'w3-text-white';
-$sitehr = 'pqnthr';
-$sitehr2 = 'pqnthr';
-$sitehr3 = 'blackhr';
-$spanstyle = "pqntspan";
-$formbtnstyle = "pqntsend";
+#Pequenata CSS Pack file includer
+require $css_pack_pequenata;
 
-#Variables that mixes CSS tags
-$textstyle = $colortext.' blackbg';
-$textstyle2 = 'w3-text-black bg';
-$btnstyle = $color4.' '.$cssbtn1;
-$btnstyle2 = $color3.' '.$cssbtn1;
-$btnstyle3 = $color5.' '.$cssbtn1;
-$subtextspan = '<span class="'.$colorsubtext2.'">';
-$subtextspan2 = '<span class="'.$colorsubtext.'">';
-$spannewtextcolor = $subtextspan;
-$sitewhilestyle = $color4;
-$formcolor = $color4;
-
-#HTML and HTML Style variables
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;';
-$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;';
-$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';'.$roundedborderstyle2.';
-$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
-$widthsize = '';
-$size = '';
-
-#Folder variables
+# Folder variables
 $siteurlgeral = $url.$sitefolder.'/';
 $sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
 $storyfolder = $pqntstoryfolder;
 
-#Form code for the comment and read forms
+# Form code for the comment and read forms
 $formcode = 'pequenata';
 
 $nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
 $no_language_story_folder = $notepad_stories_folder_variable.$storyfolder.'/';
 
 $single_cover_folder = 'Capas/Kids';
-$cover_folder = $cdn_image_stories.ucwords($formcode).'/'.$single_cover_folder.'/';
+$cover_folder = $cdn_image_stories_pequenata.$single_cover_folder.'/';
 
-#Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
+# Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_displayer_php_variable;
 
-#Story name definer
+# Story name definer
 $story = $pqntstoryname;
 
-#Story status
+# Story status
 $storystatus = $status[2];
 
-#Site image vars
+# Site image vars
 $siteimage = 'pequenata';
 
-#Defines the site image if the site has book covers or not
+# Defines the site image if the site has book covers or not
 if ($storyhascovers == true) {
 	$story_cover_image_filename = '1';
 
@@ -75,6 +40,7 @@ if ($storyhascovers == true) {
 
 else {
 	$siteimage = $cdnimg.$siteimage.'.jpg';
+
 	$imagesize1 = 30;
 	$imagesize2 = 77;
 }
@@ -91,12 +57,11 @@ $commentschapternumb = $commentsnumbtext - $commentsnormalnumb;
 $readednumb = 12;
 
 #Non-language dependent texts
-$authorname = 'Izaque Sanvezzo (stake2)';
 #$commentsbtn = '<a href="#'.$tabcode[6].'"><button class="w3-btn '.$btnstyle.' '.$computervar.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$commentsnumb.' '.$icons[12].'</button></a>'."\n";
 #$commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$btnstyle.' '.$mobilevar.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$commentsnumb.' '.$icons[12].'</button></a>'."\n";
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+include $text_file_reader_file_php;
 
 #Story date definer using story date text file
 $storydate = $storydate[0];

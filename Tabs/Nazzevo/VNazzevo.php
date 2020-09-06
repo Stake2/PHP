@@ -47,7 +47,7 @@ $formcode = 'nazzevo';
 $nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
 
 $single_cover_folder = 'Capas';
-$cover_folder = $cdn_image_stories.ucwords($formcode).'/'.$single_cover_folder.'/';
+$cover_folder = $cdn_image_stories_nazzevo.$single_cover_folder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_displayer_php_variable;
@@ -109,7 +109,7 @@ $commentsbtn = '<a href="#'.$tabcode[6].'"><button class="w3-btn '.$btnstyle.' '
 $commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$btnstyle.' '.$mobilevar.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$commentsnumb.' '.$icons[12].'</button></a>'."\n";
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+include $text_file_reader_file_php;
 
 #Chapters and storydate definer using Story date.txt and ChapterNumber.txt
 $chapters = $chapters[0];

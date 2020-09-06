@@ -43,6 +43,7 @@ $storywritesstoryfiles = false;
 $storyhaswriteform = false;
 $storyhasreads = false;
 $storyhastitles = false;
+$storyhasdates = false;
 $storyusestatus = false;
 $storyhaschaptercomments = false;
 $siteusescitybodygenerator = false;

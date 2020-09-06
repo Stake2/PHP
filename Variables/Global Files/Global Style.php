@@ -139,7 +139,9 @@ $icon_heart = '<i class="fas fa-heart"></i>';
 $icon_heart_painted_red = $redspan.$icon_heart.$spanc;
 
 $icon_smile_beam = '<i class="fas fa-smile-beam"></i>';
+$icon_smile_beam_painted_black = $blackspan.$icon_smile_beam.$spanc;
 $icon_smile_beam_painted_yellow = $yellowspan.$icon_smile_beam.$spanc;
+$icon_smile_beam_painted_cyan = $cyanspan.$icon_smile_beam.$spanc;
 
 $icon_plus = '<i class="fas fa-plus"></i>';
 

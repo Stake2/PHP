@@ -18,9 +18,10 @@ if (in_array($lang, $en_langs)) {
 	$redondodesc = 'Round revolution ahead!';
 	$covertxt = 'Cover';
 	$cannotfindfiletxt = 'This file could not be found, sorry';
+
 	$month_text = 'month';
-	$day_text = 'day';
 	$months_text = 'months';
+	$day_text = 'day';
 	$days_text = 'days';
 
 	if ($newdesign == true) {
@@ -50,9 +51,10 @@ if (in_array($lang, $pt_langs)) {
 	$redondodesc = 'Revolução redonda avante!';
 	$covertxt = 'Capa';
 	$cannotfindfiletxt = 'Não foi possível encontrar este arquivo, desculpe';
+
 	$month_text = 'mês';
-	$day_text = 'dia';
 	$months_text = 'meses';
+	$day_text = 'dia';
 	$days_text = 'dias';
 
 	if ($newdesign == true) {
@@ -64,5 +66,6 @@ if (in_array($lang, $pt_langs)) {
 }
 
 $langreadtext2 = strtolower($langreadtext);
+$authorname = 'Izaque Sanvezzo (stake2)';
 
 ?>

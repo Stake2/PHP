@@ -1,176 +1,152 @@
 <?php 
 
-$siteurlgeral = $url.str_replace(' ', '_', strtolower($sitename_desertisland)).'/';
-$sitephpfolder2 = $php_tabs.ucwords($choosenwebsite).'/';
+# CSS color and text style variables
 
-$site_image = 'desert island/capa original.jpg';
-$siteimage = $cdn_image_stories.$site_image;
+$ultimate_text_color = 'yellow-sand_text';
+$ultimate_bg_color = 'yellow-sand_bg';
+
+$color = $ultimate_bg_color;
+$color2 = $ultimate_bg_color;
+$color3 = 'black';
+$color4 = $ultimate_bg_color;
+$color5 = $ultimate_bg_color;
+$colortext = $ultimate_text_color;
+$colorsubtext = 'w3-text-yellow';
+$colorsubtext2 = $ultimate_text_color;
+$sitehr = 'yellow-sand_hr';
+$sitehr2 = 'blackhr';
+$sitehr3 = 'blackhr';
+$spanstyle = 'yellow';
+$formbtnstyle = 'yellow-sand_bg';
+
+# Variables that mixes CSS tags
+$textstyle = $colortext.' '.$ultimate_bg_color;
+$textstyle2 = 'w3-text-black '.$ultimate_bg_color;
+$btnstyle = $color4.' '.$cssbtn1;
+$btnstyle2 = $color3.' '.$cssbtn1;
+$btnstyle3 = $color5.' '.$cssbtn1;
+$subtextspan = '<span class="'.$colorsubtext.'">';
+$subtextspan2 = '<span class="'.$colorsubtext.'">';
+$spannewtextcolor = $subtextspan;
+$sitewhilestyle = 'yellow-sand_bg';
+$formcolor = $color4;
+
+# HTML and HTML Style variables
+$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
+$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
+$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
+$border = 'border-width:4px;border-color:'.'#ffffb3'.';border-style:solid;';
+$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;';
+$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';'.$roundedborderstyle2.';
+$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
+$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
+$widthsize = '';
+$size = '';
+$sitenumbcolor = $subtextspan;
+$sitenumbhovercolor = $cssbtn5;
+
+$textstyle = 'w3-text-black'.' '.$ultimate_bg_color;
+
+# New site name generator, generates: "desert_island"
+$new_site_name = str_replace(' ', '_', strtolower($sitename_desertisland));
+
+# Folder variables
+$siteurlgeral = $url.$new_site_name.'/';
+$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
+$storyfolder = $desert_island_story_folder;
+
+# Form code for the comment and read forms
+$formcode = 'desert_island';
+
+$nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
+$no_language_story_folder = $notepad_stories_folder_variable.$storyfolder.'/';
+
+$single_cover_folder = 'Capas';
+$cover_folder = $cdn_image_stories_desertisland.$single_cover_folder.'/';
+
+# Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
+require $cover_images_displayer_php_variable;
+
+# Story name definer
+$story = $desert_island_story_name;
+
+# Story status
+$storystatus = $status[1];
+
+# Site image vars
+$site_image = 'Capa Original.jpg';
+$siteimage = $cdn_image_stories_desertisland.$site_image;
 $imglink = $siteimage;
 
-$custom_website_head_content = '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-'."<style>
-body, h1, h2, h3 ".'{
-	font-family: "Raleway", sans-serif;
-}
-'."
-body, html {
-	height: 100%
-}
+$imagesize1 = 60;
+$imagesize2 = 100;
 
-.bgimg {
-  background-image: url('".$siteimage."');
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-}
-</style>".
-'<script type="text/javascript">
-function pad(
-  a, // the number to convert 
-  b // number of resulting characters
-){
-  return (
-    1e15 + a + // combine with large number
-    "" // convert to string
-  ).slice(-b) // cut leading "1"
+# TextFileReader.php file includer
+require $text_file_reader_file_php;
+
+$chapters = $chapter_number[0];
+
+# Story Details Definer.php file includer
+require $story_details_definer_php;
+
+$commentsnumb = 1;
+$commentsnumbtext = $commentsnumb + 1;
+$commentsnormalnumb = 0;
+$commentsnormalnumbtowrite = $commentsnormalnumb - 1;
+$commentschapternumb = $commentsnumbtext - $commentsnormalnumb;
+
+$readednumb = 1;
+
+# Reads the book cover image directory if the site has book covers
+if ($storyhascovers == true) {
+	require $cover_images_generator_php_variable;
 }
 
-var launch_date = new Date(2020, 10, 11);
-
-var launch_date_day = launch_date.getDate();
-
-var launch_date_month = launch_date.getMonth();
-var launch_date_month = pad(launch_date_month, 2);
-
-var launch_date_year = launch_date.getFullYear();
-
-var launch_date = String(launch_date_day) + "/" + String(launch_date_month) + "/" + String(launch_date_year);
-
-var today_date = new Date();
-
-var today_date_day = today_date.getDate();
-
-var today_date_month = today_date.getMonth() + 1;
-var today_date_month = pad(today_date_month, 2);
-
-var today_date_year = today_date.getFullYear();
-
-var today_date = String(today_date_day) + "/" + String(today_date_month) + "/" + String(today_date_year);
-
-var dateFirst = new Date(2020, 10, 11);
-var dateSecond = new Date();
-
-// time difference
-var timeDiff = Math.abs(dateSecond.getTime() - dateFirst.getTime());
-
-var DateDiff = {
-    inDays: function(d1, d2) {
-        var t2 = d2.getTime();
-        var t1 = d1.getTime();
-
-        return parseInt((t2 - t1)/(24 * 3600 * 1000));
-    },
-
-    inWeeks: function(d1, d2) {
-        var t2 = d2.getTime();
-        var t1 = d1.getTime();
-
-        return parseInt((t2 - t1) / ( 24 * 3600 * 1000 * 7));
-    },
-
-    inMonths: function(d1, d2) {
-        var d1Y = d1.getFullYear();
-        var d2Y = d2.getFullYear();
-        var d1M = d1.getMonth() + 1;
-        var d2M = d2.getMonth();
-
-        return (d2M + 12 * d2Y)-(d1M + 12 * d1Y);
-    },
-
-    inYears: function(d1, d2) {
-        return d2.getFullYear() - d1.getFullYear();
-    }
-}
-
-var d1 = new Date();
-var d2 = new Date(2020, 10, 11);
-var months = DateDiff.inYears(d1, d2) * 12;
-var month = DateDiff.inMonths(d1, d2) - months;
-//var days = DateDiff.inYears(d1, d2) * 365;
-//var dy = DateDiff.inDays(d1, d2) - days;
-
-console.log("The launch date is: " + launch_date);
-console.log("Today is: " + today_date);
-</script>
-';
-
-#Site name in English and Brazilian Portuguese language
-$sitenames = array(
-$enus_title = 'A New Story',
-$pt_title = 'Uma Nova História',
-);
-
-#Site descriptions
-$sitedescs = array(
-'Site about a new story that is coming, made by stake2.',
-'Site sobre uma nova história que está chegando, feito por stake2.',
-);
-
-$descs = array(
-'Site about a new story that is coming, made by stake2.',
-'Site sobre uma nova história que está chegando, feito por stake2.',
-);
-
-#Story name definer
-$story = $desert_island_story_name;
-
-#Re-include of the StoryVars.php file to set the story name
+# Re-include of the StoryVars.php file to set the story name
 include $story_variables_php_variable;
 
-#Story name definer
-$story = $desert_island_story_name;
-
-$number_until_date_of_publication = 2;
-$date_to_publish = (string)($number_until_date_of_publication);
-
-#English texts for Pequenata website
+# English texts for Desert Island website
 if (in_array($lang, $en_langs)) {
-	$website_texts = array(
-	'Coming soon',
-	'The new story of Izaque Sanvezzo',
-	'<span id="launch_date">'.$date_to_publish.'</span> '.$months_text.' until a big reveal...<br />
-	Prepare your boats',
+	$readtxts = array(
+	$readingtxt = "You're reading",
+	$readingtxt.': '.ucwords($story),
+	'I Read It ✓',
+	'I read the Chapter',
+	'Read the Chapter',
+	'Readings',
+	'Readers',
+	'Reader',
+	);
+
+	$writetxts = array(
+	'Write',
+	'Write the Chapter',
+	substr($readingtxt, 0, -8).' '.strtolower('Writing').': '.ucwords($story),
 	);
 }
 
-#Brazilian Portuguese texts for Pequenata website
+#Brazilian Portuguese texts for Desert Island website
 if (in_array($lang, $pt_langs)) {
-	$website_texts = array(
-	'Em breve',
-	'A nova história de Izaque Sanvezzo',
-	'Faltam <span id="launch_date">'.$date_to_publish.'</span> '.$months_text.' para uma grande revelação...<br />
-	Preparem seus barcos',
+	$readtxts = array(
+	$readingtxt = "Você está lendo",
+	$readingtxt.': '.ucwords($story),
+	'Eu li ✓',
+	'Eu li o Capítulo',
+	'Leu o Capítulo',
+	'Leituras',
+	'Leitores',
+	'Leitor',
+	);
+
+	$writetxts = array(
+	'Escrever',
+	'Escreva o capítulo',
+	substr($readingtxt, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story),
 	);
 }
 
-$array = $website_texts;
-$additional_website_content = '
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-<div class="w3-display-middle" style="text-align:center!important;">
-<h1 class="w3-jumbo w3-animate-top">'.$array[0].':<br /></h1>
-<h3 class="w3-jumbo w3-animate-top">'.$array[1].'.</h3>
-<hr class="w3-border-grey" style="margin:auto;width:40%">
-<h3 class="w3-center">'.$array[2].'.</h3>
-</div>
-</div>
-
-<script>
-launch_date_div = document.getElementById("launch_date");
-launch_date_div.innerHTML = month;
-console.log("Replaced the date with the difference between the two dates.");
-</script>
-';
+#Status text definer, that sets the status text with [] around it
+$statustxt = '['.ucfirst($storystatus).']';
 
 #Site name, title, url and description setter
 if ($lang == $geral_lang) {
@@ -181,7 +157,7 @@ if ($lang == $geral_lang) {
 
 	$sitename = $enus_title.' '.$lang2;
 	$sitetitulo = $enus_title.' '.ucwords($lang);
-	$sitetitulo2 = $enus_title.': '.$icons[4].' '.$icons[22];
+	$sitetitulo2 = $enus_title.': '.$icons[11];
 	$siteurl = $siteurlgeral;
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
@@ -195,7 +171,7 @@ if ($lang == $enus_lang) {
 
 	$sitename = $enus_title;
 	$sitetitulo = $enus_title;
-	$sitetitulo2 = $enus_title.': '.$icons[4].' '.$icons[22];
+	$sitetitulo2 = $enus_title.': '.$icons[11];
 	$siteurl = $siteurlgeral.strtolower($lang2).'/';
 	$sitedesc = $sitedescs[0];
 	$sitedesc2 = $descs[0];
@@ -219,5 +195,36 @@ if (in_array($lang, $pt_langs)) {
 	$sitedesc = $sitedescs[1];
 	$sitedesc2 = $descs[1];
 }
+
+#Button names
+$citiestxts = array(
+$tabnames[0].': '.$icons[21].' '.$blackspan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_black.' 😊',
+$tabnames[2].': '.$icons[12],
+$tabnames[3].': '.$icons[10],
+$tabnames[4].': '.$icons[11],
+$icons[13],
+);
+
+#Buttons and tabs definer
+#Tab titles definer
+$tabtitles = array(
+$tabnames[0].': '.$icons[21].' '.$blackspan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_black.' 😊',
+$tabnames[2].': '.$icons[12],
+$tabnames[3].': '.$icons[10],
+$tabnames[4].': '.$blackspan.$storiesnumb.$spanc.' '.$icons[11],
+);
+
+#Button names definer
+$i = 0;
+foreach ($tabtitles as $tabname) {
+	$citiestxts[$i] = $tabname;
+
+	$i++;
+}
+
+#TabGenerator.php includer
+include $tabgeneratorphp;
 
 ?>

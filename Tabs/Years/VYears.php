@@ -181,7 +181,7 @@ if (isset($taskmadefiletxt)) {
 }
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+include $text_file_reader_file_php;
 
 $a2019 = false;
 $reneneratemedias2019 = 'a';

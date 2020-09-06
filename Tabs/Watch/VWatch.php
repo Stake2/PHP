@@ -95,7 +95,7 @@ $cdnimg.'bg.jpg',
 );
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+include $text_file_reader_file_php;
 
 $mobileversion = '';
 

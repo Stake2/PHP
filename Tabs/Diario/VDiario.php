@@ -121,7 +121,7 @@ $margin_3_h1.'<b>'.$cyanspan.$tedname.':'.$spanc.'</b>'.$h1c,
 
 #TextFileReader.php file includer
 $used_folder = $diario_folder;
-include $textfilereaderphp;
+include $text_file_reader_file_php;
 
 #Site numbers
 $blocks = 118;

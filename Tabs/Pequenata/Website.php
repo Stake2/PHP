@@ -53,13 +53,8 @@ if (strpos ($host, $params[0].'='.$sitepequenata) == true) {
 	#Number of tabs
 	$tabnumb = count($tabs) - 1;
 
-	#Array of the GenericTabs files
-	$i = 0;
-	while ($i <= $tabnumb) {
-		$i2 = $i + 1;
-		$cities[$i] = $sitetabsgeralfolder.'City'.$i2.'.php';
-		$i++;
-	}
+	#Includer of the array of the GenericTabs files
+	include $genericcitiesgeneratorfile;
 }
 
 ?>

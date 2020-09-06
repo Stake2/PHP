@@ -1,5 +1,13 @@
 <?php 
 
+if ($choosenwebsite != $sitedesertisland) {
+	$span_variable = $yellowspan;
+}
+
+else {
+	$span_variable = $blackspan;
+}
+
 $capnum1 = 1;
 $capnum2 = 1;
 $capnum3 = 1;
@@ -40,7 +48,7 @@ while ($capnum1 <= $chapters) {
 			$hidenotifattribute = $hidenotifattribute;
 		}
 
-		if ($capnum1 == $reviewedcap and $sitehasnotifications == true) {
+		if (isset($reviewedcap) and $capnum1 == $reviewedcap and $sitehasnotifications == true) {
 			echo '<div class="'.$shakesidetosideanim.'">'."\n";
 
 			if ($storyhastitles == true) {
@@ -51,7 +59,7 @@ while ($capnum1 <= $chapters) {
 				$textvar = $capnum1;
 			}
 			
-			$chapterbtn = '<a href="#'.$capdiv.''.$capnum1.'" title="'.$textvar.'"><button class="w3-btn '.$btnstyle3.'" '.$roundedborderstyle.' onclick="'.$hidenotifattribute.$onclickscript.'">'.$textvar.' <span class="w3-text-yellow">['.$newtxt.'!]</span>'."</button></a> "."\n";
+			$chapterbtn = '<a href="#'.$capdiv.''.$capnum1.'" title="'.$textvar.'"><button class="w3-btn '.$btnstyle3.'" '.$roundedborderstyle.' onclick="'.$hidenotifattribute.$onclickscript.'">'.$textvar.' '.$span_variable.'['.$newtxt.'!]'.$spanc."</button></a> "."\n";
 
 			echo $chapterbtn;
 
@@ -75,7 +83,7 @@ while ($capnum1 <= $chapters) {
 				$textvar = $capnum1;
 			}
 
-			$chapterbtn = '<a href="#'.$capdiv.''.$capnum1.'" title="'.$textvar.'"><button class="w3-btn '.$btnstyle3.'" '.$roundedborderstyle.' onclick="'.$onclickscript.'">'.$textvar.' <span class="w3-text-yellow">['.$newtxt.'!]</span>'."</button></a> "."\n";
+			$chapterbtn = '<a href="#'.$capdiv.''.$capnum1.'" title="'.$textvar.'"><button class="w3-btn '.$btnstyle3.'" '.$roundedborderstyle.' onclick="'.$onclickscript.'">'.$textvar.' '.$span_variable.'['.$newtxt.'!]'.$spanc.'</button></a> '."\n";
 
 			echo $chapterbtn;
 
@@ -106,7 +114,7 @@ while ($capnum1 <= $chapters) {
 			$hidenotifattribute = $hidenotifattribute;
 		}
 
-		if ($capnum1 == $reviewedcap and $sitehasnotifications == true) {
+		if (isset($reviewedcap) and $capnum1 == $reviewedcap and $sitehasnotifications == true) {
 			echo '<div class="'.$shakesidetosideanim.'">'."\n";
 
 			if ($storyhastitles == true) {

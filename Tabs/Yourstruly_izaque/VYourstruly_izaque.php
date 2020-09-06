@@ -84,7 +84,7 @@ $titlesfile,
 );
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+include $text_file_reader_file_php;
 
 $chapters = $titlesnumber - 1;
 

@@ -10,6 +10,11 @@ $cdn_image_stories = $cdnimg.'Stories/';
 $cdn_image_drawings = $cdnimg.'Drawings/';
 $local_cdn_image_drawings = $local_cdn_img.'Drawings/';
 
+$cdn_image_stories_pequenata = $cdn_image_stories.'Pequenata/';
+$cdn_image_stories_spaceliving = $cdn_image_stories.'SpaceLiving/';
+$cdn_image_stories_nazzevo = $cdn_image_stories.'Nazzevo/';
+$cdn_image_stories_desertisland = $cdn_image_stories.'Desert Island/';
+
 $cdntxt = $cdn.'txt/';
 $cdn_txt_moviecomments = $cdntxt.'Movie Comments/';
 
@@ -36,6 +41,7 @@ $notepad_effort_folder_variable = $notepad_effort_folder;
 
 $story_files_php_folder = $php_variables.'Story PHP Files/';
 $newdesign_php_folder = $php_variables.'New Design/';
+$css_packs_php_folder = $php_variables.'CSS Packs/';
 
 $story_files_php_folder_variable = $story_files_php_folder;
 $newdesign_php_folder_variable = $newdesign_php_folder;

@@ -29,6 +29,8 @@ $subtextspan2 = '<span class="'.$colorsubtext.'">';
 $spannewtextcolor = $subtextspan;
 $sitewhilestyle = $color4;
 $formcolor = $color4;
+$sitenumbcolor = $subtextspan;
+$sitenumbhovercolor = $cssbtn5;
 
 #HTML and HTML Style variables
 $marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
@@ -102,7 +104,7 @@ $authorname = 'Izaque Sanvezzo (stake2)';
 #$commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$btnstyle.' '.$mobilevar.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$commentsnumb.' '.$icons[12].'</button></a>'."\n";
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+include $text_file_reader_file_php;
 
 $commentsnumb = $comments_check_number - 1;
 
@@ -240,11 +242,6 @@ if ($writingpack == true) {
 }
 
 #str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filetextarraynames[$i]"});
-
-if ($sitename == $sitespaceliving) {
-	$sitenumbcolor = $subtextspan;
-	$sitenumbhovercolor = $cssbtn5;
-}
 
 #Button names
 $citiestxts = array(

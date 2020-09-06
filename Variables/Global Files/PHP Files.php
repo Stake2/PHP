@@ -8,7 +8,7 @@ $tabgeneratorphp = $php_vars_global_files.'Tab Generator.php';
 $tab_loader_php = $php_vars_global_files.'Tab Loader.php';
 $topbuttonscreator = $php_vars_global_files.'Top Buttons Creator.php';
 $topbuttonsloader = $php_vars_global_files.'Buttons PHP File Loader.php';
-$textfilereaderphp = $php_vars_global_files.'Text File Reader.php';
+$text_file_reader_file_php = $php_vars_global_files.'Text File Reader.php';
 
 $site_css_and_javascript_definer_php = $php_vars_global_files.'Site CSS And JavaScript Definer.php';
 $global_image_variables_php = $php_vars_global_files.'Global Image Variables.php';
@@ -19,7 +19,10 @@ $newdesign_and_notifications_definer_php = $php_vars_global_files.'NewDesign And
 $newdesignphp = $newdesign_php_folder_variable.'NewDesignScript.php';
 $newdesignsitephp = $newdesign_php_folder_variable.'NewDesignSite.php';
 
-$vyears_php = $sitefolder_years.'V'.$folder3.'.php';
+# CSS Packs Variables
+$css_pack_pequenata = $css_packs_php_folder.'Pequenata CSS Pack.php';
+
+$vyears_php = $sitefolder_years.'VYears.php';
 
 #PHP Files
 $globalfilesphp = array(
@@ -47,6 +50,7 @@ $chapter_writer_displayer_php = $story_files_php_folder_variable.'Chapter Writer
 $chapter_writer_form_php = $story_files_php_folder_variable.'Chapter Writer Form.php';
 $chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'Chapter Comment And Read Displayer.php';
 $new_chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'New Chapter Comment And Read Displayer.php';
+$story_details_definer_php = $story_files_php_folder_variable.'Story Details Definer.php';
 
 $story_reads_generator_php = $story_files_php_folder_variable.'Story Reads Generator.php';
 $read_modal_generator_php = $story_files_php_folder_variable.'Read Modal Generator.php';
@@ -65,6 +69,7 @@ $chapter_writer_displayer_php_variable = $chapter_writer_displayer_php;
 $chapter_writer_form_php_variable = $chapter_writer_form_php;
 $chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_displayer_php;
 $new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
+$story_details_definer_php_variable = $story_details_definer_php;
 
 $story_reads_generator_php_variable = $story_reads_generator_php;
 $read_modal_generator_php_variable = $read_modal_generator_php;

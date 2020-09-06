@@ -1,7 +1,7 @@
 <?php 
 
 #Stories numb
-$storiesnumb = 4;
+$storiesnumb = 5;
 
 #Story status text array
 $status = array(
@@ -80,7 +80,7 @@ if (in_array($lang, $en_langs)) {
 	$slstoryname = 'SpaceLiving',
 	$nazzevostoryname = 'The Story of the Nazzevo Brothers',
 	$desert_island_story_name = 'Desert Island',
-	$lonelystoryname = 'Lonely Stories',
+	$lonely_story_name = 'Lonely Stories',
 	);
 }
 
@@ -149,7 +149,7 @@ if (in_array($lang, $pt_langs)) {
 	$slstoryname = 'SpaceLiving',
 	$nazzevostoryname = 'A História dos Irmãos Nazzevo',
 	$desert_island_story_name = 'Ilha Deserta',
-	$lonelystoryname = 'Histórias Solitárias',
+	$lonely_story_name = 'Histórias Solitárias',
 	);
 }
 
@@ -181,7 +181,7 @@ $pqntstoryname,
 $slstoryname,
 $nazzevostoryname,
 $desert_island_story_name,
-$lonelystoryname,
+$lonely_story_name,
 );
 
 #Story folders array
@@ -218,9 +218,20 @@ $pqnttext = 'darkpqnttext shakesidetoside';
 $slbg = 'sl3 shakesidetoside';
 $lsbg = 'darksl lstext shakesidetoside';
 
+$desert_island_link = $url.$desert_island_new_link.'/';
+$desert_island_text = 'cyan-water_text_dark';
+$desert_island_background = 'cyan-water_bg';
+$desert_island_image = $cdn_image_stories_desertisland.'Capa Original.jpg';
+
+$size_variable = $n;
+$desert_island_story = '<a class="w3-btn '.$cssbtn1.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img src="'.$desert_island_image.'" width="650"><br /><br /></a><br />';
+
+$size_variable = $m;
+$desert_island_story_mobile = '<a class="w3-btn '.$cssbtn1.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img src="'.$desert_island_image.'" width="650"><br /><br /></a><br />';
+
 $cover_text = 'Cover';
-$pequenata_online_cover_folder = $cdn_image_stories.'Pequenata/Capas/Kids/';
-$nazzevo_online_cover_folder = $cdn_image_stories.'Nazzevo/Capas/';
+$pequenata_online_cover_folder = $cdn_image_stories_pequenata.'Capas/Kids/';
+$nazzevo_online_cover_folder = $cdn_image_stories_nazzevo.'Capas/';
 $story_cover_image_filename = '1';
 
 if ($lang == $geral_lang) {
@@ -253,36 +264,38 @@ else {
 	}
 }
 
-$pqntlink = $url.'/pequenata/';
+$pqntlink = $url.'pequenata/';
 
-$sllink = $url.'/new_world/spaceliving/';
+$sllink = $url.'new_world/spaceliving/';
 $slimglink = $cdnimg.'SpaceLiving Logo.jpg';
 
-$nazzevolink = $url.'/nazzevo/';
+$nazzevolink = $url.'nazzevo/';
 
-$lslink = $url.'/Lonely%20Stories/';
+$lslink = $url.'Lonely%20Stories/';
 $lsimglink = $cdnimg.'Lonely Stories.jpg';
 
 $story1 = '<a class="w3-btn  '.$cssbtn1.' '.$pqntbg.'" href="'.$pqntlink.'" '.$roundedborderstyle.'><'.$n.' class="'.$pqnttext.'"><b>'.$stories[0].'</b></'.$n.'><img src="'.$pqntimglink.'" width="650"><br /><br /></a><br />';
 $story2 = '<a class="w3-btn '.$cssbtn1.' '.$slbg.'" href="'.$sllink.'" '.$roundedborderstyle.'><'.$n.' class="w3-text-blue"><b>'.$stories[1].'</b></'.$n.'><img src="'.$slimglink.'" width="650"><br /><br /></a><br />';
 $story3 = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$nazzevolink.'" '.$roundedborderstyle.'><'.$n.' class="'.$pqnttext.'"><b>'.$stories[2].'</b></'.$n.'><img src="'.$nazzevoimglink.'" width="650"><br /><br /></a><br />';
-$story4 = '<a class="w3-btn '.$cssbtn1.' '.$lsbg.'" href="'.$lslink.'" '.$roundedborderstyle.'><'.$n.'><b>'.$stories[3].'</b></'.$n.'><img src="'.$lsimglink.'" width="650"><br /><br /></a><br />';
+$story4 = '<a class="w3-btn '.$cssbtn1.' '.$lsbg.'" href="'.$lslink.'" '.$roundedborderstyle.'><'.$n.'><b>'.$lonely_story_name.'</b></'.$n.'><img src="'.$lsimglink.'" width="650"><br /><br /></a><br />';
 
 $story1m = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$pqntlink.'" '.$roundedborderstyle.'><'.$m.' class="'.$pqnttext.'"><b>'.$stories[0].'</b></'.$m.'><img src="'.$pqntimglink.'" width="350" height="210"><br /><br /></a><br />';
 $story2m = '<a class="w3-btn  '.$cssbtn1.' '.$slbg.'" href="'.$sllink.'" '.$roundedborderstyle.'><'.$m.' class="w3-text-blue"><b>'.$stories[1].'</b></'.$m.'><img src="'.$slimglink.'" width="320" height="230"><br /><br /></a><br />';
 $story3m = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$nazzevolink.'" '.$roundedborderstyle.'><'.$m.' class="'.$pqnttext.'"><b>'.$stories[2].'</b></'.$m.'><img src="'.$nazzevoimglink.'" width="290" height="190"><br /><br /></a><br />';
-$story4m = '<a class="w3-btn '.$cssbtn1.' '.$lsbg.'" href="'.$lslink.'" '.$roundedborderstyle.'><'.$m.'><b>'.$stories[3].'</b></'.$m.'><img src="'.$lsimglink.'" width="290" height="190"><br /><br /></a><br />';
+$story4m = '<a class="w3-btn '.$cssbtn1.' '.$lsbg.'" href="'.$lslink.'" '.$roundedborderstyle.'><'.$m.'><b>'.$lonely_story_name.'</b></'.$m.'><img src="'.$lsimglink.'" width="290" height="190"><br /><br /></a><br />';
 
 $storieslinkstab = "\n".
-$story1."<br /> "."\n"."\n".
-$story2."<br /> "."\n"."\n".
-$story3."<br /> "."\n"."\n".
+$story1."<br />"."\n"."\n".
+$story2."<br />"."\n"."\n".
+$story3."<br />"."\n"."\n".
+$desert_island_story."<br /> "."\n"."\n".
 $story4."\n";
 
 $storieslinkstabm = "\n".
-$story1m."<br /> "."\n"."\n".
-$story2m."<br /> "."\n"."\n".
-$story3m."<br /> "."\n"."\n".
+$story1m."<br />"."\n"."\n".
+$story2m."<br />"."\n"."\n".
+$story3m."<br />"."\n"."\n".
+$desert_island_story_mobile."<br />"."\n"."\n".
 $story4m."\n";
 
 ?>

@@ -65,12 +65,20 @@ echo '<div id="'.$capdiv.$capnum1.'" class="city '.$textstylecap.'" style="'.$di
 echo '<br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" />'."\n";
 echo '<br />'."\n";
 
+if ($choosenwebsite != $sitedesertisland) {
+	$span_variable = $yellowspan;
+}
+
+else {
+	$span_variable = $blackspan;
+}
+
 #"You're Reading [Story]" top text displayer
 if ($storyusestatus == true) {
 	if ($capnum1 == $chapters and $storystatus != $storystatuses[0] and $storystatus != $storystatuses[3]) {
-		echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$divc.'</'.$n.'>'.$divc."\n";
+		echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$divc.'</'.$n.'>'.$divc."\n";
 
-		echo '<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.$divc.'</'.$m.'>'.$divc."\n";
+		echo '<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.$divc.'</'.$m.'>'.$divc."\n";
 
 		$capnum4++;
 	}
@@ -86,9 +94,9 @@ if ($storyusestatus == true) {
 
 else {
 	if ($capnum1 == $chapters) {
-		echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$divc.'</'.$n.'>'.$divc."\n";
+		echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$divc.'</'.$n.'>'.$divc."\n";
 
-		echo '<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$yellowspan.'<b> ['.$newtxt.'!]</b>'.$spanc.$divc.'</'.$m.'>'.$divc."\n";
+		echo '<div class="'.$mobilevar.'">'.'<'.$m.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.$divc.'</'.$m.'>'.$divc."\n";
 
 		$capnum4++;
 	}
@@ -224,7 +232,7 @@ if ($storyusestatus == true) {
 		$divzoomanim."\n".
 		'<span class="'.$textstylecap.'">'."\n".
 		'<br />'.$topandbottomtxt."\n".
-		'<b>'.$yellowspan.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
+		'<b>'.$span_variable.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
 		'<br /></span>'."\n".
 		$divc."\n".
 		$divc."\n";
@@ -251,7 +259,7 @@ else {
 		$divzoomanim."\n".
 		'<span class="'.$textstylecap.'">'."\n".
 		'<br />'.$topandbottomtxt."\n".
-		'<b>'.$yellowspan.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
+		'<b>'.$span_variable.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
 		'<br /></span>'."\n".
 		$divc."\n".
 		$divc."\n";

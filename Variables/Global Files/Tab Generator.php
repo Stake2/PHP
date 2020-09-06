@@ -193,7 +193,7 @@ if ($sitehascommentstab == true or $storyhaswriteform == true) {
 
 #Stories Tab includer if the setting is true
 if ($sitehasstories == true) {
-	include $story_links_php_variable;
+	include $story_variables_php_variable;
 }
 
 if ($siteusescitybodygenerator == true) {

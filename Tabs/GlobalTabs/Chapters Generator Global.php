@@ -128,7 +128,7 @@ $chapter_line_number = 0;
 $b1 = 0;
 $b2 = 1;
 
-if ($site_uses_new_comment_and_read_displayer == true) {
+if ($site_uses_new_comment_and_read_displayer == true and $storycontainsreads == true and $storycontainscomments == true) {
 	if ($sitename == $sitepequenata) {
 		$comments_array = array(
 		null,
@@ -211,6 +211,7 @@ $za = 2;
 $mzz = 10;
 $zzcxx = 3;
 $covernumb = 1;
+$a = 1;
 
 echo '<div id="'.strtolower($captxt).'-div">'."\n";
 

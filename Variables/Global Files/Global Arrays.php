@@ -29,7 +29,6 @@ $sitearray = array(
 'websiteTemplate',
 'stake2',
 'textMaker',
-'xenaeizaque',
 );
 
 # Array of website titles
@@ -61,7 +60,6 @@ $sitetitlesarray = array(
 'Website Template',
 'Stake2',
 'Text Maker',
-'Xena E Izaque',
 );
 
 ?>

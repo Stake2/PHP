@@ -38,11 +38,16 @@ if ($sitename == $sitespaceliving) {
 	$sitenumbhovercolor = $cssbtn5;
 }
 
-if ($sitename == $sitexenaeizaque) {
-	$sitedivcolor = $color5;
+if ($choosenwebsite == $sitedesertisland) {
+	$colortext = 'w3-text-black';
+	$sitehr = 'blackhr';
+	$sitenumbhovercolor = $cssbtn5;
+	$sitedivcolor = 'yellow-sand_bg';
 }
 
 else {
+	$sitenumbcolor = $subtextspan;
+	$sitenumbhovercolor = $cssbtn5;
 	$sitedivcolor = 'w3-black';
 }
 

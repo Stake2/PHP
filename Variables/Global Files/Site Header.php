@@ -47,15 +47,8 @@ if (!isset($sitetitulo2) and !isset($sitedesc) and $deactivateheader == false) {
 	$mainimagem."\n".$imgbtnm.
 	"\n";
 
-	if ($sitename == $sitexenaeizaque) {
-		$styletext1 = '';
-		$styletext2 = 'class="'.$color5.'"';
-	}
-
-	if ($sitename != $sitexenaeizaque) {
-		$styletext1 = 'background-color:black;';
-		$styletext2 = '';
-	}
+	$styletext1 = 'background-color:black;';
+	$styletext2 = '';
 
 	$sitewrapper = $computerspace.
 	'<div '.$styletext2.' style="'.$styletext1.';margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">
@@ -83,15 +76,8 @@ if ($sitetype1 == $types[0] and $deactivateheader == false or $sitetype1 == 'Yea
 		$diariostuff2 = '';
 	}
 
-	if ($sitename == $sitexenaeizaque) {
-		$styletext1 = '';
-		$styletext2 = 'class="'.$color5.'"';
-	}
-
-	if ($sitename != $sitexenaeizaque) {
-		$styletext1 = 'background-color:black;';
-		$styletext2 = '';
-	}
+	$styletext1 = 'background-color:black;';
+	$styletext2 = '';
 
 	$sitewrapper = $computerspace.
 	'<div '.$styletext2.' style="'.$styletext1.';margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">
