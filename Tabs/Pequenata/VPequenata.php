@@ -14,8 +14,8 @@ $formcode = 'pequenata';
 $nolangstoryfolder = $notepad_stories_folder_variable.$storyfolder.'/';
 $no_language_story_folder = $notepad_stories_folder_variable.$storyfolder.'/';
 
-$single_cover_folder = 'Capas/Kids';
-$cover_folder = $cdn_image_stories_pequenata.$single_cover_folder.'/';
+$single_cover_folder = 'Capas/Kids/';
+$cover_folder = $cdn_image_stories_pequenata.$single_cover_folder;
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_displayer_php_variable;
@@ -24,7 +24,7 @@ require $cover_images_displayer_php_variable;
 $story = $pqntstoryname;
 
 # Story status
-$storystatus = $status[2];
+$storystatus = $status_reviewing_and_editing;
 
 # Site image vars
 $siteimage = 'pequenata';
@@ -47,7 +47,7 @@ else {
 
 $imglink = $siteimage;
 
-#Site numbers
+# Site numbers
 $crossover = 26;
 $commentsnumb = 16;
 $commentsnumbtext = $commentsnumb + 1;
@@ -56,17 +56,17 @@ $commentsnormalnumbtowrite = $commentsnormalnumb - 1;
 $commentschapternumb = $commentsnumbtext - $commentsnormalnumb;
 $readednumb = 12;
 
-#Non-language dependent texts
+# Non-language dependent texts
 #$commentsbtn = '<a href="#'.$tabcode[6].'"><button class="w3-btn '.$btnstyle.' '.$computervar.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$commentsnumb.' '.$icons[12].'</button></a>'."\n";
 #$commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$btnstyle.' '.$mobilevar.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$commentsnumb.' '.$icons[12].'</button></a>'."\n";
 
-#TextFileReader.php file includer
+# TextFileReader.php File Includer
 include $text_file_reader_file_php;
 
-#Story date definer using story date text file
+# Story date definer using story date text file
 $storydate = $storydate[0];
 
-#The chapter that I want to write
+# The chapter that I want to write
 if ($chaptertowrite == false) {
 	$sitestorywritechapter = '';
 }
@@ -75,30 +75,30 @@ else {
 	$sitestorywritechapter = (int)$chaptertowrite;
 }
 
-#Re-include of the StoryVars.php file to set the story name
+# Re-include of the StoryVars.php file to set the story name
 include $story_variables_php_variable;
 
-#Reviewed chapter number
-$reviewedcap = 10;
+# Reviewed chapter number
+$reviewedcap = 11;
 
-#Site descriptions
+# Site descriptions
 $sitedescs = array(
 'Website about my story, '.$story.', made by stake2', 
 'Site sobre a minha história, '.$story.', feito por stake2',
 );
 
-#Synopsis text definer using the $synopsis that is generated from TextFileReader.php
+# Synopsis text definer using the $synopsis that is generated from TextFileReader.php
 $descs = array(
 'Synopsis: <i class="fas fa-scroll"></i> "'.$synopsis[0].'"<br />',
 'Sinopse: <i class="fas fa-scroll"></i> "'.$synopsis[1].'"<br />',
 );
 
-#Reads the book cover image directory if the site has book covers
+# Reads the book cover image directory if the site has book covers
 if ($storyhascovers == true) {
 	require $cover_images_generator_php_variable;
 }
 
-#English texts for Pequenata website
+# English texts for Pequenata website
 if (in_array($lang, $en_langs)) {
 	$readtxts = array(
 	$readingtxt = "You're reading",
@@ -118,7 +118,7 @@ if (in_array($lang, $en_langs)) {
 	);
 }
 
-#Brazilian Portuguese texts for Pequenata website
+# Brazilian Portuguese texts for Pequenata website
 if (in_array($lang, $pt_langs)) {
 	$readtxts = array(
 	$readingtxt = "Você está lendo",
@@ -138,10 +138,10 @@ if (in_array($lang, $pt_langs)) {
 	);
 }
 
-#Status text definer, that sets the status text with [] around it
+# Status text definer, that sets the status text with [] around it
 $statustxt = '['.ucfirst($storystatus).']';
 
-#Site name, title, URL and description setter, by language
+# Site name, title, URL and description setter, by language
 if ($lang == $langs[0]) {
 	$lang = $langs[1];
 
@@ -191,8 +191,8 @@ if (in_array($lang, $pt_langs)) {
 	$sitedesc2 = $descs[1];
 }
 
-#Buttons and tabs definer
-#Tab names replacer for langs
+# Buttons and tabs definer
+#  Tab names replacer for langs
 if (in_array($lang, $en_langs)) {
 	$tabnames[5] = substr_replace($tabnames[5], '-', 6, 0);
 	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
@@ -204,7 +204,8 @@ if ($writingpack == true) {
 }
 
 #str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filetextarraynames[$i]"});
-#Button names
+
+# Button names
 $citiestxts = array(
 $tabnames[0].': '.$icons[21].' '.'<span class="w3-text-yellow"> ['.$newtxt.' '.$chapters.']</span>',
 $tabnames[1].': '.$icons[20].' ❤️ 😊',
@@ -215,12 +216,12 @@ $icons[13],
 '',
 );
 
-#TabGenerator.php includer
+# TabGenerator.php File Includer
 include $tabgeneratorphp;
 
-#Site notification variables if the site notification setting is true
+# Site notification variables if the site notification setting is true
 if ($sitehasnotifications == true) {
-	#Reviewed chapter title
+	# Reviewed chapter title
 	$reviewedcapcode = $chapterbtns[$reviewedcap];
 }
 

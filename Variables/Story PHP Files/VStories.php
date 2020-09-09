@@ -11,6 +11,11 @@ $status = array(
 'finished and publishing',
 );
 
+$status_finished = $status[0];
+$status_writing = $status[1];
+$status_reviewing_and_editing = $status[2];
+$status_finished_and_publishing = $status[3];
+
 if ($sitetype1 == $types[0] and $sitename != $sitediario) {
 	$story = '';
 }

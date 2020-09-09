@@ -4,19 +4,25 @@
 $dir = $local_cover_folder;
 $x2 = 0;
 $zz2 = 0;
+
+$number_of_files = 0;
+
 if (is_dir($dir)) {
 	if ($dh = opendir($dir)) {
 		while (($file = readdir($dh)) !== false) {
 			$files[$zz2] = $online_cover_folder.$file;
 			$x2++;
 			$zz2++;
+
+			$number_of_files++;
 		}
+
 		closedir($dh);
 	}
 }
 
 $i = 1;
-$cover_number = 10;
+$cover_number = count($files) - 3;
 while ($i <= $cover_number) {
 	if ($newwritestyle == true) {
 		$onclickscript = 'openCity('."'".$capdiv.$i."'".');DefineChapter('.$i.');';

@@ -46,4 +46,6 @@ if ($siteuseschapteropener == true) {
 	echo "\n";
 }
 
+#echo $cover_folder, '<br />', $local_cover_folder;
+
 ?>
