@@ -118,7 +118,7 @@ echo '<h5 class="'.$textstylecap.'" style="'.$hstyle.'text-align:left;"><hr clas
 if ($capnum1 != 1) {
 	if ($newwritestyle == true) {
 		$onclickscript = 'openCity('."'".$capdiv.$capnum3."'".');';
-		$onclickscript = $onclickscript.'DefineChapter('.$capnum3.');OpenChapter2(ReadContent'.$capnum3.');';
+		$onclickscript = $onclickscript.'DefineChapter('.$capnum3.', '."'".$titles[$capnum3]."'".');OpenChapter2(ReadContent'.$capnum3.');';
 	}
 
 	else if ($newwritestyle == false) {
@@ -132,7 +132,7 @@ if ($capnum1 != 1) {
 if ($capnum1 != $chapters and $capnum1 != $chapters + 1) {
 	if ($newwritestyle == true) {
 		$onclickscript = 'openCity('."'".$capdiv.$capnum2."'".');';
-		$onclickscript = $onclickscript.'DefineChapter('.$capnum2.');OpenChapter2(ReadContent'.$capnum2.');';
+		$onclickscript = $onclickscript.'DefineChapter('.$capnum2.', '."'".$titles[$capnum2]."'".');OpenChapter2(ReadContent'.$capnum2.');';
 	}
 
 	else if ($newwritestyle == false) {
@@ -171,9 +171,9 @@ if ($storyhascovers == true or $storyhascovers == true and $sitename == $sitepeq
 echo '<div id="'.$captextdiv.$capnum1.'">'."\n";
 
 if ($newwritestyle == true) {
-	$writestorybtn = '<span id="writebtnattribute'.$capnum1.'" style="display:none;">WriteContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" title="" class="w3-btn '.$btnstyle2.'" style="border-radius: 50px;" onclick="WriteChapter(WriteContent'.$capnum1.');"><'.$n.'><i class="fas fa-pen"></i></'.$n.'></button><br /><br />'."\n";
+	$writestorybtn = '<span id="writebtnattribute'.$capnum1.'" style="display:none;">WriteContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" title="" class="w3-btn '.$btnstyle2.'" style="border-radius: 50px;" onclick="WriteChapter(WriteContent'.$capnum1.');"><'.$n.'><i class="fas fa-pen"></i></'.$n.'></button><br /><br />'."\n"."\n";
 
-	$readstorybtn = '<span id="readbtnattribute'.$capnum1.'" style="display:none;">ReadContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" class="w3-btn '.$btnstyle2.'" style="border-radius: 50px;" onclick="OpenChapter2(ReadContent'.$capnum1.');"><'.$n.'><i class="fas fa-book"></i></'.$n.'></button><br /><br />'."\n";
+	$readstorybtn = '<span id="readbtnattribute'.$capnum1.'" style="display:none;">ReadContent'.$capnum1.'</span><button id="write-button-'.$capnum1.'" class="w3-btn '.$btnstyle2.'" style="border-radius: 50px;" onclick="OpenChapter2(ReadContent'.$capnum1.');"><'.$n.'><i class="fas fa-book"></i></'.$n.'></button><br /><br />'."\n"."\n";
 }
 
 #Chapter writer tab displayer
@@ -183,7 +183,7 @@ if ($sitestorywrite == true and $sitestorywritechapter == $capnum1 or $sitestory
 	#echo "$chapter_writer_displayer_php was loaded.";
 
 	if ($newwritestyle == true) {
-		echo $newwritestylescript."\n";
+		#echo $newwritestylescript."\n";
 	}
 
 	echo $divc."\n";
@@ -198,12 +198,12 @@ else {
 
 #Bottom Previous chapter button
 if ($capnum1 != 1) {
-	echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum3."');".'DefineChapter('.$capnum3.');OpenChapter2(ReadContent'.$capnum3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
+	echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum3."');".'DefineChapter('.$capnum3.', '."'".$titles[$capnum3]."'".');OpenChapter2(ReadContent'.$capnum3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 }
 
 #Bottom Next chapter button
 if ($capnum1 != $chapters) {
-	echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;margin-left:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum2."');".'DefineChapter('.$capnum2.');OpenChapter2(ReadContent'.$capnum2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
+	echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;margin-left:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$capdiv.$capnum2."');".'DefineChapter('.$capnum2.', '."'".$titles[$capnum2]."'".');OpenChapter2(ReadContent'.$capnum2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 }
 
 #Computer Comment button

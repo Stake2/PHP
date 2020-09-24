@@ -1,5 +1,13 @@
 <?php 
 
+if ($newwritestyle == true) {
+	$write_chapter_script = '<script src="'.$cdnjs.'WriteChapter.js"></script>'."\n";
+}
+
+else {
+	$write_chapter_script = '';
+}
+
 if ($site_is_prototype == false) {
 	$colors_css_file = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Colors.css" />';
 	$stories_css_file = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Stories.css" />';
@@ -38,7 +46,7 @@ if ($site_is_prototype == false) {
 <script src="'.$cdnjs.'Open Chapter By Keys.js"></script>'."\n".
 $editbtnscript.
 $newdesignscript.
-$newwritestylescript.
+$write_chapter_script.
 '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>'."\n";
 }
 

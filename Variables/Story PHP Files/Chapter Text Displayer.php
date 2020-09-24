@@ -73,7 +73,7 @@ if ($sitename != $sitenazzevo and $storyhasdates == true) {
 	}
 }
 
-echo $newwritestylescript."\n";
+#echo $write_chapter_script."\n";
 echo $divc."\n";
 echo $divc."\n";
 echo '<br /><br />'."\n";
@@ -146,8 +146,8 @@ if ($newwritestyle == true) {
 	}
 
 	echo '`;'.
-	'</script>'.
-	$newwritestylescript;
+	'</script>';
+	#$write_chapter_script;
 
 	#JavaScript version for the write story form
 	echo '<script>'.

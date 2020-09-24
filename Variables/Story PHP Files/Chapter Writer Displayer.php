@@ -103,8 +103,8 @@ if ($newwritestyle == true) {
 	}
 
 	echo '`;'.
-	'</script>'.
-	$newwritestylescript;
+	'</script>';
+	#$write_chapter_script;
 }
 
 ?>

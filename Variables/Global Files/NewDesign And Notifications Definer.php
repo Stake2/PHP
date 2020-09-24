@@ -1,13 +1,5 @@
 <?php 
 
-if ($newwritestyle == true) {
-	$newwritestylescript = '<script src="'.$cdnjs.'WriteChapter.js"></script>'."\n";
-}
-
-else {
-	$newwritestylescript = '';
-}
-
 #SuperAnimes test CSS and script
 if ($newdesign == true) {
 	#SuperAnimes test loader

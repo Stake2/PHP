@@ -25,7 +25,7 @@ $i = 1;
 $cover_number = count($files) - 3;
 while ($i <= $cover_number) {
 	if ($newwritestyle == true) {
-		$onclickscript = 'openCity('."'".$capdiv.$i."'".');DefineChapter('.$i.');';
+		$onclickscript = 'openCity('."'".$capdiv.$i."'".');DefineChapter('.$i.', '."'".$titles[$i]."'".');';
 	}
 
 	else if ($newwritestyle == false) {
