@@ -33,7 +33,7 @@ while ($i < $chapters) {
 echo "\n"."\n";
 
 $i = 0;
-while ($i <= $chapters) {
+while ($i < $chapters) {
 	$i2 = $i + 1;
 
 	echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true) {'."\n";
@@ -49,7 +49,8 @@ while ($i <= $chapters) {
 	$i++;
 }
 
-echo '}'."\n";
+echo '}
+console.log("Open Chapter Script was loaded.");'."\n";
 
 echo "\n";
 echo 'OpenChapter();'."\n";
