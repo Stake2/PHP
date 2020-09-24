@@ -34,7 +34,8 @@ if ($site_is_prototype == false) {
 <script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
 <script src="'.$cdnjs.'ShowHide.js"></script>
 <script src="'.$cdnjs.'SideMenu.js"></script>
-<script src="'.$cdnjs.'Set Revised Date.js"></script>'."\n".
+<script src="'.$cdnjs.'Set Revised Date.js"></script>
+<script src="'.$cdnjs.'Open Chapter By Keys.js"></script>'."\n".
 $editbtnscript.
 $newdesignscript.
 $newwritestylescript.
