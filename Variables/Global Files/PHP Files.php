@@ -21,6 +21,7 @@ $newdesignsitephp = $newdesign_php_folder_variable.'NewDesignSite.php';
 
 # CSS Packs Variables
 $css_pack_pequenata = $css_packs_php_folder.'Pequenata CSS Pack.php';
+$css_pack_desertisland = $css_packs_php_folder.'DesertIsland CSS Pack.php';
 
 $vyears_php = $sitefolder_years.'VYears.php';
 

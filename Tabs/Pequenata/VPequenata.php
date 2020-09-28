@@ -1,6 +1,6 @@
 <?php 
 
-#Pequenata CSS Pack file includer
+# Pequenata CSS Pack file includer
 require $css_pack_pequenata;
 
 # Folder variables
@@ -223,6 +223,7 @@ include $tabgeneratorphp;
 if ($sitehasnotifications == true) {
 	# Reviewed chapter title
 	$reviewedcapcode = $chapterbtns[$reviewedcap];
+	$reviewed_chapter_button_mobile = $chapterbtns[$reviewedcap];
 }
 
 ?>

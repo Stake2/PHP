@@ -17,9 +17,9 @@ $formbtnstyle = "pqntsend";
 # Variables that mixes CSS tags
 $textstyle = $colortext.' blackbg';
 $textstyle2 = 'w3-text-black bg';
-$btnstyle = $color4.' '.$cssbtn1;
-$btnstyle2 = $color3.' '.$cssbtn1;
-$btnstyle3 = $color5.' '.$cssbtn1;
+$btnstyle = $color4.' '.$cssbtn1.$global_classes;
+$btnstyle2 = $color3.' '.$cssbtn1.$global_classes;
+$btnstyle3 = $color5.' '.$cssbtn1.$global_classes;
 $subtextspan = '<span class="'.$colorsubtext2.'">';
 $subtextspan2 = '<span class="'.$colorsubtext.'">';
 $spannewtextcolor = $subtextspan;

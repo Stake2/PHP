@@ -80,6 +80,10 @@ $margin3 = '<div style="margin:5%;">';
 $notifbtncss1 = 'float:left;margin-left:-10%;';
 $notifbtncss2 = 'float:left;';
 
+$css_font_size_20px = '20px_font_size';
+
+$global_classes = ' 20px_font_size white_space_unset';
+
 $margin_3_h1 = '<h1 style="margin-left:3%;">'.'<b>';
 
 if ($roundedbuttonson == true) {
