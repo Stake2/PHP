@@ -180,6 +180,13 @@ button:hover {
   animation-iteration-count: infinite;
 }
 
+span.w3-btn:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shakesidetoside22 0.8s;
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
 .shakesidetoside:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shakesidetoside22 0.8s;

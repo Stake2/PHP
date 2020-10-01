@@ -144,7 +144,7 @@ if ($site_uses_new_comment_and_read_displayer == true and $storycontainsreads ==
 
 		$reads_array = array(
 		null,
-		[$reads[10], $reads[11], $reads[12]],
+		[$reads[10], $reads[11], $reads[12], $reads[14]],
 		[$reads[0], $reads[9]],
 		$reads[1],
 		$reads[2],
