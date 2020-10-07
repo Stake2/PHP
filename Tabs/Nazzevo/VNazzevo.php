@@ -84,7 +84,7 @@ else {
 $imglink = $siteimage;
 
 # Numbers and non-language dependent texts
-$commentsnumb = 2;
+$commentsnumb = 0;
 $commentsnumbtext = $commentsnumb + 1;
 $commentsnormalnumb = 1;
 $commentsnormalnumbtowrite = $commentsnormalnumb - 1;

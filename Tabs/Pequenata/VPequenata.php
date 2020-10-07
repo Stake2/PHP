@@ -49,9 +49,9 @@ $imglink = $siteimage;
 
 # Site numbers
 $crossover = 26;
-$commentsnumb = 16;
+$commentsnumb = 11;
 $commentsnumbtext = $commentsnumb + 1;
-$commentsnormalnumb = 10;
+$commentsnormalnumb = 8;
 $commentsnormalnumbtowrite = $commentsnormalnumb - 1;
 $commentschapternumb = $commentsnumbtext - $commentsnormalnumb;
 $readednumb = 12;

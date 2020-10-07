@@ -17,11 +17,11 @@ if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
 	$sitehasstories = true; #Defines if site has a Stories Tab
 	$storyhascovers = true; #Defines if site has book covers for the story
 	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
-	$storyhaschaptercomments = true; #Defines if the story has comments on the chapter
+	$storyhaschaptercomments = false; #Defines if the story has comments on the chapter
 	$storyhasdates = false; #Defines if the story has dates
 	$storyhastitles = true; #Defines if the story has titles
 	$storyusestatus = true; #Defines if the story uses the story statuses
-	$storycontainsreads = true; #Defines if the story has reads on it
+	$storycontainsreads = false; #Defines if the story has reads on it
 	$storycontainscomments = true; #Defines if the story has comments on it
 
 	#Site Tabs array
