@@ -6,7 +6,7 @@ $site_header_file_php = $php_vars_global_files.'Site Header.php';
 $global_style_file_php = $php_vars_global_files.'Global Style.php';
 $tabgeneratorphp = $php_vars_global_files.'Tab Generator.php';
 $tab_loader_php = $php_vars_global_files.'Tab Loader.php';
-$topbuttonscreator = $php_vars_global_files.'Top Buttons Creator.php';
+$computer_buttons_creator = $php_vars_global_files.'Top Buttons Creator.php';
 $topbuttonsloader = $php_vars_global_files.'Buttons PHP File Loader.php';
 $text_file_reader_file_php = $php_vars_global_files.'Text File Reader.php';
 

@@ -144,24 +144,24 @@ if ($sitename == $sitewatch or $site == $sitewatch) {
 	include $topbuttonsloader;
 
 	#Every Watched Button Yellow
-	$everywatchedbtny1 = $btnsy[0].$btns[3].$btns[4];
-	$everywatchedbtny2 = $btns[0].$btnsy[3].$btns[4];
-	$everywatchedbtny3 = $btns[0].$btns[3].$btnsy[4];
+	$everywatchedbtny1 = $btnsy[0].$computer_buttons[3].$computer_buttons[4];
+	$everywatchedbtny2 = $computer_buttons[0].$btnsy[3].$computer_buttons[4];
+	$everywatchedbtny3 = $computer_buttons[0].$computer_buttons[3].$btnsy[4];
 
 	#Mobile Every Watched Button Yellow
-	$everywatchedbtny1m = $btnsym[0].$btnsm[3].$btnsm[4];
-	$everywatchedbtny2m = $btnsm[0].$btnsym[3].$btnsm[4];
-	$everywatchedbtny3m = $btnsm[0].$btnsm[3].$btnsym[4];
+	$everywatchedbtny1m = $btnsym[0].$mobile_buttons[3].$mobile_buttons[4];
+	$everywatchedbtny2m = $mobile_buttons[0].$btnsym[3].$mobile_buttons[4];
+	$everywatchedbtny3m = $mobile_buttons[0].$mobile_buttons[3].$btnsym[4];
 
 	#Every Archived Button Yellow
-	$everyarchbtn = $divleftanim.$btns[5].$divc.$divrightanim.$btns[6].$divc;
-	$everyarchbtny1 = $divrightanim.$btnsy[5].$divc.$divleftanim.$btns[6].$divc;
-	$everyarchbtny2 = $divleftanim.$btns[5].$divc.$divrightanim.$btnsy[6].$divc;
+	$everyarchbtn = $divleftanim.$computer_buttons[5].$divc.$divrightanim.$computer_buttons[6].$divc;
+	$everyarchbtny1 = $divrightanim.$btnsy[5].$divc.$divleftanim.$computer_buttons[6].$divc;
+	$everyarchbtny2 = $divleftanim.$computer_buttons[5].$divc.$divrightanim.$btnsy[6].$divc;
 
 	#Mobile Every Archived Button Yellow
-	$everyarchbtnm = $divleftanim.$btnsm[5].$divc.$divrightanim.$btnsm[6].$divc;
-	$everyarchbtny1m = $divrightanim.$btnsym[5].$divc.$divleftanim.$btnsm[6].$divc;
-	$everyarchbtny2m = $divleftanim.$btnsm[5].$divc.$divrightanim.$btnsym[6].$divc;
+	$everyarchbtnm = $divleftanim.$mobile_buttons[5].$divc.$divrightanim.$mobile_buttons[6].$divc;
+	$everyarchbtny1m = $divrightanim.$btnsym[5].$divc.$divleftanim.$mobile_buttons[6].$divc;
+	$everyarchbtny2m = $divleftanim.$mobile_buttons[5].$divc.$divrightanim.$btnsym[6].$divc;
 }
 
 if ($sitename == $sitethingsido or $site == $sitethingsido or $sitename == $sitetextmaker) {

@@ -34,11 +34,11 @@ $strycapnumb = array(1, 13, 5, 1, 15);
 $strywordnumb = array(512, 17.374, '7.440', 1.218, 7.401);
 $strycharnumb = 41.162;
 
-$mediabtns = '<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$langreadtext.' '.$btns[1].$spanc.$divc.'</'.$n.'>
-<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m2.'>'.$readmorestylem.$langreadtext.' '.$btnsm[1].$spanc.$divc.'</'.$m.'>';
+$mediabtns = '<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$langreadtext.' '.$computer_buttons[1].$spanc.$divc.'</'.$n.'>
+<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m2.'>'.$readmorestylem.$langreadtext.' '.$mobile_buttons[1].$spanc.$divc.'</'.$m.'>';
 
-$friendsbtns = '<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle22.'>'.$readmorestyle.$langreadtext.' '.$btns[2].$spanc.$divc.'</'.$n.'>
-<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m.'>'.$readmorestylem.$langreadtext.' '.$btnsm[2].$spanc.$divc.'</'.$m.'>';
+$friendsbtns = '<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle22.'>'.$readmorestyle.$langreadtext.' '.$computer_buttons[2].$spanc.$divc.'</'.$n.'>
+<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m.'>'.$readmorestylem.$langreadtext.' '.$mobile_buttons[2].$spanc.$divc.'</'.$m.'>';
 
 $pastebinlinks = array(
 '<a href="https://pastebin.com/4j99vwMy">https://pastebin.com/4j99vwMy</a>', 

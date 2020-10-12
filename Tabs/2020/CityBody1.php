@@ -17,8 +17,8 @@ $citybody1 = '<div style="text-align:left;">'.'
 '.$wtxt3.': '.$bluespan.$cartoonsnumb.$spanc.'<br />
 '.$wtxt4.': '.$bluespan.$animesnumb.$spanc.'<br />
 '.$wtxt5.': '.$bluespan.$videosnumb.$spanc.'<br />
-<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$readtxt.' '.$btns[1].$spanc.$divc.'</'.$n.'>
-<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m2.'>'.$readmorestylem.$readtxt.' '.$btnsm[1].$spanc.$divc.'</'.$m.'>
+<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$readtxt.' '.$computer_buttons[1].$spanc.$divc.'</'.$n.'>
+<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m2.'>'.$readmorestylem.$readtxt.' '.$mobile_buttons[1].$spanc.$divc.'</'.$m.'>
 <hr class="'.$sitehr.'" />
 <br />
 '.$strytxt.': '.$bluespan.$storynumb.$spanc.'<br />
@@ -34,8 +34,8 @@ $citybody1 = '<div style="text-align:left;">'.'
 <br />
 <hr class="'.$sitehr.'" />
 '.$friendstxt.': '.$bluespan.$friendsnumb.$spanc.'
-<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$readtxt.' '.$btns[2].$spanc.$divc.'</'.$n.'>
-<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m.'>'.$readmorestylem.$readtxt.' '.$btnsm[2].$spanc.$divc.'</'.$m.'>'
+<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$readtxt.' '.$computer_buttons[2].$spanc.$divc.'</'.$n.'>
+<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m.'>'.$readmorestylem.$readtxt.' '.$mobile_buttons[2].$spanc.$divc.'</'.$m.'>'
 .'Link: '.$pastebinlinks[2].'<br />
 <hr class="'.$sitehr.'" /><br />
 '.$bluespan.$cmntsnumb1.$spanc.' (#'.$bluespan.$cmntsnumb2.$spanc.') '.$cmntstxt.'<br />

@@ -6,36 +6,43 @@ include $sitesbuttonsattributes;
 if ($sitename == $sitediario or $site == $sitediario) {
 	$sitenumbcolor = $bluespan;
 	$sitenumbhovercolor = $cssbtn4;
+	$sitedivcolor = 'w3-black';
 }
 
 if ($sitename == $sitewatch) {
 	$sitenumbcolor = $yellowspan;
 	$sitenumbhovercolor = $cssbtn5;
+	$sitedivcolor = 'w3-black';
 }
 
 if ($sitename == $sitepequenata) {
 	$sitenumbcolor = $subtextspan2;
 	$sitenumbhovercolor = $cssbtn4;
+	$sitedivcolor = 'w3-black';
 }
 
 if ($sitename == $sitenazzevo) {
 	$sitenumbcolor = $subtextspan;
 	$sitenumbhovercolor = $cssbtn4;
+	$sitedivcolor = 'w3-black';
 }
 
 if ($sitename == $sitethingsido or $site == $sitethingsido) {
 	$sitenumbcolor = $subtextspan;
 	$sitenumbhovercolor = $cssbtn5;
+	$sitedivcolor = 'w3-black';
 }
 
 if ($sitename != $sitewatch and $sitename != $sitepequenata and $sitename != $sitenazzevo and $sitename != $sitethingsido and $site != $sitethingsido and $sitename != $sitediario and $site != $sitediario) {
 	$sitenumbcolor = $bluespan;
 	$sitenumbhovercolor = $cssbtn5;
+	$sitedivcolor = 'w3-black';
 }
 
 if ($sitename == $sitespaceliving) {
 	$sitenumbcolor = $subtextspan;
 	$sitenumbhovercolor = $cssbtn5;
+	$sitedivcolor = 'w3-black';
 }
 
 if ($choosenwebsite == $sitedesertisland) {
@@ -45,7 +52,7 @@ if ($choosenwebsite == $sitedesertisland) {
 	$sitedivcolor = 'yellow-sand_bg';
 }
 
-else {
+if ($sitename != $sitewatch and $sitename != $sitepequenata and $sitename != $sitenazzevo and $sitename != $sitethingsido and $site != $sitethingsido and $sitename != $sitediario and $site != $sitediario and $sitename == $sitespaceliving and $choosenwebsite == $sitedesertisland) {
 	$sitenumbcolor = $subtextspan;
 	$sitenumbhovercolor = $cssbtn5;
 	$sitedivcolor = 'w3-black';

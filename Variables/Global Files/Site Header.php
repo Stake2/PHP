@@ -170,7 +170,8 @@ $siteheader = '<head>'.
 $sitehead."\n".
 $site_js.
 '</head>
-<body>'.$center."\n".
+<body>
+'.$center."\n"."\n".
 $buttons."\n".
 
 $changetitlescript."\n".

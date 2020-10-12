@@ -1,9 +1,9 @@
 <?php
 
-#Get the localhost link
+# Get the localhost link
 $host = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-#Site variables
+# Site variables
 $url = 'https://diario.netlify.app/';
 $mega_folder = 'C:/Mega/';
 $mega_folder_diario = $mega_folder.'Diario/';
@@ -62,10 +62,10 @@ require $website_language_and_type_definer_php;
 
 require $default_setting_values_php;
 
-#Website selector file includer
+# Website selector file includer
 require $website_selector_file;
 
-#Lang modifier
+# Language modifier
 $lang2 = strtoupper($lang);
 $lang2 = substr_replace($lang2, '-', 2, 0);
 
@@ -83,7 +83,7 @@ if ($site_is_prototype == true) {
 <!DOCTYPE html>
 <?php 
 
-#Siteheader displayer
+# Siteheader displayer
 echo $siteheader;
 
 if ($deactivatetabs == false and $site_is_prototype == false) {

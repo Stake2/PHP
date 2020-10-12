@@ -7,7 +7,7 @@ echo '<div class="'.$computervar.'">';
 $i = 7;
 $c = 0;
 while ($c <= $unprodbtnsnumb - 1) {
-	echo $btns[$i];
+	echo $computer_buttons[$i];
 
 	$i++;
 	$c++;
@@ -18,7 +18,7 @@ echo '<div class="'.$mobilevar.'">';
 $i = 7;
 $c = 0;
 while ($c <= $unprodbtnsnumb - 1) {
-	echo $btnsm[$i];
+	echo $mobile_buttons[$i];
 
 	$i++;
 	$c++;

@@ -1,6 +1,6 @@
 <?php 
 
-echo $btns[1].$btns[2];
+echo $computer_buttons[1].$computer_buttons[2];
 echo '<hr class="'.$sitehr.'" />';
 
 echo '<div class="'.$computervar.'">'.'<button class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' id="cetoggle1btn" onClick="Cetoggle2cmnd();">'.'<'.$n.'>'.$editbtntxt1.': '.$icons[10].'</'.$n.'>'.'</button>';

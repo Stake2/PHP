@@ -1,13 +1,14 @@
 <?php
 
 $i = 0;
-$btns = array();
-$btnsm = array();
-$pcbtn1 = '<br />'."\n".'<button class="w3-btn '.$btnstyle.' '.$computervar.'" '.$roundedborderstyle.' onclick="buttons();"><h2>'.$icons[17].'</h2></button>'."\n";
+$computer_buttons = array();
+$mobile_buttons = array();
 
-$pcbtn2 = '<button id="ShowButton" class="w3-btn '.$btnstyle.' '.$computervar.'" style="display:none;float:right;'.$roundedborderstyle2.'" onclick="buttons2();"><h2>'.$icons[18].'</h2></button>'."\n";
+$hide_computer_buttons_bar = '<br />'."\n".'<button id="hide_computer_buttons" class="w3-btn '.$btnstyle.' '.$computervar.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();"><h2>'.$icons[17].'</h2></button>'."\n";
 
-$mobilemenuopen = '<button id="ShowMenu" class="w3-btn '.$btnstyle.' '.$mobilevar.'" style="float:left;position:fixed;'.$roundedborderstyle2.'" onclick="openNav()"><h2>'.$icons[16].'</h2></button>'."\n";
+$show_computer_buttons_bar = '<button id="show_computer_buttons" class="w3-btn '.$btnstyle.' '.$computervar.'" style="display:none;float:right;'.$roundedborderstyle2.'" onclick="Show_Computer_Buttons();"><h2>'.$icons[18].'</h2></button>'."\n";
+
+$open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-btn '.$btnstyle.' '.$mobilevar.'" style="float:left;position:fixed;'.$roundedborderstyle2.'" onclick="Show_Mobile_Buttons();"><h2>'.$icons[16].'</h2></button>'."\n";
 
 $tabnamestxt = $tabnames;
 
@@ -61,108 +62,138 @@ if ($sitename == $siteyourstruly_izaque) {
 }
 
 if ($deactivatetopbtns == false) {
-	echo '<div id="myDIV" class="w3-bar mobileHide w3-animate-top" style="position:fixed;float:right;">'."\n";
+
+	#######################################
+
+	# Computer buttons bar generation     #
+
+	#######################################
+
+	echo '
+<!--- Computer Button bar on the top -->
+';
+
+	echo '<div id="computer_buttons_bar" class="w3-bar mobileHide w3-animate-top" style="position:fixed;float:right;">'."\n";
 	$sitebtnecho = true;
-	
+
 	if ($sitename == $sitepequenata) {
 		$hidenotifattribute = 'hidenotif();';
 	}
-	
+
 	else {
 		$hidenotifattribute = '';
 	}
-	
+
 	while ($i <= $tabnumb) {
 		if ($i == $tabnumb and $sitename == $sitediario) {
-			$btns[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'.'<a href="#'.$tabcodes[$i].'"><button id="button'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".'">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
+			$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 		}
-	
+
 		else {
 			if ($i == 0 and $sitehasnotifications == true and $sitehidenotifonclickreadtab == true) {
-				$btns[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'.'<a href="#'.$tabcodes[$i].'"><button id="button'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="'.$hidenotifattribute.'openCity('."'".$tabcodes[$i]."')".'">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
-			}
-	
-			else {
-				$btns[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'.'<a href="#'.$tabcodes[$i].'"><button id="button'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".'">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
-			}
-		}
-	
-		if ($i <= $tabnumb2 and $sitename != $site2019) {
-			if (strpos($btns[$i], 'Comment') and strpos($btns[$i], 'Comentar' and $sitehidescommentstab == true)) {
-				#echo $btns[$i];
+				$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="'.$hidenotifattribute.'openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 			}
 
 			else {
-				echo $btns[$i];
+				$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 			}
 		}
-	
-		if ($i <= $tabnumb and $sitename == $site2019) {
-			echo $btns[$i];
+
+		if ($i <= $tabnumb2 and $sitename != $site2019) {
+			if (strpos($computer_buttons[$i], 'Comment') and strpos($computer_buttons[$i], 'Comentar' and $sitehidescommentstab == true)) {
+				#echo $computer_buttons[$i];
+			}
+
+			else {
+				echo $computer_buttons[$i];
+			}
 		}
-	
+
+		if ($i <= $tabnumb and $sitename == $site2019) {
+			echo $computer_buttons[$i];
+		}
+
 		if ($sitename == $sitediario and $sitebtnecho == true and $i == $tabnumb) {
 			echo ' '.$sitebtn2;
-	
+
 			$sitebtnecho = false;
 		}
-	
+
 		$i++;
 	}
-	
+
 	if ($sitename == $sitewatch) {
-		echo $btns[7];
+		echo $computer_buttons[7];
 	}
-	
+
 	if ($sitename == $sitepequenata) {
-		echo $btns[5];
+		echo $computer_buttons[5];
 	}
-	
+
 	$i = 0;
 	while ($i <= $tabnumb) {
-		$btnsy[$i] = '<span title="'.$tabnamestxt[$i].'" alt="'.$tabnamestxt[$i].'">'.'<a href="#'.$tabcodes[$i].'"><button class="w3-btn '.$btnstyle2.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".'">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
+		$btnsy[$i] = '<span title="'.$tabnamestxt[$i].'" alt="'.$tabnamestxt[$i].'">'."\n".	'<a href="#'.$tabcodes[$i].'"><button class="w3-btn '.$btnstyle2.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
 	
 		$i++;
 	}
-	
-	echo $pcbtn1.
-	$divc."\n".
-	'<div class="w3-bar" style="position:fixed;float:right;">'."\n".
-	$pcbtn2.$divc."\n";
-	
-	echo "\n".'<div id="mySidenav" class="sidenav mobileShow ">'."\n".
-	'<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times-circle"></i></a>'."\n".
-	'<'.$n.' class="'.$mobilevar.' '.$textstyle.'">'.$btnmenutxt.'</'.$n.'>'."\n";
+
+	echo $hide_computer_buttons_bar.
+	$divc."\n"."\n".
+	'<!-- "Show Computer Buttons" button bar -->
+<div id="show_computer_button_bar" class="w3-bar" style="position:fixed;float:right;">'."\n".
+	$show_computer_buttons_bar.$divc."\n";
+
+
+	#######################################
+
+	# Mobile buttons sidebar generation   #
+
+	#######################################
+
+	echo '
+<!--- Mobile Button bar at the left -->';
+
+	echo "\n".'<div id="mobile_button_sidebar" class="mobile_button_sidebar_css mobileShow ">'."\n"."\n".
+	'<a href="javascript:void(0)" class="close_mobile_sidebar_button" onclick="Hide_Mobile_Buttons();"><i class="fas fa-times-circle"></i></a>'."\n"."\n".
+	'<'.$n.' class="'.$mobilevar.' '.$textstyle.'">'.$btnmenutxt.'</'.$n.'>'."\n"."\n";
 	
 	$i = 0;
 	while ($i <= $tabnumb) {
 		$i2 = $i + 1;
 	
 		if ($i == $tabnumb and $sitename == $sitediario) {
-			$btnsm[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="closeNav()"><button id="button'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".'">'.$tabtxtsm[$i].'</button></a>';
+			$mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button id="mobile_button_'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
 		}
 	
 		else {
 			if ($i == 0 and $sitehasnotifications == true and $sitehidenotifonclickreadtab == true) {
-				$btnsm[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="closeNav()"><button id="button'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="'.$hidenotifattribute.'openCity('."'".$tabcodesm[$i]."')".'">'.$tabtxtsm[$i].'</button></a>'."\n";
+				$mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button id="mobile_button_'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="'.$hidenotifattribute.'openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
 			}
 	
 			else {
-				$btnsm[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="closeNav()"><button id="button'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".'">'.$tabtxtsm[$i].'</button></a>'."\n";
+				$mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button id="mobile_button_'.($i + 1).'" class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
 			}
 		}
-		
+
 		if ($i <= $tabnumb2 and $sitename != $site2019) {
-			echo $btnsm[$i];
+			echo $mobile_buttons[$i];
 		}
-	
+
+		if ($i != $tabnumb) {
+			echo "\n";
+		}
+
 		if ($i <= $tabnumb and $sitename == $site2019) {
-			echo $btnsm[$i];
+			echo $mobile_buttons[$i];
+		}
+
+		if ($i != $tabnumb) {
+			echo "\n";
 		}
 
 		if ($sitename == $sitediario and $sitebtnecho == true and $i == $tabnumb) {
 			echo ' '.$sitebtn2;
-	
+
 			$sitebtnecho = false;
 		}
 
@@ -170,26 +201,26 @@ if ($deactivatetopbtns == false) {
 	}
 	
 	if ($sitename == $sitewatch) {
-		echo $btnsm[7];
+		echo $mobile_buttons[7]."\n"."\n";
 	}
 	
 	if ($sitename == $sitepequenata) {
-		echo $btnsm[5];
+		echo $mobile_buttons[5]."\n"."\n";
 	}
 	
 	if ($sitename == $sitetextmaker) {
-		echo $btnsm[1];
+		echo $mobile_buttons[1]."\n"."\n";
 	}
 	
 	$i = 0;
 	while ($i <= $tabnumb) {
-		$btnsym[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="closeNav()"><button class="w3-btn '.$btnstyle2.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".'">'.$tabtxtsm[$i].'</button></a>'."\n";
-	
+		$btnsym[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button class="w3-btn '.$btnstyle2.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
+
 		$i++;
 	}
 	
-	echo $divc."\n".
-	$mobilemenuopen;
+	echo "\n".$divc."\n"."\n".
+	$open_mobile_buttons_sidebar;
 }
 
 ?>
