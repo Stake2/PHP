@@ -232,7 +232,7 @@ $size_variable = $n;
 $desert_island_story = '<a class="w3-btn '.$cssbtn1.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img src="'.$desert_island_image.'" width="650"><br /><br /></a><br />';
 
 $size_variable = $m;
-$desert_island_story_mobile = '<a class="w3-btn '.$cssbtn1.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img src="'.$desert_island_image.'" width="650"><br /><br /></a><br />';
+$desert_island_story_mobile = '<a class="w3-btn '.$cssbtn1.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img src="'.$desert_island_image.'" width="230"><br /><br /></a><br />';
 
 $cover_text = 'Cover';
 $pequenata_online_cover_folder = $cdn_image_stories_pequenata.'Capas/Kids/';
@@ -279,15 +279,15 @@ $nazzevolink = $url.'nazzevo/';
 $lslink = $url.'Lonely%20Stories/';
 $lsimglink = $cdnimg.'Lonely Stories.jpg';
 
-$story1 = '<a class="w3-btn  '.$cssbtn1.' '.$pqntbg.'" href="'.$pqntlink.'" '.$roundedborderstyle.'><'.$n.' class="'.$pqnttext.'"><b>'.$stories[0].'</b></'.$n.'><img src="'.$pqntimglink.'" width="650"><br /><br /></a><br />';
-$story2 = '<a class="w3-btn '.$cssbtn1.' '.$slbg.'" href="'.$sllink.'" '.$roundedborderstyle.'><'.$n.' class="w3-text-blue"><b>'.$stories[1].'</b></'.$n.'><img src="'.$slimglink.'" width="650"><br /><br /></a><br />';
+$story1 = '<a class="w3-btn  '.$cssbtn1.' '.$pqntbg.'" href="'.$pqntlink.'" '.$roundedborderstyle.'><'.$n.' class="'.$pqnttext.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$n.'><img src="'.$pqntimglink.'" width="650"><br /><br /></a><br />';
+$story2 = '<a class="w3-btn '.$cssbtn1.' '.$slbg.'" href="'.$sllink.'" '.$roundedborderstyle.'><'.$n.' class="w3-text-blue"><b style="white-space: break-spaces;">'.$stories[1].'</b></'.$n.'><img src="'.$slimglink.'" width="650"><br /><br /></a><br />';
 $story3 = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$nazzevolink.'" '.$roundedborderstyle.'><'.$n.' class="'.$pqnttext.'"><b>'.$stories[2].'</b></'.$n.'><img src="'.$nazzevoimglink.'" width="650"><br /><br /></a><br />';
 $story4 = '<a class="w3-btn '.$cssbtn1.' '.$lsbg.'" href="'.$lslink.'" '.$roundedborderstyle.'><'.$n.'><b>'.$lonely_story_name.'</b></'.$n.'><img src="'.$lsimglink.'" width="650"><br /><br /></a><br />';
 
-$story1m = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$pqntlink.'" '.$roundedborderstyle.'><'.$m.' class="'.$pqnttext.'"><b>'.$stories[0].'</b></'.$m.'><img src="'.$pqntimglink.'" width="350" height="210"><br /><br /></a><br />';
-$story2m = '<a class="w3-btn  '.$cssbtn1.' '.$slbg.'" href="'.$sllink.'" '.$roundedborderstyle.'><'.$m.' class="w3-text-blue"><b>'.$stories[1].'</b></'.$m.'><img src="'.$slimglink.'" width="320" height="230"><br /><br /></a><br />';
-$story3m = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$nazzevolink.'" '.$roundedborderstyle.'><'.$m.' class="'.$pqnttext.'"><b>'.$stories[2].'</b></'.$m.'><img src="'.$nazzevoimglink.'" width="290" height="190"><br /><br /></a><br />';
-$story4m = '<a class="w3-btn '.$cssbtn1.' '.$lsbg.'" href="'.$lslink.'" '.$roundedborderstyle.'><'.$m.'><b>'.$lonely_story_name.'</b></'.$m.'><img src="'.$lsimglink.'" width="290" height="190"><br /><br /></a><br />';
+$story1m = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$pqntlink.'" '.$roundedborderstyle.'><'.$m.' class="'.$pqnttext.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$m.'><img src="'.$pqntimglink.'" width="230" height="170"><br /><br /></a><br />';
+$story2m = '<a class="w3-btn  '.$cssbtn1.' '.$slbg.'" href="'.$sllink.'" '.$roundedborderstyle.'><'.$m.' class="w3-text-blue"><b style="white-space: break-spaces;">'.$stories[1].'</b></'.$m.'><img src="'.$slimglink.'" width="230" height="170"><br /><br /></a><br />';
+$story3m = '<a class="w3-btn '.$cssbtn1.' '.$pqntbg.'" href="'.$nazzevolink.'" '.$roundedborderstyle.'><'.$m.' class="'.$pqnttext.'"><b style="white-space: break-spaces;">'.$stories[2].'</b></'.$m.'><img src="'.$nazzevoimglink.'" width="230" height="170"><br /><br /></a><br />';
+$story4m = '<a class="w3-btn '.$cssbtn1.' '.$lsbg.'" href="'.$lslink.'" '.$roundedborderstyle.'><'.$m.'><b style="white-space: break-spaces;">'.$lonely_story_name.'</b></'.$m.'><img src="'.$lsimglink.'" width="230" height="170"><br /><br /></a><br />';
 
 $storieslinkstab = "\n".
 $story1."<br />"."\n"."\n".

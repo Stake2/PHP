@@ -49,7 +49,7 @@ if ($choosenwebsite == $sitedesertisland) {
 	$colortext = 'w3-text-black';
 	$sitehr = 'blackhr';
 	$sitenumbhovercolor = $cssbtn5;
-	$sitedivcolor = 'yellow-sand_bg';
+	$sitedivcolor = '';
 }
 
 if ($sitename != $sitewatch and $sitename != $sitepequenata and $sitename != $sitenazzevo and $sitename != $sitethingsido and $site != $sitethingsido and $sitename != $sitediario and $site != $sitediario and $sitename == $sitespaceliving and $choosenwebsite == $sitedesertisland) {

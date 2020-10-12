@@ -3,10 +3,10 @@
 $formcmnt = "\n".
 '<div class="'.$computervar.'">
 <form name="'.$formcode.'-comment" method="POST" data-netlify="true">
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$formname.':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$formname.':</b><br />
 <textarea type="text" name="name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$cmntstxts[5].':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$cmntstxts[5].':</b><br />
 <textarea type="text" name="comment" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea>
 <h2><button type="submit" class="w3-btn '.$formbtnstyle.'" style="float:right;margin-top:-10px;'.$roundedborderstyle2.'"><i class="fas fa-paper-plane"></i></button></h2>
 </span>
@@ -15,10 +15,10 @@ $formcmnt = "\n".
 
 <div class="'.$mobilevar.'">
 <form name="'.$formcode.'-comment" method="POST" data-netlify="true">
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$formname.':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$formname.':</b><br />
 <textarea type="text" name="name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$cmntstxts[5].':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$cmntstxts[5].':</b><br />
 <textarea type="text" name="comment" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea> 
 <h2><button type="submit" class="w3-btn '.$formbtnstyle.'" style="float:right;margin-top:-10px;'.$roundedborderstyle2.'"><i class="fas fa-paper-plane"></i></button></h2>
 </span>
@@ -31,10 +31,10 @@ $formcmnt = "\n".
 $formwrite = "\n".'
 <div class="'.$computervar.'">
 <form name="'.$formcode.'-write" method="POST" data-netlify="true">
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$formname.':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$formname.':</b><br />
 <textarea type="text" name="name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$writetxts[1].':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$writetxts[1].':</b><br />
 <textarea type="text" name="comment" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea> 
 <h2><button type="submit" class="w3-btn '.$formbtnstyle.'" style="float:right;margin-top:-10px;'.$roundedborderstyle2.'"><i class="fas fa-paper-plane"></i></button></h2>
 </span>
@@ -43,10 +43,10 @@ $formwrite = "\n".'
 
 <div class="'.$mobilevar.'">
 <form name="'.$formcode.'-write" method="POST" data-netlify="true">
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$formname.':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$formname.':</b><br />
 <textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />
-<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b>'.$writetxts[1].':</b><br />
+<span class="w3-btn '.$spanstyle.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$writetxts[1].':</b><br />
 <textarea type="text" name="comment" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'></textarea> 
 <h2><button type="submit" class="w3-btn '.$formbtnstyle.'" style="float:right;margin-top:-10px;'.$roundedborderstyle2.'"><i class="fas fa-paper-plane"></i></button></h2>
 </span>

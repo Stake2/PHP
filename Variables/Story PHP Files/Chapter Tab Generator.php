@@ -11,7 +11,7 @@ if ($write_new_chapter == true) {
 	array_push($titles, $chapters + 1);
 }
 
-#Defines the top and bottom texts
+# Defines the top and bottom texts
 if ($sitestorywrite == true and $sitestorywritechapter == $capnum1) {
 	if ($storyhastitles == true) {
 		$topandbottomtxt = '<b>'.$writetxts[2].'</b>'.
@@ -40,7 +40,7 @@ else {
 	}
 }
 
-#New design div
+# New design div
 if ($newdesign == true) {
 	echo '
 <section>
@@ -49,7 +49,7 @@ if ($newdesign == true) {
 <div class="boxConteudo">';
 }
 
-#Tab div id, a name and big space generator
+# Tab div id, a name and big space generator
 echo "\n";
 echo '<a name="'.$capdiv.$capnum1.'"></a>'."\n";
 
@@ -73,7 +73,7 @@ else {
 	$span_variable = $blackspan;
 }
 
-#"You're Reading [Story]" top text displayer
+# "You're Reading [Story]" top text displayer
 if ($storyusestatus == true) {
 	if ($capnum1 == $chapters and $storystatus != $storystatuses[0] and $storystatus != $storystatuses[3]) {
 		echo '<div class="'.$computervar.'">'.'<'.$n.' class="'.$textstyle2.'" style="'.$roundedborderstyle5.'">'.$divzoomanim.'<br />'.$topandbottomtxt.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$divc.'</'.$n.'>'.$divc."\n";
@@ -110,11 +110,11 @@ else {
 	}
 }
 
-#H5 header and hr creator
+# H5 header and hr creator
 echo "\n";
 echo '<h5 class="'.$textstylecap.'" style="'.$hstyle.'text-align:left;"><hr class="'.$sitehr3.'" />'."\n";
 
-#Top Previous chapter button
+# Top Previous chapter button
 if ($capnum1 != 1) {
 	if ($newwritestyle == true) {
 		$onclickscript = 'openCity('."'".$capdiv.$capnum3."'".');';
@@ -128,7 +128,7 @@ if ($capnum1 != 1) {
 	echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;'.$roundedborderstyle2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 }
 
-#Top Next chapter button
+# Top Next chapter button
 if ($capnum1 != $chapters and $capnum1 != $chapters + 1) {
 	if ($newwritestyle == true) {
 		$onclickscript = 'openCity('."'".$capdiv.$capnum2."'".');';
@@ -142,8 +142,10 @@ if ($capnum1 != $chapters and $capnum1 != $chapters + 1) {
 	echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;'.$roundedborderstyle2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 }
 
-#"Go back to the chapter buttons tab" button
-echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;margin-right:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
+# "Go back to the chapter buttons tab" button
+echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$color.' '.$cssbtn1.' '.$computervar.'" style="float:right;margin-right:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
+
+echo '<a href="#'.$tabcodesm[0].'"><button class="w3-btn '.$color.' '.$cssbtn1.' '.$mobilevar.'" style="float:right;margin-right:15px;'.$roundedborderstyle2.'" onclick="openCity('."'".$tabcodesm[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 
 if ($write_new_chapter == true and $capnum1 != $chapters + 1) {
 	#"Write new chapter" button
@@ -155,7 +157,7 @@ echo '<br /><br /><br /><br />'."\n";
 
 echo $divzoomanim."\n";
 
-#Story cover shower if story has the storyhascovers setting as true
+# Story cover shower if story has the storyhascovers setting as true
 if ($storyhascovers == true or $storyhascovers == true and $sitename == $sitepequenata and $capnum1 <= 10) {
 	echo '<center>'."\n";
 
@@ -293,7 +295,7 @@ if ($sitehascommentstab == true and $storyhaschaptercomments == true) {
 #Mobile "I Read it" button
 if ($storyhasreads == true) {
 	echo '<div class="'.$mobilevar.'">'."\n";
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="readbtn'.$a2.'m" style="margin-left:15px;float:right;'.$roundedborderstyle2.'" onclick="openCity('."'".'modal-read-'.$a2."m')".'"><'.$m.'><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></'.$m.'></button>'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$roundedborderstyle2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$readtxts[2].' ('.$readednumb.' '.$icons[20].')</b></'.$m.'></button>'."\n";
 	echo $divc."\n";
 	echo '<br /><div class="'.$mobilevar.'"><br /><br />'."\n".'</div>'."\n";
 }
