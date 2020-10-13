@@ -177,7 +177,7 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 		if ($watchedmoviesfp) {
 			$watchedmoviestimearray = explode("\n", fread($watchedmoviesfp, filesize($watchedmoviestimefile)));
 			$watchedmoviestime = str_replace("^", "", $watchedmoviestimearray);
-			$watchedmoviestime = str_replace("\n", "", $watchedmoviestime);
+			$watchedmoviestime = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $watchedmoviestime);
 		}
 	}
 
@@ -185,7 +185,7 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 		$watchedmoviesfp = fopen($watchedmoviestextfile, 'r', 'UTF-8'); 
 		if ($watchedmoviesfp) {
 			$watchedmoviestxt = str_replace("^", "", $watchedmoviestextarray);
-			$watchedmoviestxt = str_replace("\n", "", $watchedmoviestxt);
+			$watchedmoviestxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $watchedmoviestxt);
 		}
 	}
 
@@ -203,7 +203,7 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 		if ($watched2018fp) {
 			$watched2018timeroot = explode("\n", fread($watched2018fp, filesize($watched2018timefile)));
 			$watched2018time = str_replace(";", ":", $watched2018timeroot);
-			$watched2018time = str_replace("\n", "", $watched2018time);
+			$watched2018time = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $watched2018time);
 		}
 	}
 
@@ -212,7 +212,7 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 		if ($watched2018fp) {
 			$watched2018textroot = explode("\n", fread($watched2018fp, filesize($watched2018textfile)));
 			$watched2018txt = str_replace(";", ":", $watched2018textroot);
-			$watched2018txt = str_replace("\n", "", $watched2018txt);
+			$watched2018txt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $watched2018txt);
 		}
 	}
 
@@ -303,7 +303,7 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 		}
 	}
 
-	$watchedmoviestxt = str_replace(array("\r\n", "\r", "\n"), "", $watchedmoviestxt);
+	$watchedmoviestxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $watchedmoviestxt);
 	$twtxt = str_replace(array("\r\n", "\r", "\n"), "", $twtxt);
 	$twstatustxt = str_replace(array("\r\n", "\r", "\n"), "", $twstatustxt);
 	$twmediatxt = str_replace(array("\r\n", "\r", "\n"), "", $twmediatxt);
@@ -358,8 +358,8 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	$watchedmovie2018numbarray = array(0, 1, 3, 33, 23, 81, 148, 164);
 	$watchedmovie2018timenumbarray = array(1, 4, 5, 6 , 7);
 	$watchedmovie2019numbarray = array(23, 81, 148, 164);
-	$watchedmovienumbarray = array(0, 1, 3, 33, 23, 81, 148, 164);
-	$watchedmovietimenumbarray = array(1, 4, 5, 6, 7, 8);
+	$watchedmovienumbarray = array(0, 1, 3, 33, 23, 81, 148, 164, 180);
+	$watchedmovietimenumbarray = array(1, 4, 5, 6, 7, 8, 9, 10);
 	$watchedmoviecommentarray = array(1, 4, 5, 6, 7, 8);
 
 	if ($ano == 2018) {
