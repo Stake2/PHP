@@ -69,6 +69,8 @@ foreach ($sitenamesarray as $value) {
 	$i++;
 }
 
+require $website_style_file;
+
 # Site notifications includer if site has notifications activated
 if ($sitehasnotifications == true) {
 	require $notificationsphp;

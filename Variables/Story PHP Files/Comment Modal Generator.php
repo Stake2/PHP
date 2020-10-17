@@ -28,7 +28,7 @@ while ($capnum1 <= $chapters) {
 	echo '<div class="'.$computervar.'">'."\n";
 
     #Close comment-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' close" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button>'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button>'."\n";
 
     #Computer Comment-modal form
 	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$cmntstxts[3].' '.substr($captxt, 0, -1).' '.$capnum1.' - '.$titles[$capnum4].' '.$icons[12].'</b></'.$n.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
@@ -58,7 +58,7 @@ while ($capnum1 <= $chapters) {
 	echo '<div class="'.$mobilevar.'">'."\n";
 
     #Close comment-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' close" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' modal_close_button" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     #Mobile Comment-modal form
 	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";

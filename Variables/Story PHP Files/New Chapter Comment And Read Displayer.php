@@ -40,5 +40,4 @@ else if (isset($array2[$number_variable]) and $array2[$number_variable] != null)
 	echo $array2[$number_variable]."\n";
 }
 
-
 ?>

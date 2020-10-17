@@ -17,7 +17,7 @@ if ($thingsidofake == true) {
 
 if ($thingsidofake == null) {
 	$spanstyle = $whitespan;
-	$cssbtnstyle = $cssbtn4;
+	$cssbtnstyle = $text_hover_white_css_class;
 
 	if ($mobileversion == true) {
 		$margindivstyle = '<div>';

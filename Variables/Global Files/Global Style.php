@@ -1,19 +1,114 @@
 <?php 
 
 $text = 'pqnttext';
-$color = 'bg';
-$color3 = 'w3-white';
 $colortext = 'w3-text-white';
 $colorsubtext = 'w3-text-orange';
 $colortext2 = 'w3-text-green';
 $bordercolor = 'w3-black';
 $colortext3 = 'w3-text-yellow';
 
-$cssbtn1 = 'borderbtn';
-$cssbtn2 = 'borderbtn2';
-$cssbtn3 = 'borderbtnblack2';
-$cssbtn4 = 'borderbtn3';
-$cssbtn5 = 'borderbtnblue';
+$border_1px_solid_css_class = "border_1px";
+$border_1px_solid_with_color_template = "border_1px_solid_";
+
+$border_3px_solid_css_class = "border_3px";
+$border_3px_solid_with_color_template = "border_3px_solid_";
+
+$border_color_black = "border_color_black";
+
+$colors_array = array(
+"grey",
+"white",
+"black",
+"red",
+"dark-red",
+"blue",
+"darker-blue",
+"dark-blue",
+"super-dark-blue",
+"cyan",
+"green-water",
+"dark-green-water",
+"yellow",
+"yellow-sand",
+"brown",
+"darker-brown",
+"dark-brown",
+"pink",
+"dark-pink",
+);
+
+$border_1px_solid_array = array();
+$border_3px_solid_array = array();
+$border_color_array = array();
+$background_hover_colors_array = array();
+$text_hover_colors_array = array();
+$background_colors_array = array();
+$text_colors_array = array();
+
+$css_class_arrays = array(
+"border_1px_solid_array",
+"border_3px_solid_array",
+"border_color_array",
+"background_hover_colors_array",
+"text_hover_colors_array",
+"background_colors_array",
+"text_colors_array",
+);
+
+$css_class_arrays_selector_text = array(
+"border_1px_solid_",
+"border_3px_solid_",
+"border_color_",
+"background_hover_",
+"text_hover_",
+"background_",
+"text_",
+);
+
+$css_class_arrays_length = count($css_class_arrays) - 1;
+
+$i = 0;
+while ($i <= $css_class_arrays_length) {
+	foreach ($colors_array as $color) {
+		$replaced_color = str_replace("-", "_", $color);
+		$color_text = $css_class_arrays_selector_text[$i].$replaced_color."_css_class";
+
+		${"$color_text"} = $css_class_arrays_selector_text[$i].$replaced_color;
+
+		array_push(${"$css_class_arrays[$i]"}, ${"$color_text"});
+	}
+
+	$i++;
+}
+
+$all_css_classes_arrays = array(
+$border_1px_solid_array,
+$border_3px_solid_array,
+$border_color_array,
+$background_hover_colors_array,
+$text_hover_colors_array,
+$background_colors_array,
+$text_colors_array,
+);
+
+$website_style_file = $current_website_folder."Website Style.php";
+
+$create_border_on_hover_css_class = "create_border_on_hover";
+
+$default_background_color = $background_black_css_class;
+$default_text_color = $text_black_css_class;
+$default_border = $border_3px_solid_css_class;
+$default_border_with_white_background_hover = $default_border." ".$background_hover_white_css_class;
+$default_border_color = $border_color_black;
+$default_background_hover_color = $background_hover_white_css_class;
+
+$default_full_border = $default_border." ".$default_border_color." ".$default_background_hover_color;
+
+$website_border_color = $default_border_color;
+
+$cssbtn1 = $default_full_border;
+$cssbtn2 = $create_border_on_hover_css_class;
+$cssbtn5 = "borderbtnblue";
 $classcsbtn4 = 'class="borderbtn3"';
 $zoomanim = 'w3-animate-zoom';
 $bottanim = 'w3-animate-bottom';

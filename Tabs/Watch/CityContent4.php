@@ -11,11 +11,11 @@ while ($i <= $watchedmoviesnumbfile) {
 	if (in_array($i, $watchedmovietimenumbarray)) {
 		if (in_array($i, $watchedmoviecommentarray)) {
 			if ($i != 10) {
-				echo $divzoomanim.'<span class="'.$cssbtn4.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].") - </span></span> ".$cmnts[$c].'<br />'.$divc."\n";
+				echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].") - </span></span> ".$cmnts[$c].'<br />'.$divc."\n";
 			}
 
 			if ($i == 10) {
-				echo $divzoomanim.'<span class="'.$cssbtn4.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].") - </span></span> ".$cmnts[$c].$divc."\n";
+				echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].") - </span></span> ".$cmnts[$c].$divc."\n";
 			}
 
 			$a++;
@@ -24,11 +24,11 @@ while ($i <= $watchedmoviesnumbfile) {
 
 		if (!in_array($i, $watchedmoviecommentarray)) {
 			if ($i != 10) {
-				echo $divzoomanim.'<span class="'.$cssbtn4.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].')</span></span>'.'<br />'.$divc."\n";
+				echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].')</span></span>'.'<br />'.$divc."\n";
 			}
 
 			if ($i == 10) {
-				echo $divzoomanim.'<span class="'.$cssbtn4.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].')</span></span>'.$divc."\n";
+				echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].'<span class="w3-text-white"> - ('.$watchedmoviestime[$a].')</span></span>'.$divc."\n";
 			}
 
 			$a++;
@@ -36,7 +36,7 @@ while ($i <= $watchedmoviesnumbfile) {
 	}
 
 	if (!in_array($i, $watchedmovietimenumbarray)) {
-		echo $divzoomanim.'<span class="'.$cssbtn4.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].' - <span class="w3-text-white">'.$notimetxt.'</span></span>'.$divc.''."\n";
+		echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watchedmoviestxt[$i].' - <span class="w3-text-white">'.$notimetxt.'</span></span>'.$divc.''."\n";
 	}
 
     $i++;

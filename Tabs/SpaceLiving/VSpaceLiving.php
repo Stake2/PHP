@@ -1,26 +1,26 @@
 <?php 
 
 #CSS color and text style variables
-$color = 'blue';
-$color1 = 'blue';
-$color2 = 'blue';
-$color3 = 'blue';
-$color4 = 'blue';
-$color5 = 'blue';
-$colortext = 'w3-text-blue';
-$colortext2 = 'w3-text-black';
-$colorsubtext = 'w3-text-orange';
-$colorsubtext2 = 'w3-text-black';
-$colorsubtext3 = 'w3-text-white';
-$sitehr = 'slhr';
-$sitehr2 = 'slhr';
-$sitehr3 = 'blackhr';
-$spanstyle = "blue w3-text-black";
-$formbtnstyle = "black w3-text-blue";
+$color = "background_blue";
+$color1 = "background_blue";
+$color2 = "background_blue";
+$color3 = "background_blue";
+$color4 = "background_blue";
+$color5 = "background_blue";
+$colortext = "w3-text-blue";
+$colortext2 = "w3-text-black";
+$colorsubtext = "w3-text-orange";
+$colorsubtext2 = "w3-text-black";
+$colorsubtext3 = "w3-text-white";
+$sitehr = $border_1px_solid_with_color_template."blue";
+$sitehr2 = $border_1px_solid_with_color_template."blue";
+$sitehr3 = $border_1px_solid_with_color_template."black";
+$spanstyle = "background_blue w3-text-black";
+$formbtnstyle = "background_black w3-text-blue";
 
 #Variables that mixes CSS tags
-$textstyle = $colortext.' black';
-$textstyle2 = 'w3-text-black blue';
+$textstyle = $colortext." background_black";
+$textstyle2 = "w3-text-black background_blue";
 $btnstyle = $color4.' '.$cssbtn1;
 $btnstyle2 = $color3.' '.$cssbtn1;
 $btnstyle3 = $color5.' '.$cssbtn1;

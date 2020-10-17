@@ -46,4 +46,7 @@ if ($siteuseschapteropener == true) {
 	echo "\n";
 }
 
+#var_dump($website_style_variables_array);
+#echo $current_website_folder;
+
 ?>

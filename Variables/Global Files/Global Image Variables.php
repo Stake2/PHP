@@ -11,13 +11,13 @@ else {
 }
 
 if ($sitename == $sitepequenata) {
-	$mainimage = '<img src="'.$imglink.'" width="'.$imagesize1.'%" class="'.$colortext.' '.$computervar.'" style="'.$border2.''.$roundedborderstyle4.'" />';
-	$mainimagem = '<img src="'.$imglink.'" width="'.$imagesize2.'%" class="'.$colortext.' '.$mobilevar.'" style="'.$border2.''.$roundedborderstyle4.'" />';
+	$mainimage = '<img src="'.$imglink.'" width="'.$imagesize1.'%" class="'.$website_border_color.' '.$computervar.'" style="'.$border2.''.$roundedborderstyle4.'" />';
+	$mainimagem = '<img src="'.$imglink.'" width="'.$imagesize2.'%" class="'.$website_border_color.' '.$mobilevar.'" style="'.$border2.''.$roundedborderstyle4.'" />';
 }
 
 else {
-	$mainimage = '<img src="'.$imglink.'" width="'.$imagesize1.'%" class="'.$colortext.' '.$computervar.'" style="'.$border2.''.$roundedborderstyle2.'" />';
-	$mainimagem = '<img src="'.$imglink.'" width="'.$imagesize2.'%" class="'.$colortext.' '.$mobilevar.'" style="'.$border2.''.$roundedborderstyle2.'" />';
+	$mainimage = '<img src="'.$imglink.'" width="'.$imagesize1.'%" class="'.$website_border_color.' '.$computervar.'" style="'.$border2.''.$roundedborderstyle2.'" />';
+	$mainimagem = '<img src="'.$imglink.'" width="'.$imagesize2.'%" class="'.$website_border_color.' '.$mobilevar.'" style="'.$border2.''.$roundedborderstyle2.'" />';
 }
 
 $imgbtn = '<div class="'.$computervar.'">'.'<button class="w3-btn '.$btnstyle.'" '.$roundedborderstyle.' onclick="window.open('."'".$imglink."'".')">'.'<'.$m.'>'.ucfirst($imglinktxt).': '.$icons[2].'</'.$m.'>'.'</button>'.$divc;

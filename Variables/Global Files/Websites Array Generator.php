@@ -34,16 +34,14 @@ foreach ($sitenamesarray as $value) {
 	$i++;
 }
 
-$i = 0;
+# Checks if the folder of the website exists, if it does not, it creates the folder
 foreach ($sitefolders as $folder) {
 	if (!file_exists($folder)) {
 		mkdir($folder);
 	}
-
-	$i++;
 }
 
-#V[Site].php Files array
+# V[Site].php Files array
 $i = 0;
 foreach ($sitearray as $value) {
 	$varsfile = $php_tabs.ucwords($value).'/'.'V'.ucwords($value).'.php';
@@ -58,7 +56,7 @@ foreach ($sitearray as $value) {
 	$i++;
 }
 
-#Website.php Files array
+# Website.php Files array
 $i = 0;
 foreach ($sitearray as $value) {
 	$websitefile = $php_tabs.ucwords($value).'/'.'Website.php';

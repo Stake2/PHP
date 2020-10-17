@@ -22,6 +22,204 @@ elseif ($notsomuchspace == true) {
 #	$sitedesc2 = $sitedesc2.'<br /> <b>'.$divzoomanimlouco.$bluespan.$redondodesc.$spanc.$divc.'</b>'."\n";
 #}
 
+
+
+
+# Website Info Class
+/*
+
+A Class that contains the title of the website, the description, images
+A Class that contains the styles of the selected website
+
+
+*/
+
+interface Website_Info_Interface {
+
+	public function get_title():string;
+	public function setTitle($website_title);
+
+	public function get_description():string;
+	public function setDescription($website_description);
+
+	public function get_header_description():string;
+	public function setHeaderDescription($website_header_description);
+
+	public function get_images():string;
+	public function setImages($website_images);
+
+	public function __construct($a, $b, $c, $d);
+
+	public function showWebsiteInfo();
+
+}
+
+interface Website_Style_Interface {
+
+	public function set_style_file($website_folder);
+	public function get_style_file();
+
+}
+
+abstract class Website_Style_Abstract_Class implements Website_Style_Interface {
+
+	private $website_style_file;
+
+	public function get_style_file() {
+
+		return $this -> website_style_file;
+
+	}
+
+	public function set_style_file($website_folder) {
+
+		$this -> website_style_file = $website_folder."Website Style.php";
+
+	}
+
+}
+
+abstract class Website_Info_Abstract_Class implements Website_Info_Interface {
+
+	private $website_title;
+	private $website_description;
+	private $website_header_description;
+	private $website_images;
+
+	public function get_title():string {
+
+		return $this -> website_title;
+
+	}
+
+	public function setTitle($website_title) {
+
+		$this -> website_title = $website_title;
+
+	}
+
+	public function get_description():string {
+
+		return $this -> website_description;
+
+	}
+
+	public function setDescription($website_description) {
+
+		$this -> website_description = $website_description;
+
+	}
+
+	public function get_header_description():string {
+
+		return $this -> website_header_description;
+
+	}
+
+	public function setHeaderDescription($website_header_description) {
+
+		$this -> website_header_description = $website_header_description;
+
+	}
+
+	public function get_images():string {
+
+		return $this -> website_images;
+
+	}
+
+	public function setImages($website_images) {
+
+		$this -> website_images = $website_images;
+
+	}
+
+	public function __construct($a, $b, $c, $d) {
+
+		$this -> website_title = $a;
+		$this -> website_description = $b;
+		$this -> website_header_description = $c;
+		$this -> website_images = $d;
+
+	}
+
+	public function showWebsiteInfo() {
+
+		return array(
+			"website_title" => $this -> get_title(),
+			"website_description" => $this -> get_description(),
+			"website_header_description" => $this -> get_header_description(),
+			"website_images" => $this -> get_images(),
+		);
+
+	}
+
+}
+
+class Website_Info extends Website_Info_Abstract_Class {
+
+}
+
+class Website_Style extends Website_Style_Abstract_Class {
+
+	private $website_style_file;
+
+	public function get_style_file() {
+
+		echo $this -> website_style_file;
+
+	}
+
+	public function set_style_file($website_folder) {
+
+		$this -> website_style_file = $website_folder."Website Style.php";
+
+	}
+
+}
+
+class Website extends Website_Info_Abstract_Class {
+
+
+
+}
+
+$website_style = new Website_style();
+$website_style -> set_style_file($sitephpfolder2);
+
+$website_info = new Website($sitetitulo2, $sitedesc, $sitedesc2, $imagens);
+
+$website_title = $website_info -> get_title();
+$website_description = $website_info -> get_description();
+$website_header_description = $website_info -> get_header_description();
+$website_images = $website_info -> get_images();
+
+function format($text, $parameters) {
+	$parameters = (array)$parameters;
+
+	$text = preg_replace_callback("#\{\}#",
+	function ($parameters_array) {
+		static $i = 0;
+		return '{'.($i++).'}';
+	},
+	$text);
+
+	return str_replace(
+		array_map(
+		function ($key) {
+			return '{'.$key.'}';
+		},
+
+		array_keys($parameters)),
+
+		array_values($parameters),
+
+		$text
+	);
+
+}
+
+# Blank website generator using templates
 if (!isset($sitetitulo2) and !isset($sitedesc) and $deactivateheader == false) {
 	$siteimage = $cdnimg.'Template.png';
 	$imglink = $siteimage;
@@ -47,11 +245,10 @@ if (!isset($sitetitulo2) and !isset($sitedesc) and $deactivateheader == false) {
 	$mainimagem."\n".$imgbtnm.
 	"\n";
 
-	$styletext1 = 'background-color:black;';
 	$styletext2 = '';
 
 	$sitewrapper = $computerspace.
-	'<div '.$styletext2.' style="'.$styletext1.';margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">
+	'<div class="'.$default_background_color.'" '.$styletext2.' style="margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">
 	<'.$n.' class="'.$colortext.' '.$zoomanim.'"><p><br /><b>'.$sitetitulo2.'</b><br /><br /><p></'.$n.'>'."\n".'
 	<hr class="'.$sitehr.'" />
 	'.$imagens.'
@@ -76,21 +273,21 @@ if ($sitetype1 == $types[0] and $deactivateheader == false or $sitetype1 == 'Yea
 		$diariostuff2 = '';
 	}
 
-	$styletext1 = 'background-color:black;';
 	$styletext2 = '';
 
 	$sitewrapper = $computerspace.
-	'<div '.$styletext2.' style="'.$styletext1.';margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">
-	<'.$n.' class="'.$colortext.' '.$zoomanim.'"><p><br /><b>'.$sitetitulo2.'</b><br /><br /><p></'.$n.'>'."\n".'
+	'<div class="'.$default_background_color.'" '.$styletext2.' style="margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">
+	<'.$n.' class="'.$colortext.' '.$zoomanim.'"><p><br /><b>'.$website_title.'</b><br /><br /><p></'.$n.'>'."\n".'
 	<hr class="'.$sitehr.'" />
 	'.$imagens.'
-	<'.$n.' class="'.$colortext.' '.$computervar.'">'.$sitedesc.'</'.$n.'>
-	<'.$m.' class="'.$colortext.' '.$mobilevar.'">'.$sitedesc.'</'.$m.'>'
+	<'.$n.' class="'.$colortext.' '.$computervar.'">'.$website_description.'</'.$n.'>
+	<'.$m.' class="'.$colortext.' '.$mobilevar.'">'.$website_description.'</'.$m.'>'
 	.$diariostuff1.$diariostuff2.
 	'<br />
 	'.$divc."\n";
 }
 
+# Story website header generator
 if ($sitetype1 == $types[1]) {
 	if ($storystatus != $storystatuses[1] or $storystatus != $storystatuses[2]) {
 		$newchaptertext = '';
@@ -100,12 +297,28 @@ if ($sitetype1 == $types[1]) {
 		$newchaptertext = $spannewtextcolor.' ['.$newtxt.'!]'.$spanc;
 	}
 
+/*
 	$sitewrapper = $computerspace.
 	'<div style="background-color:black;margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">'."\n".
-	$margin.'<'.$n.' class="'.$colortext.' '.$zoomanim.'"><p><br /><b>'.$sitetitulo2.'</b><br /><br /><p></'.$n.'>'.$divc."\n".
+	$margin.'<'.$n.' class="'.$colortext.' '.$zoomanim.'"><p><br /><b>'.$website_title.'</b><br /><br /><p></'.$n.'>'.$divc."\n".
 	'<hr class="'.$sitehr.'" />'."\n".
-	$imagens."\n".
-	'<'.$m.' class="'.$colortext.'" style="'.$margincss1.'">'.$sitedesc2.'</'.$m.'>'."\n".
+	$website_images."\n".
+	'<'.$m.' class="'.$colortext.'" style="'.$margincss1.'">'.$website_header_description.'</'.$m.'>'."\n".
+	'<'.$m.' class="'.$colortext.'">'."\n".
+	$authortxt.": ".'<span class="'.$colorsubtext.'">'.$authorname."<br />".'</span>'."\n".
+	$captxt.': <span class="'.$colorsubtext.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
+	$readtxts[6].': <span class="'.$colorsubtext.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
+	$datatxt.': <span class="'.$colorsubtext.'">'.$storydate.'</span><br />'."\n".
+	'Status: <span class="'.$colorsubtext.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
+	'</div>'."\n";
+*/
+
+	$sitewrapper = $computerspace.
+	'<div class="'.$default_background_color.'" style="margin-left:5%;margin-right:5%;'.$border.''.$roundedborderstyle2.'">'."\n".
+	$margin.'<'.$n.' class="'.$colortext.' '.$zoomanim.'"><p><br /><b>'.$website_title.'</b><br /><br /><p></'.$n.'>'.$divc."\n".
+	'<hr class="'.$sitehr.'" />'."\n".
+	$website_images."\n".
+	format('<'.$m.' class="'.$colortext.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description).
 	'<'.$m.' class="'.$colortext.'">'."\n".
 	$authortxt.": ".'<span class="'.$colorsubtext.'">'.$authorname."<br />".'</span>'."\n".
 	$captxt.': <span class="'.$colorsubtext.'">'.$chapters.$newchaptertext.'</span><br />'."\n".

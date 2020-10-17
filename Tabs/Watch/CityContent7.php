@@ -20,12 +20,12 @@ echo '</'.$m.'>'."\n";
 #while ($i <= $watchednumb2019file) {
 #	$i2 = $i + 1;
 #	if (in_array($i, $watchedmovie2019numbarray)) {
-#		echo $divzoomanim.'<span class="'.$cssbtn4.'">'.'<span class="w3-text-white">'.$i2.' - ('.$moviestxt.') - </span>'.$watched2019txt[$i].'- <span class="w3-text-white">'.$watched2019time[$a].'</span></span>'.$divc.''."\n";
+#		echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2.' - ('.$moviestxt.') - </span>'.$watched2019txt[$i].'- <span class="w3-text-white">'.$watched2019time[$a].'</span></span>'.$divc.''."\n";
 #		$a++;
 #	}
 #
 #	if (!in_array($i, $watchedmovie2019numbarray)) {
-#		echo $divzoomanim.'<span class="'.$cssbtn4.'">'.'<span class="w3-text-white">'.$i2.' - '.$watched2019mediatypetxt[$i]." - </span>".$watched2019txt[$i].'- <span class="w3-text-white">'.$watched2019time[$a].'</span></span>'.$divc.''."\n";
+#		echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2.' - '.$watched2019mediatypetxt[$i]." - </span>".$watched2019txt[$i].'- <span class="w3-text-white">'.$watched2019time[$a].'</span></span>'.$divc.''."\n";
 #		$a++;
 #	}
 #    $i++;

@@ -223,6 +223,8 @@ $pqnttext = 'darkpqnttext shakesidetoside';
 $slbg = 'sl3 shakesidetoside';
 $lsbg = 'darksl lstext shakesidetoside';
 
+$desert_island_new_link = str_replace(' ', '_', strtolower($sitename_desertisland));
+
 $desert_island_link = $url.$desert_island_new_link.'/';
 $desert_island_text = 'cyan-water_text_dark';
 $desert_island_background = 'cyan-water_bg';

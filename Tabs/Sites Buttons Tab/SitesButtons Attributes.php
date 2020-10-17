@@ -11,8 +11,6 @@ $siteicons = array(
 '🗒',
 );
 
-$desert_island_new_link = str_replace(' ', '_', strtolower($sitename_desertisland));
-
 $sitecodes = array(
 'my_little_pony'.' '.$siteicons[1],
 'watch'.' '.$siteicons[2],

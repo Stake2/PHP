@@ -28,7 +28,7 @@ while ($capnum1 <= $chapters) {
 	echo '<div class="'.$computervar.'" '.$roundedborderstyle.'>';
 	
 	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' close" '.$roundedborderstyle.' id="closereadmodal'.$a.'">&times;</button>'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a.'">&times;</button>'."\n";
 	
 	#Computer Read-modal form
 	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
@@ -56,7 +56,7 @@ while ($capnum1 <= $chapters) {
 	echo '<div class="'.$mobilevar.'" '.$roundedborderstyle.'>';
 
 	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' close" '.$roundedborderstyle.' id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
 
 	#Mobile Read-modal form
 	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";

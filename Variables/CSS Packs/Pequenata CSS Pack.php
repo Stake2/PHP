@@ -1,22 +1,23 @@
 <?php 
 
 # CSS color and text style variables
-$color2 = 'yellow';
-$color3 = '#b88e50';
-$color4 = 'bg2';
-$color5 = 'bg';
-$colortext = 'pqnttext';
-$colorsubtext = 'w3-text-orange';
-$colorsubtext2 = 'w3-text-white';
-$sitehr = 'pqnthr';
-$sitehr2 = 'pqnthr';
-$sitehr3 = 'blackhr';
-$spanstyle = "pqntspan";
-$formbtnstyle = "pqntsend";
+$color = $background_brown_css_class;
+$color2 = $background_yellow_css_class;
+$color3 = "#b88e50";
+$color4 = $background_darker_brown_css_class;
+$color5 = $background_brown_css_class;
+$colortext = $text_brown_css_class;
+$colorsubtext = "w3-text-orange";
+$colorsubtext2 = "w3-text-white";
+$sitehr = $border_1px_solid_brown;
+$sitehr2 = $border_1px_solid_brown;
+$sitehr3 = $border_1px_solid_black;
+$spanstyle = $background_brown_css_class." ".$text_black_css_class;
+$formbtnstyle = $background_brown_css_class." ".$text_black_css_class;
 
 # Variables that mixes CSS tags
-$textstyle = $colortext.' blackbg';
-$textstyle2 = 'w3-text-black bg';
+$textstyle = $colortext." ".$background_black_css_class;
+$textstyle2 = "w3-text-black ".$background_brown_css_class;
 $btnstyle = $color4.' '.$cssbtn1.$global_classes;
 $btnstyle2 = $color3.' '.$cssbtn1.$global_classes;
 $btnstyle3 = $color5.' '.$cssbtn1.$global_classes;

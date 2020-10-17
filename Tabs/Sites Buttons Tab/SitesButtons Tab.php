@@ -5,7 +5,7 @@ include $sitesbuttonsattributes;
 
 if ($sitename == $sitediario or $site == $sitediario) {
 	$sitenumbcolor = $bluespan;
-	$sitenumbhovercolor = $cssbtn4;
+	$sitenumbhovercolor = $text_hover_white_css_class;
 	$sitedivcolor = 'w3-black';
 }
 
@@ -17,13 +17,13 @@ if ($sitename == $sitewatch) {
 
 if ($sitename == $sitepequenata) {
 	$sitenumbcolor = $subtextspan2;
-	$sitenumbhovercolor = $cssbtn4;
+	$sitenumbhovercolor = $text_hover_white_css_class;
 	$sitedivcolor = 'w3-black';
 }
 
 if ($sitename == $sitenazzevo) {
 	$sitenumbcolor = $subtextspan;
-	$sitenumbhovercolor = $cssbtn4;
+	$sitenumbhovercolor = $text_hover_white_css_class;
 	$sitedivcolor = 'w3-black';
 }
 

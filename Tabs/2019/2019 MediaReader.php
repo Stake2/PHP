@@ -82,7 +82,7 @@ while ($a < $a2) {
 while ($e < $moviesnumb) {
 	include $mediastyler;
 
-	$echostyle = '<span class="'.$cssbtn4.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
+	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
 	$e++;
 	$e2++;
@@ -119,7 +119,7 @@ while ($a < $a2) {
 while ($e < $seriesnumb) {
 	include $mediastyler;
 
-	$echostyle = '<span class="'.$cssbtn4.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
+	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
 	$e++;
 	$e2++;
@@ -156,7 +156,7 @@ while ($a < $a2) {
 while ($e < $cartoonsnumb) {
 	include $mediastyler;
 
-	$echostyle = '<span class="'.$cssbtn4.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
+	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
 	$e++;
 	$e2++;
@@ -193,7 +193,7 @@ while ($a < $a2) {
 while ($e < $animesnumb) {
 	include $mediastyler;
 
-	$echostyle = '<span class="'.$cssbtn4.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
+	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
 	$e++;
 	$e2++;
@@ -230,7 +230,7 @@ while ($a < $a2) {
 while ($e < $videosnumb) {
 	include $mediastyler;
 
-	$echostyle = '<span class="'.$cssbtn4.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
+	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
 	$e++;
 	$e2++;

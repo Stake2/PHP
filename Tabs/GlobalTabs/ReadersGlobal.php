@@ -2,7 +2,7 @@
 
 if ($choosenwebsite != $sitedesertisland) {
 	$span_variable = $whitespan;
-	$hover_variable = $cssbtn4;
+	$hover_variable = $text_hover_white_css_class;
 }
 
 if ($choosenwebsite == $sitedesertisland) {

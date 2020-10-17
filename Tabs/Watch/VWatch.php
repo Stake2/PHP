@@ -1,12 +1,12 @@
 <?php 
 
 #CSS style variables
-$color2 = 'yellow';
-$color4 = 'blue';
-$colortext = 'w3-text-blue';
-$sitehr = 'slhr';
-$sitehr2 = 'yellowhr';
-$textstyle = 'w3-black w3-text-white';
+$color2 = $background_yellow_css_class;
+$color4 = $background_blue_css_class;
+$colortext = "w3-text-blue";
+$sitehr = $border_1px_solid_blue;
+$sitehr2 = $border_1px_solid_yellow;
+$textstyle = $background_white_css_class." w3-text-white";
 
 #Variables that mixes CSS tags
 $btnstyle = $color4.' '.$cssbtn1;
@@ -22,6 +22,9 @@ $marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4
 $sitewhilestyle = $color4;
 $border = 'border-width:4px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
 $border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
+
+$website_border_color = "slhr";
+#$website_border_color = $border_3px_solid_blue_css_class;
 
 $moviesnumb = 0;
 
@@ -41,12 +44,12 @@ $cdn_txt_moviecomments.'Homem-Aranha Longe de Casa 2019.txt',
 
 #Comments buttons
 $cmnts = array(
-'<a class="'.$cssbtn4.'" onclick="window.open('."'".$cmntlinks[0]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$cssbtn4.'" onclick="window.open('."'".$cmntlinks[1]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$cssbtn4.'" onclick="window.open('."'".$cmntlinks[2]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$cssbtn4.'" onclick="window.open('."'".$cmntlinks[3]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$cssbtn4.'" onclick="window.open('."'".$cmntlinks[4]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
-'<a class="'.$cssbtn4.'" onclick="window.open('."'".$cmntlinks[5]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[0]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[1]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[2]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[3]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[4]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[5]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
 );
 
 #Site image link and image size
