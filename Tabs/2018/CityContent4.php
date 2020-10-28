@@ -1,9 +1,9 @@
 <?php 
 
-echo $divzoomanim."\n";
+echo $div_zoom_animation."\n";
 
 include $yearsbuttonsgenerator;
 
-echo $divc."\n";
+echo $div_close."\n";
 
 ?>

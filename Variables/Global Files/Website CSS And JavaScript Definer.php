@@ -1,6 +1,6 @@
 <?php 
 
-if ($newwritestyle == true) {
+if ($new_write_style == true) {
 	$write_chapter_script = '<script src="'.$cdnjs.'WriteChapter.js"></script>'."\n";
 }
 
@@ -19,15 +19,15 @@ Make the website style arrays inside each folder of each website, called "CSS Pa
 */
 
 if ($site_is_prototype == false) {
-	$site_css_file_loader = '<link rel="stylesheet" type="text/css" href="'.$cdncss.$sitecssfile.'.css" />';
+	$site_css_file_loader = '<link rel="stylesheet" type="text/css" href="'.$cdncss.$website_css_file.'.css" />';
 	$main_css = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Main_CSS.css" />';
-	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Colors.css" />';
+	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Colors Prototype.css" />';
 	$stories_css = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Stories.css" />';
 	$mobile_css = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Mobile.css" />';
 	$imghover_css = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'ImgHover.css" />';
 
 #Site CSS definer
-	$sitecss = $site_css_file_loader.'
+	$website_css_files = $site_css_file_loader.'
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
 <link rel="stylesheet" type="text/css" href="'.$cdncss.'w3.css" />
 '.$main_css.'
@@ -41,7 +41,7 @@ $newdesigncss;
 
 else {
 	#Site CSS definer
-	$sitecss = '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	$website_css_files = '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 '.
 $notificationcss.
 $newdesigncss;

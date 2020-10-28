@@ -1,11 +1,11 @@
 <?php 
 
-if ($sitename == $sitethingsido) {
+if ($website_name == $sitethingsido) {
 	#TextFileReader.php file includer
-	$sitename2 = $sitename;
-	$sitename = $sitewatch;
+	$sitename2 = $website_name;
+	$website_name = $sitewatch;
 	include $textfilereaderphp;
-	$sitename = $sitename2;
+	$website_name = $sitename2;
 
 	if ($make2018medias == true and $make2019medias == false) {
 		$thingsnumb = 221;
@@ -18,7 +18,7 @@ if ($sitename == $sitethingsido) {
 		$animesnumb = 18;
 		$videosnumb = 20;
 
-		$sitesnumb = 6;
+		$websites_number = 6;
 		$friendsnumb = 17;
 		$cmntsnumb1 = 106;
 		$tasksnumb = 44;
@@ -48,8 +48,8 @@ if ($sitename == $sitethingsido) {
 		$animesnumb = 87;
 		$videosnumb = 134;
 
-		$storynumb = 4;
-		$sitesnumb = 11;
+		$story_namenumb = 4;
+		$websites_number = 11;
 		$a = 24;
 		$friendsnumb = $yearnumbs2019txt[$a];
 		$cmntsnumb1 = 92;
@@ -71,7 +71,7 @@ if ($sitename == $sitethingsido) {
 	}
 
 	#English texts
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 		$mediatxt = 'Media';
 
 		#Texts array
@@ -110,7 +110,7 @@ if ($sitename == $sitethingsido) {
 	}
 
 	#Brazilian Portuguese texts
-	if ($lang == $langs[2]) {
+	if ($website_language == $languages_array[2]) {
 		$mediatxt = 'Mídia';
 		
 		#Texts array

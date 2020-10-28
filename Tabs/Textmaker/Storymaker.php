@@ -1,57 +1,57 @@
 <?php 
 
-$storynumbsnumb = 0;
-$handle = fopen ($storynumbsfile, "r");
+$story_namenumbsnumb = 0;
+$handle = fopen ($story_namenumbsfile, "r");
 while (!feof ($handle)){
 	$line = fgets ($handle);
-	$storynumbsnumb++;
+	$story_namenumbsnumb++;
 }
 
-$storytxtsnumb = 0;
-$handle = fopen ($storytxtsfile, "r");
+$story_nametxtsnumb = 0;
+$handle = fopen ($story_nametxtsfile, "r");
 while (!feof ($handle)){
 	$line = fgets ($handle);
-	$storytxtsnumb++;
+	$story_nametxtsnumb++;
 }
 
-$storynumbsnumbfile = $storynumbsnumb - 1;
-$storynumbsnumbfiletxt = $storynumbsnumb;
-$storytxtsnumbfile = $storytxtsnumb - 1;
-$storytxtsnumbfiletxt = $storytxtsnumb;
+$story_namenumbsnumbfile = $story_namenumbsnumb - 1;
+$story_namenumbsnumbfiletxt = $story_namenumbsnumb;
+$story_nametxtsnumbfile = $story_nametxtsnumb - 1;
+$story_nametxtsnumbfiletxt = $story_nametxtsnumb;
 
-$storynumbsfp = @fopen($storynumbsfile, 'r', 'UTF-8');
-if ($storynumbsfp) {
-	$storynumbsroot = explode("\n", fread($storynumbsfp, filesize($storynumbsfile)));
-	$storynumbtxt = str_replace("^", "", $storynumbsroot);
+$story_namenumbsfp = @fopen($story_namenumbsfile, 'r', 'UTF-8');
+if ($story_namenumbsfp) {
+	$story_namenumbsroot = explode("\n", fread($story_namenumbsfp, filesize($story_namenumbsfile)));
+	$story_namenumbtxt = str_replace("^", "", $story_namenumbsroot);
 }
 
-$storytxtsfp = @fopen($storytxtsfile, 'r', 'UTF-8');
-if ($storytxtsfp) {
-	$storytxtsroot = explode("\n", fread($storytxtsfp, filesize($storytxtsfile)));
-	$storytxtstxt = str_replace("^", "", $storytxtsroot);
+$story_nametxtsfp = @fopen($story_nametxtsfile, 'r', 'UTF-8');
+if ($story_nametxtsfp) {
+	$story_nametxtsroot = explode("\n", fread($story_nametxtsfp, filesize($story_nametxtsfile)));
+	$story_nametxtstxt = str_replace("^", "", $story_nametxtsroot);
 }
 
-$storynumbtxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $storynumbtxt);
-$storytxtstxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $storytxtstxt);
+$story_namenumbtxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $story_namenumbtxt);
+$story_nametxtstxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $story_nametxtstxt);
 
 echo $author2.'<br />'."\n";
 echo '<br />';
 $i = 2;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
-echo $storytxtstxt[$i].'<br />'."\n";
+echo $story_nametxtstxt[$i].'<br />'."\n";
 $i++;
 echo '<br />';
 
@@ -68,14 +68,14 @@ echo '<br />';
 #echo $txts[$i].': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
 #echo '<br />';
 #$i++;
-#echo '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
+#echo '<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
 #$i++;
 #echo $txts[$i].': '.'<a href="'.$yearnumbstxt[$i].'">'.$bluespan.$yearnumbstxt[$i].$spanc.'</a>'.'<br />'."\n";
 #$i++;
 #$v = 0;
 #while ($i <= 10) {
-#	echo '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
-#	$medias[$v] = '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
+#	echo '<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
+#	$medias[$v] = '<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
 #	$i++;
 #	$v++;
 #}
@@ -87,7 +87,7 @@ echo '<br />';
 #$i5 = $i + 6;
 #$i6 = $i + 7;
 #$a4 = 0;
-#echo '<a href="'.$storylinks[$a4].'" class="w3-text-green">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$txts[$i4].'s, '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].', '.$bluespan.$yearnumbstxt[$i3].' '.$spanc.$txts[$i6].'<br />'."\n";
+#echo '<a href="'.$story_namelinks[$a4].'" class="w3-text-green">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$txts[$i4].'s, '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].', '.$bluespan.$yearnumbstxt[$i3].' '.$spanc.$txts[$i6].'<br />'."\n";
 #$i++;
 #$i++;
 #$i++;
@@ -116,7 +116,7 @@ echo '<br />';
 #	if ($a == 15) {
 #		$captxt = $txts[$b4];
 #	}
-#	echo $greenspan.'<a href="'.$storylinks[$a4].'" class="w3-text-green">'.$txts[$a].'</a>'.$spanc.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$captxt.', '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].' ('.$cyanspan.$newtxt.'!'.$spanc.')'.'<br />'."\n";
+#	echo $greenspan.'<a href="'.$story_namelinks[$a4].'" class="w3-text-green">'.$txts[$a].'</a>'.$spanc.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$captxt.', '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].' ('.$cyanspan.$newtxt.'!'.$spanc.')'.'<br />'."\n";
 #	$i++;
 #	$i++;
 #	$a++;
@@ -128,17 +128,17 @@ echo '<br />';
 #$a = 22;
 #echo $txts[19].': '.$bluespan.$yearnumbstxt[$a].$spanc.'<br />'."\n";
 #$a++;
-#echo $sitesbtns[18].
-#$sitesbtns[6].
-#$sitesbtns[19].
-#$sitesbtns[20].
-#$sitesbtns[4].
-#$sitesbtns[16].
-#$sitesbtns[8].
-#$sitesbtns[21].
-#$sitesbtns[9].
-#$sitesbtns[10].
-#$sitesbtns[11];
+#echo $websites_buttons_array[18].
+#$websites_buttons_array[6].
+#$websites_buttons_array[19].
+#$websites_buttons_array[20].
+#$websites_buttons_array[4].
+#$websites_buttons_array[16].
+#$websites_buttons_array[8].
+#$websites_buttons_array[21].
+#$websites_buttons_array[9].
+#$websites_buttons_array[10].
+#$websites_buttons_array[11];
 #echo '<br />';
 #$a++;
 #$i--;

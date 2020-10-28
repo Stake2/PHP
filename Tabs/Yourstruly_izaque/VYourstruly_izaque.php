@@ -17,7 +17,7 @@ $formbtnstyle = '';
 #Variables that mixes CSS tags
 $textstyle = $colortext.' blue2';
 $textstyle2 = 'w3-text-white black';
-$btnstyle = $color4.' '.$cssbtn1;
+$first_button_style = $color4.' '.$cssbtn1;
 $btnstyle2 = $color3.' '.$cssbtn1;
 $btnstyle3 = $color5.' '.$cssbtn1;
 $subtextspan = '<span class="'.$colorsubtext2.'">';
@@ -27,49 +27,49 @@ $sitewhilestyle = $color4;
 $formcolor = $color4;
 
 #HTML and HTML Style variables
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
+$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
 $border = 'border-width:4px;border-color:'.$color3.';border-style:solid;';
 $border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;';
-$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';'.$roundedborderstyle2.';
-$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
+$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';'.$rounded_border_style_2.';
+$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
+$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
 $widthsize = '';
 $size = '';
 $m = 'h5';
 
 #Folder variables
-$siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
-$storyfolder = $sistoryfolder;
+$selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
+$story_name_folder = $sistoryfolder;
 
 #Defines the folder for the chapter text files that are going to be read
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
-	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
-	$titlesfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($lang).'.txt';
+if ($website_language == $languages_array[0]) {
+	$website_language = $languages_array[1];
+	$main_story_folder_2 = $notepad_stories_folder_variable.$story_name_folder.'/'.strtoupper($website_language).'/';
+	$titlesfile = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($website_language).'.txt';
 
-	$lang = $langs[0];
+	$website_language = $languages_array[0];
 }
 
 else {
-	$rootstoryfolder2 = $notepad_stories_folder_variable.$storyfolder.'/'.strtoupper($lang).'/';
-	$titlesfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($lang).'.txt';
+	$main_story_folder_2 = $notepad_stories_folder_variable.$story_name_folder.'/'.strtoupper($website_language).'/';
+	$titlesfile = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($website_language).'.txt';
 }
 
 #Site image vars
-$siteimage = 'Eu e o computador (Stake2)';
+$website_image = 'Eu e o computador (Stake2)';
 
 #Defines the site image if the site has book covers or not
-$siteimage = $cdnimg.$siteimage.'.png';
-$imagesize1 = 60;
+$website_image = $cdnimg.$website_image.'.png';
+$website_image_size_computer = 60;
 $imagesize2 = 100;
 
-$imglink = $siteimage;
+$website_image_link = $website_image;
 
 $filetextarraynames = array(
-'titles',
+'chapter_titles',
 );
 
 $i = 0;
@@ -88,58 +88,58 @@ include $text_file_reader_file_php;
 
 $chapters = $titlesnumber - 1;
 
-$sitenames = array(
+$websites_names_array = array(
 'Yours truly, Izaque.',
 'Sinceramente, Izaque.',
 );
 
-$sitedescs = array(
+$website_descriptions_array = array(
 '',
 '',
 );
 
 #Site name, title, URL and description setter, by language
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $choosenwebsite;
-	$lang = $langs[0];
+if ($website_language == $languages_array[0]) {
+	$website_language = $languages_array[1];
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $selected_website;
+	$website_language = $languages_array[0];
 
-	$sitetitulo = $sitenames[0].' '.ucwords($langs[0]);
-	$sitetitulo2 = $sitenames[0];
-	$siteurl = $siteurlgeral;
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $sitedescs[0];
-	$lang = $langs[0];
+	$website_title = $websites_names_array[0].' '.ucwords($languages_array[0]);
+	$website_title_html = $websites_names_array[0];
+	$website_link = $selected_website_url;
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_descriptions_array[0];
+	$website_language = $languages_array[0];
 }
 
-if ($lang == $langs[1]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $choosenwebsite;
+if ($website_language == $languages_array[1]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $selected_website;
 
-	$sitetitulo = $sitenames[0];
-	$sitetitulo2 = $sitenames[0];
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $sitedescs[0];
+	$website_title = $websites_names_array[0];
+	$website_title_html = $websites_names_array[0];
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_descriptions_array[0];
 }
 
-if ($lang == $langs[2]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $choosenwebsite;
+if ($website_language == $languages_array[2]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $selected_website;
 
-	$sitetitulo = $sitenames[1];
-	$sitetitulo2 = $sitenames[1];
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[1];
-	$sitedesc2 = $sitedescs[1];
+	$website_title = $websites_names_array[1];
+	$website_title_html = $websites_names_array[1];
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[1];
+	$website_header_description = $website_descriptions_array[1];
 }
 
 #Buttons and tabs definer
-#Tab titles definer
+#Tab chapter_titles definer
 $tabtitles = array(
 $blackspan.$tabnames[0].$spanc,
 );
@@ -153,6 +153,6 @@ foreach ($tabnames as $tabname) {
 }
 
 #TabGenerator.php includer
-include $tabgeneratorphp;
+include $website_tabs_generator;
 
 ?>

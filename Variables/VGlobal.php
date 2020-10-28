@@ -1,8 +1,8 @@
 <?php
 
-# VGlobal.php $sitefolder, site, cdn and fontawesome link variables
-$sitefolder = strtolower($site);
-$site = $sitefolder;
+# VGlobal.php $website_folder, site, cdn and fontawesome link variables
+$website_folder = strtolower($site);
+$site = $website_folder;
 
 $folder_and_website_variables_php = $php_vars_global_files.'Folder And Website Variables.php';
 $php_files_php = $php_vars_global_files.'PHP Files.php';
@@ -31,13 +31,13 @@ require $global_texts_php;
 require $watch_and_yearwebsites_variables_php;
 
 # CSS definers for specific websites
-$sitecssfile = $setsitecssfile;
+$website_css_file = $choosed_website_css_file;
 
 # NewDesign and Notifications definer
 require $newdesign_and_notifications_definer_php;
 
 # Site CSS and Javascript definer
-require $site_css_and_javascript_definer_php;
+require $website_css_and_javascript_definer_php;
 
 # Date style definer
 date_default_timezone_set("America/Sao_Paulo");
@@ -47,41 +47,45 @@ $data = date("d/m/Y");
 require $global_style_file_php;
 
 if ($site_is_prototype == false) {
-	#Stories variables includer if the site is a story site
-	require $story_variables_php_variable;
+	#Story variables PHP file includer if the website is a story website
+	require $story_name_variables_php_variable;
 
 	#SitesButtons Attributes.php includer
-	require $sitesbuttonsattributes;
+	require $websites_tab_attributes;
 }
 
 # VYears.php file loader for YearsSites
-if (in_array($sitename, $yeararray)) {
+if (in_array($website_name, $yeararray)) {
 	require $vyears_php;
 }
 
+# Website Style Chooser.php file loader
+require $website_style_chooser_file;
+
 # Websites array
 $i = 0;
-foreach ($sitenamesarray as $value) {
-	if ($sitename == $value) {
+foreach ($website_names_array as $value) {
+	if ($website_name == $value) {
 		require $sitefilevars[$i];
 	}
 
 	$i++;
 }
 
-require $website_style_file;
+# Website Image Maker.php file loader
+require $website_image_maker;
 
-# Site notifications includer if site has notifications activated
-if ($sitehasnotifications == true) {
-	require $notificationsphp;
+# Website Classes.php file loader
+require $website_classes_php;
+
+# Website notifications includer if the website has notifications activated
+if ($website_has_notifications == true) {
+	require $notifications_php;
 }
 
 if ($site_is_prototype == false) {
-	require $sitesbuttonscreator;
+	require $websites_tab_button_maker;
 }
-
-# Global image variables loader
-require $global_image_variables_php;
 
 if (isset($custom_website_head_content)) {
 	$include_custom_website_head_content = "\n".$custom_website_head_content;
@@ -91,22 +95,22 @@ else {
 	$include_custom_website_head_content = '';
 }
 
-$sitehead = '
-<title>'.$sitetitulo.'</title>
+$website_head = '
+<title>'.$website_title.'</title>
 <meta charset="UTF-8" />
-<meta property="og:title" content="'.$sitetitulo.'" />
-<meta property="og:site_name" content="'.$sitetitulo.'" />
-<link rel="canonical" href="'.$siteurl.'" />
-<meta property="og:url" content="'.$siteurl.'" />
-<link rel="icon" href="'.$siteimage.'" />
-<link rel="image_src" href="'.$siteimage.'" />
-<meta property="og:image" content="'.$siteimage.'" />
-<meta name="description" content="'.$sitedesc.'" />
-<meta property="og:description" content="'.$sitedesc.'" />
+<meta property="og:title" content="'.$website_title.'" />
+<meta property="og:site_name" content="'.$website_title.'" />
+<link rel="canonical" href="'.$website_link.'" />
+<meta property="og:main_website_url" content="'.$website_link.'" />
+<link rel="icon" href="'.$website_image.'" />
+<link rel="image_src" href="'.$website_image.'" />
+<meta property="og:image" content="'.$website_image.'" />
+<meta name="description" content="'.$website_meta_description.'" />
+<meta property="og:description" content="'.$website_meta_description.'" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" value="@The_Snakes90" />
 <meta name="twitter:creator" content="@The_Snakes90" />
-'.$sitecss.
+'.$website_css_files.
 '<meta name="revised" content="'."Stake's Enterprisetm".', '.$data.'" />
 <meta name="author" content="Stake Ferreira" />
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />'.$fontawesome_script.
@@ -114,18 +118,18 @@ $include_custom_website_head_content;
 
 /*'<link rel="stylesheet" href="'.$fontawesome_link.'" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />';*/
 
-if ($sitename == $sitetextmaker) {
-	$sitedesc = $sitedesc;
+if ($website_name == $sitetextmaker) {
+	$website_meta_description = $website_meta_description;
 }
 
-if (in_array($sitename, $yeararray)) {
-	$sitedesc = $sitedesc2;
+if (in_array($website_name, $yeararray)) {
+	$website_meta_description = $website_header_description;
 }
 
-if ($sitename != $sitetextmaker) {
-	$sitedesc = $sitedesc;
+if ($website_name != $sitetextmaker) {
+	$website_meta_description = $website_meta_description;
 }
 
-require $site_header_file_php;
+require $website_header_php;
 
 ?>

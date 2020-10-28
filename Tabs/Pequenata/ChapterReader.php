@@ -1,34 +1,34 @@
 <?php 
 
-$capnum1 = 1;
-$capnum2 = 2;
-$capnum3 = 0;
-$capnum4 = 0;
-$capnum4a = 0;
-$capnum7 = 0;
-$textstylecap = $textstyle2;
+$chapter_number_1 = 1;
+$chapter_number_2 = 2;
+$chapter_number_3 = 0;
+$chapter_number_4 = 0;
+$chapter_number_4a = 0;
+$chapter_number_7 = 0;
+$chapter_text_style = $textstyle2;
 $captxtname = str_replace("s", "", $captxt);
 
 #Defines the folder for the chapter text files that are going to be read
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder."/".strtoupper($lang).'/';
-	$lang = $langs[0];
+if ($website_language == $languages_array[0]) {
+	$website_language = $languages_array[1];
+	$main_story_folder_2 = $rootstoryfolder.$story_name_folder."/".strtoupper($website_language).'/';
+	$website_language = $languages_array[0];
 }
 
 else {
-	$rootstoryfolder2 = $rootstoryfolder.$storyfolder."/".strtoupper($lang).'/';
+	$main_story_folder_2 = $rootstoryfolder.$story_name_folder."/".strtoupper($website_language).'/';
 }
 
-$capdatanumb = 1;
+$chapter_date_number = 1;
 $a = 1;
 $z = 1;
 
 #Chapter file text link array generator
 while ($a <= $chapters) {
 	$a2 = $a - 1;
-	$caps[$a] = $rootstoryfolder2.$z.' - '.$titles[$a2].'.txt';
-	$caps[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $caps[$a]);
+	$normal_chapters[$a] = $main_story_folder_2.$z.' - '.$chapter_titles[$a2].'.txt';
+	$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $normal_chapters[$a]);
 
 	$z++;
 	$a++;
@@ -40,13 +40,13 @@ $z = 0;
 
 while ($a <= $chapters) {
 	$a2 = $a - 1;
-	$capdatesfile = $rootstoryfolder.$storyfolder."/".'Datas.txt';
-	$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
+	$chapter_dates_file = $rootstoryfolder.$story_name_folder."/".'Datas.txt';
+	$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 	if ($fp) {
-		$capdates = explode("\n", fread($fp, filesize($capdatesfile)));
-		$capdates = str_replace("^", "", $capdates);
+		$chapter_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
+		$chapter_dates = str_replace("^", "", $chapter_dates);
 	}
-	$capdates[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $capdates[$a]);
+	$chapter_dates[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $chapter_dates[$a]);
 
 	$z++;
 	$a++;
@@ -122,7 +122,7 @@ while ($b1 <= $readsfilenumb) {
 	$b22 = $b1 + 1;
 	$b3 = $b1 + 2;
 
-	$reads[$v1] = $margin.'<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
+	$story_name_reads_array[$v1] = $margin.'<'.$m.' class="'.$textstyle2.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 	#Reader text and name
 	$readerstxt2.': </b>'.$readstxt[$b1].'<br /><b>'.
 	
@@ -130,7 +130,7 @@ while ($b1 <= $readsfilenumb) {
 	substr($captxt, 0, -1).':</b> '.$readstxt[$b22].'<br />'.'<b>'.
 	
 	#Read time text and time
-	$timetxt.':</b> '.$readstxt[$b3].' <br /><br />'.$divc.'</'.$m.'>'.$divc."\n";
+	$timetxt.':</b> '.$readstxt[$b3].' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
 	
 	$b1++;
 	$b1++;
@@ -142,63 +142,63 @@ while ($b1 <= $readsfilenumb) {
 
 $b1 = 0;
 $b2 = 1;
-$h = $readednumb;
+$h = $readed_number;
 $zw = 0;
 $zq = 1;
 $za = 2;
 $m = 10;
 
 #Chapter reader/writer
-while ($capnum1 <= $chapters) {
+while ($chapter_number_1 <= $chapters) {
 	$i2 = $i + 1;
 	$i3 = $i + 2;
-	$reading2 = $reading.'<b>'.$captxtname.' '.$capnum1.' - '.$titles[$capnum4];
+	$reading2 = $reading.'<b>'.$captxtname.' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4];
 	echo "\n";
 	
 	#Tab div id
-    echo '<a name="'.$capdiv.$capnum1.'"></a>';
+    echo '<a name="'.$chapter_div_text.$chapter_number_1.'"></a>';
 	echo "\n";
-	echo '<div id="'.$capdiv.$capnum1.'" class="city '.$textstylecap.'" style="display:none;'.$hstyle2.'">';
+	echo '<div id="'.$chapter_div_text.$chapter_number_1.'" class="city '.$chapter_text_style.'" style="display:none;'.$hstyle2.'">';
 	echo "\n";
-	echo '<br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" /><br class="'.$mobilevar.'" />';
+	echo '<br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" />';
 	echo "\n";
 	echo '<br />';
 	echo "\n";
 
-	#'You're Reading $story' Text
-	if ($capnum1 == $chapters) {
+	#'You're Reading $story_name_name' Text
+	if ($chapter_number_1 == $chapters) {
 		echo '<h2 class="'.$textstyle2.'">'."\n";
-		echo $divzoomanim.'<br />'.$reading2.'</b>'.' <span class="w3-text-yellow"><b>['.$newtxt.'!]</b></span><br />'.$divc.'</'.$n.'>';
-		$capnum4++;
+		echo $div_zoom_animation.'<br />'.$reading2.'</b>'.' <span class="w3-text-yellow"><b>['.$newtxt.'!]</b></span><br />'.$div_close.'</'.$n.'>';
+		$chapter_number_4++;
 	} 
 
 	else {
-		echo '<h2 class="'.$textstylecap.'">'."\n";
-		echo $divzoomanim.'<br />'.$reading2.'</b>'.$divc.'</'.$n.'><br />';
-		$capnum4++;
+		echo '<h2 class="'.$chapter_text_style.'">'."\n";
+		echo $div_zoom_animation.'<br />'.$reading2.'</b>'.$div_close.'</'.$n.'><br />';
+		$chapter_number_4++;
 	}
 
 	echo "\n";
-	echo '<h5 class="'.$textstylecap.'" style="'.$hstyle.'text-align:left;"><hr class="'.$sitehr3.'" />';
+	echo '<h5 class="'.$chapter_text_style.'" style="'.$hstyle.'text-align:left;"><hr class="'.$sitehr3.'" />';
 	echo "\n";
 	
 	#Top Next/Previous chapter button
-	echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;" onclick="openCity('."'".$capdiv.$capnum3."')".'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>';
+	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;" onclick="openCity('."'".$chapter_div_text.$chapter_number_3."')".'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>';
 	echo "\n";
-	echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;" onclick="openCity('."'".$capdiv.$capnum2."')".'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>';
+	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;" onclick="openCity('."'".$chapter_div_text.$chapter_number_2."')".'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>';
 	echo "\n";
 	echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;margin-right:15px;" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>';
 	echo '<br /><br /><br /><br />';
 	echo "\n";
-	echo $divzoomanim;
+	echo $div_zoom_animation;
 	echo "\n";
 
 	#Replaces the "?"s in the chapter 26 file name with nothing
-	if ($capnum1 == 26) {
-		$caps[$capnum1] = str_replace(array("?"), "", $caps[$capnum1]);
+	if ($chapter_number_1 == 26) {
+		$normal_chapters[$chapter_number_1] = str_replace(array("?"), "", $normal_chapters[$chapter_number_1]);
 	}
 
-	if ($file = fopen($caps[$capnum1], "r")) {
+	if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
     while(!feof($file)) {
         $line = fgets($file);
 		$line = str_replace(array("\r\n", "\r", "\n"), "", $line);
@@ -207,59 +207,59 @@ while ($capnum1 <= $chapters) {
 		fclose($file);
 	}
 
-	$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
+	$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 	if ($fp) {
-		$capdatas = explode("\n", fread($fp, filesize($capdatesfile)));
+		$capdatas = explode("\n", fread($fp, filesize($chapter_dates_file)));
 		$datas = str_replace("^", "", $capdatas);
 		$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $datas);
 	}
 	echo '<br />';
-	echo $datatxt2.': '.$datas[$capdatanumb].'.';
+	echo $datatxt2.': '.$datas[$chapter_date_number].'.';
 
 	echo "\n";
-	echo $divc;
+	echo $div_close;
 	echo "\n";
 	echo '<br /><br />';
 	echo "\n";
 
 	#Bottom Next/Previous chapter button
-	echo '<a href="#'.$capdiv.$capnum3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;" onclick="openCity('."'".$capdiv.$capnum3."')".'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>';
+	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:left;" onclick="openCity('."'".$chapter_div_text.$chapter_number_3."')".'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>';
 	echo "\n";
-	echo '<a href="#'.$capdiv.$capnum2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;margin-left:15px;" onclick="openCity('."'".$capdiv.$capnum2."')".'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a> ';
+	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$color.' '.$cssbtn1.'" style="float:right;margin-left:15px;" onclick="openCity('."'".$chapter_div_text.$chapter_number_2."')".'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a> ';
 	echo "\n";
 
 	#Computer Comment and Read buttons
-	echo '<div class="'.$computervar.'">'."\n";
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;"><h3><b>'.$commenttxt2.' '.$icons[12].' ('.$commentschapternumb.')</b></h3></button>'."\n";
-	echo $divc;
-	echo '<div class="'.$computervar.'">';
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;"><h3><b>'.$readedtxt.' ('.$readednumb.')</b></h3></button>'."\n";
-	echo $divc."\n";
-	echo '<div class="'.$mobilevar.'"><br /><br /><br />'.$divc.'<div class="'.$computervar.'"><br /><br /><br /><br /><br />'.$divc."\n";
+	echo '<div class="'.$computer_variable.'">'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computer_variable.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;"><h3><b>'.$commenttxt2.' '.$icons[12].' ('.$number_of_chapter_comments.')</b></h3></button>'."\n";
+	echo $div_close;
+	echo '<div class="'.$computer_variable.'">';
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;"><h3><b>'.$readedtxt.' ('.$readed_number.')</b></h3></button>'."\n";
+	echo $div_close."\n";
+	echo '<div class="'.$mobile_variable.'"><br /><br /><br />'.$div_close.'<div class="'.$computer_variable.'"><br /><br /><br /><br /><br />'.$div_close."\n";
 
-	#"You're Reading $story" Text
-	if ($capnum1 == $chapters) {
-		echo '<div style="text-align:center;">'.$divzoomanim.'<span class="'.$textstylecap.'"><br />'.$reading2.' <span class="w3-text-yellow">['.$newtxt.'!]</span>'.'</b><br /></span>'.$divc.$divc;
-		$capnum7++;
+	#"You're Reading $story_name_name" Text
+	if ($chapter_number_1 == $chapters) {
+		echo '<div style="text-align:center;">'.$div_zoom_animation.'<span class="'.$chapter_text_style.'"><br />'.$reading2.' <span class="w3-text-yellow">['.$newtxt.'!]</span>'.'</b><br /></span>'.$div_close.$div_close;
+		$chapter_number_7++;
 	} 
 
 	else {
-		echo '<div style="text-align:center;">'.$divzoomanim.'<span class="'.$textstylecap.'"><br />'.$reading2.'</b><br /></span>'.$divc.$divc;
-		$capnum7++;
+		echo '<div style="text-align:center;">'.$div_zoom_animation.'<span class="'.$chapter_text_style.'"><br />'.$reading2.'</b><br /></span>'.$div_close.$div_close;
+		$chapter_number_7++;
 	}
 
 	#Mobile Comment and Read buttons
 	echo "\n";
-	echo '<div class="'.$mobilevar.'"><br /><br />'.$divc;
-	echo '<div class="'.$mobilevar.'">'."\n";
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="commentbtn'.$a.'m" style="margin-left:15px;float:right;"><'.$m.'><b>'.$commenttxt2.' '.$icons[12].' ('.$commentschapternumb.')</b></'.$m.'></button>'."\n";
+	echo '<div class="'.$mobile_variable.'"><br /><br />'.$div_close;
+	echo '<div class="'.$mobile_variable.'">'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.'" id="commentbtn'.$a.'m" style="margin-left:15px;float:right;"><'.$m.'><b>'.$commenttxt2.' '.$icons[12].' ('.$number_of_chapter_comments.')</b></'.$m.'></button>'."\n";
 	echo '<br /><br />';
-	echo $divc;
-	echo '<div class="'.$mobilevar.'">';
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" id="readbtn'.$a2.'m" style="margin-left:15px;float:right;" onclick="openCity('."'".'modal-read-'.$a2."m')".'"><'.$m.'><b>'.$readedtxt.' ('.$readednumb.')</b></'.$m.'></button>'."\n";
-	echo $divc."\n";
+	echo $div_close;
+	echo '<div class="'.$mobile_variable.'">';
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.'" id="readbtn'.$a2.'m" style="margin-left:15px;float:right;" onclick="openCity('."'".'modal-read-'.$a2."m')".'"><'.$m.'><b>'.$readedtxt.' ('.$readed_number.')</b></'.$m.'></button>'."\n";
+	echo $div_close."\n";
 	echo "\n";
-	echo '<br /><div class="'.$mobilevar.'"><br /><br /></div>';
+	echo '<br /><div class="'.$mobile_variable.'"><br /><br /></div>';
 	echo "\n";
 	echo '<hr class="'.$sitehr3.'" />';
 	echo "\n";
@@ -267,80 +267,80 @@ while ($capnum1 <= $chapters) {
 	echo "\n";
 
 	#Readings and Comments displayer on chapters
-	if ($sitename == $sitepqnt) {
-		if ($capnum1 == 1) {
-			echo '<div class="'.$computervar.'">'.'<br />'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$divc;
+	if ($website_name == $sitepqnt) {
+		if ($chapter_number_1 == 1) {
+			echo '<div class="'.$computer_variable.'">'.'<br />'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$div_close;
 	
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<br /><br />'.$divc;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<br /><br />'.$div_close;
 			echo $margin;
-			echo $cmntschapter[0];
-			echo $divc;
+			echo $story_name_chapter_comments_array[0];
+			echo $div_close;
 		}
 
-		if ($capnum1 == 2) {
-			echo '<div class="'.$computervar.'">'.'<br />'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$divc;
+		if ($chapter_number_1 == 2) {
+			echo '<div class="'.$computer_variable.'">'.'<br />'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$div_close;
 	
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<br /><br />'.$divc;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<br /><br />'.$div_close;
 			echo $margin;
-			echo $cmntschapter[(4 + $zw)];
-			echo $cmntschapter[(1 + $zw)];
-			echo $divc;
+			echo $story_name_chapter_comments_array[(4 + $zw)];
+			echo $story_name_chapter_comments_array[(1 + $zw)];
+			echo $div_close;
 		}
 
-		if ($capnum1 == 3) {
-			echo '<div class="'.$computervar.'">'.'<br />'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$divc;
+		if ($chapter_number_1 == 3) {
+			echo '<div class="'.$computer_variable.'">'.'<br />'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$div_close;
 	
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<br /><br />'.$divc;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<br /><br />'.$div_close;
 			echo $margin;
-			echo $cmntschapter[(2 + $zw)];
-			echo $cmntschapter[(5 + $zw)];
-			echo $divc;
+			echo $story_name_chapter_comments_array[(2 + $zw)];
+			echo $story_name_chapter_comments_array[(5 + $zw)];
+			echo $div_close;
 		}
 
-		if ($capnum1 == 8) {
-			echo '<div class="'.$computervar.'">'.'<br />'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$divc;
+		if ($chapter_number_1 == 8) {
+			echo '<div class="'.$computer_variable.'">'.'<br />'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<'.$n.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$n.'>'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<'.$m.'><b>'.$commenttxt.'s:</b> '.$icons[12].'</'.$m.'>'.$div_close;
 	
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<br /><br />'.$divc;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<br /><br />'.$div_close;
 			echo $margin;
-			echo $cmntschapter[(3 + $zw)];
-			echo $divc;
+			echo $story_name_chapter_comments_array[(3 + $zw)];
+			echo $div_close;
 		}
 
-		if ($capnum1 > 1 and $capnum1 < 11) {
-			echo '<div class="'.$computervar.'">'.'<br />'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<br />'.$divc;
-			echo '<div class="'.$computervar.'">'.'<'.$n.'><b>'.$readedtxt4.': ✓</b></'.$n.'>'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<'.$m.'><b>'.$readedtxt4.': ✓</b></'.$m.'>'.$divc;
+		if ($chapter_number_1 > 1 and $chapter_number_1 < 11) {
+			echo '<div class="'.$computer_variable.'">'.'<br />'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<br />'.$div_close;
+			echo '<div class="'.$computer_variable.'">'.'<'.$n.'><b>'.$readedtxt4.': ✓</b></'.$n.'>'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<'.$m.'><b>'.$readedtxt4.': ✓</b></'.$m.'>'.$div_close;
 
-			echo '<div class="'.$computervar.'">'.'<br /><br />'.$divc;
-			echo '<div class="'.$mobilevar.'">'.'<br /><br />'.$divc;
+			echo '<div class="'.$computer_variable.'">'.'<br /><br />'.$div_close;
+			echo '<div class="'.$mobile_variable.'">'.'<br /><br />'.$div_close;
 
-			echo $reads[$h];
+			echo $story_name_reads_array[$h];
 		}
 
-		if ($capnum1 == 1) {
-			echo $reads[($h - ($m + $za))];
-			echo $reads[($h - ($m + $zq))];
+		if ($chapter_number_1 == 1) {
+			echo $story_name_reads_array[($h - ($m + $za))];
+			echo $story_name_reads_array[($h - ($m + $zq))];
 		}
 	}
 
-	echo $divc;
+	echo $div_close;
 	echo "\n";
 	$i++;
 	$i2++;
@@ -351,12 +351,12 @@ while ($capnum1 <= $chapters) {
 		$h--;
 	}
 
-    $capnum1++;
-    $capnum2++;
-    $capnum3++;
-	$capdatanumb++;
-	$capdatanumb++;
-	$capdatanumb++;
+    $chapter_number_1++;
+    $chapter_number_2++;
+    $chapter_number_3++;
+	$chapter_date_number++;
+	$chapter_date_number++;
+	$chapter_date_number++;
 }
 
 $i = 1;
@@ -367,13 +367,13 @@ $z = 1;
 $z2 = 1;
 $c = 0;
 $c22 = 0;
-$capnum1 = 1;
+$chapter_number_1 = 1;
 $capnum12 = 1;
-$capnum4 = 0;
+$chapter_number_4 = 0;
 $capnum42 = 0;
 
 #Read-modal Tab generation
-while ($capnum1 <= $chapters) {
+while ($chapter_number_1 <= $chapters) {
 	$i2 = $i + 1;
 	$i3 = $i + 2;
 	$c2 = $c + 1;
@@ -383,57 +383,57 @@ while ($capnum1 <= $chapters) {
 	#Computer Read-modal Tab div id
 	echo '<a name="modal-read-'.$a.'"></a>'."\n";
 	echo '<div id="modal-read-'.$a.'" class="modal" style="display:none;">'."\n";
-	echo $divzoomanim;
+	echo $div_zoom_animation;
 	echo '<div class="modal-content w3-black">'."\n";
-	echo '<div class="'.$computervar.'">';
+	echo '<div class="'.$computer_variable.'">';
 	
 	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' close" id="closereadmodal'.$a.'">&times;</button>'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computer_variable.' close" id="closereadmodal'.$a.'">&times;</button>'."\n";
 	
 	#Computer Read-modal form
 	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="true">'."\n";
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$readedtxt2.': '.$capnum1.' - '.$titles[$capnum4].'</b></'.$n.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><b>'.$readedtxt2.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b></'.$n.'>'.$div_close."\n";
 	echo $margin2;
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$div_close."\n";
 	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input">'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
-	echo $divc;
-	echo '<input type="text" name="'.$formcode.'-read" value="'.$readedtxt2.': '.$i.' - '.$titles[$c].'" class="'.$formcolor.' w3-input" style="display:none;">'."\n";
+	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+	echo $div_close;
+	echo '<input type="text" name="'.$formcode.'-read" value="'.$readedtxt2.': '.$i.' - '.$chapter_titles[$c].'" class="'.$formcolor.' w3-input" style="display:none;">'."\n";
 	echo '<br /><br /><br /><br />';
 	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 
 	echo "\n";
 
 	#Mobile Read-modal Tab div id
 	echo '<a name="modal-read-'.$a2.'m"></a>'."\n";
 	echo '<div id="modal-read-'.$a2.'m" class="modal" style="display:none;">'."\n";
-	echo $divzoomanim;
+	echo $div_zoom_animation;
 	echo '<div class="modal-content w3-black">'."\n";
-	echo '<div class="'.$mobilevar.'">';
+	echo '<div class="'.$mobile_variable.'">';
 
 	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' close" id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' close" id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
 
 	#Mobile Read-modal form
 	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="true">'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$readedtxt2.': '.$capnum12.' - '.$titles[$capnum42].'</b></'.$m.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$colortext.'"><b>'.$readedtxt2.': '.$capnum12.' - '.$chapter_titles[$capnum42].'</b></'.$m.'>'.$div_close."\n";
 	echo $margin2;
 	echo '<br />';
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$div_close."\n";
 	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input">'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
-	echo $divc;
-	echo '<input type="text" name="'.$formcode.'-read" value="'.$readedtxt2.': '.$i22.' - '.$titles[$c22].'" class="'.$formcolor.' w3-input" style="display:none;">'."\n";
+	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+	echo $div_close;
+	echo '<input type="text" name="'.$formcode.'-read" value="'.$readedtxt2.': '.$i22.' - '.$chapter_titles[$c22].'" class="'.$formcolor.' w3-input" style="display:none;">'."\n";
 	echo '<br /><br /><br /><br />';
 	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 
 	echo "\n";
 
@@ -487,8 +487,8 @@ readmodal'.$a2.'m.onclick = function(event) {
 	echo "\n";
 	$c++;
 	$c22++;
-	$capnum1++;
-	$capnum4++;
+	$chapter_number_1++;
+	$chapter_number_4++;
 	$i++;
 	$z++;
 	$a++;
@@ -507,13 +507,13 @@ $z = 1;
 $z2 = 1;
 $c = 0;
 $c22 = 0;
-$capnum1 = 1;
+$chapter_number_1 = 1;
 $capnum12 = 1;
-$capnum4 = 0;
+$chapter_number_4 = 0;
 $capnum42 = 0;
 
 #Comment-modal Tab generation
-while ($capnum1 <= $chapters) {
+while ($chapter_number_1 <= $chapters) {
 	$i2 = $i + 1;
 	$i3 = $i + 2;
 	$c2 = $c + 1;
@@ -523,61 +523,61 @@ while ($capnum1 <= $chapters) {
 	#Computer comment-modal Tab div id
 	echo '<a name="modal-comment-'.$a.'"></a>'."\n";
 	echo '<div id="modal-comment-'.$a.'" class="modal" style="display:none;">'."\n";
-	echo $divzoomanim."\n";
+	echo $div_zoom_animation."\n";
 	echo '<div class="modal-content w3-black">'."\n";
-	echo '<div class="'.$computervar.'">'."\n";
+	echo '<div class="'.$computer_variable.'">'."\n";
 
     #Close comment-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' close" id="closecommentmodal'.$a.'">&times;</button>'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computer_variable.' close" id="closecommentmodal'.$a.'">&times;</button>'."\n";
 
     #Computer Comment-modal form
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).' '.$capnum1.' - '.$titles[$capnum4].' '.$icons[12].'</b></'.$n.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="true">'."\n";
 	echo $margin2."\n";
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$div_close."\n";
 	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input">'."\n";
 	echo '<br />'."\n";
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$commentdesc2.':</b></'.$n.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><b>'.$commentdesc2.':</b></'.$n.'>'.$div_close."\n";
 	echo '<input type="text" name="'.$formcode.'-comment" class="'.$formcolor.' w3-input">'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
-	echo $divc."\n";
+	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+	echo $div_close."\n";
 	echo '</form>'."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
 	echo '<br /><br /><br /><br />'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 
 	echo "\n";
 
 	#Mobile Comment-modal Tab div id
 	echo '<a name="modal-comment-'.$a2.'m"></a>'."\n";
 	echo '<div id="modal-comment-'.$a2.'m" class="modal" style="display:none;">'."\n";
-	echo $divzoomanim."\n";
+	echo $div_zoom_animation."\n";
 	echo '<div class="modal-content w3-black">'."\n";
-	echo '<div class="'.$mobilevar.'">'."\n";
+	echo '<div class="'.$mobile_variable.'">'."\n";
 
     #Close comment-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' close" id="closecommentmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
+	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' close" id="closecommentmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
 
     #Mobile Comment-modal form
 	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="true">'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).' '.$capnum12.' - '.$titles[$capnum4].' '.$icons[12].'</b></'.$m.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).' '.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$div_close."\n";
 	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input">'."\n";
 	echo '<br />'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$commentdesc2.':</b></'.$m.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$colortext.'"><b>'.$commentdesc2.':</b></'.$m.'>'.$div_close."\n";
 	echo '<input type="text" name="'.$formcode.'-comment" class="'.$formcolor.' w3-input">'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
-	echo $divc."\n";
+	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+	echo $div_close."\n";
 	echo '</form>'."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
 	echo '<br /><br /><br /><br />'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 
 	echo "\n";
 
@@ -629,8 +629,8 @@ commentmodal'.$a2.'m.onclick = function(event) {
 }
 </script>';
 	echo "\n";
-	$capnum1++;
-	$capnum4++;
+	$chapter_number_1++;
+	$chapter_number_4++;
 	$i++;
 	$z++;
 	$a++;
@@ -645,19 +645,19 @@ commentmodal'.$a2.'m.onclick = function(event) {
 Deactivated Form Comment Tab generator
 
 $i = 0;
-$capnum4 = 0;
+$chapter_number_4 = 0;
 $chapters2 = $chapters - 1;
 
 while ($i <= $chapters2) {
 	$i2 = $i + 1;
 	echo '<a name="'.$formcode.'-comment-'.$i2.'"></a>'."\n";
-	echo '<div id="'.$formcode.'-comment-'.$i2.'" class="'.$citystyle.'" style="display:none;">'."\n";
+	echo '<div id="'.$formcode.'-comment-'.$i2.'" class="'.$tab_style.'" style="display:none;">'."\n";
 	echo $bigspace."\n";
-	echo '<'.$m.' class="'.$computervar.' '.$textstyle.'" '.$marginstyle1.'>'."\n";
+	echo '<'.$m.' class="'.$computer_variable.' '.$textstyle.'" style="'.$margin_style_10percent_rounded_border.'">'."\n";
 	echo $margin."\n";
-	echo $divzoomanim.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).'<br /> "'.$i2.' - '.$titles[$capnum4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
-	echo $divzoomanim."\n";
-	echo '<div class="'.$computervar.'">'."\n";
+	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
+	echo $div_zoom_animation."\n";
+	echo '<div class="'.$computer_variable.'">'."\n";
 	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$formname.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
@@ -668,20 +668,20 @@ while ($i <= $chapters2) {
 	echo '</'.$n.'>'."\n";
 	echo '</span>'."\n";
 	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 	echo '</'.$m.'>'."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
 	echo "\n";
 	echo '<a name="'.$formcode.'-comment-'.$i2.'m"></a>'."\n";
-	echo '<div id="'.$formcode.'-comment-'.$i2.'m" class="'.$citystylem.'" style="display:none;">'."\n";
+	echo '<div id="'.$formcode.'-comment-'.$i2.'m" class="'.$tab_style_mobile.'" style="display:none;">'."\n";
 	echo $bigspace."\n";
-	echo '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" '.$marginstyle1.'>'."\n";
+	echo '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="'.$margin_style_10percent_rounded_border.'">'."\n";
 	echo $margin."\n";
-	echo $divzoomanim.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).'<br /> "'.$i2.' - '.$titles[$capnum4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
-	echo $divzoomanim."\n";
-	echo '<div class="'.$mobilevar.'">'."\n";
+	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
+	echo $div_zoom_animation."\n";
+	echo '<div class="'.$mobile_variable.'">'."\n";
 	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$formname.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
@@ -692,15 +692,15 @@ while ($i <= $chapters2) {
 	echo '</'.$n.'>'."\n";
 	echo '</span>'."\n";
 	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 	echo '</'.$m.'>'."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
 	echo "\n";
 
 	$i++;
-	$capnum4++;
+	$chapter_number_4++;
 }
 */
 

@@ -1,6 +1,8 @@
 <?php 
 
-$citytitles[1] = $divzoomanim.'<'.$n.'><p></p><br /><b>'.$bluespan.$tabnames[1].': '.$spanc.$yellowspan.' ['.$twitems.']'.$spanc.'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
+$tab_header = '<span class="'.$first_text_color.'">'.$tabnames[1].': '.$spanc.'<span class="'.$second_text_color.'">'.' ['.$twitems.']'.$spanc;
+
+$citytitles[1] = $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$header_full_border.'" />'."\n";
 $citybodies[1] = '';
 
 ?>

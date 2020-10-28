@@ -1,6 +1,6 @@
 <?php 
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 $humanbodyinhtmlandphp = ''.
 'The Human Body in HTML & PHP
 <human>
@@ -41,7 +41,7 @@ else {
 <human>'."\n";
 }
 
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 $humanbodyinhtmlandphp = ''.
 'O corpo humano em HTML e PHP
 <humano>
@@ -94,6 +94,6 @@ $echomemes = '<div style="text-align:left;">'."\n".
 '<pre>'."\n".
 $humanbodyinhtmlandphp.
 '</pre>'."\n".
-$divc."\n";
+$div_close."\n";
 
 ?>

@@ -1,17 +1,12 @@
 <?php 
 
-$website_style_variable_names_array = array(
-"website_background_color",
-);
-
-#$website_;
-
 /*
+
 Array that has the name of the variables inside the global_website_style_variable_names_array ("website_background_color").
 
 Array that has the CSS variables, "called website_style_variables_array" ($background_color = $background_brown_css_class).
 
-Foreach that cycles through the "website_style_variables_array" array and created global "website_(css variable name here)" variables like:
+Foreach that cycles through the "website_style_variables_array" array and created global_variable "website_(css variable name here)" variables like:
 $website_background_color = $website_style_variables_array[$i];
 
 */
@@ -19,58 +14,49 @@ $website_background_color = $website_style_variables_array[$i];
 $website_style_variables_array = array(
 $background_color = $background_brown_css_class,
 $header_background_color = $background_black_css_class,
-$tab_background_color = $background_brown_css_class,
-$additional_background_color = $background_brown_css_class,
-
-$first_border_color = $border_color_brown_css_class,
-$second_border_color = $border_color_brown_css_class,
-$third_border_color = $border_color_black_css_class,
-$button_color = $background_brown_css_class,
-$button_border = $default_border_color,
+$tab_background_color = $background_black_css_class,
+$additional_background_color = $background_darker_brown_css_class,
 
 $first_text_color = $text_brown_css_class,
 $second_text_color = 'w3-text-orange',
 $third_text_color = 'w3-text-white',
+$tab_text_color = $first_text_color,
 
-$button_border = $first_text_color." ".$button_color." ".$button_border,
+$first_border_color = $border_color_brown_css_class,
+$second_border_color = $border_color_brown_css_class,
+$third_border_color = $border_color_black_css_class,
+$tab_border_color = $border_color_brown_css_class,
+
+$first_button_color = $additional_background_color,
+$second_button_color = $background_color,
+
+$border_color = $default_border_color,
+$border_size = $default_border_color,
+
+$first_full_border = $first_border_color.' '.$border_4px_solid_css_class,
+$second_full_border = $third_border_color.' '.$border_3px_solid_css_class,
+$third_full_border = $third_border_color.' '.$border_1px_solid_css_class,
+$header_full_border = $first_border_color.' '.$border_1px_solid_css_class,
+$tab_full_border = $tab_border_color." ".$border_4px_solid_css_class,
+$alternative_tab_full_border = $tab_border_color." ".$border_1px_solid_css_class,
+
+$full_tab_style = $tab_background_color." ".$tab_text_color." ".$tab_full_border,
+$alternative_full_tab_style = $background_color." ".$default_text_color,
+
+$first_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
+$second_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 
 $computer_image_size = "",
 $mobile_image_size = "",
 
-$form_color_border = $background_brown_css_class,
-$form_color_background = $background_dark_brown_css_class,
+$form_color_border = $border_4px_solid_black_css_class,
+$form_color_foreground = $background_brown_css_class,
+$form_color_background = $background_darker_brown_css_class,
 $form_color_text = $text_black_css_class,
-
-# Variables that mixes CSS tags
-$textstyle = $colortext.' blackbg',
-$textstyle2 = 'w3-text-black bg',
-$btnstyle = $color4.' '.$cssbtn1.$global_classes,
-$btnstyle2 = $color3.' '.$cssbtn1.$global_classes,
-$btnstyle3 = $color5.' '.$cssbtn1.$global_classes,
-$subtextspan = '<span class="'.$colorsubtext2.'">',
-$subtextspan2 = '<span class="'.$colorsubtext.'">',
-$spannewtextcolor = $subtextspan,
-$sitewhilestyle = $color4,
-$formcolor = $color4,
-
-# HTML and HTML Style variables
-$marginstyle1 = 'style="margin:10%,border-width:3px,border-color:'.$color3.',border-style:solid,'.$roundedborderstyle2.'"',
-$marginstyle2 = 'style="margin-right:70%,border-width:3px,border-color:'.$color3.',border-style:solid,'.$roundedborderstyle2.'"',
-$marginstyle3 = 'style="margin-right:70%,border-width:3px,border-color:'.$color3.',border-style:solid,'.$roundedborderstyle2.'"',
-$border = 'border-width:4px,border-color:'.$color3.',border-style:solid,',
-$border2 = 'border-width:7px,border-color:'.$color3.',border-style:solid,',
-$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%,border-width:3px,border-color:'.$color3.',border-style:solid,'.$roundedborderstyle2.'">','.$roundedborderstyle2.',
-$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%,border-width:3px,border-color:'.$color3.',border-style:solid,">',
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%,border-width:3px,border-color:'.$color3.',border-style:solid,'.$roundedborderstyle2.'">',
-$widthsize = '',
-$size = '',
+$full_form_send_button_style = $border_3px_solid_black_css_class." ".$form_color_background." ".$form_color_text,
+$full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color_text,
 );
 
-$i = 0;
-foreach ($website_style_variable_names_array as $value) {
-	${$value} = $website_style_variables_array[$i];
-
-	$i++;
-}
+$website_border_color = $first_border_color;
 
 ?>

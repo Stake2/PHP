@@ -1,7 +1,7 @@
 <?php 
 
-#CDN and website variable
-$cdn = $url.'cdn/';
+# CDN and website variable
+$cdn = $main_website_url.'cdn/';
 $local_cdn = $mega_folder_diario.'cdn/';
 
 $cdnimg = $cdn.'img/';
@@ -21,7 +21,7 @@ $cdn_txt_moviecomments = $cdntxt.'Movie Comments/';
 $cdnjs = $cdn.'js/';
 $cdncss = $cdn.'css/';
 
-#Notepad/Bloco De Notas folder variables
+# Notepad/Bloco De Notas folder variables
 $notepad_folder = $mega_folder.'Bloco De Notas/';
 
 $notepad_effort_folder = $notepad_folder.'Dedicação/';
@@ -39,14 +39,14 @@ $notepad_stories_folder_variable = $notepad_stories_folder;
 $notepad_years_folder_variable = $notepad_years_folder;
 $notepad_effort_folder_variable = $notepad_effort_folder;
 
-$story_files_php_folder = $php_variables.'Story PHP Files/';
+$story_name_files_php_folder = $php_variables.'Story PHP Files/';
 $newdesign_php_folder = $php_variables.'New Design/';
 $css_packs_php_folder = $php_variables.'CSS Packs/';
 
-$story_files_php_folder_variable = $story_files_php_folder;
+$story_name_files_php_folder_variable = $story_name_files_php_folder;
 $newdesign_php_folder_variable = $newdesign_php_folder;
 
-$sitebuttons_files_php_folder = $php_tabs.'Sites Buttons Tab/';
-$sitebuttons_files_php_folder_variable = $sitebuttons_files_php_folder;
+$websites_tab_folder = $php_tabs.'Websites Tab/';
+$websites_tab_folder_variable = $websites_tab_folder;
 
 ?>

@@ -1,7 +1,7 @@
 <?php 
 
 #Watch History and YearWebsites year variables
-if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
+if ($website_name == $sitewatch or in_array($website_name, $yeararray)) {
 	$anoanterior = $ano - 1;
 	$anos = array(
 	'2018', 
@@ -9,19 +9,19 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	'2020',
 	);
 
-	$mediareader2018 = $php_tabs_variable.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
-	$mediareader2019 = $php_tabs_variable.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
+	$mediareader2018 = $php_tabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
+	$mediareader2019 = $php_tabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
 
-	if (in_array($lang, $en_langs)) {
-		$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$langs[1].'.txt';
+	if (in_array($website_language, $en_languages_array)) {
+		$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$languages_array[1].'.txt';
 	}
 
-	if (in_array($lang, $pt_langs)) {
-		$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$langs[2].'.txt';
+	if (in_array($website_language, $pt_languages_array)) {
+		$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$languages_array[2].'.txt';
 	}
 
 	$watchedtypefile2019 = $notepad_years_folder_variable.$site2019.'/Watched VideoTypes.txt';
-	$yearmakerfilephp2test = $php_tabs_variable.ucwords($sitetextmaker).'/YearMaker2.php';
+	$yearmakerfilephp2test = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
 	$yearmakerfilephp2test = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearmakerfilephp2test);
 
 	if (file_exists($watchedtypefile2018) == true) {

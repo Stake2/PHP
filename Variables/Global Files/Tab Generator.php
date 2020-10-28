@@ -20,7 +20,7 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($sitename == $sitethingsido or $site == $sitethingsido) {
+if ($website_name == $sitethingsido or $site == $sitethingsido) {
 	$i = 0;
 	while ($i <= $tabnumb) {
 		if ($i < 1) {
@@ -55,7 +55,7 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($sitename == $sitewatch) {
+if ($website_name == $sitewatch) {
 	#Citycodes array generator
 	$i = 0;
 	while ($i <= $tabnumb) {
@@ -109,29 +109,29 @@ if ($hidecitysetting != true) {
 	$hidecitytextvariable = '';
 }
 
-if ($siteusescitybodygenerator == false) {
+if ($website_uses_tab_body_generator == false) {
 	#Array of the city body files
 	$i = 0;
 	$i2 = $i + 1;
 
-	#$citybodyfiles_array[$i] = $sitephpfolder2.'CityBody'.$i2.'.php';
+	#$citybodyfiles_array[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
 
-	if (file_exists($sitephpfolder2.'CityBody'.$i2.'.php')) {
+	if (file_exists($selected_website_folder.'CityBody'.$i2.'.php')) {
 		while ($i <= $tabnumb) {
 			$i2 = $i + 1;
 
-			$citybodyfiles[$i] = $sitephpfolder2.'CityBody'.$i2.'.php';
+			$citybodyfiles[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
 
 			$i++;
 		}
 	}
 
 	else {
-		if ($lang == $langs[0] or $lang == $langs[1]) {
+		if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 			$placeholdercitybody = 'Placeholder for the Body of the Tab: [Icon]';
 		}
 
-		if ($lang == $langs[2]) {
+		if ($website_language == $languages_array[2]) {
 			$placeholdercitybody = 'Espaço reservado para o Corpo da Aba: [Ícone]';
 		}
 
@@ -139,9 +139,9 @@ if ($siteusescitybodygenerator == false) {
 	}
 }
 
-if ($sitename == $sitewatch or $site == $sitewatch) {
+if ($website_name == $sitewatch or $site == $sitewatch) {
 	#Include the buttons loader PHP file
-	include $topbuttonsloader;
+	include $computer_buttons_bar_loader;
 
 	#Every Watched Button Yellow
 	$everywatchedbtny1 = $btnsy[0].$computer_buttons[3].$computer_buttons[4];
@@ -154,19 +154,19 @@ if ($sitename == $sitewatch or $site == $sitewatch) {
 	$everywatchedbtny3m = $mobile_buttons[0].$mobile_buttons[3].$btnsym[4];
 
 	#Every Archived Button Yellow
-	$everyarchbtn = $divleftanim.$computer_buttons[5].$divc.$divrightanim.$computer_buttons[6].$divc;
-	$everyarchbtny1 = $divrightanim.$btnsy[5].$divc.$divleftanim.$computer_buttons[6].$divc;
-	$everyarchbtny2 = $divleftanim.$computer_buttons[5].$divc.$divrightanim.$btnsy[6].$divc;
+	$everyarchbtn = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$computer_buttons[6].$div_close;
+	$everyarchbtny1 = $div_right_animation.$btnsy[5].$div_close.$div_left_animation.$computer_buttons[6].$div_close;
+	$everyarchbtny2 = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$btnsy[6].$div_close;
 
 	#Mobile Every Archived Button Yellow
-	$everyarchbtnm = $divleftanim.$mobile_buttons[5].$divc.$divrightanim.$mobile_buttons[6].$divc;
-	$everyarchbtny1m = $divrightanim.$btnsym[5].$divc.$divleftanim.$mobile_buttons[6].$divc;
-	$everyarchbtny2m = $divleftanim.$mobile_buttons[5].$divc.$divrightanim.$btnsym[6].$divc;
+	$everyarchbtnm = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[6].$div_close;
+	$everyarchbtny1m = $div_right_animation.$btnsym[5].$div_close.$div_left_animation.$mobile_buttons[6].$div_close;
+	$everyarchbtny2m = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$btnsym[6].$div_close;
 }
 
-if ($sitename == $sitethingsido or $site == $sitethingsido or $sitename == $sitetextmaker) {
+if ($website_name == $sitethingsido or $site == $sitethingsido or $website_name == $sitetextmaker) {
 	#Include the buttons loader PHP file
-	include $topbuttonsloader;
+	include $computer_buttons_bar_loader;
 }
 
 #City body files includer
@@ -181,23 +181,23 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($sitename == $sitethingsido or $site == $sitethingsido) {
+if ($website_name == $sitethingsido or $site == $sitethingsido) {
 	#Include the buttons loader PHP file
-	include $topbuttonsloader;
+	include $computer_buttons_bar_loader;
 }
 
 #Comments Tab includer if the setting is true
-if ($sitehascommentstab == true or $storyhaswriteform == true) {
-	include $formfile;
+if ($website_has_comments_tab == true or $story_namehaswriteform == true) {
+	include $website_forms_php;
 }
 
 #Stories Tab includer if the setting is true
 if ($sitehasstories == true) {
-	include $story_variables_php_variable;
+	include $story_name_variables_php_variable;
 }
 
-if ($siteusescitybodygenerator == true) {
-	require $city_bodies_generator_php_variable;
+if ($website_uses_tab_body_generator == true) {
+	require $tab_bodies_generator_php_variable;
 }
 
 #City content array generator
@@ -205,20 +205,20 @@ $zzz = 0;
 $zxx = 1;
 $tabnumb3 = $tabnumb + 1;
 while ($zzz <= $tabnumb3) {
-	if (file_exists($sitephpfolder2.'CityContent'.$zxx.'.php')) {
+	if (file_exists($selected_website_folder.'CityContent'.$zxx.'.php')) {
 		ob_start();
-		include $sitephpfolder2.'CityContent'.$zxx.'.php';
+		include $selected_website_folder.'CityContent'.$zxx.'.php';
 		$citycontents[$zzz] = ob_get_clean();
 		ob_clean();
 	}
 
 	else {
-		if ($lang == $langs[0] or $lang == $langs[1]) {
-			$placeholdercitycontent = $divzoomanim.'Placeholder for the Content of the Tab.'.$divc;
+		if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+			$placeholdercitycontent = $div_zoom_animation.'Placeholder for the Content of the Tab.'.$div_close;
 		}
 
-		if ($lang == $langs[2]) {
-			$placeholdercitycontent = $divzoomanim.'Espaço reservado para o Conteúdo da Aba.'.$divc;
+		if ($website_language == $languages_array[2]) {
+			$placeholdercitycontent = $div_zoom_animation.'Espaço reservado para o Conteúdo da Aba.'.$div_close;
 		}
 
 		$citycontents[$zzz] = $placeholdercitycontent;
@@ -257,9 +257,9 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($sitename != $sitethingsido or $site != $sitethingsido and $sitename != $sitewatch or $site != $sitewatch) {
+if ($website_name != $sitethingsido or $site != $sitethingsido and $website_name != $sitewatch or $site != $sitewatch) {
 	#Include the buttons loader PHP file
-	include $topbuttonsloader;
+	include $computer_buttons_bar_loader;
 }
 
 ?>

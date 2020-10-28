@@ -1,13 +1,13 @@
 <?php 
 
-if ($sitehasnotifications == true and $deactivatenotification != true) {
+if ($website_has_notifications == true and $website_deactivate_notification_setting != true) {
 	echo '<script>
 ChangeTitle();
 </script>';
 }
 
 #Site notification file includer if setting is true
-if ($sitehasnotifications == true and $deactivatenotification == false) {
+if ($website_has_notifications == true and $website_deactivate_notification_setting == false) {
 	echo $notificationscript."\n"."\n";
 }
 
@@ -21,7 +21,7 @@ if ($site_is_prototype == false) {
 	echo $animationstylecss."\n"."\n";
 }
 
-if ($sitename == $sitethingsido) {
+if ($website_name == $sitethingsido) {
 	echo '
 <style>
 a:link {color: blue!important;}
@@ -31,7 +31,7 @@ a:active {color: blue!important;}
 </style>';
 }
 
-if ($newdesign == true) {
+if ($website_new_design_setting == true) {
 	#SuperAnimes test loader
 	require $newdesignsitephp;
 	echo $newdesignscript;
@@ -46,7 +46,47 @@ if ($siteuseschapteropener == true) {
 	echo "\n";
 }
 
-#var_dump($website_style_variables_array);
-#echo $current_website_folder;
+#echo $website_style_file;
+
+/*
+echo '<div class="'.$alternative_full_tab_style.'" style="'.$margin_style_10percent.' '.$rounded_border_style_2.'">';
+
+echo '<h2><b><textarea type="text" id="websites_list" class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle7.'height: 1200px;width: 1200px;" placeholder="';
+
+$array = "";
+
+foreach ($websites_names_array_2 as $website) {
+	$array .= $website.'
+';
+}
+
+echo '"></textarea></b></h2>'."\n";
+
+echo $div_close;
+
+echo '<script>
+document.getElementById("websites_list").value = `'.$array.'`; 
+
+function Copy_Text_To_Clipboard() {
+
+  var text_element = document.getElementById("websites_list");
+
+	var text_content = text_element.textContent;
+
+  console.log(text_content);
+}
+
+async function Test() {
+	await navigator.clipboard.write("Hello");
+}
+</script>';
+
+echo '<script>
+Copy_Text_To_Clipboard();
+Test();
+</script>';
+
+#print_r($websites_names_array_2);
+*/
 
 ?>

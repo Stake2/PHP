@@ -8,76 +8,94 @@ $z = 1;
 $z2 = 1;
 $c = 0;
 $c22 = 0;
-$capnum1 = 1;
+$chapter_number_1 = 1;
 $capnum12 = 1;
-$capnum4 = 0;
+$chapter_number_4 = 0;
 $capnum42 = 0;
-#Read-modal Tab generation
-while ($capnum1 <= $chapters) {
+
+# Read-modal Tab generation
+while ($chapter_number_1 <= $chapters) {
 	$i2 = $i + 1;
 	$i3 = $i + 2;
 	$c2 = $c + 1;
 
 	echo "\n";
 	
-	#Computer Read-modal Tab div id
+	# Computer Read-modal Tab div id
 	echo '<a name="modal-read-'.$a.'"></a>'."\n";
-	echo '<div id="modal-read-'.$a.'" class="modal" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo $divzoomanim;
+	echo '<div id="modal-read-'.$a.'" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo $div_zoom_animation;
 	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
-	echo '<div class="'.$computervar.'" '.$roundedborderstyle.'>';
+	echo '<div class="'.$computer_variable.'" '.$roundedborderstyle.'>';
 	
-	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a.'">&times;</button>'."\n";
+	# Close read-modal button
+	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a.'">&times;</button>'."\n";
 	
-	#Computer Read-modal form
+	# Computer Read-modal form
 	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$readtxts[3].': '.$capnum1.' - '.$titles[$capnum4].'</b></'.$n.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$read_texts_array[3].': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b></'.$n.'>'.$div_close."\n";
 	echo $margin2;
-	echo $divzoomanim.'<'.$n.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$divc."\n";
-	echo '<input type="text" name="name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computervar.'" style="margin-top:1px;margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$n.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
-	echo $divc;
-	echo '<input type="text" name="read" value="'.$readtxts[3].': '.$i.' - '.$titles[$c].'" class="'.$formcolor.' w3-input" style="display:none;'.$roundedborderstyle2.'">'."\n";
+
+	# Name input text
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$div_close."\n";
+
+	# Name input
+	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
+
+	# Form submit button
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$n.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
+
+	# Hidden chapter title input
+
+	echo '<input type="text" name="read" value="'.$read_texts_array[3].': '.$i.' - '.$chapter_titles[$c].'" class="'.$full_form_style.' w3-input" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo $div_close;
 	echo '<br /><br /><br /><br />';
 	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 
 	echo "\n";
 
-	#Mobile Read-modal Tab div id
+	# Mobile Read-modal Tab div id
 	echo '<a name="modal-read-'.$a2.'m"></a>'."\n";
-	echo '<div id="modal-read-'.$a2.'m" class="modal" style="display:none;'.$roundedborderstyle2.'">'."\n";
-	echo $divzoomanim;
+	echo '<div id="modal-read-'.$a2.'m" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo $div_zoom_animation;
 	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
-	echo '<div class="'.$mobilevar.'" '.$roundedborderstyle.'>';
+	echo '<div class="'.$mobile_variable.'" '.$roundedborderstyle.'>';
 
-	#Close read-modal button
-	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
+	# Close read-modal button
+	echo '<button class="w3-btn '.$first_button_style.' '.$mobile_variable.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
 
-	#Mobile Read-modal form
+	# Mobile Read-modal form
 	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$readtxts[3].': '.$capnum12.' - '.$titles[$capnum42].'</b></'.$m.'>'.$divc."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$read_texts_array[3].': '.$capnum12.' - '.$chapter_titles[$capnum42].'</b></'.$m.'>'.$div_close."\n";
 	echo $margin2;
 	echo '<br />';
-	echo $divzoomanim.'<'.$m.' class="'.$colortext.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$divc."\n";
-	echo '<input type="text" name="name" class="'.$formcolor.' w3-input" '.$roundedborderstyle.'>'."\n";
-	echo '<button type="submit" class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobilevar.'" style="margin-top:1px;margin-left:15px;float:right;'.$roundedborderstyle2.'"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
-	echo $divc;
-	echo '<input type="text" name="read" value="'.$readtxts[3].': '.$i22.' - '.$titles[$c22].'" class="'.$formcolor.' w3-input" style="display:none;'.$roundedborderstyle2.'">'."\n";
+
+	# Name input text
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$div_close."\n";
+
+	# Name input
+	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
+
+	# Form submit button
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+
+	# Hidden chapter title input
+	echo '<input type="text" name="read" value="'.$read_texts_array[3].': '.$i22.' - '.$chapter_titles[$c22].'" class="'.$full_form_style.' w3-input" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo $div_close;
 	echo '<br /><br /><br /><br />';
 	echo '</form>'."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
-	echo $divc."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
+	echo $div_close."\n";
 
 	echo "\n";
 
-	#Computer Read-modal open and close script
+	# Computer Read-modal open and close script
 	echo '<script>
 var readmodal'.$a.' = document.getElementById("modal-read-'.$a.'");
 
@@ -127,8 +145,8 @@ readmodal'.$a2.'m.onclick = function(event) {
 	echo "\n";
 	$c++;
 	$c22++;
-	$capnum1++;
-	$capnum4++;
+	$chapter_number_1++;
+	$chapter_number_4++;
 	$i++;
 	$z++;
 	$a++;

@@ -1,35 +1,35 @@
 <?php
 
 # Get the localhost link
-$host = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 # Site variables
-$url = 'https://diario.netlify.app/';
-$mega_folder = 'C:/Mega/';
+$main_website_url = 'https://diario.netlify.app/';
+$hard_drive_letter = "C";
+$mega_folder = $hard_drive_letter.':/Mega/';
 $mega_folder_diario = $mega_folder.'Diario/';
-$sitephpfolder = $mega_folder.'PHP/';
+$main_php_folder = $mega_folder.'PHP/';
 
-$folder1 = 'Tabs';
-$folder2 = 'Variables';
-$folder3 = 'Years';
-$global = 'Global';
-$generic = 'Generic';
+$tabs_folder_variable = 'Tabs';
+$variables_folder_variable = 'Variables';
+$years_folder_variable = 'Years';
+$global_variable = 'Global';
+$generic_variable = 'Generic';
 
-$sitephpfoldertabs = $sitephpfolder.$folder1.'/';
-$sitephpfoldervars = $sitephpfolder.$folder2.'/';
-$sitetabsgeralfolder = $sitephpfolder.$folder1.'/'.$generic.$folder1.'/';
-$siteglobaltabsfolder = $sitephpfolder.$folder1.'/'.$global.$folder1.'/';
+$php_folder_tabs = $main_php_folder.$tabs_folder_variable.'/';
+$php_folder_variables = $main_php_folder.$variables_folder_variable.'/';
+$generic_tabs_folder = $main_php_folder.$tabs_folder_variable.'/'.$generic_variable.$tabs_folder_variable.'/';
+$global_tabs_folder = $main_php_folder.$tabs_folder_variable.'/'.$global_variable.$tabs_folder_variable.'/';
 
-$php_tabs = $sitephpfoldertabs;
+$php_tabs = $php_folder_tabs;
 
-$php_variables = $sitephpfoldervars;
-$php_vars = $sitephpfoldervars;
-$php_variables_global_files = $sitephpfoldervars.$global.' Files/';
+$php_variables = $php_folder_variables;
+$php_vars = $php_folder_variables;
+
+$php_variables_global_files = $php_folder_variables.$global_variable.' Files/';
 $php_vars_global_files = $php_variables_global_files;
 
-$php_global_tabs = $siteglobaltabsfolder;
-
-$php_tabs_variable = $php_tabs;
+$php_global_tabs = $global_tabs_folder;
 
 $main_arrays_php = $php_vars_global_files.'Main Arrays.php';
 $global_arrays_php = $php_vars_global_files.'Global Arrays.php';
@@ -40,8 +40,10 @@ $vglobal_php = $php_variables.'VGlobal.php';
 $other_index_stuff_php = $php_vars_global_files.'Other Index Stuff.php';
 
 $website_selector_file = $php_variables.'Website Selector.php';
-$genericcitiesgeneratorfile = $php_variables.'GenericCities Generator.php';
-$settingsparamsfile = $php_variables.'Settings Params.php';
+$website_style_chooser_file = $php_vars_global_files.'Website Style Chooser.php';
+$website_Style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
+$generic_tabs_generator_file = $php_vars_global_files.'GenericCities Generator.php';
+$setting_parameters_file = $php_vars_global_files.'Settings Params.php';
 
 # Main Arrays PHP file loader
 require $main_arrays_php;
@@ -66,8 +68,8 @@ require $default_setting_values_php;
 require $website_selector_file;
 
 # Language modifier
-$lang2 = strtoupper($lang);
-$lang2 = substr_replace($lang2, '-', 2, 0);
+$hyphen_separated_website_language = strtoupper($website_language);
+$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 if ($site_is_prototype == false) {
 	#VGlobal.php variables file includer
@@ -83,17 +85,17 @@ if ($site_is_prototype == true) {
 <!DOCTYPE html>
 <?php 
 
-# Siteheader displayer
-echo $siteheader;
+# Website Header displayer
+echo $website_header;
 
-if ($deactivatetabs == false and $site_is_prototype == false) {
+if ($website_deactivate_tabs_setting == false and $site_is_prototype == false) {
 	#"Tabs loader" file loader
-	require $tab_loader_php;
+	require $website_tabs_loader;
 }
 
 require $other_index_stuff_php;
 
-echo $center.'
+echo '</center>
 </body>
 </html>';
 

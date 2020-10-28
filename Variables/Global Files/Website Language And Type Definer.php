@@ -1,39 +1,39 @@
 <?php 
 
 #Language definer
-if (strpos ($host, $params[2].'='.$langs[0]) == true) {
-    $lang = $langs[0];
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[0]) == true) {
+    $website_language = $languages_array[0];
 }
 
-if (strpos ($host, $params[2].'='.$langs[1]) == true) {
-    $lang = $langs[1];
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[1]) == true) {
+    $website_language = $languages_array[1];
 }
 
-if (strpos ($host, $params[2].'='.$langs[2]) == true) {
-    $lang = $langs[2];
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[2]) == true) {
+    $website_language = $languages_array[2];
 }
 
-if (strpos ($host, $params[2].'='.$langs[3]) == true) {
-    $lang = $langs[3];
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[3]) == true) {
+    $website_language = $languages_array[3];
 }
 
 #Normal site type definer
-if (strpos ($host, $params[1].'='.$types[0]) == true) {
+if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[0]) == true) {
 	#Sitetype definer
-	$sitetype1 = $types[0];
+	$sitetype1 = $website_types_array[0];
 }
 
 #Story site type definer
-if (strpos ($host, $params[1].'='.$types[1]) == true) {
+if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[1]) == true) {
 	#Sitetype definer
-	$sitetype1 = $types[1];
+	$sitetype1 = $website_types_array[1];
 
 	#"Site has stories" setting definer
 	$sitehasstories = true;
 }
 
 #Years site type definer
-if (in_array($host, $yeararray)) {
+if (in_array($host_text, $yeararray)) {
 	$sitetype2 = 'Years';
 }
 

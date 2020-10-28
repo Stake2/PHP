@@ -16,45 +16,45 @@ $formbtnstyle = 'black w3-text-white';
 #Variables that mixes CSS tags
 $textstyle = $colortext.' black';
 $textstyle2 = 'w3-text-black white';
-$btnstyle = $color4.' '.$cssbtn1;
+$first_button_style = $color4.' '.$cssbtn1;
 $btnstyle2 = $color2.' '.$cssbtn1;
 $sitewhilestyle = $color4;
 $formcolor = $colortext2;
 
 #HTML and HTML Style variables
-$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
-$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
+$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
 $widthsize = '';
 $size = '';
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'';
-$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'';
+$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
+$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
 
 #Folder variables
-$siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $sitefolder_izaquemultiverse;
+$selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_folder = $sitefolder_izaquemultiverse;
 
 $siteimagename = 'stk2';
-$siteimage = $cdnimg.$siteimagename.'.png';
-$imglink = $siteimage;
-$imagesize1 = 30;
+$website_image = $cdnimg.$siteimagename.'.png';
+$website_image_link = $website_image;
+$website_image_size_computer = 30;
 $imagesize2 = 66;
 
 if (empty($siteimagename)) {
-	$siteimage = $cdnimg.'template.png';
-	$imglink = $siteimage;
+	$website_image = $cdnimg.'template.png';
+	$website_image_link = $website_image;
 }
 
-$sitenames = array(
+$websites_names_array = array(
 'Test title',
 'Título Teste',
 );
 
 $filenamesarray = array(
-$sitephpfolder2.'Descriptions'.'.txt',
+$selected_website_folder.'Descriptions'.'.txt',
 );
 
 $filetextarraynames = array(
@@ -71,42 +71,42 @@ foreach ($filetextarraynames as $filename) {
 #TextFileReader.php file includer
 include $textfilereaderphp;
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$placeholderdesc = 'Placeholder for the Description';
 }
 
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$placeholderdesc = 'Espaço reservado para a Descrição.';
 }
 
 if (isset($descriptions)) {
-	$sitedescs = array(
+	$website_descriptions_array = array(
 	$descriptions[0],
 	$descriptions[1],
 	);
 }
 
 else {
-	$sitedescs = array(
+	$website_descriptions_array = array(
 	$placeholderdesc,
 	$placeholderdesc,
 	);
 }
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$placeholdertitle = 'Placeholder for the Tab Title: [Icon]';
 }
 
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$placeholdertitle = 'Espaço reservado para o Título da Aba: [Ícone]';
 }
 
-#Tab titles definer
+#Tab chapter_titles definer
 $tabtitles = array(
 $tabnames[0],
 );
 
-#Tab titles definer
+#Tab chapter_titles definer
 if (!isset($tabtitles) or empty($tabtitles) or $tabtitles[0] == '') {
 	$tabtitles = array(
 	$placeholdertitle,
@@ -122,86 +122,86 @@ foreach ($tabnames as $tabname) {
 }
 
 #TabGenerator.php includer
-include $tabgeneratorphp;
+include $website_tabs_generator;
 
-#Site name, title, url and description setter
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+#Site name, title, main_website_url and description setter
+if ($website_language == $languages_array[0]) {
+	$website_language = $languages_array[1];
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$sitename = $sitenames[0].' '.$lang2;
-	$sitetitulo = $sitenames[0];
-	$sitetitulo2 = $sitenames[0].': '.$icons[11];
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $sitedescs[0];
+	$website_name = $websites_names_array[0].' '.$hyphen_separated_website_language;
+	$website_title = $websites_names_array[0];
+	$website_title_html = $websites_names_array[0].': '.$icons[11];
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_descriptions_array[0];
 
-	$siteurl = $siteurlgeral;
-	$lang = $langs[0];
+	$website_link = $selected_website_url;
+	$website_language = $languages_array[0];
 }
 
-if ($lang == $langs[1]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+if ($website_language == $languages_array[1]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$sitename = $sitenames[0];
-	$sitetitulo = $sitenames[0].' '.$lang2;
-	$sitetitulo2 = $sitenames[0].': '.$icons[11];
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $sitedescs[0];
+	$website_name = $websites_names_array[0];
+	$website_title = $websites_names_array[0].' '.$hyphen_separated_website_language;
+	$website_title_html = $websites_names_array[0].': '.$icons[11];
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_descriptions_array[0];
 
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 }
 
-if ($lang == $langs[2]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+if ($website_language == $languages_array[2]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$sitename = $sitenames[1].' '.$lang2;
-	$sitetitulo = $sitenames[1].' '.$lang2;
-	$sitetitulo2 = $sitenames[1].': '.$icons[11];
-	$sitedesc = $sitedescs[1];
-	$sitedesc2 = $sitedescs[1];
+	$website_name = $websites_names_array[1].' '.$hyphen_separated_website_language;
+	$website_title = $websites_names_array[1].' '.$hyphen_separated_website_language;
+	$website_title_html = $websites_names_array[1].': '.$icons[11];
+	$website_meta_description = $website_descriptions_array[1];
+	$website_header_description = $website_descriptions_array[1];
 
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 }
 
-if (!isset($siteurl) and !isset($sitetitulo) and !isset($sitetitulo2)) {
-	if ($lang == $langs[0]) {
-		$lang = $langs[1];
-		$lang2 = strtoupper($lang);
-		$lang2 = substr_replace($lang2, '-', 2, 0);
-		$lang = $langs[0];
+if (!isset($website_link) and !isset($website_title) and !isset($website_title_html)) {
+	if ($website_language == $languages_array[0]) {
+		$website_language = $languages_array[1];
+		$hyphen_separated_website_language = strtoupper($website_language);
+		$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+		$website_language = $languages_array[0];
 
-		$sitename = 'Placeholder for the Site Name';
-		$sitetitulo = 'Placeholder for the Site Title';
-		$sitetitulo2 = 'Placeholder for the Site Title2';
-		$sitedesc = 'Placeholder for the Description.';
-		$sitedesc2 = 'Placeholder for the Description.';
+		$website_name = 'Placeholder for the Site Name';
+		$website_title = 'Placeholder for the Site Title';
+		$website_title_html = 'Placeholder for the Site Title2';
+		$website_meta_description = 'Placeholder for the Description.';
+		$website_header_description = 'Placeholder for the Description.';
 
-		$siteurl = $siteurlgeral;
+		$website_link = $selected_website_url;
 
-		$lang = $langs[0];
+		$website_language = $languages_array[0];
 	}
 
-	if ($lang == $langs[1]) {
-		$sitename = 'Placeholder for the Site Name';
-		$sitetitulo = 'Placeholder for the Site Title';
-		$sitetitulo2 = 'Placeholder for the Site Title2';
-		$sitedesc = 'Placeholder for the Description.';
-		$sitedesc2 = 'Placeholder for the Description.';
+	if ($website_language == $languages_array[1]) {
+		$website_name = 'Placeholder for the Site Name';
+		$website_title = 'Placeholder for the Site Title';
+		$website_title_html = 'Placeholder for the Site Title2';
+		$website_meta_description = 'Placeholder for the Description.';
+		$website_header_description = 'Placeholder for the Description.';
 
-		$siteurl = $siteurlgeral.strtolower($lang2).'/';
+		$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	}
 
-	if ($lang == $langs[2]) {
-		$sitename = 'Espaço reservado para o Nome do Site';
-		$sitetitulo = 'Espaço reservado para o Título do Site';
-		$sitetitulo2 = 'Espaço reservado para o Título do Site2';
-		$sitedesc = 'Espaço reservado para a Descrição.';
-		$sitedesc2 = 'Espaço reservado para a Descrição.';
+	if ($website_language == $languages_array[2]) {
+		$website_name = 'Espaço reservado para o Nome do Site';
+		$website_title = 'Espaço reservado para o Título do Site';
+		$website_title_html = 'Espaço reservado para o Título do Site2';
+		$website_meta_description = 'Espaço reservado para a Descrição.';
+		$website_header_description = 'Espaço reservado para a Descrição.';
 
-		$siteurl = $siteurlgeral.strtolower($lang2).'/';
+		$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	}
 }
 

@@ -13,7 +13,8 @@ $border_1px_solid_with_color_template = "border_1px_solid_";
 $border_3px_solid_css_class = "border_3px";
 $border_3px_solid_with_color_template = "border_3px_solid_";
 
-$border_color_black = "border_color_black";
+$border_4px_solid_css_class = "border_4px";
+$border_4px_solid_with_color_template = "border_4px_solid_";
 
 $colors_array = array(
 "grey",
@@ -39,6 +40,7 @@ $colors_array = array(
 
 $border_1px_solid_array = array();
 $border_3px_solid_array = array();
+$border_4px_solid_array = array();
 $border_color_array = array();
 $background_hover_colors_array = array();
 $text_hover_colors_array = array();
@@ -48,6 +50,7 @@ $text_colors_array = array();
 $css_class_arrays = array(
 "border_1px_solid_array",
 "border_3px_solid_array",
+"border_4px_solid_array",
 "border_color_array",
 "background_hover_colors_array",
 "text_hover_colors_array",
@@ -58,6 +61,7 @@ $css_class_arrays = array(
 $css_class_arrays_selector_text = array(
 "border_1px_solid_",
 "border_3px_solid_",
+"border_4px_solid_",
 "border_color_",
 "background_hover_",
 "text_hover_",
@@ -84,6 +88,7 @@ while ($i <= $css_class_arrays_length) {
 $all_css_classes_arrays = array(
 $border_1px_solid_array,
 $border_3px_solid_array,
+$border_4px_solid_array,
 $border_color_array,
 $background_hover_colors_array,
 $text_hover_colors_array,
@@ -97,12 +102,12 @@ $create_border_on_hover_css_class = "create_border_on_hover";
 
 $default_background_color = $background_black_css_class;
 $default_text_color = $text_black_css_class;
-$default_border = $border_3px_solid_css_class;
-$default_border_with_white_background_hover = $default_border." ".$background_hover_white_css_class;
-$default_border_color = $border_color_black;
+$default_border_size = $border_3px_solid_css_class;
+$default_border_with_white_background_hover = $default_border_size." ".$background_hover_white_css_class;
+$default_border_color = $border_color_black_css_class;
 $default_background_hover_color = $background_hover_white_css_class;
 
-$default_full_border = $default_border." ".$default_border_color." ".$default_background_hover_color;
+$default_full_border = $default_border_size." ".$default_border_color." ".$default_background_hover_color;
 
 $website_border_color = $default_border_color;
 
@@ -110,34 +115,34 @@ $cssbtn1 = $default_full_border;
 $cssbtn2 = $create_border_on_hover_css_class;
 $cssbtn5 = "borderbtnblue";
 $classcsbtn4 = 'class="borderbtn3"';
-$zoomanim = 'w3-animate-zoom';
+$zoom_animation_class = 'w3-animate-zoom';
 $bottanim = 'w3-animate-bottom';
-$shakesidetosideanim = 'shakesidetoside';
+$shake_side_to_side_animation = 'shakesidetoside';
 
 $border_button_white = 'border_button_white';
 
-$divzoomanim = '<div class="w3-animate-zoom">';
-$divbottanim = '<div class="w3-animate-bottom">';
-$divrightanim = '<div class="w3-animate-right">';
-$divleftanim = '<div class="w3-animate-left">';
+$div_zoom_animation = '<div class="w3-animate-zoom">';
+$div_bottom_animation = '<div class="w3-animate-bottom">';
+$div_right_animation = '<div class="w3-animate-right">';
+$div_left_animation = '<div class="w3-animate-left">';
 $divlefta = '<div class="zoomnimateleft">';
 $divrighta = '<div class="zoomnimateright">';
-$divshakeanim = '<div class="animationthing">';
-$divzoomanimlouco = '<div class="animationthing2">';
+$div_shake_animation = '<div class="animationthing">';
+$div_zoom_animationlouco = '<div class="animationthing2">';
 
-$divtextalignleft = '<div style="text-align:left;">';
+$div_text_align_left = '<div style="text-align:left;">';
 $textalign_left = '<div style="text-align:left;">';
 
-$mobilevar = 'mobileShow';
-$computervar = 'mobileHide';
-$mobilediv = '<div class="'.$mobilevar.'">';
-$computerdiv = '<div class="'.$computervar.'">';
+$mobile_variable = 'mobileShow';
+$computer_variable = 'mobileHide';
+$mobile_div = '<div class="'.$mobile_variable.'">';
+$computer_div = '<div class="'.$computer_variable.'">';
 
-$mobile_div = $mobilediv;
-$computer_div = $computerdiv;
+$mobile_div = $mobile_div;
+$computer_div = $computer_div;
 
-$citystyle = 'city '.$computervar;
-$citystylem = 'city '.$mobilevar;
+$tab_style = 'city '.$computer_variable;
+$tab_style_mobile = 'city '.$mobile_variable;
 
 $n = 'h2';
 $m = 'h4';
@@ -162,12 +167,14 @@ $pc = '</p>';
 $iframestyle = 'width="100%" height="650"';
 $iframestylem = 'width="350" height="300"';
 
-$divc = '</div>';
+$div_close = '</div>';
 $h1c = '</h1>';
 $h2c = '</h2>';
-$h4c = '</h4>';
-$bigspace = '<div class="'.$computervar.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
-$bigspacemobileandcomputer = '<div class="'.$mobilevar.'"><br /><br /><br />'.$divc."\n".'<div class="'.$computervar.'"><br /><br /><br /><br /><br />'.$divc."\n";
+$h4_close = '</h4>';
+$bigspace = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
+$bigspacemobileandcomputer = '<div class="'.$mobile_variable.'"><br /><br /><br />'.$div_close."\n".'<div class="'.$computer_variable.'"><br /><br /><br /><br /><br />'.$div_close."\n";
+
+$margin_css_style = 'style="margin:10%;"';
 
 $margin = '<div style="margin:3%;">';
 $margin2 = '<div style="margin:3%;">';
@@ -175,17 +182,21 @@ $margin3 = '<div style="margin:5%;">';
 $notifbtncss1 = 'float:left;margin-left:-10%;';
 $notifbtncss2 = 'float:left;';
 
+$margin_style_10percent = 'margin:10%;';
+
 $css_font_size_20px = '20px_font_size';
 
 $global_classes = ' 20px_font_size white_space_unset';
+$websites_tab_global_number_color = "w3-text-blue";
 
 $margin_3_h1 = '<h1 style="margin-left:3%;">'.'<b>';
 
 if ($roundedbuttonson == true) {
 	$roundedborderstyle = 'style="border-radius: 50px;"';
-	$roundedborderstyle2 = 'border-radius: 50px;';
+	$rounded_border_style_2 = 'border-radius: 50px;';
 	$roundedborderstyle3 = 'border-radius: 32px;';
 	$roundedborderstyle4 = 'border-radius: 25px;';
+	$roundedborderstyle7 = 'border-radius: 20px;';
 	$roundedborderstyle5 = 'border-radius: 250px;';
 	$roundborderstyle6 = 'border-radius: 31px;';
 	$roundeddiv = '<div style="border-radius: 50px;">';
@@ -193,11 +204,13 @@ if ($roundedbuttonson == true) {
 
 else {
 	$roundedborderstyle = '';
-	$roundedborderstyle2 = '';
+	$rounded_border_style_2 = '';
 	$roundedborderstyle3 = '';
 	$roundedborderstyle4 = '';
 	$roundeddiv = '';
 }
+
+$margin_style_10percent_rounded_border = $margin_style_10percent.$rounded_border_style_2;
 
 #Icons array
 $icons = array(

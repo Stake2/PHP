@@ -42,7 +42,7 @@ if ($siteusesuniversalfilereader == true) {
 	}
 }
 
-if ($sitename == $sitediario) {
+if ($website_name == $sitediario) {
 	$diarionumbersfile = $used_folder.'Diário Numbers.txt';
 
 	if (file_exists($diarionumbersfile) == true) {
@@ -53,39 +53,39 @@ if ($sitename == $sitediario) {
 	}
 }
 
-if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
+if ($website_name == $sitewatch or in_array($website_name, $yeararray)) {
 	#Files definer for Watch.php and Years websites
 	$watched2018textfile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' Episodes.txt';
 	$watched2018timefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' Time.txt';
 
-	if (in_array($lang, $en_langs)) {
-		$watched2018mediatypefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' MediaType '.strtoupper($enus_lang).'.txt';
+	if (in_array($website_language, $en_languages_array)) {
+		$watched2018mediatypefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' MediaType '.strtoupper($enus_language).'.txt';
 	}
 
-	if (in_array($lang, $pt_langs)) {
-		$watched2018mediatypefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' MediaType '.strtoupper($ptbr_lang).'.txt';
+	if (in_array($website_language, $pt_languages_array)) {
+		$watched2018mediatypefile = $notepad_watch_history_folder.$site2018.'/Watched '.$site2018.' MediaType '.strtoupper($ptbr_language).'.txt';
 	}
 
 	$watched2019textfile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' Episodes.txt';
 	$watched2019timefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' Time.txt';
 
-	if (in_array($lang, $en_langs)) {
-		$watched2019mediatypefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' MediaType '.strtoupper($enus_lang).'.txt';
+	if (in_array($website_language, $en_languages_array)) {
+		$watched2019mediatypefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' MediaType '.strtoupper($enus_language).'.txt';
 	}
 
-	if (in_array($lang, $pt_langs)) {
-		$watched2019mediatypefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' MediaType '.strtoupper($ptbr_lang).'.txt';
+	if (in_array($website_language, $pt_languages_array)) {
+		$watched2019mediatypefile = $notepad_watch_history_folder.$site2019.'/Watched '.$site2019.' MediaType '.strtoupper($ptbr_language).'.txt';
 	}
 
 	$watched2020textfile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' Episodes.txt';
 	$watched2020timefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' Time.txt';
 
-	if (in_array($lang, $en_langs)) {
-		$watched2020mediatypefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' MediaType '.strtoupper($enus_lang).'.txt';
+	if (in_array($website_language, $en_languages_array)) {
+		$watched2020mediatypefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' MediaType '.strtoupper($enus_language).'.txt';
 	}
 
-	if (in_array($lang, $pt_langs)) {
-		$watched2020mediatypefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' MediaType '.strtoupper($ptbr_lang).'.txt';
+	if (in_array($website_language, $pt_languages_array)) {
+		$watched2020mediatypefile = $notepad_watch_history_folder.$site2020.'/Watched '.$site2020.' MediaType '.strtoupper($ptbr_language).'.txt';
 	}
 
 	$watchedmediatypefilearray = array(
@@ -100,16 +100,16 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	$twstatusfile = $notepad_watch_history_folder.'To Watch Status.txt';
 	$twmediafile = $notepad_watch_history_folder.'To Watch Folders.txt';
 
-	if (in_array($lang, $en_langs)) {
-		$twmediatypefile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_lang).'.txt';
+	if (in_array($website_language, $en_languages_array)) {
+		$twmediatypefile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_language).'.txt';
 	}
 
-	if (in_array($lang, $pt_langs)) {
-		$twmediatypefile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_lang).'.txt';
+	if (in_array($website_language, $pt_languages_array)) {
+		$twmediatypefile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_language).'.txt';
 	}
 
-	#$twmediatypeenusfile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_lang).'.txt';
-	#$twmediatypeptbrfile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_lang).'.txt';
+	#$twmediatypeenusfile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_language).'.txt';
+	#$twmediatypeptbrfile = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_language).'.txt';
 
 	if (file_exists($watchedmoviestextfile) == true) {
 		$moviesnumber = 0;
@@ -387,10 +387,10 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	if ($ano == 2020) {
 		#Media lines array
 		$linesarray = array(
-		$moviesline = 84, #Movies
-		$seriesline = 16, #Series
-		$cartoonsline = 62, #Cartoons
 		$animeline = 2, #Animes
+		$cartoonsline = 62, #Cartoons
+		$seriesline = 16, #Series
+		$moviesline = 84, #Movies
 		$videoline = '0', #Videos
 		);
 	}
@@ -404,22 +404,10 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 
 	if (file_exists($watchedtypefile) == true) {
 		$i = 0;
-		$moviesnumb = 0;
+		$animesnumb = 0;
 		while ($i <= $watchednumbfile) {
-			if ($watchedtype[$i] == 'Movie' or $watchedtype[$i] == 'Filme') {
-				$moviesnumb++;
-			}
-
-			$i++;
-		}
-	}
-
-	if (file_exists($watchedtypefile) == true) {
-		$i = 0;
-		$seriesnumb = 0;
-		while ($i <= $watchednumbfile) {
-			if ($watchedtype[$i] == 'Series' or $watchedtype[$i] == 'Série') {
-				$seriesnumb++;
+			if ($watchedtype[$i] == 'Anime') {
+				$animesnumb++;
 			}
 
 			$i++;
@@ -440,10 +428,22 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 
 	if (file_exists($watchedtypefile) == true) {
 		$i = 0;
-		$animesnumb = 0;
+		$seriesnumb = 0;
 		while ($i <= $watchednumbfile) {
-			if ($watchedtype[$i] == 'Anime') {
-				$animesnumb++;
+			if ($watchedtype[$i] == 'Series' or $watchedtype[$i] == 'Série') {
+				$seriesnumb++;
+			}
+
+			$i++;
+		}
+	}
+
+	if (file_exists($watchedtypefile) == true) {
+		$i = 0;
+		$moviesnumb = 0;
+		while ($i <= $watchednumbfile) {
+			if ($watchedtype[$i] == 'Movie' or $watchedtype[$i] == 'Filme' or $watchedtype[$i] == 'Movie^' or $watchedtype[$i] == 'Filme^') {
+				$moviesnumb++;
 			}
 
 			$i++;
@@ -464,10 +464,10 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 
 	#Media numbers array
 	$medianumbers = array(
-	$moviesnumb, #Movies
-	$seriesnumb, #Series
-	$cartoonsnumb, #Cartoons
 	$animesnumb, #Animes
+	$cartoonsnumb, #Cartoons
+	$seriesnumb, #Series
+	$moviesnumb, #Movies
 	$videonumb, #Videos
 	);
 
@@ -488,32 +488,32 @@ if ($sitename == $sitewatch or in_array($sitename, $yeararray)) {
 	}
 }
 
-if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $types[1]) {
+if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetype1 == $website_types_array[1]) {
 	#Readers, comments, readings, synopsis and story date file links
-	$readersfile = $notepad_stories_folder_variable.$storyfolder.'/Readers.txt';
-	$commentsfile = $notepad_stories_folder_variable.$storyfolder.'/Comments.txt';
-	$comments_check_file = $notepad_stories_folder_variable.$storyfolder.'/CommentsCheck.txt';
-	$storydatefile = $notepad_stories_folder_variable.$storyfolder.'/Story date.txt';
-	$synopsis_file = $notepad_stories_folder_variable.$storyfolder.'/Synopsis.txt';
-	$synopsis_pt_file = $notepad_stories_folder_variable.$storyfolder.'/Sinopse.txt';
+	$readersfile = $notepad_stories_folder_variable.$story_name_folder.'/Readers.txt';
+	$commentsfile = $notepad_stories_folder_variable.$story_name_folder.'/Comments.txt';
+	$comments_check_file = $notepad_stories_folder_variable.$story_name_folder.'/CommentsCheck.txt';
+	$story_namedatefile = $notepad_stories_folder_variable.$story_name_folder.'/Story date.txt';
+	$synopsis_file = $notepad_stories_folder_variable.$story_name_folder.'/Synopsis.txt';
+	$synopsis_pt_file = $notepad_stories_folder_variable.$story_name_folder.'/Sinopse.txt';
 
-	if ($sitename == $sitenazzevo) {
-		$chapternumberfile = $notepad_stories_folder_variable.$storyfolder.'/ChaptersNumber.txt'; 
+	if ($website_name == $sitenazzevo) {
+		$chapternumberfile = $notepad_stories_folder_variable.$story_name_folder.'/ChaptersNumber.txt'; 
 	}
 
-	$chapter_number_file = $notepad_stories_folder_variable.$storyfolder.'/Chapter Number.txt'; 
+	$chapter_number_file = $notepad_stories_folder_variable.$story_name_folder.'/Chapter Number.txt'; 
 
-	$titlesenusfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($langs[1]).'.txt';
+	$titlesenusfile = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($languages_array[1]).'.txt';
 
 	#Language-dependent text files
-	if (in_array($lang, $en_langs)) {
-		$titlesfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($langs[1]).'.txt';
-		$readsfile = $notepad_stories_folder_variable.$storyfolder.'/Leituras '.strtoupper($langs[1]).'.txt';
+	if (in_array($website_language, $en_languages_array)) {
+		$titlesfile = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($languages_array[1]).'.txt';
+		$readsfile = $notepad_stories_folder_variable.$story_name_folder.'/Leituras '.strtoupper($languages_array[1]).'.txt';
 	}
 
-	if (in_array($lang, $pt_langs)) {
-		$titlesfile = $notepad_stories_folder_variable.$storyfolder.'/CapTitles '.strtoupper($langs[2]).'.txt';
-		$readsfile = $notepad_stories_folder_variable.$storyfolder.'/Leituras '.strtoupper($langs[2]).'.txt';
+	if (in_array($website_language, $pt_languages_array)) {
+		$titlesfile = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($languages_array[2]).'.txt';
+		$readsfile = $notepad_stories_folder_variable.$story_name_folder.'/Leituras '.strtoupper($languages_array[2]).'.txt';
 	}
 
 	#File line number counters
@@ -583,7 +583,7 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
     }
 
     if (isset($readersnumb)) {
-        $readersfilenumb = $readersnumb - 1;
+        $readers_file_number = $readersnumb - 1;
         $readerstxt = $readersnumb;
     }
 
@@ -597,7 +597,7 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		$fp = fopen($titlesfile, 'r', 'UTF-8'); 
 		if ($fp) {
 			$titlestxt = explode("\n", fread($fp, filesize($titlesfile)));
-			$titles = str_replace("^", "", $titlestxt);
+			$chapter_titles = str_replace("^", "", $titlestxt);
 		}
 	}
 
@@ -633,11 +633,11 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		}
 	}
 
-	if (file_exists($storydatefile) == true) {
-		$fp = fopen($storydatefile, 'r', 'UTF-8'); 
+	if (file_exists($story_namedatefile) == true) {
+		$fp = fopen($story_namedatefile, 'r', 'UTF-8'); 
 		if ($fp) {
-			$storydatetext = explode("\n", fread($fp, filesize($storydatefile)));
-			$storydate = str_replace("^", "", $storydatetext);
+			$story_namedatetext = explode("\n", fread($fp, filesize($story_namedatefile)));
+			$story_namedate = str_replace("^", "", $story_namedatetext);
 		}
 	}
 
@@ -687,7 +687,7 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		}
 	}
 
-	if ($sitename == $sitenazzevo) {
+	if ($website_name == $sitenazzevo) {
 		if (file_exists($chapternumberfile) == true) {
 			$fp = fopen($chapternumberfile, 'r', 'UTF-8'); 
 			if ($fp) {
@@ -710,8 +710,8 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		$titlesenus = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $titlesenus);
     }
 
-    if (isset($titles)) {
-		$titles = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $titles);
+    if (isset($chapter_titles)) {
+		$chapter_titles = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $chapter_titles);
     }
 
 	if (isset($readers)) {
@@ -726,46 +726,46 @@ if ($sitename == $sitepequenata or $sitename == $sitenazzevo or $sitetype1 == $t
 		$readstxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $readstxt);
 	}
 
-	if (isset($storydate)) {
-		$storydate = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $storydate);
+	if (isset($story_namedate)) {
+		$story_namedate = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $story_namedate);
 	}
 
 	if (isset($synopsis)) {
 		$synopsis = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $synopsis);
 	}
 
-	if ($sitename == $sitenazzevo) {
+	if ($website_name == $sitenazzevo) {
 		$chapters = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $chapters);
 	}
 }
 
 if ($sitehaschangelog == true) {
 	#Changelog text file definer
-	if ($sitename == $sitewatch) {
-		if (in_array($lang, $en_langs)) {
-			$changelogfile = $sitephpfolder2.'Changelog '.$langs[1].'.php';
+	if ($website_name == $sitewatch) {
+		if (in_array($website_language, $en_languages_array)) {
+			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[1].'.php';
 		}
 
-		if (in_array($lang, $pt_langs)) {
-			$changelogfile = $sitephpfolder2.'Changelog '.$langs[2].'.php';
+		if (in_array($website_language, $pt_languages_array)) {
+			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[2].'.php';
 		}
 	}
 
 	#Changelog text file definer
 	else {
-		if (in_array($lang, $en_langs)) {
-			$changelogfile = $sitephpfolder2.'Changelog '.$langs[1].'.txt';
+		if (in_array($website_language, $en_languages_array)) {
+			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[1].'.txt';
 		}
 
-		if (in_array($lang, $pt_langs)) {
-			$changelogfile = $sitephpfolder2.'Changelog '.$langs[2].'.txt';
+		if (in_array($website_language, $pt_languages_array)) {
+			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[2].'.txt';
 		}
 	}
 
-	if (file_exists($changelogfile) == true) {
+	if (file_exists($website_changelog_file) == true) {
 		#Changelog number counter
 		$clnumber = 0;
-		$handle = fopen ($changelogfile, "r");
+		$handle = fopen ($website_changelog_file, "r");
 		while (!feof ($handle)) {
 			$line = fgets ($handle);
 			$clnumber++;
@@ -776,10 +776,10 @@ if ($sitehaschangelog == true) {
 		$clfiletext = $clnumber;
 	
 		#Changelog file reader
-		$clfilefp = fopen ($changelogfile, 'r', 'UTF-8');
+		$clfilefp = fopen ($website_changelog_file, 'r', 'UTF-8');
 		if ($clfilefp) {
-			$clroot = explode("\n", fread($clfilefp, filesize($changelogfile)));
-			$cltxt = str_replace("^", "", $clroot);
+			$clroot = explode("\n", fread($clfilefp, filesize($website_changelog_file)));
+			$website_changelog_file_text = str_replace("^", "", $clroot);
 		}
 	}
 }

@@ -6,24 +6,24 @@
 $author = 'Izaque Sanvezzo (hm182002) (stake2, Funkysnipa Cat)';
 
 #Story variables for English language
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$nazzevo = 'The Story of the Nazzevo Brothers';
 	$luiza = 'The Visit of Luiza';
 	$pequenata = 'The Life of Littletato';
 }
 
 #Story variables for Brazilian Portuguese language
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$nazzevo = 'A História dos irmãos Nazzevo';
 	$luiza = 'A Visita de Luiza';
 	$pequenata = 'A Vida de Pequenata';
 }
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$newtxt = $newtxt;
 }
 
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$newtxt = $newtxt2;
 }
 
@@ -37,21 +37,21 @@ $luiza,
 );
 
 #Story links array
-$storylinks = array(
-$url.'pequenata/',
-$url.'new_world/spaceliving/',
-$url.'lonely stories/',
-$url.'nazzevo/',
-$url.'luiza/',
+$story_namelinks = array(
+$main_website_url.'pequenata/',
+$main_website_url.'new_world/spaceliving/',
+$main_website_url.'lonely stories/',
+$main_website_url.'nazzevo/',
+$main_website_url.'luiza/',
 );
 
 #Links array
 $links = array(
-$url.'stake2/',
+$main_website_url.'stake2/',
 );
 
 #English texts
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$sitename2 = 'Text Maker';
 	$author = 'Written by '.'<a href="'.$links[0].'" class="w3-text-orange">'.$author.'</a>';
 	$author2 = 'I am Izaque Sanvezzo (stake2) and these are my stories.';
@@ -93,7 +93,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 }
 
 #Brazilian Portuguese texts
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$sitename2 = 'Fazedor de Texto';
 	$author = 'Escrito por '.'<a href="'.$links[0].'" class="w3-text-orange">'.$author.'</a>';
 	$author2 = 'Eu sou Izaque Sanvezzo (stake2) e estas são as minhas histórias.';

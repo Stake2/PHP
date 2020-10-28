@@ -1,27 +1,27 @@
 <a name="<?php echo $tabcodes[5]; ?>"></a><?php echo "\n"; ?>
-<div id="<?php echo $tabcodes[5]; ?>" class="<?php echo $citystyle; ?>" <?php echo $hidecitytextvariable; ?>><?php echo "\n"; ?>
+<div id="<?php echo $tabcodes[5]; ?>" class="<?php echo $tab_style; ?>" <?php echo $hidecitytextvariable; ?>><?php echo "\n"; ?>
 <?php echo $bigspace."\n"; ?>
-<<?php echo $n; ?> <?php echo 'class="'.$computervar.' '.$textstyle.'" '.$marginstyle1.'>'; ?><?php echo "\n"; ?>
+<<?php echo $n; ?> <?php echo 'class="'.$computer_variable.' '.$full_tab_style.'" style="'.$margin_style_10percent_rounded_border.'">'; ?><?php echo "\n"; ?>
 <?php echo $margin."\n"; ?>
 <?php
 
 echo $citiescontent[5];
 
 ?>
-<?php echo $divc."\n"; ?>
+<?php echo $div_close."\n"; ?>
 <?php echo $h2c."\n"; ?>
-<?php echo $divc."\n"; ?>
+<?php echo $div_close."\n"; ?>
 <?php echo "\n"; ?>
 <a name="<?php echo $tabcodesm[5]; ?>"></a><?php echo "\n"; ?>
-<div id="<?php echo $tabcodesm[5]; ?>" class="<?php echo $citystylem; ?>" <?php echo $hidecitytextvariable; ?>><?php echo "\n"; ?>
+<div id="<?php echo $tabcodesm[5]; ?>" class="<?php echo $tab_style_mobile; ?>" <?php echo $hidecitytextvariable; ?>><?php echo "\n"; ?>
 <?php echo $bigspace."\n"; ?>
-<<?php echo $m; ?> <?php echo 'class="'.$mobilevar.' '.$textstyle.'" '.$marginstyle1.'>'; ?><?php echo "\n"; ?>
+<<?php echo $m; ?> <?php echo 'class="'.$mobile_variable.' '.$full_tab_style.'" style="'.$margin_style_10percent_rounded_border.'">'; ?><?php echo "\n"; ?>
 <?php echo $margin."\n"; ?>
 <?php
 
 echo $citiescontent[5];
 
 ?>
-<?php echo $divc."\n"; ?>
-<?php echo $h4c."\n"; ?>
-<?php echo $divc."\n"; ?>
+<?php echo $div_close."\n"; ?>
+<?php echo $h4_close."\n"; ?>
+<?php echo $div_close."\n"; ?>

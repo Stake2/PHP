@@ -1,13 +1,13 @@
 <?php 
 
 #English texts for all websites
-if (in_array($lang, $en_langs)) {
+if (in_array($website_language, $en_languages_array)) {
 	$andtxt = 'and';
 	$newtxt = 'New';
 	$ortxt = 'or';
 	$numbertxt = 'number';
 	$langreadtext = 'Read';
-	$imglinktxt = 'image link';
+	$website_image_link_text = 'image link';
 	$siteicon = '🇺🇸';
 	$btnmenutxt = 'Mobile button menu: ';
 	$editbtntxt1 = 'Edit text';
@@ -24,7 +24,7 @@ if (in_array($lang, $en_langs)) {
 	$day_text = 'day';
 	$days_text = 'days';
 
-	if ($newdesign == true) {
+	if ($website_new_design_setting == true) {
 		$newdesigntxts = array(
 		'Story menu',
 		'Chapter menu',
@@ -33,14 +33,14 @@ if (in_array($lang, $en_langs)) {
 }
 
 #Brazilian Portuguese texts for all websites
-if (in_array($lang, $pt_langs)) {
+if (in_array($website_language, $pt_languages_array)) {
 	$andtxt = 'e';
 	$newtxt = 'Novo';
 	$newtxt2 = 'Nova';
 	$ortxt = 'ou';
 	$numbertxt = 'número';
 	$langreadtext = 'Ler';
-	$imglinktxt = 'link da imagem';
+	$website_image_link_text = 'link da imagem';
 	$siteicon = '🇧🇷';
 	$btnmenutxt = 'Menu de botões mobile: ';
 	$editbtntxt1 = 'Editar texto';
@@ -57,7 +57,7 @@ if (in_array($lang, $pt_langs)) {
 	$day_text = 'dia';
 	$days_text = 'dias';
 
-	if ($newdesign == true) {
+	if ($website_new_design_setting == true) {
 		$newdesigntxts = array(
 		'Menu de histórias',
 		'Menu de capítulos',

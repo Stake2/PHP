@@ -1,21 +1,25 @@
 <?php 
 
-#Global PHP Files
+# Global PHP Files
 $global_texts_php = $php_vars_global_files.'Global Texts.php';
-$site_header_file_php = $php_vars_global_files.'Site Header.php';
 $global_style_file_php = $php_vars_global_files.'Global Style.php';
-$tabgeneratorphp = $php_vars_global_files.'Tab Generator.php';
-$tab_loader_php = $php_vars_global_files.'Tab Loader.php';
+$website_tabs_generator = $php_vars_global_files.'Tab Generator.php';
+$website_tabs_loader = $php_vars_global_files.'Tab Loader.php';
 $computer_buttons_creator = $php_vars_global_files.'Top Buttons Creator.php';
-$topbuttonsloader = $php_vars_global_files.'Buttons PHP File Loader.php';
+$computer_buttons_bar_loader = $php_vars_global_files.'Buttons PHP File Loader.php';
 $text_file_reader_file_php = $php_vars_global_files.'Text File Reader.php';
-
-$site_css_and_javascript_definer_php = $php_vars_global_files.'Site CSS And JavaScript Definer.php';
-$global_image_variables_php = $php_vars_global_files.'Global Image Variables.php';
 $watch_and_yearwebsites_variables_php = $php_vars_global_files.'Watch And YearWebsites Variables.php';
 $newdesign_and_notifications_definer_php = $php_vars_global_files.'NewDesign And Notifications Definer.php';
 
-#New Design PHP Files
+# Website PHP Files
+$website_classes_php = $php_vars_global_files.'Website Classes.php';
+$website_header_php = $php_vars_global_files.'Website Header.php';
+$website_style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
+$website_css_and_javascript_definer_php = $php_vars_global_files.'Website CSS And JavaScript Definer.php';
+$website_image_maker = $php_vars_global_files.'Website Image Maker.php';
+$website_forms_php = $php_vars_global_files.'Website Forms.php';
+
+# New Design PHP Files
 $newdesignphp = $newdesign_php_folder_variable.'NewDesignScript.php';
 $newdesignsitephp = $newdesign_php_folder_variable.'NewDesignSite.php';
 
@@ -25,39 +29,38 @@ $css_pack_desertisland = $css_packs_php_folder.'DesertIsland CSS Pack.php';
 
 $vyears_php = $sitefolder_years.'VYears.php';
 
-#PHP Files
+# PHP Files
 $globalfilesphp = array(
-$formfile = $php_variables.'FormFile.php',
-$notificationsphp = $php_variables.'Notifications.php',
-$city_bodies_generator_php = $php_variables.'CityBodies Generator.php',
-$sitesbuttonsattributes = $sitebuttons_files_php_folder_variable.'SitesButtons Attributes.php',
-$sitesbuttonstab = $sitebuttons_files_php_folder_variable.'SitesButtons Tab.php',
-$sitesbuttonscreator = $sitebuttons_files_php_folder_variable.'Sites Button Creator.php',
+$notifications_php = $php_vars_global_files.'Notifications.php',
+$tab_bodies_generator = $php_vars_global_files.'Tab Bodies Generator.php',
+$websites_tab_attributes = $websites_tab_folder_variable.'Websites Tab Attributes.php',
+$websites_tab_generator = $websites_tab_folder_variable.'Websites Tab Generator.php',
+$websites_tab_button_maker = $websites_tab_folder_variable.'Websites Tab Button Maker.php',
 );
 
-$city_bodies_generator_php_variable = $city_bodies_generator_php;
+$tab_bodies_generator_php_variable = $tab_bodies_generator;
 
-#Story PHP files
-$story_variables_php = $story_files_php_folder_variable.'VStories.php';
+# Story PHP files
+$story_name_variables_php = $story_name_files_php_folder_variable.'VStories.php';
 
-$cover_images_displayer_php = $story_files_php_folder_variable.'Cover Images Displayer.php';
-$cover_images_generator_php = $story_files_php_folder_variable.'Cover Images Generator.php';
+$cover_images_displayer_php = $story_name_files_php_folder_variable.'Cover Images Displayer.php';
+$cover_images_generator_php = $story_name_files_php_folder_variable.'Cover Images Generator.php';
 
-$open_chapter_script_php = $story_files_php_folder_variable.'Open Chapter Script.php';
-$chapter_button_generator_php = $story_files_php_folder_variable.'CapButton Generator.php';
-$chapter_tab_generator_php = $story_files_php_folder_variable.'Chapter Tab Generator.php';
-$chapter_text_displayer_php = $story_files_php_folder_variable.'Chapter Text Displayer.php';
-$chapter_writer_displayer_php = $story_files_php_folder_variable.'Chapter Writer Displayer.php';
-$chapter_writer_form_php = $story_files_php_folder_variable.'Chapter Writer Form.php';
-$chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'Chapter Comment And Read Displayer.php';
-$new_chapter_comment_and_read_displayer_php = $story_files_php_folder_variable.'New Chapter Comment And Read Displayer.php';
-$story_details_definer_php = $story_files_php_folder_variable.'Story Details Definer.php';
+$open_chapter_script_php = $story_name_files_php_folder_variable.'Open Chapter Script.php';
+$chapter_button_generator_php = $story_name_files_php_folder_variable.'Chapter Button Generator.php';
+$chapter_tab_generator_php = $story_name_files_php_folder_variable.'Chapter Tab Generator.php';
+$chapter_text_displayer_php = $story_name_files_php_folder_variable.'Chapter Text Displayer.php';
+$chapter_writer_displayer_php = $story_name_files_php_folder_variable.'Chapter Writer Displayer.php';
+$chapter_writer_form_php = $story_name_files_php_folder_variable.'Chapter Writer Form.php';
+$chapter_comment_and_read_displayer_php = $story_name_files_php_folder_variable.'Chapter Comment And Read Displayer.php';
+$new_chapter_comment_and_read_displayer_php = $story_name_files_php_folder_variable.'New Chapter Comment And Read Displayer.php';
+$story_name_details_definer_php = $story_name_files_php_folder_variable.'Story Details Definer.php';
 
-$story_reads_generator_php = $story_files_php_folder_variable.'Story Reads Generator.php';
-$read_modal_generator_php = $story_files_php_folder_variable.'Read Modal Generator.php';
-$comment_modal_generator_php = $story_files_php_folder_variable.'Comment Modal Generator.php';
+$reads_generator_php = $story_name_files_php_folder_variable.'Reads Generator.php';
+$read_modal_generator_php = $story_name_files_php_folder_variable.'Read Modal Generator.php';
+$comment_modal_generator_php = $story_name_files_php_folder_variable.'Comment Modal Generator.php';
 
-$story_variables_php_variable = $story_variables_php;
+$story_name_variables_php_variable = $story_name_variables_php;
 
 $cover_images_displayer_php_variable = $cover_images_displayer_php;
 $cover_images_generator_php_variable = $cover_images_generator_php;
@@ -70,19 +73,19 @@ $chapter_writer_displayer_php_variable = $chapter_writer_displayer_php;
 $chapter_writer_form_php_variable = $chapter_writer_form_php;
 $chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_displayer_php;
 $new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
-$story_details_definer_php_variable = $story_details_definer_php;
+$story_name_details_definer_php_variable = $story_name_details_definer_php;
 
-$story_reads_generator_php_variable = $story_reads_generator_php;
+$reads_generator_php_variable = $reads_generator_php;
 $read_modal_generator_php_variable = $read_modal_generator_php;
 $comment_modal_generator_php_variable = $comment_modal_generator_php;
 
 #GlobalTabs array
 $globaltabs = array(
-$chapter_generator_global = $php_global_tabs.'Chapters Generator '.$global.'.php',
-$readersglobal = $php_global_tabs.'Readers'.$global.'.php',
-$commentsglobal = $php_global_tabs.'Comments'.$global.'.php',
-$writeglobal = $php_global_tabs.'Write'.$global.'.php',
-$storiesglobal = $php_global_tabs.'Stories'.$global.'.php',
+$chapter_generator_global = $php_global_tabs.'Chapters Generator '.$global_variable.'.php',
+$readersglobal = $php_global_tabs.'Readers'.$global_variable.'.php',
+$commentsglobal = $php_global_tabs.'Comments '.$global_variable.'.php',
+$writeglobal = $php_global_tabs.'Write'.$global_variable.'.php',
+$storiesglobal = $php_global_tabs.'Stories'.$global_variable.'.php',
 );
 
 $chapter_generator_global_variable = $chapter_generator_global;

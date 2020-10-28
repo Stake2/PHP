@@ -4,24 +4,24 @@ $new_synopsis = str_replace('<br />', "\n", $synopsis);
 $new_sinopse = str_replace('<br />', "\n", $sinopse);
 
 # Site descriptions
-$sitedescs = array(
+$website_descriptions_array = array(
 'Synopsis: '.$new_synopsis,
 'Sinopse: '.$new_sinopse,
 );
 
 # Synopsis text definer using the $synopsis that is generated from TextFileReader.php
-$descs = array(
+$website_html_descriptions_array = array(
 'Synopsis: <i class="fas fa-scroll"></i> "'.$synopsis.'"<br />',
 'Sinopse: <i class="fas fa-scroll"></i> "'.$sinopse.'"<br />',
 );
 
 # Site name in English and Brazilian Portuguese language
-$sitenames = array(
-$enus_title = $story,
-$pt_title = $story,
+$websites_names_array = array(
+$enus_title = $story_name_name,
+$pt_title = $story_name_name,
 );
 
 # Story date definer using story date text file
-$storydate = $storydate[0];
+$story_namedate = $story_namedate[0];
 
 ?>

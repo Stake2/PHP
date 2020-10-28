@@ -1,36 +1,36 @@
 <?php 
 
 #2018 Website setter
-if (strpos ($host, $params[0].'='.$siteizaquemultiverse) == true) {
-	$choosenwebsite = $siteizaquemultiverse;
+if (strpos ($host_text, $website_selector_parameters[0].'='.$siteizaquemultiverse) == true) {
+	$selected_website = $siteizaquemultiverse;
 
-	$site = $choosenwebsite;
-	$sitename = $choosenwebsite;
-	$setsitecssfile = $pocbcss;
+	$site = $selected_website;
+	$website_name = $selected_website;
+	$choosed_website_css_file = $css_file_pocb;
 
 	#Site settings
-	$siteusescitybodygenerator = true;
+	$website_uses_tab_body_generator = true;
 	$siteusesuniversalfilereader = true;
 
 	$tabs = array();
 
 	#Site settings setter file includer
-	include $settingsparamsfile;
+	include $setting_parameters_file;
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 		$tabnames = array('First Tab');
 	}
 
-	if ($lang == $langs[2]) {
+	if ($website_language == $languages_array[2]) {
 		$tabnames = array('Primeira Aba');
 	}
 
 	if (empty($tabnames)) {
-		if ($lang == $langs[0] or $lang == $langs[1]) {
+		if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 			array_push($tabnames, 'Placeholder of the Tab');
 		}
 
-		if ($lang == $langs[2]) {
+		if ($website_language == $languages_array[2]) {
 			array_push($tabnames, 'Espaço reservado para a Aba');
 		}
 	}
@@ -39,7 +39,7 @@ if (strpos ($host, $params[0].'='.$siteizaquemultiverse) == true) {
 	$tabnumb2 = $tabnumb;
 
 	#Includer of the array of the GenericTabs files
-	include $genericcitiesgeneratorfile;
+	include $generic_tabs_generator_file;
 }
 
 ?>

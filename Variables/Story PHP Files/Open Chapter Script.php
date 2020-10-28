@@ -4,7 +4,7 @@ echo 'function OpenChapter() {'."\n".
 	'	var site = window.location;'."\n".
 	'	var site2 = '."'".'"'."'".' + site + '."'".'"'."'".';'."\n".
 	'	var userLang = navigator.language || navigator.userLanguage;'."\n".
-	'	var captext1 = "'.$capdiv.'";
+	'	var captext1 = "'.$chapter_div_text.'";
 	'.
 
 	'

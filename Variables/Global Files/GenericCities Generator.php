@@ -8,13 +8,13 @@ if ($hidecitysetting != true) {
 	$hidecitytextvariable = '';
 }
 
-if ($notsomuchspace == true) {
+if ($website_not_so_much_space_setting == true) {
 	$bigspace = '';
 }
 
 else {
-	$computervar = 'mobileHide';
-	$bigspace = '<div class="'.$computervar.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
+	$computer_variable = 'mobileHide';
+	$bigspace = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
 	$bigspace = $bigspace;
 }
 
@@ -23,7 +23,7 @@ $i = 0;
 while ($i <= $tabnumb) {
 	$i2 = $i + 1;
 
-	$cities[$i] = $sitetabsgeralfolder.'City'.$i2.'.php';
+	$cities[$i] = $generic_tabs_folder.'City'.$i2.'.php';
 
 	$i++;
 }

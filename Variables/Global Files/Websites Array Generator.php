@@ -7,15 +7,15 @@ foreach ($sitearray as $value) {
 
     ${"site$value"} = $value;
 
-	$sitenamesarray[$i] = ${"site$value"};
+	$website_names_array[$i] = ${"site$value"};
 
 	$i++;
 }
 
-#Website titles array
+#Website chapter_titles array
 $i = 0;
 foreach ($sitetitlesarray as $value) {
-	$varresource = strtolower($sitenamesarray[$i]);
+	$varresource = strtolower($website_names_array[$i]);
 
     ${"sitename_$varresource"} = $value;
 
@@ -26,7 +26,7 @@ foreach ($sitetitlesarray as $value) {
 
 #Array of the paths of the website folders in the local drive
 $i = 0;
-foreach ($sitenamesarray as $value) {
+foreach ($website_names_array as $value) {
     ${"sitefolder_$value"} = $php_tabs.ucwords($sitearray[$i]).'/';
 
 	$sitefolders[$i] = ${"sitefolder_$value"};

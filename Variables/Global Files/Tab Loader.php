@@ -13,36 +13,24 @@ while ($i <= $tabnumb) {
 }
 
 #Diario site php file loader
-if ($sitename == $sitediario or $sitename == ucwords($sitediario) or $site == $sitediario) {
-	include $sitesbuttonstab;
+if ($website_name == $sitediario or $website_name == ucwords($sitediario) or $site == $sitediario) {
+	include $websites_tab_generator;
 	require $chapter_generator_global_variable;
 }
 
 #ChapterReader.php includer for Pequenata website
-if ($sitetype1 == $types[1]) {
-	if ($sitename == $sitepequenata) {
-		$pqntcr = true;
-	}
-
-	else {
-		$pqntcr = false;
-	}
-
+if ($sitetype1 == $website_types_array[1]) {
 	require $chapter_generator_global_variable;
 }
 
-if ($sitename == $sitediario or $sitename == ucwords($sitediario) or $site == $sitediario) {
-	echo '';
-}
-
-else {
+if ($website_name != $sitediario or $website_name != ucwords($sitediario) or $site != $sitediario) {
 	#SiteButton displayer and SiteButtons tab includer
-	if ($deactivatesitesbtn == false) {
+	if ($website_deactivate_website_buttons_setting == false) {
 		echo "<br /><br /><br /><br /><br /><br /><br /><br /><br />"."\n";
-		echo $sitebtn."\n";
+		echo $websites_tab_button_centered."\n";
 	}
 
-	include $sitesbuttonstab;
+	include $websites_tab_generator;
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php 
 
 #SuperAnimes test CSS and script
-if ($newdesign == true) {
+if ($website_new_design_setting == true) {
 	#SuperAnimes test loader
 	include $newdesignphp;
 
@@ -15,18 +15,18 @@ else {
 }
 
 #Notifications CSS and script includer
-if ($sitehasnotifications == true) {
+if ($website_has_notifications == true) {
 	$notificationcss = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Notification.css" />'."\n";
 	$notificationscript = '<script src="'.$cdnjs.'Notification.js"></script>'."\n".
 	'<script src="'.$cdnjs.'HideNotification.js"></script>';
 }
 
-if ($sitehasnotifications == false) {
+if ($website_has_notifications == false) {
 	$notificationcss = '';
 	$notificationscript = '';
 }
 
-if ($sitename == $sitetextmaker) {
+if ($website_name == $sitetextmaker) {
 	$editbtnscript = '<script src="'.$cdnjs.'EditBtn.js"></script>';
 }
 

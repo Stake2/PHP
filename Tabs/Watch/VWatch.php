@@ -1,27 +1,27 @@
 <?php 
 
 #CSS style variables
-$color2 = $background_yellow_css_class;
-$color4 = $background_blue_css_class;
-$colortext = "w3-text-blue";
-$sitehr = $border_1px_solid_blue;
-$sitehr2 = $border_1px_solid_yellow;
-$textstyle = $background_white_css_class." w3-text-white";
+#$color2 = $background_yellow_css_class;
+#$color4 = $background_blue_css_class;
+#$colortext = "w3-text-blue";
+#$sitehr = $border_1px_solid_blue;
+#$sitehr2 = $border_1px_solid_yellow;
+#$textstyle = $background_white_css_class." w3-text-white";
 
 #Variables that mixes CSS tags
-$btnstyle = $color4.' '.$cssbtn1;
-$btnstyle2 = $color2.' '.$cssbtn1;
+#$first_button_style = $color4.' '.$cssbtn1;
+#$btnstyle2 = $color2.' '.$cssbtn1;
 
 #HTML and HTML Style variables
-$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'">';
-$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'">';
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
-$sitewhilestyle = $color4;
-$border = 'border-width:4px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
-$border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'';
+#$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'">';
+#$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'">';
+#$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'">';
+#$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'"';
+#$sitewhilestyle = $color4;
+#$border = 'border-width:4px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'';
+#$border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'';
 
 $website_border_color = "slhr";
 #$website_border_color = $border_3px_solid_blue_css_class;
@@ -29,8 +29,8 @@ $website_border_color = "slhr";
 $moviesnumb = 0;
 
 #Folder variables
-$siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $php_tabs_variable.ucwords($site).'/';
+$selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_folder = $php_tabs.ucwords($site).'/';
 
 #Comment links
 $cmntlinks = array(
@@ -53,18 +53,18 @@ $cmnts = array(
 );
 
 #Site image link and image size
-$siteimage = 'WH';
-$siteimage = $cdnimg.$siteimage.".png";
-$imglink = $siteimage;
-$imagesize1 = 27;
-$imagesize2 = 61;
+$website_image = 'WH';
+$website_image = $cdnimg.$website_image.".png";
+$website_image_link = $website_image;
+$website_image_size_computer = 27;
+$website_image_size_mobile = 61;
 
 #Site descriptions
-$sitedescs = array(
+$website_descriptions_array = array(
 'Website to show videos, animes, series, movies that I watched and that I will watch, made by stake2.', 
 'Site para mostrar videos, animes, séries, filmes que assisti e videos que eu vou assistir, feito por stake2.');
 
-$descs = array(
+$website_html_descriptions_array = array(
 'Website to show videos, animes, series, movies that I watched and that I will watch, made by stake2.', 
 'Site para mostrar videos, animes, séries, filmes que assisti e videos que eu vou assistir, feito por stake2.');
 
@@ -108,54 +108,54 @@ include $yearsvarsfilephp;
 #Watch History website texts file includer
 include $watchtextsphp;
 
-#General language sitename, title, url and description
-if ($lang == $langs[0]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $site;
+#General language website_name, title, main_website_url and description
+if ($website_language == $languages_array[0]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $site;
 	
-	$sitetitulo = ucwords($site).' History';
-	$sitetitulo2 = ucwords($site).' History'.': '.$icons[5].' '.$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
-	$siteurl = $siteurlgeral;
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $descs[0];
+	$website_title = ucwords($site).' History';
+	$website_title_html = ucwords($site).' History'.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$website_link = $selected_website_url;
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_html_descriptions_array[0];
 }
 
-#English language sitename, title, url and description
-if ($lang == $langs[1]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $site;
+#English language website_name, title, main_website_url and description
+if ($website_language == $languages_array[1]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $site;
 	
-	$sitetitulo = ucwords($site).' History '.$lang2;
-	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].' '.$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $descs[0];
+	$website_title = ucwords($site).' History '.$hyphen_separated_website_language;
+	$website_title_html = ucwords($site).' History '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_html_descriptions_array[0];
 }
 
-#Brazilian Portuguese language sitename, title, url and description
-if ($lang == $langs[2]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $site;
+#Brazilian Portuguese language website_name, title, main_website_url and description
+if ($website_language == $languages_array[2]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $site;
 
-	$sitetitulo = ucwords($site).' History '.$lang2;
-	$sitetitulo2 = ucwords($site).' History '.$lang2.': '.$icons[5].' '.$yellowspan.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $descs[1];
+	$website_title = ucwords($site).' History '.$hyphen_separated_website_language;
+	$website_title_html = ucwords($site).' History '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_html_descriptions_array[1];
 }
 
 #Tabtexts definers for English and General language
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$tabnames[0] = substr_replace($tabnames[0], ' ', 7, 0);
 	$tabnames[7] = substr_replace($tabnames[7], '-', 6, 0);
 	$tabnames[7] = strtr($tabnames[7], "l", strtoupper("l"));;
 }
 
 #Tabtexts definers for Brazilian Portuguese language
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$tabnames[0] = substr_replace($tabnames[0], ' ', 10, 0);
 }
 
@@ -184,6 +184,6 @@ $icons[13],
 );
 
 #TabGenerator.php includer
-include $tabgeneratorphp;
+include $website_tabs_generator;
 
 ?>

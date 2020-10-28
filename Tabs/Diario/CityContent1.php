@@ -1,11 +1,11 @@
 <?php 
 
 echo '<'.$m.'>'.'<b>';
-echo $divzoomanim;
+echo $div_zoom_animation;
 
 #echo
 
-$reviewedcap = 0;
+$reviewed_chapter = 0;
 
 require $chapter_button_generator_php;
 
@@ -23,7 +23,7 @@ while ($blocknum1 <= $publishedblocks) {
 	$blocknum1++;
 }*/
 
-echo $divc;
+echo $div_close;
 echo '</b>'.'</'.$m.'>';
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 #Get the localhost link
-$host = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 $files = array(
 'Tabs/ThindsIDo/Index.php',
@@ -10,57 +10,57 @@ $files = array(
 $phpfile = true;
 
 #Site variables
-$url = "https://diario.netlify.app";
-$folder1 = 'Tabs';
-$folder2 = 'Variables';
-$folder3 = 'Years';
-$global = 'Global';
-$generic = 'Generic';
-$sitephpfolder = "C:/Mega/Diario/PHP/";
-$sitephpfoldergeraltabs = $sitephpfolder.$global.'/'.$folder1.'/';
-$sitephpfoldergeralvars = $sitephpfolder.$global.'/'.$folder2.'/';
-$settingsparamsfile = $sitephpfoldergeralvars.'Settings Params'.'.php';
+$main_website_url = "https://diario.netlify.app";
+$tabs_folder_variable = 'Tabs';
+$variables_folder_variable = 'Variables';
+$years_folder_variable = 'Years';
+$global_variable = 'Global';
+$generic_variable = 'Generic';
+$main_php_folder = "C:/Mega/Diario/PHP/";
+$sitephpfoldergeraltabs = $main_php_folder.$global_variable.'/'.$tabs_folder_variable.'/';
+$sitephpfoldergeralvars = $main_php_folder.$global_variable.'/'.$variables_folder_variable.'/';
+$setting_parameters_file = $sitephpfoldergeralvars.'Settings Params'.'.php';
 
 #URL parameters
-$params = array(
+$website_selector_parameters = array(
 'site', 
 'type', 
-'lang', 
-'twonly',
+'website_language', 
+'website_watch_history_show_to_watch_only_setting',
 'subsite',
 );
 
 #URL settings parameters
-$settingsparams = array(
-'notif',
-'commenttab',
-'showcomments',
-'hasstories',
-'hascl',
-'writestory',
-'writeformtxt',
+$setting_parameters = array(
+'website_notification_setting',
+'website_comment_tab_setting',
+'website_show_comments_setting',
+'website_has_stories_setting',
+'website_has_change_log_tab_setting',
+'website_write_story_setting',
+'website_show_write_form_text_setting',
 'writestorytext',
 'translate',
-'chaptertowrite',
+'website_chapter_to_write_setting',
 );
 
-#URL Site types
-$types = array(
+#URL Site website_types_array
+$website_types_array = array(
 'site', 
 'story',
 );
 
 #URL Site languages
-$langs = array(
+$languages_array = array(
 'geral', 
 'enus', 
 'ptbr',
 );
 
 #Folder variables
-$sitetabsgeralvarsfolder = $sitephpfolder.$global.'/'.$folder2.'/';
-$sitetabsgeralfolder = $sitephpfolder.$global."/".$folder1."/".$generic.$folder1."/";
-$siteglobaltabsfolder = $sitephpfolder.$global."/".$folder1."/".$global.$folder1."/";
+$sitetabsgeralvarsfolder = $main_php_folder.$global_variable.'/'.$variables_folder_variable.'/';
+$generic_tabs_folder = $main_php_folder.$global_variable."/".$tabs_folder_variable."/".$generic_variable.$tabs_folder_variable."/";
+$global_tabs_folder = $main_php_folder.$global_variable."/".$tabs_folder_variable."/".$global_variable.$tabs_folder_variable."/";
 
 #Array of website names
 $sitearray = array(
@@ -128,62 +128,62 @@ $site2020,
 
 #Links for the years
 $yearlinks = array(
-$url.'/'.$folder3.'/'.$site2018.'/', 
-$url.'/'.$folder3.'/'.$site2019.'/', 
-$url.'/'.$folder3.'/'.$site2020.'/',
+$main_website_url.'/'.$years_folder_variable.'/'.$site2018.'/', 
+$main_website_url.'/'.$years_folder_variable.'/'.$site2019.'/', 
+$main_website_url.'/'.$years_folder_variable.'/'.$site2020.'/',
 );
 
 $yearnumb = 2;
 
 #Language definer
-if (strpos ($host, $params[2].'='.$langs[0]) == true) {
-    $lang = $langs[0];
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[0]) == true) {
+    $website_language = $languages_array[0];
 }
 
-if (strpos ($host, $params[2].'='.$langs[1]) == true) {
-    $lang = $langs[1];
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[1]) == true) {
+    $website_language = $languages_array[1];
 }
 
-if (strpos ($host, $params[2].'='.$langs[2]) == true) {
-    $lang = $langs[2];
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[2]) == true) {
+    $website_language = $languages_array[2];
 }
 
 #Normal site type definer
-if (strpos ($host, $params[1].'='.$types[0]) == true) {
+if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[0]) == true) {
 	#Sitetype definer
-	$sitetype1 = $types[0];
+	$sitetype1 = $website_types_array[0];
 }
 
 #Story site type definer
-if (strpos ($host, $params[1].'='.$types[1]) == true) {
+if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[1]) == true) {
 	#Sitetype definer
-	$sitetype1 = $types[1];
+	$sitetype1 = $website_types_array[1];
 
 	#"Site has stories" setting definer
 	$sitehasstories = true;
 }
 
 #Years site type definer
-if (in_array($host, $yeararray)) {
+if (in_array($host_text, $yeararray)) {
 	$sitetype2 = 'Years';
 }
 
 $sitesbuttonintab = false;
-$sitehasnotifications = false;
+$website_has_notifications = false;
 $sitehasstories = false;
-$siteshowscomments = false;
+$websites_shows_comments = false;
 $sitehaschangelog = false;
 $sitestorywrite = false;
-$chaptertowrite = false;
+$website_chapter_to_write_setting = false;
 $roundedbuttonson = true;
 $thingsidofake = false;
 $watchmedias2018 = false;
 $watchmedias2019 = false;
 
 #"Things I do" Website definer
-if (strpos ($host, $params[0].'='.$sitethingsido) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == true) {
 	#Site title and name definer
-	$sitename = $sitethingsido;
+	$website_name = $sitethingsido;
 	$site = $sitethingsido;
 
 	#Site settings
@@ -194,25 +194,25 @@ if (strpos ($host, $params[0].'='.$sitethingsido) == true) {
 	$tabs = array('Productive Things', 'Not Productive Things');
 
 	#Site Tabnames array
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 		$tabnames = array('Productive Things', 'Not Productive Things', 'To Write', 'Make Websites', 'To Program/Code', 'Edit Videos', 'To Draw', 'Listen to Music', 'To Talk', 'To Watch', 'To Play Games', 'Songs', 'Playlists');
 	}
 
-	if ($lang == $langs[2]) {
+	if ($website_language == $languages_array[2]) {
 		$tabnames = array('Coisas Produtivas', 'Coisas Não Produtivas', 'Escrever', 'Fazer Sites', 'Programar', 'Editar Vídeos', 'Desenhar', 'Ouvir música', 'Conversar', 'Assistir', 'Jogar Jogos', 'Músicas', 'Playlists');
 	}
 
 	#Number of tabs
 	$tabnumb = 2;
 
-	$cities[0] = $sitetabsgeralfolder.'City1.php';
-	$cities[1] = $sitetabsgeralfolder.'City2.php';
-	$cities[2] = $sitetabsgeralfolder.'City3.php';
+	$cities[0] = $generic_tabs_folder.'City1.php';
+	$cities[1] = $generic_tabs_folder.'City2.php';
+	$cities[2] = $generic_tabs_folder.'City3.php';
 }
 
 #Lang modifier
-$lang2 = strtoupper($lang);
-$lang2 = substr_replace($lang2, '-', 2, 0);
+$hyphen_separated_website_language = strtoupper($website_language);
+$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 #VGlobal.php variables file includer
 include $sitetabsgeralvarsfolder."VGlobal.php";
@@ -222,10 +222,10 @@ include $sitetabsgeralvarsfolder."VGlobal.php";
 <?php 
 
 #Siteheader displayer
-echo $siteheader;
+echo $website_header;
 
 #Site notification file includer if setting is true
-if ($sitehasnotifications == true) {
+if ($website_has_notifications == true) {
 	echo $notificationscript;
 	echo '<script>
 function hidenotif() {

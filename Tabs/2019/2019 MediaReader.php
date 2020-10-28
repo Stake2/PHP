@@ -1,13 +1,13 @@
 <?php 
 
-echo $divzoomanim."\n";
+echo $div_zoom_animation."\n";
 echo '<div style="text-align:left;">'."\n";
 
 #Media loader for 2019 using "Watched VideoTypes 2019"
 #Used in the ArchivedMedias Tab on Watch History.php
 
 #Number resetter for Watch History website
-if ($sitename == $sitewatch) {
+if ($website_name == $sitewatch) {
 	$watchednumb = $watched2019number;
 
 	#Medias numbers for 2018 Medias
@@ -32,16 +32,16 @@ if ($sitename == $sitewatch) {
 	$videosline = $original5;
 }
 
-if ($sitename == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $sitename == $sitethingsido) {
+if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {
 	echo '<b>'.$blackspan.$txts[4].': '.$spanc.'</b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
 }
 
-if ($sitename == $sitewatch  and $thingsidofake == null or $thingsidofake == false and $watchmedias2019 == true) {
+if ($website_name == $sitewatch  and $thingsidofake == null or $thingsidofake == false and $watchmedias2019 == true) {
 	echo '<b>'.$whitespan.$txts[4].': '.$spanc.'</b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc."\n".'<br />'."\n";
 }
 
-if ($sitename != $sitewatch) {
-	echo '<b>'.'<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': '.$bluespan.$watchednumb.$spanc.'</b>'."\n".'<br />'."\n";
+if ($website_name != $sitewatch) {
+	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': '.$bluespan.$watchednumb.$spanc.'</b>'."\n".'<br />'."\n";
 }
 
 $a2019 = false;
@@ -244,7 +244,7 @@ $cartoonsline = $original3;
 $animesline = $original4;
 $videosline = $original5;
 
-echo $divc."\n";
-echo $divc."\n";
+echo $div_close."\n";
+echo $div_close."\n";
 
 ?>

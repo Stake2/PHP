@@ -6,7 +6,7 @@ $newdesignscript = '<script src="https://www.superanimes.org/js/config.min.js?v=
 </script>
 <script src="https://www.superanimes.org/js/lazyLoad.min.js"></script>
 <script>
-	eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!"".replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return"\\w+"};c=1};while(c--){if(k[c]){p=p.replace(new RegExp("\\b"+e(c)+"\\b","g"),k[c])}}return p}("y="1v://R.S.T";x="U/V/W=";$.Q({c:{X:x},});$(".Z").4(2(){$(".m-7").q(f);$("d").10("g");$("#11").12()});$(".O").4(2(){$(".m-7").6(f);$("d").k("g")});$(".l-7-14").4(2(){$(".l-7").6(f);$("d").k("g")});$(u).Y(2(e){p(e.P===N){$(".m-7, .l-7").6(f);$("d").k("g")}});8 h=F;$(".15").13(2(){8 3=$(9).3();8 17=3.1l(" ",F);p(3.1u>=h){$(9).3(3.C(0,h)+"<a r=\"i-v\"> ... 1t 16 </a><w r=\"i-t\">"+3.C(h)+"</w>")}}).A("4",".i-v",2(){$(9).6().1r(".i-t").q()});$(".1q").4(2(){$(".n").6()});$(".1p").4(2(){$(".n").q()});$(".1o").4(2(){8 o=$("1n[1m=\"b\"]:1k").18();8 5=$(9).D("c-b-5");$.1j({1i:"1h",1g:y+"/z/b.z.1f",c:{o:o,5:5},1e:"1d",1c:2(j){p(j.1a===1){$(".G").3(j.B)}19{$(".G").1s("<s r=\"E E-1b\">"+j.B+"</s>")}}})});$(u).A("4",".K",2(){8 5=$(9).D("c-b-5");J("I",5,H*L*M);$(".n").6()});",62,94,"||function|html|click|id|hide|box|var|this||enquete|data|body||100|noScroll|leiamais_limit|leiamais|result|removeClass|full|search|enqueteBox|valor|if|show|class|div|tail|document|btn|span|TOKEN_CSRF|BASE|inc|on|mensagem|substring|attr|alert|250|enqueteContent|30|poll|createCookie|js_fechar_votar|24|60|27|closeSearch|keyCode|ajaxSetup|www|superanimes|org|TIx6iX3ppJHoA14biLyNGN3MKIqDI7rH4lH|9x|dlgM|token|keyup|actionSearch|addClass|buscador|focus|each|close|alertCorpo|Mais|cut|val|else|codigo|danger|success|json|dataType|php|url|post|type|ajax|checked|indexOf|name|input|js_votar|votar_enquete_show|js_enquete_close|siblings|prepend|Leia|length|https".split("|"),0,{}))
+	eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!"".replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return"\\w+"};c=1};while(c--){if(k[c]){p=p.replace(new RegExp("\\b"+e(c)+"\\b","g"),k[c])}}return p}("y="1v://R.S.T";x="U/V/W=";$.Q({c:{X:x},});$(".Z").4(2(){$(".m-7").q(f);$("d").10("g");$("#11").12()});$(".O").4(2(){$(".m-7").6(f);$("d").k("g")});$(".l-7-14").4(2(){$(".l-7").6(f);$("d").k("g")});$(u).Y(2(e){p(e.P===N){$(".m-7, .l-7").6(f);$("d").k("g")}});8 h=F;$(".15").13(2(){8 3=$(9).3();8 17=3.1l(" ",F);p(3.1u>=h){$(9).3(3.C(0,h)+"<a r=\"i-v\"> ... 1t 16 </a><w r=\"i-t\">"+3.C(h)+"</w>")}}).A("4",".i-v",2(){$(9).6().1r(".i-t").q()});$(".1q").4(2(){$(".n").6()});$(".1p").4(2(){$(".n").q()});$(".1o").4(2(){8 o=$("1n[1m=\"b\"]:1k").18();8 5=$(9).D("c-b-5");$.1j({1i:"1h",1g:y+"/z/b.z.1f",c:{o:o,5:5},1e:"1d",1c:2(j){p(j.1a===1){$(".G").3(j.B)}19{$(".G").1s("<s r=\"E E-1b\">"+j.B+"</s>")}}})});$(u).A("4",".K",2(){8 5=$(9).D("c-b-5");J("I",5,H*L*M);$(".n").6()});",62,94,"||function|html|click|id|hide|box|var|this||enquete|data|body||100|noScroll|leiamais_limit|leiamais|result|removeClass|full|search|enqueteBox|valor|if|show|class|div|tail|document|btn|span|TOKEN_CSRF|BASE|inc|on|mensagem|substring|attr|alert|250|enqueteContent|30|poll|createCookie|js_fechar_votar|24|60|27|closeSearch|keyCode|ajaxSetup|www|superanimes|org|TIx6iX3ppJHoA14biLyNGN3MKIqDI7rH4lH|9x|dlgM|token|keyup|actionSearch|addClass|buscador|focus|each|close|alertCorpo|Mais|cut|val|else|codigo|danger|success|json|dataType|php|main_website_url|post|type|ajax|checked|indexOf|name|input|js_votar|votar_enquete_show|js_enquete_close|siblings|prepend|Leia|length|https".split("|"),0,{}))
 eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!"".replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return"\\w+"};c=1};while(c--){if(k[c]){p=p.replace(new RegExp("\\b"+e(c)+"\\b","g"),k[c])}}return p}("E 1;s 0=r.q(".8-p");0.6.5="b";n.7("m",(e)=>{1=e;0.6.5="k";0.7("j",(e)=>{4("h g f d c o 8 t l v","F",2);1.u();1.L.K((a)=>{J(a.I==="H"){4("9 G w D!","C",3);0.6.5="b"}B{4("A z 9 y!","x",3)}1=i})})});",48,48,"addBtn|deferredPrompt|||alert_view|display|style|addEventListener|atalho|Atalho|choiceResult|none|Criar|para||instalar|em|Clique|null|click|block|ou|beforeinstallprompt|window||button|querySelector|document|const|App|prompt|Desktop|com|danger|cancelado|de|Pedido|else|success|Sucesso|var|warning|Criado|accepted|outcome|if|then|userChoice".split("|"),0,{}))
 
 	function checkSizeGridBoxItem() {
@@ -55,7 +55,7 @@ body {
     font-family: "Roboto", Arial, Helvetica, sans-serif;
     width: 100%;
     height: 100%;
-    background: #1b1b1b url(https://www.superanimes.org/img/preto/bg.png);
+    background: #1b1b1b main_website_url(https://www.superanimes.org/img/preto/bg.png);
     margin: 0;
     padding: 0;
     outline: none;
@@ -646,7 +646,7 @@ a {
     width: 53px;
     height: 53px;
     position: absolute;
-    background: url(https://www.superanimes.org/img/exibir-mais.gif);
+    background: main_website_url(https://www.superanimes.org/img/exibir-mais.gif);
     right: 0;
     margin-top: 997px;
     position: absolute;
@@ -657,7 +657,7 @@ a {
 }
 
 .exibirMais:hover {
-    background: #39f url(https://www.superanimes.org/img/exibir-mais.gif);
+    background: #39f main_website_url(https://www.superanimes.org/img/exibir-mais.gif);
 }
 
 h1,
@@ -930,7 +930,7 @@ h2 {
     width: 125px;
     padding: 5px 10px;
     display: block;
-    background: url(https://www.superanimes.org/img/arrow_drop_down_white.png) no-repeat;
+    background: main_website_url(https://www.superanimes.org/img/arrow_drop_down_white.png) no-repeat;
     background-size: 24px;
     background-position: right;
     background-color: #2b2b2b;

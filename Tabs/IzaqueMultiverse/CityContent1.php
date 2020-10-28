@@ -1,9 +1,9 @@
 <?php 
 
-echo $divzoomanim;
+echo $div_zoom_animation;
 
 echo 'Content of the first tab';
 
-echo $divc;
+echo $div_close;
 
 ?>

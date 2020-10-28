@@ -1,38 +1,38 @@
 <?php 
 
 #Nazzevo Website setter
-if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
-	$choosenwebsite = $sitenazzevo;
+if (strpos ($host_text, $website_selector_parameters[0].'='.$sitenazzevo) == true) {
+	$selected_website = $sitenazzevo;
 
 	#Site title and name definer
 	$site = $sitenazzevo;
-	$sitename = $sitenazzevo;
-	$setsitecssfile = $pqntcss;
+	$website_name = $sitenazzevo;
+	$choosed_website_css_file = $css_file_pequenata;
 
 	#Site settings
-	$sitehasnotifications = false; #Defines if site has notifications on
-	$sitehascommentstab = true; #Defines if site has a Comments Tab variable
-	$sitehascomments = true; #Defines the site has comments
-	$siteshowscomments = true; #Defines if site shows the comments on the Comments Tab
+	$website_has_notifications = false; #Defines if site has notifications on
+	$website_has_comments_tab = true; #Defines if site has a Comments Tab variable
+	$websites_has_comments = true; #Defines the site has comments
+	$websites_shows_comments = true; #Defines if site shows the comments on the Comments Tab
 	$sitehasstories = true; #Defines if site has a Stories Tab
-	$storyhascovers = true; #Defines if site has book covers for the story
-	$storyhasreads = true; #Defines if the story website has "reads" number, file and elements
-	$storyhaschaptercomments = false; #Defines if the story has comments on the chapter
-	$storyhasdates = false; #Defines if the story has dates
-	$storyhastitles = true; #Defines if the story has titles
-	$storyusestatus = true; #Defines if the story uses the story statuses
-	$storycontainsreads = false; #Defines if the story has reads on it
-	$storycontainscomments = true; #Defines if the story has comments on it
+	$website_story_has_bookcovers_setting = true; #Defines if site has book covers for the story
+	$story_name_has_reads = true; #Defines if the story website has "story_reads_array" number, file and elements
+	$story_name_has_chapter_comments = false; #Defines if the story has comments on the chapter
+	$story_name_has_dates = false; #Defines if the story has dates
+	$website_story_has_titles = true; #Defines if the story has chapter_titles
+	$story_nameusestatus = true; #Defines if the story uses the story statuses
+	$story_name_contains_reads = false; #Defines if the story has story_reads_array on it
+	$story_name_contains_comments = true; #Defines if the story has comments on it
 
 	#Site Tabs array
 	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories');
 
 	#Site Tabnames array
-	if (in_array($lang, $en_langs)) {
+	if (in_array($website_language, $en_languages_array)) {
 		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
 	}
 
-	if (in_array($lang, $pt_langs)) {
+	if (in_array($website_language, $pt_languages_array)) {
 		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
 	}
 
@@ -40,7 +40,7 @@ if (strpos ($host, $params[0].'='.$sitenazzevo) == true) {
 	$tabnumb = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
-	include $genericcitiesgeneratorfile;
+	include $generic_tabs_generator_file;
 }
 
 ?>

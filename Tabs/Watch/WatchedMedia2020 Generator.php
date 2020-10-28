@@ -2,7 +2,8 @@
 
 if ($thingsidofake == true) {
 	$spanstyle = $blackspan;
-	$cssbtnstyle = $cssbtn5;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
 
 	if ($mobileversion == true) {
 		$margindivstyle = '<div>';
@@ -17,7 +18,8 @@ if ($thingsidofake == true) {
 
 if ($thingsidofake == null) {
 	$spanstyle = $whitespan;
-	$cssbtnstyle = $text_hover_white_css_class;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
 
 	if ($mobileversion == true) {
 		$margindivstyle = '<div>';
@@ -33,35 +35,35 @@ if ($thingsidofake == null) {
 $i = 0;
 while ($i <= 4) {
 	if ($linesarray[$i] == 'X' and $i == 0) {
-		$hasmediaarray[$i] = $hasmoviemedia = false;
-	}
-
-	if ($linesarray[$i] != 'X' and $i == 0) {
-		$hasmediaarray[$i] = $hasmoviemedia = true;
-	}
-
-	if ($linesarray[$i] == 'X' and $i == 1) {
-		$hasmediaarray[$i] = $hasseriesmedia = false;
-	}
-
-	if ($linesarray[$i] != 'X' and $i == 1) {
-		$hasmediaarray[$i] = $hasseriesmedia = true;
-	}
-
-	if ($linesarray[$i] == 'X' and $i == 2) {
-		$hasmediaarray[$i] = $hascartoonmedia = false;
-	}
-
-	if ($linesarray[$i] != 'X' and $i == 2) {
-		$hasmediaarray[$i] = $hascartoonmedia = true;
-	}
-
-	if ($linesarray[$i] == 'X' and $i == 3) {
 		$hasmediaarray[$i] = $hasanimemedia = false;
 	}
 
-	if ($linesarray[$i] != 'X' and $i == 3) {
+	if ($linesarray[$i] != 'X' and $i == 0) {
 		$hasmediaarray[$i] = $hasanimemedia = true;
+	}
+
+	if ($linesarray[$i] == 'X' and $i == 1) {
+		$hasmediaarray[$i] = $hascartoonmedia = false;
+	}
+
+	if ($linesarray[$i] != 'X' and $i == 1) {
+		$hasmediaarray[$i] = $hascartoonmedia = true;
+	}
+
+	if ($linesarray[$i] == 'X' and $i == 2) {
+		$hasmediaarray[$i] = $hasseriesmedia = false;
+	}
+
+	if ($linesarray[$i] != 'X' and $i == 2) {
+		$hasmediaarray[$i] = $hasseriesmedia = true;
+	}
+
+	if ($linesarray[$i] == 'X' and $i == 3) {
+		$hasmediaarray[$i] = $hasmoviemedia = false;
+	}
+
+	if ($linesarray[$i] != 'X' and $i == 3) {
+		$hasmediaarray[$i] = $hasmoviemedia = true;
 	}
 
 	if ($linesarray[$i] == 'X' and $i == 4) {
@@ -84,51 +86,51 @@ false,
 );
 
 $mediacodes = array(
-$moviesnumbcode = 0,
-$seriesnumbcode = 1,
-$cartoonsnumbcode = 2,
-$animesnumbcode = 3,
+$animesnumbcode = 0,
+$cartoonsnumbcode = 1,
+$seriesnumbcode = 2,
+$moviesnumbcode = 3,
 $videosnumbcode = 4,
 );
 
 $mediatitles = array(
-'<b>'.$spanstyle.$medianames[$moviesnumbcode].'s'.': '.$spanc.$bluespan.$medianumbers[$moviesnumbcode].$spanc.'</b>'.'<br />'."\n",
-'<b>'.$spanstyle.$medianames[$seriesnumbcode].': '.$spanc.$bluespan.$medianumbers[$seriesnumbcode].$spanc.'</b>'.'<br />'."\n",
-'<b>'.$spanstyle.$medianames[$cartoonsnumbcode].'s'.': '.$spanc.$bluespan.$medianumbers[$cartoonsnumbcode].$spanc.'</b>'.'<br />'."\n",
-'<b>'.$spanstyle.$medianames[$animesnumbcode].'s'.': '.$spanc.$bluespan.$medianumbers[$animesnumbcode].$spanc.'</b>'.'<br />'."\n",
-'<b>'.$spanstyle.$medianames[$videosnumbcode].'s'.': '.$spanc.$bluespan.$medianumbers[$videosnumbcode].$spanc.'</b>'.'<br />'."\n",
+'<b>'.$spanstyle.$medianames[$animesnumbcode].'s'.': '.$spanc.'<span class="'.$number_text_color.'">'.$medianumbers[$animesnumbcode].$spanc.'</b>'.'<br />'."\n",
+'<b>'.$spanstyle.$medianames[$cartoonsnumbcode].'s'.': '.$spanc.'<span class="'.$number_text_color.'">'.$medianumbers[$cartoonsnumbcode].$spanc.'</b>'.'<br />'."\n",
+'<b>'.$spanstyle.$medianames[$seriesnumbcode].': '.$spanc.'<span class="'.$number_text_color.'">'.$medianumbers[$seriesnumbcode].$spanc.'</b>'.'<br />'."\n",
+'<b>'.$spanstyle.$medianames[$moviesnumbcode].'s'.': '.$spanc.'<span class="'.$number_text_color.'">'.$medianumbers[$moviesnumbcode].$spanc.'</b>'.'<br />'."\n",
+'<b>'.$spanstyle.$medianames[$videosnumbcode].'s'.': '.$spanc.'<span class="'.$number_text_color.'">'.$medianumbers[$videosnumbcode].$spanc.'</b>'.'<br />'."\n",
 );
 
-$hasmovie = true;
-$hasseries = true;
-$hascartoon = true;
 $hasanime = true;
+$hascartoon = true;
+$hasseries = true;
+$hasmovie = true;
 $hasvideo = true;
 
-if ($newwatchedstyle == true) {
-	$i = 1;
-	if ($hasseriesmedia == true) {
-		echo '<a href="#'.$medianames[$i].''.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
+if ($website_watch_history_new_watched_style_setting == true) {
+	$i = 0;
+	if ($hasanimemedia == true) {
+		echo '<a href="#'.$medianames[$animesnumbcode].'s'.$ano.$mobileaname.'">'.$mediatitles[$animesnumbcode].'</a>'."\n";
 	}
 
 	$i++;
 	if ($hascartoonmedia == true) {
-		echo '<a href="#'.$medianames[$i].'s'.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
-	}
-	
-	$i++;
-	if ($hasanimemedia == true) {
-		echo '<a href="#'.$medianames[$i].'s'.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
-	}
-	
-	$i++;
-	if ($hasvideomedia == true) {
-		echo '<a href="#'.$medianames[$i].'s'.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
+		echo '<a href="#'.$medianames[$cartoonsnumbcode].'s'.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
 	}
 
-	$i = 0;
+	$i++;
+	if ($hasseriesmedia == true) {
+		echo '<a href="#'.$medianames[$seriesnumbcode].''.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
+	}
+
+	$i++;
 	if ($hasmoviemedia == true) {
-		echo '<a href="#'.$medianames[$i].'s'.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
+		echo '<a href="#'.$medianames[$moviesnumbcode].'s'.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
+	}
+
+	$i++;
+	if ($hasvideomedia == true) {
+		echo '<a href="#'.$medianames[$videosnumbcode].'s'.$ano.$mobileaname.'">'.$mediatitles[$i].'</a>'."\n";
 	}
 
 	echo '<br />'."\n";
@@ -140,57 +142,9 @@ $number = 1;
 while ($i <= $watchednumbfile) {
 	$i2 = $i + 1;
 
-	if ($newwatchedstyle == true) {
+	if ($website_watch_history_new_watched_style_setting == true) {
 		#New style of showing Watched Medias
-		if ($hasmediaarray[$seriesnumbcode] == true and $mediadone[$seriesnumbcode] == false and $mediadone[$animesnumbcode] == false) {
-			if ($watchedtype[$i] == $medianames[$seriesnumbcode]) {
-				if ($i == $linesarray[$seriesnumbcode]) {
-					echo '<a name="'.$medianames[$seriesnumbcode].''.$ano.$mobileaname.'"></a>'."\n";
-					echo $mediatitles[$seriesnumbcode];
-				}
-
-				echo $margindivstyle."\n";
-				echo '<div class="'.$zoomanim.'">'.'<span class="'.$cssbtnstyle.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$divc."\n";
-				echo $divc."\n";
-
-				$number++;
-				$c++;
-
-				if ($c == $medianumbers[$seriesnumbcode]) {
-					$mediadone[$seriesnumbcode] = true;
-					$i = 0;
-					$c = 0;
-					$number = 1;
-					echo '<br />'."\n";
-				}
-			}
-		}
-
-		if ($hasmediaarray[$cartoonsnumbcode] == true and $mediadone[$cartoonsnumbcode] == false and $mediadone[$seriesnumbcode] == true) {
-			if ($watchedtype[$i] == $medianames[$cartoonsnumbcode]) {
-				if ($i == $linesarray[$cartoonsnumbcode]) {
-					echo '<a name="'.$medianames[$cartoonsnumbcode].'s'.$ano.$mobileaname.'"></a>'."\n";
-					echo $mediatitles[$cartoonsnumbcode];
-				}
-
-				echo $margindivstyle."\n";
-				echo '<div class="'.$zoomanim.'">'.'<span class="'.$cssbtnstyle.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$divc."\n";
-				echo $divc."\n";
-
-				$number++;
-				$c++;
-
-				if ($c == $medianumbers[$cartoonsnumbcode]) {
-					$mediadone[$cartoonsnumbcode] = true;
-					$i = 0;
-					$c = 0;
-					$number = 1;
-					echo '<br />'."\n";
-				}
-			}
-		}
-
-		if ($hasmediaarray[$animesnumbcode] == true and $mediadone[$animesnumbcode] == false and $mediadone[$seriesnumbcode] == true and $mediadone[$cartoonsnumbcode] == true) {
+		if ($hasmediaarray[$animesnumbcode] == true and $mediadone[$animesnumbcode] == false) {
 			if ($watchedtype[$i] == $medianames[$animesnumbcode]) {
 				if ($i == $linesarray[$animesnumbcode]) {
 					echo '<a name="'.$medianames[$animesnumbcode].'s'.$ano.$mobileaname.'"></a>'."\n";
@@ -198,8 +152,8 @@ while ($i <= $watchednumbfile) {
 				}
 
 				echo $margindivstyle."\n";
-				echo '<div class="'.$zoomanim.'">'.'<span class="'.$cssbtnstyle.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$divc."\n";
-				echo $divc."\n";
+				echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$div_close."\n";
+				echo $div_close."\n";
 
 				$number++;
 				$c++;
@@ -214,22 +168,22 @@ while ($i <= $watchednumbfile) {
 			}
 		}
 
-		if ($hasmediaarray[$videosnumbcode] == true and $mediadone[$seriesnumbcode] == true and $mediadone[$animesnumbcode] == true and $mediadone[$videosnumbcode] == false) {
-			if ($watchedtype[$i] == $medianames[$videosnumbcode]) {
-				if ($i == $linesarray[$videosnumbcode]) {
-					echo '<a name="'.$medianames[$videosnumbcode].'s'.$ano.$mobileaname.'"></a>'."\n";
-					echo $mediatitles[$videosnumbcode];
+		if ($hasmediaarray[$cartoonsnumbcode] == true and $mediadone[$cartoonsnumbcode] == false and $mediadone[$animesnumbcode] == true) {
+			if ($watchedtype[$i] == $medianames[$cartoonsnumbcode]) {
+				if ($i == $linesarray[$cartoonsnumbcode]) {
+					echo '<a name="'.$medianames[$cartoonsnumbcode].'s'.$ano.$mobileaname.'"></a>'."\n";
+					echo $mediatitles[$cartoonsnumbcode];
 				}
 
 				echo $margindivstyle."\n";
-				echo '<div class="'.$zoomanim.'">'.'<span class="'.$cssbtnstyle.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$divc."\n";
-				echo $divc."\n";
+				echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$div_close."\n";
+				echo $div_close."\n";
 
 				$number++;
 				$c++;
 
-				if ($c == $medianumbers[$videosnumbcode]) {
-					$mediadone[$videosnumbcode] = true;
+				if ($c == $medianumbers[$cartoonsnumbcode]) {
+					$mediadone[$cartoonsnumbcode] = true;
 					$i = 0;
 					$c = 0;
 					$number = 1;
@@ -238,7 +192,31 @@ while ($i <= $watchednumbfile) {
 			}
 		}
 
-		if ($hasmediaarray[$moviesnumbcode] == true and $mediadone[$moviesnumbcode] == false and $mediadone[$seriesnumbcode] == true and $mediadone[$cartoonsnumbcode] == true and $mediadone[$videosnumbcode] == true and $mediadone[$animesnumbcode] == true) {
+		if ($hasmediaarray[$seriesnumbcode] == true and $mediadone[$seriesnumbcode] == false and $mediadone[$animesnumbcode] == true and $mediadone[$cartoonsnumbcode] == true) {
+			if ($watchedtype[$i] == $medianames[$seriesnumbcode]) {
+				if ($i == $linesarray[$seriesnumbcode]) {
+					echo '<a name="'.$medianames[$seriesnumbcode].''.$ano.$mobileaname.'"></a>'."\n";
+					echo $mediatitles[$seriesnumbcode];
+				}
+
+				echo $margindivstyle."\n";
+				echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$div_close."\n";
+				echo $div_close."\n";
+
+				$number++;
+				$c++;
+
+				if ($c == $medianumbers[$seriesnumbcode]) {
+					$mediadone[$seriesnumbcode] = true;
+					$i = 0;
+					$c = 0;
+					$number = 1;
+					echo '<br />'."\n";
+				}
+			}
+		}
+
+		if ($hasmediaarray[$moviesnumbcode] == true and $mediadone[$moviesnumbcode] == false and $mediadone[$seriesnumbcode] == true and $mediadone[$cartoonsnumbcode] == true and $mediadone[$animesnumbcode] == true and $mediadone[$videosnumbcode] == false) {
 			if ($watchedtype[$i] == $medianames[$moviesnumbcode]) {
 				if ($i == $linesarray[$moviesnumbcode]) {
 					echo '<a name="'.$medianames[$moviesnumbcode].'s'.$ano.$mobileaname.'"></a>'."\n";
@@ -246,14 +224,38 @@ while ($i <= $watchednumbfile) {
 				}
 
 				echo $margindivstyle."\n";
-				echo '<div class="'.$zoomanim.'">'.'<span class="'.$cssbtnstyle.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$divc."\n";
-				echo $divc."\n";
+				echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$div_close."\n";
+				echo $div_close."\n";
 
 				$number++;
 				$c++;
 
 				if ($c == $medianumbers[$moviesnumbcode]) {
 					$mediadone[$moviesnumbcode] = true;
+					$i = 0;
+					$c = 0;
+					$number = 1;
+					echo '<br />'."\n";
+				}
+			}
+		}
+
+		if ($hasmediaarray[$videosnumbcode] == true and $mediadone[$videosnumbcode] == false and $mediadone[$moviesnumbcode] == true and $mediadone[$seriesnumbcode] == true and $mediadone[$cartoonsnumbcode] == true and $mediadone[$animesnumbcode] == true) {
+			if ($watchedtype[$i] == $medianames[$videosnumbcode]) {
+				if ($i == $linesarray[$videosnumbcode]) {
+					echo '<a name="'.$medianames[$videosnumbcode].'s'.$ano.$mobileaname.'"></a>'."\n";
+					echo $mediatitles[$videosnumbcode];
+				}
+
+				echo $margindivstyle."\n";
+				echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$div_close."\n";
+				echo $div_close."\n";
+
+				$number++;
+				$c++;
+
+				if ($c == $medianumbers[$videosnumbcode]) {
+					$mediadone[$videosnumbcode] = true;
 					$i = 0;
 					$c = 0;
 					$number = 1;
@@ -269,7 +271,7 @@ while ($i <= $watchednumbfile) {
 
 	else {
 		#Old style of showing Watched Medias
-		echo '<div class="'.$zoomanim.'">'.'<span class="'.$cssbtnstyle.'">'.$spanstyle.$i2." - (".$watchedtype[$i].") - </span>".$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$divc."\n";
+		echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$i2." - (".$watchedtype[$i].") - </span>".$watchedtxtmedia[$i].$spanstyle.' - ('.$watchedtime[$i].')</span></span><br />'.$div_close."\n";
 	}
 
     $i++;

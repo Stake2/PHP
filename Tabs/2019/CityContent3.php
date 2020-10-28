@@ -1,6 +1,6 @@
 <?php 
 
-echo $divzoomanim;
+echo $div_zoom_animation;
 echo '<div style="text-align:left;">';
 
 $i = 0;
@@ -13,7 +13,7 @@ while ($i <= $friendsfilecount2) {
 	$i2++;
 }
 
-echo $divc;
-echo $divc;
+echo $div_close;
+echo $div_close;
 
 ?>

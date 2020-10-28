@@ -1,6 +1,6 @@
 <?php
 
-$citytitles[5] = $divzoomanim.'<'.$n.'><p></p><br /><b>'.$citiestxts[5].'</b><br /><br /><p></p></'.$n.'>'.$divc.'<hr class="'.$sitehr2.'" />'."\n";
+$citytitles[5] = $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$citiestxts[5].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 $citybodies[5] = '';
 
 ?>

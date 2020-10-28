@@ -1,33 +1,33 @@
 <?php 
 
 #Pequenata Website setter
-if (strpos ($host, $params[0].'='.$siteyourstruly_izaque) == true) {
-	$choosenwebsite = $siteyourstruly_izaque;
+if (strpos ($host_text, $website_selector_parameters[0].'='.$siteyourstruly_izaque) == true) {
+	$selected_website = $siteyourstruly_izaque;
 
 	#Site title and name definer
-	$site = $choosenwebsite;
-	$sitename = $choosenwebsite;
-	$setsitecssfile = $pocbcss;
+	$site = $selected_website;
+	$website_name = $selected_website;
+	$choosed_website_css_file = $css_file_pocb;
 
-	$deactivatetopbtns = false;
-	$deactivatesitesbtn = true;
+	$website_deactivate_top_buttons_setting = false;
+	$website_deactivate_website_buttons_setting = true;
 	$hidecitysetting = true;
-	$notsomuchspace = false;
-	$siteusescitybodygenerator = true;
+	$website_not_so_much_space_setting = false;
+	$website_uses_tab_body_generator = true;
 	$siteusesuniversalfilereader = true;
 
 	#Site settings setter file includer
-	include $settingsparamsfile;
+	include $setting_parameters_file;
 
 	#Site Tabs array
 	$tabs = array('Read');
 
 	#Site Tabnames array
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 		$tabnames = array('Read:');
 	}
 
-	if ($lang == $langs[2]) {
+	if ($website_language == $languages_array[2]) {
 		$tabnames = array('Ler:');
 	}
 
@@ -35,7 +35,7 @@ if (strpos ($host, $params[0].'='.$siteyourstruly_izaque) == true) {
 	$tabnumb = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
-	include $genericcitiesgeneratorfile;
+	include $generic_tabs_generator_file;
 }
 
 ?>

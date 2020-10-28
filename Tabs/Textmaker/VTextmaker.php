@@ -9,98 +9,98 @@ $sitehr2 = 'whitehr';
 $textstyle = 'w3-black w3-text-white';
 
 #Variables that mixes CSS tags
-$btnstyle = $color2.' '.$cssbtn1;
+$first_button_style = $color2.' '.$cssbtn1;
 $btnstyle2 = $color2.' '.$cssbtn1;
 $sitewhilestyle = $color2;
 
 #HTML and HTML Style variables
-$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;">';
-$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;">';
+$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;">';
+$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;">';
 $h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;">';
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$roundedborderstyle2.'"';
+$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'"';
 $marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;"';
 $marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;"';
 $border = 'border-width:4px;border-color:'.$color4.';border-style:solid;';
 $border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;';
-$sitedesc2 = 'tet';
+$website_header_description = 'tet';
 
 #Folder variables
-$siteurlgeral = $url.$sitefolder."/";
-$sitephpfolder2 = $php_tabs_variable.ucwords($choosenwebsite).'/';
+$selected_website_url = $main_website_url.$website_folder."/";
+$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
 $yeartxtfolder = $notepad_years_folder_variable;
 
 #Site image vars
-$siteimage = 'TM';
-$siteimage = $cdnimg.$siteimage.".png";
-$imglink = $siteimage;
-$imagesize1 = 27;
+$website_image = 'TM';
+$website_image = $cdnimg.$website_image.".png";
+$website_image_link = $website_image;
+$website_image_size_computer = 27;
 $imagesize2 = 61;
 
 #Site descriptions
-$sitedescs = array(
+$website_descriptions_array = array(
 'Website to make text files using texts and numbers.', 
 'Site para fazer arquivos de texto usando textos e números.',
 );
 
 #Year Numbers.txt file and YearMaker.php file definers
 $yearnumbsfile = $yeartxtfolder.'2019/2019 Numbers.txt';
-$yearmakerfilephp = $php_tabs_variable.ucwords($site).'/YearMaker.php';
-$yearmakerfilephp2 = $php_tabs_variable.ucwords($site).'/YearMaker2.php';
-$storynumbsfile = $notepad_stories_folder_variable.'Story Numbers'.'.txt';
+$yearmakerfilephp = $php_tabs.ucwords($site).'/YearMaker.php';
+$yearmakerfilephp2 = $php_tabs.ucwords($site).'/YearMaker2.php';
+$story_namenumbsfile = $notepad_stories_folder_variable.'Story Numbers'.'.txt';
 
 #Story text file definer
-if ($lang == $langs[0] or $lang == $langs[1]) {
-	$storytxtsfile = $notepad_stories_folder_variable.'My Stories.txt';
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	$story_nametxtsfile = $notepad_stories_folder_variable.'My Stories.txt';
 }
 
-if ($lang == $langs[2]) {
-	$storytxtsfile = $notepad_stories_folder_variable.'Minhas Histórias.txt';
+if ($website_language == $languages_array[2]) {
+	$story_nametxtsfile = $notepad_stories_folder_variable.'Minhas Histórias.txt';
 }
 
 #StoryMaker.php definer
-$storymakerfilephp = $php_tabs_variable.ucwords($site).'/StoryMaker.php';
+$story_namemakerfilephp = $php_tabs.ucwords($site).'/StoryMaker.php';
 
 #YearsVars.php file includer
 include $yearsvarsfilephp;
 
 #Site name, title, URL and description setter, by language
-if ($lang == $langs[0]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+if ($website_language == $languages_array[0]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$sitename = $site;
-	$sitetitulo = $sitename2;
-	$sitetitulo2 = $sitename2;
-	$siteurl = $siteurlgeral;
-	$sitedesc = $sitedescs[0];
+	$website_name = $site;
+	$website_title = $sitename2;
+	$website_title_html = $sitename2;
+	$website_link = $selected_website_url;
+	$website_meta_description = $website_descriptions_array[0];
 }
 
-if ($lang == $langs[1]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+if ($website_language == $languages_array[1]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$sitename = $site;
-	$sitetitulo = $sitename2;
-	$sitetitulo2 = $sitename2;
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[0];
+	$website_name = $site;
+	$website_title = $sitename2;
+	$website_title_html = $sitename2;
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[0];
 }
 
-if ($lang == $langs[2]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+if ($website_language == $languages_array[2]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$sitename = $site;
-	$sitetitulo = $sitename2;
-	$sitetitulo2 = $sitename2;
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[1];
+	$website_name = $site;
+	$website_title = $sitename2;
+	$website_title_html = $sitename2;
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[1];
 }
 
 #Loading the CityContents of the City2
 ob_start();
-if (file_exists($sitephpfolder2.'CityContent2.php')) {
-	$file = $sitephpfolder2.'CityContent2.php';
+if (file_exists($selected_website_folder.'CityContent2.php')) {
+	$file = $selected_website_folder.'CityContent2.php';
 	include $file;
 }
 
@@ -114,6 +114,6 @@ $tabnames[2].': '.$icons[14],
 );
 
 #TabGenerator.php includer
-include $tabgeneratorphp;
+include $website_tabs_generator;
 
 ?>

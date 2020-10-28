@@ -9,8 +9,8 @@ $cartoonsnumb = 60;
 $animesnumb = 87;
 $videosnumb = 134;
 
-$storynumb = 4;
-$sitesnumb = 11;
+$story_namenumb = 4;
+$websites_number = 11;
 $a = 24;
 $friendsnumb = $yearnumbs2019txt[$a];
 $cmntsnumb1 = 92;
@@ -34,11 +34,11 @@ $strycapnumb = array(1, 13, 5, 1, 15);
 $strywordnumb = array(512, 17.374, '7.440', 1.218, 7.401);
 $strycharnumb = 41.162;
 
-$mediabtns = '<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$langreadtext.' '.$computer_buttons[1].$spanc.$divc.'</'.$n.'>
-<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m2.'>'.$readmorestylem.$langreadtext.' '.$mobile_buttons[1].$spanc.$divc.'</'.$m.'>';
+$mediabtns = '<'.$n.' class="'.$computer_variable.' '.$colortext3.'" '.$marginstyle4.'>'.$readmorestyle.$langreadtext.' '.$computer_buttons[1].$spanc.$div_close.'</'.$n.'>
+<'.$m.' class="'.$mobile_variable.' '.$colortext3.'" '.$marginstyle2m2.'>'.$readmorestylem.$langreadtext.' '.$mobile_buttons[1].$spanc.$div_close.'</'.$m.'>';
 
-$friendsbtns = '<'.$n.' class="'.$computervar.' '.$colortext3.'" '.$marginstyle22.'>'.$readmorestyle.$langreadtext.' '.$computer_buttons[2].$spanc.$divc.'</'.$n.'>
-<'.$m.' class="'.$mobilevar.' '.$colortext3.'" '.$marginstyle2m.'>'.$readmorestylem.$langreadtext.' '.$mobile_buttons[2].$spanc.$divc.'</'.$m.'>';
+$friendsbtns = '<'.$n.' class="'.$computer_variable.' '.$colortext3.'" '.$marginstyle22.'>'.$readmorestyle.$langreadtext.' '.$computer_buttons[2].$spanc.$div_close.'</'.$n.'>
+<'.$m.' class="'.$mobile_variable.' '.$colortext3.'" '.$marginstyle2m.'>'.$readmorestylem.$langreadtext.' '.$mobile_buttons[2].$spanc.$div_close.'</'.$m.'>';
 
 $pastebinlinks = array(
 '<a href="https://pastebin.com/4j99vwMy">https://pastebin.com/4j99vwMy</a>', 
@@ -55,6 +55,6 @@ $tabnames[5].': '.$icons[3],
 );
 
 #TabGenerator.php includer
-include $tabgeneratorphp;
+include $website_tabs_generator;
 
 ?>

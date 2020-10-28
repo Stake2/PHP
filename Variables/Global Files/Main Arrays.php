@@ -1,75 +1,75 @@
 <?php 
 
 #Queries for parameters
-$params = array(
-'site',
-'type',
-'lang',
+$website_selector_parameters = array(
+'website',
+'website_type',
+'website_language',
 );
 
 #Queries for parameters of settings
-$settingsparams = array(
-'notif',
-'commenttab',
-'showcomments',
-'hasstories',
-'hascl',
-'writestory',
-'writeformtxt',
-'showchaptertext', #7
-'translatestory',
-'chaptertowrite',
-'storyhascovers',
-'deactivatetopbtns',
-'deactivatetabs',
-'deactivatenotification',
-'newdesign',
-'twonly',
-'newwatchedstyle',
-'newwritestyle',
-'writingpack',
-'deactivateall',
-'deactivateheader',
+$setting_parameters = array(
+'website_notification_setting',
+'website_comment_tab_setting',
+'website_show_comments_setting',
+'website_has_stories_setting',
+'website_has_change_log_tab_setting',
+'website_write_story_setting',
+'website_show_write_form_text_setting',
+'website_show_chapter_text_on_write_form_setting', #7
+'website_translate_story_setting',
+'website_chapter_to_write_setting',
+'website_story_has_bookcovers_setting',
+'website_deactivate_top_buttons_setting',
+'website_deactivate_tabs_setting',
+'website_deactivate_notification_setting',
+'website_new_design_setting',
+'website_watch_history_show_to_watch_only_setting',
+'website_watch_history_new_watched_style_setting',
+'website_new_write_style_setting',
+'website_writing_pack_setting',
+'website_deactivate_all_setting',
+'website_deactivate_header_setting',
 );
 
-#Queries for site types
-$types = array(
+#Queries for site website_types_array
+$website_types_array = array(
 'site',
 'story',
 );
 
 #Queries for site languages
-$langs = array(
+$languages_array = array(
 'geral',
 'enus',
 'ptbr',
 'ptpt',
 );
 
-$geral_lang = $langs[0];
-$enus_lang = $langs[1];
-$ptbr_lang = $langs[2];
-$ptpt_lang = $langs[3];
+$geral_language = $languages_array[0];
+$enus_language = $languages_array[1];
+$ptbr_language = $languages_array[2];
+$ptpt_language = $languages_array[3];
 
 #Array of Portuguese languages
-$pt_langs = array(
-'ptbr',
-'ptpt',
+$pt_languages_array = array(
+$ptbr_language,
+$ptpt_language,
 );
 
 #Array of English languages
-$en_langs = array(
-'geral',
-'enus',
+$en_languages_array = array(
+$geral_language,
+$enus_language,
 );
 
 #CSS file variables
-$cssfiles = array(
-$pocbcss = 'Pocb',
-$pqntcss = 'Pequenata',
-$slcss = 'SpaceLiving',
-$watchcss = 'Watch',
-$desert_island_css = 'Desert_Island',
+$website_css_files_array = array(
+$css_file_pocb = 'Pocb',
+$css_file_pequenata = 'Pequenata',
+$css_file_spaceliving = 'SpaceLiving',
+$css_file_watch_history = 'Watch',
+$css_file_desert_island = 'Desert_Island',
 );
 
 ?>

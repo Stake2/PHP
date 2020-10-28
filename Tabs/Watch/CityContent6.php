@@ -1,6 +1,6 @@
 <?php 
 
-echo '<hr class="'.$sitehr2.'" />'."\n";
+echo '<hr class="'.$tab_full_border.'" />'."\n";
 echo '<'.$m.' class="w3-black w3-text-blue" style="text-align:left;">'."\n";
 
 $mediaarrayyear = 2018;
@@ -21,23 +21,23 @@ echo '</'.$m.'>'."\n";
 #	$i2 = $i + 1;
 #	if (in_array($i, $watchednumb2018array)) {
 #		if (in_array($i, $watchednumb2018timearray)) {
-#			echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".$watched2018mediatypetxt[$i]." - </span>".$watched2018txt[$i].' - <span class="w3-text-white">'.$watched2018time[$a].'</span></span>'.$divc."\n";
+#			echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".$watched2018mediatypetxt[$i]." - </span>".$watched2018txt[$i].' - <span class="w3-text-white">'.$watched2018time[$a].'</span></span>'.$div_close."\n";
 #			$a++;
 #		}
 #
 #		if (!in_array($i, $watchednumb2018timearray)) {
-#			echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".$watched2018mediatypetxt[$i]." - </span>".$watched2018txt[$i].' - <span class="w3-text-white">'.$notimetxt.'</span></span>'.$divc."\n";
+#			echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".$watched2018mediatypetxt[$i]." - </span>".$watched2018txt[$i].' - <span class="w3-text-white">'.$notimetxt.'</span></span>'.$div_close."\n";
 #		}
 #	}
 #
 #	if (in_array($i, $watchedmovie2018numbarray)) {
 #		if (in_array($i, $watchednumb2018timearray)) {
-#			echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span>'.$watched2018txt[$i].' - <span class="w3-text-white">'.$watched2018time[$a].'</span></span>'.$divc."\n";
+#			echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span>'.$watched2018txt[$i].' - <span class="w3-text-white">'.$watched2018time[$a].'</span></span>'.$div_close."\n";
 #			$a++;
 #		}
 #	
 #		if (!in_array($i, $watchednumb2018timearray)) {
-#			echo $divzoomanim.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span>'.$watched2018txt[$i].' - <span class="w3-text-white">'.$notimetxt.'</span></span>'.$divc."\n";
+#			echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span>'.$watched2018txt[$i].' - <span class="w3-text-white">'.$notimetxt.'</span></span>'.$div_close."\n";
 #		}
 #	}
 #

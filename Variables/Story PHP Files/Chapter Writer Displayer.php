@@ -1,43 +1,43 @@
 <?php
 
 #Chapter writer tab displayer
-if ($newwritestyle == true) {
-	echo '<div style="display:none;">'.$readstorybtn.$divc;
+if ($new_write_style == true) {
+	echo '<div style="display:none;">'.$readstorybtn.$div_close;
 	echo $writestorybtn;
 }
 
 require $chapter_writer_form_php_variable;
 
-if ($newwritestyle == true) {
+if ($new_write_style == true) {
 	#JavaScript version for the write story form
 	echo '<script>'.
-	'var WriteContent'.$capnum1.' = `<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
+	'var WriteContent'.$chapter_number_1.' = `<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
-	#Checks if the variable showchaptertext is set to true
-	if ($showchaptertext == true) {
+	#Checks if the variable website_show_chapter_text_on_write_form_setting is set to true
+	if ($website_show_chapter_text_on_write_form_setting == true) {
 		#Checks if the variable showwriteformtext is set to true and shows the title text
 		if ($show_write_form_text == true) {
-			echo $titletxt.': '."\n".$capnum1.' - '.$titles[($capnum4 - 1)];
+			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 
 		else {
-			echo $capnum1.' - '.$titles[($capnum4 - 1)];
+			echo $chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 	}
 
 	echo '</textarea>'."\n";
 
-	echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$storytxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
+	echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
 	if ($show_write_form_text == true) {
-		echo $storytxt.': '."\n"."\n";
+		echo $story_nametxt.': '."\n"."\n";
 	}
 
 	if ($show_write_form_text == true) {
-		if (strpos($host, $translatestory.'='.'true')) {
+		if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
 			#Chapter text reader
-			if (file_exists($capsenus[$capnum1]) == true) {
-				if ($file = fopen($capsenus[$capnum1], "r")) {
+			if (file_exists($english_chapters[$chapter_number_1]) == true) {
+				if ($file = fopen($english_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
 					$line = fgets($file);
 					$line = str_replace(array("\r\n", "\r", "\n"), "", $line);
@@ -55,14 +55,14 @@ if ($newwritestyle == true) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
+				echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
 			}
 		}
 
 		else {
 			#Chapter text reader
-			if (file_exists($caps[$capnum1]) == true) {
-				if ($file = fopen($caps[$capnum1], "r")) {
+			if (file_exists($normal_chapters[$chapter_number_1]) == true) {
+				if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
 					$line = fgets($file);
 					$line = str_replace(array("\r\n", "\r", "\n"), "", $line);
@@ -80,26 +80,26 @@ if ($newwritestyle == true) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$caps[$capnum1].'<br />';
+				echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
 			}
 		}
 	}
 
 	echo '</textarea>'."\n";
 
-	if ($show_write_form_text == true and $storyhasdates == true) {
+	if ($show_write_form_text == true and $story_name_has_dates == true) {
 		#Chapter date displayer
-		if (file_exists($capdatesfile) == true) {
-			$fp = fopen($capdatesfile, 'r', 'UTF-8'); 
+		if (file_exists($chapter_dates_file) == true) {
+			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {
-				$capdatas = explode("\n", fread($fp, filesize($capdatesfile)));
+				$capdatas = explode("\n", fread($fp, filesize($chapter_dates_file)));
 				$datas = str_replace("^", "", $capdatas);
 				$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $datas);
 			}
 		}
 
 		echo '<br />'."\n";
-		echo $datatxt2.': '.$datas[$capdatanumb].'.';
+		echo $datatxt2.': '.$datas[$chapter_date_number].'.';
 	}
 
 	echo '`;'.

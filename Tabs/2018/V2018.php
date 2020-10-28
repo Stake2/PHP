@@ -1,6 +1,6 @@
 <?php 
 
-$sitefolder = "Years";
+$website_folder = "Years";
 
 $pastebinlinks = array(
 '<a href="https://pastebin.com/LKWyzY20">https://pastebin.com/LKWyzY20</a>',
@@ -9,12 +9,12 @@ $pastebinlinks = array(
 '<a href="https://pastebin.com/mj1PR9PE">https://pastebin.com/mj1PR9PE</a>',
 );
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$pastebinlinkyear = $pastebinlinks[0];
 	$pastebinlinkmedias = $pastebinlinks[2];
 }
 
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$pastebinlinkyear = $pastebinlinks[1];
 	$pastebinlinkmedias = $pastebinlinks[3];
 }
@@ -29,7 +29,7 @@ $seriesnumb = 5;
 $animesnumb = 18;
 $videosnumb = 20;
 
-$sitesnumb = 6;
+$websites_number = 6;
 $friendsnumb = 17;
 $cmntsnumb1 = 106;
 $tasksnumb = 44;
@@ -48,13 +48,13 @@ $seriesline = $original3;
 $animesline = $original4;
 $videosline = $original5;
 
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$stry5 = 'The Life of Littletato';
 	$stry6 = 'My Diary';
 	$pqntlink = 'littletato';
 }
 
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$stry5 = 'A Vida de Pequenata';
 	$stry6 = 'Meu Diário';
 	$pqntlink = 'pequenata';
@@ -65,8 +65,8 @@ $stry5,
 $stry6);
 
 $strylnks = array(
-'<a href="'.$url.'📘/" class="'.$colortext2.'">'.$strynames[1].'</a>', 
-'<a href="'.$url.$pqntlink.'/" class="'.$colortext2.'">'.$strynames[0].'</a>',
+'<a href="'.$main_website_url.'📘/" class="'.$colortext2.'">'.$strynames[1].'</a>', 
+'<a href="'.$main_website_url.$pqntlink.'/" class="'.$colortext2.'">'.$strynames[0].'</a>',
 );
 
 $strycapnumb = array(22, 7);
@@ -87,6 +87,6 @@ $tabnames[3].': '.$icons[3],
 );
 
 #TabGenerator.php includer
-include $tabgeneratorphp;
+include $website_tabs_generator;
 
 ?>

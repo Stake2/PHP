@@ -1,11 +1,13 @@
 <?php
 
+$tab_header = '<span class="'.$first_text_color.'">'.$tabnames[4].': '.$spanc.'<span class="'.$second_text_color.'">'.' ['.$archnumb.']'.$spanc;
+
 $citytitles[4] = '
-<div class="'.$computervar.'">'.$everywatchedbtny3.$divc.
-'<div class="'.$mobilevar.'">'.$everywatchedbtny3m.$divc.
-'<hr class="'.$sitehr.'" />
-'.$divzoomanim.'<'.$n.'><p></p><br /><b>'.$bluespan.$tabnames[4].': '.$spanc.$yellowspan.' ['.$archnumb.']'.$spanc.'</b><br /><br /><p></p></'.$n.'><hr class="'.$sitehr.'" />'."\n";
-$citybodies[4] = '<div class="'.$computervar.'">'.$everyarchbtn.$divc.
-'<div class="'.$mobilevar.'">'.$everyarchbtnm.$divc.$divc;
+<div class="'.$computer_variable.'">'.$everywatchedbtny3.$div_close.
+'<div class="'.$mobile_variable.'">'.$everywatchedbtny3m.$div_close.
+'<hr class="'.$header_full_border.'" />
+'.$div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$n.'><hr class="'.$header_full_border.'" />'."\n";
+$citybodies[4] = '<div class="'.$computer_variable.'">'.$everyarchbtn.$div_close.
+'<div class="'.$mobile_variable.'">'.$everyarchbtnm.$div_close.$div_close;
 
 ?>

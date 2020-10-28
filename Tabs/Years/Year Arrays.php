@@ -9,9 +9,9 @@ $site2020,
 
 #Links for the year websites
 $yearlinks = array(
-$url.'/'.$folder3.'/'.$site2018.'/', 
-$url.'/'.$folder3.'/'.$site2019.'/', 
-$url.'/'.$folder3.'/'.$site2020.'/',
+$main_website_url.'/'.$years_folder_variable.'/'.$site2018.'/', 
+$main_website_url.'/'.$years_folder_variable.'/'.$site2019.'/', 
+$main_website_url.'/'.$years_folder_variable.'/'.$site2020.'/',
 );
 
 $yearnumb = 2;

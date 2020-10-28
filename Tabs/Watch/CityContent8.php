@@ -1,11 +1,11 @@
 <?php 
 
-echo '<h3 class="w3-text-blue" style="text-align:left;"><b>'."\n";
-echo '<div class="'.$zoomanim.'">'."\n";
+echo '<h3 class="'.$first_text_color.'" style="text-align:left;"><b>'."\n";
+echo '<div class="'.$zoom_animation_class.'">'."\n";
 
-include $changelogfile;
+include $website_changelog_file;
 
-echo $divc."\n";
+echo $div_close."\n";
 echo '</b>'.'</h3>'."\n";
 
 ?>

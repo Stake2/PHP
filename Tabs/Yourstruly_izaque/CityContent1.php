@@ -1,6 +1,6 @@
 <?php 
 
-echo $divzoomanim."\n";
+echo $div_zoom_animation."\n";
 
 echo '<'.$m.'>'."\n";
 echo $textalign_left;
@@ -9,8 +9,8 @@ echo $textalign_left;
 $a = 0;
 $z = 1;
 while ($a <= $chapters) {
-	$caps[$a] = $rootstoryfolder2.$z.' - '.$titles[$a].'.txt';
-	$caps[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "<br />", $caps[$a]);
+	$normal_chapters[$a] = $main_story_folder_2.$z.' - '.$chapter_titles[$a].'.txt';
+	$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "<br />", $normal_chapters[$a]);
 
 	$a++;
 	$z++;
@@ -18,13 +18,13 @@ while ($a <= $chapters) {
 
 echo $blackspan."\n";
 
-$array = $caps;
-$capnum1 = 0;
+$array = $normal_chapters;
+$chapter_number_1 = 0;
 $c = 0;
 while ($c <= count($array) - 1) {
 	#Chapter text reader
-	if (file_exists($caps[$capnum1]) == true) {
-		if ($file = fopen($caps[$capnum1], "r")) {
+	if (file_exists($normal_chapters[$chapter_number_1]) == true) {
+		if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
 		while(!feof($file)) {
 			$line = fgets($file);
 			echo $line.'<br />'."\n";
@@ -33,15 +33,15 @@ while ($c <= count($array) - 1) {
 		}
 	}
 
-	$capnum1++;
+	$chapter_number_1++;
 	$c++;
 }
 
 echo $spanc."\n";
 
-echo $divc."\n";
+echo $div_close."\n";
 echo '</'.$m.'>'."\n";
 
-echo $divc."\n";
+echo $div_close."\n";
 
 ?>

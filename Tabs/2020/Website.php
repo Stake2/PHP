@@ -1,31 +1,31 @@
 <?php 
 
 #2020 Website setter
-if (strpos ($host, $params[0].'='.$site2020) == true) {
-	$choosenwebsite = $site2020;
+if (strpos ($host_text, $website_selector_parameters[0].'='.$site2020) == true) {
+	$selected_website = $site2020;
 
-	$site = $choosenwebsite;
+	$site = $selected_website;
 	$ano = $site;
-	$sitename = $choosenwebsite;
-	$setsitecssfile = $pocbcss;
+	$website_name = $selected_website;
+	$choosed_website_css_file = $css_file_pocb;
 
 	#Site settings setter file includer
-	include $settingsparamsfile;
+	include $setting_parameters_file;
 
 	$tabs = array($ano, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 		$tabnames = array($ano, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 	}
 
-	if ($lang == $langs[2]) {
+	if ($website_language == $languages_array[2]) {
 		$tabnames = array($ano, 'Mídia', 'Amigos', 'Prints', 'Tarefas', 'Anos');
 	}
 
 	$tabnumb = 5;
 
 	#Includer of the array of the GenericTabs files
-	include $genericcitiesgeneratorfile;
+	include $generic_tabs_generator_file;
 }
 
 ?>

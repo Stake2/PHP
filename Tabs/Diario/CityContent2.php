@@ -1,9 +1,9 @@
 <?php 
 
-echo $divtextalignleft;
+echo $div_text_align_left;
 echo $whitespan;
 echo $characterstext;
 echo $spanc;
-echo $divc;
+echo $div_close;
 
 ?>

@@ -1,6 +1,6 @@
 <?php 
 
-echo $divzoomanim;
+echo $div_zoom_animation;
 
 $i = 0;
 $i2 = 1;
@@ -14,6 +14,6 @@ while ($i <= $tasksfilecount2) {
 
 echo '</div>';
 
-echo $divc;
+echo $div_close;
 
 ?>

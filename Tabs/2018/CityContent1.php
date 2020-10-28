@@ -4,7 +4,7 @@ $a2019 = true;
 #YearMaker2.php reader
 include $yearmakerfilephp2test;
 
-echo $divzoomanim.'<div style="text-align:left;">'.'
+echo $div_zoom_animation.'<div style="text-align:left;">'.'
 '.$author.'<br />'.'
 '.$dates.'<br />
 '.$txts[2].': '.$pastebinlinkyear.'<br />
@@ -23,7 +23,7 @@ echo $divzoomanim.'<div style="text-align:left;">'.'
 '.$greenspan.$strylnks[0].': '.$spanc.$bluespan.$strycapnumb[0].$spanc.' '.$txts[16].'s, '.$bluespan.$strylinesnumb[0].$spanc.' '.$txts[23].'<br />
 '.$greenspan.$strylnks[1].': '.$spanc.$bluespan.$strycapnumb[1].$spanc.' '.$txts[16].'s, '.$bluespan.$strywordnumb[0].$spanc.' '.$txts[17].', '.$bluespan.$strycharnumb.$spanc.' '.$txts[18].'<br />
 <br />
-'.$txts[19].': '.' '.$bluespan.$sitesnumb.$spanc.'<br />
+'.$txts[19].': '.' '.$bluespan.$websites_number.$spanc.'<br />
 <br />
 '.$txts[20].': '.$bluespan.$friendsnumb.$spanc.'<br />
 <br />

@@ -1,6 +1,6 @@
 <?php 
 
-echo $divzoomanim."\n";
+echo $div_zoom_animation."\n";
 echo '<div style="text-align:left;">'."\n";
 
 $i = 0;
@@ -11,8 +11,8 @@ while ($i <= $tasksfilecount2) {
 	$i++;
 }
 
-echo $divc."\n";
-echo $divc."\n";
-echo $divc."\n";
+echo $div_close."\n";
+echo $div_close."\n";
+echo $div_close."\n";
 
 ?>

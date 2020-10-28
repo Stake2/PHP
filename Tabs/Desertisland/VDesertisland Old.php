@@ -1,25 +1,25 @@
 <?php 
 
-$siteurlgeral = $url.str_replace(' ', '_', strtolower($sitename_desertisland)).'/';
-$sitephpfolder2 = $php_tabs.ucwords($choosenwebsite).'/';
+$selected_website_url = $main_website_url.str_replace(' ', '_', strtolower($sitename_desertisland)).'/';
+$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
 
 $site_image = 'Capa Original.jpg';
-$siteimage = $cdn_image_stories_desertisland.$site_image;
-$imglink = $siteimage;
+$website_image = $cdn_image_stories_desertisland.$site_image;
+$website_image_link = $website_image;
 
-$storyfolder = $desert_island_story_folder;
+$story_name_folder = $desert_island_story_folder;
 
 #TextFileReader.php file includer
 include $text_file_reader_file_php;
 
 #Site descriptions
-$sitedescs = array(
-'Website about my story, '.$story.', made by stake2', 
-'Site sobre a minha história, '.$story.', feito por stake2',
+$website_descriptions_array = array(
+'Website about my story, '.$story_name.', made by stake2', 
+'Site sobre a minha história, '.$story_name.', feito por stake2',
 );
 
 #Synopsis text definer using the $synopsis that is generated from TextFileReader.php
-$descs = array(
+$website_html_descriptions_array = array(
 'Synopsis: <i class="fas fa-scroll"></i> "'.$synopsis.'"<br />',
 'Sinopse: <i class="fas fa-scroll"></i> "'.$sinopse.'"<br />',
 );
@@ -36,7 +36,7 @@ body, html {
 }
 
 .bgimg {
-  background-image: url('".$siteimage."');
+  background-image: main_website_url('".$website_image."');
   min-height: 100%;
   background-position: center;
   background-size: cover;
@@ -123,32 +123,32 @@ console.log("Today is: " + today_date);
 ';
 
 #Site name in English and Brazilian Portuguese language
-$sitenames = array(
+$websites_names_array = array(
 $enus_title = 'A New Story',
 $pt_title = 'Uma Nova História',
 );
 
 /*
 #Site descriptions
-$sitedescs = array(
+$website_descriptions_array = array(
 'Site about a new story that is coming, made by stake2.',
 'Site sobre uma nova história que está chegando, feito por stake2.',
 );
 
-$descs = array(
+$website_html_descriptions_array = array(
 'Site about a new story that is coming, made by stake2.',
 'Site sobre uma nova história que está chegando, feito por stake2.',
 );
 */
 
 #Story name definer
-$story = $desert_island_story_name;
+$story_name_name = $desert_island_story_name;
 
 #Re-include of the StoryVars.php file to set the story name
-include $story_variables_php_variable;
+include $story_name_variables_php_variable;
 
 #Story name definer
-$story = $desert_island_story_name;
+$story_name_name = $desert_island_story_name;
 
 $number_until_date_of_publication = 1;
 $date_to_publish = (string)($number_until_date_of_publication);
@@ -164,7 +164,7 @@ if ($number_until_date_of_publication <= 1) {
 }
 
 #English texts for Pequenata website
-if (in_array($lang, $en_langs)) {
+if (in_array($website_language, $en_languages_array)) {
 	$website_texts = array(
 	'Coming soon',
 	'The new story of Izaque Sanvezzo',
@@ -174,7 +174,7 @@ if (in_array($lang, $en_langs)) {
 }
 
 #Brazilian Portuguese texts for Pequenata website
-if (in_array($lang, $pt_langs)) {
+if (in_array($website_language, $pt_languages_array)) {
 	$publish_date_number = '<span id="launch_date">'.$date_to_publish.'</span>';
 	$publish_date_text = $string_text_to_use;
 
@@ -208,52 +208,52 @@ console.log("Replaced the date with the difference between the two dates.");
 </script>
 ';
 
-#Site name, title, url and description setter
-if ($lang == $geral_lang) {
-	$lang = $enus_lang;
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$lang = $geral_lang;
+#Site name, title, main_website_url and description setter
+if ($website_language == $geral_language) {
+	$website_language = $enus_language;
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_language = $geral_language;
 
-	$sitename = $enus_title.' '.$lang2;
-	$sitetitulo = $enus_title.' '.ucwords($lang);
-	$sitetitulo2 = $enus_title.': '.$icons[4].' '.$icons[22];
-	$siteurl = $siteurlgeral;
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $descs[0];
+	$website_name = $enus_title.' '.$hyphen_separated_website_language;
+	$website_title = $enus_title.' '.ucwords($website_language);
+	$website_title_html = $enus_title.': '.$icons[4].' '.$icons[22];
+	$website_link = $selected_website_url;
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_html_descriptions_array[0];
 
-	$lang = $geral_lang;
+	$website_language = $geral_language;
 }
 
-if ($lang == $enus_lang) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+if ($website_language == $enus_language) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$sitename = $enus_title;
-	$sitetitulo = $enus_title;
-	$sitetitulo2 = $enus_title.': '.$icons[4].' '.$icons[22];
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $descs[0];
+	$website_name = $enus_title;
+	$website_title = $enus_title;
+	$website_title_html = $enus_title.': '.$icons[4].' '.$icons[22];
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_html_descriptions_array[0];
 }
 
-if (in_array($lang, $pt_langs)) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
+if (in_array($website_language, $pt_languages_array)) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	if ($lang == $ptpt_lang) {
-		$sitetitulo = $sitenames[1].' '.strtoupper($lang2);
+	if ($website_language == $ptpt_language) {
+		$website_title = $websites_names_array[1].' '.strtoupper($hyphen_separated_website_language);
 	}
 
 	else {
-		$sitetitulo = $sitenames[1];
+		$website_title = $websites_names_array[1];
 	}
 
-	$sitename = $choosenwebsite;
-	$sitetitulo2 = $story.': '.$icons[11];
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[1];
-	$sitedesc2 = $descs[1];
+	$website_name = $selected_website;
+	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[1];
+	$website_header_description = $website_html_descriptions_array[1];
 }
 
 ?>

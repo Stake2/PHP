@@ -16,52 +16,52 @@ $formbtnstyle = 'black w3-text-grey';
 #Variables that mixes CSS tags
 $textstyle = $colortext.' black';
 $textstyle2 = 'w3-text-black grey';
-$btnstyle = $color4.' '.$cssbtn1;
+$first_button_style = $color4.' '.$cssbtn1;
 $btnstyle2 = $color2.' '.$cssbtn1;
 $btnstyle3 = $color2.' '.$cssbtn1;
 $sitewhilestyle = $color4;
 $formcolor = $colortext2;
 
 #HTML and HTML Style variables
-$h2 = '<'.$n.' class="'.$computervar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
-$h4 = '<'.$m.' class="'.$mobilevar.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'">';
+$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
 $widthsize = '';
 $size = '';
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'"';
-$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'';
-$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$roundedborderstyle2.'';
+$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
+$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
 
 #Folder variables
-$siteurlgeral = $url.$sitefolder.'/';
-$sitephpfolder2 = $php_tabs.ucwords($choosenwebsite).'/';
-$blockreaderphp = $sitephpfolder2.'BlockReader.php';
-$storyfolder = $diario_folder_blocks;
+$selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
+$blockreaderphp = $selected_website_folder.'BlockReader.php';
+$story_name_folder = $diario_folder_blocks;
 
-$nolangstoryfolder = $storyfolder;
+$no_language_story_folder = $story_name_folder;
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
+if ($website_language == $languages_array[0]) {
+	$website_language = $languages_array[1];
 
-	$rootstoryfolder2 = $storyfolder;
+	$main_story_folder_2 = $story_name_folder;
 
-	if ($storyhascovers == true) {
-		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.'kids'.'/'.strtoupper($lang).'/';
-		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($lang).'/';
+	if ($website_story_has_bookcovers_setting == true) {
+		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';
+		$coverfolder2 = substr($main_story_folder_2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
 	}
 
-	$lang = $langs[0];
+	$website_language = $languages_array[0];
 }
 
 else {
-	$rootstoryfolder2 = $storyfolder;
+	$main_story_folder_2 = $story_name_folder;
 
-	if ($storyhascovers == true) {
-		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'capas'.'/'.'kids'.'/'.strtoupper($lang).'/';
-		$coverfolder2 = substr($rootstoryfolder2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($lang).'/';
+	if ($website_story_has_bookcovers_setting == true) {
+		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';
+		$coverfolder2 = substr($main_story_folder_2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
 	}
 }
 
@@ -75,39 +75,39 @@ ucwords(substr_replace($sitediario, 'á', 2, 1)),
 $sitecomments = false;
 
 #Site image vars
-if ($lang == $langs[0] or $lang == $langs[1]) {
-	$siteimage = 'diario 2 enus';
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	$website_image = 'diario 2 enus';
 }
 
-if ($lang == $langs[2]) {
-	$siteimage = 'diario 2';
+if ($website_language == $languages_array[2]) {
+	$website_image = 'diario 2';
 }
 
-$siteimage = $cdnimg.$siteimage.".png";
-$imglink = $siteimage;
-$imagesize1 = 30;
+$website_image = $cdnimg.$website_image.".png";
+$website_image_link = $website_image;
+$website_image_size_computer = 30;
 $imagesize2 = 66;
 
 #Site descriptions
-$sitedescs = array(
+$website_descriptions_array = array(
 'Site to show my '.$diarionames[0].' in HTML form, made by stake2.',
 'Site para mostrar o meu '.$diarionames[1].' em forma de HTML, feito por stake2.',
 );
 
-$descs = array(
+$website_html_descriptions_array = array(
 'Site to show my '.$orangespan.''.$diarionames[0].''.$spanc.' in HTML form, made by '.$orangespan.'stake2'.$spanc.'.',
 'Site para mostrar o meu '.$orangespan.''.$diarionames[1].''.$spanc.' em forma de HTML, feito por '.$orangespan.'stake2'.$spanc.'.',
 );
 
 #Language dependent character names
-if ($lang == $langs[0] or $lang == $langs [1]) {
-	$story = $diarionames[0];
+if ($website_language == $languages_array[0] or $website_language == $languages_array [1]) {
+	$story_name_name = $diarionames[0];
 	$nodusname = 'Nodus (Artificial Intelligence)';
 	$tedname = 'Ted (Random guy)';
 }
 
-if ($lang == $langs[2]) {
-	$story = $diarionames[1];
+if ($website_language == $languages_array[2]) {
+	$story_name_name = $diarionames[1];
 	$nodusname = 'Nodus (Inteligência Artificial)';
 	$tedname = 'Ted (Cara aleatório)';
 }
@@ -128,34 +128,34 @@ $blocks = 118;
 $publishedblocks = $blocksnumber[0];
 $chapters = $publishedblocks;
 
-$commentsnumb = 0;
-$commentsnumbtext = $commentsnumb + 1;
-$commentschapternumb = 0;
+$comments_number = 0;
+$comments_number_text = $comments_number + 1;
+$number_of_chapter_comments = 0;
 
 $formcode = 'diario';
 $blockdiv = $chaptertxt.'-';
 
 #Re include of the StoryVars.php file to set the story name
-include $storyvarsphp;
+include $story_namevarsphp;
 
 #Texts for English language
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	$blockstext = 'The '.$diarionames[0].' has ['.$bluespan.$blocks.$spanc.'] blocks written, each block is a chapter.';
 	$charactersdescs = array(
 	'<div style="margin-left:3%;">'.'Me of course xD, my dialogue is shown with:<br />
 	[Current time]: "My dialogue"<br /><br />
 	In other words:<br />
-	23:42 19/04/2020: "My dialogue"<br />'.$divc,
+	23:42 19/04/2020: "My dialogue"<br />'.$div_close,
 
 	'<div style="margin-left:3%;">'.'My friend "from the future", he is an Artificial Intelligence, and a robot if you will, his dialogue is shown with:<br />
 	[Current time]: //His dialogue<br /><br />
 	In other words:<br />
-	23:42 19/04/2020: //His dialogue<br />'.$divc,
+	23:42 19/04/2020: //His dialogue<br />'.$div_close,
 
 	'<div style="margin-left:3%;">'.'A random guy that appears sometimes, his dialogue is shown with:<br />
 	[Current time]: ~His dialogue<br /><br />
 	In other words:<br />
-	23:42 19/04/2020: ~His dialogue'.$divc,
+	23:42 19/04/2020: ~His dialogue'.$div_close,
 	);
 
 	$nametxt1 = 'Name';
@@ -175,23 +175,23 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 }
 
 #Texts for Brazilian Portuguese language
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	$blockstext = 'O '.$diarionames[1].' tem ['.$bluespan.$blocks.$spanc.'] blocks escritos, cada block é um capítulo.';
 	$charactersdescs = array(
 	'<div style="margin-left:3%;">'.'Eu, é claro kkkkk, meu diálogo é mostrado com:<br />
 	[Hora atual]: "Meu diálogo"<br /><br />
 	Em outras palavras:<br />
-	23:42 19/04/2020: "Meu diálogo"'.$divc,
+	23:42 19/04/2020: "Meu diálogo"'.$div_close,
 
 	'<div style="margin-left:3%;">'.'Meu amigo "do futuro", ele é uma Inteligência Artificial, e um robô se você quiser, seu diálogo é mostrado com:<br />
 	[Hora atual]: //O diálogo dele<br /><br />
 	Em outras palavras:<br />
-	23:42 19/04/2020: //O diálogo dele'.$divc,
+	23:42 19/04/2020: //O diálogo dele'.$div_close,
 
 	'<div style="margin-left:3%;">'.'Um cara aleatório que aparece às vezes, seu diálogo é mostrado com ele:<br />
 	[Hora atual]: ~O diálogo dele<br /><br />
 	Em outras palavras:<br />
-	23:42 19/04/2020: ~O diálogo dele'.$divc,
+	23:42 19/04/2020: ~O diálogo dele'.$div_close,
 	);
 
 	$nametxt1 = 'Nome';
@@ -214,18 +214,18 @@ if ($lang == $langs[2]) {
 $characterstext = $margin.
 $margin.
 '<div style="border-width:0px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'.
-'<div style="border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'.$characters[0].$margin.$charactersdescs[0].$divc.'<br />'.$divc.'<br /><br />'.
-'<div style="border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'.$characters[1].$margin.$charactersdescs[1].$divc.'<br />'.$divc.'<br /><br />'.
-'<div style="border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'.$characters[2].$margin.$charactersdescs[2].$divc.'<br />'.$divc.
-$divc.$divc.$divc;
+'<div style="border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'.$characters[0].$margin.$charactersdescs[0].$div_close.'<br />'.$div_close.'<br /><br />'.
+'<div style="border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'.$characters[1].$margin.$charactersdescs[1].$div_close.'<br />'.$div_close.'<br /><br />'.
+'<div style="border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'.$characters[2].$margin.$charactersdescs[2].$div_close.'<br />'.$div_close.
+$div_close.$div_close.$div_close;
 
 #"You're reading" text definers
-if ($lang == $langs[0] or $lang == $langs[1]) {
-	$reading = "<b>You're reading: ".ucwords($story).'<br />'." </b>";
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	$reading = "<b>You're reading: ".ucwords($story_name).'<br />'." </b>";
 }
 
-if ($lang == $langs[2]) {
-	$reading = "<b>Você está lendo: ".ucwords($story).'<br />'." </b>";
+if ($website_language == $languages_array[2]) {
+	$reading = "<b>Você está lendo: ".ucwords($story_name).'<br />'." </b>";
 }
 
 #Buttons definer
@@ -241,46 +241,46 @@ if ($sitehasstories == true) {
 }
 
 #TabGenerator.php includer
-include $tabgeneratorphp;
+include $website_tabs_generator;
 
-#Site name, title, url and description setter
-if ($lang == $langs[0]) {
-	$lang = $langs[1];
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $diarionames[0].' '.$lang2;
-	$lang = $langs[0];
+#Site name, title, main_website_url and description setter
+if ($website_language == $languages_array[0]) {
+	$website_language = $languages_array[1];
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $diarionames[0].' '.$hyphen_separated_website_language;
+	$website_language = $languages_array[0];
 	
-	$sitetitulo = $diarionames[0];
-	$sitetitulo2 = $diarionames[0].': '.$icons[11];
-	$siteurl = $siteurlgeral;
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $descs[0];
-	$lang = $langs[0];
+	$website_title = $diarionames[0];
+	$website_title_html = $diarionames[0].': '.$icons[11];
+	$website_link = $selected_website_url;
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_html_descriptions_array[0];
+	$website_language = $languages_array[0];
 }
 
-if ($lang == $langs[1]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $diarionames[0];
+if ($website_language == $languages_array[1]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $diarionames[0];
 
-	$sitetitulo = $diarionames[0].' '.$lang2;
-	$sitetitulo2 = $diarionames[0].': '.$icons[11];
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[0];
-	$sitedesc2 = $descs[0];
+	$website_title = $diarionames[0].' '.$hyphen_separated_website_language;
+	$website_title_html = $diarionames[0].': '.$icons[11];
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[0];
+	$website_header_description = $website_html_descriptions_array[0];
 }
 
-if ($lang == $langs[2]) {
-	$lang2 = strtoupper($lang);
-	$lang2 = substr_replace($lang2, '-', 2, 0);
-	$sitename = $diarionames[1].' '.$lang2;
+if ($website_language == $languages_array[2]) {
+	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+	$website_name = $diarionames[1].' '.$hyphen_separated_website_language;
 
-	$sitetitulo = $diarionames[1].' '.$lang2;
-	$sitetitulo2 = $diarionames[1].': '.$icons[11];
-	$siteurl = $siteurlgeral.strtolower($lang2).'/';
-	$sitedesc = $sitedescs[1];
-	$sitedesc2 = $descs[1];
+	$website_title = $diarionames[1].' '.$hyphen_separated_website_language;
+	$website_title_html = $diarionames[1].': '.$icons[11];
+	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_meta_description = $website_descriptions_array[1];
+	$website_header_description = $website_html_descriptions_array[1];
 }
 
 ?>

@@ -78,8 +78,8 @@ $seriesnumb = 9;
 $cartoonsnumb = 60;
 $animesnumb = 87;
 $videosnumb = 134;
-$storynumb = 4;
-$sitesnumb = 11;
+$story_namenumb = 4;
+$websites_number = 11;
 $friendsnumb = 108;
 $cmntsnumb1 = 92;
 $cmntsnumb2 = 183;
@@ -97,11 +97,11 @@ $cartoonsline = $original3;
 $animesline = $original4;
 $videosline = $original5;
 
-if ($lang == 'enus' or $lang == 'geral') {
+if ($website_language == 'enus' or $website_language == 'geral') {
 	$stry5 = 'Littletato';
 }
 
-if ($lang == 'ptbr') {
+if ($website_language == 'ptbr') {
 	$stry5 = 'Pequenata';
 }
 
@@ -139,12 +139,12 @@ $pastebinlinks = array(
 );
 
 $citybodyfiles = array(
-$sitephpfolder2.'CityBody1.php', 
-$sitephpfolder2.'CityBody2.php', 
-$sitephpfolder2.'CityBody3.php', 
-$sitephpfolder2.'CityBody4.php',
-$sitephpfolder2.'CityBody5.php', 
-$sitephpfolder2.'CityBody6.php',
+$selected_website_folder.'CityBody1.php', 
+$selected_website_folder.'CityBody2.php', 
+$selected_website_folder.'CityBody3.php', 
+$selected_website_folder.'CityBody4.php',
+$selected_website_folder.'CityBody5.php', 
+$selected_website_folder.'CityBody6.php',
 );
 
 ob_start();
@@ -159,25 +159,25 @@ include $citybodyfiles[4];
 include $citybodyfiles[5];
 
 ob_start();
-include $sitephpfolder2.'CityContent2.php';
+include $selected_website_folder.'CityContent2.php';
 $citycontents2 = ob_get_clean();
 
 ob_start();
-include $sitephpfolder2.'CityContent3.php';
+include $selected_website_folder.'CityContent3.php';
 $citycontents3 = ob_get_clean();
 
 ob_start();
-include $sitephpfolder2.'CityContent5.php';
+include $selected_website_folder.'CityContent5.php';
 $citycontents5 = ob_get_clean();
 
 ob_start();
-include $sitephpfolder2.'CityContent6.php';
+include $selected_website_folder.'CityContent6.php';
 $citycontents6 = ob_get_clean();
 
 $citycontents = array(
-$sitephpfolder2.'CityContent2.php',
-$sitephpfolder2.'CityContent3.php',
-$sitephpfolder2.'CityContent5.php',
+$selected_website_folder.'CityContent2.php',
+$selected_website_folder.'CityContent3.php',
+$selected_website_folder.'CityContent5.php',
 );
 
 $citiescontent = array(

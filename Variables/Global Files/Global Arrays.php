@@ -31,7 +31,7 @@ $sitearray = array(
 'textMaker',
 );
 
-# Array of website titles
+# Array of website chapter_titles
 $sitetitlesarray = array(
 'Prints of Computer Blocks',
 'Diário',

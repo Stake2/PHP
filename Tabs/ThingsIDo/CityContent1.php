@@ -1,8 +1,8 @@
 <?php 
 
 echo '<'.$m.'>'.'<b>'."\n";
-echo $divzoomanim."\n";
-echo '<div class="'.$computervar.'">'."\n";
+echo $div_zoom_animation."\n";
+echo '<div class="'.$computer_variable.'">'."\n";
 
 $i = 2;
 $c = 0;
@@ -13,9 +13,9 @@ while ($c <= $prodbtnsnumb - 1) {
 	$c++;
 }
 
-echo $divc;
+echo $div_close;
 
-echo '<div class="'.$mobilevar.'">'."\n";
+echo '<div class="'.$mobile_variable.'">'."\n";
 
 $i = 2;
 $c = 0;
@@ -26,8 +26,8 @@ while ($c <= $prodbtnsnumb - 1) {
 	$c++;
 }
 
-echo $divc."\n";
-echo $divc."\n";
+echo $div_close."\n";
+echo $div_close."\n";
 echo '</b>'.'</'.$m.'>'."\n";
 
 ?>

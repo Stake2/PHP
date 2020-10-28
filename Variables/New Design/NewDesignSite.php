@@ -5,11 +5,11 @@ echo '
 <div id="menuHbox">
 <nav>
 <div id="boxLogo">
-<a href="'.$siteurl.'" title="'.$sitetitulo.'"><img src="'.$imglink.'" alt="'.$sitetitulo.'"><'.$m.' style="font-weight: bold!important;white-space: nowrap;">'.$sitetitulo.'</'.$m.'></a>
+<a href="'.$website_link.'" title="'.str_replace('<i class=" fas="" fa-book"="">', "", $website_title).'"><img src="'.$website_image_link.'" alt="'.str_replace('<i class=" fas="" fa-book"="">', "", $website_title).'"><'.$m.' style="font-weight: bold!important;float:left;padding: 5px 5px;">'.$website_title.'</'.$m.'></a>
 </div>
 <div class="actionMenuUser" title="'.$newdesigntxts[0].'" alt="'.$newdesigntxts[0].'">
 <div class="menu_btns avatarUser">
-<i class="fas fa-book pqnttext" title="'.$newdesigntxts[0].'" style="font-size:16px;font-weight:bold;"></i>			
+<i class="fas fa-book" title="'.str_replace('Pequenata - Littletato: <i class=" fas="" fa-book"="">', "", $newdesigntxts[0]).'" style="font-size:16px;font-weight:bold;"></i>			
 </div>
 <div class="js_boxCliente" style="display: none;">
 <ul class="menuLi">';
@@ -24,7 +24,7 @@ while ($i <= $storiesnumb - 1) {
 		$linktarget = '_newtab';
 	}
 
-	echo '<a href="'.$storylinks[$i].'" title="'.$stories[$i].'" target="'.$linktarget.'"><button class="w3-btn '.$btnstyle3.'" '.$roundedborderstyle.'>'.$stories[$i].' <i class="fas fa-book w3-text-black" style="font-size: 16px;font-weight: bold;width: 16px;"></i></button></a> '."\n";
+	echo '<a href="'.$story_namelinks[$i].'" title="'.$stories[$i].'" target="'.$linktarget.'"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.'>'.$stories[$i].' <i class="fas fa-book w3-text-black" style="font-size: 16px;font-weight: bold;width: 16px;"></i></button></a> '."\n";
 
 	$i++;
 }
@@ -41,7 +41,7 @@ echo '
 				</div>
 				<ul class="menu" style="display: none;">';
 
-include $capbtngeneratorphp;
+include $chapter_button_generator_php;
 
 echo '
 					<i>&nbsp;</i>
@@ -68,7 +68,7 @@ echo '<script type="text/javascript" language="javascript">'."
 echo '
 <div class="conteudoBox">';
 
-include $chapterreaderglobal;
+include $chapter_generator_global;
 
 echo '</div>
 </div>

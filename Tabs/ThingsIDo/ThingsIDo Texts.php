@@ -2,9 +2,9 @@
 
 #Array of tab links
 $tablinks = array(
-$siteurlgeral.'/'.'videos'.'/',
-$url.'/'.'videos'.'/',
-$url.'/'.'videos'.'/',
+$selected_website_url.'/'.'videos'.'/',
+$main_website_url.'/'.'videos'.'/',
+$main_website_url.'/'.'videos'.'/',
 );
 
 $links = array(
@@ -75,7 +75,7 @@ $socialmediacolors = array(
 'w3-orange w3-text-black',
 );
 
-#Array of music titles and names
+#Array of music chapter_titles and names
 $musictitles = array(
 'DirtySnatcha & Matt Doe - Crashing',
 'PANDA EYES - LOST',
@@ -183,7 +183,7 @@ $i = 0;
 $videosnumb = count($youtubevideoids);
 $videosnumb = $videosnumb - 1;
 while ($i <= $videosnumb) {
-	$videoembedsyoutube[$i] = '<iframe '.$iframestyle.' src="https://www.youtube-nocookie.com/embed/'.$youtubevideoids[$i].'" frameborder="0"  allowfullscreen style="'.$roundedborderstyle2.'"></iframe>';
+	$videoembedsyoutube[$i] = '<iframe '.$iframestyle.' src="https://www.youtube-nocookie.com/embed/'.$youtubevideoids[$i].'" frameborder="0"  allowfullscreen style="'.$rounded_border_style_2.'"></iframe>';
 
 	$videoembedsyoutubem[$i] = '<iframe '.$iframestylem.' src="https://www.youtube-nocookie.com/embed/'.$youtubevideoids[$i].'" frameborder="0"  allowfullscreen></iframe>';
 
@@ -215,7 +215,7 @@ while ($i <= $playlistsnumb) {
 }
 
 #Texts for the English language
-if ($lang == $langs[0] or $lang == $langs[1]) {
+if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 	#Array of description of tabs
     $tabdescriptions = array(
     '',
@@ -238,7 +238,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
     <br />
     I like to edit videos in Sony Vegas and upload them to Youtube, some times they are stories, some times YTP, some times they are Dubstep Lyrics or BassVisual videos.<br />
     <br />
-    Dubstep Lyrics or BassVisual videos are the types of videos that show the visual or written version of a sound, an onomatopoeia, like "splash", "kaboom", these type of things, but the Dubstep Lyrics show the onomatopoeias of the Dubstep songs, for a Dubstep bass, for example, I would write it like "Byoouw", for a machine-gun-like bass I would write it like "Trrrrrrrrr".<br />
+    Dubstep Lyrics or BassVisual videos are the website_types_array of videos that show the visual or written version of a sound, an onomatopoeia, like "splash", "kaboom", these type of things, but the Dubstep Lyrics show the onomatopoeias of the Dubstep songs, for a Dubstep bass, for example, I would write it like "Byoouw", for a machine-gun-like bass I would write it like "Trrrrrrrrr".<br />
     <br />
     I have a channel on Youtube, <a href="https://www.youtube.com/user/TheStake2/videos">here is the link of it</a>.',
     
@@ -277,7 +277,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 	'Here are some things related to games, my Steam profile, my Osu! profile and a list of games that I like',
     );
 
-	#Array of playlist titles and names
+	#Array of playlist chapter_titles and names
 	$playlisttitles = array(
 	'Dubstep (stake2)',
 	'Dubstep 2 Playlist',
@@ -316,7 +316,7 @@ if ($lang == $langs[0] or $lang == $langs[1]) {
 }
 
 #Texts for the Brazilian Portuguese language
-if ($lang == $langs[2]) {
+if ($website_language == $languages_array[2]) {
 	#Array of description of tabs
 	$tabdescriptions = array(
 	'',
@@ -379,7 +379,7 @@ if ($lang == $langs[2]) {
 	'Aqui estão algumas coisas relacionadas a games, meu perfil na Steam, meu perfil do Osu! e uma lista de jogos que eu gosto',
 	);
 
-	#Array of playlist titles and names
+	#Array of playlist chapter_titles and names
 	$playlisttitles = array(
 	'Dubstep (stake2)',
 	'Playlist de Dubstep 2',

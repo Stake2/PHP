@@ -26,15 +26,15 @@ $i++;
 echo $txts[$i].' '.$ano.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
 echo '<br />'."\n";
 $i++;
-echo '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
+echo '<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
 $i++;
 echo $txts[$i].': '.'<a href="'.$yearnumbstxt[$i].'">'.$bluespan.$yearnumbstxt[$i].$spanc.'</a>'.'<br />'."\n";
 $i++;
 $v = 0;
 #Medias array displayer and generator
 while ($i <= 10) {
-	echo '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].':</a> '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
-	$medias[$v] = '<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[$i].':</a> '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
+	echo '<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[$i].':</a> '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
+	$medias[$v] = '<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[$i].':</a> '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
 	$i++;
 	$v++;
 }
@@ -46,7 +46,7 @@ $i5 = $i + 6;
 $i6 = $i + 7;
 $a4 = 0;
 #Stories part of the My 2019.txt file generator
-echo '<a href="'.$storylinks[$a4].'" class="w3-text-green">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$txts[$i4].'s, '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].', '.$bluespan.$yearnumbstxt[$i3].' '.$spanc.$txts[$i6].'<br />'."\n";
+echo '<a href="'.$story_namelinks[$a4].'" class="w3-text-green">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$txts[$i4].'s, '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].', '.$bluespan.$yearnumbstxt[$i3].' '.$spanc.$txts[$i6].'<br />'."\n";
 $i++;
 $i++;
 $i++;
@@ -75,7 +75,7 @@ while ($a < 16) {
 	if ($a == 15) {
 		$captxt = $txts[$b4];
 	}
-	echo $greenspan.'<a href="'.$storylinks[$a4].'" class="w3-text-green">'.$txts[$a].'</a>'.$spanc.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$captxt.', '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].' ('.$cyanspan.$newtxt.'!'.$spanc.')'.'<br />'."\n";
+	echo $greenspan.'<a href="'.$story_namelinks[$a4].'" class="w3-text-green">'.$txts[$a].'</a>'.$spanc.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$captxt.', '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].' ('.$cyanspan.$newtxt.'!'.$spanc.')'.'<br />'."\n";
 	$i++;
 	$i++;
 	$a++;
@@ -88,16 +88,16 @@ $a = 22;
 #Websites part displayer
 echo $txts[19].': '.$bluespan.$yearnumbstxt[$a].$spanc.'<br />'."\n";
 $a++;
-echo $sitesbtns[18]."\n".
-$sitesbtns[6]."\n".
-$sitesbtns[19]."\n".
-$sitesbtns[20]."\n".
-$sitesbtns[4]."\n".
-$sitesbtns[16]."\n".
-$sitesbtns[8]."\n".
-$sitesbtns[21]."\n".
-$sitesbtns[9]."\n".
-$sitesbtns[10].$sitesbtns[11]."\n".
+echo $websites_buttons_array[18]."\n".
+$websites_buttons_array[6]."\n".
+$websites_buttons_array[19]."\n".
+$websites_buttons_array[20]."\n".
+$websites_buttons_array[4]."\n".
+$websites_buttons_array[16]."\n".
+$websites_buttons_array[8]."\n".
+$websites_buttons_array[21]."\n".
+$websites_buttons_array[9]."\n".
+$websites_buttons_array[10].$websites_buttons_array[11]."\n".
 '<br />'."\n";
 $a++;
 $i--;

@@ -1,13 +1,13 @@
 <?php 
 
 #"Things I do" Website definer
-if (strpos ($host, $params[0].'='.$sitethingsido) == true) {
-	$choosenwebsite = $sitethingsido;
+if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == true) {
+	$selected_website = $sitethingsido;
 
 	#Site title and name definer
-	$site = $choosenwebsite;
-	$sitename = $choosenwebsite;
-	$setsitecssfile = $pocbcss;
+	$site = $selected_website;
+	$website_name = $selected_website;
+	$choosed_website_css_file = $css_file_pocb;
 
 	#Site settings
 	$showembeds = false; #If site shows Youtube embeds
@@ -16,17 +16,17 @@ if (strpos ($host, $params[0].'='.$sitethingsido) == true) {
 	$sitehasstories = true; #If site has a Stories Tab
 
 	#Site settings setter file includer
-	include $settingsparamsfile;
+	include $setting_parameters_file;
 
 	#Site Tabs array
 	$tabs = array('Productive Things', 'Not Productive Things');
 
 	#Site Tabnames array
-	if ($lang == $langs[0] or $lang == $langs[1]) {
+	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
 		$tabnames = array('Productive Things', 'Not Productive Things', 'To Write', 'Make Websites', 'To Program/Code', 'Edit Videos', 'To Draw', 'Listen to Music', 'To Talk', 'To Watch', 'To Play Games', 'Songs', 'Playlists');
 	}
 
-	if ($lang == $langs[2]) {
+	if ($website_language == $languages_array[2]) {
 		$tabnames = array('Coisas Produtivas', 'Coisas Não Produtivas', 'Escrever', 'Fazer Sites', 'Programar', 'Editar Vídeos', 'Desenhar', 'Ouvir música', 'Conversar', 'Assistir', 'Jogar Jogos', 'Músicas', 'Playlists');
 	}
 
@@ -34,7 +34,7 @@ if (strpos ($host, $params[0].'='.$sitethingsido) == true) {
 	$tabnumb = 12;
 
 	#Includer of the array of the GenericTabs files
-	include $genericcitiesgeneratorfile;
+	include $generic_tabs_generator_file;
 }
 
 ?>

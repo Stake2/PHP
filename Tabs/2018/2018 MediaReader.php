@@ -1,13 +1,13 @@
 <?php 
 
-echo $divzoomanim."\n";
+echo $div_zoom_animation."\n";
 echo '<div style="text-align:left;">'."\n";
 
 #Media loader for 2018 using "Watched VideoTypes 2018"
 #Used in the ArchivedMedias Tab on Watch History.php
 
 #Number resetter for Watch History website
-if ($sitename == $sitewatch) {
+if ($website_name == $sitewatch) {
 	$watchednumb = $watched2018number;
 
 	#Medias numbers for 2018 Medias
@@ -32,29 +32,29 @@ if ($sitename == $sitewatch) {
 	$videosline = $original5;
 }
 
-if ($sitename == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $sitename == $sitethingsido) {
+if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {
 	echo '<b>'.$blackspan.$txts[4].': '.$spanc.'</b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
 }
 
-if ($sitename == $sitewatch and $thingsidofake == null or $thingsidofake == false and $watchmedias2018 == true) {
+if ($website_name == $sitewatch and $thingsidofake == null or $thingsidofake == false and $watchmedias2018 == true) {
 	echo '<b>'.$whitespan.$txts[4].': '.$spanc.'</b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
 }
 
-if ($sitename != $sitewatch) {
+if ($website_name != $sitewatch) {
 	echo '<'.$n.' class="" style="text-align:left;">'."\n";
 
-	echo '<b>'.'<a href="'.$url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
+	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
 }
 
-if ($sitename == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $sitename == $sitethingsido) {
+if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {
 	$a2019 = false;
 }
 
-if ($sitename == $sitewatch and $thingsidofake == null or $thingsidofake == false and $watchmedias2018 == true) {
+if ($website_name == $sitewatch and $thingsidofake == null or $thingsidofake == false and $watchmedias2018 == true) {
 	$a2019 = true;
 }
 
-if ($sitename == $site2018) {
+if ($website_name == $site2018) {
 	$regeneratemedias2019 = false;
 	$a2019 = true;
 }
@@ -253,7 +253,7 @@ $videosline = $original5;
 
 echo '<br /><br /><br />';
 
-if ($sitename == $sitewatch) {
+if ($website_name == $sitewatch) {
 	echo '';
 }
 
@@ -261,7 +261,7 @@ else {
 	echo '</'.$n.'>'."\n";
 }
 
-echo $divc."\n";
-echo $divc."\n";
+echo $div_close."\n";
+echo $div_close."\n";
 
 ?>
