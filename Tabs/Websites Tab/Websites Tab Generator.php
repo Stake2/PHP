@@ -80,7 +80,7 @@ echo $bigspace."\n";
 echo '<div class="'.$computer_variable.'" '.$roundedborderstyle.'>'."\n";
 #echo $h42."\n";
 
-echo '<'.$m.' class="'.$first_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
+echo '<'.$m.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
 
 echo $margin."\n";
 echo '<center>'."\n";
@@ -110,7 +110,7 @@ echo "\n";
 echo '<div class="'.$mobile_variable.'">'."\n";
 #echo $h42."\n";
 
-echo '<'.$m.' class="'.$first_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
+echo '<'.$m.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
 
 echo '<div class="'.$mobile_variable.'">'."\n".$margin.$div_close."\n";
 echo "<center>"."\n";

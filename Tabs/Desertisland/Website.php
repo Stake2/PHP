@@ -40,8 +40,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitedesertisland) =
 	$story_name_contains_reads = false; #Defines if the story has story_reads_array on it
 	$story_name_contains_comments = false; #Defines if the story has comments on it
 
-	$site_is_beta = true;
-	if ($site_is_beta == false) {
+	$site_is_beta = false;
+	if ($site_is_beta == true) {
 		#Site settings definer
 		$website_deactivate_all_setting = true;
 		$site_is_prototype = true;

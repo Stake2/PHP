@@ -26,6 +26,7 @@ $first_border_color = $border_color_brown_css_class,
 $second_border_color = $border_color_brown_css_class,
 $third_border_color = $border_color_black_css_class,
 $tab_border_color = $border_color_brown_css_class,
+$websites_tab_border_color = $border_color_black_css_class,
 
 $first_button_color = $additional_background_color,
 $second_button_color = $background_color,
@@ -58,5 +59,8 @@ $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color
 );
 
 $website_border_color = $first_border_color;
+
+# Website Style Variables Foreach.php file includer
+require $website_Style_variables_foreach;
 
 ?>

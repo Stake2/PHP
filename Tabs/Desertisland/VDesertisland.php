@@ -47,8 +47,8 @@ $site_image = 'Capa Original.jpg';
 $website_image = $cdn_image_stories_desertisland.$site_image;
 $website_image_link = $website_image;
 
-$website_image_size_computer = 60;
-$imagesize2 = 100;
+#$website_image_size_computer = 60;
+#$website_image_size_mobile = 100;
 
 # TextFileReader.php file includer
 require $text_file_reader_file_php;
