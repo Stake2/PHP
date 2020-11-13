@@ -40,6 +40,7 @@ while ($i < $chapters) {
 	echo '		var captext = captext1 + "'.$i2.'";'."\n";
 	echo '		openCity(captext);'."\n";
 	echo '		document.getElementById(captext).scrollIntoView();'."\n";
+	echo '		DefineChapter('.$i2.');'."\n";
 	echo '	}'."\n";
 
 	if ($i != $chapters) {
