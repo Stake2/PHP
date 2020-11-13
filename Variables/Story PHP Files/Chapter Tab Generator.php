@@ -126,6 +126,12 @@ if ($chapter_number_1 != 1) {
 	}
 
 	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
+
+	$has_previous_chapter_button = true;
+}
+
+else {
+	$has_previous_chapter_button = false;
 }
 
 # Top Next chapter button
@@ -140,15 +146,29 @@ if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
 	}
 
 	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;'.$rounded_border_style_2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
+
+	$has_next_chapter_button = true;
+}
+
+else {
+	$has_next_chapter_button = false;
 }
 
 if ($new_write_style == true) {
+	if ($has_previous_chapter_button == true) {
+		$local_button_style = 'float: left;margin-left: 15px;'.$rounded_border_style_2;
+	}
+
+	if ($has_previous_chapter_button == false) {
+		$local_button_style = 'float: left;'.$rounded_border_style_2;
+	}
+
 	$edit_story_chapter_button = '<span id="edit_story_chapter_button_number_'.$chapter_number_1.'" style="display:none;">WriteContent'.$chapter_number_1.'</span>'.
-	'<button id="write-button-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="border-radius: 50px;float: left;" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
+	'<button id="write-button-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
 	"\n"."\n";
 
 	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">ReadContent'.$chapter_number_1.'</span>'.
-	'<button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="border-radius: 50px;float: left;" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
+	'<button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
 	"\n"."\n";
 
 	# Edit story button displayer
@@ -157,9 +177,21 @@ if ($new_write_style == true) {
 }
 
 # "Go back to the chapter buttons tab" button
-echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$second_button_style.' '.$computer_variable.'" style="float:right;margin-right:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
+if ($has_next_chapter_button == true) {
+	$local_button_style = 'float: right;margin-right: 15px;'.$rounded_border_style_2;
+}
 
-echo '<a href="#'.$tabcodesm[0].'"><button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" style="float:right;margin-right:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$tabcodesm[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
+if ($has_next_chapter_button == false) {
+	$local_button_style = 'float: right;'.$rounded_border_style_2;
+}
+
+echo '<a href="#'.$citycodes[0].'">'.
+'<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" style="'.$local_button_style.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button>'.
+'</a>'."\n";
+
+echo '<a href="#'.$tabcodesm[0].'">'.
+'<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" style="'.$local_button_style.'" onclick="openCity('."'".$tabcodesm[0]."')".'"><h3>'.$icons[16].'</h3></button>'.
+'</a>'."\n";
 
 if ($write_new_chapter == true and $chapter_number_1 != $chapters + 1) {
 	#"Write new chapter" button

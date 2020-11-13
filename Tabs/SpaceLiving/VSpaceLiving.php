@@ -1,6 +1,7 @@
 <?php 
 
 #CSS color and text style variables
+/*
 $color = "background_blue";
 $color1 = "background_blue";
 $color2 = "background_blue";
@@ -43,6 +44,7 @@ $h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;bor
 $h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
 $widthsize = '';
 $size = '';
+*/
 
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
