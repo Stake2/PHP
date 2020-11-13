@@ -142,6 +142,20 @@ if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
 	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;'.$rounded_border_style_2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 }
 
+if ($new_write_style == true) {
+	$edit_story_chapter_button = '<span id="edit_story_chapter_button_number_'.$chapter_number_1.'" style="display:none;">WriteContent'.$chapter_number_1.'</span>'.
+	'<button id="write-button-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="border-radius: 50px;float: left;" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
+	"\n"."\n";
+
+	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">ReadContent'.$chapter_number_1.'</span>'.
+	'<button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="border-radius: 50px;float: left;" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
+	"\n"."\n";
+
+	# Edit story button displayer
+	echo $edit_story_chapter_button;
+	echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
+}
+
 # "Go back to the chapter buttons tab" button
 echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$second_button_style.' '.$computer_variable.'" style="float:right;margin-right:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 
@@ -171,12 +185,6 @@ if ($website_story_has_bookcovers_setting == true or $website_story_has_bookcove
 }
 
 echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
-
-if ($new_write_style == true) {
-	$writestorybtn = '<span id="writebtnattribute'.$chapter_number_1.'" style="display:none;">WriteContent'.$chapter_number_1.'</span><button id="write-button-'.$chapter_number_1.'" title="" class="w3-btn '.$second_button_style.'" style="border-radius: 50px;" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><'.$n.'><i class="fas fa-pen"></i></'.$n.'></button><br /><br />'."\n"."\n";
-
-	$readstorybtn = '<span id="readbtnattribute'.$chapter_number_1.'" style="display:none;">ReadContent'.$chapter_number_1.'</span><button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="border-radius: 50px;" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><'.$n.'><i class="fas fa-book"></i></'.$n.'></button><br /><br />'."\n"."\n";
-}
 
 #Chapter writer tab displayer
 if ($sitestorywrite == true and $story_name_website_chapter_to_write == $chapter_number_1 or $sitestorywrite == true and $story_name_website_chapter_to_write.(int)'0' == $chapter_number_1 and $chapter_number_1 != 0) {
