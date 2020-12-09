@@ -17,11 +17,8 @@ function Include_Classes($class_name) {
 
 Include_Classes("Website Info Interface and Abstract Class");
 Include_Classes("Website Style Interface and Abstract Class");
-<<<<<<< HEAD
 ##require($website_classes_folder."Website_Info.php");
 #require($website_classes_folder."Website_Style.php");
-=======
->>>>>>> b7a0017b5ebff01f1133e6e0676726a187c65044
 
 spl_autoload_register("Include_Classes");
 
