@@ -164,11 +164,19 @@ if ($new_write_style == true) {
 	}
 
 	$edit_story_chapter_button = '<span id="edit_story_chapter_button_number_'.$chapter_number_1.'" style="display:none;">WriteContent'.$chapter_number_1.'</span>'.
+<<<<<<< HEAD
 	'<button id="'.$write_button_text.'-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
 	"\n"."\n";
 
 	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">ReadContent'.$chapter_number_1.'</span>'.
 	'<button id="'.$write_button_text.'-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
+=======
+	'<button id="write-button-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
+	"\n"."\n";
+
+	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">ReadContent'.$chapter_number_1.'</span>'.
+	'<button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
+>>>>>>> b7a0017b5ebff01f1133e6e0676726a187c65044
 	"\n"."\n";
 
 	# Edit story button displayer

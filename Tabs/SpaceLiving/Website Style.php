@@ -64,6 +64,10 @@ $website_image_size_computer = $computer_image_size;
 $website_image_size_mobile = $mobile_image_size;
 
 # Website Style Variables Foreach.php file includer
+<<<<<<< HEAD
 require $website_style_variables_foreach;
+=======
+require $website_Style_variables_foreach;
+>>>>>>> b7a0017b5ebff01f1133e6e0676726a187c65044
 
 ?>
