@@ -142,8 +142,20 @@ $number = 1;
 while ($i <= $watchednumbfile) {
 	$i2 = $i + 1;
 
+	$a = 0;
+	while ($a <= 5) {
+		$watchedtxtmedia[$i] = $watchedtxtmedia[$i];
+		$text_to_find = "/(".$rewatched_text_enus." ".$a."x - ".$rewatched_text_ptbr." ".$a."x)/i";
+
+		$watchedtxtmedia[$i] = preg_replace($text_to_find, $rewatched_text." ".$a."x", $watchedtxtmedia[$i]);
+
+		$a++;
+	}
+
+	#echo $watchedtype[$i]. " ", $medianames[$seriesnumbcode]."<br />";
+
 	if ($website_watch_history_new_watched_style_setting == true) {
-		#New style of showing Watched Medias
+		# New style of showing Watched Medias
 		if ($hasmediaarray[$animesnumbcode] == true and $mediadone[$animesnumbcode] == false) {
 			if ($watchedtype[$i] == $medianames[$animesnumbcode]) {
 				if ($i == $linesarray[$animesnumbcode]) {

@@ -1,5 +1,40 @@
 <?php 
 
+if ($thingsidofake == true) {
+	$spanstyle = $blackspan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
+
+	if ($mobileversion == true) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
+
+	if ($mobileversion == false) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
+
+if ($thingsidofake == null) {
+	$spanstyle = $whitespan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
+
+	if ($mobileversion == true) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
+
+	if ($mobileversion == null) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
+
+
 if ($site == $site2018 and $a2019 == false) {
 	#2018.php version of the YearMaker from TextMaker.php, only has Medias array generator
 
@@ -40,12 +75,12 @@ if ($website_name == $sitewatch or $site == $site2019 or $site == $site2018 and 
 	#Medias array displayer and generator
 	while ($bb <= 10) {
 		if ($a2019text == true and $a2018text == false) {
-			$medias[$v] = '<a href="#'.$txts[$bb].'2019">'.$whitespan.$txts[$bb].': '.$spanc.$bluespan.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
+			$medias[$v] = '<a href="#'.$txts[$bb].'2019">'.$whitespan.$txts[$bb].': '.$spanc.$number_text_color_span.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
 			$mediastexts[$v] = $txts[$bb].'2019';
 		}
 
 		if ($a2019text == false and $a2018text == true) {
-			$medias[$v] = '<a href="#'.$txts[$bb].'2018">'.$whitespan.$txts[$bb].': '.$spanc.$bluespan.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
+			$medias[$v] = '<a href="#'.$txts[$bb].'2018">'.$whitespan.$txts[$bb].': '.$spanc.$number_text_color_span.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
 			$mediastexts[$v] = $txts[$bb].'2018';
 		}
 
@@ -61,7 +96,7 @@ if ($website_name == $sitewatch and $a2019 == false and $regeneratemedias2019 ==
 	$v = 0;
 	#Medias array displayer and generator
 	while ($bb <= 10) {
-		$medias[$v] = '<a href="#'.$txts[$bb].'2019">'.$blackspan.$txts[$bb].': '.$spanc.$bluespan.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
+		$medias[$v] = '<a href="#'.$txts[$bb].'2019">'.$blackspan.$txts[$bb].': '.$spanc.$number_text_color_span.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
 		$mediastexts[$v] = $txts[$bb].'2019';
 		$bb++;
 		$v++;

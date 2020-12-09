@@ -101,13 +101,13 @@ $website_html_descriptions_array = array(
 
 #Language dependent character names
 if ($website_language == $languages_array[0] or $website_language == $languages_array [1]) {
-	$story_name_name = $diarionames[0];
+	$story_name_variable = $diarionames[0];
 	$nodusname = 'Nodus (Artificial Intelligence)';
 	$tedname = 'Ted (Random guy)';
 }
 
 if ($website_language == $languages_array[2]) {
-	$story_name_name = $diarionames[1];
+	$story_name_variable = $diarionames[1];
 	$nodusname = 'Nodus (Inteligência Artificial)';
 	$tedname = 'Ted (Cara aleatório)';
 }

@@ -1,7 +1,41 @@
 <?php 
 
+if ($thingsidofake == true) {
+	$spanstyle = $blackspan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
+
+	if ($mobileversion == true) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
+
+	if ($mobileversion == false) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
+
+if ($thingsidofake == null) {
+	$spanstyle = $whitespan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
+
+	if ($mobileversion == true) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
+
+	if ($mobileversion == null) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
+
 echo '<hr class="'.$tab_full_border.'" />'."\n";
-echo '<'.$m.' class="w3-black w3-text-blue" style="text-align:left;">'."\n";
+echo '<'.$m.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
 $mediaarrayyear = 2018;
 include $mediaarraygenerator;

@@ -142,13 +142,13 @@ $website_html_descriptions_array = array(
 */
 
 #Story name definer
-$story_name_name = $desert_island_story_name;
+$story_name_variable = $desert_island_story_name;
 
 #Re-include of the StoryVars.php file to set the story name
 include $story_name_variables_php_variable;
 
 #Story name definer
-$story_name_name = $desert_island_story_name;
+$story_name_variable = $desert_island_story_name;
 
 $number_until_date_of_publication = 1;
 $date_to_publish = (string)($number_until_date_of_publication);
@@ -250,7 +250,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	}
 
 	$website_name = $selected_website;
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

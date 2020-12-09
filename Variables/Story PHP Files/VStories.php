@@ -17,7 +17,7 @@ $status_reviewing_and_editing = $status[2];
 $status_finished_and_publishing = $status[3];
 
 if ($sitetype1 == $website_types_array[0] and $website_name != $sitediario) {
-	$story_name_name = '';
+	$story_name_variable = '';
 }
 
 #English texts for story websites
@@ -79,11 +79,12 @@ if (in_array($website_language, $en_languages_array)) {
 	$notificationtext = 'New reviewed chapter';
 
 	$write_new_chapter_tab_text = 'write-new-chapter';
+	$write_button_text = 'write-button';
 
-	$story_namenames = array(
-	$pqntstoryname = 'The Life of Littletato',
-	$slstoryname = 'SpaceLiving',
-	$nazzevostoryname = 'The Story of the Nazzevo Brothers',
+	$story_names_array = array(
+	$littletato_story_name = 'The Life of Littletato',
+	$spaceliving_story_name = 'SpaceLiving',
+	$nazzevo_story_name = 'The Story of the Nazzevo Brothers',
 	$desert_island_story_name = 'Desert Island',
 	$lonely_story_name = 'Lonely Stories',
 	);
@@ -148,11 +149,12 @@ if (in_array($website_language, $pt_languages_array)) {
 	$notificationtext = 'Novo capítulo revisado';
 
 	$write_new_chapter_tab_text = 'escrever-novo-capítulo';
+	$write_button_text = 'botão-de-escrever';
 
-	$story_namenames = array(
-	$pqntstoryname = 'A Vida de Pequenata',
-	$slstoryname = 'SpaceLiving',
-	$nazzevostoryname = 'A História dos Irmãos Nazzevo',
+	$story_names_array = array(
+	$littletato_story_name = 'A Vida de Pequenata',
+	$spaceliving_story_name = 'SpaceLiving',
+	$nazzevo_story_name = 'A História dos Irmãos Nazzevo',
 	$desert_island_story_name = 'Ilha Deserta',
 	$lonely_story_name = 'Histórias Solitárias',
 	);
@@ -163,28 +165,28 @@ $captextdiv = $chaptertabtxt.'-';
 
 if ($sitetype1 == $website_types_array[1]) {
 	#Story status definer
-	if ($story_namestatus == $status[0]) {
-		$story_namestatus = $story_namestatuses[0];
+	if ($story_status == $status[0]) {
+		$story_status = $story_namestatuses[0];
 	}
 	
-	if ($story_namestatus == $status[1]) {
-		$story_namestatus = $story_namestatuses[1];
+	if ($story_status == $status[1]) {
+		$story_status = $story_namestatuses[1];
 	}
 	
-	if ($story_namestatus == $status[2]) {
-		$story_namestatus = $story_namestatuses[2];
+	if ($story_status == $status[2]) {
+		$story_status = $story_namestatuses[2];
 	}
 	
-	if ($story_namestatus == $status[3]) {
-		$story_namestatus = $story_namestatuses[3];
+	if ($story_status == $status[3]) {
+		$story_status = $story_namestatuses[3];
 	}
 }
 
 #Story names array
 $stories = array(
-$pqntstoryname,
-$slstoryname,
-$nazzevostoryname,
+$littletato_story_name,
+$spaceliving_story_name,
+$nazzevo_story_name,
 $desert_island_story_name,
 $lonely_story_name,
 );

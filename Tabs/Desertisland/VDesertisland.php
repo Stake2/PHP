@@ -1,20 +1,22 @@
 <?php 
 
 # HTML and HTML Style variables
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$border = 'border-width:4px;border-color:'.'#ffffb3'.';border-style:solid;';
-$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;';
-$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';'.$rounded_border_style_2.';
-$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$widthsize = '';
-$size = '';
+#$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$border = 'border-width:4px;border-color:'.'#ffffb3'.';border-style:solid;';
+#$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;';
+#$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';'.$rounded_border_style_2.';
+#$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
+#$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+#$widthsize = '';
+#$size = '';
 #$websites_tab_number_text_color = $subtextspan;
 #$websites_tab_number_hover_color = $cssbtn5;
 
 #$textstyle = 'w3-text-black'.' '.$ultimate_bg_color;
+
+$story_name = $desert_island_story_name;
 
 # New site name generator, generates: "desert_island"
 $new_site_name = str_replace(' ', '_', strtolower($sitename_desertisland));
@@ -37,18 +39,28 @@ $cover_folder = $cdn_image_stories_desertisland.$single_cover_folder.'/';
 require $cover_images_displayer_php_variable;
 
 # Story name definer
-$story_name_name = $desert_island_story_name;
+$story_name_variable = $desert_island_story_name;
 
 # Story status
-$story_namestatus = $status[1];
+$story_status = $status[1];
 
-# Site image vars
-$site_image = 'Capa Original.jpg';
-$website_image = $cdn_image_stories_desertisland.$site_image;
+# Defines the site image if the site has book covers or not
+if ($website_story_has_bookcovers_setting == true) {
+	$story_name_cover_image_filename = '1';
+
+	$website_image = $online_cover_subfolder.$story_name_cover_image_filename.'.png';
+	$website_image_size_computer = 60;
+	$website_image_size_mobile = 100;
+}
+
+else {
+	$website_image = $cdnimg.$website_image.'.jpg';
+
+	$website_image_size_computer = 30;
+	$website_image_size_mobile = 77;
+}
+
 $website_image_link = $website_image;
-
-#$website_image_size_computer = 60;
-#$website_image_size_mobile = 100;
 
 # TextFileReader.php file includer
 require $text_file_reader_file_php;
@@ -115,7 +127,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 #Status text definer, that sets the status text with [] around it
-$statustxt = '['.ucfirst($story_namestatus).']';
+$statustxt = '['.ucfirst($story_status).']';
 
 #Site name, title, main_website_url and description setter
 if ($website_language == $geral_language) {
@@ -159,7 +171,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	}
 
 	$website_name = $selected_website;
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

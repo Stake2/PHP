@@ -7,6 +7,12 @@ $host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" :
 $main_website_url = 'https://diario.netlify.app/';
 $hard_drive_letter = "C";
 $mega_folder = $hard_drive_letter.':/Mega/';
+
+if (!file_exists($mega_folder)) {
+	$hard_drive_letter = "D";
+	$mega_folder = $hard_drive_letter.':/Mega/';
+}
+
 $mega_folder_diario = $mega_folder.'Diario/';
 $main_php_folder = $mega_folder.'PHP/';
 
@@ -28,6 +34,8 @@ $php_vars = $php_folder_variables;
 
 $php_variables_global_files = $php_folder_variables.$global_variable.' Files/';
 $php_vars_global_files = $php_variables_global_files;
+$php_variables_website_classes = $php_variables_global_files.'Website Classes/';
+$website_classes_folder = $php_variables_website_classes;
 
 $php_global_tabs = $global_tabs_folder;
 
@@ -41,7 +49,7 @@ $other_index_stuff_php = $php_vars_global_files.'Other Index Stuff.php';
 
 $website_selector_file = $php_variables.'Website Selector.php';
 $website_style_chooser_file = $php_vars_global_files.'Website Style Chooser.php';
-$website_Style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
+$website_style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
 $generic_tabs_generator_file = $php_vars_global_files.'GenericCities Generator.php';
 $setting_parameters_file = $php_vars_global_files.'Settings Params.php';
 

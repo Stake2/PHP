@@ -25,7 +25,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<a name="modal-read-'.$a.'"></a>'."\n";
 	echo '<div id="modal-read-'.$a.'" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation;
-	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
+	echo '<div class="modal-content w3-black '.$first_full_border.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$computer_variable.'" '.$roundedborderstyle.'>';
 	
 	# Close read-modal button

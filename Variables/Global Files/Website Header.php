@@ -127,11 +127,11 @@ if ($sitetype1 == $website_types_array[0] and $website_deactivate_header_setting
 
 # Story website header generator
 if ($sitetype1 == $website_types_array[1]) {
-	if ($story_namestatus != $story_namestatuses[1] or $story_namestatus != $story_namestatuses[2]) {
+	if ($story_status != $story_namestatuses[1] or $story_status != $story_namestatuses[2]) {
 		$newchaptertext = '';
 	}
 
-	if ($story_namestatus == $story_namestatuses[1] or $story_namestatus == $story_namestatuses[2]) {
+	if ($story_status == $story_namestatuses[1] or $story_status == $story_namestatuses[2]) {
 		$newchaptertext = '<span class="'.$third_text_color.'">'.' ['.$newtxt.'!]'.$spanc;
 	}
 

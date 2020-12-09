@@ -2,8 +2,8 @@
 
 #Chapter text reader
 if ($new_write_style == true) {
-	echo $writestorybtn;
-	echo '<div style="display:none;">'.$readstorybtn.$div_close;
+	#echo $edit_story_chapter_button;
+	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
 }
 
 if (isset($normal_chapters[$chapter_number_1])) {
@@ -83,8 +83,8 @@ if ($new_write_style == true) {
 	echo '<script>'.
 	'var ReadContent'.$chapter_number_1.' = `';
 
-	echo $writestorybtn;
-	echo '<div style="display:none;">'.$readstorybtn.$div_close;
+	#echo $edit_story_chapter_button;
+	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
 
 	if (file_exists($normal_chapters[$chapter_number_1]) == true) {
 		if ($story_namewritesstoryfiles == true) {
@@ -153,10 +153,10 @@ if ($new_write_style == true) {
 	echo '<script>'.
 	'var WriteContent'.$chapter_number_1.' = `';
 
-	echo $readstorybtn;
-	echo '<div style="display:none;">'.$writestorybtn.$div_close;
+	#echo $show_story_chapter_text_button;
+	#echo '<div style="display:none;">'.$edit_story_chapter_button.$div_close;
 
-	echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
+	echo '<textarea id="edit_chapter_title_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
 	#Checks if the variable show_write_form_text is set to true
 	if ($show_write_form_text == true) {
@@ -172,7 +172,7 @@ if ($new_write_style == true) {
 
 	echo '</textarea>'."\n";
 
-	echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
+	echo '<textarea id="edit_chapter_story_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
 	if ($showwriteformtext == true) {
 		echo $story_nametxt.': '."\n"."\n";

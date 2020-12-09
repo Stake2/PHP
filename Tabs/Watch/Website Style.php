@@ -9,6 +9,8 @@ Array that has the CSS variables, "called website_style_variables_array" ($backg
 Foreach that cycles through the "website_style_variables_array" array and created global_variable "website_(css variable name here)" variables like:
 $website_background_color = $website_style_variables_array[$i];
 
+# Fazer amarelo para select e border amarela para sub-tab
+
 */
 
 $website_style_variables_array = array(
@@ -61,6 +63,6 @@ $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color
 $website_border_color = $first_border_color;
 
 # Website Style Variables Foreach.php file includer
-require $website_Style_variables_foreach;
+require $website_style_variables_foreach;
 
 ?>

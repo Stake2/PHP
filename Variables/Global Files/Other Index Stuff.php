@@ -6,6 +6,22 @@ ChangeTitle();
 </script>';
 }
 
+/*
+$i = 0;
+while ($i <= 0) {
+	$text_to_use = $watchedtxtmedia[208];
+	$text_to_find = "/(".$rewatched_text_enus." 1x - ".$rewatched_text_ptbr." 1x)/i";
+
+	#echo preg_replace($text_to_find, $rewatched_text." 1x", $text_to_use) . "<br />"."\n";
+
+	$a = $text_to_use;
+	#echo $newString;
+
+	$i++;
+}
+*/
+
+
 #Site notification file includer if setting is true
 if ($website_has_notifications == true and $website_deactivate_notification_setting == false) {
 	echo $notificationscript."\n"."\n";

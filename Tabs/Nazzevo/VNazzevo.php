@@ -54,10 +54,10 @@ $cover_folder = $cdn_image_stories_nazzevo.$single_cover_folder;
 require $cover_images_displayer_php_variable;
 
 # Story name definer
-$story_name_name = $nazzevostoryname;
+$story_name_variable = $nazzevo_story_name;
 
 # Story status
-$story_namestatus = $status_finished_and_publishing;
+$story_status = $status_finished_and_publishing;
 
 # Comments variable
 $sitecomments = true;
@@ -127,7 +127,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 	$sendtxt = 'Send';
 
 	# Status text definer, that sets the status text with [] around it
-	$statustxt = ucfirst($story_namestatus);
+	$statustxt = ucfirst($story_status);
 
 	$read_texts_array = array(
 	$readingtxt = "You're reading",
@@ -178,7 +178,7 @@ if ($website_language == $languages_array[2]) {
 	$sendtxt = 'Enviar';
 
 	# Status text definer, that sets the status text with [] around it
-	$statustxt = ucfirst($story_namestatus);
+	$statustxt = ucfirst($story_status);
 
 	$read_texts_array = array(
 	$readingtxt = "Você está lendo",
@@ -231,8 +231,8 @@ if ($website_language == $languages_array[0]) {
 	$website_name = $website_name;
 	$website_language = $languages_array[0];
 	
-	$website_title = $story_name_name.' '.ucwords($website_language);
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title = $story_name_variable.' '.ucwords($website_language);
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $selected_website_url;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -244,8 +244,8 @@ if ($website_language == $languages_array[1]) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $website_name;
 	
-	$website_title = $story_name_name;
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title = $story_name_variable;
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -256,8 +256,8 @@ if ($website_language == $languages_array[2]) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $website_name;
 
-	$website_title = $story_name_name;
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title = $story_name_variable;
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[1];

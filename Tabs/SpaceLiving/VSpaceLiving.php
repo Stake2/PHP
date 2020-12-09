@@ -1,6 +1,7 @@
 <?php 
 
 #CSS color and text style variables
+/*
 $color = "background_blue";
 $color1 = "background_blue";
 $color2 = "background_blue";
@@ -43,6 +44,7 @@ $h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;bor
 $h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
 $widthsize = '';
 $size = '';
+*/
 
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
@@ -58,10 +60,10 @@ $no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.
 require $cover_images_displayer_php_variable;
 
 #Story name definer
-$story_name_name = $slstoryname;
+$story_name_variable = $spaceliving_story_name;
 
 #Story status
-$story_namestatus = $status[2];
+$story_status = $status[2];
 
 #Site image vars
 $website_image = 'SpaceLiving Logo';
@@ -184,7 +186,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 #Status text definer, that sets the status text with [] around it
-$statustxt = '['.ucfirst($story_namestatus).']';
+$statustxt = '['.ucfirst($story_status).']';
 
 #Site name, title, URL and description setter, by language
 if ($website_language == $languages_array[0]) {
@@ -210,8 +212,8 @@ if ($website_language == $languages_array[1]) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $selected_website;
 
-	$website_title = $story_name_name.' '.$hyphen_separated_website_language;
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title = $story_name_variable.' '.$hyphen_separated_website_language;
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $website_spaceliving_link.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -222,8 +224,8 @@ if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $selected_website;
 
-	$website_title = $story_name_name.' '.$hyphen_separated_website_language;
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title = $story_name_variable.' '.$hyphen_separated_website_language;
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $website_spaceliving_link.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

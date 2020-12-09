@@ -165,7 +165,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<br />';
 	echo "\n";
 
-	#'You're Reading $story_name_name' Text
+	#'You're Reading $story_name_variable' Text
 	if ($chapter_number_1 == $chapters) {
 		echo '<h2 class="'.$textstyle2.'">'."\n";
 		echo $div_zoom_animation.'<br />'.$reading2.'</b>'.' <span class="w3-text-yellow"><b>['.$newtxt.'!]</b></span><br />'.$div_close.'</'.$n.'>';
@@ -237,7 +237,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo $div_close."\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br /><br />'.$div_close.'<div class="'.$computer_variable.'"><br /><br /><br /><br /><br />'.$div_close."\n";
 
-	#"You're Reading $story_name_name" Text
+	#"You're Reading $story_name_variable" Text
 	if ($chapter_number_1 == $chapters) {
 		echo '<div style="text-align:center;">'.$div_zoom_animation.'<span class="'.$chapter_text_style.'"><br />'.$reading2.' <span class="w3-text-yellow">['.$newtxt.'!]</span>'.'</b><br /></span>'.$div_close.$div_close;
 		$chapter_number_7++;

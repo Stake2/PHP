@@ -12,20 +12,20 @@ $website_background_color = $website_style_variables_array[$i];
 */
 
 $website_style_variables_array = array(
-$background_color = $background_brown_css_class,
+$background_color = $background_blue_css_class,
 $header_background_color = $background_black_css_class,
 $tab_background_color = $background_black_css_class,
-$additional_background_color = $background_darker_brown_css_class,
+$additional_background_color = $background_cyan_css_class,
 
-$first_text_color = $text_brown_css_class,
-$second_text_color = 'w3-text-orange',
+$first_text_color = $text_blue_css_class,
+$second_text_color = $text_cyan_css_class,
 $third_text_color = 'w3-text-white',
 $tab_text_color = $first_text_color,
 
-$first_border_color = $border_color_brown_css_class,
-$second_border_color = $border_color_brown_css_class,
+$first_border_color = $border_color_blue_css_class,
+$second_border_color = $border_color_cyan_css_class,
 $third_border_color = $border_color_black_css_class,
-$tab_border_color = $border_color_brown_css_class,
+$tab_border_color = $border_color_blue_css_class,
 $websites_tab_border_color = $border_color_black_css_class,
 
 $first_button_color = $additional_background_color,
@@ -47,18 +47,21 @@ $alternative_full_tab_style = $background_color." ".$default_text_color,
 $first_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 $second_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 
-$computer_image_size = "",
-$mobile_image_size = "",
+$computer_image_size = 55,
+$mobile_image_size = 99,
 
 $form_color_border = $border_4px_solid_black_css_class,
-$form_color_foreground = $background_brown_css_class,
-$form_color_background = $background_darker_brown_css_class,
+$form_color_foreground = $background_cyan_css_class,
+$form_color_background = $background_blue_css_class,
 $form_color_text = $text_black_css_class,
 $full_form_send_button_style = $border_3px_solid_black_css_class." ".$form_color_background." ".$form_color_text,
 $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color_text,
 );
 
 $website_border_color = $first_border_color;
+
+$website_image_size_computer = $computer_image_size;
+$website_image_size_mobile = $mobile_image_size;
 
 # Website Style Variables Foreach.php file includer
 require $website_style_variables_foreach;

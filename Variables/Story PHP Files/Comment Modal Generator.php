@@ -24,7 +24,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<a name="modal-comment-'.$a.'"></a>'."\n";
 	echo '<div id="modal-comment-'.$a.'" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
-	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
+	echo '<div class="modal-content w3-black '.$first_full_border.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$computer_variable.'">'."\n";
 
     #Close comment-modal button

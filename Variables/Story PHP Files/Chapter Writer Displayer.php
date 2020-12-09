@@ -2,8 +2,8 @@
 
 #Chapter writer tab displayer
 if ($new_write_style == true) {
-	echo '<div style="display:none;">'.$readstorybtn.$div_close;
-	echo $writestorybtn;
+	echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
+	echo $edit_story_chapter_button;
 }
 
 require $chapter_writer_form_php_variable;

@@ -13,6 +13,8 @@ $newdesign_and_notifications_definer_php = $php_vars_global_files.'NewDesign And
 
 # Website PHP Files
 $website_classes_php = $php_vars_global_files.'Website Classes.php';
+$website_info_interface_and_abstract_class = $php_vars_website_classes."Website Info Interface and Abstract Class.php";
+$website_style_interface_and_abstract_class = $php_vars_website_classes."Website Style Interface and Abstract Class.php";
 $website_header_php = $php_vars_global_files.'Website Header.php';
 $website_style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
 $website_css_and_javascript_definer_php = $php_vars_global_files.'Website CSS And JavaScript Definer.php';

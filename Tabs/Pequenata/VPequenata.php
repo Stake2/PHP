@@ -21,10 +21,10 @@ $cover_folder = $cdn_image_stories_pequenata.$single_cover_folder;
 require $cover_images_displayer_php_variable;
 
 # Story name definer
-$story_name_name = $pqntstoryname;
+$story_name_variable = $littletato_story_name;
 
 # Story status
-$story_namestatus = $status_reviewing_and_editing;
+$story_status = $status_reviewing_and_editing;
 
 # Site image vars
 $website_image = 'pequenata';
@@ -139,7 +139,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 # Status text definer, that sets the status text with [] around it
-$statustxt = '['.ucfirst($story_namestatus).']';
+$statustxt = '['.ucfirst($story_status).']';
 
 # Site name, title, URL and description setter, by language
 if ($website_language == $languages_array[0]) {
@@ -165,8 +165,8 @@ if ($website_language == $languages_array[1]) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $selected_website;
 	
-	$website_title = $story_name_name;
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title = $story_name_variable;
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $website_pequenata_link.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -178,14 +178,14 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_name = $selected_website;
 
 	if ($website_language == $ptpt_language) {
-		$website_title = $story_name_name.' '.strtoupper($hyphen_separated_website_language);
+		$website_title = $story_name_variable.' '.strtoupper($hyphen_separated_website_language);
 	}
 
 	else {
-		$website_title = $story_name_name;
+		$website_title = $story_name_variable;
 	}
 
-	$website_title_html = $story_name_name.': '.$icons[11];
+	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $website_pequenata_link.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

@@ -11,6 +11,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 	$linktxt = 'Links To Download';
 	$notimetxt = '(Unknown Watched Time)';
 	$mediastxt = "Watched Media";
+	$rewatched_text = "Rewatched";
 
 	#Media names
 	$medianames = array(
@@ -61,14 +62,15 @@ if ($website_language == $languages_array[2]) {
 	$linktxt = 'Links Para Baixar';
 	$notimetxt = '(Horário Assistido Desconhecido)';
 	$mediastxt = "Midias Assistidas";
+	$rewatched_text = "Reassistido";
 
 	#Media names
 	$medianames = array(
-	'Filme',
-	'Série',
-	'Desenho',
 	'Anime',
-	'Video',
+	'Desenho',
+	'Série',
+	'Filme',
+	'Vídeo',
 	);
 
 	#Media type on the Links tab
@@ -99,5 +101,8 @@ if ($website_language == $languages_array[2]) {
 	'6 - '.$linksmedianames[5].' ('.$mediatype[3].')',
 	);
 }
+
+$rewatched_text_enus = "Rewatched";
+$rewatched_text_ptbr = "Reassistido";
 
 ?>

@@ -132,7 +132,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 
 	$i = 0;
 	while ($i <= $tabnumb) {
-		$btnsy[$i] = '<span title="'.$tabnamestxt[$i].'" alt="'.$tabnamestxt[$i].'">'."\n".	'<a href="#'.$tabcodes[$i].'"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
+		$yellow_computer_buttons[$i] = '<span title="'.$tabnamestxt[$i].'" alt="'.$tabnamestxt[$i].'">'."\n".	'<a href="#'.$tabcodes[$i].'"><button class="w3-btn '.$default_text_color." ".$background_yellow_css_class." ".$second_full_border." ".$default_background_hover_color.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
 	
 		$i++;
 	}
@@ -214,7 +214,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	
 	$i = 0;
 	while ($i <= $tabnumb) {
-		$btnsym[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
+		$yellow_mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button class="w3-btn '.$default_text_color." ".$background_yellow_css_class." ".$second_full_border." ".$default_background_hover_color.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
 
 		$i++;
 	}

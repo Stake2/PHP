@@ -1,148 +1,26 @@
 <?php
 
-interface Website_Info_Interface {
+function Include_Classes($class_name) {
+	$class_php_file = $class_name.".php";
+	$website_classes_folder = $GLOBALS["php_variables_website_classes"];
 
-	public function get_title():string;
-	public function set_title($website_title);
+	$class_php_file_inside_folder = $website_classes_folder.$class_php_file;
 
-	public function get_description():string;
-	public function set_description($website_description);
+	if (file_exists($class_php_file)) {
+		require_once($class_php_file);
+	}
 
-	public function get_header_description():string;
-	public function set_header_description($website_header_description);
-
-	public function get_images():string;
-	public function set_images($website_images);
-
-	public function __construct($website_title, $website_description, $website_header_description, $website_images);
-
-	public function show_website_info();
-
+	else if (file_exists($class_php_file_inside_folder)) {
+		require_once($class_php_file_inside_folder);
+	}
 }
 
-abstract class Website_Info_Abstract_Class implements Website_Info_Interface {
+Include_Classes("Website Info Interface and Abstract Class");
+Include_Classes("Website Style Interface and Abstract Class");
+##require($website_classes_folder."Website_Info.php");
+#require($website_classes_folder."Website_Style.php");
 
-	private $website_title;
-	private $website_description;
-	private $website_header_description;
-	private $website_images;
-
-	public function get_title():string {
-
-		return $this -> website_title;
-
-	}
-
-	public function set_title($website_title) {
-
-		$this -> website_title = $website_title;
-
-	}
-
-	public function get_description():string {
-
-		return $this -> website_description;
-
-	}
-
-	public function set_description($website_description) {
-
-		$this -> website_description = $website_description;
-
-	}
-
-	public function get_header_description():string {
-
-		return $this -> website_header_description;
-
-	}
-
-	public function set_header_description($website_header_description) {
-
-		$this -> website_header_description = $website_header_description;
-
-	}
-
-	public function get_images():string {
-
-		return $this -> website_images;
-
-	}
-
-	public function set_images($website_images) {
-
-		$this -> website_images = $website_images;
-
-	}
-
-	public function __construct($website_title, $website_description, $website_header_description, $website_images) {
-
-		$this -> website_title = $website_title;
-		$this -> website_description = $website_description;
-		$this -> website_header_description = $website_header_description;
-		$this -> website_images = $website_images;
-
-	}
-
-	public function show_website_info() {
-
-		return array(
-			"website_title" => $this -> get_title(),
-			"website_description" => $this -> get_description(),
-			"website_header_description" => $this -> get_header_description(),
-			"website_images" => $this -> get_images(),
-		);
-
-	}
-
-}
-
-class Website_Info extends Website_Info_Abstract_Class {
-
-}
-
-interface Website_Style_Interface {
-
-	public function set_style_file($website_folder);
-	public function get_style_file();
-
-}
-
-abstract class Website_Style_Abstract_Class implements Website_Style_Interface {
-
-	private $website_style_file;
-
-	public function get_style_file() {
-
-		return $this -> website_style_file;
-
-	}
-
-	public function set_style_file($website_folder) {
-
-		$this -> website_style_file = $website_folder."Website Style.php";
-
-	}
-
-}
-
-class Website_Style extends Website_Style_Abstract_Class {
-
-	private $website_style_file;
-
-	public function get_style_file() {
-
-		return $this -> website_style_file;
-
-	}
-
-	public function set_style_file($website_folder) {
-
-		$this -> website_style_file = $website_folder."Website Style.php";
-
-	}
-
-}
+spl_autoload_register("Include_Classes");
 
 $website_style = new Website_Style();
 $website_style -> set_style_file($sitefolder_desertisland);

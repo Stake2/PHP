@@ -1,5 +1,39 @@
 <?php 
 
+if ($thingsidofake == true) {
+	$spanstyle = $blackspan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
+
+	if ($mobileversion == true) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
+
+	if ($mobileversion == false) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
+
+if ($thingsidofake == null) {
+	$spanstyle = $whitespan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
+
+	if ($mobileversion == true) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
+
+	if ($mobileversion == null) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
+
 echo $div_zoom_animation."\n";
 echo '<div style="text-align:left;">'."\n";
 
@@ -33,17 +67,17 @@ if ($website_name == $sitewatch) {
 }
 
 if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {
-	echo '<b>'.$blackspan.$txts[4].': '.$spanc.'</b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
+	echo '<b>'.$blackspan.$txts[4].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
 }
 
 if ($website_name == $sitewatch and $thingsidofake == null or $thingsidofake == false and $watchmedias2018 == true) {
-	echo '<b>'.$whitespan.$txts[4].': '.$spanc.'</b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
+	echo '<b>'.$whitespan.$txts[4].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
 }
 
 if ($website_name != $sitewatch) {
 	echo '<'.$n.' class="" style="text-align:left;">'."\n";
 
-	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$bluespan.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
+	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$number_text_color_span.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
 }
 
 if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {

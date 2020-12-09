@@ -72,9 +72,9 @@ $main_website_url.$sitecodes[21].'/',
 );
 
 $story_namenames2 = array(
-$sitename_pequenata = $pqntstoryname.' '.$siteicons[0],
-$sitename_spaceliving = $slstoryname.' '.$siteicons[0],
-$sitename_nazzevo = $nazzevostoryname.' '.$siteicons[0],
+$sitename_pequenata = $littletato_story_name.' '.$siteicons[0],
+$sitename_spaceliving = $spaceliving_story_name.' '.$siteicons[0],
+$sitename_nazzevo = $nazzevo_story_name.' '.$siteicons[0],
 $sitename_desertisland = $desert_island_story_name,
 $sitename_lonelystories = $lonely_story_name.' '.$siteicons[0],
 );

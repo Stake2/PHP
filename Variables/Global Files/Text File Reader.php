@@ -454,7 +454,7 @@ if ($website_name == $sitewatch or in_array($website_name, $yeararray)) {
 		$i = 0;
 		$videonumb = 0;
 		while ($i <= $watchednumbfile) {
-			if ($watchedtype[$i] == 'Video') {
+			if ($watchedtype[$i] == 'Video' or $watchedtype[$i] == 'Vídeo') {
 				$videonumb++;
 			}
 

@@ -17,8 +17,8 @@ $website_html_descriptions_array = array(
 
 # Site name in English and Brazilian Portuguese language
 $websites_names_array = array(
-$enus_title = $story_name_name,
-$pt_title = $story_name_name,
+$enus_title = $story_name_variable,
+$pt_title = $story_name_variable,
 );
 
 # Story date definer using story date text file
