@@ -156,10 +156,9 @@ if ($new_write_style == true) {
 	#echo $show_story_chapter_text_button;
 	#echo '<div style="display:none;">'.$edit_story_chapter_button.$div_close;
 
-
 	echo '<textarea id="edit_chapter_title_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
-	echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
+	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
 	#Checks if the variable show_write_form_text is set to true
 	if ($show_write_form_text == true) {
@@ -175,11 +174,9 @@ if ($new_write_style == true) {
 
 	echo '</textarea>'."\n";
 
-
 	echo '<textarea id="edit_chapter_story_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
-	echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
-
+	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
 	if ($showwriteformtext == true) {
 		echo $story_nametxt.': '."\n"."\n";
