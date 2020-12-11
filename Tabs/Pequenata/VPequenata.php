@@ -12,7 +12,6 @@ $story_name_folder = $pequenata_story_folder;
 $formcode = 'pequenata';
 
 $no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
 
 $single_cover_folder = 'Capas/Kids/';
 $cover_folder = $cdn_image_stories_pequenata.$single_cover_folder;
@@ -89,8 +88,8 @@ $website_descriptions_array = array(
 
 # Synopsis text definer using the $synopsis that is generated from TextFileReader.php
 $website_html_descriptions_array = array(
-'Synopsis: <i class="fas fa-scroll"></i> "'.$synopsis[0].'"<br />',
-'Sinopse: <i class="fas fa-scroll"></i> "'.$synopsis[1].'"<br />',
+'Synopsis: <i class="fas fa-scroll"></i> "'.$story_synopsis[0].'"<br />',
+'Sinopse: <i class="fas fa-scroll"></i> "'.$story_synopsis[1].'"<br />',
 );
 
 # Reads the book cover image directory if the site has book covers

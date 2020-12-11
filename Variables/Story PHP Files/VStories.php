@@ -69,6 +69,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$sendtxt = 'Send';
 
 	$titletxt = 'Title';
+	$titles_text = 'Titles';
 	$story_nametxt = 'Story text';
 	$timetxt = 'Time';
 	$storiestxt = 'Stories';
@@ -139,6 +140,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$sendtxt = 'Enviar';
 
 	$titletxt = 'Título';
+	$titles_text = 'Títulos';
 	$story_nametxt = 'Texto da história';
 	$timetxt = 'Tempo';
 	$storiestxt = 'Histórias';

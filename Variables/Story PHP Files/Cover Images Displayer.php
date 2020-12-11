@@ -3,10 +3,12 @@
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 $sub_folder_text = 'Cover';
 
+$story_chapter_files_folder = $no_language_story_folder.'Chapters/';
+
 if ($website_language == $geral_language) {
 	$website_language = $enus_language;
 
-	$main_story_folder_2 = $no_language_story_folder.strtoupper($website_language).'/';
+	$story_chapter_files_folder_language = $story_chapter_files_folder.strtoupper($website_language).'/';
 
 	if ($website_story_has_bookcovers_setting == true) {
 		$online_cover_folder = $cover_folder.strtoupper($website_language).'/';
@@ -21,11 +23,11 @@ if ($website_language == $geral_language) {
 
 else {
 	if (in_array($website_language, $en_languages_array)) {
-		$main_story_folder_2 = $no_language_story_folder.strtoupper($website_language).'/';
+		$story_chapter_files_folder_language = $story_chapter_files_folder.strtoupper($website_language).'/';
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$main_story_folder_2 = $no_language_story_folder.strtoupper($ptbr_language).'/';
+		$story_chapter_files_folder_language = $story_chapter_files_folder.strtoupper($ptbr_language).'/';
 	}
 
 	if ($website_story_has_bookcovers_setting == true) {

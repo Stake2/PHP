@@ -47,15 +47,15 @@ $story_name_folder = $sistoryfolder;
 #Defines the folder for the chapter text files that are going to be read
 if ($website_language == $languages_array[0]) {
 	$website_language = $languages_array[1];
-	$main_story_folder_2 = $notepad_stories_folder_variable.$story_name_folder.'/'.strtoupper($website_language).'/';
-	$titlesfile = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($website_language).'.txt';
+	$story_chapter_files_folder_language = $notepad_stories_folder_variable.$story_name_folder.'/'.strtoupper($website_language).'/';
+	$titles_file = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($website_language).'.txt';
 
 	$website_language = $languages_array[0];
 }
 
 else {
-	$main_story_folder_2 = $notepad_stories_folder_variable.$story_name_folder.'/'.strtoupper($website_language).'/';
-	$titlesfile = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($website_language).'.txt';
+	$story_chapter_files_folder_language = $notepad_stories_folder_variable.$story_name_folder.'/'.strtoupper($website_language).'/';
+	$titles_file = $notepad_stories_folder_variable.$story_name_folder.'/CapTitles '.strtoupper($website_language).'.txt';
 }
 
 #Site image vars
@@ -80,7 +80,7 @@ foreach ($filetextarraynames as $filename) {
 }
 
 $filenamesarray = array(
-$titlesfile,
+$titles_file,
 );
 
 #TextFileReader.php file includer

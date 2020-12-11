@@ -12,12 +12,12 @@ $captxtname = str_replace("s", "", $captxt);
 #Defines the folder for the chapter text files that are going to be read
 if ($website_language == $languages_array[0]) {
 	$website_language = $languages_array[1];
-	$main_story_folder_2 = $rootstoryfolder.$story_name_folder."/".strtoupper($website_language).'/';
+	$story_chapter_files_folder_language = $rootstoryfolder.$story_name_folder."/".strtoupper($website_language).'/';
 	$website_language = $languages_array[0];
 }
 
 else {
-	$main_story_folder_2 = $rootstoryfolder.$story_name_folder."/".strtoupper($website_language).'/';
+	$story_chapter_files_folder_language = $rootstoryfolder.$story_name_folder."/".strtoupper($website_language).'/';
 }
 
 $chapter_date_number = 1;
@@ -27,7 +27,7 @@ $z = 1;
 #Chapter file text link array generator
 while ($a <= $chapters) {
 	$a2 = $a - 1;
-	$normal_chapters[$a] = $main_story_folder_2.$z.' - '.$chapter_titles[$a2].'.txt';
+	$normal_chapters[$a] = $story_chapter_files_folder_language.$z.' - '.$chapter_titles[$a2].'.txt';
 	$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $normal_chapters[$a]);
 
 	$z++;

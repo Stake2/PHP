@@ -9,7 +9,7 @@ $chapter_number_4a = 0;
 $chapter_number_7 = 0;
 $captxtname = str_replace("s", "", $captxt);
 
-$chapter_write_to_folder = $main_story_folder_2.'Test/';
+$chapter_write_to_folder = $story_chapter_files_folder_language.'Test/';
 
 #Chapter file text link array generator, it generates the array to access the text files of the chapters
 $chapter_date_number = 1;
@@ -19,12 +19,12 @@ while ($a <= $chapters) {
 	$a2 = $a - 1;
 
 	if ($website_story_has_titles == true) {
-		$normal_chapters[$a] = $main_story_folder_2.$z.' - '.$chapter_titles[$a2].'.txt';
+		$normal_chapters[$a] = $story_chapter_files_folder_language.$z.' - '.$chapter_titles[$a2].'.txt';
 		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $normal_chapters[$a]);
 	}
 
 	else {
-		$normal_chapters[$a] = $main_story_folder_2.$z.'.txt';
+		$normal_chapters[$a] = $story_chapter_files_folder_language.$z.'.txt';
 		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $normal_chapters[$a]);
 	}
 
@@ -35,7 +35,9 @@ while ($a <= $chapters) {
 #Chapter file text link array generator for the English language, it generates the array to access the English text files of the chapters
 $a = 1;
 $z = 1;
-$main_story_folder_3 = $no_language_story_folder.strtoupper($languages_array[1]).'/';
+
+$main_story_folder_3 = $story_chapter_files_folder.strtoupper($languages_array[1]).'/';
+
 while ($a <= $chapters) {
 	$a2 = $a - 1;
 
@@ -60,7 +62,7 @@ if ($story_name_has_dates == true) {
 	while ($a <= $chapters) {
 		$a2 = $a - 1;
 
-		$chapter_dates_file = $notepad_stories_folder_variable.$story_name_folder.'/Datas.txt';
+		$chapter_dates_file = $story_info_folder.'Chapter Written Dates.txt';
 
 		$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 		if ($fp) {

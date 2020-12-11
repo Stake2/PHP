@@ -9,7 +9,7 @@ echo $textalign_left;
 $a = 0;
 $z = 1;
 while ($a <= $chapters) {
-	$normal_chapters[$a] = $main_story_folder_2.$z.' - '.$chapter_titles[$a].'.txt';
+	$normal_chapters[$a] = $story_chapter_files_folder_language.$z.' - '.$chapter_titles[$a].'.txt';
 	$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "<br />", $normal_chapters[$a]);
 
 	$a++;

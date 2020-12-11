@@ -46,22 +46,22 @@ $no_language_story_folder = $story_name_folder;
 if ($website_language == $languages_array[0]) {
 	$website_language = $languages_array[1];
 
-	$main_story_folder_2 = $story_name_folder;
+	$story_chapter_files_folder_language = $story_name_folder;
 
 	if ($website_story_has_bookcovers_setting == true) {
 		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';
-		$coverfolder2 = substr($main_story_folder_2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
+		$coverfolder2 = substr($story_chapter_files_folder_language, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
 	}
 
 	$website_language = $languages_array[0];
 }
 
 else {
-	$main_story_folder_2 = $story_name_folder;
+	$story_chapter_files_folder_language = $story_name_folder;
 
 	if ($website_story_has_bookcovers_setting == true) {
 		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';
-		$coverfolder2 = substr($main_story_folder_2, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
+		$coverfolder2 = substr($story_chapter_files_folder_language, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
 	}
 }
 
