@@ -35,7 +35,7 @@ if ($new_write_style == true) {
 
 	if ($show_write_form_text == true) {
 		if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
-			#Chapter text reader
+			# Chapter text reader
 			if (file_exists($english_chapters[$chapter_number_1]) == true) {
 				if ($file = fopen($english_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
@@ -55,12 +55,12 @@ if ($new_write_style == true) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
+				echo $cannotfindfiletxt.': <br />'.$english_chapters[$chapter_number_1].'<br />';
 			}
 		}
 
 		else {
-			#Chapter text reader
+			# Chapter text reader
 			if (file_exists($normal_chapters[$chapter_number_1]) == true) {
 				if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
@@ -88,7 +88,7 @@ if ($new_write_style == true) {
 	echo '</textarea>'."\n";
 
 	if ($show_write_form_text == true and $story_name_has_dates == true) {
-		#Chapter date displayer
+		# Chapter date displayer
 		if (file_exists($chapter_dates_file) == true) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {

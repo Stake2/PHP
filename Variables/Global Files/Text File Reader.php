@@ -507,7 +507,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 
 	$chapter_number_file = $story_folder.'Chapter Number.txt'; 
 
-	$titles_enus_file = $story_chapter_files_folder_language.'/'.$titles_text.'/'.$titles_text.'.txt';
+	$titles_enus_file = $story_chapter_files_folder.strtoupper($enus_language).'/'.$titles_enus_text.'/'.$titles_enus_text.'.txt';
 
 	# Language-dependent text files
 	if (in_array($website_language, $en_languages_array)) {

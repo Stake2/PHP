@@ -14,29 +14,21 @@ if ($write_new_chapter == true) {
 # Defines the top and bottom texts
 if ($sitestorywrite == true and $story_name_website_chapter_to_write == $chapter_number_1) {
 	if ($website_story_has_titles == true) {
-		$top_and_bottom_chapter_text = '<b>'.$write_texts_array[2].'</b>'.
-		'<br />'.
-		'<b>'.$captxtname.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>';
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$captxtname.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
 	}
 
 	else {
-		$top_and_bottom_chapter_text = '<b>'.$write_texts_array[2].'</b>'.
-		'<br />'.
-		'<b>'.$captxtname.': '.$chapter_number_1.'</b>';
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$captxtname.': '.$chapter_number_1.'</b>'."\n"."\n";
 	}
 }
 
 else {
 	if ($website_story_has_titles == true) {
-		$top_and_bottom_chapter_text = '<b>'.$read_texts_array[1].'</b>'.
-		'<br />'.
-		'<b>'.$captxtname.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>';
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$captxtname.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
 	}
 
 	else {
-		$top_and_bottom_chapter_text = '<b>'.$read_texts_array[1].'</b>'.
-		'<br />'.
-		'<b>'.$captxtname.': '.$chapter_number_1.'</b>';
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$captxtname.': '.$chapter_number_1.'</b>'."\n"."\n";
 	}
 }
 
@@ -224,10 +216,18 @@ if ($website_story_has_bookcovers_setting == true or $website_story_has_bookcove
 	echo "<br />"."\n";
 }
 
-echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
+if ($new_write_style == false) {
+	echo '<div id="'.$captextdiv.$chapter_number_1.'" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">'."\n";
+}
 
-#Chapter writer tab displayer
+if ($new_write_style == true) {
+	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
+}
+
+# Chapter writer tab displayer
 if ($sitestorywrite == true and $story_name_website_chapter_to_write == $chapter_number_1 or $sitestorywrite == true and $story_name_website_chapter_to_write.(int)'0' == $chapter_number_1 and $chapter_number_1 != 0) {
+	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
+
 	require $chapter_writer_displayer_php;
 
 	#echo "$chapter_writer_displayer_php was loaded.";
@@ -241,17 +241,17 @@ if ($sitestorywrite == true and $story_name_website_chapter_to_write == $chapter
 	echo '<br /><br />'."\n";
 }
 
-#Chapter text tab displayer
+# Chapter text tab displayer
 else {
 	require $chapter_text_displayer_php;
 }
 
-#Bottom Previous chapter button
+# Bottom Previous chapter button
 if ($chapter_number_1 != 1) {
 	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_3."');".'DefineChapter('.$chapter_number_3.');OpenChapter2(ReadContent'.$chapter_number_3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 }
 
-#Bottom Next chapter button
+# Bottom Next chapter button
 if ($chapter_number_1 != $chapters) {
 	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_2."');".'DefineChapter('.$chapter_number_2.');OpenChapter2(ReadContent'.$chapter_number_2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 }

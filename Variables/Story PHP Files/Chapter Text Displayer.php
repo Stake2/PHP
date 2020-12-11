@@ -197,7 +197,7 @@ if ($new_write_style == true) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
+				echo $cannotfindfiletxt.': <br />'.$english_chapters[$chapter_number_1].'<br />';
 			}
 		}
 

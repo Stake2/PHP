@@ -159,14 +159,14 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[18].'='.'true') == true) {
+if (strpos($host_text, $website_writing_pack_setting.'=true') == true) {
 	$website_show_chapter_text_on_write_form_setting = true;
 	$new_write_style = true;
 	$website_writing_pack_setting = true;
 	$show_write_form_text = true;
 }
 
-if (strpos($host_text, $setting_parameters[18].'='.'false') == true) {
+if (strpos($host_text, $website_writing_pack_setting.'=false') == true) {
 	$website_show_chapter_text_on_write_form_setting = false;
 	$new_write_style = false;
 	$website_writing_pack_setting = false;

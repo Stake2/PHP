@@ -11,7 +11,7 @@ $captxtname = str_replace("s", "", $captxt);
 
 $chapter_write_to_folder = $story_chapter_files_folder_language.'Test/';
 
-#Chapter file text link array generator, it generates the array to access the text files of the chapters
+# Chapter file text link array generator, it generates the array to access the text files of the chapters
 $chapter_date_number = 1;
 $a = 1;
 $z = 1;
@@ -20,12 +20,12 @@ while ($a <= $chapters) {
 
 	if ($website_story_has_titles == true) {
 		$normal_chapters[$a] = $story_chapter_files_folder_language.$z.' - '.$chapter_titles[$a2].'.txt';
-		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $normal_chapters[$a]);
+		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 
 	else {
 		$normal_chapters[$a] = $story_chapter_files_folder_language.$z.'.txt';
-		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $normal_chapters[$a]);
+		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 
 	$z++;
@@ -36,19 +36,27 @@ while ($a <= $chapters) {
 $a = 1;
 $z = 1;
 
-$main_story_folder_3 = $story_chapter_files_folder.strtoupper($languages_array[1]).'/';
+if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
+	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($enus_language).'/';
+}
+
+if (strpos($host_text, $website_translate_story_setting.'='.'false') or strpos($host_text, $website_translate_story_setting.'='.'false') == false) {
+	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($website_language).'/';
+}
 
 while ($a <= $chapters) {
 	$a2 = $a - 1;
 
+	$main_story_folder_4 = $story_chapter_files_folder.strtoupper($enus_language).'/';
+
 	if ($website_story_has_titles == true) {
-		$english_chapters[$a] = $main_story_folder_3.$z.' - '.$titlesenus[$a2].'.txt';
-		$english_chapters[$a] = str_replace(array("\r\n", "\r", "\n"), "<br />", $english_chapters[$a]);
+		$english_chapters[$a] = $main_story_folder_4.$z.' - '.$titlesenus[$a2].'.txt';
+		$english_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $english_chapters[$a]);
 	}
 
 	else {
-		$english_chapters[$a] = $main_story_folder_3.$z.'.txt';
-		$english_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?"), "", $normal_chapters[$a]);
+		$english_chapters[$a] = $main_story_folder_4.$z.'.txt';
+		$english_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 
 	$z++;

@@ -27,7 +27,7 @@ $setting_parameters = array(
 'website_watch_history_show_to_watch_only_setting',
 'website_watch_history_new_watched_style_setting',
 'website_new_write_style_setting',
-'website_writing_pack_setting',
+$website_writing_pack_setting = 'website_writing_pack_setting',
 'website_deactivate_all_setting',
 'website_deactivate_header_setting',
 );

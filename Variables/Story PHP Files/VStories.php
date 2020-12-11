@@ -20,7 +20,9 @@ if ($sitetype1 == $website_types_array[0] and $website_name != $sitediario) {
 	$story_name_variable = '';
 }
 
-#English texts for story websites
+$titles_enus_text = 'Titles';
+
+# English texts for story websites
 if (in_array($website_language, $en_languages_array)) {
 	$story_namestatuses = array(
 	'finished',
