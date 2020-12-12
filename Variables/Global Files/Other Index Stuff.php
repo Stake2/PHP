@@ -104,5 +104,5 @@ Test();
 
 #print_r($websites_names_array_2);
 */
-
+echo $new_write_style;
 ?>

@@ -78,7 +78,7 @@ else {
 include $story_name_variables_php_variable;
 
 # Reviewed chapter number
-$reviewed_chapter = 11;
+$reviewed_chapter = 12;
 
 # Site descriptions
 $website_descriptions_array = array(

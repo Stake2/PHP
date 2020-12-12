@@ -133,7 +133,7 @@ if (strpos($host_text, $setting_parameters[8].'='.'false') == true) {
 
 $i = 1;
 $c = 1;
-while ($c < 30) {
+while ($c < 50) {
 	if (strpos($host_text, $setting_parameters[9].'='.'['.(string)$i.']') == true) {
 		$website_chapter_to_write_setting = (string)$i;
 	}
@@ -146,38 +146,18 @@ while ($c < 30) {
 }
 
 
-if (strpos($host_text, $setting_parameters[17].'='.'true') == true) {
-	$new_write_style = true;
-}
-
-if (strpos($host_text, $setting_parameters[17].'='.'false') == true) {
-	$new_write_style = false;
-}
-
-else {
-	$new_write_style = $new_write_style;
-}
-
-
-if (strpos($host_text, $website_writing_pack_setting.'=true') == true) {
+if (strpos($host_text, $setting_parameters[18].'='.'true') == true) {
 	$website_show_chapter_text_on_write_form_setting = true;
 	$new_write_style = true;
 	$website_writing_pack_setting = true;
 	$show_write_form_text = true;
 }
 
-if (strpos($host_text, $website_writing_pack_setting.'=false') == true) {
+if (strpos($host_text, $setting_parameters[18].'='.'false') == true) {
 	$website_show_chapter_text_on_write_form_setting = false;
 	$new_write_style = false;
 	$website_writing_pack_setting = false;
 	$show_write_form_text = false;
-}
-
-else {
-	$website_show_chapter_text_on_write_form_setting = $website_show_chapter_text_on_write_form_setting;
-	$new_write_style = $new_write_style;
-	$website_writing_pack_setting = $website_writing_pack_setting;
-	$show_write_form_text = $show_write_form_text;
 }
 
 

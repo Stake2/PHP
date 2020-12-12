@@ -224,6 +224,8 @@ if ($new_write_style == true) {
 	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
 }
 
+$sitestorywrite = false;
+
 # Chapter writer tab displayer
 if ($sitestorywrite == true and $story_name_website_chapter_to_write == $chapter_number_1 or $sitestorywrite == true and $story_name_website_chapter_to_write.(int)'0' == $chapter_number_1 and $chapter_number_1 != 0) {
 	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
