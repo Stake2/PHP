@@ -73,15 +73,15 @@ else {
 
 
 if (strpos($host_text, $setting_parameters[4].'='.'true') == true) {
-	$sitehaschangelog = true;
+	$website_has_changelog_setting = true;
 }
 
 if (strpos($host_text, $setting_parameters[4].'='.'false') == true) {
-	$sitehaschangelog = false;
+	$website_has_changelog_setting = false;
 }
 
 else {
-	$sitehaschangelog = $sitehaschangelog;
+	$website_has_changelog_setting = $website_has_changelog_setting;
 }
 
 

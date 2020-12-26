@@ -38,6 +38,9 @@ $website_types_array = array(
 'story',
 );
 
+$site_website_type = $website_types_array[0];
+$story_website_type = $website_types_array[1];
+
 #Queries for site languages
 $languages_array = array(
 'geral',

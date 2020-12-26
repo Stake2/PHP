@@ -75,11 +75,11 @@ ucwords(substr_replace($sitediario, 'á', 2, 1)),
 $sitecomments = false;
 
 #Site image vars
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$website_image = 'diario 2 enus';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$website_image = 'diario 2';
 }
 
@@ -106,7 +106,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 	$tedname = 'Ted (Random guy)';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$story_name_variable = $diarionames[1];
 	$nodusname = 'Nodus (Inteligência Artificial)';
 	$tedname = 'Ted (Cara aleatório)';
@@ -139,7 +139,7 @@ $blockdiv = $chaptertxt.'-';
 include $story_namevarsphp;
 
 #Texts for English language
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$blockstext = 'The '.$diarionames[0].' has ['.$bluespan.$blocks.$spanc.'] blocks written, each block is a chapter.';
 	$charactersdescs = array(
 	'<div style="margin-left:3%;">'.'Me of course xD, my dialogue is shown with:<br />
@@ -175,7 +175,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 }
 
 #Texts for Brazilian Portuguese language
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$blockstext = 'O '.$diarionames[1].' tem ['.$bluespan.$blocks.$spanc.'] blocks escritos, cada block é um capítulo.';
 	$charactersdescs = array(
 	'<div style="margin-left:3%;">'.'Eu, é claro kkkkk, meu diálogo é mostrado com:<br />
@@ -220,11 +220,11 @@ $margin.
 $div_close.$div_close.$div_close;
 
 #"You're reading" text definers
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$reading = "<b>You're reading: ".ucwords($story_name).'<br />'." </b>";
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$reading = "<b>Você está lendo: ".ucwords($story_name).'<br />'." </b>";
 }
 
@@ -271,7 +271,7 @@ if ($website_language == $languages_array[1]) {
 	$website_header_description = $website_html_descriptions_array[0];
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $diarionames[1].' '.$hyphen_separated_website_language;

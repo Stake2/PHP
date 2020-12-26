@@ -52,11 +52,11 @@ echo '<a name="a2018"></a>'."\n";
 echo '<'.$n.'><p></p><br /><b>'.'2018: '.'</b><br /><br /><p></p></'.$n.'>'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$ano = 2018;
+$current_year = 2018;
 $thingsidofake = true;
 $make2018medias = true;
 $make2019medias = false;
-$mediaarrayyear = $site2018;
+$media_array_year = $site2018;
 $regeneratemedias2019 = false;
 include $mediaarraygenerator;
 
@@ -79,13 +79,13 @@ echo '<a name="a2019"></a>'."\n";
 echo '<'.$n.'><p></p><br /><b>'.'2019: '.'</b><br /><br /><p></p></'.$n.'>'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$ano = 2019;
+$current_year = 2019;
 $thingsidofake = true;
 $make2018medias = false;
 $make2019medias = true;
-$reneneratemedias2019 = true;
+$regenerate_2019_medias = true;
 $a2019 = false;
-$mediaarrayyear = $site2019;
+$media_array_year = $site2019;
 include $mediaarraygenerator;
 
 $sitename2 = $website_name;
@@ -109,7 +109,7 @@ echo '<div style="text-align:left;">'."\n";
 
 #Goes here
 $thingsidofake = true;
-$ano = 2020;
+$current_year = strftime("%Y");
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 $mobileversion = false;
@@ -118,7 +118,7 @@ $mobileversion = false;
 include $textfilereaderphp;
 
 #WatchedmMedia2020 Generator file includer
-include $watchedmediageneratorphp;
+include $current_year_watched_media_generator;
 
 $website_name = $sitename2;
 
@@ -169,11 +169,11 @@ echo '<a name="2018m"></a>'."\n";
 echo '<b>2018</b><br />'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$ano = 2018;
+$current_year = 2018;
 $thingsidofake = true;
 $make2018medias = true;
 $make2019medias = false;
-$mediaarrayyear = $site2018;
+$media_array_year = $site2018;
 include $mediaarraygenerator;
 
 $sitename2 = $website_name;
@@ -194,13 +194,13 @@ echo '<a name="2019m"></a>'."\n";
 echo '<b>2019</b><br />'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$ano = 2019;
+$current_year = 2019;
 $thingsidofake = true;
 $make2018medias = false;
 $make2019medias = true;
-$reneneratemedias2019 = true;
+$regenerate_2019_medias = true;
 $a2019 = false;
-$mediaarrayyear = $site2019;
+$media_array_year = $site2019;
 include $mediaarraygenerator;
 
 $sitename2 = $website_name;
@@ -225,7 +225,7 @@ echo $margin."\n";
 echo '<div style="text-align:left;">'."\n";
 
 $thingsidofake = true;
-$ano = 2020;
+$current_year = strftime("%Y");
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 $mobileversion = true;
@@ -234,7 +234,7 @@ $mobileversion = true;
 include $textfilereaderphp;
 
 #WatchedmMedia2020 Generator file includer
-include $watchedmediageneratorphp;
+include $current_year_watched_media_generator;
 
 $website_name = $sitename2;
 

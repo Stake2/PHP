@@ -18,11 +18,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitetextmaker) == t
 	$tabs = array('Output', 'My Year', 'My Stories');
 
 	#Site Tabnames array
-	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	if (in_array($website_language, $en_languages_array)) {
 		$tabnames = array('Output', 'My Year', 'My Stories');
 	}
 
-	if ($website_language == $languages_array[2]) {
+	if (in_array($website_language, $pt_languages_array)) {
 		$tabnames = array('Resultado', 'Meu Ano', 'Minhas Histórias');
 	}
 

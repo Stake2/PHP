@@ -180,9 +180,9 @@ $youtubeplaylistids = array(
 
 #Generator of Youtube video embeds using the Youtube video IDs array
 $i = 0;
-$videosnumb = count($youtubevideoids);
-$videosnumb = $videosnumb - 1;
-while ($i <= $videosnumb) {
+$watched_videos_number = count($youtubevideoids);
+$watched_videos_number = $watched_videos_number - 1;
+while ($i <= $watched_videos_number) {
 	$videoembedsyoutube[$i] = '<iframe '.$iframestyle.' src="https://www.youtube-nocookie.com/embed/'.$youtubevideoids[$i].'" frameborder="0"  allowfullscreen style="'.$rounded_border_style_2.'"></iframe>';
 
 	$videoembedsyoutubem[$i] = '<iframe '.$iframestylem.' src="https://www.youtube-nocookie.com/embed/'.$youtubevideoids[$i].'" frameborder="0"  allowfullscreen></iframe>';
@@ -215,7 +215,7 @@ while ($i <= $playlistsnumb) {
 }
 
 #Texts for the English language
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	#Array of description of tabs
     $tabdescriptions = array(
     '',
@@ -316,7 +316,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 }
 
 #Texts for the Brazilian Portuguese language
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	#Array of description of tabs
 	$tabdescriptions = array(
 	'',

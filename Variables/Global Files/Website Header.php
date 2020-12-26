@@ -66,11 +66,11 @@ if (!isset($website_title_html) and !isset($website_meta_description) and $websi
 	$website_image_size_computer = 33;
 	$imagesize2 = 44;
 
-	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	if (in_array($website_language, $en_languages_array)) {
 		$website_title_html = 'Placeholder for the Title: [Icon]';
 	}
 
-	if ($website_language == $languages_array[2]) {
+	if (in_array($website_language, $pt_languages_array)) {
 		$website_title_html = 'Espaço reservado para o Título: [Ícone]';
 	}
 
@@ -118,8 +118,8 @@ if ($sitetype1 == $website_types_array[0] and $website_deactivate_header_setting
 	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$n.'>'."\n".'
 	<hr class="'.$header_full_border.'" />
 	'.$website_images_variable.'
-	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_description.'</'.$n.'>
-	<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_description.'</'.$m.'>'
+	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_header_description.'</'.$n.'>
+	<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_header_description.'</'.$m.'>'
 	.$diariostuff1.$diariostuff2.
 	'<br />
 	'.$div_close."\n";

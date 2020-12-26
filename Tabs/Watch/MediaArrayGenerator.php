@@ -1,5 +1,7 @@
 <?php 
 
+include $year_variables_file;
+
 if ($website_name == $sitethingsido) {
 	#TextFileReader.php file includer
 	$sitename2 = $website_name;
@@ -10,13 +12,13 @@ if ($website_name == $sitethingsido) {
 	if ($make2018medias == true and $make2019medias == false) {
 		$thingsnumb = 221;
 		$thingsnumb2 = 3.108;
-		$watchednumb = $watched2018number;
+		$watchednumb = $watched_episodes_2018_line_number;
 
-		$moviesnumb = 4; 
-		$cartoonsnumb = 5;
-		$seriesnumb = 5; 
-		$animesnumb = 18;
-		$videosnumb = 20;
+		$watched_movies_number = 4; 
+		$watched_cartoons_number = 5;
+		$watched_series_number = 5; 
+		$watched_animes_number = 18;
+		$watched_videos_number = 20;
 
 		$websites_number = 6;
 		$friendsnumb = 17;
@@ -31,22 +33,22 @@ if ($website_name == $sitethingsido) {
 		$original4 = 32;
 		$original5 = 52;
 
-		$moviesline = $original1;
-		$cartoonsline = $original2;
-		$seriesline = $original3;
-		$animesline = $original4;
-		$videosline = $original5;
+		$media_type_movies_line = $original1;
+		$media_type_cartoons_line = $original2;
+		$media_type_series_line = $original3;
+		$media_type_animes_line = $original4;
+		$media_type_videos_line = $original5;
 	}
 
 	if ($make2019medias == true and $make2018medias == false) {
 		$thingsnumb = 524;
-		$watchednumb = $watched2019number;
+		$watchednumb = $watched_episodes_2019_line_number;
 
-		$moviesnumb = 4; 
-		$seriesnumb = 9; 
-		$cartoonsnumb = 60;
-		$animesnumb = 87;
-		$videosnumb = 134;
+		$watched_movies_number = 4; 
+		$watched_series_number = 9; 
+		$watched_cartoons_number = 60;
+		$watched_animes_number = 87;
+		$watched_videos_number = 134;
 
 		$story_namenumb = 4;
 		$websites_number = 11;
@@ -63,15 +65,15 @@ if ($website_name == $sitethingsido) {
 		$original4 = 91;
 		$original5 = 180;
 
-		$moviesline = $original1;
-		$seriesline = $original2;
-		$cartoonsline = $original3;
-		$animesline = $original4;
-		$videosline = $original5;
+		$media_type_movies_line = $original1;
+		$media_type_series_line = $original2;
+		$media_type_cartoons_line = $original3;
+		$media_type_animes_line = $original4;
+		$media_type_videos_line = $original5;
 	}
 
 	#English texts
-	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	if (in_array($website_language, $en_languages_array)) {
 		$mediatxt = 'Media';
 
 		#Texts array
@@ -79,7 +81,7 @@ if ($website_name == $sitethingsido) {
 		'Date of creation',
 		'Date of edition',
 		'This but on Pastebin',
-		'Things made in '.$ano,
+		'Things made in '.$current_year,
 		'Watched things',
 		'"Watched" on Pastebin',
 		'Movies',
@@ -110,7 +112,7 @@ if ($website_name == $sitethingsido) {
 	}
 
 	#Brazilian Portuguese texts
-	if ($website_language == $languages_array[2]) {
+	if (in_array($website_language, $pt_languages_array)) {
 		$mediatxt = 'Mídia';
 		
 		#Texts array
@@ -118,7 +120,7 @@ if ($website_name == $sitethingsido) {
 		'Data de criação',
 		'Data de edição',
 		'Isso só que no Pastebin',
-		'Coisas feitas em '.$ano,
+		'Coisas feitas em '.$current_year,
 		'Coisas assistidas',
 		'"Assistidos" no Pastebin',
 		'Filmes',
@@ -149,11 +151,11 @@ if ($website_name == $sitethingsido) {
 	}
 	
 	#Years folder
-	$yeartxtfolder = $notepad_years_folder_variable;
+	$year_text_files_folder = $notepad_years_folder_variable;
 	
 	#YearsNumbers.txt files
-	$yearnumbsfile2018 = $yeartxtfolder.$site2018.'/'.$site2018.' Numbers.txt';
-	$yearnumbsfile2019 = $yeartxtfolder.$site2019.'/'.$site2019.' Numbers.txt';
+	$yearnumbsfile2018 = $year_text_files_folder.$site2018.'/'.$site2018.' Numbers.txt';
+	$yearnumbsfile2019 = $year_text_files_folder.$site2019.'/'.$site2019.' Numbers.txt';
 	
 	#YearNumbers.txt 2018 number counter
 	$yearnumbsnumber2018 = 0;
@@ -207,9 +209,9 @@ if ($website_name == $sitethingsido) {
 
 $i = 6;
 $v = 0;
-if ($mediaarrayyear == $site2018 and $thingsidofake == true) {
+if ($media_array_year == $site2018 and $thingsidofake == true) {
 	while ($i <= 10) {
-		$medias[$v] = $blackspan.$txts[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
+		$medias[$v] = $blackspan.$media_names_array[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
 
 		$i++;
 		$v++;
@@ -218,9 +220,9 @@ if ($mediaarrayyear == $site2018 and $thingsidofake == true) {
 
 $i = 6;
 $v = 0;
-if ($mediaarrayyear == $site2018 and $thingsidofake == null) {
-	while ($i <= 10) {
-		$medias[$v] = $whitespan.$txts[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
+if ($media_array_year == $site2018 and $thingsidofake == null) {
+	while ($i <= count($media_names_array) - 1) {
+		$medias[$v] = $whitespan.$media_names_array[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
 
 		$i++;
 		$v++;
@@ -229,7 +231,7 @@ if ($mediaarrayyear == $site2018 and $thingsidofake == null) {
 
 $i = 6;
 $v = 0;
-if ($mediaarrayyear == $site2019) {
+if ($media_array_year == $site2019) {
 	while ($i <= 10) {
 		$medias[$v] = $whitespan.$txts[$i].': '.$spanc.$bluespan.$yearnumbs2019txt[$i].$spanc.'<br />'."\n";
 

@@ -9,25 +9,25 @@ $pastebinlinks = array(
 '<a href="https://pastebin.com/mj1PR9PE">https://pastebin.com/mj1PR9PE</a>',
 );
 
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$pastebinlinkyear = $pastebinlinks[0];
 	$pastebinlinkmedias = $pastebinlinks[2];
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$pastebinlinkyear = $pastebinlinks[1];
 	$pastebinlinkmedias = $pastebinlinks[3];
 }
 
 $thingsnumb = 221;
 $thingsnumb2 = 3.108;
-$watchednumb = $watched2018number;
+$watchednumb = $watched_episodes_2018_line_number;
 
-$moviesnumb = 4; 
-$cartoonsnumb = 5;
-$seriesnumb = 5; 
-$animesnumb = 18;
-$videosnumb = 20;
+$watched_movies_number = 4; 
+$watched_cartoons_number = 5;
+$watched_series_number = 5; 
+$watched_animes_number = 18;
+$watched_videos_number = 20;
 
 $websites_number = 6;
 $friendsnumb = 17;
@@ -42,19 +42,19 @@ $original3 = 25;
 $original4 = 32;
 $original5 = 52;
 
-$moviesline = $original1;
-$cartoonsline = $original2;
-$seriesline = $original3;
-$animesline = $original4;
-$videosline = $original5;
+$media_type_movies_line = $original1;
+$media_type_cartoons_line = $original2;
+$media_type_series_line = $original3;
+$media_type_animes_line = $original4;
+$media_type_videos_line = $original5;
 
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$stry5 = 'The Life of Littletato';
 	$stry6 = 'My Diary';
 	$pqntlink = 'littletato';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$stry5 = 'A Vida de Pequenata';
 	$stry6 = 'Meu Diário';
 	$pqntlink = 'pequenata';

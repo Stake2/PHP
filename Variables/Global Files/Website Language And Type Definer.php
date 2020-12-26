@@ -33,7 +33,7 @@ if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array
 }
 
 #Years site type definer
-if (in_array($host_text, $yeararray)) {
+if (in_array($host_text, $years_array)) {
 	$sitetype2 = 'Years';
 }
 

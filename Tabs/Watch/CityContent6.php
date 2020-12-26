@@ -34,10 +34,10 @@ if ($thingsidofake == null) {
 	}
 }
 
-echo '<hr class="'.$tab_full_border.'" />'."\n";
+echo '<hr class="'.$header_full_border.'" />'."\n";
 echo '<'.$m.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
-$mediaarrayyear = 2018;
+$media_array_year = 2018;
 include $mediaarraygenerator;
 
 $watchmedias2018 = true;

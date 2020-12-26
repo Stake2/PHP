@@ -1,13 +1,17 @@
 <?php 
 
-$thingsnumb = 524;
-$watchednumb = $watched2019number;
+# Folder variables
+$selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
 
-$moviesnumb = 4; 
-$seriesnumb = 9; 
-$cartoonsnumb = 60;
-$animesnumb = 87;
-$videosnumb = 134;
+$thingsnumb = 524;
+$watchednumb = $watched_episodes_2019_line_number;
+
+$watched_movies_number = 4; 
+$watched_series_number = 9; 
+$watched_cartoons_number = 60;
+$watched_animes_number = 87;
+$watched_videos_number = 134;
 
 $story_namenumb = 4;
 $websites_number = 11;
@@ -24,11 +28,11 @@ $original3 = 29;
 $original4 = 91;
 $original5 = 180;
 
-$moviesline = $original1;
-$seriesline = $original2;
-$cartoonsline = $original3;
-$animesline = $original4;
-$videosline = $original5;
+$media_type_movies_line = $original1;
+$media_type_series_line = $original2;
+$media_type_cartoons_line = $original3;
+$media_type_animes_line = $original4;
+$media_type_videos_line = $original5;
 
 $strycapnumb = array(1, 13, 5, 1, 15);
 $strywordnumb = array(512, 17.374, '7.440', 1.218, 7.401);

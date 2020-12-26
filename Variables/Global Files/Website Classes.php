@@ -23,7 +23,7 @@ Include_Classes("Website Style Interface and Abstract Class");
 spl_autoload_register("Include_Classes");
 
 $website_style = new Website_Style();
-$website_style -> set_style_file($sitefolder_desertisland);
+$website_style -> set_style_file($current_website_folder);
 $website_style_file = $website_style -> get_style_file();
 
 $website_info = new Website_Info($website_title_html, $website_meta_description, $website_header_description, $website_images_variable);

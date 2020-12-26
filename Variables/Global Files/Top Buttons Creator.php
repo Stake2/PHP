@@ -30,16 +30,16 @@ if ($website_name == $site2019) {
 	$tabnumb2 = $tabnumb - 5;
 }
 
-if ($website_name == $site2020) {
-	$tabnumb2 = $tabnumb - 5;
-}
+#if ($website_name == $site2020) {
+#	$tabnumb2 = $tabnumb - 0;
+#}
 
 if ($website_name == $sitepequenata) {
 	$tabnumb2 = $tabnumb - 1;
 }
 
 if ($website_name == $sitespaceliving) {
-	$tabnumb2 = $tabnumb ;
+	$tabnumb2 = $tabnumb;
 }
 
 if ($website_name == $sitenazzevo) {
@@ -58,6 +58,10 @@ if ($website_name == $sitethingsido) {
 }
 
 if ($website_name == $siteyourstruly_izaque) {
+	$tabnumb2 = $tabnumb;
+}
+
+if (isset($tabnumb2) == False) {
 	$tabnumb2 = $tabnumb;
 }
 

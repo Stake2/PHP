@@ -42,14 +42,14 @@ echo '<div style="text-align:left;">'."\n";
 
 #Number resetter for Watch History website
 if ($website_name == $sitewatch) {
-	$watchednumb = $watched2019number;
+	$watchednumb = $watched_episodes_2019_line_number;
 
 	#Medias numbers for 2018 Medias
-	$moviesnumb = 4; 
-	$seriesnumb = 9; 
-	$cartoonsnumb = 60;
-	$animesnumb = 87;
-	$videosnumb = 134;
+	$watched_movies_number = 4; 
+	$watched_series_number = 9; 
+	$watched_cartoons_number = 60;
+	$watched_animes_number = 87;
+	$watched_videos_number = 134;
 
 	#Line number for the 2019 Watched VideoTypes.txt
 	$original1 = 12;
@@ -59,11 +59,11 @@ if ($website_name == $sitewatch) {
 	$original5 = 180;
 
 	#Definer for the original numbers of medias
-	$moviesline = $original1;
-	$seriesline = $original2;
-	$cartoonsline = $original3;
-	$animesline = $original4;
-	$videosline = $original5;
+	$media_type_movies_line = $original1;
+	$media_type_series_line = $original2;
+	$media_type_cartoons_line = $original3;
+	$media_type_animes_line = $original4;
+	$media_type_videos_line = $original5;
 }
 
 if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {
@@ -98,10 +98,10 @@ echo '<a name="'.$mediastexts[$v].'"></a>'."\n";
 echo '<b>'.$medias[$v].'</b>'."\n";
 $v++;
 $a = 0;
-$a2 = $moviesnumb;
+$a2 = $watched_movies_number;
 $e = 0;
 $e2 = 1;
-$line = $moviesline;
+$line = $media_type_movies_line;
 $i = array();
 
 if ($a == 0) {
@@ -109,11 +109,11 @@ if ($a == 0) {
 }
 
 while ($a < $a2) {
-	$i[$a] = $moviesline++;
+	$i[$a] = $media_type_movies_line++;
 	$a++;
 }
 
-while ($e < $moviesnumb) {
+while ($e < $watched_movies_number) {
 	include $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
@@ -122,11 +122,11 @@ while ($e < $moviesnumb) {
 	$e2++;
 }
 
-$moviesline = $original1;
-$seriesline = $original2;
-$cartoonsline = $original3;
-$animesline = $original4;
-$videosline = $original5;
+$media_type_movies_line = $original1;
+$media_type_series_line = $original2;
+$media_type_cartoons_line = $original3;
+$media_type_animes_line = $original4;
+$media_type_videos_line = $original5;
 
 echo '<br />'."\n";
 #Series part
@@ -135,10 +135,10 @@ echo '<b>'.$medias[$v].'</b>'."\n";
 $v++;
 
 $a = 0;
-$a2 = $seriesnumb;
+$a2 = $watched_series_number;
 $e = 0;
 $e2 = 1;
-$line = $seriesline;
+$line = $media_type_series_line;
 $i = array();
 
 if ($a == 0) {
@@ -146,11 +146,11 @@ if ($a == 0) {
 }
 
 while ($a < $a2) {
-	$i[$a] = $seriesline++;
+	$i[$a] = $media_type_series_line++;
 	$a++;
 }
 
-while ($e < $seriesnumb) {
+while ($e < $watched_series_number) {
 	include $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
@@ -159,11 +159,11 @@ while ($e < $seriesnumb) {
 	$e2++;
 }
 
-$moviesline = $original1;
-$seriesline = $original2;
-$cartoonsline = $original3;
-$animesline = $original4;
-$videosline = $original5;
+$media_type_movies_line = $original1;
+$media_type_series_line = $original2;
+$media_type_cartoons_line = $original3;
+$media_type_animes_line = $original4;
+$media_type_videos_line = $original5;
 
 echo '<br />'."\n";
 #Cartoons part
@@ -172,10 +172,10 @@ echo '<b>'.$medias[$v].'</b>'."\n";
 $v++;
 
 $a = 0;
-$a2 = $cartoonsnumb;
+$a2 = $watched_cartoons_number;
 $e = 0;
 $e2 = 1;
-$line = $cartoonsline;
+$line = $media_type_cartoons_line;
 $i = array();
 
 if ($a == 0) {
@@ -183,11 +183,11 @@ if ($a == 0) {
 }
 
 while ($a < $a2) {
-	$i[$a] = $cartoonsline++;
+	$i[$a] = $media_type_cartoons_line++;
 	$a++;
 }
 
-while ($e < $cartoonsnumb) {
+while ($e < $watched_cartoons_number) {
 	include $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
@@ -196,11 +196,11 @@ while ($e < $cartoonsnumb) {
 	$e2++;
 }
 
-$moviesline = $original1;
-$seriesline = $original2;
-$cartoonsline = $original3;
-$animesline = $original4;
-$videosline = $original5;
+$media_type_movies_line = $original1;
+$media_type_series_line = $original2;
+$media_type_cartoons_line = $original3;
+$media_type_animes_line = $original4;
+$media_type_videos_line = $original5;
 
 echo '<br />'."\n";
 #Animes part
@@ -209,10 +209,10 @@ echo '<b>'.$medias[$v].'</b>'."\n";
 $v++;
 
 $a = 0;
-$a2 = $animesnumb;
+$a2 = $watched_animes_number;
 $e = 0;
 $e2 = 1;
-$line = $animesline;
+$line = $media_type_animes_line;
 $i = array();
 
 if ($a == 0) {
@@ -220,11 +220,11 @@ if ($a == 0) {
 }
 
 while ($a < $a2) {
-	$i[$a] = $animesline++;
+	$i[$a] = $media_type_animes_line++;
 	$a++;
 }
 
-while ($e < $animesnumb) {
+while ($e < $watched_animes_number) {
 	include $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
@@ -233,11 +233,11 @@ while ($e < $animesnumb) {
 	$e2++;
 }
 
-$moviesline = $original1;
-$seriesline = $original2;
-$cartoonsline = $original3;
-$animesline = $original4;
-$videosline = $original5;
+$media_type_movies_line = $original1;
+$media_type_series_line = $original2;
+$media_type_cartoons_line = $original3;
+$media_type_animes_line = $original4;
+$media_type_videos_line = $original5;
 
 echo '<br />'."\n";
 #Videos part
@@ -246,10 +246,10 @@ echo '<b>'.$medias[$v].'</b>'."\n";
 $v++;
 
 $a = 0;
-$a2 = $videosnumb;
+$a2 = $watched_videos_number;
 $e = 0;
 $e2 = 1;
-$line = $videosline;
+$line = $media_type_videos_line;
 $i = array();
 
 if ($a == 0) {
@@ -257,11 +257,11 @@ if ($a == 0) {
 }
 
 while ($a < $a2) {
-	$i[$a] = $videosline++;
+	$i[$a] = $media_type_videos_line++;
 	$a++;
 }
 
-while ($e < $videosnumb) {
+while ($e < $watched_videos_number) {
 	include $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2019[$i[$e]].$spanc."<br />"."\n";
@@ -272,11 +272,11 @@ while ($e < $videosnumb) {
 
 echo '<br /><br /><br />';
 
-$moviesline = $original1;
-$seriesline = $original2;
-$cartoonsline = $original3;
-$animesline = $original4;
-$videosline = $original5;
+$media_type_movies_line = $original1;
+$media_type_series_line = $original2;
+$media_type_cartoons_line = $original3;
+$media_type_animes_line = $original4;
+$media_type_videos_line = $original5;
 
 echo $div_close."\n";
 echo $div_close."\n";

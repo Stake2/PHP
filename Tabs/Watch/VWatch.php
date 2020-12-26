@@ -28,7 +28,7 @@ $border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$roun
 #$website_border_color = "slhr";
 #$website_border_color = $border_3px_solid_blue_css_class;
 
-#$moviesnumb = 0;
+#$watched_movies_number = 0;
 
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
@@ -137,7 +137,7 @@ if ($website_language == $languages_array[1]) {
 }
 
 #Brazilian Portuguese language website_name, title, main_website_url and description
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $site;
@@ -150,23 +150,23 @@ if ($website_language == $languages_array[2]) {
 }
 
 #Tabtexts definers for English and General language
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$tabnames[0] = substr_replace($tabnames[0], ' ', 7, 0);
 	$tabnames[7] = substr_replace($tabnames[7], '-', 6, 0);
 	$tabnames[7] = strtr($tabnames[7], "l", strtoupper("l"));;
 }
 
 #Tabtexts definers for Brazilian Portuguese language
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$tabnames[0] = substr_replace($tabnames[0], ' ', 10, 0);
 }
 
 #Tabtexts array
 $citiestxts = array(
 $tabnames[0].' ['.$watchednumbtxt.']'.': '.$icons[5],
-$tabnames[1].' ['.$twitems.']'.': '.$icons[6],
+$tabnames[1].' ['.$to_watch_items.']'.': '.$icons[6],
 $tabnames[2].' ['.$linksnumb.']'.': '.$icons[7],
-$tabnames[3].' ['.$moviesnumb.']'.': '.$icons[19],
+$tabnames[3].' ['.$watched_movies_number.']'.': '.$icons[19],
 $tabnames[4].' ['.$archnumb.']'.': '.$icons[8],
 $tabnames[5].' ['.$watchednumb2018.']'.': '.$icons[8],
 $tabnames[6].' ['.$watchednumb2019.']'.': '.$icons[8],
@@ -176,9 +176,9 @@ $icons[13],
 #Tabtexts array
 $citiestxtswithouthtml = array(
 $tabnames[0].' ['.$watchednumbtxt.']',
-$tabnames[1].' ['.$twitems.']',
+$tabnames[1].' ['.$to_watch_items.']',
 $tabnames[2].' ['.$linksnumb.']',
-$tabnames[3].' ['.$moviesnumb.']',
+$tabnames[3].' ['.$watched_movies_number.']',
 $tabnames[4].' ['.$archnumb.']',
 $tabnames[5].' ['.$watchednumb2018.']',
 $tabnames[6].' ['.$watchednumb2019.']',

@@ -8,7 +8,7 @@ $sitehasstories = false;
 $websites_shows_comments = false;
 $websites_has_comments = false;
 $website_has_comments_tab = false;
-$sitehaschangelog = false;
+$website_has_changelog_setting = false;
 
 $website_writing_pack_setting = false;
 $showwriteformtext = false;
@@ -47,7 +47,7 @@ $story_name_has_dates = false;
 $story_nameusestatus = false;
 $story_name_has_chapter_comments = false;
 $website_uses_tab_body_generator = false;
-$siteusesuniversalfilereader = false;
+$website_uses_universal_file_reader = false;
 $sitehidescommentstab = false;
 $site_uses_new_comment_and_read_displayer = false;
 

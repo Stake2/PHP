@@ -6,24 +6,24 @@
 $author = 'Izaque Sanvezzo (hm182002) (stake2, Funkysnipa Cat)';
 
 #Story variables for English language
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$nazzevo = 'The Story of the Nazzevo Brothers';
 	$luiza = 'The Visit of Luiza';
 	$pequenata = 'The Life of Littletato';
 }
 
 #Story variables for Brazilian Portuguese language
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$nazzevo = 'A História dos irmãos Nazzevo';
 	$luiza = 'A Visita de Luiza';
 	$pequenata = 'A Vida de Pequenata';
 }
 
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$newtxt = $newtxt;
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$newtxt = $newtxt2;
 }
 
@@ -51,7 +51,7 @@ $main_website_url.'stake2/',
 );
 
 #English texts
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$sitename2 = 'Text Maker';
 	$author = 'Written by '.'<a href="'.$links[0].'" class="w3-text-orange">'.$author.'</a>';
 	$author2 = 'I am Izaque Sanvezzo (stake2) and these are my stories.';
@@ -60,9 +60,8 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 	#Texts array
 	$txts = array(
 	'Date of creation',
-	'Date of edition',
-	'This but on Pastebin',
-	'Things made in '.$ano,
+	'Edit date',
+	'Things made in '.$current_year,
 	'Watched things',
 	'"Watched" on Pastebin',
 	'Movies',
@@ -90,10 +89,12 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 	$screenshotsdesc = 'Click on the link below to see the gif/animated image.<br />'.
 	'Screenshots from '.$bluespan.'01/01/2019'.$spanc.' to '.$bluespan.'01/12/2019'.$spanc.'.';
 	$tasksdesc = 'Made tasks';
+
+	$additional_things_made_in_year_text = "along with comments and people met";
 }
 
 #Brazilian Portuguese texts
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$sitename2 = 'Fazedor de Texto';
 	$author = 'Escrito por '.'<a href="'.$links[0].'" class="w3-text-orange">'.$author.'</a>';
 	$author2 = 'Eu sou Izaque Sanvezzo (stake2) e estas são as minhas histórias.';
@@ -103,8 +104,7 @@ if ($website_language == $languages_array[2]) {
 	$txts = array(
 	'Data de criação',
 	'Data de edição',
-	'Isso só que no Pastebin',
-	'Coisas feitas em '.$ano,
+	'Coisas feitas em '.$current_year,
 	'Coisas assistidas',
 	'"Assistidos" no Pastebin',
 	'Filmes',
@@ -132,14 +132,16 @@ if ($website_language == $languages_array[2]) {
 	$screenshotsdesc = 'Clique no link abaixo para ver a gif/imagem animada.<br />'.
 	'Prints de '.$bluespan.'01/01/2019'.$spanc.' até '.$bluespan.'01/12/2019'.$spanc.'.';
 	$tasksdesc = 'Tarefas feitas';
+
+	$additional_things_made_in_year_text = "junto com comentários e pessoas conhecidas";
 }
 
 #Years folder
-$yeartxtfolder = $notepad_years_folder_variable;
+$year_text_files_folder = $notepad_years_folder_variable;
 
 #YearsNumbers.txt files
-$yearnumbsfile2018 = $yeartxtfolder.$site2018.'/'.$site2018.' Numbers.txt';
-$yearnumbsfile2019 = $yeartxtfolder.$site2019.'/'.$site2019.' Numbers.txt';
+$yearnumbsfile2018 = $year_text_files_folder.$site2018.'/'.$site2018.' Numbers.txt';
+$yearnumbsfile2019 = $year_text_files_folder.$site2019.'/'.$site2019.' Numbers.txt';
 
 #YearNumbers.txt 2018 number counter
 $yearnumbsnumber2018 = 0;

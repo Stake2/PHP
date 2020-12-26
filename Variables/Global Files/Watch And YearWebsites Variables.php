@@ -1,9 +1,9 @@
 <?php 
 
 #Watch History and YearWebsites year variables
-if ($website_name == $sitewatch or in_array($website_name, $yeararray)) {
-	$anoanterior = $ano - 1;
-	$anos = array(
+if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
+	$current_yearanterior = $current_year - 1;
+	$current_years = array(
 	'2018', 
 	'2019', 
 	'2020',

@@ -11,6 +11,8 @@ $text_file_reader_file_php = $php_vars_global_files.'Text File Reader.php';
 $watch_and_yearwebsites_variables_php = $php_vars_global_files.'Watch And YearWebsites Variables.php';
 $newdesign_and_notifications_definer_php = $php_vars_global_files.'NewDesign And Notifications Definer.php';
 
+$watch_history_text_file_reader_module = $php_variables_text_file_reader_modules.'Watch History Module.php';
+
 # Website PHP Files
 $website_classes_php = $php_vars_global_files.'Website Classes.php';
 $website_info_interface_and_abstract_class = $php_vars_website_classes."Website Info Interface and Abstract Class.php";
@@ -95,10 +97,10 @@ $chapter_generator_global_variable = $chapter_generator_global;
 #Watch PHP files
 $mediaarraygenerator = $sitefolder_watch.'MediaArrayGenerator.php';
 $mediastyler = $sitefolder_watch.'MediaStyler.php';
-$watchedmediageneratorphp = $sitefolder_watch.'WatchedMedia2020 Generator.php';
+$current_year_watched_media_generator = $sitefolder_watch.'Current Year Watched Media Generator.php';
 $watchtextsphp = $sitefolder_watch.'WatchTexts.php';
 
 #Years PHP Files
-$yearsvarsfilephp = $sitefolder_years.'YearsVars.php';
+$year_variables_file = $sitefolder_years.'Year Variables.php';
 
 ?>

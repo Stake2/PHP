@@ -4,7 +4,7 @@ class Carro {
 
 	private $modelo;
 	private $motor;
-	private $ano;
+	private $current_year;
 
 	public function getModelo() {
 
@@ -36,9 +36,9 @@ class Carro {
 
 	}
 
-	public function setAno($ano) {
+	public function setAno($current_year) {
 
-		$this -> ano = $ano;
+		$this -> ano = $current_year;
 
 	}
 

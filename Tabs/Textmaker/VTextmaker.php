@@ -27,7 +27,7 @@ $website_header_description = 'tet';
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder."/";
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
-$yeartxtfolder = $notepad_years_folder_variable;
+$year_text_files_folder = $notepad_years_folder_variable;
 
 #Site image vars
 $website_image = 'TM';
@@ -43,17 +43,17 @@ $website_descriptions_array = array(
 );
 
 #Year Numbers.txt file and YearMaker.php file definers
-$yearnumbsfile = $yeartxtfolder.'2019/2019 Numbers.txt';
-$yearmakerfilephp = $php_tabs.ucwords($site).'/YearMaker.php';
-$yearmakerfilephp2 = $php_tabs.ucwords($site).'/YearMaker2.php';
+$yearnumbsfile = $year_text_files_folder.'2019/2019 Numbers.txt';
+$year_maker_file_php = $php_tabs.ucwords($site).'/YearMaker.php';
+$year_maker_2_file = $php_tabs.ucwords($site).'/YearMaker2.php';
 $story_namenumbsfile = $notepad_stories_folder_variable.'Story Numbers'.'.txt';
 
 #Story text file definer
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$story_nametxtsfile = $notepad_stories_folder_variable.'My Stories.txt';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$story_nametxtsfile = $notepad_stories_folder_variable.'Minhas Histórias.txt';
 }
 
@@ -86,7 +86,7 @@ if ($website_language == $languages_array[1]) {
 	$website_meta_description = $website_descriptions_array[0];
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 

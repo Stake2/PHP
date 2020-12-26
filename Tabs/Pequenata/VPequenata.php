@@ -6,7 +6,7 @@ require $css_pack_pequenata;
 # Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
-$story_name_folder = $pequenata_story_folder;
+$story_name_folder = $littletato_story_folder;
 
 # Form code for the comment and read forms
 $formcode = 'pequenata';
@@ -78,7 +78,7 @@ else {
 include $story_name_variables_php_variable;
 
 # Reviewed chapter number
-$reviewed_chapter = 12;
+$reviewed_chapter = 13;
 
 # Site descriptions
 $website_descriptions_array = array(

@@ -62,4 +62,11 @@ $sitetitlesarray = array(
 'Text Maker',
 );
 
+$year_code_numbes_array = array(
+"2018" => 0,
+"2019" => 1,
+"2020" => 2,
+"2021" => 3,
+);
+
 ?>

@@ -76,7 +76,7 @@ $sitename_pequenata = $littletato_story_name.' '.$siteicons[0],
 $sitename_spaceliving = $spaceliving_story_name.' '.$siteicons[0],
 $sitename_nazzevo = $nazzevo_story_name.' '.$siteicons[0],
 $sitename_desertisland = $desert_island_story_name,
-$sitename_lonelystories = $lonely_story_name.' '.$siteicons[0],
+$sitename_lonelystories = $lonely_stories_story_name.' '.$siteicons[0],
 );
 
 if (in_array($website_language, $en_languages_array)) {

@@ -29,13 +29,13 @@ $i = 0;
 foreach ($website_names_array as $value) {
     ${"sitefolder_$value"} = $php_tabs.ucwords($sitearray[$i]).'/';
 
-	$sitefolders[$i] = ${"sitefolder_$value"};
+	$website_folders[$i] = ${"sitefolder_$value"};
 
 	$i++;
 }
 
 # Checks if the folder of the website exists, if it does not, it creates the folder
-foreach ($sitefolders as $folder) {
+foreach ($website_folders as $folder) {
 	if (!file_exists($folder)) {
 		mkdir($folder);
 	}

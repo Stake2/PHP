@@ -54,7 +54,7 @@ if ($site == $site2018 and $a2019 == false) {
 if ($site == $site2018 and $a2019 == true) {
 	#2018.php version of the YearMaker from TextMaker.php, only has Medias array generator
 
-	$bb = 6;
+	$bb = 5;
 	$v = 0;
 	#Medias array displayer and generator
 	while ($bb <= 10) {
@@ -70,7 +70,7 @@ if ($site == $site2018 and $a2019 == true) {
 if ($website_name == $sitewatch or $site == $site2019 or $site == $site2018 and $a2019 == false and $regeneratemedias2019 == true) {
 	#2019.php version of the YearMaker from TextMaker.php, only has Medias array generator
 
-	$bb = 6;
+	$bb = 5;
 	$v = 0;
 	#Medias array displayer and generator
 	while ($bb <= 10) {

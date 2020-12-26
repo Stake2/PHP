@@ -1,5 +1,8 @@
 <?php 
 
+$watched_string = "Watched";
+$to_watch_string = "To_Watch";
+
 #English texts for all websites
 if (in_array($website_language, $en_languages_array)) {
 	$andtxt = 'and';

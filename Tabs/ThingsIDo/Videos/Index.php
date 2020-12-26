@@ -120,7 +120,7 @@ $sitetextmaker = $sitearray[23],
 $sitethingsido = $sitearray[24],
 );
 
-$yeararray = array(
+$years_array = array(
 $site2018,
 $site2019,
 $site2020,
@@ -164,7 +164,7 @@ if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array
 }
 
 #Years site type definer
-if (in_array($host_text, $yeararray)) {
+if (in_array($host_text, $years_array)) {
 	$sitetype2 = 'Years';
 }
 
@@ -172,7 +172,7 @@ $sitesbuttonintab = false;
 $website_has_notifications = false;
 $sitehasstories = false;
 $websites_shows_comments = false;
-$sitehaschangelog = false;
+$website_has_changelog_setting = false;
 $sitestorywrite = false;
 $website_chapter_to_write_setting = false;
 $roundedbuttonson = true;
@@ -194,11 +194,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == t
 	$tabs = array('Productive Things', 'Not Productive Things');
 
 	#Site Tabnames array
-	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	if (in_array($website_language, $en_languages_array)) {
 		$tabnames = array('Productive Things', 'Not Productive Things', 'To Write', 'Make Websites', 'To Program/Code', 'Edit Videos', 'To Draw', 'Listen to Music', 'To Talk', 'To Watch', 'To Play Games', 'Songs', 'Playlists');
 	}
 
-	if ($website_language == $languages_array[2]) {
+	if (in_array($website_language, $pt_languages_array)) {
 		$tabnames = array('Coisas Produtivas', 'Coisas Não Produtivas', 'Escrever', 'Fazer Sites', 'Programar', 'Editar Vídeos', 'Desenhar', 'Ouvir música', 'Conversar', 'Assistir', 'Jogar Jogos', 'Músicas', 'Playlists');
 	}
 

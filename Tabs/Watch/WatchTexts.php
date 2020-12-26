@@ -1,7 +1,7 @@
 <?php 
 
 #English texts
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	#English texts
 	$watchedtxt = "Watched Things In";
 	$towatchtxt = "Things to Watch";
@@ -14,7 +14,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 	$rewatched_text = "Rewatched";
 
 	#Media names
-	$medianames = array(
+	$media_names_array = array(
 	'Anime',
 	'Cartoon',
 	'Series',
@@ -52,7 +52,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 }
 
 #Brazilian Portuguese texts
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	#Brazilian Portuguese texts
 	$watchedtxt = "Coisas assistidas Em";
 	$towatchtxt = "Coisas para Assistir";
@@ -65,7 +65,7 @@ if ($website_language == $languages_array[2]) {
 	$rewatched_text = "Reassistido";
 
 	#Media names
-	$medianames = array(
+	$media_names_array = array(
 	'Anime',
 	'Desenho',
 	'Série',

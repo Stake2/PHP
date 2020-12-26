@@ -34,6 +34,7 @@ $php_vars = $php_folder_variables;
 
 $php_variables_global_files = $php_folder_variables.$global_variable.' Files/';
 $php_variables_website_classes = $php_variables_global_files.'Website Classes/';
+$php_variables_text_file_reader_modules = $php_variables_global_files.'Text File Reader Modules/';
 $php_vars_global_files = $php_variables_global_files;
 $php_variables_website_classes = $php_variables_global_files.'Website Classes/';
 $website_classes_folder = $php_variables_website_classes;

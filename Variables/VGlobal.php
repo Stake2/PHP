@@ -43,6 +43,8 @@ require $website_css_and_javascript_definer_php;
 date_default_timezone_set("America/Sao_Paulo");
 $data = date("d/m/Y");
 
+$current_year = strftime("%Y");
+
 # Global CSS variables loader
 require $global_style_file_php;
 
@@ -55,7 +57,7 @@ if ($site_is_prototype == false) {
 }
 
 # VYears.php file loader for YearsSites
-if (in_array($website_name, $yeararray)) {
+if (in_array($website_name, $years_array)) {
 	require $vyears_php;
 }
 
@@ -122,7 +124,7 @@ if ($website_name == $sitetextmaker) {
 	$website_meta_description = $website_meta_description;
 }
 
-if (in_array($website_name, $yeararray)) {
+if (in_array($website_name, $years_array)) {
 	$website_meta_description = $website_header_description;
 }
 

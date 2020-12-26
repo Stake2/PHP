@@ -2,9 +2,9 @@
 
 #YearMaker.php from TxtMaker.php
 
-$ano = 2019;
+$current_year = 2019;
 
-if ($ano == 2019) {
+if ($current_year == 2019) {
 	$yearnumbstxt = $yearnumbs2019txt;
 }
 
@@ -23,7 +23,7 @@ echo '---'."\n";
 echo '<br />'."\n";
 echo '<br />'."\n";
 $i++;
-echo $txts[$i].' '.$ano.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
+echo $txts[$i].' '.$current_year.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";
 echo '<br />'."\n";
 $i++;
 echo '<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[$i].'</a>'.': '.$bluespan.$yearnumbstxt[$i].$spanc.'<br />'."\n";

@@ -71,11 +71,11 @@ foreach ($filetextarraynames as $filename) {
 #TextFileReader.php file includer
 include $textfilereaderphp;
 
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$placeholderdesc = 'Placeholder for the Description';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$placeholderdesc = 'Espaço reservado para a Descrição.';
 }
 
@@ -93,11 +93,11 @@ else {
 	);
 }
 
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$placeholdertitle = 'Placeholder for the Tab Title: [Icon]';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$placeholdertitle = 'Espaço reservado para o Título da Aba: [Ícone]';
 }
 
@@ -153,7 +153,7 @@ if ($website_language == $languages_array[1]) {
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
@@ -194,7 +194,7 @@ if (!isset($website_link) and !isset($website_title) and !isset($website_title_h
 		$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	}
 
-	if ($website_language == $languages_array[2]) {
+	if (in_array($website_language, $pt_languages_array)) {
 		$website_name = 'Espaço reservado para o Nome do Site';
 		$website_title = 'Espaço reservado para o Título do Site';
 		$website_title_html = 'Espaço reservado para o Título do Site2';

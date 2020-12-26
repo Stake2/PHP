@@ -16,8 +16,8 @@ $status_writing = $status[1];
 $status_reviewing_and_editing = $status[2];
 $status_finished_and_publishing = $status[3];
 
-if ($sitetype1 == $website_types_array[0] and $website_name != $sitediario) {
-	$story_name_variable = '';
+if ($sitetype1 == $site_website_type and $website_name != $sitediario) {
+	$story_name = '';
 }
 
 $titles_enus_text = 'Titles';
@@ -89,7 +89,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$spaceliving_story_name = 'SpaceLiving',
 	$nazzevo_story_name = 'The Story of the Nazzevo Brothers',
 	$desert_island_story_name = 'Desert Island',
-	$lonely_story_name = 'Lonely Stories',
+	$lonely_stories_story_name = 'Lonely Stories',
 	);
 }
 
@@ -160,7 +160,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$spaceliving_story_name = 'SpaceLiving',
 	$nazzevo_story_name = 'A História dos Irmãos Nazzevo',
 	$desert_island_story_name = 'Ilha Deserta',
-	$lonely_story_name = 'Histórias Solitárias',
+	$lonely_stories_story_name = 'Histórias Solitárias',
 	);
 }
 
@@ -192,12 +192,12 @@ $littletato_story_name,
 $spaceliving_story_name,
 $nazzevo_story_name,
 $desert_island_story_name,
-$lonely_story_name,
+$lonely_stories_story_name,
 );
 
 #Story folders array
 $story_namefolders = array(
-$pequenata_story_folder = 'Pequenata - Littletato',
+$littletato_story_folder = 'Pequenata - Littletato',
 $slstoryfolder = 'SpaceLiving',
 $nazzevostoryfolder = 'The Story of the Nazzevo Brothers',
 $desert_island_story_folder = 'Desert Island',
@@ -224,11 +224,11 @@ if ($sitetype1 == $website_types_array[1]) {
 	$mobile_div.'<br /><br />'.$div_close;
 }
 
-$pequenata_border = $border_4px_solid_dark_brown_css_class;
-$pequenata_background = $background_brown_css_class." ".$pequenata_border.' shakesidetoside';
-$pequenata_text = $text_dark_brown_css_class.' shakesidetoside';
-$pequenata_link = $main_website_url.'pequenata/';
-$pequenata_online_cover_folder = $cdn_image_stories_pequenata.'Capas/Kids/';
+$littletato_border = $border_4px_solid_dark_brown_css_class;
+$littletato_background = $background_brown_css_class." ".$littletato_border.' shakesidetoside';
+$littletato_text = $text_dark_brown_css_class.' shakesidetoside';
+$littletato_link = $main_website_url.'pequenata/';
+$littletato_online_cover_folder = $cdn_image_stories_pequenata.'Capas/Kids/';
 
 $nazzevo_border = $border_4px_solid_dark_brown_css_class;
 $nazzevo_background = $background_brown_css_class." ".$nazzevo_border.' shakesidetoside';
@@ -249,11 +249,11 @@ $desert_island_new_link = str_replace(' ', '_', strtolower($sitename_desertislan
 $desert_island_link = $main_website_url.$desert_island_new_link.'/';
 $desert_island_image_link = $cdn_image_stories_desertisland.'Capa Original.jpg';
 
-$lonelystories_border = $border_4px_solid_black_css_class;
-$lonelystories_background = $background_grey_css_class." ".$lonelystories_border.' shakesidetoside';
-$lonelystories_text = $text_black_css_class.' shakesidetoside';
-$lonelystories_link = $main_website_url.'Lonely%20Stories/';
-$lonelystories_image_link = $cdnimg.'Lonely Stories.jpg';
+$lonely_stories_border = $border_4px_solid_black_css_class;
+$lonely_stories_background = $background_grey_css_class." ".$lonely_stories_border.' shakesidetoside';
+$lonely_stories_text = $text_black_css_class.' shakesidetoside';
+$lonely_stories_link = $main_website_url.'Lonely%20Stories/';
+$lonely_stories_image_link = $cdnimg.'Lonely Stories.jpg';
 
 $cover_text = 'Cover';
 $story_name_cover_image_filename = '1';
@@ -261,10 +261,10 @@ $story_name_cover_image_filename = '1';
 if ($website_language == $geral_language) {
 	$website_language = $enus_language;
 
-	$pequenata_folder = $pequenata_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
+	$littletato_folder = $littletato_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 	$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 
-	$pequenata_image_link = $pequenata_folder.$story_name_cover_image_filename.'.png';
+	$littletato_image_link = $littletato_folder.$story_name_cover_image_filename.'.png';
 	$nazzevo_image_link = $nazzevo_folder.$story_name_cover_image_filename.'.png';
 
 	$website_language = $geral_language;
@@ -272,24 +272,24 @@ if ($website_language == $geral_language) {
 
 else {
 	if (in_array($website_language, $en_languages_array)) {
-		$pequenata_folder = $pequenata_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
+		$littletato_folder = $littletato_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 
-		$pequenata_image_link = $pequenata_folder.$story_name_cover_image_filename.'.png';
+		$littletato_image_link = $littletato_folder.$story_name_cover_image_filename.'.png';
 		$nazzevo_image_link = $nazzevo_folder.$story_name_cover_image_filename.'.png';
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$pequenata_folder = $pequenata_online_cover_folder.strtoupper($ptbr_language).'/'.$cover_text.'/';
+		$littletato_folder = $littletato_online_cover_folder.strtoupper($ptbr_language).'/'.$cover_text.'/';
 		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($ptbr_language).'/'.$cover_text.'/';
 
-		$pequenata_image_link = $pequenata_folder.$story_name_cover_image_filename.'.png';
+		$littletato_image_link = $littletato_folder.$story_name_cover_image_filename.'.png';
 		$nazzevo_image_link = $nazzevo_folder.$story_name_cover_image_filename.'.png';
 	}
 }
 
 $size_variable = $n;
-$pequenata_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class.' '.$pequenata_background.'" href="'.$pequenata_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$pequenata_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$pequenata_border.'" src="'.$pequenata_image_link.'"  width="650"><br /><br /></a><br />';
+$littletato_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class.' '.$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$littletato_border.'" src="'.$littletato_image_link.'"  width="650"><br /><br /></a><br />';
 
 $spaceliving_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class.' '.$spaceliving_background.'" href="'.$spaceliving_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$spaceliving_text.'"><b style="white-space: break-spaces;">'.$stories[1].'</b></'.$size_variable.'><img class="'.$spaceliving_border.'" src="'.$spaceliving_image_link.'" width="650"><br /><br /></a><br />';
 
@@ -297,10 +297,10 @@ $nazzevo_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_c
 
 $desert_island_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img class="'.$desert_island_border.'" src="'.$desert_island_image_link.'" width="650"><br /><br /></a><br />';
 
-$lonelystories_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class." ".$lonelystories_text.' '.$lonelystories_background.'" href="'.$lonelystories_link.'" '.$roundedborderstyle.'><'.$size_variable.'><b>'.$lonely_story_name.'</b></'.$size_variable.'><img class="'.$lonelystories_border.'" src="'.$lonelystories_image_link.'" width="650"><br /><br /></a><br />';
+$lonely_stories_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class." ".$lonely_stories_text.' '.$lonely_stories_background.'" href="'.$lonely_stories_link.'" '.$roundedborderstyle.'><'.$size_variable.'><b>'.$lonely_stories_story_name.'</b></'.$size_variable.'><img class="'.$lonely_stories_border.'" src="'.$lonely_stories_image_link.'" width="650"><br /><br /></a><br />';
 
 $size_variable = $m;
-$pequenata_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$pequenata_background.'" href="'.$pequenata_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$pequenata_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$pequenata_border.'" src="'.$pequenata_image_link.'" width="230" height="170"><br /><br /></a><br />';
+$littletato_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$littletato_border.'" src="'.$littletato_image_link.'" width="230" height="170"><br /><br /></a><br />';
 
 $spaceliving_story_card_mobile = '<a class="w3-btn  '.$background_hover_white_css_class.' '.$spaceliving_background.'" href="'.$spaceliving_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$spaceliving_text.'"><b style="white-space: break-spaces;">'.$stories[1].'</b></'.$size_variable.'><img class="'.$spaceliving_border.'" src="'.$spaceliving_image_link.'" width="230" height="170"><br /><br /></a><br />';
 
@@ -308,20 +308,20 @@ $nazzevo_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_cla
 
 $desert_island_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img class="'.$desert_island_border.'" src="'.$desert_island_image_link.'" width="230"><br /><br /></a><br />';
 
-$lonelystories_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$lonelystories_background." ".$lonelystories_text.'" href="'.$lonelystories_link.'" '.$roundedborderstyle.'><'.$m.'><b style="white-space: break-spaces;">'.$lonely_story_name.'</b></'.$size_variable.'><img class="'.$lonely_stories_border.'" src="'.$lonelystories_image_link.'" width="230" height="170"><br /><br /></a><br />';
+$lonely_stories_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$lonely_stories_background." ".$lonely_stories_text.'" href="'.$lonely_stories_link.'" '.$roundedborderstyle.'><'.$m.'><b style="white-space: break-spaces;">'.$lonely_stories_story_name.'</b></'.$size_variable.'><img class="'.$lonely_stories_border.'" src="'.$lonely_stories_image_link.'" width="230" height="170"><br /><br /></a><br />';
 
 $story_name_cards_computer = "\n".
-$pequenata_story_card_computer."<br />"."\n"."\n".
+$littletato_story_card_computer."<br />"."\n"."\n".
 $spaceliving_story_card_computer."<br />"."\n"."\n".
 $nazzevo_story_card_computer."<br />"."\n"."\n".
 $desert_island_story_card_computer."<br /> "."\n"."\n".
-$lonelystories_story_card_computer."\n";
+$lonely_stories_story_card_computer."\n";
 
 $story_name_cards_mobile = "\n".
-$pequenata_story_card_mobile."<br />"."\n"."\n".
+$littletato_story_card_mobile."<br />"."\n"."\n".
 $spaceliving_story_card_mobile."<br />"."\n"."\n".
 $nazzevo_story_card_mobile."<br />"."\n"."\n".
 $desert_island_story_card_mobile."<br />"."\n"."\n".
-$lonelystories_story_card_mobile."\n";
+$lonely_stories_story_card_mobile."\n";
 
 ?>

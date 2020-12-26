@@ -171,11 +171,11 @@ if ($website_has_comments_tab == true and $websites_has_comments == true) {
 #	$z = 0;
 #	$i = 0;
 #	while ($a <= $cmntscheckfilenumb) {
-#		if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+#		if (in_array($website_language, $en_languages_array)) {
 #			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt5.' '.strtolower($formtxt).':</b> "'.ucwords($commentscheck[$i]).'"';
 #		}
 #	
-#		if ($website_language == $languages_array[2]) {
+#		if (in_array($website_language, $pt_languages_array)) {
 #			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt4.' '.strtolower($formtxt).':</b> "'.ucwords($commentscheck[$i]).'"';
 #		}
 #	

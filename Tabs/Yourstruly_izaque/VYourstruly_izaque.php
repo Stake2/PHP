@@ -126,7 +126,7 @@ if ($website_language == $languages_array[1]) {
 	$website_header_description = $website_descriptions_array[0];
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $selected_website;

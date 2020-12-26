@@ -56,11 +56,11 @@ $drawingswebfolder = $cdn_image_drawings;
 $mediareader2018 = $php_tabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
 $mediareader2019 = $php_tabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
 
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$languages_array[1].'.txt';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$watchedtypefile2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$languages_array[2].'.txt';
 }
 
@@ -100,11 +100,11 @@ $websites_names_array = array(
 $sitecomments = false;
 
 #Site image vars
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$website_image = 'TID';
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$website_image = 'CQEF';
 }
 
@@ -202,7 +202,7 @@ if ($website_language == $languages_array[1]) {
 	$website_header_description = $website_html_descriptions_array[0];
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $websites_names_array[1];

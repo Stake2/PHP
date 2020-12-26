@@ -5,24 +5,24 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$site2020) == true) 
 	$selected_website = $site2020;
 
 	$site = $selected_website;
-	$ano = $site;
+	$current_year = $site;
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
 	#Site settings setter file includer
 	include $setting_parameters_file;
 
-	$tabs = array($ano, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
+	$tabs = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 
-	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
-		$tabnames = array($ano, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
+	if (in_array($website_language, $en_languages_array)) {
+		$tabnames = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 	}
 
-	if ($website_language == $languages_array[2]) {
-		$tabnames = array($ano, 'Mídia', 'Amigos', 'Prints', 'Tarefas', 'Anos');
+	if (in_array($website_language, $pt_languages_array)) {
+		$tabnames = array($current_year, 'Mídia', 'Amigos', 'Prints', 'Tarefas', 'Anos');
 	}
 
-	$tabnumb = 5;
+	$tabnumb = count($tabnames) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;

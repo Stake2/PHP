@@ -1,6 +1,6 @@
 <?php 
 
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 $humanbodyinhtmlandphp = ''.
 'The Human Body in HTML & PHP
 <human>
@@ -41,7 +41,7 @@ else {
 <human>'."\n";
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 $humanbodyinhtmlandphp = ''.
 'O corpo humano em HTML e PHP
 <humano>

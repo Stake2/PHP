@@ -116,7 +116,7 @@ $website_html_descriptions_array = array(
 include $story_name_variables_php_variable;
 
 # Texts for the English language
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$authortxt = 'Author';
 	$captxt = 'Chapters';
 	$datatxt = 'Date';
@@ -167,7 +167,7 @@ if ($website_language == $languages_array[0] or $website_language == $languages_
 }
 
 # Texts for the Brazilian Portuguese language
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$authortxt = 'Autor';
 	$captxt = "Capítulos";
 	$datatxt = "Data";
@@ -251,7 +251,7 @@ if ($website_language == $languages_array[1]) {
 	$website_header_description = $website_html_descriptions_array[0];
 }
 
-if ($website_language == $languages_array[2]) {
+if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $website_name;
@@ -264,7 +264,7 @@ if ($website_language == $languages_array[2]) {
 }
 
 # Buttons definer
-if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+if (in_array($website_language, $en_languages_array)) {
 	$tabnames[5] = substr_replace($tabnames[5], '-', 6, 0);
 	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
 }

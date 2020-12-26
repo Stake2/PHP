@@ -14,7 +14,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$siteyourstruly_izaq
 	$hidecitysetting = true;
 	$website_not_so_much_space_setting = false;
 	$website_uses_tab_body_generator = true;
-	$siteusesuniversalfilereader = true;
+	$website_uses_universal_file_reader = true;
 
 	#Site settings setter file includer
 	include $setting_parameters_file;
@@ -23,11 +23,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$siteyourstruly_izaq
 	$tabs = array('Read');
 
 	#Site Tabnames array
-	if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+	if (in_array($website_language, $en_languages_array)) {
 		$tabnames = array('Read:');
 	}
 
-	if ($website_language == $languages_array[2]) {
+	if (in_array($website_language, $pt_languages_array)) {
 		$tabnames = array('Ler:');
 	}
 

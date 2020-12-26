@@ -20,7 +20,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitedesertisland) =
 	$websites_has_comments = true; #Defines the site has comments
 	$websites_shows_comments = true; #Defines if site shows the comments on the Comments Tab
 	$sitehasstories = true; #Defines if site has a Stories Tab
-	$sitehaschangelog = false; #Defines if site has a changelog tab and file to be read
+	$website_has_changelog_setting = false; #Defines if site has a changelog tab and file to be read
 	$showwriteformtext = false; #Defines if site shows title and story text on the writing chapter
 	$website_show_chapter_text_on_write_form_setting = false; #Defines if site shows the chapter text on the writing chapter form
 	$sitehidenotifonclickreadtab = false; #Defines if site hides the notification when you click on the "Read story" button

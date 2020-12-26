@@ -127,11 +127,11 @@ if ($website_uses_tab_body_generator == false) {
 	}
 
 	else {
-		if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+		if (in_array($website_language, $en_languages_array)) {
 			$placeholdercitybody = 'Placeholder for the Body of the Tab: [Icon]';
 		}
 
-		if ($website_language == $languages_array[2]) {
+		if (in_array($website_language, $pt_languages_array)) {
 			$placeholdercitybody = 'Espaço reservado para o Corpo da Aba: [Ícone]';
 		}
 
@@ -213,11 +213,11 @@ while ($zzz <= $tabnumb3) {
 	}
 
 	else {
-		if ($website_language == $languages_array[0] or $website_language == $languages_array[1]) {
+		if (in_array($website_language, $en_languages_array)) {
 			$placeholdercitycontent = $div_zoom_animation.'Placeholder for the Content of the Tab.'.$div_close;
 		}
 
-		if ($website_language == $languages_array[2]) {
+		if (in_array($website_language, $pt_languages_array)) {
 			$placeholdercitycontent = $div_zoom_animation.'Espaço reservado para o Conteúdo da Aba.'.$div_close;
 		}
 

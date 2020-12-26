@@ -57,7 +57,7 @@ echo $div_close."\n";
 echo $div_close."\n";
 
 $i = 0;
-while ($i <= $videosnumb) {
+while ($i <= $watched_videos_number) {
 	echo $margin."\n";
 	echo '<div class="border">'."\n";
 	echo '<div class="'.$textstyle2.'" style="border-color:'.$bordercolor.';border-style:solid;'.$rounded_border_style_2.'">'."\n";
