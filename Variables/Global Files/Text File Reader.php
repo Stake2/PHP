@@ -54,30 +54,41 @@ if ($website_name == $sitediario) {
 }
 
 if (in_array($website_name, $years_array)) {
-	if (in_array($website_language, $en_languages_array)) {
-		$year_2020_summary_file = $year_2020_text_folder.'My 2020.txt';
-	}
+	$current_year_summary_text_file = $year_folders[$current_year].$year_summary_text.' '.$current_year.'.txt';
+	$current_year_summary_year_stuff_file = $year_folders[$current_year].'Year Stuff.txt';
 
-	if (in_array($website_language, $pt_languages_array)) {
-		$year_2020_summary_file = $year_2020_text_folder.'Meu 2020.txt';
-	}
-
-	$file = $year_2020_summary_file;
+	$file = $current_year_summary_text_file;
 	if (file_exists($file) == true) {
 		$read_file = fopen($file, 'r', 'UTF-8');
 		if ($read_file) {
-			$year_2020_summary_text = explode("\n", fread($read_file, filesize($file)));
-			$year_2020_summary_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $year_2020_summary_text);
+			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
+			$year_summary_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $replaceable_array);
 		}
 	}
+
+	$file = $current_year_summary_year_stuff_file;
+	if (file_exists($file) == true) {
+		$read_file = fopen($file, 'r', 'UTF-8');
+		if ($read_file) {
+			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
+			$year_stuff_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $replaceable_array)[0];
+		}
+	}
+}
+
+if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
+	#require($watch_history_text_file_reader_module);
 }
 
 if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 	$to_watch_episodes_file = $notepad_watch_history_folder.'To Watch Episodes.txt';
 	$to_watch_status_file = $notepad_watch_history_folder.'To Watch Status.txt';
 	$to_watch_folders_file = $notepad_watch_history_folder.'To Watch Folders.txt';
+
 	$watched_movies_file = $notepad_watch_history_folder.'Watched Movies.txt';
 	$watched_movies_time_file = $notepad_watch_history_folder.'Watched Movies Time.txt';
+	$watched_movie_time_numbers_array = array(1, 4, 5, 6, 7, 8, 9, 10);
+	$watched_movie_comment_numbers_array = array(1, 4, 5, 6, 7, 8);
 
 	if (in_array($website_language, $en_languages_array)) {
 		$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_language).'.txt';
@@ -91,7 +102,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		$to_watch_line_number = 0;
 		$handle = fopen ($to_watch_episodes_file, "r");
 		while (!feof ($handle)){
-			$line = fgets ($handle);
+			$line = fgets($handle);
 			$to_watch_line_number++;
 		}
 	}
@@ -100,7 +111,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		$file = fopen($to_watch_episodes_file, 'r', 'UTF-8');
 		if ($file) {
 			$to_watch_text = explode("\n", fread($file, filesize($to_watch_episodes_file)));
-			$to_watch_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $to_watch_text);
+			$to_watch_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $to_watch_text);
 		}
 	}
 
@@ -108,7 +119,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		$file = fopen($to_watch_status_file, 'r', 'UTF-8');
 		if ($file) {
 			$to_watch_status_file_text = explode("\n", fread($file, filesize($to_watch_status_file)));
-			$to_watch_status_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), " ", $to_watch_status_file_text);
+			$to_watch_status_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $to_watch_status_file_text);
 		}
 	}
 
@@ -149,67 +160,215 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 	if (file_exists($watched_movies_time_file) == true) {
 		$file = fopen($watched_movies_time_file, 'r', 'UTF-8'); 
 		if ($file) {
-			$watchedmoviestimearray = explode("\n", fread($file, filesize($watched_movies_time_file)));
-			$watched_movies_time = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $watched_movies_time);
-		}
-	}
-}
-
-if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
-	$current_year_watched_episodes_file = $notepad_watch_history_folder.$current_year.'/Watched '.$current_year.' Episodes.txt';
-	$current_year_watched_time_file = $notepad_watch_history_folder.$current_year.'/Watched '.$current_year.' Time.txt';
-
-	if (in_array($website_language, $en_languages_array)) {
-		$current_year_watched_media_type_file = $notepad_watch_history_folder.$current_year.'/Watched '.$current_year.' MediaType '.strtoupper($enus_language).'.txt';
-	}
-
-	if (in_array($website_language, $pt_languages_array)) {
-		$current_year_watched_media_type_file = $notepad_watch_history_folder.$current_year.'/Watched '.$current_year.' MediaType '.strtoupper($ptbr_language).'.txt';
-	}
-
-	$file = $current_year_watched_episodes_file;
-	if (file_exists($file) == true) {
-		$current_year_watched_episodes_line_number = 0;
-		$handle = fopen ($file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			$current_year_watched_episodes_line_number++;
+			$text_array = explode("\n", fread($file, filesize($watched_movies_time_file)));
+			$watched_movies_time_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $text_array);
 		}
 	}
 
-	$file = $current_year_watched_episodes_file;
-	if (file_exists($file) == true) {
-		$file = fopen($file, 'r', 'UTF-8');
-		if ($file) {
-			$current_year_watched_episodes_text = explode("\n", fread($file, filesize($file)));
-			$current_year_watched_episodes_text = str_replace(";", ":", $current_year_watched_episodes_text);
-			$current_year_watched_episodes_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $current_year_watched_episodes_text);
+	$current_variable_year = 2018;
+	while ($current_variable_year <= $current_year_backup) {
+		$current_year = $current_variable_year;
+		$current_year_watched_episodes_file = $notepad_watch_history_folder.$current_year.'/'.$watched_episodes_text.'.txt';
+		$current_year_watched_time_file = $notepad_watch_history_folder.$current_year.'/'.$watched_time_text.'.txt';
+
+		if (in_array($website_language, $en_languages_array)) {
+			$current_year_watched_media_type_file = $notepad_watch_history_folder.$current_year.'/'.$watched_media_type_text.' '.strtoupper($enus_language).'.txt';
+		}
+
+		if (in_array($website_language, $pt_languages_array)) {
+			$current_year_watched_media_type_file = $notepad_watch_history_folder.$current_year.'/'.$watched_media_type_text.' '.strtoupper($ptbr_language).'.txt';
+		}
+
+		$file = $current_year_watched_episodes_file;
+		if (file_exists($file) == true) {
+			$current_year_watched_episodes_line_number = 0;
+			$handle = fopen ($file, "r");
+			while (!feof ($handle)){
+				$line = fgets ($handle);
+				$current_year_watched_episodes_line_number++;
+			}
+		}
+
+		$current_year_watched_number = $current_year_watched_episodes_line_number - 1;
+		${"watched_episodes_".$current_year."_line_number"} = $current_year_watched_episodes_line_number;
+
+		$file_read = $current_year_watched_episodes_file;
+		if (file_exists($file_read) == true) {
+			$file = fopen($file_read, 'r', 'UTF-8');
+			if ($file) {
+				$current_year_watched_episodes_text = explode("\n", fread($file, filesize($file_read)));
+				$current_year_watched_episodes_text = str_replace(";", ":", $current_year_watched_episodes_text);
+				$current_year_watched_episodes_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $current_year_watched_episodes_text);
+			}
+		}
+
+		$file_read = $current_year_watched_time_file;
+		if (file_exists($file_read) == true) {
+			$file = fopen($file_read, 'r', 'UTF-8');
+			if ($file) {
+				$current_year_watched_time_text = explode("\n", fread($file, filesize($file_read)));
+				$current_year_watched_time_text = str_replace(";", ":", $current_year_watched_time_text);
+				$current_year_watched_time_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $current_year_watched_time_text);
+			}
+		}
+
+		$file_read = $current_year_watched_media_type_file;
+		if (file_exists($file_read) == true) {
+			$file = fopen($file_read, 'r', 'UTF-8');
+			if ($file) {
+				$text_array = explode("\n", fread($file, filesize($file_read)));
+				$text_array = str_replace(";", ":", $text_array);
+				$current_year_watched_media_type_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $text_array);
+			}
+		}
+
+		if (file_exists($current_year_watched_media_type_file) == true) {
+			$i = 0;
+			$watched_animes_number = 0;
+			if (count($current_year_watched_media_type_text) != 0) {
+				while ($i <= count($current_year_watched_media_type_text) - 1) {
+					if ($current_year_watched_media_type_text[$i] == 'Anime') {
+						$watched_animes_number++;
+					}
+
+					$i++;
+				}
+			}
+
+			$i = 0;
+			$watched_cartoons_number = 0;
+			while ($i <= count($current_year_watched_media_type_text) - 1) {
+				if ($current_year_watched_media_type_text[$i] == 'Cartoon' or $current_year_watched_media_type_text[$i] == 'Desenho') {
+					$watched_cartoons_number++;
+				}
+
+				$i++;
+			}
+
+			$i = 0;
+			$watched_series_number = 0;
+			while ($i <= count($current_year_watched_media_type_text) - 1) {
+				if ($current_year_watched_media_type_text[$i] == 'Series' or $current_year_watched_media_type_text[$i] == 'Série') {
+					$watched_series_number++;
+				}
+
+				$i++;
+			}
+
+			$i = 0;
+			$watched_movies_number = 0;
+			while ($i <= count($current_year_watched_media_type_text) - 1) {
+				if ($current_year_watched_media_type_text[$i] == 'Movie' or $current_year_watched_media_type_text[$i] == 'Filme') {
+					$watched_movies_number++;
+				}
+
+				$i++;
+			}
+
+			$i = 0;
+			$watched_videos_number = 0;
+			while ($i <= count($current_year_watched_media_type_text) - 1) {
+				if ($current_year_watched_media_type_text[$i] == 'Video' or $current_year_watched_media_type_text[$i] == 'Vídeo') {
+					$watched_videos_number++;
+				}
+
+				$i++;
+			}
+		}
+
+		# Media numbers array
+		${"watched_media_numbers_".$current_year} = array(
+		0 => $watched_animes_number, #Animes
+		1 => $watched_cartoons_number, #Cartoons
+		2 => $watched_series_number, #Series
+		3 => $watched_movies_number, #Movies
+		4 => $watched_videos_number, #Videos
+		);
+
+		$current_variable_year++;
+	}
+
+	$media_type_text_file_lines_array_2018 = array(
+	$media_type_anime_line = '0', #Animes
+	$media_type_cartoons_line = 3, #Cartoons
+	$media_type_series_line = 14, #Series
+	$media_type_movies_line = 1, #Movies
+	$media_type_video_line = 2, #Videos
+	);
+
+	$media_type_text_file_lines_array_2019 = array(
+	$media_type_anime_line = 7, #Animes
+	$media_type_cartoons_line = 2, #Cartoons
+	$media_type_series_line = 10, #Series
+	$media_type_movies_line = 23, #Movies
+	$media_type_video_line = '0', #Videos
+	);
+
+	$media_type_text_file_lines_array_2020 = array(
+	$media_type_anime_line = 2, #Animes
+	$media_type_cartoons_line = 62, #Cartoons
+	$media_type_series_line = 16, #Series
+	$media_type_movies_line = 84, #Movies
+	$media_type_video_line = '0', #Videos
+	);
+
+	$media_type_text_file_lines_array_2021 = array(
+	$media_type_anime_line = 2, #Animes
+	$media_type_cartoons_line = 5, #Cartoons
+	$media_type_series_line = 1, #Series
+	$media_type_movies_line = 12, #Movies
+	$media_type_video_line = '0', #Videos
+	);
+
+	if (file_exists($to_watch_episodes_file) == true) {
+		$i = 0;
+		$to_watch_items = 0;
+		while ($i <= $to_watch_line_number) {
+			if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == true) {
+				$to_watch_items++;
+			}
+
+			$i++;
 		}
 	}
 
-	$file = $current_year_watched_time_file;
-	if (file_exists($file) == true) {
-		$file = fopen($file, 'r', 'UTF-8');
-		if ($file) {
-			$current_year_watched_time_text = explode("\n", fread($file, filesize($file)));
-			$current_year_watched_time_text = str_replace(";", ":", $current_year_watched_time_text);
-			$current_year_watched_time_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $current_year_watched_time_text);
-		}
+	$watched_media_numbers_current_year = ${"watched_media_numbers_".$current_year};
+
+	$media_type_text_file_lines_arrays = array();
+
+	$current_variable_year = 2018;
+	while ($current_variable_year <= $current_year) {
+		$media_type_text_file_lines_arrays[$current_variable_year] = ${"media_type_text_file_lines_array_".$current_variable_year};
+
+		$current_variable_year++;
 	}
 
-	$file = $current_year_watched_media_type_file;
-	if (file_exists($file) == true) {
-		$file = fopen($file, 'r', 'UTF-8');
-		if ($file) {
-			$current_year_watched_media_type_text = explode("\n", fread($file, filesize($file)));
-			$current_year_watched_media_type_text = str_replace(";", ":", $current_year_watched_media_type_text);
-			$current_year_watched_media_type_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $current_year_watched_media_type_text);
-		}
-	}
-}
+	$every_year_watched_number_array = array();
 
-if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
-	require ($watch_history_text_file_reader_module);
+	$current_variable_year = 2018;
+	$current_year = $current_year;
+
+	while ($current_variable_year <= $current_year) {
+		$every_year_watched_number_array[$current_variable_year] = ${"watched_number_".$current_variable_year} = ${"watched_episodes_".$current_variable_year."_line_number"};
+
+		$current_variable_year++;
+	}
+
+	$current_year_watched_number_text = $current_year_watched_episodes_line_number;
+
+	$current_variable_year = 2018;
+	$every_year_watched_number = 0;
+	while ($current_variable_year <= $current_year) {
+		$number = $every_year_watched_number_array[$current_variable_year];
+
+		$every_year_watched_number = $every_year_watched_number + $number;
+
+		$current_variable_year++;
+	}
+
+	$media_type_text_file_lines_array = $media_type_text_file_lines_arrays[$current_year];
+
+	$selected_media_type_array = $year_code_numbes_array[$current_year];
 }
 
 if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetype1 == $website_types_array[1]) {
@@ -369,11 +528,12 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($story_synopsis_file) == true) {
-		$fp = fopen($story_synopsis_file, 'r', 'UTF-8'); 
+	$file = $story_synopsis_file;
+	if (file_exists($file) == true) {
+		$fp = fopen($file, 'r', 'UTF-8'); 
 		if ($fp) {
-			$synopsistext = explode("\n", fread($fp, filesize($story_synopsis_file)));
-			$story_synopsis = str_replace("^", "", $synopsistext);
+			$story_synopsis = explode("\n", fread($fp, filesize($file)));
+			$story_synopsis = str_replace("^", "", $story_synopsis);
 		}
 	}
 

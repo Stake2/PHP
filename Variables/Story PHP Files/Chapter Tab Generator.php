@@ -12,7 +12,7 @@ if ($write_new_chapter == true) {
 }
 
 # Defines the top and bottom texts
-if ($sitestorywrite == true and $story_name_website_chapter_to_write == $chapter_number_1) {
+if ($website_write_story_setting == true and $story_name_website_chapter_to_write == $chapter_number_1) {
 	if ($website_story_has_titles == true) {
 		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$captxtname.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
 	}
@@ -66,7 +66,7 @@ if ($selected_website == $sitedesertisland) {
 }
 
 # "You're Reading [Story]" top text displayer
-if ($story_nameusestatus == true) {
+if ($story_name_uses_status == true) {
 	if ($chapter_number_1 == $chapters and $story_status != $story_namestatuses[0] and $story_status != $story_namestatuses[3]) {
 		echo '<div class="'.$computer_variable.'">'.'<'.$n.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$n.'>'.$div_close."\n";
 
@@ -224,10 +224,10 @@ if ($new_write_style == true) {
 	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
 }
 
-$sitestorywrite = false;
+$website_write_story_setting = false;
 
 # Chapter writer tab displayer
-if ($sitestorywrite == true and $story_name_website_chapter_to_write == $chapter_number_1 or $sitestorywrite == true and $story_name_website_chapter_to_write.(int)'0' == $chapter_number_1 and $chapter_number_1 != 0) {
+if ($website_write_story_setting == true and $story_name_website_chapter_to_write == $chapter_number_1 or $website_write_story_setting == true and $story_name_website_chapter_to_write.(int)'0' == $chapter_number_1 and $chapter_number_1 != 0) {
 	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
 
 	require $chapter_writer_displayer_php;
@@ -278,7 +278,7 @@ if ($story_name_has_chapter_comments == false and $story_name_has_reads == false
 }
 
 #"You're Reading [Story]" bottom text
-if ($story_nameusestatus == true) {
+if ($story_name_uses_status == true) {
 	if ($chapter_number_1 == $chapters and $story_status != $story_namestatuses[0] and $story_status != $story_namestatuses[3]) {
 		echo '<div style="text-align:center;">'."\n".
 		$div_zoom_animation."\n".
@@ -357,19 +357,19 @@ if ($site_uses_new_comment_and_read_displayer == true) {
 	}
 }
 
-else if ($story_name_has_chapter_comments == true and $story_name_contains_comments == true or $story_name_has_reads == true and $story_name_contains_reads == true) {
+else if ($story_name_has_chapter_comments == true and $story_website_contains_comments == true or $story_name_has_reads == true and $story_website_contains_reads == true) {
 	echo '<hr class="'.$third_full_border.'" />'."\n";
 }
 
 echo '</h5>'."\n";
 
 if ($site_uses_new_comment_and_read_displayer == true) {
-	if ($story_name_has_chapter_comments == true and $story_name_contains_comments == true) {
+	if ($story_name_has_chapter_comments == true and $story_website_contains_comments == true) {
 		require $new_chapter_comment_and_read_displayer_php_variable;
 	}
 }
 
-else if ($story_name_has_chapter_comments == true and $story_name_contains_comments == true) {
+else if ($story_name_has_chapter_comments == true and $story_website_contains_comments == true) {
 	require $chapter_comment_and_read_displayer_php_variable;
 }
 

@@ -16,7 +16,7 @@ $cdn_image_stories_nazzevo = $cdn_image_stories.'Nazzevo/';
 $cdn_image_stories_desertisland = $cdn_image_stories.'Desert Island/';
 
 $cdntxt = $cdn.'txt/';
-$cdn_txt_moviecomments = $cdntxt.'Movie Comments/';
+$cdn_text_movie_comments = $cdntxt.'Movie Comments/';
 
 $cdnjs = $cdn.'js/';
 $cdncss = $cdn.'css/';
@@ -26,8 +26,10 @@ $notepad_folder = $mega_folder.'Bloco De Notas/';
 
 $notepad_effort_folder = $notepad_folder.'Dedicação/';
 $notepad_networks_folder = $notepad_effort_folder.'Networks/';
-$notepad_medianetwork_folder = $notepad_networks_folder.'Media Network/';
-$notepad_watch_history_folder = $notepad_medianetwork_folder.'Watch History/';
+$notepad_media_network_folder = $notepad_networks_folder.'Media Network/';
+$notepad_media_network_comments_folder = $notepad_media_network_folder.'Comentarios/';
+$notepad_mdn_movie_comments_folder = $notepad_media_network_comments_folder.'Filmes/';
+$notepad_watch_history_folder = $notepad_media_network_folder.'Watch History/';
 
 $diario_folder = $notepad_folder.'Diario/';
 $diario_folder_blocks = $diario_folder.'Blocks/';

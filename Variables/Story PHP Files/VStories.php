@@ -247,7 +247,7 @@ $desert_island_background = $background_green_water_css_class." ".$desert_island
 $desert_island_text = $text_dark_green_water_css_class;
 $desert_island_new_link = str_replace(' ', '_', strtolower($sitename_desertisland));
 $desert_island_link = $main_website_url.$desert_island_new_link.'/';
-$desert_island_image_link = $cdn_image_stories_desertisland.'Capa Original.jpg';
+$desert_island_image_link = $cdn_image_stories_desertisland.'Base Da Capa.jpg';
 
 $lonely_stories_border = $border_4px_solid_black_css_class;
 $lonely_stories_background = $background_grey_css_class." ".$lonely_stories_border.' shakesidetoside';

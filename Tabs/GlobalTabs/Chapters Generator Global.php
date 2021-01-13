@@ -126,7 +126,7 @@ echo '<style>
 </style>';
 echo "\n";
 
-if ($story_name_has_reads == true and $story_name_contains_reads == true) {
+if ($story_name_has_reads == true and $story_website_contains_reads == true) {
 	require $reads_generator_php_variable;
 
 	$h = $readed_number;
@@ -137,7 +137,7 @@ $chapter_line_number = 0;
 $b1 = 0;
 $b2 = 1;
 
-if ($site_uses_new_comment_and_read_displayer == true and $story_name_contains_reads == true and $story_name_contains_comments == true) {
+if ($site_uses_new_comment_and_read_displayer == true and $story_website_contains_reads == true and $story_website_contains_comments == true) {
 	if ($website_name == $sitepequenata) {
 		$comments_array = array(
 		null,

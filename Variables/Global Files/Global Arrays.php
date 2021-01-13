@@ -16,6 +16,7 @@ $sitearray = array(
 '2018',
 '2019',
 '2020',
+'2021',
 'stories',
 'izaqueMultiverse',
 'nw',
@@ -62,11 +63,19 @@ $sitetitlesarray = array(
 'Text Maker',
 );
 
-$year_code_numbes_array = array(
-"2018" => 0,
-"2019" => 1,
-"2020" => 2,
-"2021" => 3,
-);
+$year_code_numbes_array = array();
+
+$current_variable_year = 2018;
+$current_year = $current_year;
+
+$i = 0;
+while ($current_variable_year <= $current_year) {
+	$year_code_numbes_array[$current_variable_year] = $i;
+
+    $current_variable_year++;
+	$i++;
+}
+
+$year_code_numbes_array_keys = array_keys($year_code_numbes_array);
 
 ?>

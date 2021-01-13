@@ -41,16 +41,30 @@ foreach ($website_folders as $folder) {
 	}
 }
 
+$website_style_files = array();
+
 # V[Site].php Files array
 $i = 0;
 foreach ($sitearray as $value) {
-	$varsfile = $php_tabs.ucwords($value).'/'.'V'.ucwords($value).'.php';
-	if (file_exists($varsfile)) {
-		$sitefilevars[$i] = $varsfile;
+	$website_folder = $php_tabs.ucwords($value);
+
+	$variables_file = $website_folder.'/'.'V'.ucwords($value).'.php';
+	$website_style_file = $website_folder.'/'.'Website Style.php';
+
+	if (file_exists($variables_file)) {
+		$sitefilevars[$i] = $variables_file;
 	}
 
 	else {
-		fopen($varsfile, 'w', 'UTF-8');
+		fopen($variables_file, 'w', 'UTF-8');
+	}
+
+	if (file_exists($website_style_file)) {
+		$website_style_files[$i] = $website_style_file;
+	}
+
+	else {
+		fopen($website_style_file, 'w', 'UTF-8');
 	}
 
 	$i++;

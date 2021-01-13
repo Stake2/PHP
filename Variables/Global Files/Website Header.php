@@ -143,7 +143,7 @@ if ($sitetype1 == $website_types_array[1]) {
 	$website_images."\n".
 	'<'.$m.' class="'.$colortext.'" style="'.$margincss1.'">'.$website_header_description.'</'.$m.'>'."\n".
 	'<'.$m.' class="'.$colortext.'">'."\n".
-	$authortxt.": ".'<span class="'.$colorsubtext.'">'.$authorname."<br />".'</span>'."\n".
+	$authortxt.": ".'<span class="'.$colorsubtext.'">'.$author_name."<br />".'</span>'."\n".
 	$captxt.': <span class="'.$colorsubtext.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$colorsubtext.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
 	$datatxt.': <span class="'.$colorsubtext.'">'.$story_namedate.'</span><br />'."\n".
@@ -158,7 +158,7 @@ if ($sitetype1 == $website_types_array[1]) {
 	$website_images."\n".
 	format('<'.$m.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description).
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
-	$authortxt.": ".'<span class="'.$second_text_color.'">'.$authorname."<br />".'</span>'."\n".
+	$authortxt.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$captxt.': <span class="'.$second_text_color.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$second_text_color.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
 	$datatxt.': <span class="'.$second_text_color.'">'.$story_namedate.'</span><br />'."\n".

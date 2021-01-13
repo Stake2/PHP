@@ -47,28 +47,28 @@ else {
 
 
 if (strpos($host_text, $setting_parameters[2].'='.'true') == true) {
-	$websites_shows_comments = true;
+	$website_shows_comments = true;
 }
 
 if (strpos($host_text, $setting_parameters[2].'='.'false') == true) {
-	$websites_shows_comments = false;
+	$website_shows_comments = false;
 }
 
 else {
-	$websites_shows_comments = $websites_shows_comments;
+	$website_shows_comments = $website_shows_comments;
 }
 
 
 if (strpos($host_text, $setting_parameters[3].'='.'true') == true) {
-	$sitehasstories = true;
+	$website_has_stories_tab_setting = true;
 }
 
 if (strpos($host_text, $setting_parameters[3].'='.'false') == true) {
-	$sitehasstories = false;
+	$website_has_stories_tab_setting = false;
 }
 
 else {
-	$sitehasstories = $sitehasstories;
+	$website_has_stories_tab_setting = $website_has_stories_tab_setting;
 }
 
 
@@ -86,28 +86,28 @@ else {
 
 
 if (strpos($host_text, $setting_parameters[5].'='.'true') == true) {
-	$sitestorywrite = true;
+	$website_write_story_setting = true;
 }
 
 if (strpos($host_text, $setting_parameters[5].'='.'false') == true) {
-	$sitestorywrite = false;
+	$website_write_story_setting = false;
 }
 
 else {
-	$sitestorywrite = $sitestorywrite;
+	$website_write_story_setting = $website_write_story_setting;
 }
 
 
 if (strpos($host_text, $setting_parameters[6].'='.'true') == true) {
-	$showwriteformtext = true;
+	$website_show_write_form_text_setting = true;
 }
 
 if (strpos($host_text, $setting_parameters[6].'='.'false') == true) {
-	$showwriteformtext = false;
+	$website_show_write_form_text_setting = false;
 }
 
 else {
-	$showwriteformtext = $showwriteformtext;
+	$website_show_write_form_text_setting = $website_show_write_form_text_setting;
 }
 
 

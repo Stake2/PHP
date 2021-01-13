@@ -154,14 +154,14 @@ if ($website_name == $sitewatch or $site == $sitewatch) {
 	$every_watched_button_third_button_yellow_mobile = $mobile_buttons[0].$mobile_buttons[3].$yellow_mobile_buttons[4];
 
 	#Every Archived Button Yellow
-	$everyarchbtn = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$computer_buttons[6].$div_close;
+	$every_archived_medias_button = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$computer_buttons[6].$div_close;
 	$every_archived_media_button_first_button_yellow = $div_right_animation.$yellow_computer_buttons[5].$div_close.$div_left_animation.$computer_buttons[6].$div_close;
 	$every_archived_media_button_second_button_yellow = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$yellow_computer_buttons[6].$div_close;
 
 	#Mobile Every Archived Button Yellow
-	$everyarchbtnm = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[6].$div_close;
+	$every_archived_medias_button_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[6].$div_close;
 	$everyarchbtny1m = $div_right_animation.$yellow_mobile_buttons[5].$div_close.$div_left_animation.$mobile_buttons[6].$div_close;
-	$everyarchbtny2m = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$yellow_mobile_buttons[6].$div_close;
+	$every_archived_media_button_second_button_yellow_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$yellow_mobile_buttons[6].$div_close;
 }
 
 if ($website_name == $sitethingsido or $site == $sitethingsido or $website_name == $sitetextmaker) {
@@ -187,12 +187,12 @@ if ($website_name == $sitethingsido or $site == $sitethingsido) {
 }
 
 #Comments Tab includer if the setting is true
-if ($website_has_comments_tab == true or $story_namehaswriteform == true) {
+if ($website_has_comments_tab == true or $story_name_has_write_form == true) {
 	include $website_forms_php;
 }
 
 #Stories Tab includer if the setting is true
-if ($sitehasstories == true) {
+if ($website_has_stories_tab_setting == true) {
 	include $story_name_variables_php_variable;
 }
 

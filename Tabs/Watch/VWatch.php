@@ -35,23 +35,23 @@ $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_folder = $php_tabs.ucwords($site).'/';
 
 #Comment links
-$cmntlinks = array(
-$cdn_txt_moviecomments.'Hoje, Sexta (Vingadores Guerra Infinita).txt', 
-$cdn_txt_moviecomments.'Hoje, Segunda (Power Rangers 2017).txt', 
-$cdn_txt_moviecomments.'Hoje, Sabado (Detona Ralph 2 Ralph Quebra a Internet).txt', 
-$cdn_txt_moviecomments.'Hoje, Domingo (Equestria Girls Spring Breakdown).txt', 
-$cdn_txt_moviecomments.'Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
-$cdn_txt_moviecomments.'Homem-Aranha Longe de Casa 2019.txt',
+$watched_movie_comment_links = array(
+$cdn_text_movie_comments.'Hoje, Sexta (Vingadores Guerra Infinita).txt', 
+$cdn_text_movie_comments.'Hoje, Segunda (Power Rangers 2017).txt', 
+$cdn_text_movie_comments.'Hoje, Sabado (Detona Ralph 2 Ralph Quebra a Internet).txt', 
+$cdn_text_movie_comments.'Hoje, Domingo (Equestria Girls Spring Breakdown).txt', 
+$cdn_text_movie_comments.'Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
+$cdn_text_movie_comments.'Homem-Aranha Longe de Casa 2019.txt',
 );
 
 #Comments buttons
-$cmnts = array(
-'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[0]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[1]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[2]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[3]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
-'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[4]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
-'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$cmntlinks[5]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
+$watched_movie_comments = array(
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[0]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[1]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[2]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[3]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[4]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
+'<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[5]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
 );
 
 #Site image link and image size
@@ -71,7 +71,7 @@ $website_html_descriptions_array = array(
 'Site para mostrar videos, animes, séries, filmes que assisti e videos que eu vou assistir, feito por stake2.');
 
 #Media links for the Links tab
-$linkmedias = array(
+$media_links_array = array(
 'https://www.baixarseriesmp4.com/baixar-the-walking-dead-6a-temporada-dublado-e-legendado-mega/', 
 'https://www.baixarseriesmp4.org/baixar-the-walking-dead-7a-temporada-dublado-e-legendado/', 
 'https://www.baixarseriesmp4.org/baixar-the-walking-dead-8a-temporada-dublado-e-legendado/', 
@@ -89,8 +89,8 @@ $linkmedias = array(
 'https://bandori.fandom.com/wiki/BanG_Dream!_2nd_Season/',
 );
 
-#Image links for the Links tab
-$linkimgs = array(
+# Image links for the Links tab
+$media_image_links_array = array(
 $cdnimg.'twd.jpg', 
 $cdnimg.'mlp.png', 
 $cdnimg.'ben10.jpg', 
@@ -99,16 +99,18 @@ $cdnimg.'saoa.jpg',
 $cdnimg.'bg.jpg',
 );
 
-#TextFileReader.php file includer
-include $text_file_reader_file_php;
+$media_links_number = count($media_image_links_array);
+
+# Text File Reader.php file includer
+require $text_file_reader_file_php;
 
 $mobileversion = '';
 
-#YearNumbers.txt reader for showing the Archived Medias from 2018 and 2019 in Watch History tab: "Archived Media > 2018" and "2019"
-include $yearsvarsfilephp;
+# YearNumbers.txt reader for showing the Archived Medias from 2018 and 2019 in Watch History tab: "Archived Media > 2018" and "2019"
+require $year_variables_file;
 
 #Watch History website texts file includer
-include $watchtextsphp;
+require $watchtextsphp;
 
 #General language website_name, title, main_website_url and description
 if ($website_language == $languages_array[0]) {
@@ -117,7 +119,7 @@ if ($website_language == $languages_array[0]) {
 	$website_name = $site;
 	
 	$website_title = ucwords($site).' History';
-	$website_title_html = ucwords($site).' History'.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$website_title_html = ucwords($site).' History'.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -130,7 +132,7 @@ if ($website_language == $languages_array[1]) {
 	$website_name = $site;
 	
 	$website_title = ucwords($site).' History '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($site).' History '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$website_title_html = ucwords($site).' History '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -143,7 +145,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_name = $site;
 
 	$website_title = ucwords($site).' History '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($site).' History '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$everywatchednumb." ".$mediastxt.']'.$spanc;
+	$website_title_html = ucwords($site).' History '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[1];
@@ -163,29 +165,29 @@ if (in_array($website_language, $pt_languages_array)) {
 
 #Tabtexts array
 $citiestxts = array(
-$tabnames[0].' ['.$watchednumbtxt.']'.': '.$icons[5],
+$tabnames[0].' ['.$current_year_watched_number_text.']'.': '.$icons[5],
 $tabnames[1].' ['.$to_watch_items.']'.': '.$icons[6],
-$tabnames[2].' ['.$linksnumb.']'.': '.$icons[7],
+$tabnames[2].' ['.$media_links_number.']'.': '.$icons[7],
 $tabnames[3].' ['.$watched_movies_number.']'.': '.$icons[19],
-$tabnames[4].' ['.$archnumb.']'.': '.$icons[8],
-$tabnames[5].' ['.$watchednumb2018.']'.': '.$icons[8],
-$tabnames[6].' ['.$watchednumb2019.']'.': '.$icons[8],
+$tabnames[4].' ['.$archived_medias_number.']'.': '.$icons[8],
+$tabnames[5].' ['.$watched_number_2018.']'.': '.$icons[8],
+$tabnames[6].' ['.$watched_number_2019.']'.': '.$icons[8],
 $icons[13],
 );
 
 #Tabtexts array
 $citiestxtswithouthtml = array(
-$tabnames[0].' ['.$watchednumbtxt.']',
+$tabnames[0].' ['.$current_year_watched_number_text.']',
 $tabnames[1].' ['.$to_watch_items.']',
-$tabnames[2].' ['.$linksnumb.']',
+$tabnames[2].' ['.$media_links_number.']',
 $tabnames[3].' ['.$watched_movies_number.']',
-$tabnames[4].' ['.$archnumb.']',
-$tabnames[5].' ['.$watchednumb2018.']',
-$tabnames[6].' ['.$watchednumb2019.']',
+$tabnames[4].' ['.$archived_medias_number.']',
+$tabnames[5].' ['.$watched_number_2018.']',
+$tabnames[6].' ['.$watched_number_2019.']',
 $icons[13],
 );
 
-#TabGenerator.php includer
-include $website_tabs_generator;
+#Tab Generator.php includer
+require $website_tabs_generator;
 
 ?>

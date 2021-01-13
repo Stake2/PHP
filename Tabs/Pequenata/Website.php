@@ -18,17 +18,17 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitepequenata) == t
 	#Site settings definer
 	$website_has_notifications = true; #Defines if site has notifications on
 	$website_has_comments_tab = true; #Defines if site has a Comments Tab variable
-	$websites_has_comments = true; #Defines the site has comments
-	$websites_shows_comments = true; #Defines if site shows the comments on the Comments Tab
-	$sitehasstories = true; #Defines if site has a Stories Tab
+	$website_has_comments = true; #Defines the site has comments
+	$website_shows_comments = true; #Defines if site shows the comments on the Comments Tab
+	$website_has_stories_tab_setting = true; #Defines if site has a Stories Tab
 	$website_has_changelog_setting = true; #Defines if site has a changelog tab and file to be read
-	$showwriteformtext = false; #Defines if site shows title and story text on the writing chapter
+	$website_show_write_form_text_setting = false; #Defines if site shows title and story text on the writing chapter
 	$website_show_chapter_text_on_write_form_setting = false; #Defines if site shows the chapter text on the writing chapter form
-	$sitehidenotifonclickreadtab = false; #Defines if site hides the notification when you click on the "Read story" button
-	$siteuseschapteropener = true; #Defines if the website uses the ChapterOpener Script
+	$website_hides_notification_on_clicking_on_read_tab_setting = false; #Defines if site hides the notification when you click on the "Read story" button
+	$story_website_uses_chapter_opener = true; #Defines if the website uses the ChapterOpener Script
 	$site_uses_new_comment_and_read_displayer = true;
 
-	$sitestorywrite = false; #Defines if site has a story writing chapter
+	$website_write_story_setting = false; #Defines if site has a story writing chapter
 	$new_write_style = false; #Defines if the website uses the new writing style for chapters
 	$website_story_has_bookcovers_setting = true; #Defines if site has book covers for the story
 	$story_namewritesstoryfiles = false; #Defines if the story website creates text files with the story text (chapters)
@@ -36,9 +36,9 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitepequenata) == t
 	$story_name_has_chapter_comments = true; #Defines if the story has comments on the chapter
 	$story_name_has_dates = true; #Defines if the story has dates
 	$website_story_has_titles = true; #Defines if the story has chapter_titles
-	$story_nameusestatus = true; #Defines if the story uses the story statuses
-	$story_name_contains_reads = true; #Defines if the story has story_reads_array on it
-	$story_name_contains_comments = true; #Defines if the story has comments on it
+	$story_name_uses_status = true; #Defines if the story uses the story statuses
+	$story_website_contains_reads = true; #Defines if the story has story_reads_array on it
+	$story_website_contains_comments = true; #Defines if the story has comments on it
 
 	#Site settings setter file includer
 	include $setting_parameters_file;

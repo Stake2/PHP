@@ -13,7 +13,7 @@ echo $div_zoom_animation.'<div style="text-align:left;">'.'
 <br />
 <b>'.$txts[3].': '.$bluespan.$thingsnumb.$spanc.' (+'.$bluespan.$thingsnumb2.$spanc.' '.$txts[25].')</b><br />
 <br />
-<b>'.$txts[4].': '.$bluespan.$watchednumb.$spanc.'</b><br />'.'
+<b>'.$txts[4].': '.$bluespan.$watched_number_.$spanc.'</b><br />'.'
 <b>'.$medias[0].'</b>'.
 '<b>'.$medias[2].'</b>'.
 '<b>'.$medias[1].'</b>'.

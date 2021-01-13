@@ -88,20 +88,19 @@ $crossover = 9;
 #$comments_number = 1;
 $website_comments_number = 0;
 
-if ($websites_has_comments == true) {
+if ($website_has_comments == true) {
 	$comments_number_text = $comments_number + 1;
-	$commentsnormalnumbtowrite = $website_comments_number - 1;
+	$website_comments_number_to_show = $website_comments_number - 1;
 }
 
 else {
 	$comments_number_text = $comments_number;
-	$commentsnormalnumbtowrite = $website_comments_number;	
+	$website_comments_number_to_show = $website_comments_number;	
 }
 
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 
 #Non-language dependent texts
-$authorname = 'Izaque Sanvezzo (stake2)';
 #$commentsbtn = '<a href="#'.$tabcode[6].'"><button class="w3-btn '.$first_button_style.' '.$computer_variable.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 #$commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 
@@ -128,16 +127,16 @@ include $story_name_variables_php_variable;
 #Reviewed chapter number
 $reviewed_chapter = 3;
 
-#Site descriptions
+#Website descriptions
 $website_descriptions_array = array(
 'Website about my story, '.$story_name.', made by stake2', 
 'Site sobre a minha história, '.$story_name.', feito por stake2',
 );
 
-#Synopsis text definer using the $synopsis that is generated from TextFileReader.php
+#Synopsis text definer using the $story_synopsis that is generated from TextFileReader.php
 $website_html_descriptions_array = array(
-'Synopsis: <i class="fas fa-scroll"></i> "'.$synopsis[0].'"<br />',
-'Sinopse: <i class="fas fa-scroll"></i> "'.$synopsis[1].'"<br />',
+'Synopsis: <i class="fas fa-scroll"></i> "'.$story_synopsis[0].'"<br />',
+'Sinopse: <i class="fas fa-scroll"></i> "'.$story_synopsis[1].'"<br />',
 );
 
 #Reads the book cover image directory if the site has book covers
@@ -163,6 +162,8 @@ if (in_array($website_language, $en_languages_array)) {
 	'Write the Chapter',
 	substr($readingtxt, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
 	);
+
+	$author_name = 'Izaque Sanvezzo (stake2) and Julia';
 }
 
 #Brazilian Portuguese texts for Pequenata website
@@ -183,6 +184,8 @@ if (in_array($website_language, $pt_languages_array)) {
 	'Escreva o capítulo',
 	substr($readingtxt, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
 	);
+
+	$author_name = 'Izaque Sanvezzo (stake2) e Julia';
 }
 
 #Status text definer, that sets the status text with [] around it

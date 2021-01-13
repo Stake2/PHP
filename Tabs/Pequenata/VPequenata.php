@@ -8,6 +8,8 @@ $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
 $story_name_folder = $littletato_story_folder;
 
+$story_name = $littletato_story_name;
+
 # Form code for the comment and read forms
 $formcode = 'pequenata';
 
@@ -51,7 +53,7 @@ $crossover_chapter_number = 26;
 $comments_number = 11;
 $comments_number_text = $comments_number + 1;
 $website_comments_number = 8;
-$commentsnormalnumbtowrite = $website_comments_number - 1;
+$website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 12;
 

@@ -43,8 +43,6 @@ require $website_css_and_javascript_definer_php;
 date_default_timezone_set("America/Sao_Paulo");
 $data = date("d/m/Y");
 
-$current_year = strftime("%Y");
-
 # Global CSS variables loader
 require $global_style_file_php;
 

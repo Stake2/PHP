@@ -160,7 +160,7 @@ if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array
 	$sitetype1 = $website_types_array[1];
 
 	#"Site has stories" setting definer
-	$sitehasstories = true;
+	$website_has_stories_tab_setting = true;
 }
 
 #Years site type definer
@@ -170,10 +170,10 @@ if (in_array($host_text, $years_array)) {
 
 $sitesbuttonintab = false;
 $website_has_notifications = false;
-$sitehasstories = false;
-$websites_shows_comments = false;
+$website_has_stories_tab_setting = false;
+$website_shows_comments = false;
 $website_has_changelog_setting = false;
-$sitestorywrite = false;
+$website_write_story_setting = false;
 $website_chapter_to_write_setting = false;
 $roundedbuttonson = true;
 $thingsidofake = false;

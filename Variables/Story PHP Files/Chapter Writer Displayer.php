@@ -15,7 +15,7 @@ if ($new_write_style == true) {
 
 	#Checks if the variable website_show_chapter_text_on_write_form_setting is set to true
 	if ($website_show_chapter_text_on_write_form_setting == true) {
-		#Checks if the variable showwriteformtext is set to true and shows the title text
+		#Checks if the variable website_show_write_form_text_setting is set to true and shows the title text
 		if ($show_write_form_text == true) {
 			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}

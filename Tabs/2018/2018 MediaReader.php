@@ -42,7 +42,7 @@ echo '<div style="text-align:left;">'."\n";
 
 #Number resetter for Watch History website
 if ($website_name == $sitewatch) {
-	$watchednumb = $watched_episodes_2018_line_number;
+	$watched_number = $every_year_watched_number_array[$current_year];
 
 	#Medias numbers for 2018 Medias
 	$watched_movies_number = 4; 
@@ -67,17 +67,17 @@ if ($website_name == $sitewatch) {
 }
 
 if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {
-	echo '<b>'.$blackspan.$txts[3].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
+	echo '<b>'.$blackspan.$txts[3].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watched_number.'</b>'.$spanc.'<br />'."\n";
 }
 
 if ($website_name == $sitewatch and $thingsidofake == null or $thingsidofake == false and $watchmedias2018 == true) {
-	echo '<b>'.$whitespan.$txts[3].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
+	echo '<b>'.$whitespan.$txts[3].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watched_number.'</b>'.$spanc.'<br />'."\n";
 }
 
 if ($website_name != $sitewatch) {
 	echo '<'.$n.' class="" style="text-align:left;">'."\n";
 
-	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$number_text_color_span.'<b>'.$watchednumb.'</b>'.$spanc.'<br />'."\n";
+	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$number_text_color_span.'<b>'.$watched_number.'</b>'.$spanc.'<br />'."\n";
 }
 
 if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {

@@ -87,10 +87,10 @@ $website_image_link = $website_image;
 $comments_number = 0;
 $comments_number_text = $comments_number + 1;
 $website_comments_number = 1;
-$commentsnormalnumbtowrite = $website_comments_number - 1;
+$website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;
-$authorname = 'Izaque Sanvezzo (stake2)'.' '.$whitespan.$andtxt.$spanc.' '.$purplespan.'Lulu Black Fazbear'.$spanc;
+$author_name = 'Izaque Sanvezzo (stake2)'.' '.$whitespan.$andtxt.$spanc.' '.$purplespan.'Lulu Black Fazbear'.$spanc;
 $commentsbtn = '<a href="# '.$tabcode[6].'"><button class="w3-btn '.$first_button_style.' '.$computer_variable.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 $commentsbtnm = '<a href="# '.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 

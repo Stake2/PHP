@@ -24,6 +24,7 @@ $sitecodes = array(
 '2018',
 '2019',
 '2020',
+'2021',
 'stories_historias'.' '.$siteicons[0],
 'new_world'.' '.$siteicons[4],
 'pequenata'.' '.$siteicons[0],
@@ -124,6 +125,7 @@ $sitename_years,
 '2018 '.$siteicons[3],
 '2019 '.$siteicons[3],
 '2020 '.$siteicons[3],
+'2021 '.$siteicons[3],
 $sitename_stories,
 'New World'.' '.$siteicons[4],
 $sitename_pequenata,
@@ -228,11 +230,7 @@ foreach ($websites_names_array as $value) {
 }
 */
 
-$yearnames = array(
-'2018',
-'2019',
-'2020',
-);
+$yearnames = array_keys($year_code_numbes_array);
 
 $story_namelinks = array(
 $website_pequenata_link,

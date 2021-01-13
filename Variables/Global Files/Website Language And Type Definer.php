@@ -29,7 +29,7 @@ if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array
 	$sitetype1 = $website_types_array[1];
 
 	#"Site has stories" setting definer
-	$sitehasstories = true;
+	$website_has_stories_tab_setting = true;
 }
 
 #Years site type definer

@@ -12,14 +12,14 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$site2020) == true) 
 	#Site settings setter file includer
 	include $setting_parameters_file;
 
-	$tabs = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
+	$tabs = array($current_year, 'Media', 'Screenshots', 'Tasks', 'Years');
 
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
+		$tabnames = array($current_year, 'Media', 'Screenshots', 'Tasks', 'Years');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array($current_year, 'Mídia', 'Amigos', 'Prints', 'Tarefas', 'Anos');
+		$tabnames = array($current_year, 'Mídia', 'Prints', 'Tarefas', 'Anos');
 	}
 
 	$tabnumb = count($tabnames) - 1;

@@ -91,6 +91,19 @@ if (in_array($website_language, $en_languages_array)) {
 	$tasksdesc = 'Made tasks';
 
 	$additional_things_made_in_year_text = "along with comments and people met";
+
+	$year_summary_text = "My";
+	$creation_date_text = "Creation date";
+	$edit_date_text = "Edit date";
+
+	$things_made_in_current_year_text = "Things made in ".$current_year;
+	$productive_things_text = "Productive things";
+	$watched_things_text = "Watched things";
+	$new_stories_text = "New stories";
+	$story_progress_text = "Story progress";
+	$new_websites_text = "New websites";
+	$people_text_i_met_text = "People that I have met";
+	$comments_on_super_animes_text = "Comments on Super Animes";
 }
 
 #Brazilian Portuguese texts
@@ -134,7 +147,29 @@ if (in_array($website_language, $pt_languages_array)) {
 	$tasksdesc = 'Tarefas feitas';
 
 	$additional_things_made_in_year_text = "junto com comentários e pessoas conhecidas";
+
+	$year_summary_text = "Meu";
+	$creation_date_text = "Data de Criação";
+	$edit_date_text = "Data de edição";
+
+	$things_made_in_current_year_text = "Coisas feitas em ".$current_year;
+	$productive_things_text = "Coisas produtivas";
+	$watched_things_text = "Coisas assistidas";
+	$new_stories_text = "Novas histórias";
+	$story_progress_text = "Progresso das histórias";
+	$new_websites_text = "Novos sites";
+	$people_text_i_met_text = "Pessoas que conheci";
+	$comments_on_super_animes_text = "Comentários no site Super Animes";
 }
+
+$things_made_in_current_year_text_key = strtolower(str_replace(" ", "_", str_replace(" ".$current_year, " year", $things_made_in_current_year_text)));
+$productive_things_key = strtolower(str_replace(" ", "_", $productive_things_text));
+$watched_things_text_key = strtolower(str_replace(" ", "_", $watched_things_text));
+$new_stories_text_key = strtolower(str_replace(" ", "_", $new_stories_text));
+$story_progress_text_key = strtolower(str_replace(" ", "_", $story_progress_text));
+$new_websites_text_key = strtolower(str_replace(" ", "_", $new_websites_text));
+$people_text_i_met_text_key = strtolower(str_replace(" ", "_", $people_text_i_met_text));
+$comments_on_super_animes_key = strtolower(str_replace(" ", "_", $comments_on_super_animes_text));
 
 #Years folder
 $year_text_files_folder = $notepad_years_folder_variable;

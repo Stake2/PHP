@@ -73,7 +73,7 @@ require $story_name_details_definer_php;
 $comments_number = 1;
 $comments_number_text = $comments_number + 1;
 $website_comments_number = 0;
-$commentsnormalnumbtowrite = $website_comments_number - 1;
+$website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 
 $readed_number = 1;

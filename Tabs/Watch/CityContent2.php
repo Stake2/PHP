@@ -3,7 +3,7 @@
 $i = 0;
 $z = 0;
 
-while ($i <= $to_watch_file_number) {
+while ($i <= $to_watch_line_number) {
 	$i2 = $i + 1;
 	if ($website_watch_history_show_to_watch_only_setting == true) {
 		if (strpos ($to_watch_status_file_text[$i], $watched_string) == true) {

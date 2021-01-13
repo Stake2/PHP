@@ -11,8 +11,8 @@ $commentslens2 = array(45, 52);
 
 $comment_style = $additional_background_color." ".$text_black_css_class." ".$border_3px_solid_black_css_class;
 
-if ($website_has_comments_tab == true and $websites_has_comments == true) {
-	if ($websites_shows_comments == true) {
+if ($website_has_comments_tab == true and $website_has_comments == true) {
+	if ($website_shows_comments == true) {
 		$c = 0;
 		$i = 0;
 		$z = 0;
@@ -140,7 +140,7 @@ if ($website_has_comments_tab == true and $websites_has_comments == true) {
 
 		$z = 0;
 		$c = 0;
-		while ($c <= $commentsnormalnumbtowrite) {
+		while ($c <= $website_comments_number_to_show) {
 			if (!strpos($cmntsgeral[$z], 'comment-') and isset($cmntsgeral[$z])) {
 				echo $cmntsgeral[$z];
 			}

@@ -12,20 +12,20 @@ $website_background_color = $website_style_variables_array[$i];
 */
 
 $website_style_variables_array = array(
-$background_color = $background_blue_css_class,
+$background_color = $background_cyan_css_class,
 $header_background_color = $background_black_css_class,
 $tab_background_color = $background_black_css_class,
-$additional_background_color = $background_cyan_css_class,
+$additional_background_color = $background_blue_css_class,
 
 $first_text_color = $text_blue_css_class,
 $second_text_color = $text_cyan_css_class,
 $third_text_color = 'w3-text-white',
 $tab_text_color = $first_text_color,
 
-$first_border_color = $border_color_blue_css_class,
-$second_border_color = $border_color_cyan_css_class,
+$first_border_color = $border_color_cyan_css_class,
+$second_border_color = $border_color_blue_css_class,
 $third_border_color = $border_color_black_css_class,
-$tab_border_color = $border_color_blue_css_class,
+$tab_border_color = $border_color_cyan_css_class,
 $websites_tab_border_color = $border_color_black_css_class,
 
 $first_button_color = $additional_background_color,
@@ -66,8 +66,5 @@ $website_image_size_mobile = $mobile_image_size;
 # Website Style Variables Foreach.php file includer
 
 require $website_style_variables_foreach;
-=======
-require $website_Style_variables_foreach;
->>>>>>> b7a0017b5ebff01f1133e6e0676726a187c65044
 
 ?>

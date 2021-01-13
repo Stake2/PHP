@@ -5,7 +5,7 @@ $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
 
 $thingsnumb = 524;
-$watchednumb = $watched_episodes_2019_line_number;
+$watched_number_ = $watched_episodes_2019_line_number;
 
 $watched_movies_number = 4; 
 $watched_series_number = 9; 

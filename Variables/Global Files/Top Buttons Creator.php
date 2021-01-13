@@ -94,7 +94,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		}
 
 		else {
-			if ($i == 0 and $website_has_notifications == true and $sitehidenotifonclickreadtab == true) {
+			if ($i == 0 and $website_has_notifications == true and $website_hides_notification_on_clicking_on_read_tab_setting == true) {
 				$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 			}
 
@@ -104,7 +104,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		}
 
 		if ($i <= $tabnumb2 and $website_name != $site2019) {
-			if (strpos($computer_buttons[$i], 'Comment') and strpos($computer_buttons[$i], 'Comentar' and $sitehidescommentstab == true)) {
+			if (strpos($computer_buttons[$i], 'Comment') and strpos($computer_buttons[$i], 'Comentar' and $website_has_comments_tab_setting == true)) {
 				#echo $computer_buttons[$i];
 			}
 
@@ -170,7 +170,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		}
 	
 		else {
-			if ($i == 0 and $website_has_notifications == true and $sitehidenotifonclickreadtab == true) {
+			if ($i == 0 and $website_has_notifications == true and $website_hides_notification_on_clicking_on_read_tab_setting == true) {
 				$mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
 			}
 	

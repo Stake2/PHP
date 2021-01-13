@@ -6,8 +6,13 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitewatch) == true)
 
 	#Year definer
 	$current_year = strftime("%Y");
-	$previous_year = $current_year - 1;
-	$previous_previous_year = $current_year - 2;
+	$current_year_backup = $current_year;
+	#$previous_year = $current_year - 1;
+	#$previous_previous_year = $current_year - 2;
+
+	$previous_year = "2019";
+	$previous_previous_year = "2018";
+	$archived_medias_number = 2;
 
 	#Site title and name definer
 	$site = ucwords($selected_website);

@@ -3,7 +3,9 @@
 # Get the localhost link
 $host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-# Site variables
+$current_year = strftime("%Y");
+
+# Website variables
 $main_website_url = 'https://diario.netlify.app/';
 $hard_drive_letter = "C";
 $mega_folder = $hard_drive_letter.':/Mega/';

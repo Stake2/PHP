@@ -34,7 +34,7 @@ if ($thingsidofake == null) {
 	}
 }
 
-echo '<hr class="'.$tab_full_border.'" />'."\n";
+echo '<hr class="'.$header_full_border.'" />'."\n";
 echo '<'.$m.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
 include $mediaarraygenerator;
@@ -51,7 +51,7 @@ echo '</'.$m.'>'."\n";
 #$i = 0;
 #$a = 0;
 #
-#while ($i <= $watchednumb2019file) {
+#while ($i <= $watched_number_2019) {
 #	$i2 = $i + 1;
 #	if (in_array($i, $watchedmovie2019numbarray)) {
 #		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2.' - ('.$moviestxt.') - </span>'.$watched2019txt[$i].'- <span class="w3-text-white">'.$watched2019time[$a].'</span></span>'.$div_close.''."\n";

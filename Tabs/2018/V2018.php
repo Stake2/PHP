@@ -21,7 +21,7 @@ if (in_array($website_language, $pt_languages_array)) {
 
 $thingsnumb = 221;
 $thingsnumb2 = 3.108;
-$watchednumb = $watched_episodes_2018_line_number;
+$watched_number_ = $watched_episodes_2018_line_number;
 
 $watched_movies_number = 4; 
 $watched_cartoons_number = 5;

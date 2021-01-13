@@ -162,8 +162,8 @@ if ($new_write_style == true) {
 
 	#Checks if the variable show_write_form_text is set to true
 	if ($show_write_form_text == true) {
-		#Checks if the variable showwriteformtext is set to true and shows the title text
-		if ($showwriteformtext == true) {
+		#Checks if the variable website_show_write_form_text_setting is set to true and shows the title text
+		if ($website_show_write_form_text_setting == true) {
 			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 
@@ -178,7 +178,7 @@ if ($new_write_style == true) {
 
 	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
-	if ($showwriteformtext == true) {
+	if ($website_show_write_form_text_setting == true) {
 		echo $story_nametxt.': '."\n"."\n";
 	}
 

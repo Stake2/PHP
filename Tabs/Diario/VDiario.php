@@ -236,7 +236,7 @@ $tabnames[1].': '.$icons[1],
 $tabnames[2].': '.$icons[12],
 );
 
-if ($sitehasstories == true) {
+if ($website_has_stories_tab_setting == true) {
 	array_push($citiestxts, end(array_values($tabnames)).': '.$icons[11]);
 }
 

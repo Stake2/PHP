@@ -54,7 +54,7 @@ if ($website_new_design_setting == true) {
 }
 
 #Chapter Opener Script includer if the setting is true
-if ($siteuseschapteropener == true) {
+if ($story_website_uses_chapter_opener == true) {
 	echo "\n";
 	echo '<script>'."\n";
 	require $open_chapter_script_php;

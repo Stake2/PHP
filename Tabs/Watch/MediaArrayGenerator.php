@@ -12,7 +12,7 @@ if ($website_name == $sitethingsido) {
 	if ($make2018medias == true and $make2019medias == false) {
 		$thingsnumb = 221;
 		$thingsnumb2 = 3.108;
-		$watchednumb = $watched_episodes_2018_line_number;
+		$watched_number_ = $watched_episodes_2018_line_number;
 
 		$watched_movies_number = 4; 
 		$watched_cartoons_number = 5;
@@ -42,7 +42,7 @@ if ($website_name == $sitethingsido) {
 
 	if ($make2019medias == true and $make2018medias == false) {
 		$thingsnumb = 524;
-		$watchednumb = $watched_episodes_2019_line_number;
+		$watched_number_ = $watched_episodes_2019_line_number;
 
 		$watched_movies_number = 4; 
 		$watched_series_number = 9; 

@@ -32,7 +32,7 @@ echo '</textarea>'."\n";
 #Shows the text area  where the text of the chapter is shown
 echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
-if ($showwriteformtext == true) {
+if ($website_show_write_form_text_setting == true) {
 	echo $story_nametxt.': '."\n"."\n";
 }
 

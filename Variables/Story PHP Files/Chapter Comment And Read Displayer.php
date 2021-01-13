@@ -76,7 +76,7 @@ if ($website_name == $sitenazzevo and $story_name_has_chapter_comments == true) 
 	}
 }
 
-if ($website_name == $sitenazzevo and $story_name_contains_reads) {
+if ($website_name == $sitenazzevo and $story_website_contains_reads) {
 	if ($chapter_number_1 == 1) {
 		echo $readingsheader."\n";
 
@@ -85,7 +85,7 @@ if ($website_name == $sitenazzevo and $story_name_contains_reads) {
 	}
 }
 
-if ($website_name == $sitespaceliving and $story_name_has_chapter_comments == true and $story_name_contains_comments == true) {
+if ($website_name == $sitespaceliving and $story_name_has_chapter_comments == true and $story_website_contains_comments == true) {
 	if ($chapter_number_1 == 1) {
 		echo $commentheader."\n";
 
@@ -103,7 +103,7 @@ if ($website_name == $sitespaceliving and $story_name_has_chapter_comments == tr
 	}
 }
 
-if ($website_name == $sitespaceliving and $story_name_contains_reads) {
+if ($website_name == $sitespaceliving and $story_website_contains_reads) {
 	if ($chapter_number_1 == 1) {
 		echo $readingsheader."\n";
 

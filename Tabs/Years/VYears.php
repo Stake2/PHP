@@ -26,7 +26,15 @@
 $year_text_files_folder = $notepad_years_folder_variable;
 $current_year_text_folder = $year_text_files_folder.$current_year.'/';
 
-$year_2020_text_folder = $year_text_files_folder.$year_2020.'/';
+$year_folders = array();
+
+$current_variable_year = 2018;
+
+while ($current_variable_year <= $current_year) {
+	$year_folders[$current_variable_year] = $year_text_files_folder.$current_variable_year.'/';
+
+    $current_variable_year++;
+}
 
 $website_folder = strtolower($years_folder_variable);
 $selected_website_url = $main_website_url.$website_folder.'/'.$current_year.'/';
@@ -51,11 +59,11 @@ $yearsbuttonsgenerator = $php_tabs.'Years/'.'YearsButtons Generator.php';
 #	$marginstyle22 = 'style="margin-right:76%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
 #}
 
-#Site image link and image size
+# Site image link and image size
 $website_image = $current_year;
 $website_image = $cdnimg.$website_image.".png";
 $website_image_link = $website_image;
-$website_image_size_computer = 25;
+$website_image_size_computer = 30;
 $website_image_size_mobile = 66;
 $screenshot_link = '<a href="'.$cdnimg.'Jogos 616-691.gif" class="w3-text-blue">Jogos 616-691.gif</a>';
 
@@ -132,7 +140,7 @@ if (in_array($website_language, $pt_languages_array)) {
 #Friends number counter
 $year_friends_file_number = 0;
 if (file_exists($year_friends_file)) {
-	$handle = fopen ($year_friends_file, "r");
+	$handle = fopen($year_friends_file, "r");
 	while (!feof($handle)) {
 		$line = fgets($handle);
 		$year_friends_file_number++;
@@ -142,7 +150,7 @@ if (file_exists($year_friends_file)) {
 #Tasks number counter
 $year_tasks_file_number = 0;
 if (file_exists($year_made_tasks_file)) {
-	$handle = fopen ($year_made_tasks_file, "r");
+	$handle = fopen($year_made_tasks_file, "r");
 	while (!feof($handle)) {
 		$line = fgets($handle);
 		$year_tasks_file_number++;
@@ -156,7 +164,7 @@ $year_tasks_file_number2 = $year_tasks_file_number - 1;
 #Text readers
 #Friends file reader
 if (file_exists($year_friends_file)) {
-	$fp = fopen ($year_friends_file, 'r', 'UTF-8'); 
+	$fp = fopen($year_friends_file, 'r', 'UTF-8'); 
 	if ($fp) {
 		$year_friends_text = explode("\n", fread($fp, filesize($year_friends_file)));
 	}
@@ -164,7 +172,7 @@ if (file_exists($year_friends_file)) {
 
 #Tasks file reader
 if (file_exists($year_made_tasks_file)) {
-	$fp = fopen ($year_made_tasks_file, 'r', 'UTF-8'); 
+	$fp = fopen($year_made_tasks_file, 'r', 'UTF-8'); 
 	if ($fp) {
 		$year_made_tasks_filetxt = explode("\n", fread($fp, filesize($year_made_tasks_file)));
 	}
@@ -182,12 +190,12 @@ if (isset($year_made_tasks_filetxt)) {
 #TextFileReader.php file includer
 include $text_file_reader_file_php;
 
-$a2019 = false;
-$regenerate_2019_medias = 'a';
-$generate2019 = true;
+#$a2019 = false;
+#$regenerate_2019_medias = 'a';
+#$generate2019 = true;
 #YearMaker2.php reader
-ob_start();
-include $year_maker_2_file;
-$year_maker_2_file = ob_get_clean();
+#ob_start();
+#include $year_maker_2_file;
+#$year_maker_2_file = ob_get_clean();
 
 ?>
