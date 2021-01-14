@@ -100,12 +100,8 @@ else {
 
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 
-#Non-language dependent texts
-#$commentsbtn = '<a href="#'.$tabcode[6].'"><button class="w3-btn '.$first_button_style.' '.$computer_variable.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
-#$commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
-
-#TextFileReader.php file includer
-include $text_file_reader_file_php;
+#Text File Reader.php file includer
+require $text_file_reader_file_php;
 
 $comments_number = $comments_check_number - 1;
 
@@ -122,10 +118,10 @@ else {
 }
 
 #Re-include of the StoryVars.php file to set the story name
-include $story_name_variables_php_variable;
+require $story_name_variables_php_variable;
 
 #Reviewed chapter number
-$reviewed_chapter = 3;
+$reviewed_chapter = 5;
 
 #Website descriptions
 $website_descriptions_array = array(
@@ -268,7 +264,7 @@ $tabnames[3].': '.$icons[10],
 $tabnames[4].': '.$whitespan.'<span class="'.$websites_tab_number_hover_color.'">'.$storiesnumb.$spanc.$spanc.' '.$icons[11],
 );
 
-#Button names definer
+# Button names definer
 $i = 0;
 foreach ($tabtitles as $tabname) {
 	$citiestxts[$i] = $tabname;
@@ -276,10 +272,10 @@ foreach ($tabtitles as $tabname) {
 	$i++;
 }
 
-#TabGenerator.php includer
-include $website_tabs_generator;
+# Tab Generator.php includer
+require $website_tabs_generator;
 
-#Site notification variables if the site notification setting is true
+# Site notification variables if the site notification setting is true
 if ($website_has_notifications == true) {
 	#Reviewed chapter title
 	$reviewed_chaptercode = $chapter_buttons[$reviewed_chapter];

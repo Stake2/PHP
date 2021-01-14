@@ -31,7 +31,7 @@ $border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$roun
 #$watched_movies_number = 0;
 
 #Folder variables
-$selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_url = $website_watch_history_link;
 $selected_website_folder = $php_tabs.ucwords($site).'/';
 
 #Comment links

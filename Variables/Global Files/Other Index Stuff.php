@@ -105,4 +105,6 @@ Test();
 #print_r($websites_names_array_2);
 */
 
+#echo $sitecodes[16];
+
 ?>

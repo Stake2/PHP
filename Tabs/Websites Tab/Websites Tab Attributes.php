@@ -49,7 +49,7 @@ $sitelinks = array(
 'https://printsofcomputer.netlify.app', #POCB Link
 $main_website_url.$siteicons[0].'/',
 $main_website_url.$sitecodes[0].'/',
-$main_website_url.$sitecodes[1].'/',
+$website_watch_history_link = $main_website_url.$sitecodes[1].'/',
 $main_website_url.$sitecodes[2].'/',
 $main_website_url.$sitecodes[3].'/',
 $main_website_url.$sitecodes[4].'/',
@@ -62,14 +62,14 @@ $main_website_url.$sitecodes[10].'/',
 $main_website_url.$sitecodes[11].'/',
 $main_website_url.$sitecodes[12].'/',
 $main_website_url.$sitecodes[13].'/',
-$website_pequenata_link = $main_website_url.$sitecodes[14].'/',
-$website_spaceliving_link = $main_website_url.$sitecodes[15].'/',
-$website_nazzevo_link = $main_website_url.$sitecodes[16].'/',
-$website_desert_island_link = $main_website_url.$sitecodes[17].'/',
-$website_lonelystories_link = $main_website_url.$sitecodes[18].'/', #Lonely Stores
-$main_website_url.$sitecodes[19].'/',
+$website_pequenata_link = $main_website_url.$sitecodes[15].'/',
+$website_spaceliving_link = $main_website_url.$sitecodes[16].'/',
+$website_nazzevo_link = $main_website_url.$sitecodes[17].'/',
+$website_desert_island_link = $main_website_url.$sitecodes[18].'/',
+$website_lonelystories_link = $main_website_url.$sitecodes[19].'/', #Lonely Stores
 $main_website_url.$sitecodes[20].'/',
 $main_website_url.$sitecodes[21].'/',
+$main_website_url.$sitecodes[22].'/',
 );
 
 $story_namenames2 = array(

@@ -224,7 +224,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	}
 	
 	echo "\n".$div_close."\n"."\n".
-	$open_mobile_buttons_sidebar;
+	$mobile_div.$open_mobile_buttons_sidebar.$div_close;
 }
 
 echo "<script>
