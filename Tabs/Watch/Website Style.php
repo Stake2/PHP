@@ -49,8 +49,8 @@ $alternative_full_tab_style = $background_color." ".$default_text_color,
 $first_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 $second_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 
-$computer_image_size = "",
-$mobile_image_size = "",
+$computer_image_size = "87",
+$mobile_image_size = "55",
 
 $form_color_border = $border_4px_solid_black_css_class,
 $form_color_foreground = $background_brown_css_class,
@@ -59,6 +59,9 @@ $form_color_text = $text_black_css_class,
 $full_form_send_button_style = $border_3px_solid_black_css_class." ".$form_color_background." ".$form_color_text,
 $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color_text,
 );
+
+$website_computer_image_size = $computer_image_size;
+$website_mobile_image_size = $mobile_image_size;
 
 $website_border_color = $first_border_color;
 

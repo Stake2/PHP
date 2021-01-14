@@ -158,8 +158,8 @@ if ($website_deactivate_top_buttons_setting == false) {
 <!--- Mobile Button bar at the left -->';
 
 	echo "\n".'<div id="mobile_button_sidebar" class="mobile_button_sidebar_css mobileShow ">'."\n"."\n".
-	'<a href="javascript:void(0)" class="close_mobile_sidebar_button" onclick="Hide_Mobile_Buttons();"><i class="fas fa-times-circle"></i></a>'."\n"."\n".
-	'<'.$n.' class="'.$mobile_variable.' '.$first_text_color.'">'.$btnmenutxt.'</'.$n.'>'."\n"."\n";
+	'<a href="javascript:void(0)" class="close_mobile_sidebar_button" onclick="Hide_Mobile_Buttons();" style="font-size:35px;"><i class="fas fa-times-circle"></i></a>'."\n"."\n".
+	'<span style="font-size:30px;" class="'.$mobile_variable.' '.$first_text_color.'">'.$btnmenutxt.'</span>'."\n"."\n";
 	
 	$i = 0;
 	while ($i <= $tabnumb) {
@@ -203,19 +203,19 @@ if ($website_deactivate_top_buttons_setting == false) {
 
 		$i++;
 	}
-	
+
 	if ($website_name == $sitewatch) {
 		echo $mobile_buttons[7]."\n"."\n";
 	}
-	
+
 	if ($website_name == $sitepequenata) {
 		echo $mobile_buttons[5]."\n"."\n";
 	}
-	
+
 	if ($website_name == $sitetextmaker) {
 		echo $mobile_buttons[1]."\n"."\n";
 	}
-	
+
 	$i = 0;
 	while ($i <= $tabnumb) {
 		$yellow_mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button class="w3-btn '.$default_text_color." ".$background_yellow_css_class." ".$second_full_border." ".$default_background_hover_color.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
@@ -226,5 +226,9 @@ if ($website_deactivate_top_buttons_setting == false) {
 	echo "\n".$div_close."\n"."\n".
 	$open_mobile_buttons_sidebar;
 }
+
+echo "<script>
+Hide_Mobile_Buttons();
+</script>";
 
 ?>

@@ -114,12 +114,13 @@ if ($sitetype1 == $website_types_array[0] and $website_deactivate_header_setting
 	}
 
 	$website_header_wrapper = $computerspace.
-	'<div class="'.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">
-	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$n.'>'."\n".'
+	'<div class="'.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'.
+	$div_zoom_animation.'<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
+	$div_zoom_animation.'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$m.'>'.$div_close."\n".'
 	<hr class="'.$header_full_border.'" />
-	'.$website_images_variable.'
-	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_header_description.'</'.$n.'>
-	<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_header_description.'</'.$m.'>'
+	'.$website_images_variable.
+	$div_zoom_animation.'<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_header_description.'</'.$n.'>'.$div_close.
+	$div_zoom_animation.'<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_header_description.'</'.$m.'>'.$div_close
 	.$diariostuff1.$diariostuff2.
 	'<br />
 	'.$div_close."\n";

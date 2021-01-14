@@ -4,32 +4,22 @@ if ($thingsidofake == true) {
 	$spanstyle = $blackspan;
 	$hover_text_color = $text_hover_white_css_class;
 	$number_text_color = $first_text_color;
-
-	if ($mobileversion == true) {
-		$margindivstyle = '<div>';
-		$mobileaname = 'm';
-	}
-
-	if ($mobileversion == false) {
-		$margindivstyle = '<div style="margin-left:30px;">';
-		$mobileaname = '';
-	}
 }
 
 if ($thingsidofake == null) {
 	$spanstyle = $whitespan;
 	$hover_text_color = $text_hover_white_css_class;
 	$number_text_color = $first_text_color;
+}
 
-	if ($mobileversion == true) {
-		$margindivstyle = '<div>';
-		$mobileaname = 'm';
-	}
+if ($mobile_version == true) {
+	$margindivstyle = '<div>';
+	$mobileaname = '_Mobile';
+}
 
-	if ($mobileversion == null) {
-		$margindivstyle = '<div style="margin-left:30px;">';
-		$mobileaname = '';
-	}
+if ($mobile_version == false) {
+	$margindivstyle = '<div style="margin-left:30px;">';
+	$mobileaname = '';
 }
 
 $i = 0;
@@ -110,27 +100,27 @@ $hasvideo = true;
 if ($website_watch_history_new_watched_style_setting == true) {
 	$i = 0;
 	if ($hasanimemedia == true) {
-		echo '<a href="#'.$media_names_array[$animes_code_number].'s'.$current_year.$mobileaname.'">'.$mediatitles[$animes_code_number].'</a>'."\n";
+		echo '<a href="#'.$media_names_array[$animes_code_number].'s_'.$current_year.$mobileaname.'">'.$mediatitles[$animes_code_number].'</a>'."\n";
 	}
 
 	$i++;
 	if ($hascartoonmedia == true) {
-		echo '<a href="#'.$media_names_array[$cartoons_code_number].'s'.$current_year.$mobileaname.'">'.$mediatitles[$cartoons_code_number].'</a>'."\n";
+		echo '<a href="#'.$media_names_array[$cartoons_code_number].'s_'.$current_year.$mobileaname.'">'.$mediatitles[$cartoons_code_number].'</a>'."\n";
 	}
 
 	$i++;
 	if ($hasseriesmedia == true) {
-		echo '<a href="#'.$media_names_array[$series_code_number].''.$current_year.$mobileaname.'">'.$mediatitles[$series_code_number].'</a>'."\n";
+		echo '<a href="#'.$media_names_array[$series_code_number].'_'.$current_year.$mobileaname.'">'.$mediatitles[$series_code_number].'</a>'."\n";
 	}
 
 	$i++;
 	if ($hasmoviemedia == true) {
-		echo '<a href="#'.$media_names_array[$movies_code_number].'s'.$current_year.$mobileaname.'">'.$mediatitles[$movies_code_number].'</a>'."\n";
+		echo '<a href="#'.$media_names_array[$movies_code_number].'s_'.$current_year.$mobileaname.'">'.$mediatitles[$movies_code_number].'</a>'."\n";
 	}
 
 	$i++;
 	if ($hasvideomedia == true) {
-		echo '<a href="#'.$media_names_array[$videos_code_number].'s'.$current_year.$mobileaname.'">'.$mediatitles[$videos_code_number].'</a>'."\n";
+		echo '<a href="#'.$media_names_array[$videos_code_number].'s_'.$current_year.$mobileaname.'">'.$mediatitles[$videos_code_number].'</a>'."\n";
 	}
 
 	echo '<br />'."\n";
@@ -165,7 +155,7 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$animes_code_number] == true and $done_media_array[$animes_code_number] == false) {
 				if ($current_year_watched_media_type_text[$i] == $media_names_array[$animes_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$animes_code_number]) {
-						echo '<a name="'.$media_names_array[$animes_code_number].'s'.$current_year.$mobileaname.'"></a>'."\n";
+						echo '<a name="'.$media_names_array[$animes_code_number].'s_'.$current_year.$mobileaname.'"></a>'."\n";
 						echo $mediatitles[$animes_code_number];
 					}
 
@@ -181,7 +171,7 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$cartoons_code_number] == true and $done_media_array[$cartoons_code_number] == false and $done_media_array[$animes_code_number] == true) {
 				if ($current_year_watched_media_type_text[$i] == $media_names_array[$cartoons_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$cartoons_code_number]) {
-						echo '<a name="'.$media_names_array[$cartoons_code_number].'s'.$current_year.$mobileaname.'"></a>'."\n";
+						echo '<a name="'.$media_names_array[$cartoons_code_number].'s_'.$current_year.$mobileaname.'"></a>'."\n";
 						echo $mediatitles[$cartoons_code_number];
 					}
 
@@ -197,7 +187,7 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$series_code_number] == true and $done_media_array[$series_code_number] == false and $done_media_array[$animes_code_number] == true and $done_media_array[$cartoons_code_number] == true) {
 				if ($current_year_watched_media_type_text[$i] == $media_names_array[$series_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$series_code_number]) {
-						echo '<a name="'.$media_names_array[$series_code_number].''.$current_year.$mobileaname.'"></a>'."\n";
+						echo '<a name="'.$media_names_array[$series_code_number].'_'.$current_year.$mobileaname.'"></a>'."\n";
 						echo $mediatitles[$series_code_number];
 					}
 
@@ -213,7 +203,7 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$movies_code_number] == true and $done_media_array[$movies_code_number] == false and $done_media_array[$series_code_number] == true and $done_media_array[$cartoons_code_number] == true and $done_media_array[$animes_code_number] == true and $done_media_array[$videos_code_number] == false) {
 				if ($current_year_watched_media_type_text[$i] == $media_names_array[$movies_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$movies_code_number]) {
-						echo '<a name="'.$media_names_array[$movies_code_number].'s'.$current_year.$mobileaname.'"></a>'."\n";
+						echo '<a name="'.$media_names_array[$movies_code_number].'s_'.$current_year.$mobileaname.'"></a>'."\n";
 						echo $mediatitles[$movies_code_number];
 					}
 
@@ -229,7 +219,7 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$videos_code_number] == true and $done_media_array[$videos_code_number] == false and $done_media_array[$movies_code_number] == true and $done_media_array[$series_code_number] == true and $done_media_array[$cartoons_code_number] == true and $done_media_array[$animes_code_number] == true) {
 				if ($current_year_watched_media_type_text[$i] == $media_names_array[$videos_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$videos_code_number]) {
-						echo '<a name="'.$media_names_array[$videos_code_number].'s'.$current_year.$mobileaname.'"></a>'."\n";
+						echo '<a name="'.$media_names_array[$videos_code_number].'s_'.$current_year.$mobileaname.'"></a>'."\n";
 						echo $mediatitles[$videos_code_number];
 					}
 

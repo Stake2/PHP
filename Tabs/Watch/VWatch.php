@@ -59,7 +59,7 @@ $website_image = 'WH';
 $website_image = $cdnimg.$website_image.".png";
 $website_image_link = $website_image;
 $website_image_size_computer = 27;
-$website_image_size_mobile = 61;
+$website_image_size_mobile = 50;
 
 #Site descriptions
 $website_descriptions_array = array(
