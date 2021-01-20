@@ -87,8 +87,9 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 
 	$watched_movies_file = $notepad_watch_history_folder.'Watched Movies.txt';
 	$watched_movies_time_file = $notepad_watch_history_folder.'Watched Movies Time.txt';
-	$watched_movie_time_numbers_array = array(1, 4, 5, 6, 7, 8, 9, 10);
+	$watched_movie_time_numbers_array = array('0', 1, 4, 5, 6, 7, 8, 9, 10);
 	$watched_movie_comment_numbers_array = array(1, 4, 5, 6, 7, 8);
+	$watched_episodes_has_time_array_2018 = array(1, 6, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 46, 47, 48, 49, 52);
 
 	if (in_array($website_language, $en_languages_array)) {
 		$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_language).'.txt';
@@ -202,6 +203,8 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 			}
 		}
 
+		${"year_".$current_year."_watched_episodes_text"} = $current_year_watched_episodes_text;
+
 		$file_read = $current_year_watched_time_file;
 		if (file_exists($file_read) == true) {
 			$file = fopen($file_read, 'r', 'UTF-8');
@@ -212,6 +215,8 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 			}
 		}
 
+		${"year_".$current_year."_watched_time_text"} = $current_year_watched_time_text;
+
 		$file_read = $current_year_watched_media_type_file;
 		if (file_exists($file_read) == true) {
 			$file = fopen($file_read, 'r', 'UTF-8');
@@ -221,6 +226,8 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 				$current_year_watched_media_type_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $text_array);
 			}
 		}
+
+		${"year_".$current_year."_watched_media_type_text"} = $current_year_watched_media_type_text;
 
 		if (file_exists($current_year_watched_media_type_file) == true) {
 			$i = 0;
@@ -289,10 +296,10 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 	}
 
 	$media_type_text_file_lines_array_2018 = array(
-	$media_type_anime_line = '0', #Animes
-	$media_type_cartoons_line = 3, #Cartoons
+	$media_type_anime_line = 5, #Animes
+	$media_type_cartoons_line = 19, #Cartoons
 	$media_type_series_line = 14, #Series
-	$media_type_movies_line = 1, #Movies
+	$media_type_movies_line = '0', #Movies
 	$media_type_video_line = 2, #Videos
 	);
 

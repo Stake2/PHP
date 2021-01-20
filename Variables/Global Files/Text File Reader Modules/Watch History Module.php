@@ -1,5 +1,5 @@
 <?php 
-
+/*
 #Files definer for Watch.php and Years websites
 $watched_episodes_2018_file = $notepad_watch_history_folder.$site2018.'/'.$watched_episodes_text.'.txt';
 $watched_time_2018_file = $notepad_watch_history_folder.$site2018.'/'.$watched_time_text.'.txt';
@@ -188,6 +188,7 @@ $archived_medias_number = 2;
 $linksnumb = 6;
 #$current_year_watched_number_text = $watched_number_2020;
 #$every_year_watched_number = $watched_number_2018 + $watched_number_2019 + $watched_number_2020;
+*/
 
 $watched_number_2018array = array(2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51);
 $watched_number_2018timearray = array(1, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47, 48, 49, 50, 51);

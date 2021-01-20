@@ -130,6 +130,7 @@ $i = 0;
 $c = 0;
 $number = 1;
 $overall_number = 0;
+$time_2018 = 0;
 while ($overall_number <= 4) {
 	$i = 0;
 	$c = 0;
@@ -171,7 +172,23 @@ while ($overall_number <= 4) {
 					}
 
 					echo $margindivstyle."\n";
-					echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+
+					if ($current_year == 2018) {
+						if (in_array($i, $watched_episodes_has_time_array_2018)) {
+							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$time_2018].')</span></span><br />'.$div_close."\n";
+
+							$time_2018++;
+						}
+
+						if (!in_array($i, $watched_episodes_has_time_array_2018)) {
+							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.''.'</span></span><br />'.$div_close."\n";
+						}
+					}
+
+					else {
+						echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+					}
+
 					echo $div_close."\n";
 
 					$number++;

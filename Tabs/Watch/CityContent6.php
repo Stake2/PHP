@@ -37,6 +37,7 @@ if ($thingsidofake == null) {
 echo '<hr class="'.$header_full_border.'" />'."\n";
 echo '<'.$m.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
+/*
 $media_array_year = 2018;
 include $mediaarraygenerator;
 
@@ -45,8 +46,33 @@ $a2018text = true;
 $a2019text = false;
 #MediaReader imported from 2018.php (MediaReader 2018.php)
 include $mediareader2018;
+*/
+
+$selected_year = 2018;
+$current_year = $selected_year;
+
+# Current Year Watched Media Generator file includer
+$mobile_version = False;
+echo $computer_div;
+$current_year_watched_number = ${"watched_episodes_".$current_year."_line_number"} - 1;
+$current_year_watched_episodes_text = ${"year_".$current_year."_watched_episodes_text"};
+$current_year_watched_time_text = ${"year_".$current_year."_watched_time_text"};
+$current_year_watched_media_type_text =  ${"year_".$current_year."_watched_media_type_text"};
+$media_type_text_file_lines_array = $media_type_text_file_lines_arrays[$current_year];
+$watched_media_numbers_current_year = ${"watched_media_numbers_".$current_year};
+
+require $current_year_watched_media_generator;
+echo $div_close;
+
+# Current Year Watched Media Generator file includer
+$mobile_version = True;
+echo $mobile_div;
+require $current_year_watched_media_generator;
+echo $div_close;
 
 echo '</'.$m.'>'."\n";
+
+$current_year = $current_year_backup;
 
 #Old style of reading 2019 medias, created on Watch History.php
 #$i = 0;

@@ -24,9 +24,9 @@ if (in_array($website_language, $en_languages_array)) {
 
 	#Media type on the Links tab
 	$mediatype = array(
-	'Series', 
-	'Cartoon', 
-	'Channel', 
+	'Series',
+	'Cartoon',
+	'Channel',
 	'Anime',
 	);
 
@@ -75,9 +75,9 @@ if (in_array($website_language, $pt_languages_array)) {
 
 	#Media type on the Links tab
 	$mediatype = array(
-	'Série', 
-	'Desenho', 
-	'Canal', 
+	'Série',
+	'Desenho',
+	'Canal',
 	'Anime',
 	);
 
