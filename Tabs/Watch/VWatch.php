@@ -41,7 +41,7 @@ $cdn_text_movie_comments.'Hoje, Segunda (Power Rangers 2017).txt',
 $cdn_text_movie_comments.'Hoje, Sabado (Detona Ralph 2 Ralph Quebra a Internet).txt', 
 $cdn_text_movie_comments.'Hoje, Domingo (Equestria Girls Spring Breakdown).txt', 
 $cdn_text_movie_comments.'Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
-$cdn_text_movie_comments.'Homem-Aranha Longe de Casa 2019.txt',
+$cdn_text_movie_comments.'Homem-Aranha no Aranhaverso (2019, Sony Pictures Animation, Marvel Entertainment).txt',
 );
 
 #Comments buttons
@@ -113,7 +113,7 @@ require $year_variables_file;
 require $watchtextsphp;
 
 #General language website_name, title, main_website_url and description
-if ($website_language == $languages_array[0]) {
+if ($website_language == $geral_language) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $site;
@@ -126,7 +126,7 @@ if ($website_language == $languages_array[0]) {
 }
 
 #English language website_name, title, main_website_url and description
-if ($website_language == $languages_array[1]) {
+if ($website_language == $enus_language) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $site;

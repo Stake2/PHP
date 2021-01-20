@@ -13,7 +13,7 @@ if ($website_name != $sitenazzevo) {
 #Computer Site notification div and text
 $website_notification_text = '<h3>'.
 '<span id="notificationclose" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;">'.'<b>X</b>'.$spanc.
-'<span class="notification_text">'.$notificationtext." ".$icons[13].$spanc.
+'<span class="notification_text">'.$website_notification_text." ".$icons[13].$spanc.
 '<b>'.'<span class="notification_text" style="margin-left:2%;">'.$reviewed_chaptercode.$spanc.'</b>'.
 '</h3>';
 
@@ -21,7 +21,7 @@ $website_notification_text = '<h3>'.
 $website_notification_text_mobile = '<h4>'.
 '<span id="notificationclosem" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss2.$rounded_border_style_2.'box-shadow: 0 9px black!important;">'.'<b>X</b>'.$spanc.
 '<br /><br />'.
-'<b>'.'<span class="notification_text">'.$notificationtext." ".$icons[13].$spanc.'</b>'.'<br /><br />'.
+'<b>'.'<span class="notification_text">'.$website_notification_text." ".$icons[13].$spanc.'</b>'.'<br /><br />'.
 '<b>'.'<span class="notification_text">'.$reviewed_chaptercode.$spanc.'</b>'.
 '</h4>
 

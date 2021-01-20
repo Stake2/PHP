@@ -67,7 +67,7 @@ if ($selected_website == $sitedesertisland) {
 
 # "You're Reading [Story]" top text displayer
 if ($story_name_uses_status == true) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_namestatuses[0] and $story_status != $story_namestatuses[3]) {
+	if ($chapter_number_1 == $chapters and $story_status != $story_statuses[0] and $story_status != $story_statuses[3]) {
 		echo '<div class="'.$computer_variable.'">'.'<'.$n.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$n.'>'.$div_close."\n";
 
 		echo '<div class="'.$mobile_variable.'">'.'<'.$m.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.$div_close.'</'.$m.'>'.$div_close."\n";
@@ -279,7 +279,7 @@ if ($story_name_has_chapter_comments == false and $story_name_has_reads == false
 
 #"You're Reading [Story]" bottom text
 if ($story_name_uses_status == true) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_namestatuses[0] and $story_status != $story_namestatuses[3]) {
+	if ($chapter_number_1 == $chapters and $story_status != $story_statuses[0] and $story_status != $story_statuses[3]) {
 		echo '<div style="text-align:center;">'."\n".
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".

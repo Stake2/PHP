@@ -31,12 +31,12 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button>'."\n";
 
     #Computer Comment-modal form
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($captxt, 0, -1).' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
 	echo $margin2."\n";
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$n.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -50,7 +50,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<input type="text" name="comment" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
 
 	# Form submit button
-	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$n.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$n.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
 
 	echo $div_close."\n";
 	echo '</form>'."\n";
@@ -74,12 +74,12 @@ while ($chapter_number_1 <= $chapters) {
 
     #Mobile Comment-modal form
 	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($captxt, 0, -1).' '.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).' '.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$m.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -93,7 +93,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<input type="text" name="comment" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
 
 	# Form submit button
-	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
 
 	echo $div_close."\n";
 	echo '</form>'."\n";

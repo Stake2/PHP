@@ -141,6 +141,17 @@ while ($overall_number <= 4) {
 		$a = 0;
 		while ($a <= 5) {
 			$current_year_watched_episodes_text[$i] = $current_year_watched_episodes_text[$i];
+
+			if (in_array($website_language, $en_languages_array)) {
+				$current_year_watched_episodes_text[$i] = str_replace("Dublado", "Dubbed", $current_year_watched_episodes_text[$i]);
+			}
+
+			if (in_array($website_language, $pt_languages_array)) {
+				$current_year_watched_episodes_text[$i] = str_replace("Season", "Temporada", $current_year_watched_episodes_text[$i]);
+				$current_year_watched_episodes_text[$i] = str_replace("2nd", "Segunda", $current_year_watched_episodes_text[$i]);
+				$current_year_watched_episodes_text[$i] = str_replace("S0", "T0", $current_year_watched_episodes_text[$i]);
+			}
+
 			$text_to_find = "/(".$rewatched_text_enus." ".$a."x - ".$rewatched_text_ptbr." ".$a."x)/i";
 
 			$current_year_watched_episodes_text[$i] = preg_replace($text_to_find, $rewatched_text." ".$a."x", $current_year_watched_episodes_text[$i]);

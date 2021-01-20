@@ -1,7 +1,7 @@
 <?php 
 
 #Stories numb
-$storiesnumb = 5;
+$stories_number = 5;
 
 #Story status text array
 $status = array(
@@ -24,7 +24,7 @@ $titles_enus_text = 'Titles';
 
 # English texts for story websites
 if (in_array($website_language, $en_languages_array)) {
-	$story_namestatuses = array(
+	$story_statuses = array(
 	'finished',
 	'writing',
 	'reviewing and editing',
@@ -32,8 +32,8 @@ if (in_array($website_language, $en_languages_array)) {
 	);
 
 	$read_texts_array = array(
-	$readingtxt = "You're reading",
-	$readingtxt.': '.ucwords($story_name),
+	$reading_text = "You're reading",
+	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
 	'I read the Chapter',
 	'Read the Chapter',
@@ -55,31 +55,31 @@ if (in_array($website_language, $en_languages_array)) {
 	$write_texts_array = array(
 	'Write',
 	'Write the Chapter',
-	substr($readingtxt, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
+	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
 	);
 
-	$chaptertxt = 'chapter';
-	$chaptertabtxt = $chaptertxt.'-text';
+	$chapter_text = 'chapter';
+	$chapter_tab_text = $chapter_text.'-text';
 
-	$authortxt = 'Author';
-	$captxt = 'Chapters';
-	$datatxt = 'Date';
-	$datatxt2 = 'Made in';
+	$author_text = 'Author';
+	$chapters_text = 'Chapters';
+	$chapter_date_text = 'Date';
+	$chapter_date_text_two = ucwords($chapter_text).' written in';
 
-	$nametxt1 = 'Name';
-	$nametxt2 = 'Your';
-	$sendtxt = 'Send';
+	$person_name_text = 'Name';
+	$person_name_text_two = 'Your';
+	$send_form_text = 'Send';
 
 	$titletxt = 'Title';
 	$titles_text = 'Titles';
-	$story_nametxt = 'Story text';
-	$timetxt = 'Time';
-	$storiestxt = 'Stories';
-	$formname = 'Name';
-	$formtxt = 'Form';
+	$story_text_text = 'Story text';
+	$time_text = 'Time';
+	$stories_text = 'Stories';
+	$form_name = 'Name';
+	$form_text = 'Form';
 
-	$readersdesc = 'Thanks everyone ♥';
-	$notificationtext = 'New reviewed chapter';
+	$readers_description = 'Thanks everyone ♥';
+	$website_notification_text = 'New reviewed chapter';
 
 	$write_new_chapter_tab_text = 'write-new-chapter';
 	$write_button_text = 'write-button';
@@ -95,7 +95,7 @@ if (in_array($website_language, $en_languages_array)) {
 
 #Brazilian Portuguese texts for story websites
 if (in_array($website_language, $pt_languages_array)) {
-	$story_namestatuses = array(
+	$story_statuses = array(
 	'terminada',
 	'escrevendo',
 	'revisando e editando',
@@ -103,8 +103,8 @@ if (in_array($website_language, $pt_languages_array)) {
 	);
 
 	$read_texts_array = array(
-	$readingtxt = "Você está lendo",
-	$readingtxt.': '.ucwords($story_name),
+	$reading_text = "Você está lendo",
+	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',
 	'Eu li o Capítulo',
 	'Leu o Capítulo',
@@ -126,31 +126,31 @@ if (in_array($website_language, $pt_languages_array)) {
 	$write_texts_array = array(
 	'Escrever',
 	'Escreva o capítulo',
-	substr($readingtxt, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
+	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
 	);
 
-	$chaptertxt = 'capítulo';
-	$chaptertabtxt = 'texto-'.$chaptertxt;
+	$chapter_text = 'capítulo';
+	$chapter_tab_text = 'texto-'.$chapter_text;
 
-	$authortxt = 'Autor';
-	$captxt = 'Capítulos';
-	$datatxt = 'Data';
-	$datatxt2 = 'Feito em';
+	$author_text = 'Autor';
+	$chapters_text = 'Capítulos';
+	$chapter_date_text = 'Data';
+	$chapter_date_text_two = ucwords($chapter_text).' escrito em';
 
-	$nametxt1 = 'Nome';
-	$nametxt2 = 'Seu';
-	$sendtxt = 'Enviar';
+	$person_name_text = 'Nome';
+	$person_name_text_two = 'Seu';
+	$send_form_text = 'Enviar';
 
 	$titletxt = 'Título';
 	$titles_text = 'Títulos';
-	$story_nametxt = 'Texto da história';
-	$timetxt = 'Tempo';
-	$storiestxt = 'Histórias';
-	$formname = 'Nome';
-	$formtxt = 'Formulário';
+	$story_text_text = 'Texto da história';
+	$time_text = 'Tempo';
+	$stories_text = 'Histórias';
+	$form_name = 'Nome';
+	$form_text = 'Formulário';
 
-	$readersdesc = 'Obrigado a todos ♥';
-	$notificationtext = 'Novo capítulo revisado';
+	$readers_description = 'Obrigado a todos ♥';
+	$website_notification_text = 'Novo capítulo revisado';
 
 	$write_new_chapter_tab_text = 'escrever-novo-capítulo';
 	$write_button_text = 'botão-de-escrever';
@@ -164,25 +164,25 @@ if (in_array($website_language, $pt_languages_array)) {
 	);
 }
 
-$chapter_div_text = $chaptertxt.'-';
-$captextdiv = $chaptertabtxt.'-';
+$chapter_div_text = $chapter_text.'-';
+$captextdiv = $chapter_tab_text.'-';
 
 if ($sitetype1 == $website_types_array[1]) {
 	#Story status definer
 	if ($story_status == $status[0]) {
-		$story_status = $story_namestatuses[0];
+		$story_status = $story_statuses[0];
 	}
 	
 	if ($story_status == $status[1]) {
-		$story_status = $story_namestatuses[1];
+		$story_status = $story_statuses[1];
 	}
 	
 	if ($story_status == $status[2]) {
-		$story_status = $story_namestatuses[2];
+		$story_status = $story_statuses[2];
 	}
 	
 	if ($story_status == $status[3]) {
-		$story_status = $story_namestatuses[3];
+		$story_status = $story_statuses[3];
 	}
 }
 

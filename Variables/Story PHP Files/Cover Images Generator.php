@@ -67,7 +67,7 @@ while ($c <= (count($files))) {
 			$z--;
 			$onclickscript = 'openCity('."'".$chapter_div_text.$z."'".');DefineChapter('.$z.');';
 
-			$online_image_link = $online_cover_folder.$i.' '.ucwords($chaptertxt).'.png';
+			$online_image_link = $online_cover_folder.$i.' '.ucwords($chapter_text).'.png';
 
 			$coverimages[$a] = '<div class="'.$computer_variable.'">'.'<img src="'.$files[$i].'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$onclickscript.'" />'."\n".$div_close.'<br class="'.$computer_variable.'" />'."\n";
 

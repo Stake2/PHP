@@ -143,8 +143,8 @@ if ($website_story_has_bookcovers_setting == true) {
 #English texts for Pequenata website
 if (in_array($website_language, $en_languages_array)) {
 	$read_texts_array = array(
-	$readingtxt = "You're reading",
-	$readingtxt.': '.ucwords($story_name),
+	$reading_text = "You're reading",
+	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
 	'I read the Chapter',
 	'Read the Chapter',
@@ -156,7 +156,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$write_texts_array = array(
 	'Write',
 	'Write the Chapter',
-	substr($readingtxt, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
+	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
 	);
 
 	$author_name = 'Izaque Sanvezzo (stake2) and Julia';
@@ -165,8 +165,8 @@ if (in_array($website_language, $en_languages_array)) {
 #Brazilian Portuguese texts for Pequenata website
 if (in_array($website_language, $pt_languages_array)) {
 	$read_texts_array = array(
-	$readingtxt = "Você está lendo",
-	$readingtxt.': '.ucwords($story_name),
+	$reading_text = "Você está lendo",
+	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',
 	'Eu li o Capítulo',
 	'Leu o Capítulo',
@@ -178,7 +178,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$write_texts_array = array(
 	'Escrever',
 	'Escreva o capítulo',
-	substr($readingtxt, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
+	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
 	);
 
 	$author_name = 'Izaque Sanvezzo (stake2) e Julia';
@@ -261,7 +261,7 @@ $tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc
 $tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$whitespan.'<span class="'.$websites_tab_number_hover_color.'">'.$storiesnumb.$spanc.$spanc.' '.$icons[11],
+$tabnames[4].': '.$whitespan.'<span class="'.$websites_tab_number_hover_color.'">'.$stories_number.$spanc.$spanc.' '.$icons[11],
 );
 
 # Button names definer

@@ -15,7 +15,7 @@ echo '
 <ul class="menuLi">';
 
 $i = 0;
-while ($i <= $storiesnumb - 1) {
+while ($i <= $stories_number - 1) {
 	if ($i == 0) {
 		$linktarget = "_self";
 	}

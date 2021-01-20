@@ -21,7 +21,7 @@ if (isset($normal_chapters[$chapter_number_1])) {
 
 				if ($story_namewritesstoryfiles == true) {
 					if (file_exists($chapter_write_to_folder) == true) {
-						$chapter_text[$z123] = $line;
+						$chapter_file_text[$z123] = $line;
 						$chapter_line_number++;
 						$chapter_lines_array[$chapter_number_1] = $chapter_line_number;
 						$z123++;
@@ -62,14 +62,14 @@ if ($website_name != $sitenazzevo and $story_name_has_dates == true) {
 	if (file_exists($chapter_dates_file) == true) {
 		$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 		if ($fp) {
-			$capdatas = explode("\n", fread($fp, filesize($chapter_dates_file)));
-			$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $capdatas);
+			$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
+			$chapter_written_dates = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $chapter_written_dates);
 		}
 	}
 
 	echo '<br />';
-	if (isset($datas[$chapter_date_number])) {
-		echo $datatxt2.': '.$datas[$chapter_date_number].'.';
+	if (isset($chapter_written_dates[$chapter_date_number])) {
+		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
 	}
 }
 
@@ -100,7 +100,7 @@ if ($new_write_style == true) {
 
 			if ($story_namewritesstoryfiles == true) {
 				if (file_exists($chapter_write_to_folder) == true) {
-					$chapter_text[$z123] = $line;
+					$chapter_file_text[$z123] = $line;
 					$chapter_line_number++;
 					$chapter_lines_array[$chapter_number_1] = $chapter_line_number;
 					$z123++;
@@ -136,13 +136,13 @@ if ($new_write_style == true) {
 		if (file_exists($chapter_dates_file) == true) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {
-				$capdatas = explode("\n", fread($fp, filesize($chapter_dates_file)));
-				$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $capdatas);
+				$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
+				$chapter_written_dates = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $chapter_written_dates);
 			}
 		}
 
 		echo '<br />';
-		echo $datatxt2.': '.$datas[$chapter_date_number].'.';
+		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
 	}
 
 	echo '`;'.
@@ -174,12 +174,12 @@ if ($new_write_style == true) {
 
 	echo '</textarea>'."\n";
 
-	echo '<textarea id="edit_chapter_story_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
+	echo '<textarea id="edit_chapter_story_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
-	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
+	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
 	if ($website_show_write_form_text_setting == true) {
-		echo $story_nametxt.': '."\n"."\n";
+		echo $story_text_text.': '."\n"."\n";
 	}
 
 	if ($show_write_form_text == true) {
@@ -228,14 +228,14 @@ if ($new_write_style == true) {
 			if (file_exists($chapter_dates_file) == true) {
 				$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 				if ($fp) {
-					$capdatas = explode("\n", fread($fp, filesize($chapter_dates_file)));
-					$datas = str_replace("^", "", $capdatas);
-					$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $datas);
+					$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
+					$chapter_written_dates = str_replace("^", "", $chapter_written_dates);
+					$chapter_written_dates = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $chapter_written_dates);
 				}
 			}
 
 			echo '<br />'."\n";
-			echo $datatxt2.': '.$datas[$chapter_date_number].'.';
+			echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
 		}
 	}
 

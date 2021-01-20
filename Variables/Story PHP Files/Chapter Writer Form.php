@@ -30,10 +30,10 @@ if ($show_title_text == true) {
 echo '</textarea>'."\n";
 
 #Shows the text area  where the text of the chapter is shown
-echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$story_nametxt.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
+echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
 if ($website_show_write_form_text_setting == true) {
-	echo $story_nametxt.': '."\n"."\n";
+	echo $story_text_text.': '."\n"."\n";
 }
 
 if ($show_write_form_text == true) {
@@ -82,14 +82,14 @@ if ($show_write_form_text == true and $story_name_has_dates == true) {
 		if (file_exists($chapter_dates_file) == true) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {
-				$capdatas = explode("\n", fread($fp, filesize($chapter_dates_file)));
-				$datas = str_replace("^", "", $capdatas);
-				$datas = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $datas);
+				$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
+				$chapter_written_dates = str_replace("^", "", $chapter_written_dates);
+				$chapter_written_dates = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $chapter_written_dates);
 			}
 		}
 
 		echo '<br />'."\n";
-		echo $datatxt2.': '.$datas[$chapter_date_number].'.';
+		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
 	}
 }
 

@@ -23,7 +23,7 @@ $chapter_text_style = $textstyle2;
 while ($c <= $publishedblocks - 1) {
 	$i2 = $i + 1;
 	$i3 = $i + 2;
-	$reading2 = $reading.' '.ucwords($chaptertxt).' '.$numbertxt.': '.$chapter_number_1;
+	$reading2 = $reading.' '.ucwords($chapter_text).' '.$numbertxt.': '.$chapter_number_1;
 
 	echo "\n";
 

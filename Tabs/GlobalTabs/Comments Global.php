@@ -69,11 +69,11 @@ if ($website_has_comments_tab == true and $website_has_comments == true) {
 		$i = 0;
 		while ($a <= $comments_number) {
 			if (in_array($website_language, $en_languages_array)) {
-				$commentformname[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[4].' '.strtolower($formtxt).':</b> "'.ucwords($commentformname[$i]).'"';
+				$commentformname[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[4].' '.strtolower($form_text).':</b> "'.ucwords($commentformname[$i]).'"';
 			}
 
 			if (in_array($website_language, $pt_languages_array)) {
-				$commentformname[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[3].' '.strtolower($formtxt).':</b> "'.ucwords($commentformname[$i]).'"';
+				$commentformname[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[3].' '.strtolower($form_text).':</b> "'.ucwords($commentformname[$i]).'"';
 			}
 
 			$a++;
@@ -172,11 +172,11 @@ if ($website_has_comments_tab == true and $website_has_comments == true) {
 #	$i = 0;
 #	while ($a <= $cmntscheckfilenumb) {
 #		if (in_array($website_language, $en_languages_array)) {
-#			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt5.' '.strtolower($formtxt).':</b> "'.ucwords($commentscheck[$i]).'"';
+#			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt5.' '.strtolower($form_text).':</b> "'.ucwords($commentscheck[$i]).'"';
 #		}
 #	
 #		if (in_array($website_language, $pt_languages_array)) {
-#			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt4.' '.strtolower($formtxt).':</b> "'.ucwords($commentscheck[$i]).'"';
+#			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt4.' '.strtolower($form_text).':</b> "'.ucwords($commentscheck[$i]).'"';
 #		}
 #	
 #		$a++;

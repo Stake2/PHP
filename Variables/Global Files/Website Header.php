@@ -128,11 +128,11 @@ if ($sitetype1 == $website_types_array[0] and $website_deactivate_header_setting
 
 # Story website header generator
 if ($sitetype1 == $website_types_array[1]) {
-	if ($story_status != $story_namestatuses[1] or $story_status != $story_namestatuses[2]) {
+	if ($story_status != $story_statuses[1] or $story_status != $story_statuses[2]) {
 		$newchaptertext = '';
 	}
 
-	if ($story_status == $story_namestatuses[1] or $story_status == $story_namestatuses[2]) {
+	if ($story_status == $story_statuses[1] or $story_status == $story_statuses[2]) {
 		$newchaptertext = '<span class="'.$third_text_color.'">'.' ['.$newtxt.'!]'.$spanc;
 	}
 
@@ -144,10 +144,10 @@ if ($sitetype1 == $website_types_array[1]) {
 	$website_images."\n".
 	'<'.$m.' class="'.$colortext.'" style="'.$margincss1.'">'.$website_header_description.'</'.$m.'>'."\n".
 	'<'.$m.' class="'.$colortext.'">'."\n".
-	$authortxt.": ".'<span class="'.$colorsubtext.'">'.$author_name."<br />".'</span>'."\n".
-	$captxt.': <span class="'.$colorsubtext.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
+	$author_text.": ".'<span class="'.$colorsubtext.'">'.$author_name."<br />".'</span>'."\n".
+	$chapters_text.': <span class="'.$colorsubtext.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$colorsubtext.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
-	$datatxt.': <span class="'.$colorsubtext.'">'.$story_namedate.'</span><br />'."\n".
+	$chapter_date_text.': <span class="'.$colorsubtext.'">'.$story_namedate.'</span><br />'."\n".
 	'Status: <span class="'.$colorsubtext.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
 	'</div>'."\n";
 */
@@ -159,10 +159,10 @@ if ($sitetype1 == $website_types_array[1]) {
 	$website_images."\n".
 	format('<'.$m.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description).
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
-	$authortxt.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
-	$captxt.': <span class="'.$second_text_color.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
+	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
+	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$second_text_color.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
-	$datatxt.': <span class="'.$second_text_color.'">'.$story_namedate.'</span><br />'."\n".
+	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_namedate.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
 	'</div>'."\n";
 }

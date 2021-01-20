@@ -133,7 +133,7 @@ $comments_number_text = $comments_number + 1;
 $number_of_chapter_comments = 0;
 
 $formcode = 'diario';
-$blockdiv = $chaptertxt.'-';
+$blockdiv = $chapter_text.'-';
 
 #Re include of the StoryVars.php file to set the story name
 include $story_namevarsphp;
@@ -158,9 +158,9 @@ if (in_array($website_language, $en_languages_array)) {
 	23:42 19/04/2020: ~His dialogue'.$div_close,
 	);
 
-	$nametxt1 = 'Name';
-	$nametxt2 = 'Your';
-	$sendtxt = 'Send';
+	$person_name_text = 'Name';
+	$person_name_text_two = 'Your';
+	$send_form_text = 'Send';
 	$commenttxt = 'Comment';
 	$commenttxt2 = "Comment";
 	$commenttxt3 = "Commented";
@@ -168,8 +168,8 @@ if (in_array($website_language, $en_languages_array)) {
 	$commenttxt5 = 'on';
 	$commentdesc1 = "Say what you think about the story";
 	$commentdesc2 = "Say what you think about the chapter";
-	$formname = "Name";
-	$formtxt = 'Form';
+	$form_name = "Name";
+	$form_text = 'Form';
 	$writetxt = 'Write';
 	$writedesc = "Write the Chapter";
 }
@@ -194,9 +194,9 @@ if (in_array($website_language, $pt_languages_array)) {
 	23:42 19/04/2020: ~O diálogo dele'.$div_close,
 	);
 
-	$nametxt1 = 'Nome';
-	$nametxt2 = 'Seu';
-	$sendtxt = 'Enviar';
+	$person_name_text = 'Nome';
+	$person_name_text_two = 'Seu';
+	$send_form_text = 'Enviar';
 	$commenttxt = 'Comentário';
 	$commenttxt2 = "Comentar";
 	$commenttxt3 = "Comentado";
@@ -204,8 +204,8 @@ if (in_array($website_language, $pt_languages_array)) {
 	$commenttxt5 = 'em';
 	$commentdesc1 = "Comente o que achou da história";
 	$commentdesc2 = "Comente o que achou do capítulo";
-	$formname = "Nome";
-	$formtxt = 'Formulário';
+	$form_name = "Nome";
+	$form_text = 'Formulário';
 	$writetxt = "Escrever";
 	$writedesc = "Escreva o capítulo";
 }
@@ -231,7 +231,7 @@ if (in_array($website_language, $pt_languages_array)) {
 #Buttons definer
 #Buttons names
 $citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.$bluespan.' ['.$newtxt.' '.ucwords($chaptertxt).' '.$publishedblocks.']'.$spanc,
+$tabnames[0].': '.$icons[21].' '.$bluespan.' ['.$newtxt.' '.ucwords($chapter_text).' '.$publishedblocks.']'.$spanc,
 $tabnames[1].': '.$icons[1],
 $tabnames[2].': '.$icons[12],
 );

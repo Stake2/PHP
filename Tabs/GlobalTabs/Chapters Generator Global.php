@@ -7,7 +7,7 @@ $chapter_number_3 = 0;
 $chapter_number_4 = 0;
 $chapter_number_4a = 0;
 $chapter_number_7 = 0;
-$captxtname = str_replace("s", "", $captxt);
+$captxtname = str_replace("s", "", $chapters_text);
 
 $chapter_write_to_folder = $story_chapter_files_folder_language.'Test/';
 
@@ -222,7 +222,7 @@ $zzcxx = 3;
 $book_cover_number = 1;
 $a = 1;
 
-echo '<div id="'.strtolower($captxt).'-div">'."\n";
+echo '<div id="'.strtolower($chapters_text).'-div">'."\n";
 
 #Chapter reader/writer/displayer, it generates the tabs for the chapters to be read by the user
 while ($chapter_number_1 <= $chapters) {
@@ -265,11 +265,11 @@ while ($i <= $chapters2) {
 	echo $bigspace."\n";
 	echo '<'.$m.' class="'.$computer_variable.' '.$textstyle.'" style="'.$margin_style_10percent_rounded_border.'">'."\n";
 	echo $margin."\n";
-	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="'.$computer_variable.'">'."\n";
 	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
-	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$formname.':</b><br />'."\n";
+	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
 	echo '</span><br />'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$commentdesc.':</b><br />'."\n";
@@ -289,11 +289,11 @@ while ($i <= $chapters2) {
 	echo $bigspace."\n";
 	echo '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="'.$margin_style_10percent_rounded_border.'">'."\n";
 	echo $margin."\n";
-	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($captxt, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
 	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
-	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$formname.':</b><br />'."\n";
+	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
 	echo '</span><br />'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$commentdesc.':</b><br />'."\n";

@@ -37,13 +37,13 @@ while ($chapter_number_1 <= $chapters) {
 	echo $margin2;
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$n.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
 
 	# Form submit button
-	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$n.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$n.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
 
 	# Hidden chapter title input
 
@@ -75,13 +75,13 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<br />';
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$nametxt2.' '.strtolower($nametxt1).':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$m.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
 
 	# Form submit button
-	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$sendtxt.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
 
 	# Hidden chapter title input
 	echo '<input type="text" name="read" value="'.$read_texts_array[3].': '.$i22.' - '.$chapter_titles[$c22].'" class="'.$full_form_style.' w3-input" style="display:none;'.$rounded_border_style_2.'">'."\n";

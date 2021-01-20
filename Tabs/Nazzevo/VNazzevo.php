@@ -117,21 +117,21 @@ include $story_name_variables_php_variable;
 
 # Texts for the English language
 if (in_array($website_language, $en_languages_array)) {
-	$authortxt = 'Author';
-	$captxt = 'Chapters';
-	$datatxt = 'Date';
-	$datatxt2 = 'Made in';
+	$author_text = 'Author';
+	$chapters_text = 'Chapters';
+	$chapter_date_text = 'Date';
+	$chapter_date_text_two = 'Made in';
 
-	$nametxt1 = 'Name';
-	$nametxt2 = 'Your';
-	$sendtxt = 'Send';
+	$person_name_text = 'Name';
+	$person_name_text_two = 'Your';
+	$send_form_text = 'Send';
 
 	# Status text definer, that sets the status text with [] around it
 	$statustxt = ucfirst($story_status);
 
 	$read_texts_array = array(
-	$readingtxt = "You're reading",
-	$readingtxt.': '.ucwords($story_name),
+	$reading_text = "You're reading",
+	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
 	'I read the Chapter',
 	'Read the Chapter',
@@ -151,38 +151,38 @@ if (in_array($website_language, $en_languages_array)) {
 	);
 
 	$titletxt = 'Title';
-	$story_nametxt = 'Story text';
-	$timetxt = 'Time';
-	$storiestxt = 'Stories';
-	$formname = 'Name';
-	$formtxt = 'Form';
+	$story_text_text = 'Story text';
+	$time_text = 'Time';
+	$stories_text = 'Stories';
+	$form_name = 'Name';
+	$form_text = 'Form';
 	
 	$write_texts_array = array(
 	'Write',
 	'Write the Chapter',
-	substr($readingtxt, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
+	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
 	);
 
-	$readersdesc = "Thanks everyone ♥";
+	$readers_description = "Thanks everyone ♥";
 }
 
 # Texts for the Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
-	$authortxt = 'Autor';
-	$captxt = "Capítulos";
-	$datatxt = "Data";
-	$datatxt2 = "Feito em";
+	$author_text = 'Autor';
+	$chapters_text = "Capítulos";
+	$chapter_date_text = "Data";
+	$chapter_date_text_two = "Feito em";
 
-	$nametxt1 = 'Nome';
-	$nametxt2 = 'Seu';
-	$sendtxt = 'Enviar';
+	$person_name_text = 'Nome';
+	$person_name_text_two = 'Seu';
+	$send_form_text = 'Enviar';
 
 	# Status text definer, that sets the status text with [] around it
 	$statustxt = ucfirst($story_status);
 
 	$read_texts_array = array(
-	$readingtxt = "Você está lendo",
-	$readingtxt.': '.ucwords($story_name),
+	$reading_text = "Você está lendo",
+	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',
 	'Eu li o Capítulo',
 	'Leu o Capítulo',
@@ -201,18 +201,18 @@ if (in_array($website_language, $pt_languages_array)) {
 	'Comente o que achou do capítulo',
 	);
 
-	$timetxt = 'Tempo';
-	$storiestxt = "Histórias";
-	$formname = "Nome";
-	$formtxt = 'Formulário';
+	$time_text = 'Tempo';
+	$stories_text = "Histórias";
+	$form_name = "Nome";
+	$form_text = 'Formulário';
 
 	$write_texts_array = array(
 	'Escrever',
 	'Escreva o capítulo',
-	substr($readingtxt, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
+	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
 	);
 
-	$readersdesc = "Obrigado a todos ♥";
+	$readers_description = "Obrigado a todos ♥";
 }
 
 # Reads the book cover image directory if the site has book covers

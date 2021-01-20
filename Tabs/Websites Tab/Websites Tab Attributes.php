@@ -243,7 +243,7 @@ $website_lonelystories_link,
 #$websites_number = count($website_names_array) - 1; #22
 
 $websites_number = 23;
-$story_name_websites_number = $storiesnumb - 1;
+$story_name_websites_number = $stories_number - 1;
 $websites_number_text = count($sitelinks);
 
 $websites_buttons_style = $first_button_style;

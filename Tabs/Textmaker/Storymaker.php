@@ -102,21 +102,21 @@ echo '<br />';
 #	$b6 = $b + 7;
 #	$i2 = $i + 1;
 #	if ($a == 12) {
-#		$captxt = $txts[$b4].'s';
+#		$chapters_text = $txts[$b4].'s';
 #	}
 #
 #	if ($a == 13) {
-#		$captxt = $txts[$b4];
+#		$chapters_text = $txts[$b4];
 #	}
 #
 #	if ($a == 14) {
-#		$captxt = $txts[$b4].'s';
+#		$chapters_text = $txts[$b4].'s';
 #	}
 #
 #	if ($a == 15) {
-#		$captxt = $txts[$b4];
+#		$chapters_text = $txts[$b4];
 #	}
-#	echo $greenspan.'<a href="'.$story_namelinks[$a4].'" class="w3-text-green">'.$txts[$a].'</a>'.$spanc.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$captxt.', '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].' ('.$cyanspan.$newtxt.'!'.$spanc.')'.'<br />'."\n";
+#	echo $greenspan.'<a href="'.$story_namelinks[$a4].'" class="w3-text-green">'.$txts[$a].'</a>'.$spanc.': '.$bluespan.$yearnumbstxt[$i].$spanc.' '.$chapters_text.', '.$bluespan.$yearnumbstxt[$i2].$spanc.' '.$txts[$i5].' ('.$cyanspan.$newtxt.'!'.$spanc.')'.'<br />'."\n";
 #	$i++;
 #	$i++;
 #	$a++;
