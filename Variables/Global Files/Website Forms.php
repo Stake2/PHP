@@ -2,7 +2,7 @@
 
 $website_comment_form = "\n".
 '<div class="'.$computer_variable.'">
-<form name="'.$formcode.'-comment" method="POST" data-netlify="true">
+<form name="'.$formcode.'-comment" method="POST" data-netlify="True">
 <span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$form_name.':</b><br />
 <textarea type="text" name="name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />
@@ -16,7 +16,7 @@ $website_comment_form = "\n".
 </div>
 
 <div class="'.$mobile_variable.'">
-<form name="'.$formcode.'-comment" method="POST" data-netlify="true">
+<form name="'.$formcode.'-comment" method="POST" data-netlify="True">
 <span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$form_name.':</b><br />
 <textarea type="text" name="name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />
@@ -34,7 +34,7 @@ $website_comment_form = "\n".
 
 $story_name_website_write_form = "\n".'
 <div class="'.$computer_variable.'">
-<form name="'.$formcode.'-write" method="POST" data-netlify="true">
+<form name="'.$formcode.'-write" method="POST" data-netlify="True">
 <span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$form_name.':</b><br />
 <textarea type="text" name="name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />
@@ -48,7 +48,7 @@ $story_name_website_write_form = "\n".'
 </div>
 
 <div class="'.$mobile_variable.'">
-<form name="'.$formcode.'-write" method="POST" data-netlify="true">
+<form name="'.$formcode.'-write" method="POST" data-netlify="True">
 <span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$form_name.':</b><br />
 <textarea type="text" name="'.$formcode.'-name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
 </span><br />

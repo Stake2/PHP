@@ -145,7 +145,7 @@ $website_html_descriptions_array = array(
 $story_name_variable = $desert_island_story_name;
 
 #Re-include of the StoryVars.php file to set the story name
-include $story_name_variables_php_variable;
+include $story_variables_php_variable;
 
 #Story name definer
 $story_name_variable = $desert_island_story_name;

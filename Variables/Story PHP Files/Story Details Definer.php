@@ -22,6 +22,6 @@ $pt_title = $story_name_variable,
 );
 
 # Story date definer using story date text file
-$story_namedate = $story_namedate[0];
+$story_creation_date = $story_creation_date[0];
 
 ?>

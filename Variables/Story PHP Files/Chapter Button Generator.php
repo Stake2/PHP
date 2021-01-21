@@ -13,7 +13,7 @@ $chapter_number_2 = 1;
 $chapter_number_3 = 1;
 $chapter_number_4 = 0;
 while ($chapter_number_1 <= $chapters) {
-	if ($website_story_has_bookcovers_setting == true) {
+	if ($website_story_has_bookcovers_setting == True) {
 		if (isset($coverimages[$chapter_number_1]) and isset($coverimagesm[$chapter_number_1])) {
 			$cover_image_button = '<center>'."\n".'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'">'.$coverimages[$chapter_number_1]."\n".'</a>'.
 			"\n"."\n".
@@ -32,7 +32,7 @@ while ($chapter_number_1 <= $chapters) {
 	}
 
 	if ($chapter_number_1 == $chapters) {
-		if ($new_write_style == true) {
+		if ($new_write_style == True) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');DefineChapter('.$chapter_number_1.');';
 		}
 
@@ -40,7 +40,7 @@ while ($chapter_number_1 <= $chapters) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
 		}
 
-		if ($website_deactivate_notification_setting == true) {
+		if ($website_deactivate_notification_setting == True) {
 			$hide_notification_attribute = '';
 		}
 
@@ -48,10 +48,10 @@ while ($chapter_number_1 <= $chapters) {
 			$hide_notification_attribute = $hide_notification_attribute;
 		}
 
-		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == true) {
+		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
-			if ($website_story_has_titles == true) {
+			if ($website_story_has_titles == True) {
 				$chapter_text_variable = $chapter_number_1.' - '.$chapter_titles[$chapter_number_4];
 			}
 
@@ -98,7 +98,7 @@ while ($chapter_number_1 <= $chapters) {
 		else {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
-			if ($website_story_has_titles == true) {
+			if ($website_story_has_titles == True) {
 				$chapter_text_variable = $chapter_number_1.' - '.$chapter_titles[$chapter_number_4];
 			}
 
@@ -121,7 +121,7 @@ while ($chapter_number_1 <= $chapters) {
 	}
 
 	else {
-		if ($new_write_style == true) {
+		if ($new_write_style == True) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');DefineChapter('.$chapter_number_1.');';
 		}
 
@@ -129,7 +129,7 @@ while ($chapter_number_1 <= $chapters) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
 		}
 
-		if ($website_deactivate_notification_setting == true) {
+		if ($website_deactivate_notification_setting == True) {
 			$hide_notification_attribute = '';
 		}
 
@@ -137,10 +137,10 @@ while ($chapter_number_1 <= $chapters) {
 			$hide_notification_attribute = $hide_notification_attribute;
 		}
 
-		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == true) {
+		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
-			if ($website_story_has_titles == true) {
+			if ($website_story_has_titles == True) {
 				$chapter_text_variable = $chapter_number_1.' - '.$chapter_titles[$chapter_number_4];
 			}
 
@@ -187,7 +187,7 @@ while ($chapter_number_1 <= $chapters) {
 		else {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
-			if ($website_story_has_titles == true) {
+			if ($website_story_has_titles == True) {
 				$chapter_text_variable = $chapter_number_1.' - '.$chapter_titles[$chapter_number_4];
 			}
 

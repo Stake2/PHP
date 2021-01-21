@@ -41,7 +41,7 @@ $watched_media_type_2020_file,
 $watched_media_type_2021_file,
 );
 
-if (file_exists($watched_episodes_2018_file) == true) {
+if (file_exists($watched_episodes_2018_file) == True) {
 	$watched_episodes_2018_line_number = 0;
 	$handle = fopen ($watched_episodes_2018_file, "r");
 	while (!feof ($handle)){
@@ -50,7 +50,7 @@ if (file_exists($watched_episodes_2018_file) == true) {
 	}
 }
 
-if (file_exists($watched_episodes_2019_file) == true) {
+if (file_exists($watched_episodes_2019_file) == True) {
 	$watched_episodes_2019_line_number = 0;
 	$handle = fopen ($watched_episodes_2019_file, "r");
 	while (!feof ($handle)){
@@ -59,7 +59,7 @@ if (file_exists($watched_episodes_2019_file) == true) {
 	}
 }
 
-if (file_exists($watched_episodes_2020_file) == true) {
+if (file_exists($watched_episodes_2020_file) == True) {
 	$watched_episodes_2020_line_number = 0;
 	$handle = fopen ($watched_episodes_2020_file, "r");
 	while (!feof ($handle)){
@@ -68,7 +68,7 @@ if (file_exists($watched_episodes_2020_file) == true) {
 	}
 }
 
-if (file_exists($watched_episodes_2020_file) == true) {
+if (file_exists($watched_episodes_2020_file) == True) {
 	$watched2020fp = fopen($watched_episodes_2020_file, 'r', 'UTF-8');
 	if ($watched2020fp) {
 		$watched2020textroot = explode("\n", fread($watched2020fp, filesize($watched_episodes_2020_file)));
@@ -76,7 +76,7 @@ if (file_exists($watched_episodes_2020_file) == true) {
 	}
 }
 
-if (file_exists($watched_media_type_2018_file) == true) {
+if (file_exists($watched_media_type_2018_file) == True) {
 	$watched2018mediatypefp  = fopen($watched_media_type_2018_file, 'r', 'UTF-8');
 	if ($watched2018mediatypefp) {
 		$watched2018mediatypearray = explode("\n", fread($watched2018mediatypefp, filesize($watched_media_type_2018_file)));
@@ -85,7 +85,7 @@ if (file_exists($watched_media_type_2018_file) == true) {
 	}
 }	
 
-if (file_exists($watched_time_2018_file) == true) {
+if (file_exists($watched_time_2018_file) == True) {
 	$watched2018fp = fopen($watched_time_2018_file, 'r', 'UTF-8');
 	if ($watched2018fp) {
 		$watched2018timeroot = explode("\n", fread($watched2018fp, filesize($watched_time_2018_file)));
@@ -94,7 +94,7 @@ if (file_exists($watched_time_2018_file) == true) {
 	}
 }
 
-if (file_exists($watched_episodes_2018_file) == true) {
+if (file_exists($watched_episodes_2018_file) == True) {
 	$watched2018fp = fopen($watched_episodes_2018_file, 'r', 'UTF-8');
 	if ($watched2018fp) {
 		$watched2018textroot = explode("\n", fread($watched2018fp, filesize($watched_episodes_2018_file)));
@@ -103,7 +103,7 @@ if (file_exists($watched_episodes_2018_file) == true) {
 	}
 }
 
-if (file_exists($watched_media_type_2019_file) == true) {
+if (file_exists($watched_media_type_2019_file) == True) {
 	$watched2019mediatypefp  = fopen($watched_media_type_2019_file, 'r', 'UTF-8');
 	if ($watched2019mediatypefp) {
 		$watched2019mediatypearray = explode("\n", fread($watched2019mediatypefp, filesize($watched_media_type_2019_file)));
@@ -112,7 +112,7 @@ if (file_exists($watched_media_type_2019_file) == true) {
 	}
 }
 
-if (file_exists($watched_time_2019_file) == true) {
+if (file_exists($watched_time_2019_file) == True) {
 	$watched2019fp = fopen($watched_time_2019_file, 'r', 'UTF-8');
 	if ($watched2019fp) {
 		$watched2019timeroot = explode("\n", fread($watched2019fp, filesize($watched_time_2019_file)));
@@ -121,7 +121,7 @@ if (file_exists($watched_time_2019_file) == true) {
 	}
 }
 
-if (file_exists($watched_episodes_2019_file) == true) {
+if (file_exists($watched_episodes_2019_file) == True) {
 	$watched2019fp = fopen($watched_episodes_2019_file, 'r', 'UTF-8');
 	if ($watched2019fp) {
 		$watched2019textroot = explode("\n", fread($watched2019fp, filesize($watched_episodes_2019_file)));
@@ -130,7 +130,7 @@ if (file_exists($watched_episodes_2019_file) == true) {
 	}
 }
 
-if (file_exists($watched_media_type_2020_file) == true) {
+if (file_exists($watched_media_type_2020_file) == True) {
 	$watched2020mediatypefp = fopen($watched_media_type_2020_file, 'r', 'UTF-8');
 	if ($watched2020mediatypefp) {
 		$watched2020mediatypearray = explode("\n", fread($watched2020mediatypefp, filesize($watched_media_type_2020_file)));
@@ -139,7 +139,7 @@ if (file_exists($watched_media_type_2020_file) == true) {
 	}
 }
 
-if (file_exists($watched_time_2020_file) == true) {
+if (file_exists($watched_time_2020_file) == True) {
 	$watched2020fp = fopen($watched_time_2020_file, 'r', 'UTF-8'); 
 	if ($watched2020fp) {
 		$watched2020timearray = explode("\n", fread($watched2020fp, filesize($watched_time_2020_file)));
@@ -148,7 +148,7 @@ if (file_exists($watched_time_2020_file) == true) {
 	}
 }
 
-if (file_exists($watched_episodes_2020_file) == true) {
+if (file_exists($watched_episodes_2020_file) == True) {
 	$watched2020fp = fopen($watched_episodes_2020_file, 'r', 'UTF-8'); 
 	if ($watched2020fp) {
 		$watched2020txt = str_replace("^", "", $watched2020textarray);
@@ -204,7 +204,7 @@ $current_year_watched_time = $watchedtimearray[$current_year_number];
 $current_year_watched_media_type = $watchedmediatypearray[$current_year_number];
 $current_year_watched_media_type_file = $current_year_watched_media_type_file_array[$current_year_number];
 
-if (file_exists($current_year_watched_media_type_file) == true) {
+if (file_exists($current_year_watched_media_type_file) == True) {
 	$i = 0;
 	$watched_animes_number = 0;
 	if (count($current_year_watched_media_type) != 0) {
@@ -267,11 +267,11 @@ $watched_media_numbers = array(
 4 => $watched_videos_number, #Videos
 );
 
-if (file_exists($to_watch_episodes_file) == true) {
+if (file_exists($to_watch_episodes_file) == True) {
 	$i = 0;
 	$to_watch_items = 0;
 	while ($i <= $to_watch_file_number) {
-		if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == true) {
+		if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
 			$to_watch_items++;
 		}
 

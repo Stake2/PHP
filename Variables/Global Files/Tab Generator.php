@@ -101,11 +101,11 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($hidecitysetting == true) {
+if ($hidecitysetting == True) {
 	$hidecitytextvariable = 'style="display:none;"';
 }
 
-if ($hidecitysetting != true) {
+if ($hidecitysetting != True) {
 	$hidecitytextvariable = '';
 }
 
@@ -186,17 +186,17 @@ if ($website_name == $sitethingsido or $site == $sitethingsido) {
 	include $computer_buttons_bar_loader;
 }
 
-#Comments Tab includer if the setting is true
-if ($website_has_comments_tab == true or $story_name_has_write_form == true) {
+#Comments Tab includer if the setting is True
+if ($website_has_comments_tab == True or $story_name_has_write_form == True) {
 	include $website_forms_php;
 }
 
-#Stories Tab includer if the setting is true
-if ($website_has_stories_tab_setting == true) {
-	include $story_name_variables_php_variable;
+#Stories Tab includer if the setting is True
+if ($website_has_stories_tab_setting == True) {
+	include $story_variables_php_variable;
 }
 
-if ($website_uses_tab_body_generator == true) {
+if ($website_uses_tab_body_generator == True) {
 	require $tab_bodies_generator_php_variable;
 }
 

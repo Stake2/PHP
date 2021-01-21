@@ -1,7 +1,7 @@
 <?php 
 
 #Default value for website settings
-$roundedbuttonson = true;
+$roundedbuttonson = True;
 $website_has_notifications = false;
 $sitesbuttonintab = false;
 $website_has_stories_tab_setting = false;
@@ -36,16 +36,16 @@ $deactivate_js = false;
 
 $website_new_design_setting = false;
 
-$hidecitysetting = true;
+$hidecitysetting = True;
 $website_not_so_much_space_setting = false;
 $website_story_has_bookcovers_setting = false;
 $story_namewritesstoryfiles = false;
 $story_name_has_write_form = false;
-$story_name_has_reads = false;
+$story_has_reads = false;
 $website_story_has_titles = false;
-$story_name_has_dates = false;
-$story_name_uses_status = false;
-$story_name_has_chapter_comments = false;
+$story_has_dates = false;
+$story_uses_status = false;
+$story_has_chapter_comments = false;
 $website_uses_tab_body_generator = false;
 $website_uses_universal_file_reader = false;
 $website_has_comments_tab_setting = false;

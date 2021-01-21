@@ -1,7 +1,7 @@
 <?php 
 
 #2018 Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$site2018) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$site2018) == True) {
 	$selected_website = $site2018;
 
 	$site = $selected_website;

@@ -1,6 +1,6 @@
 <?php 
 
-if ($website_has_notifications == true and $website_deactivate_notification_setting != true) {
+if ($website_has_notifications == True and $website_deactivate_notification_setting != True) {
 	echo '<script>
 ChangeTitle();
 </script>';
@@ -22,12 +22,12 @@ while ($i <= 0) {
 */
 
 
-#Site notification file includer if setting is true
-if ($website_has_notifications == true and $website_deactivate_notification_setting == false) {
+#Site notification file includer if setting is True
+if ($website_has_notifications == True and $website_deactivate_notification_setting == false) {
 	echo $notificationscript."\n"."\n";
 }
 
-if ($site_haves_additional_website_content == true) {
+if ($site_haves_additional_website_content == True) {
 	if (isset($additional_website_content)) {
 		echo $additional_website_content;
 	}
@@ -47,14 +47,14 @@ a:active {color: blue!important;}
 </style>';
 }
 
-if ($website_new_design_setting == true) {
+if ($website_new_design_setting == True) {
 	#SuperAnimes test loader
 	require $newdesignsitephp;
 	echo $newdesignscript;
 }
 
-#Chapter Opener Script includer if the setting is true
-if ($story_website_uses_chapter_opener == true) {
+#Chapter Opener Script includer if the setting is True
+if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
 	echo '<script>'."\n";
 	require $open_chapter_script_php;

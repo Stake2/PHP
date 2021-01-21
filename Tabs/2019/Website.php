@@ -1,7 +1,7 @@
 <?php 
 
 #2019 Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$site2019) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$site2019) == True) {
 	$selected_website = $site2019;
 
 	$site = $selected_website;
@@ -9,7 +9,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$site2019) == true) 
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	$website_uses_tab_body_generator = true;
+	$website_uses_tab_body_generator = True;
 
 	#Site settings setter file includer
 	include $setting_parameters_file;

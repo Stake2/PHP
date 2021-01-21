@@ -1,6 +1,6 @@
 <?php 
 
-if (file_exists($website_changelog_file) == true) {
+if (file_exists($website_changelog_file) == True) {
 	echo '<'.$m.' class="'.$textstyle.'" style="text-align:left;"><b>'."\n";
 	
 	$i = 0;

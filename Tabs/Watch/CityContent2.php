@@ -5,13 +5,13 @@ $z = 0;
 
 while ($i <= $to_watch_line_number - 1) {
 	$i2 = $i + 1;
-	if ($website_watch_history_show_to_watch_only_setting == true) {
-		if (strpos ($to_watch_status_file_text[$i], $watched_string) == true) {
+	if ($website_watch_history_show_to_watch_only_setting == True) {
+		if (strpos ($to_watch_status_file_text[$i], $watched_string) == True) {
 			$watch_status_css_class = 'watched_status';
 			$watch_status_icon =  'fa-eye';
 		}
 
-		if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == true) {
+		if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
 			$watch_status_css_class = 'to_watch_status';
 			$watch_status_icon =  'fa-play';
 
@@ -24,12 +24,12 @@ while ($i <= $to_watch_line_number - 1) {
 	}
 
 	if ($website_watch_history_show_to_watch_only_setting == false) {
-		if (strpos ($to_watch_status_file_text[$i], $watched_string) == true) {
+		if (strpos ($to_watch_status_file_text[$i], $watched_string) == True) {
 			$watch_status_css_class = 'watched_status';
 			$watch_status_icon =  'fa-eye';
 		}
 
-		if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == true) {
+		if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
 			$watch_status_css_class = 'to_watch_status';
 			$watch_status_icon =  'fa-play';
 		}

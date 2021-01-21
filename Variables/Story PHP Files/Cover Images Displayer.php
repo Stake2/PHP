@@ -10,7 +10,7 @@ if ($website_language == $geral_language) {
 
 	$story_chapter_files_folder_language = $story_chapter_files_folder.strtoupper($website_language).'/';
 
-	if ($website_story_has_bookcovers_setting == true) {
+	if ($website_story_has_bookcovers_setting == True) {
 		$online_cover_folder = $cover_folder.strtoupper($website_language).'/';
 		$local_cover_folder = $no_language_story_folder.'Foto/'.$single_cover_folder.strtoupper($website_language).'/';
 
@@ -30,7 +30,7 @@ else {
 		$story_chapter_files_folder_language = $story_chapter_files_folder.strtoupper($ptbr_language).'/';
 	}
 
-	if ($website_story_has_bookcovers_setting == true) {
+	if ($website_story_has_bookcovers_setting == True) {
 		if (in_array($website_language, $en_languages_array)) {
 			$online_cover_folder = $cover_folder.strtoupper($website_language).'/';
 			$local_cover_folder = $no_language_story_folder.'Foto/'.$single_cover_folder.strtoupper($website_language).'/';

@@ -1,40 +1,40 @@
 <?php 
 
 # CSS style variables
-$color2 = 'yellow';
-$color3 = '#b88e50';
-$color4 = 'bg2';
-$colortext = 'pqnttext';
-$colortext2 = 'w3-text-black';
-$colorsubtext = 'w3-text-orange';
-$sitehr = 'pqnthr';
-$sitehr2 = 'pqnthr';
-$sitehr3 = 'blackhr';
-$spanstyle = "pqntspan";
-$formbtnstyle = "pqntsend";
-
-# Variables that mixes CSS tags
-$textstyle = $colortext.' blackbg';
-$textstyle2 = 'w3-text-black bg';
-$textstyleinvert = $colortext2.' bg';
-$first_button_style = $color4.' '.$cssbtn1;
-$btnstyle2 = $color2.' '.$cssbtn1;
-$btnstyle3 = $color4.' '.$cssbtn1;
-$subtextspan = '<span class="'.$colorsubtext.'">';
-$sitewhilestyle = $color4;
-$formcolor = $color4;
-
-# HTML and HTML Style variables
-$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$widthsize = '';
-$size = '';
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
-$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
+#$color2 = 'yellow';
+#$color3 = '#b88e50';
+#$color4 = 'bg2';
+#$colortext = 'pqnttext';
+#$colortext2 = 'w3-text-black';
+#$colorsubtext = 'w3-text-orange';
+#$sitehr = 'pqnthr';
+#$sitehr2 = 'pqnthr';
+#$sitehr3 = 'blackhr';
+#$spanstyle = "pqntspan";
+#$formbtnstyle = "pqntsend";
+#
+## Variables that mixes CSS tags
+#$textstyle = $colortext.' blackbg';
+#$textstyle2 = 'w3-text-black bg';
+#$textstyleinvert = $colortext2.' bg';
+#$first_button_style = $color4.' '.$cssbtn1;
+#$btnstyle2 = $color2.' '.$cssbtn1;
+#$btnstyle3 = $color4.' '.$cssbtn1;
+#$subtextspan = '<span class="'.$colorsubtext.'">';
+#$sitewhilestyle = $color4;
+#$formcolor = $color4;
+#
+## HTML and HTML Style variables
+#$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+#$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+#$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+#$widthsize = '';
+#$size = '';
+#$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
+#$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
 
 # Folder variables
 $selected_website_url = $main_website_url.$website_folder."/";
@@ -44,7 +44,6 @@ $story_name_folder = $nazzevostoryfolder;
 # Form code for the comment and read forms
 $formcode = 'nazzevo';
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
 $no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
 
 $single_cover_folder = 'Capas/';
@@ -60,13 +59,13 @@ $story_name_variable = $nazzevo_story_name;
 $story_status = $status_finished_and_publishing;
 
 # Comments variable
-$sitecomments = true;
+$sitecomments = True;
 
 # Site image vars
 $website_image = 'nazzevo';
 
 # Defines the site image if the site has book covers or not
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	$story_name_cover_image_filename = '1';
 
 	$website_image = $online_cover_subfolder.$story_name_cover_image_filename.'.png';
@@ -94,12 +93,12 @@ $author_name = 'Izaque Sanvezzo (stake2)'.' '.$whitespan.$andtxt.$spanc.' '.$pur
 $commentsbtn = '<a href="# '.$tabcode[6].'"><button class="w3-btn '.$first_button_style.' '.$computer_variable.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 $commentsbtnm = '<a href="# '.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 
-# TextFileReader.php file includer
+# Text File Reader.php file includer
 include $text_file_reader_file_php;
 
 # Chapters and storydate definer using Story date.txt and ChapterNumber.txt
-$chapters = $chapters[0];
-$story_namedate = $story_namedate[0];
+$chapters = $chapter_number[0];
+$story_creation_date = $story_creation_date[0];
 
 # Site descriptions
 $website_descriptions_array = array(
@@ -108,12 +107,12 @@ $website_descriptions_array = array(
 );
 
 $website_html_descriptions_array = array(
-'Synopsis: <i class="fas fa-scroll"></i> "'.$synopsis[0].'"<br />',
-'Sinopse: <i class="fas fa-scroll"></i> "'.$synopsis[1].'"<br />',
+'Synopsis: <i class="fas fa-scroll"></i> "'.$story_synopsis[0].'"<br />',
+'Sinopse: <i class="fas fa-scroll"></i> "'.$story_synopsis[1].'"<br />',
 );
 
-# Re-include of the StoryVars.php file to set the story name
-include $story_name_variables_php_variable;
+# Re-include of the VStories.php file to set the story name
+include $story_variables_php_variable;
 
 # Texts for the English language
 if (in_array($website_language, $en_languages_array)) {
@@ -216,7 +215,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 # Reads the book cover image directory if the site has book covers
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
@@ -280,11 +279,14 @@ $icons[13],
 '',
 );
 
-# TabGenerator.php includer
+# Website Style.php File Includer
+require $selected_website_style_file;
+
+# Tab Generator.php includer
 include $website_tabs_generator;
 
 # Site notification variables
-if ($website_has_notifications == true) {
+if ($website_has_notifications == True) {
 	# Reviewed chapter title
 	$reviewed_chaptercode = $chapter_buttons[0];
 }

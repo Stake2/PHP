@@ -1,6 +1,6 @@
 <?php 
 
-if ($website_name == $sitewatch and $thingsidofake == true) {
+if ($website_name == $sitewatch and $thingsidofake == True) {
 	$namespan = $e2;
 }
 

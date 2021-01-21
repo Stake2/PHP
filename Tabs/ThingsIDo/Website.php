@@ -1,7 +1,7 @@
 <?php 
 
 #"Things I do" Website definer
-if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == True) {
 	$selected_website = $sitethingsido;
 
 	#Site title and name definer
@@ -13,7 +13,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == t
 	$showembeds = false; #If site shows Youtube embeds
 	$showembeds2 = false; #If site shows Youtube embeds 2
 	$showplaylistembed = false; #If site shows Youtube playlist embeds
-	$website_has_stories_tab_setting = true; #If site has a Stories Tab
+	$website_has_stories_tab_setting = True; #If site has a Stories Tab
 
 	#Site settings setter file includer
 	include $setting_parameters_file;

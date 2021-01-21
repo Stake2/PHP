@@ -23,7 +23,7 @@ $chapter_number_1 = 0;
 $c = 0;
 while ($c <= count($array) - 1) {
 	#Chapter text reader
-	if (file_exists($normal_chapters[$chapter_number_1]) == true) {
+	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
 		if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
 		while(!feof($file)) {
 			$line = fgets($file);

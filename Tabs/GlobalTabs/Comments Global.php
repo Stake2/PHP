@@ -11,8 +11,8 @@ $commentslens2 = array(45, 52);
 
 $comment_style = $additional_background_color." ".$text_black_css_class." ".$border_3px_solid_black_css_class;
 
-if ($website_has_comments_tab == true and $website_has_comments == true) {
-	if ($website_shows_comments == true) {
+if ($website_has_comments_tab == True and $website_has_comments == True) {
+	if ($website_shows_comments == True) {
 		$c = 0;
 		$i = 0;
 		$z = 0;
@@ -151,7 +151,7 @@ if ($website_has_comments_tab == true and $website_has_comments == true) {
 	}
 }
 
-#if ($sitecomments == true) {
+#if ($sitecomments == True) {
 #	echo '<hr class="'.$third_full_border.'" />'."\n";
 #	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[7].': '.$orangespan.$comments_number.$spanc.' '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$sitehr.'" />'."\n";
 #	

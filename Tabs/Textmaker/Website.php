@@ -1,7 +1,7 @@
 <?php 
 
 #Text Maker Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$sitetextmaker) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$sitetextmaker) == True) {
 	$selected_website = $sitetextmaker;
 
 	#Site title and name definer

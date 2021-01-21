@@ -391,7 +391,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$computer_variable.' close" id="closereadmodal'.$a.'">&times;</button>'."\n";
 	
 	#Computer Read-modal form
-	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="True">'."\n";
 	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><b>'.$readedtxt2.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b></'.$n.'>'.$div_close."\n";
 	echo $margin2;
 	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$n.'>'.$div_close."\n";
@@ -419,7 +419,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' close" id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
 
 	#Mobile Read-modal form
-	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="True">'."\n";
 	echo $div_zoom_animation.'<'.$m.' class="'.$colortext.'"><b>'.$readedtxt2.': '.$capnum12.' - '.$chapter_titles[$capnum42].'</b></'.$m.'>'.$div_close."\n";
 	echo $margin2;
 	echo '<br />';
@@ -532,7 +532,7 @@ while ($chapter_number_1 <= $chapters) {
 
     #Computer Comment-modal form
 	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="True">'."\n";
 	echo $margin2."\n";
 	echo $div_zoom_animation.'<'.$n.' class="'.$colortext.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$n.'>'.$div_close."\n";
 	echo '<input type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input">'."\n";
@@ -561,7 +561,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' close" id="closecommentmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
 
     #Mobile Comment-modal form
-	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="True">'."\n";
 	echo $div_zoom_animation.'<'.$m.' class="'.$colortext.'"><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).' '.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";
@@ -658,7 +658,7 @@ while ($i <= $chapters2) {
 	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="True">'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
 	echo '</span><br />'."\n";
@@ -682,7 +682,7 @@ while ($i <= $chapters2) {
 	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="True">'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
 	echo '</span><br />'."\n";

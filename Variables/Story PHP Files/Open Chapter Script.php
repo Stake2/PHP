@@ -36,7 +36,7 @@ $i = 0;
 while ($i < $chapters) {
 	$i2 = $i + 1;
 
-	echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true) {'."\n";
+	echo '	if (first_check_'.$i2.' === True || second_check_'.$i2.' === True || third_check_'.$i2.' === True || fourth_check_'.$i2.' === True) {'."\n";
 	echo '		var captext = captext1 + "'.$i2.'";'."\n";
 	echo '		openCity(captext);'."\n";
 	echo '		document.getElementById(captext).scrollIntoView();'."\n";

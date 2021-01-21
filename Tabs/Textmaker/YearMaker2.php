@@ -1,12 +1,12 @@
 <?php 
 
-if ($thingsidofake == true) {
+if ($thingsidofake == True) {
 	$spanstyle = $blackspan;
 	$hover_text_color = $text_hover_white_css_class;
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == true) {
+	if ($mobileversion == True) {
 		$margindivstyle = '<div>';
 		$mobileaname = 'm';
 	}
@@ -23,7 +23,7 @@ if ($thingsidofake == null) {
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == true) {
+	if ($mobileversion == True) {
 		$margindivstyle = '<div>';
 		$mobileaname = 'm';
 	}
@@ -51,7 +51,7 @@ if ($site == $site2018 and $a2019 == false) {
 	}
 }
 
-if ($site == $site2018 and $a2019 == true) {
+if ($site == $site2018 and $a2019 == True) {
 	#2018.php version of the YearMaker from TextMaker.php, only has Medias array generator
 
 	$bb = 5;
@@ -67,19 +67,19 @@ if ($site == $site2018 and $a2019 == true) {
 	}
 }
 
-if ($website_name == $sitewatch or $site == $site2019 or $site == $site2018 and $a2019 == false and $regeneratemedias2019 == true) {
+if ($website_name == $sitewatch or $site == $site2019 or $site == $site2018 and $a2019 == false and $regeneratemedias2019 == True) {
 	#2019.php version of the YearMaker from TextMaker.php, only has Medias array generator
 
 	$bb = 5;
 	$v = 0;
 	#Medias array displayer and generator
 	while ($bb <= 10) {
-		if ($a2019text == true and $a2018text == false) {
+		if ($a2019text == True and $a2018text == false) {
 			$medias[$v] = '<a href="#'.$txts[$bb].'2019">'.$whitespan.$txts[$bb].': '.$spanc.$number_text_color_span.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
 			$mediastexts[$v] = $txts[$bb].'2019';
 		}
 
-		if ($a2019text == false and $a2018text == true) {
+		if ($a2019text == false and $a2018text == True) {
 			$medias[$v] = '<a href="#'.$txts[$bb].'2018">'.$whitespan.$txts[$bb].': '.$spanc.$number_text_color_span.$yearnumbs2019txt[$bb].$spanc.'</a>'.'<br />'."\n";
 			$mediastexts[$v] = $txts[$bb].'2018';
 		}
@@ -89,7 +89,7 @@ if ($website_name == $sitewatch or $site == $site2019 or $site == $site2018 and 
 	}
 }
 
-if ($website_name == $sitewatch and $a2019 == false and $regeneratemedias2019 == true and $thingsidofake == true) {
+if ($website_name == $sitewatch and $a2019 == false and $regeneratemedias2019 == True and $thingsidofake == True) {
 	#2019.php version of the YearMaker from TextMaker.php, only has Medias array generator
 
 	$bb = 6;
@@ -103,7 +103,7 @@ if ($website_name == $sitewatch and $a2019 == false and $regeneratemedias2019 ==
 	}
 }
 
-if ($site == $site2019 and $generate2019 == true) {
+if ($site == $site2019 and $generate2019 == True) {
 	#2019.php version of the YearMaker from TextMaker.php
 
 	echo '<div class="'.$computer_variable.'">'.'<button class="w3-btn '.$first_button_style.'" id="cetoggle1btn" '.$roundedborderstyle.' onClick="Cetoggle2cmnd();">'.'<'.$n.'>'.$editbtntxt1.': '.$icons[10].'</'.$n.'>'.'</button>'."\n";

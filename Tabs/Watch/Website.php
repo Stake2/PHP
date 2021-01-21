@@ -1,7 +1,7 @@
 <?php 
 
 #Watch History Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$sitewatch) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$sitewatch) == True) {
 	$selected_website = $sitewatch;
 
 	#Year definer
@@ -20,9 +20,9 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitewatch) == true)
 	$choosed_website_css_file = $css_file_watch_history;
 
 	#Site settings
-	$website_has_changelog_setting = true; #If site has a changelog tab and file to be read
-	$website_watch_history_show_to_watch_only_setting = true; #If site shows only the Ready To Watch medias or not
-	$website_watch_history_new_watched_style_setting = true; #If site uses the new Watched Media displaying style or not
+	$website_has_changelog_setting = True; #If site has a changelog tab and file to be read
+	$website_watch_history_show_to_watch_only_setting = True; #If site shows only the Ready To Watch medias or not
+	$website_watch_history_new_watched_style_setting = True; #If site uses the new Watched Media displaying style or not
 
 	#Site settings setter file includer
 	include $setting_parameters_file;

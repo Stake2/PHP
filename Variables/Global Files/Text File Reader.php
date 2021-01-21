@@ -1,6 +1,6 @@
 <?php 
 
-if ($website_uses_universal_file_reader == true) {
+if ($website_uses_universal_file_reader == True) {
 	$i = 0;
 	foreach ($filenamesarray as $file) {
 		$filesarray[$i] = $file;
@@ -11,7 +11,7 @@ if ($website_uses_universal_file_reader == true) {
 	#File text reader that makes an array of the text files
 	$i = 0;
 	foreach ($filesarray as $file) {
-		if (file_exists($file) == true) {
+		if (file_exists($file) == True) {
 			$fp = fopen($file, 'r', 'UTF-8'); 
 			if ($fp) {
 				${"$filetextarraynames[$i]"} = explode("\n", fread($fp, filesize($file)));
@@ -27,7 +27,7 @@ if ($website_uses_universal_file_reader == true) {
 	#File line number counter
 	$i = 0;
 	foreach ($filesarray as $file) {
-		if (file_exists($file) == true) {
+		if (file_exists($file) == True) {
 			${"$filenumberarraynames[$i]"} = 0;
 			$handle = fopen ($file, "r");
 			while (!feof ($handle)){
@@ -45,7 +45,7 @@ if ($website_uses_universal_file_reader == true) {
 if ($website_name == $sitediario) {
 	$diarionumbersfile = $used_folder.'Diário Numbers.txt';
 
-	if (file_exists($diarionumbersfile) == true) {
+	if (file_exists($diarionumbersfile) == True) {
 		$diarionumbersfp = fopen($diarionumbersfile, 'r', 'UTF-8');
 		if ($diarionumbersfp) {
 			$blocksnumber = explode("\n", fread($diarionumbersfp, filesize($diarionumbersfile)));
@@ -58,7 +58,7 @@ if (in_array($website_name, $years_array)) {
 	$current_year_summary_year_stuff_file = $year_folders[$current_year].'Year Stuff.txt';
 
 	$file = $current_year_summary_text_file;
-	if (file_exists($file) == true) {
+	if (file_exists($file) == True) {
 		$read_file = fopen($file, 'r', 'UTF-8');
 		if ($read_file) {
 			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
@@ -67,7 +67,7 @@ if (in_array($website_name, $years_array)) {
 	}
 
 	$file = $current_year_summary_year_stuff_file;
-	if (file_exists($file) == true) {
+	if (file_exists($file) == True) {
 		$read_file = fopen($file, 'r', 'UTF-8');
 		if ($read_file) {
 			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
@@ -99,7 +99,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_language).'.txt';
 	}
 
-	if (file_exists($to_watch_episodes_file) == true) {
+	if (file_exists($to_watch_episodes_file) == True) {
 		$to_watch_line_number = 0;
 		$handle = fopen ($to_watch_episodes_file, "r");
 		while (!feof ($handle)){
@@ -108,7 +108,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 	}
 
-	if (file_exists($to_watch_episodes_file) == true) {
+	if (file_exists($to_watch_episodes_file) == True) {
 		$file = fopen($to_watch_episodes_file, 'r', 'UTF-8');
 		if ($file) {
 			$to_watch_text = explode("\n", fread($file, filesize($to_watch_episodes_file)));
@@ -116,7 +116,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 	}
 
-	if (file_exists($to_watch_status_file) == true) {
+	if (file_exists($to_watch_status_file) == True) {
 		$file = fopen($to_watch_status_file, 'r', 'UTF-8');
 		if ($file) {
 			$to_watch_status_file_text = explode("\n", fread($file, filesize($to_watch_status_file)));
@@ -124,7 +124,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 	}
 
-	if (file_exists($to_watch_folders_file) == true) {
+	if (file_exists($to_watch_folders_file) == True) {
 		$file = fopen($to_watch_folders_file, 'r', 'UTF-8');
 		if ($file) {
 			$to_watch_folders_text = explode("\n", fread($file, filesize($to_watch_folders_file)));
@@ -132,7 +132,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 	}
 
-	if (file_exists($to_watch_media_type_file) == true) {
+	if (file_exists($to_watch_media_type_file) == True) {
 		$file = fopen($to_watch_media_type_file, 'r', 'UTF-8');
 		if ($file) {
 			$to_watch_media_type_text = explode("\n", fread($file, filesize($to_watch_media_type_file)));
@@ -140,7 +140,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 	}
 
-	if (file_exists($watched_movies_file) == true) {
+	if (file_exists($watched_movies_file) == True) {
 		$watched_movies_line_number = 0;
 		$handle = fopen ($watched_movies_file, "r");
 		while (!feof ($handle)){
@@ -149,7 +149,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 	}
 
-	if (file_exists($watched_movies_file) == true) {
+	if (file_exists($watched_movies_file) == True) {
 		$file = fopen($watched_movies_file, 'r', 'UTF-8');
 		if ($file) {
 			$watched_movies_text = explode("\n", fread($file, filesize($watched_movies_file)));
@@ -158,7 +158,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 	}
 
-	if (file_exists($watched_movies_time_file) == true) {
+	if (file_exists($watched_movies_time_file) == True) {
 		$file = fopen($watched_movies_time_file, 'r', 'UTF-8'); 
 		if ($file) {
 			$text_array = explode("\n", fread($file, filesize($watched_movies_time_file)));
@@ -181,7 +181,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		}
 
 		$file = $current_year_watched_episodes_file;
-		if (file_exists($file) == true) {
+		if (file_exists($file) == True) {
 			$current_year_watched_episodes_line_number = 0;
 			$handle = fopen ($file, "r");
 			while (!feof ($handle)){
@@ -194,7 +194,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		${"watched_episodes_".$current_year."_line_number"} = $current_year_watched_episodes_line_number;
 
 		$file_read = $current_year_watched_episodes_file;
-		if (file_exists($file_read) == true) {
+		if (file_exists($file_read) == True) {
 			$file = fopen($file_read, 'r', 'UTF-8');
 			if ($file) {
 				$current_year_watched_episodes_text = explode("\n", fread($file, filesize($file_read)));
@@ -206,7 +206,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		${"year_".$current_year."_watched_episodes_text"} = $current_year_watched_episodes_text;
 
 		$file_read = $current_year_watched_time_file;
-		if (file_exists($file_read) == true) {
+		if (file_exists($file_read) == True) {
 			$file = fopen($file_read, 'r', 'UTF-8');
 			if ($file) {
 				$current_year_watched_time_text = explode("\n", fread($file, filesize($file_read)));
@@ -218,7 +218,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 		${"year_".$current_year."_watched_time_text"} = $current_year_watched_time_text;
 
 		$file_read = $current_year_watched_media_type_file;
-		if (file_exists($file_read) == true) {
+		if (file_exists($file_read) == True) {
 			$file = fopen($file_read, 'r', 'UTF-8');
 			if ($file) {
 				$text_array = explode("\n", fread($file, filesize($file_read)));
@@ -229,7 +229,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 
 		${"year_".$current_year."_watched_media_type_text"} = $current_year_watched_media_type_text;
 
-		if (file_exists($current_year_watched_media_type_file) == true) {
+		if (file_exists($current_year_watched_media_type_file) == True) {
 			$i = 0;
 			$watched_animes_number = 0;
 			if (count($current_year_watched_media_type_text) != 0) {
@@ -327,11 +327,11 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 	$media_type_video_line = '0', #Videos
 	);
 
-	if (file_exists($to_watch_episodes_file) == true) {
+	if (file_exists($to_watch_episodes_file) == True) {
 		$i = 0;
 		$to_watch_items = 0;
 		while ($i <= $to_watch_line_number) {
-			if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == true) {
+			if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
 				$to_watch_items++;
 			}
 
@@ -391,10 +391,6 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 	$story_comments_check_file = $story_comments_folder.'Check.txt';
 	$story_creation_date_file = $story_info_folder.'Creation Date.txt';
 
-	if ($website_name == $sitenazzevo) {
-		$chapter_number_file = $story_folder.'ChaptersNumber.txt'; 
-	}
-
 	$chapter_number_file = $story_folder.'Chapter Number.txt'; 
 
 	$titles_enus_file = $story_chapter_files_folder.strtoupper($enus_language).'/'.$titles_enus_text.'/'.$titles_enus_text.'.txt';
@@ -411,7 +407,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 	}
 
 	# File line number counters
-	if (file_exists($titles_file) == true) {
+	if (file_exists($titles_file) == True) {
 		$chapters = 0;
 		$handle = fopen ($titles_file, "r");
 		while (!feof ($handle)){
@@ -420,7 +416,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($story_comments_file) == true) {
+	if (file_exists($story_comments_file) == True) {
 		$story_comments_number = 0;
 		$handle = fopen ($story_comments_file, "r");
 		while (!feof ($handle)){
@@ -430,7 +426,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 	}
 
 	/*$file = $story_comments_check_file;
-	if (file_exists($file) == true) {
+	if (file_exists($file) == True) {
 		${str_replace("file", "number", "$file")} = 0;
 		$handle = fopen ($file, "r");
 		while (!feof ($handle)){
@@ -442,7 +438,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 
 	
 	$file = $story_comments_check_file;
-	if (file_exists($file) == true) {
+	if (file_exists($file) == True) {
 		$comments_check_number = 0;
 		$handle = fopen ($file, "r");
 		while (!feof ($handle)){
@@ -452,7 +448,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 	}
 
 
-	if (file_exists($story_readers_file) == true) {
+	if (file_exists($story_readers_file) == True) {
 		$readersnumb = 0;
 		$handle = fopen ($story_readers_file, "r");
 		while (!feof ($handle)){
@@ -461,7 +457,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($story_reads_file) == true) {
+	if (file_exists($story_reads_file) == True) {
 		$readsnumb = 0;
 		$handle = fopen ($story_reads_file, "r");
 		while (!feof ($handle)){
@@ -487,7 +483,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
     }
 
 	#File text readers
-	if (file_exists($titles_file) == true) {
+	if (file_exists($titles_file) == True) {
 		$fp = fopen($titles_file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$titlestxt = explode("\n", fread($fp, filesize($titles_file)));
@@ -495,7 +491,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($titles_enus_file) == true) {
+	if (file_exists($titles_enus_file) == True) {
 		$fp = fopen($titles_enus_file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$titlesenustxt = explode("\n", fread($fp, filesize($titles_enus_file)));
@@ -503,7 +499,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($story_readers_file) == true) {
+	if (file_exists($story_readers_file) == True) {
 		$fp = fopen($story_readers_file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$story_readers_file = explode("\n", fread($fp, filesize($story_readers_file)));
@@ -511,7 +507,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($story_comments_file) == true) {
+	if (file_exists($story_comments_file) == True) {
 		$fp = fopen($story_comments_file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$commentsfilearray = explode("\n", fread($fp, filesize($story_comments_file)));
@@ -519,7 +515,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($story_reads_file) == true) {
+	if (file_exists($story_reads_file) == True) {
 		$fp = fopen($story_reads_file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$readsfilearray = explode("\n", fread($fp, filesize($story_reads_file)));
@@ -527,16 +523,16 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if (file_exists($story_creation_date_file) == true) {
+	if (file_exists($story_creation_date_file) == True) {
 		$fp = fopen($story_creation_date_file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$story_namedatetext = explode("\n", fread($fp, filesize($story_creation_date_file)));
-			$story_namedate = str_replace("^", "", $story_namedatetext);
+			$story_creation_date = str_replace("^", "", $story_namedatetext);
 		}
 	}
 
 	$file = $story_synopsis_file;
-	if (file_exists($file) == true) {
+	if (file_exists($file) == True) {
 		$fp = fopen($file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$story_synopsis = explode("\n", fread($fp, filesize($file)));
@@ -560,16 +556,16 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 	}
 
 	if ($website_name == $sitenazzevo) {
-		if (file_exists($chapter_number_file) == true) {
+		if (file_exists($chapter_number_file) == True) {
 			$fp = fopen($chapter_number_file, 'r', 'UTF-8'); 
 			if ($fp) {
-				$chapterstext = explode("\n", fread($fp, filesize($chapter_number_file)));
-				$chapters = str_replace("^", "", $chapterstext);
+				$chapters_text = explode("\n", fread($fp, filesize($chapter_number_file)));
+				$chapters = str_replace("^", "", $chapters_text);
 			}
 		}
 	}
 
-	if (file_exists($chapter_number_file) == true) {
+	if (file_exists($chapter_number_file) == True) {
 		$fp = fopen($chapter_number_file, 'r', 'UTF-8');
 		if ($fp) {
 			$chapter_number_text = explode("\n", fread($fp, filesize($chapter_number_file)));
@@ -598,8 +594,8 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		$readstxt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $readstxt);
 	}
 
-	if (isset($story_namedate)) {
-		$story_namedate = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $story_namedate);
+	if (isset($story_creation_date)) {
+		$story_creation_date = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $story_creation_date);
 	}
 
 	if (isset($story_synopsis)) {
@@ -611,7 +607,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 	}
 }
 
-if ($website_has_changelog_setting == true) {
+if ($website_has_changelog_setting == True) {
 	#Changelog text file definer
 	if ($website_name == $sitewatch) {
 		if (in_array($website_language, $en_languages_array)) {
@@ -634,7 +630,7 @@ if ($website_has_changelog_setting == true) {
 		}
 	}
 
-	if (file_exists($website_changelog_file) == true) {
+	if (file_exists($website_changelog_file) == True) {
 		#Changelog number counter
 		$clnumber = 0;
 		$handle = fopen ($website_changelog_file, "r");

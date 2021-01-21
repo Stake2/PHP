@@ -7,7 +7,7 @@ $files = array(
 'Tabs/ThindsIDo/Index.php',
 );
 
-$phpfile = true;
+$phpfile = True;
 
 #Site variables
 $main_website_url = "https://diario.netlify.app";
@@ -136,31 +136,31 @@ $main_website_url.'/'.$years_folder_variable.'/'.$site2020.'/',
 $yearnumb = 2;
 
 #Language definer
-if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[0]) == true) {
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[0]) == True) {
     $website_language = $languages_array[0];
 }
 
-if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[1]) == true) {
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[1]) == True) {
     $website_language = $languages_array[1];
 }
 
-if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[2]) == true) {
+if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[2]) == True) {
     $website_language = $languages_array[2];
 }
 
 #Normal site type definer
-if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[0]) == true) {
+if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[0]) == True) {
 	#Sitetype definer
 	$sitetype1 = $website_types_array[0];
 }
 
 #Story site type definer
-if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[1]) == true) {
+if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[1]) == True) {
 	#Sitetype definer
 	$sitetype1 = $website_types_array[1];
 
 	#"Site has stories" setting definer
-	$website_has_stories_tab_setting = true;
+	$website_has_stories_tab_setting = True;
 }
 
 #Years site type definer
@@ -175,19 +175,19 @@ $website_shows_comments = false;
 $website_has_changelog_setting = false;
 $website_write_story_setting = false;
 $website_chapter_to_write_setting = false;
-$roundedbuttonson = true;
+$roundedbuttonson = True;
 $thingsidofake = false;
 $watchmedias2018 = false;
 $watchmedias2019 = false;
 
 #"Things I do" Website definer
-if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == True) {
 	#Site title and name definer
 	$website_name = $sitethingsido;
 	$site = $sitethingsido;
 
 	#Site settings
-	$showembeds = true; #If site shows Youtube embeds
+	$showembeds = True; #If site shows Youtube embeds
 	$showembeds2 = false; #If site shows Youtube embeds
 
 	#Site Tabs array
@@ -224,8 +224,8 @@ include $sitetabsgeralvarsfolder."VGlobal.php";
 #Siteheader displayer
 echo $website_header;
 
-#Site notification file includer if setting is true
-if ($website_has_notifications == true) {
+#Site notification file includer if setting is True
+if ($website_has_notifications == True) {
 	echo $notificationscript;
 	echo '<script>
 function hidenotif() {

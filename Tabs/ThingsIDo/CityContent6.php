@@ -80,7 +80,7 @@ while ($i <= $watched_videos_number) {
 		echo $div_zoom_animation.'<a class="w3-text-black" target="_newtab" href="https://www.youtube.com/watch?v='.$youtubevideoids[$i].'">'.$videotitles[$i].'</a>'.$div_close.'<br /><p></p>'."\n";
 	}
 
-	if ($showembeds2 == true) {
+	if ($showembeds2 == True) {
 		echo $videoembedsyoutube[$i]."\n";
 	}
 

@@ -192,7 +192,7 @@ include $text_file_reader_file_php;
 
 #$a2019 = false;
 #$regenerate_2019_medias = 'a';
-#$generate2019 = true;
+#$generate2019 = True;
 #YearMaker2.php reader
 #ob_start();
 #include $year_maker_2_file;

@@ -1,6 +1,6 @@
 <?php 
 
-if ($new_write_style == true) {
+if ($new_write_style == True) {
 	$write_chapter_script = '<script src="'.$cdnjs.'WriteChapter.js"></script>'."\n";
 }
 

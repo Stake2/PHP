@@ -64,7 +64,7 @@ $reads_generator_php = $story_name_files_php_folder_variable.'Reads Generator.ph
 $read_modal_generator_php = $story_name_files_php_folder_variable.'Read Modal Generator.php';
 $comment_modal_generator_php = $story_name_files_php_folder_variable.'Comment Modal Generator.php';
 
-$story_name_variables_php_variable = $story_name_variables_php;
+$story_variables_php_variable = $story_name_variables_php;
 
 $cover_images_displayer_php_variable = $cover_images_displayer_php;
 $cover_images_generator_php_variable = $cover_images_generator_php;

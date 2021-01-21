@@ -89,7 +89,7 @@ if ($site_is_prototype == false) {
 	require $vglobal_php;
 }
 
-if ($site_is_prototype == true) {
+if ($site_is_prototype == True) {
 	#VGlobal.php variables file includer
 	@require $vglobal_php;
 }

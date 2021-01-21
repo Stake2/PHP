@@ -1,14 +1,14 @@
 <?php 
 
-if ($hidecitysetting == true) {
+if ($hidecitysetting == True) {
 	$hidecitytextvariable = 'style="display:none;"';
 }
 
-if ($hidecitysetting != true) {
+if ($hidecitysetting != True) {
 	$hidecitytextvariable = '';
 }
 
-if ($website_not_so_much_space_setting == true) {
+if ($website_not_so_much_space_setting == True) {
 	$bigspace = '';
 }
 

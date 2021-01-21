@@ -24,7 +24,7 @@ if (is_dir($dir)) {
 $i = 1;
 $cover_number = count($files) - 3;
 while ($i <= $cover_number) {
-	if ($new_write_style == true) {
+	if ($new_write_style == True) {
 		$onclickscript = 'openCity('."'".$chapter_div_text.$i."'".');DefineChapter('.$i.');';
 	}
 
@@ -62,7 +62,7 @@ while ($c <= (count($files))) {
 	$c++;
 
 /*
-	if (isset($files[$a]) == true) {
+	if (isset($files[$a]) == True) {
 		if ($c == 3) {
 			$z--;
 			$onclickscript = 'openCity('."'".$chapter_div_text.$z."'".');DefineChapter('.$z.');';

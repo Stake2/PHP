@@ -8,7 +8,7 @@ elseif ($website_not_so_much_space_setting == false) {
 	$computerspace = '<div class="'.$computer_variable.'"><br /><br /><br />'.$div_close;
 }
 
-elseif ($website_not_so_much_space_setting == true) {
+elseif ($website_not_so_much_space_setting == True) {
 	$computerspace = '';
 }
 
@@ -147,7 +147,7 @@ if ($sitetype1 == $website_types_array[1]) {
 	$author_text.": ".'<span class="'.$colorsubtext.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$colorsubtext.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$colorsubtext.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
-	$chapter_date_text.': <span class="'.$colorsubtext.'">'.$story_namedate.'</span><br />'."\n".
+	$chapter_date_text.': <span class="'.$colorsubtext.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$colorsubtext.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
 	'</div>'."\n";
 */
@@ -162,12 +162,12 @@ if ($sitetype1 == $website_types_array[1]) {
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$second_text_color.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
-	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_namedate.'</span><br />'."\n".
+	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
 	'</div>'."\n";
 }
 
-if ($website_has_notifications == true and $website_deactivate_notification_setting == false) {
+if ($website_has_notifications == True and $website_deactivate_notification_setting == false) {
 	$changetitlescript = '<script>
 var olddocumenttitle = "";
 
@@ -190,11 +190,11 @@ else {
 	$sitenotification = '';
 }
 
-if ($website_new_design_setting == true) {
+if ($website_new_design_setting == True) {
 	$sitewrappershow = $website_header_wrapper;
 }
 
-if ($website_deactivate_header_setting == true) {
+if ($website_deactivate_header_setting == True) {
 	$sitewrappershow = '';
 }
 
@@ -202,7 +202,7 @@ if ($website_deactivate_header_setting == false) {
 	$sitewrappershow = $website_header_wrapper;
 }
 
-if ($deactivate_js == true) {
+if ($deactivate_js == True) {
 	$site_js = null;
 }
 
@@ -210,7 +210,7 @@ if ($deactivate_js == false) {
 	$site_js = $sitejs;
 }
 
-if ($website_deactivate_all_setting == true) {
+if ($website_deactivate_all_setting == True) {
 	$center = null;
 }
 

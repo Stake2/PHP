@@ -53,8 +53,8 @@ echo '<'.$n.'><p></p><br /><b>'.'2018: '.'</b><br /><br /><p></p></'.$n.'>'."\n"
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
 $current_year = 2018;
-$thingsidofake = true;
-$make2018medias = true;
+$thingsidofake = True;
+$make2018medias = True;
 $make2019medias = false;
 $media_array_year = $site2018;
 $regeneratemedias2019 = false;
@@ -62,7 +62,7 @@ include $mediaarraygenerator;
 
 $sitename2 = $website_name;
 $website_name = $sitewatch;
-$a2018text = true;
+$a2018text = True;
 $a2019text = false;
 #MediaReader imported from 2018.php (MediaReader 2018.php)
 include $mediareader2018;
@@ -80,10 +80,10 @@ echo '<'.$n.'><p></p><br /><b>'.'2019: '.'</b><br /><br /><p></p></'.$n.'>'."\n"
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
 $current_year = 2019;
-$thingsidofake = true;
+$thingsidofake = True;
 $make2018medias = false;
-$make2019medias = true;
-$regenerate_2019_medias = true;
+$make2019medias = True;
+$regenerate_2019_medias = True;
 $a2019 = false;
 $media_array_year = $site2019;
 include $mediaarraygenerator;
@@ -108,7 +108,7 @@ echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';b
 echo '<div style="text-align:left;">'."\n";
 
 #Goes here
-$thingsidofake = true;
+$thingsidofake = True;
 $current_year = strftime("%Y");
 $sitename2 = $website_name;
 $website_name = $sitewatch;
@@ -170,8 +170,8 @@ echo '<b>2018</b><br />'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
 $current_year = 2018;
-$thingsidofake = true;
-$make2018medias = true;
+$thingsidofake = True;
+$make2018medias = True;
 $make2019medias = false;
 $media_array_year = $site2018;
 include $mediaarraygenerator;
@@ -195,10 +195,10 @@ echo '<b>2019</b><br />'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
 $current_year = 2019;
-$thingsidofake = true;
+$thingsidofake = True;
 $make2018medias = false;
-$make2019medias = true;
-$regenerate_2019_medias = true;
+$make2019medias = True;
+$regenerate_2019_medias = True;
 $a2019 = false;
 $media_array_year = $site2019;
 include $mediaarraygenerator;
@@ -224,11 +224,11 @@ echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';b
 echo $margin."\n";
 echo '<div style="text-align:left;">'."\n";
 
-$thingsidofake = true;
+$thingsidofake = True;
 $current_year = strftime("%Y");
 $sitename2 = $website_name;
 $website_name = $sitewatch;
-$mobileversion = true;
+$mobileversion = True;
 
 #TextFileReader.php file includer
 include $textfilereaderphp;

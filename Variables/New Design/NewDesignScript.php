@@ -10,7 +10,7 @@ $newdesignscript = '<script src="https://www.superanimes.org/js/config.min.js?v=
 eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!"".replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return"\\w+"};c=1};while(c--){if(k[c]){p=p.replace(new RegExp("\\b"+e(c)+"\\b","g"),k[c])}}return p}("E 1;s 0=r.q(".8-p");0.6.5="b";n.7("m",(e)=>{1=e;0.6.5="k";0.7("j",(e)=>{4("h g f d c o 8 t l v","F",2);1.u();1.L.K((a)=>{J(a.I==="H"){4("9 G w D!","C",3);0.6.5="b"}B{4("A z 9 y!","x",3)}1=i})})});",48,48,"addBtn|deferredPrompt|||alert_view|display|style|addEventListener|atalho|Atalho|choiceResult|none|Criar|para||instalar|em|Clique|null|click|block|ou|beforeinstallprompt|window||button|querySelector|document|const|App|prompt|Desktop|com|danger|cancelado|de|Pedido|else|success|Sucesso|var|warning|Criado|accepted|outcome|if|then|userChoice".split("|"),0,{}))
 
 	function checkSizeGridBoxItem() {
-		var grid_size = $(".orientation_vertical").outerHeight(true).toFixed(2);
+		var grid_size = $(".orientation_vertical").outerHeight(True).toFixed(2);
 		$(".grid_image").css({
 			"height": grid_size + "px",
 			"padding-bottom": "0"

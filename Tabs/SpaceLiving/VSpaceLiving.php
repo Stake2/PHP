@@ -69,7 +69,7 @@ $story_status = $status[2];
 $website_image = 'SpaceLiving Logo';
 
 #Defines the site image if the site has book covers or not
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	$website_image = $coverfolder.'1 '.$covertxt.'.png';
 	$website_image_size_computer = 60;
 	$imagesize2 = 88;
@@ -88,7 +88,7 @@ $crossover = 9;
 #$comments_number = 1;
 $website_comments_number = 0;
 
-if ($website_has_comments == true) {
+if ($website_has_comments == True) {
 	$comments_number_text = $comments_number + 1;
 	$website_comments_number_to_show = $website_comments_number - 1;
 }
@@ -106,7 +106,7 @@ require $text_file_reader_file_php;
 $comments_number = $comments_check_number - 1;
 
 #Story date definer using story date text file
-$story_namedate = $story_namedate[0];
+$story_creation_date = $story_creation_date[0];
 
 #The chapter that I want to write
 if ($website_chapter_to_write_setting == false) {
@@ -118,7 +118,7 @@ else {
 }
 
 #Re-include of the StoryVars.php file to set the story name
-require $story_name_variables_php_variable;
+require $story_variables_php_variable;
 
 #Reviewed chapter number
 $reviewed_chapter = 5;
@@ -136,7 +136,7 @@ $website_html_descriptions_array = array(
 );
 
 #Reads the book cover image directory if the site has book covers
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
@@ -237,7 +237,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
 }
 
-if ($website_writing_pack_setting == true) {
+if ($website_writing_pack_setting == True) {
 	$tabnames[0] = str_replace('Read', 'Write', $tabnames[0]);
 	$tabnames[0] = str_replace('Ler', 'Escrever', $tabnames[0]);
 }
@@ -275,8 +275,8 @@ foreach ($tabtitles as $tabname) {
 # Tab Generator.php includer
 require $website_tabs_generator;
 
-# Site notification variables if the site notification setting is true
-if ($website_has_notifications == true) {
+# Site notification variables if the site notification setting is True
+if ($website_has_notifications == True) {
 	#Reviewed chapter title
 	$reviewed_chaptercode = $chapter_buttons[$reviewed_chapter];
 }

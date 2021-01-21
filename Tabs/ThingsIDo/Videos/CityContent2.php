@@ -67,7 +67,7 @@ while ($i <= $musicnumb) {
 	echo '<div class="'.$textstyle2.'" style="border-color:'.$bordercolor.';border-style:solid;'.$rounded_border_style_2.'">'."\n";
 	echo '<p></p><br />'.'<b>'.$musictitles[$i].':</b>'.'<br /><br /><p></p>'.'<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-	if ($showembeds2 == true) {
+	if ($showembeds2 == True) {
 		echo $musicembedsyoutube[$i].'<br />'."\n";
 	}
 

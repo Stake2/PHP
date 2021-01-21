@@ -1,16 +1,25 @@
 <?php
 
 #Chapter text reader
-if ($new_write_style == true) {
+if ($new_write_style == True) {
 	#echo $edit_story_chapter_button;
 	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
 }
 
 if (isset($normal_chapters[$chapter_number_1])) {
-	if (file_exists($normal_chapters[$chapter_number_1]) == true) {
-		if ($story_namewritesstoryfiles == true) {
-			if (file_exists($chapter_write_to_folder) == true) {
-				$chapter_test_file = fopen($chapter_write_to_folder.$chapter_number_1.' - '.str_replace("?", "", $chapter_titles[($chapter_number_4 - 1)]).'.txt', 'w');
+	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
+		if ($story_namewritesstoryfiles == True) {
+			if (file_exists($chapter_write_to_folder) == True) {
+
+				if ($chapter_number_1 <= 9) {
+					$text_to_add = "0";
+				}
+
+				if ($chapter_number_1 > 9) {
+					$text_to_add = "";
+				}
+
+				$chapter_test_file = fopen($chapter_write_to_folder.$text_to_add.$chapter_number_1.' - '.str_replace("?", "", $chapter_titles[($chapter_number_4 - 1)]).'.txt', 'w');
 			}
 		}
 
@@ -19,8 +28,8 @@ if (isset($normal_chapters[$chapter_number_1])) {
 				$line = fgets($file);
 				$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
 
-				if ($story_namewritesstoryfiles == true) {
-					if (file_exists($chapter_write_to_folder) == true) {
+				if ($story_namewritesstoryfiles == True) {
+					if (file_exists($chapter_write_to_folder) == True) {
 						$chapter_file_text[$z123] = $line;
 						$chapter_line_number++;
 						$chapter_lines_array[$chapter_number_1] = $chapter_line_number;
@@ -40,8 +49,8 @@ if (isset($normal_chapters[$chapter_number_1])) {
 			}
 			fclose($file);
 
-			if ($story_namewritesstoryfiles == true) {
-				if (file_exists($chapter_write_to_folder) == true) {
+			if ($story_namewritesstoryfiles == True) {
+				if (file_exists($chapter_write_to_folder) == True) {
 					fclose($chapter_test_file);
 				}
 			}
@@ -53,13 +62,13 @@ if (isset($normal_chapters[$chapter_number_1])) {
 	}
 }
 
-if ($write_new_chapter == true and $chapter_number_1 == $chapters + 1) {
+if ($write_new_chapter == True and $chapter_number_1 == $chapters + 1) {
 	require $chapter_writer_form_php_variable;
 }
 
 #Chapter date displayer
-if ($website_name != $sitenazzevo and $story_name_has_dates == true) {
-	if (file_exists($chapter_dates_file) == true) {
+if ($website_name != $sitenazzevo and $story_has_dates == True) {
+	if (file_exists($chapter_dates_file) == True) {
 		$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 		if ($fp) {
 			$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
@@ -78,7 +87,7 @@ echo $div_close."\n";
 echo $div_close."\n";
 echo '<br /><br />'."\n";
 
-if ($new_write_style == true) {
+if ($new_write_style == True) {
 	#JavaScript version for the read story text
 	echo '<script>'.
 	'var ReadContent'.$chapter_number_1.' = `';
@@ -86,10 +95,19 @@ if ($new_write_style == true) {
 	#echo $edit_story_chapter_button;
 	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
 
-	if (file_exists($normal_chapters[$chapter_number_1]) == true) {
-		if ($story_namewritesstoryfiles == true) {
-			if (file_exists($chapter_write_to_folder) == true) {
-				$chapter_test_file = fopen($chapter_write_to_folder.$chapter_number_1.' - '.str_replace("?", "", $chapter_titles[($chapter_number_4 - 1)]).'.txt', 'w');
+	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
+		if ($story_namewritesstoryfiles == True) {
+			if (file_exists($chapter_write_to_folder) == True) {
+
+				if ($chapter_number_1 <= 9) {
+					$text_to_add = "0";
+				}
+
+				if ($chapter_number_1 > 9) {
+					$text_to_add = "";
+				}
+
+				$chapter_test_file = fopen($chapter_write_to_folder.$text_to_add.$chapter_number_1.' - '.str_replace("?", "", $chapter_titles[($chapter_number_4 - 1)]).'.txt', 'w');
 			}
 		}
 
@@ -98,8 +116,8 @@ if ($new_write_style == true) {
 			$line = fgets($file);
 			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
 
-			if ($story_namewritesstoryfiles == true) {
-				if (file_exists($chapter_write_to_folder) == true) {
+			if ($story_namewritesstoryfiles == True) {
+				if (file_exists($chapter_write_to_folder) == True) {
 					$chapter_file_text[$z123] = $line;
 					$chapter_line_number++;
 					$chapter_lines_array[$chapter_number_1] = $chapter_line_number;
@@ -119,8 +137,8 @@ if ($new_write_style == true) {
 		}
 			fclose($file);
 
-			if ($story_namewritesstoryfiles == true) {
-				if (file_exists($chapter_write_to_folder) == true) {
+			if ($story_namewritesstoryfiles == True) {
+				if (file_exists($chapter_write_to_folder) == True) {
 					fclose($chapter_test_file);
 				}
 			}
@@ -132,8 +150,8 @@ if ($new_write_style == true) {
 	}
 
 	#Chapter date displayer
-	if ($website_name != $sitenazzevo and $story_name_has_dates == true) {
-		if (file_exists($chapter_dates_file) == true) {
+	if ($website_name != $sitenazzevo and $story_has_dates == True) {
+		if (file_exists($chapter_dates_file) == True) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {
 				$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
@@ -160,10 +178,10 @@ if ($new_write_style == true) {
 
 	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
-	#Checks if the variable show_write_form_text is set to true
-	if ($show_write_form_text == true) {
-		#Checks if the variable website_show_write_form_text_setting is set to true and shows the title text
-		if ($website_show_write_form_text_setting == true) {
+	#Checks if the variable show_write_form_text is set to True
+	if ($show_write_form_text == True) {
+		#Checks if the variable website_show_write_form_text_setting is set to True and shows the title text
+		if ($website_show_write_form_text_setting == True) {
 			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 
@@ -178,14 +196,14 @@ if ($new_write_style == true) {
 
 	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
-	if ($website_show_write_form_text_setting == true) {
+	if ($website_show_write_form_text_setting == True) {
 		echo $story_text_text.': '."\n"."\n";
 	}
 
-	if ($show_write_form_text == true) {
-		if (strpos($host_text, $setting_parameters[8].'='.'true')) {
+	if ($show_write_form_text == True) {
+		if (strpos($host_text, $setting_parameters[8].'='.'True')) {
 			#Chapter text reader
-			if (file_exists($english_chapters[$chapter_number_1]) == true) {
+			if (file_exists($english_chapters[$chapter_number_1]) == True) {
 				if ($file = fopen($english_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
 					$line = fgets($file);
@@ -203,7 +221,7 @@ if ($new_write_style == true) {
 
 		else {
 			#Chapter text reader
-			if (file_exists($normal_chapters[$chapter_number_1]) == true) {
+			if (file_exists($normal_chapters[$chapter_number_1]) == True) {
 				if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
 					$line = fgets($file);
@@ -222,10 +240,10 @@ if ($new_write_style == true) {
 
 	echo '</textarea>'."\n";
 
-	if ($show_write_form_text == true and $story_name_has_dates == true) {
+	if ($show_write_form_text == True and $story_has_dates == True) {
 		#Chapter date displayer
 		if ($website_name != $sitenazzevo) {
-			if (file_exists($chapter_dates_file) == true) {
+			if (file_exists($chapter_dates_file) == True) {
 				$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 				if ($fp) {
 					$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
@@ -243,7 +261,7 @@ if ($new_write_style == true) {
 	'</script>';
 }
 
-if ($write_new_chapter == true) {
+if ($write_new_chapter == True) {
 	echo '<script>
 	function Open_Chapter() {
 		openCity("'.$chapter_div_text.($chapters + 1).'");

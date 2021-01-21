@@ -24,7 +24,7 @@ class CPF extends Documento {
 
 		// Validação do CPF
 
-		return true;
+		return True;
 
 	}
 

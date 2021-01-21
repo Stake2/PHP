@@ -45,7 +45,7 @@ $story_name_variable = $desert_island_story_name;
 $story_status = $status[1];
 
 # Defines the site image if the site has book covers or not
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	$story_name_cover_image_filename = '1';
 
 	$website_image = $online_cover_subfolder.$story_name_cover_image_filename.'.png';
@@ -79,12 +79,12 @@ $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;
 
 # Reads the book cover image directory if the site has book covers
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
 # Re-include of the StoryVars.php file to set the story name
-include $story_name_variables_php_variable;
+include $story_variables_php_variable;
 
 # English texts for Desert Island website
 if (in_array($website_language, $en_languages_array)) {

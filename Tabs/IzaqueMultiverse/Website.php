@@ -1,7 +1,7 @@
 <?php 
 
 #2018 Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$siteizaquemultiverse) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$siteizaquemultiverse) == True) {
 	$selected_website = $siteizaquemultiverse;
 
 	$site = $selected_website;
@@ -9,8 +9,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$siteizaquemultivers
 	$choosed_website_css_file = $css_file_pocb;
 
 	#Site settings
-	$website_uses_tab_body_generator = true;
-	$website_uses_universal_file_reader = true;
+	$website_uses_tab_body_generator = True;
+	$website_uses_universal_file_reader = True;
 
 	$tabs = array();
 

@@ -18,13 +18,21 @@ $z = 1;
 while ($a <= $chapters) {
 	$a2 = $a - 1;
 
-	if ($website_story_has_titles == true) {
-		$normal_chapters[$a] = $story_chapter_files_folder_language.$z.' - '.$chapter_titles[$a2].'.txt';
+	if ($a <= 9) {
+		$text_to_add = "0";
+	}
+
+	if ($a > 9) {
+		$text_to_add = "";
+	}
+
+	if ($website_story_has_titles == True) {
+		$normal_chapters[$a] = $story_chapter_files_folder_language.$text_to_add.$z.' - '.$chapter_titles[$a2].'.txt';
 		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 
 	else {
-		$normal_chapters[$a] = $story_chapter_files_folder_language.$z.'.txt';
+		$normal_chapters[$a] = $story_chapter_files_folder_language.$text_to_add.$z.'.txt';
 		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 
@@ -36,7 +44,7 @@ while ($a <= $chapters) {
 $a = 1;
 $z = 1;
 
-if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
+if (strpos($host_text, $website_translate_story_setting.'='.'True')) {
 	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($enus_language).'/';
 }
 
@@ -49,13 +57,21 @@ while ($a <= $chapters) {
 
 	$main_story_folder_4 = $story_chapter_files_folder.strtoupper($enus_language).'/';
 
-	if ($website_story_has_titles == true) {
-		$english_chapters[$a] = $main_story_folder_4.$z.' - '.$titlesenus[$a2].'.txt';
+	if ($a <= 9) {
+		$text_to_add = "0";
+	}
+
+	if ($a > 9) {
+		$text_to_add = "";
+	}
+
+	if ($website_story_has_titles == True) {
+		$english_chapters[$a] = $main_story_folder_4.$text_to_add.$z.' - '.$titlesenus[$a2].'.txt';
 		$english_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $english_chapters[$a]);
 	}
 
 	else {
-		$english_chapters[$a] = $main_story_folder_4.$z.'.txt';
+		$english_chapters[$a] = $main_story_folder_4.$text_to_add.$z.'.txt';
 		$english_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 
@@ -66,7 +82,7 @@ while ($a <= $chapters) {
 #Chapter date file reader, it generates the capdate array which contains the date that the chapter was written
 $a = 0;
 $z = 0;
-if ($story_name_has_dates == true) {
+if ($story_has_dates == True) {
 	while ($a <= $chapters) {
 		$a2 = $a - 1;
 
@@ -126,7 +142,7 @@ echo '<style>
 </style>';
 echo "\n";
 
-if ($story_name_has_reads == true and $story_website_contains_reads == true) {
+if ($story_has_reads == True and $story_website_contains_reads == True) {
 	require $reads_generator_php_variable;
 
 	$h = $readed_number;
@@ -137,7 +153,7 @@ $chapter_line_number = 0;
 $b1 = 0;
 $b2 = 1;
 
-if ($site_uses_new_comment_and_read_displayer == true and $story_website_contains_reads == true and $story_website_contains_comments == true) {
+if ($site_uses_new_comment_and_read_displayer == True and $story_website_contains_reads == True and $story_website_contains_comments == True) {
 	if ($website_name == $sitepequenata) {
 		$comments_array = array(
 		null,
@@ -229,7 +245,15 @@ while ($chapter_number_1 <= $chapters) {
 	require $chapter_tab_generator_php_variable;
 }
 
-if ($write_new_chapter == true) {
+if ($write_new_chapter == True) {
+	require $chapter_tab_generator_php_variable;
+}
+
+$write_chapter_55 = False;
+
+if ($write_chapter_55 == True) {
+	$chapter_number_1 = 55;
+	$chapter_number_4 = 54;
 	require $chapter_tab_generator_php_variable;
 }
 
@@ -241,12 +265,12 @@ while ($chapter_number_1 <= $chapters) {
 	echo $testscript;
 }
 
-if ($story_name_has_reads == true) {
+if ($story_has_reads == True) {
 	#Read-modal Tab generator PHP file
 	require $read_modal_generator_php_variable;
 }
 
-if ($website_has_comments_tab == true and $story_name_has_chapter_comments == true) {
+if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	#Comment-modal Tab generator PHP file
 	require $comment_modal_generator_php_variable;
 }
@@ -268,7 +292,7 @@ while ($i <= $chapters2) {
 	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="True">'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
 	echo '</span><br />'."\n";
@@ -292,7 +316,7 @@ while ($i <= $chapters2) {
 	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="true">'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="True">'."\n";
 	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
 	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
 	echo '</span><br />'."\n";

@@ -78,7 +78,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 ';
 
 	echo '<div id="computer_buttons_bar" class="w3-bar mobileHide w3-animate-top" style="position:fixed;float:right;">'."\n";
-	$sitebtnecho = true;
+	$sitebtnecho = True;
 
 	if ($website_name == $sitepequenata) {
 		$hide_notification_attribute = 'hidenotif();';
@@ -94,7 +94,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		}
 
 		else {
-			if ($i == 0 and $website_has_notifications == true and $website_hides_notification_on_clicking_on_read_tab_setting == true) {
+			if ($i == 0 and $website_has_notifications == True and $website_hides_notification_on_clicking_on_read_tab_setting == True) {
 				$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$tabcodes[$i]."')".';">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 			}
 
@@ -104,7 +104,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		}
 
 		if ($i <= $tabnumb2 and $website_name != $site2019) {
-			if (strpos($computer_buttons[$i], 'Comment') and strpos($computer_buttons[$i], 'Comentar' and $website_has_comments_tab_setting == true)) {
+			if (strpos($computer_buttons[$i], 'Comment') and strpos($computer_buttons[$i], 'Comentar' and $website_has_comments_tab_setting == True)) {
 				#echo $computer_buttons[$i];
 			}
 
@@ -117,7 +117,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			echo $computer_buttons[$i];
 		}
 
-		if ($website_name == $sitediario and $sitebtnecho == true and $i == $tabnumb) {
+		if ($website_name == $sitediario and $sitebtnecho == True and $i == $tabnumb) {
 			echo ' '.$websites_tab_button_not_centered;
 
 			$sitebtnecho = false;
@@ -170,7 +170,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		}
 	
 		else {
-			if ($i == 0 and $website_has_notifications == true and $website_hides_notification_on_clicking_on_read_tab_setting == true) {
+			if ($i == 0 and $website_has_notifications == True and $website_hides_notification_on_clicking_on_read_tab_setting == True) {
 				$mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$tabcodesm[$i]."')".';">'.$tabtxtsm[$i].'</button></a>';
 			}
 	
@@ -195,7 +195,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			echo "\n";
 		}
 
-		if ($website_name == $sitediario and $sitebtnecho == true and $i == $tabnumb) {
+		if ($website_name == $sitediario and $sitebtnecho == True and $i == $tabnumb) {
 			echo ' '.$websites_tab_button_not_centered;
 
 			$sitebtnecho = false;

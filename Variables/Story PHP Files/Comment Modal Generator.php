@@ -31,8 +31,8 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button>'."\n";
 
     #Computer Comment-modal form
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $margin2."\n";
 
 	# Name input text
@@ -73,7 +73,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$color.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' modal_close_button" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     #Mobile Comment-modal form
-	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="true" '.$roundedborderstyle.'>'."\n";
+	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).' '.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";

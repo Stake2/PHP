@@ -191,7 +191,7 @@ $websites_tab_global_number_color = "w3-text-blue";
 
 $margin_3_h1 = '<h1 style="margin-left:3%;">'.'<b>';
 
-if ($roundedbuttonson == true) {
+if ($roundedbuttonson == True) {
 	$roundedborderstyle = 'style="border-radius: 50px;"';
 	$rounded_border_style_2 = 'border-radius: 50px;';
 	$roundedborderstyle3 = 'border-radius: 32px;';

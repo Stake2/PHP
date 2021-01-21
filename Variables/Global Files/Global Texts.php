@@ -27,7 +27,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$day_text = 'day';
 	$days_text = 'days';
 
-	if ($website_new_design_setting == true) {
+	if ($website_new_design_setting == True) {
 		$newdesigntxts = array(
 		'Story menu',
 		'Chapter menu',
@@ -60,7 +60,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$day_text = 'dia';
 	$days_text = 'dias';
 
-	if ($website_new_design_setting == true) {
+	if ($website_new_design_setting == True) {
 		$newdesigntxts = array(
 		'Menu de histórias',
 		'Menu de capítulos',

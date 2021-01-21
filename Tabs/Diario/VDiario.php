@@ -48,7 +48,7 @@ if ($website_language == $languages_array[0]) {
 
 	$story_chapter_files_folder_language = $story_name_folder;
 
-	if ($website_story_has_bookcovers_setting == true) {
+	if ($website_story_has_bookcovers_setting == True) {
 		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'Capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';
 		$coverfolder2 = substr($story_chapter_files_folder_language, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
 	}
@@ -59,7 +59,7 @@ if ($website_language == $languages_array[0]) {
 else {
 	$story_chapter_files_folder_language = $story_name_folder;
 
-	if ($website_story_has_bookcovers_setting == true) {
+	if ($website_story_has_bookcovers_setting == True) {
 		$coverfolder = $cdn.'/'.'img'.'/'.'stories'.'/'.$formcode.'/'.'capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';
 		$coverfolder2 = substr($story_chapter_files_folder_language, 0, -5).'Foto'.'/'.'Capas'.'/'.'Kids'.'/'.strtoupper($website_language).'/';
 	}
@@ -236,7 +236,7 @@ $tabnames[1].': '.$icons[1],
 $tabnames[2].': '.$icons[12],
 );
 
-if ($website_has_stories_tab_setting == true) {
+if ($website_has_stories_tab_setting == True) {
 	array_push($citiestxts, end(array_values($tabnames)).': '.$icons[11]);
 }
 

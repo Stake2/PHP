@@ -82,11 +82,11 @@ while ($i <= $playlistsnumb) {
 	echo '<div class="'.$textstyle2.'" style="border-color:'.$bordercolor.';border-style:solid;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation.'<p></p><br />'.'<b>'.$playlisttitles[$i].':</b>'.$div_close.'<br /><p></p>'.'<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-	if ($showembeds == false or $showplaylistembed == true) {
+	if ($showembeds == false or $showplaylistembed == True) {
 		echo $div_zoom_animation.'<p></p><br /><a class="w3-text-blue" target="_newtab" href="https://www.youtube.com/playlist?list='.$youtubeplaylistids[$i].'">'.$playlisttitles[$i].'</a><br /><br /><p></p>'.$div_close."\n";
 	}
 
-	if ($showembeds == true) {
+	if ($showembeds == True) {
 		echo $playlistembedsyoutube[$i].'<br />'."\n";
 	}
 

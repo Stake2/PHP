@@ -31,7 +31,7 @@ $story_status = $status_reviewing_and_editing;
 $website_image = 'pequenata';
 
 # Defines the site image if the site has book covers or not
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	$story_name_cover_image_filename = '1';
 
 	$website_image = $online_cover_subfolder.$story_name_cover_image_filename.'.png';
@@ -65,7 +65,7 @@ $readed_number = 12;
 include $text_file_reader_file_php;
 
 # Story date definer using story date text file
-$story_namedate = $story_namedate[0];
+$story_creation_date = $story_creation_date[0];
 
 # The chapter that I want to write
 if ($website_chapter_to_write_setting == false) {
@@ -76,8 +76,8 @@ else {
 	$story_name_website_chapter_to_write = (int)$website_chapter_to_write_setting;
 }
 
-# Re-include of the StoryVars.php file to set the story name
-include $story_name_variables_php_variable;
+# Re-include of the VStories.php file to set the story name
+include $story_variables_php_variable;
 
 # Reviewed chapter number
 $reviewed_chapter = 13;
@@ -95,7 +95,7 @@ $website_html_descriptions_array = array(
 );
 
 # Reads the book cover image directory if the site has book covers
-if ($website_story_has_bookcovers_setting == true) {
+if ($website_story_has_bookcovers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
@@ -199,7 +199,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
 }
 
-if ($website_writing_pack_setting == true) {
+if ($website_writing_pack_setting == True) {
 	$tabnames[0] = str_replace('Read', 'Write', $tabnames[0]);
 	$tabnames[0] = str_replace('Ler', 'Escrever', $tabnames[0]);
 }
@@ -223,8 +223,8 @@ require $website_style_file;
 # TabGenerator.php File Includer
 include $website_tabs_generator;
 
-# Site notification variables if the site notification setting is true
-if ($website_has_notifications == true) {
+# Site notification variables if the site notification setting is True
+if ($website_has_notifications == True) {
 	# Reviewed chapter title
 	$reviewed_chaptercode = $chapter_buttons[$reviewed_chapter];
 	$reviewed_chapter_button_mobile = $chapter_buttons[$reviewed_chapter];

@@ -1,22 +1,22 @@
 <?php
 
 #Chapter writer tab displayer
-if ($new_write_style == true) {
+if ($new_write_style == True) {
 	echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
 	echo $edit_story_chapter_button;
 }
 
 require $chapter_writer_form_php_variable;
 
-if ($new_write_style == true) {
+if ($new_write_style == True) {
 	#JavaScript version for the write story form
 	echo '<script>'.
 	'var WriteContent'.$chapter_number_1.' = `<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
-	#Checks if the variable website_show_chapter_text_on_write_form_setting is set to true
-	if ($website_show_chapter_text_on_write_form_setting == true) {
-		#Checks if the variable website_show_write_form_text_setting is set to true and shows the title text
-		if ($show_write_form_text == true) {
+	#Checks if the variable website_show_chapter_text_on_write_form_setting is set to True
+	if ($website_show_chapter_text_on_write_form_setting == True) {
+		#Checks if the variable website_show_write_form_text_setting is set to True and shows the title text
+		if ($show_write_form_text == True) {
 			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 
@@ -29,14 +29,14 @@ if ($new_write_style == true) {
 
 	echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
-	if ($show_write_form_text == true) {
+	if ($show_write_form_text == True) {
 		echo $story_text_text.': '."\n"."\n";
 	}
 
-	if ($show_write_form_text == true) {
-		if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
+	if ($show_write_form_text == True) {
+		if (strpos($host_text, $website_translate_story_setting.'='.'True')) {
 			# Chapter text reader
-			if (file_exists($english_chapters[$chapter_number_1]) == true) {
+			if (file_exists($english_chapters[$chapter_number_1]) == True) {
 				if ($file = fopen($english_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
 					$line = fgets($file);
@@ -61,7 +61,7 @@ if ($new_write_style == true) {
 
 		else {
 			# Chapter text reader
-			if (file_exists($normal_chapters[$chapter_number_1]) == true) {
+			if (file_exists($normal_chapters[$chapter_number_1]) == True) {
 				if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
 				while(!feof($file)) {
 					$line = fgets($file);
@@ -87,9 +87,9 @@ if ($new_write_style == true) {
 
 	echo '</textarea>'."\n";
 
-	if ($show_write_form_text == true and $story_name_has_dates == true) {
+	if ($show_write_form_text == True and $story_has_dates == True) {
 		# Chapter date displayer
-		if (file_exists($chapter_dates_file) == true) {
+		if (file_exists($chapter_dates_file) == True) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {
 				$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));

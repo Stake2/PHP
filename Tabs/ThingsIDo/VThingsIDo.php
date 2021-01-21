@@ -68,14 +68,14 @@ $watchedtypefile2019 = $notepad_years_folder_variable.$site2019.'/Watched VideoT
 $yearmakerfilephp2test = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
 $yearmakerfilephp2test = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearmakerfilephp2test);
 
-if (file_exists($watchedtypefile2018) == true) {
+if (file_exists($watchedtypefile2018) == True) {
 	$fp = fopen ($watchedtypefile2018, 'r', 'UTF-8'); 
 	if ($fp) {
 		$watchedfile2018 = explode("\n", fread($fp, filesize($watchedtypefile2018)));
 	}
 }
 
-if (file_exists($watchedtypefile2019) == true) {
+if (file_exists($watchedtypefile2019) == True) {
 	$fp = fopen ($watchedtypefile2019, 'r', 'UTF-8'); 
 	if ($fp) {
 		$watchedfile2019 = explode("\n", fread($fp, filesize($watchedtypefile2019)));

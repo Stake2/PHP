@@ -1,7 +1,7 @@
 <?php 
 
 #Comments displayer
-if (isset($array1[$number_variable]) and is_array($array1[$number_variable]) == true and $array1[$number_variable] != null) {
+if (isset($array1[$number_variable]) and is_array($array1[$number_variable]) == True and $array1[$number_variable] != null) {
 	echo $commentheader."\n";
 
 	$c = 0;
@@ -23,7 +23,7 @@ else if (isset($array1[$number_variable]) and $array1[$number_variable] != null)
 }
 
 #Readings and Reads displayer
-if (isset($array2[$number_variable]) and is_array($array2[$number_variable]) == true and $array2[$number_variable] != null) {
+if (isset($array2[$number_variable]) and is_array($array2[$number_variable]) == True and $array2[$number_variable] != null) {
 	echo $readingsheader."\n";
 
 	$c = 0;

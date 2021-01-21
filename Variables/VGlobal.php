@@ -48,7 +48,7 @@ require $global_style_file_php;
 
 if ($site_is_prototype == false) {
 	#Story variables PHP file includer if the website is a story website
-	require $story_name_variables_php_variable;
+	require $story_variables_php_variable;
 
 	#SitesButtons Attributes.php includer
 	require $websites_tab_attributes;
@@ -79,7 +79,7 @@ require $website_image_maker;
 require $website_classes_php;
 
 # Website notifications includer if the website has notifications activated
-if ($website_has_notifications == true) {
+if ($website_has_notifications == True) {
 	require $notifications_php;
 }
 

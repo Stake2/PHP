@@ -3,11 +3,11 @@
 #Shows the text area where the title of the chapter is shown
 echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
-#Checks if the variable show_write_form_text is set to true
-if ($show_title_text == true) {
-	# Shows the chapter title if the setting is set to true
-	if ($show_write_form_text == true) {
-		if ($website_translate_story_setting == true) {
+#Checks if the variable show_write_form_text is set to True
+if ($show_title_text == True) {
+	# Shows the chapter title if the setting is set to True
+	if ($show_write_form_text == True) {
+		if ($website_translate_story_setting == True) {
 			echo $titletxt.': '."\n".$chapter_number_1.' - '.$titlesenus[($chapter_number_4 - 1)];
 		}
 
@@ -17,7 +17,7 @@ if ($show_title_text == true) {
 	}
 
 	else {
-		if ($website_translate_story_setting == true) {
+		if ($website_translate_story_setting == True) {
 			echo $chapter_number_1.' - '.$titlesenus[($chapter_number_4 - 1)];
 		}
 
@@ -32,14 +32,14 @@ echo '</textarea>'."\n";
 #Shows the text area  where the text of the chapter is shown
 echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
 
-if ($website_show_write_form_text_setting == true) {
+if ($website_show_write_form_text_setting == True) {
 	echo $story_text_text.': '."\n"."\n";
 }
 
-if ($show_write_form_text == true) {
-	if ($website_translate_story_setting == true) {
+if ($show_write_form_text == True) {
+	if ($website_translate_story_setting == True) {
 		#Chapter text reader
-		if (file_exists($english_chapters[$chapter_number_1]) == true) {
+		if (file_exists($english_chapters[$chapter_number_1]) == True) {
 			if ($file = fopen($english_chapters[$chapter_number_1], "r")) {
 			while(!feof($file)) {
 				$line = fgets($file);
@@ -57,7 +57,7 @@ if ($show_write_form_text == true) {
 
 	else {
 		#Chapter text reader
-		if (file_exists($normal_chapters[$chapter_number_1]) == true) {
+		if (file_exists($normal_chapters[$chapter_number_1]) == True) {
 			if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
 			while(!feof($file)) {
 				$line = fgets($file);
@@ -76,10 +76,10 @@ if ($show_write_form_text == true) {
 
 echo '</textarea>'."\n";
 
-if ($show_write_form_text == true and $story_name_has_dates == true) {
+if ($show_write_form_text == True and $story_has_dates == True) {
 	#Chapter date displayer
 	if ($website_name != $sitenazzevo) {
-		if (file_exists($chapter_dates_file) == true) {
+		if (file_exists($chapter_dates_file) == True) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {
 				$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));

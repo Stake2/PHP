@@ -1,6 +1,6 @@
 <?php 
 
-$a2019 = true;
+$a2019 = True;
 #YearMaker2.php reader
 include $yearmakerfilephp2test;
 

@@ -86,7 +86,7 @@ while ($i <= $musicnumb) {
 		echo $div_zoom_animation.'<p></p><br /><a class="w3-text-blue" target="_newtab" href="https://www.youtube.com/watch?v='.$youtubemusicids[$i].'">'.$musictitles[$i].'</a><br /><br /><p></p>'.$div_close."\n";
 	}
 
-	if ($showembeds == true) {
+	if ($showembeds == True) {
 		echo $musicembedsyoutube[$i].'<br />'."\n";
 	}
 

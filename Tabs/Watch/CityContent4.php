@@ -1,12 +1,12 @@
 <?php 
 
-if ($thingsidofake == true) {
+if ($thingsidofake == True) {
 	$spanstyle = $blackspan;
 	$hover_text_color = $text_hover_white_css_class;
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == true) {
+	if ($mobileversion == True) {
 		$margindivstyle = '<div>';
 		$mobileaname = 'm';
 	}
@@ -23,7 +23,7 @@ if ($thingsidofake == null) {
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == true) {
+	if ($mobileversion == True) {
 		$margindivstyle = '<div>';
 		$mobileaname = 'm';
 	}

@@ -9,7 +9,7 @@ if ($website_name == $sitethingsido) {
 	include $textfilereaderphp;
 	$website_name = $sitename2;
 
-	if ($make2018medias == true and $make2019medias == false) {
+	if ($make2018medias == True and $make2019medias == false) {
 		$thingsnumb = 221;
 		$thingsnumb2 = 3.108;
 		$watched_number_ = $watched_episodes_2018_line_number;
@@ -40,7 +40,7 @@ if ($website_name == $sitethingsido) {
 		$media_type_videos_line = $original5;
 	}
 
-	if ($make2019medias == true and $make2018medias == false) {
+	if ($make2019medias == True and $make2018medias == false) {
 		$thingsnumb = 524;
 		$watched_number_ = $watched_episodes_2019_line_number;
 
@@ -209,7 +209,7 @@ if ($website_name == $sitethingsido) {
 
 $i = 6;
 $v = 0;
-if ($media_array_year == $site2018 and $thingsidofake == true) {
+if ($media_array_year == $site2018 and $thingsidofake == True) {
 	while ($i <= 10) {
 		$medias[$v] = $blackspan.$media_names_array[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
 

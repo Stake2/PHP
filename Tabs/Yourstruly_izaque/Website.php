@@ -1,7 +1,7 @@
 <?php 
 
 #Pequenata Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$siteyourstruly_izaque) == true) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$siteyourstruly_izaque) == True) {
 	$selected_website = $siteyourstruly_izaque;
 
 	#Site title and name definer
@@ -10,11 +10,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$siteyourstruly_izaq
 	$choosed_website_css_file = $css_file_pocb;
 
 	$website_deactivate_top_buttons_setting = false;
-	$website_deactivate_website_buttons_setting = true;
-	$hidecitysetting = true;
+	$website_deactivate_website_buttons_setting = True;
+	$hidecitysetting = True;
 	$website_not_so_much_space_setting = false;
-	$website_uses_tab_body_generator = true;
-	$website_uses_universal_file_reader = true;
+	$website_uses_tab_body_generator = True;
+	$website_uses_universal_file_reader = True;
 
 	#Site settings setter file includer
 	include $setting_parameters_file;

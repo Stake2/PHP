@@ -1,7 +1,7 @@
 <?php
 
 #Readings and Comments displayer on chapters
-if ($website_name == $sitepequenata and $story_name_has_chapter_comments == true) {
+if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 	if ($chapter_number_1 == 1) {
 		echo $commentheader."\n";
 
@@ -65,7 +65,7 @@ if ($website_name == $sitepequenata and $story_name_has_chapter_comments == true
 	}
 }
 
-if ($website_name == $sitenazzevo and $story_name_has_chapter_comments == true) {
+if ($website_name == $sitenazzevo and $story_has_chapter_comments == True) {
 	if ($chapter_number_1 == 1) {
 		echo $commentheader."\n";
 
@@ -85,7 +85,7 @@ if ($website_name == $sitenazzevo and $story_website_contains_reads) {
 	}
 }
 
-if ($website_name == $sitespaceliving and $story_name_has_chapter_comments == true and $story_website_contains_comments == true) {
+if ($website_name == $sitespaceliving and $story_has_chapter_comments == True and $story_website_contains_comments == True) {
 	if ($chapter_number_1 == 1) {
 		echo $commentheader."\n";
 

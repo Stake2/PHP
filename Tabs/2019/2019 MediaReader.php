@@ -1,12 +1,12 @@
 <?php 
 
-if ($thingsidofake == true) {
+if ($thingsidofake == True) {
 	$spanstyle = $blackspan;
 	$hover_text_color = $text_hover_white_css_class;
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == true) {
+	if ($mobileversion == True) {
 		$margindivstyle = '<div>';
 		$mobileaname = 'm';
 	}
@@ -23,7 +23,7 @@ if ($thingsidofake == null) {
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == true) {
+	if ($mobileversion == True) {
 		$margindivstyle = '<div>';
 		$mobileaname = 'm';
 	}
@@ -66,11 +66,11 @@ if ($website_name == $sitewatch) {
 	$media_type_videos_line = $original5;
 }
 
-if ($website_name == $sitewatch and $thingsidofake == true and $site == $sitethingsido or $website_name == $sitethingsido) {
+if ($website_name == $sitewatch and $thingsidofake == True and $site == $sitethingsido or $website_name == $sitethingsido) {
 	echo '<b>'.$blackspan.$txts[4].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watched_number_.'</b>'.$spanc.'<br />'."\n";
 }
 
-if ($website_name == $sitewatch  and $thingsidofake == null or $thingsidofake == false and $watchmedias2019 == true) {
+if ($website_name == $sitewatch  and $thingsidofake == null or $thingsidofake == false and $watchmedias2019 == True) {
 	echo '<b>'.$whitespan.$txts[4].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watched_number_.'</b>'.$spanc."\n".'<br />'."\n";
 }
 
@@ -79,9 +79,9 @@ if ($website_name != $sitewatch) {
 }
 
 $a2019 = false;
-$a2018text = true;
+$a2018text = True;
 $a2019text = false;
-$regeneratemedias2019 = true;
+$regeneratemedias2019 = True;
 $generate2019 = false;
 #YearMaker2.php reader
 include $yearmakerfilephp2test;

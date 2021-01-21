@@ -66,7 +66,7 @@ class Documento {
 
 			}
 
-			return true;
+			return True;
 		}
 
 	}
