@@ -7,7 +7,7 @@ $stories_number = 5;
 $status = array(
 'finished',
 'writing',
-'reviewing and editing',
+'revising and editing',
 'finished and publishing',
 );
 
@@ -27,7 +27,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$story_statuses = array(
 	'finished',
 	'writing',
-	'reviewing and editing',
+	'revising and editing',
 	'finished and publishing',
 	);
 
@@ -61,9 +61,9 @@ if (in_array($website_language, $en_languages_array)) {
 	$chapter_text = 'chapter';
 	$chapter_tab_text = $chapter_text.'-text';
 
-	$author_text = 'Author';
+	$author_text = 'Author of the story';
 	$chapters_text = 'Chapters';
-	$chapter_date_text = 'Date';
+	$chapter_date_text = 'Story creation date';
 	$chapter_date_text_two = ucwords($chapter_text).' written in';
 
 	$person_name_text = 'Name';
@@ -132,9 +132,9 @@ if (in_array($website_language, $pt_languages_array)) {
 	$chapter_text = 'capítulo';
 	$chapter_tab_text = 'texto-'.$chapter_text;
 
-	$author_text = 'Autor';
+	$author_text = 'Autor da história';
 	$chapters_text = 'Capítulos';
-	$chapter_date_text = 'Data';
+	$chapter_date_text = 'Data de criação da história';
 	$chapter_date_text_two = ucwords($chapter_text).' escrito em';
 
 	$person_name_text = 'Nome';

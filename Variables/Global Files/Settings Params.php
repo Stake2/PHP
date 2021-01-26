@@ -7,7 +7,7 @@ $settings_params_array = array(
 );
 
 foreach ($settings_params_array as $param) {	
-	if (strpos($host_text, $param.'='.'True') == True) {
+	if (strpos($host_text, $param.'='.'true') == True) {
 		${"$param"} = True;
 	}
 
@@ -20,7 +20,7 @@ foreach ($settings_params_array as $param) {
 	}
 }
 
-if (strpos($host_text, $setting_parameters[0].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[0].'='.'true') == True) {
 	$website_has_notifications = True;
 }
 
@@ -33,7 +33,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[1].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[1].'='.'true') == True) {
 	$website_has_comments_tab = True;
 }
 
@@ -46,7 +46,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[2].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[2].'='.'true') == True) {
 	$website_shows_comments = True;
 }
 
@@ -59,7 +59,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[3].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[3].'='.'true') == True) {
 	$website_has_stories_tab_setting = True;
 }
 
@@ -72,7 +72,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[4].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[4].'='.'true') == True) {
 	$website_has_changelog_setting = True;
 }
 
@@ -85,7 +85,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[5].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[5].'='.'true') == True) {
 	$website_write_story_setting = True;
 }
 
@@ -98,7 +98,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[6].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[6].'='.'true') == True) {
 	$website_show_write_form_text_setting = True;
 }
 
@@ -111,7 +111,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[7].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[7].'='.'true') == True) {
 	$website_show_chapter_text_on_write_form_setting = True;
 }
 
@@ -123,7 +123,7 @@ else {
 	$website_show_chapter_text_on_write_form_setting = $website_show_chapter_text_on_write_form_setting;
 }
 
-if (strpos($host_text, $setting_parameters[8].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[8].'='.'true') == True) {
 	$website_translate_story_setting = True;
 }
 
@@ -146,7 +146,7 @@ while ($c < 50) {
 }
 
 
-if (strpos($host_text, $setting_parameters[18].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[18].'='.'true') == True) {
 	$website_show_chapter_text_on_write_form_setting = True;
 	$new_write_style = True;
 	$website_writing_pack_setting = True;
@@ -161,7 +161,7 @@ if (strpos($host_text, $setting_parameters[18].'='.'false') == True) {
 }
 
 
-if (strpos($host_text, $setting_parameters[10].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[10].'='.'true') == True) {
 	$website_story_has_bookcovers_setting = True;
 }
 
@@ -174,7 +174,7 @@ else {
 }
 
 
-if (strpos($host_text, $setting_parameters[11].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[11].'='.'true') == True) {
 	$website_deactivate_top_buttons_setting = True;
 }
 
@@ -183,7 +183,7 @@ if (strpos($host_text, $setting_parameters[11].'='.'false') == True) {
 }
 
 
-if (strpos($host_text, $setting_parameters[12].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[12].'='.'true') == True) {
 	$website_deactivate_tabs_setting = True;
 }
 
@@ -192,7 +192,7 @@ if (strpos($host_text, $setting_parameters[12].'='.'false') == True) {
 }
 
 
-if (strpos($host_text, $setting_parameters[20].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[20].'='.'true') == True) {
 	$website_deactivate_header_setting = True;
 }
 
@@ -201,7 +201,7 @@ if (strpos($host_text, $setting_parameters[20].'='.'false') == True) {
 }
 
 
-if (strpos($host_text, $setting_parameters[13].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[13].'='.'true') == True) {
 	$website_deactivate_notification_setting = True;
 }
 
@@ -209,7 +209,7 @@ if (strpos($host_text, $setting_parameters[13].'='.'false') == True) {
 	$website_deactivate_notification_setting = false;
 }
 
-if (strpos($host_text, $setting_parameters[19].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[19].'='.'true') == True) {
 	$website_deactivate_top_buttons_setting = True;
 	$website_deactivate_tabs_setting = True;
 	$website_deactivate_notification_setting = True;
@@ -231,7 +231,7 @@ if (strpos($host_text, $setting_parameters[19].'='.'false') == True) {
 }
 
 
-if (strpos($host_text, $setting_parameters[14].'='.'True') == True) {
+if (strpos($host_text, $setting_parameters[14].'='.'true') == True) {
 	$website_new_design_setting = True;
 }
 
@@ -239,7 +239,7 @@ if (strpos($host_text, $setting_parameters[14].'='.'false') == True) {
 	$website_new_design_setting = false;
 }
 
-if (strpos ($host_text, $setting_parameters[15].'='.'True') == True) {
+if (strpos ($host_text, $setting_parameters[15].'='.'true') == True) {
     $website_watch_history_show_to_watch_only_setting = True;
 }
 
@@ -247,7 +247,7 @@ if (strpos ($host_text, $setting_parameters[15].'='.'false') == True) {
     $website_watch_history_show_to_watch_only_setting = false;
 }
 
-if (strpos ($host_text, $setting_parameters[16].'='.'True') == True) {
+if (strpos ($host_text, $setting_parameters[16].'='.'true') == True) {
     $website_watch_history_new_watched_style_setting = True;
 }
 

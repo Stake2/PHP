@@ -44,7 +44,7 @@ while ($a <= $chapters) {
 $a = 1;
 $z = 1;
 
-if (strpos($host_text, $website_translate_story_setting.'='.'True')) {
+if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
 	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($enus_language).'/';
 }
 

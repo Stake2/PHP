@@ -201,7 +201,7 @@ if ($new_write_style == True) {
 	}
 
 	if ($show_write_form_text == True) {
-		if (strpos($host_text, $setting_parameters[8].'='.'True')) {
+		if (strpos($host_text, $setting_parameters[8].'='.'true')) {
 			#Chapter text reader
 			if (file_exists($english_chapters[$chapter_number_1]) == True) {
 				if ($file = fopen($english_chapters[$chapter_number_1], "r")) {

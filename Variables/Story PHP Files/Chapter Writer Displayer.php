@@ -34,7 +34,7 @@ if ($new_write_style == True) {
 	}
 
 	if ($show_write_form_text == True) {
-		if (strpos($host_text, $website_translate_story_setting.'='.'True')) {
+		if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
 			# Chapter text reader
 			if (file_exists($english_chapters[$chapter_number_1]) == True) {
 				if ($file = fopen($english_chapters[$chapter_number_1], "r")) {
