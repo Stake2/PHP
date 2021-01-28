@@ -1,3 +1,7 @@
 10:24 11/03/2020: Made the animation revolution and created a changelog tab.
-22:21 01/04/2020: I used the "Media Reader" from the 2019 website to write the medias on the Archived > 2019 Tab
-21:02 17/04/2020: I added the new "Media Reader" from the website 2019 and 2018 on tabs "Archived > 2018" and "Archived > 2019
+22:21 01/04/2020: I used the "Media Reader" from the 2019 website to write the medias on the Archived Media > 2019 Tab
+21:02 17/04/2020: I added the new "Media Reader" from the website 2018 and 2019 on tabs "Archived Media > 2018" and "Archived Media > 2019"
+22:00 22/05/2020: I changed the way that the Watched Nedias are written on the "Watched 2021", making them be separated by the media type, anime, video and stuff
+22:07 22/05/2020: I also changed some of the YouTube videos in the "Watched 2021" tab so you can click on the YouTube button and the YouTube video will open
+22:10 27/01/2021: Changed the way that the Archived Media and their tabs are created on the website.
+Making them be created from the year 2018 to the current year automatically.

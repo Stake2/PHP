@@ -49,6 +49,9 @@ if (in_array($website_language, $en_languages_array)) {
 	'5 - '.$linksmedianames[4].' ('.$mediatype[3].')', 
 	'6 - '.$linksmedianames[5].' ('.$mediatype[3].')',
 	);
+
+	$archived_media_text = "Medias";
+	$archived_text = "Archived";
 }
 
 #Brazilian Portuguese texts
@@ -100,6 +103,9 @@ if (in_array($website_language, $pt_languages_array)) {
 	'5 - '.$linksmedianames[4].' ('.$mediatype[3].')', 
 	'6 - '.$linksmedianames[5].' ('.$mediatype[3].')',
 	);
+
+	$archived_media_text = "Mídias";
+	$archived_text = "Arquivado";
 }
 
 $rewatched_text_enus = "Rewatched";

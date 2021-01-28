@@ -44,6 +44,8 @@ $websites_tab_button_maker = $websites_tab_folder_variable.'Websites Tab Button 
 
 $tab_bodies_generator_php_variable = $tab_bodies_generator;
 
+$city_template_php = $generic_tabs_folder.'City Template.php';
+
 # Story PHP files
 $story_name_variables_php = $story_name_files_php_folder_variable.'VStories.php';
 
@@ -98,7 +100,8 @@ $chapter_generator_global_variable = $chapter_generator_global;
 $mediaarraygenerator = $sitefolder_watch.'MediaArrayGenerator.php';
 $mediastyler = $sitefolder_watch.'MediaStyler.php';
 $current_year_watched_media_generator = $sitefolder_watch.'Current Year Watched Media Generator.php';
-$watchtextsphp = $sitefolder_watch.'WatchTexts.php';
+$watch_texts_php = $sitefolder_watch.'Watch Texts.php';
+$archived_media_machine_php = $sitefolder_watch.'Archived Media Machine.php';
 
 #Years PHP Files
 $year_variables_file = $sitefolder_years.'Year Variables.php';

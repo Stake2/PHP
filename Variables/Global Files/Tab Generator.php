@@ -144,11 +144,13 @@ if ($website_name == $sitewatch or $site == $sitewatch) {
 	include $computer_buttons_bar_loader;
 
 	#Every Watched Button Yellow
+	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
 	$every_watched_button_first_button_yellow_computer = $yellow_computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
 	$every_watched_button_second_button_yellow_computer = $computer_buttons[0].$yellow_computer_buttons[3].$computer_buttons[4];
 	$every_watched_button_third_button_yellow_computer = $computer_buttons[0].$computer_buttons[3].$yellow_computer_buttons[4];
 
 	#Mobile Every Watched Button Yellow
+	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[3].$mobile_buttons[4];
 	$every_watched_button_first_button_yellow_mobile = $yellow_mobile_buttons[0].$mobile_buttons[3].$mobile_buttons[4];
 	$every_watched_button_second_button_yellow_mobile = $mobile_buttons[0].$yellow_mobile_buttons[3].$mobile_buttons[4];
 	$every_watched_button_third_button_yellow_mobile = $mobile_buttons[0].$mobile_buttons[3].$yellow_mobile_buttons[4];

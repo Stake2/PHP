@@ -12,6 +12,19 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
+if ($website_name == $sitewatch) {
+	$current_variable_year = 2018;
+	$current_year = $current_year;
+
+	$i = 0;
+	while ($current_variable_year <= $current_year - 1) {
+		require $selected_website_folder.$current_variable_year.'.php';
+
+		$current_variable_year++;
+		$i++;
+	}
+}
+
 #Diario site php file loader
 if ($website_name == $sitediario or $website_name == ucwords($sitediario) or $site == $sitediario) {
 	include $websites_tab_generator;

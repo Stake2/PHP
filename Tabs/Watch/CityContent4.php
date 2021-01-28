@@ -103,12 +103,18 @@ while ($i <= $watched_movies_line_number - 1) {
 		$movie_time_number++;
 	}
 
-	if ($i >= 23) {
+	if ($i >= 23 and $i != 26) {
 		$watched_movie_comments[$watched_movies_text[$i]] = '<a target="_blank" href="'.$cdn_text_movie_comments.$watched_movies_text[$i].'.txt'.'" class="'.$text_hover_white_css_class.'" style="cursor:pointer;"><i class="fas fa-comments"></i></a>';
 
 		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watched_movies_text[$i].'<span class="w3-text-white"> - ('.$watched_movies_time_text[$movie_time_number].')</span></span> - '.$watched_movie_comments[$watched_movies_text[$i]].$div_close."\n";
 
 		$comment_number++;
+		$movie_time_number++;
+	}
+
+	if ($i >= 23 and $i == 26) {
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watched_movies_text[$i].'<span class="w3-text-white"> - ('.$watched_movies_time_text[$movie_time_number].')</span></span>'.$div_close."\n";
+
 		$movie_time_number++;
 	}
 

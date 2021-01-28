@@ -110,7 +110,7 @@ $mobileversion = '';
 require $year_variables_file;
 
 #Watch History website texts file includer
-require $watchtextsphp;
+require $watch_texts_php;
 
 #General language website_name, title, main_website_url and description
 if ($website_language == $geral_language) {
@@ -163,6 +163,16 @@ if (in_array($website_language, $pt_languages_array)) {
 	$tabnames[0] = substr_replace($tabnames[0], ' ', 10, 0);
 }
 
+$current_variable_year = 2018;
+$archived_medias_number = 0;
+
+while ($current_variable_year <= $current_year - 1) {
+	array_push($tab_titles_without_html, $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']');
+
+    $current_variable_year++;
+	$archived_medias_number++;
+}
+
 #Tabtexts array
 $citiestxts = array(
 $tabnames[0].' ['.$current_year_watched_number_text.']'.': '.$icons[5],
@@ -170,20 +180,26 @@ $tabnames[1].' ['.$to_watch_items.']'.': '.$icons[6],
 $tabnames[2].' ['.$media_links_number.']'.': '.$icons[7],
 $tabnames[3].' ['.$watched_movies_number.']'.': '.$icons[19],
 $tabnames[4].' ['.$archived_medias_number.']'.': '.$icons[8],
-$tabnames[5].' ['.$watched_number_2018.']'.': '.$icons[8],
-$tabnames[6].' ['.$watched_number_2019.']'.': '.$icons[8],
 $icons[13],
 );
 
+$archived_media_texts = array();
+
+$current_variable_year = 2018;
+
+while ($current_variable_year <= $current_year - 1) {
+	array_push($archived_media_texts, $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']'.': '.$icons[8]);
+
+    $current_variable_year++;
+}
+
 #Tabtexts array
-$citiestxtswithouthtml = array(
+$tab_titles_without_html = array(
 $tabnames[0].' ['.$current_year_watched_number_text.']',
 $tabnames[1].' ['.$to_watch_items.']',
 $tabnames[2].' ['.$media_links_number.']',
 $tabnames[3].' ['.$watched_movies_number.']',
 $tabnames[4].' ['.$archived_medias_number.']',
-$tabnames[5].' ['.$watched_number_2018.']',
-$tabnames[6].' ['.$watched_number_2019.']',
 $icons[13],
 );
 

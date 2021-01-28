@@ -28,19 +28,19 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitewatch) == True)
 	include $setting_parameters_file;
 
 	#Site Tabs array
-	$tabs = array('Watched', 'To Watch', 'Links', 'Movies', 'Arch', 'Arch'.$previous_previous_year, 'Arch'.$previous_year, 'Changelog');
+	$tabs = array('Watched', 'To Watch', 'Links', 'Movies', 'Arch', 'Changelog');
 
 	#Site Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Watched'.$current_year, 'To Watch', 'Links', 'Movies', 'Archived Media', 'Archived '.$previous_previous_year, 'Archived '.$previous_year, 'Changelog');
+		$tabnames = array('Watched'.$current_year, 'To Watch', 'Links', 'Movies', 'Archived Media', 'Changelog');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Assistidos'.$current_year, 'Para Assistir', 'Links', 'Filmes', 'Mídias Arquivadas', 'Arquivado '.$previous_previous_year, 'Arquivado '.$previous_year, 'Registro de Mudanças');
+		$tabnames = array('Assistidos'.$current_year, 'Para Assistir', 'Links', 'Filmes', 'Mídias Arquivadas', 'Registro de Mudanças');
 	}
 
 	#Number of tabs
-	$tabnumb = 7;
+	$tabnumb = count($tabnames) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;

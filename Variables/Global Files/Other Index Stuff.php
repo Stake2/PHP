@@ -107,4 +107,14 @@ Test();
 
 #echo $sitecodes[16];
 
+echo '<script>
+function getElementByXpath(path) {
+  return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+}
+</script>'."\n\n";
+
+echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.'</div>';
+echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.'</div>';
+echo '<div style="display:none;" id="button_number">'.$tabnumb.'</div>';
+
 ?>

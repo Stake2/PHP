@@ -44,7 +44,7 @@ $siteurlcodes = array(
 include $story_namevarsphp;
 
 #Watch History website texts file includer
-include $watchtextsphp;
+include $watch_texts_php;
 
 #Folder variables
 $selected_website_url = $main_website_url.$siteurlcodes[0].'/';
