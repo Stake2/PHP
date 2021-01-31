@@ -59,7 +59,7 @@ $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color
 );
 
 $website_border_color = $first_border_color;
-$click_button_color = $background_darker_brown_css_class;
+$click_button_color = $background_light_brown_css_class;
 
 # Website Style Variables Foreach.php file includer
 require $website_style_variables_foreach;
