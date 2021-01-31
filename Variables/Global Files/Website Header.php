@@ -222,7 +222,7 @@ $website_header = '<head>'.
 $website_head."\n".
 $site_js.
 '</head>
-<body>
+<body onLoad="Define_Colors_And_Styles();">
 '.$center."\n"."\n".
 $buttons."\n".
 
