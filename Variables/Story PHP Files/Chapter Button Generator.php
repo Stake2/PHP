@@ -1,10 +1,10 @@
 <?php 
 
-if ($selected_website != $sitedesertisland) {
+if ($selected_website != $website_desert_island) {
 	$span_variable = $yellowspan;
 }
 
-if ($selected_website == $sitedesertisland) {
+if ($selected_website == $website_desert_island) {
 	$span_variable = $cyanspan;
 }
 

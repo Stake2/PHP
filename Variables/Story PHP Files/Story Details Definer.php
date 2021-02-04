@@ -3,7 +3,7 @@
 $new_synopsis = str_replace('<br />', "\n", $synopsis);
 $new_sinopse = str_replace('<br />', "\n", $sinopse);
 
-# Site descriptions
+# Website descriptions
 $website_descriptions_array = array(
 'Synopsis: '.$new_synopsis,
 'Sinopse: '.$new_sinopse,
@@ -15,7 +15,7 @@ $website_html_descriptions_array = array(
 'Sinopse: <i class="fas fa-scroll"></i> "'.$sinopse.'"<br />',
 );
 
-# Site name in English and Brazilian Portuguese language
+# Website name in English and Brazilian Portuguese language
 $websites_names_array = array(
 $enus_title = $story_name_variable,
 $pt_title = $story_name_variable,

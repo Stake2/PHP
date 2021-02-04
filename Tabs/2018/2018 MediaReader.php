@@ -66,7 +66,7 @@ if ($website_name == $sitewatch) {
 	$media_type_videos_line = $original5;
 }
 
-if ($website_name == $sitewatch and $thingsidofake == True and $site == $sitethingsido or $website_name == $sitethingsido) {
+if ($website_name == $sitewatch and $thingsidofake == True and $website == $sitethingsido or $website_name == $sitethingsido) {
 	echo '<b>'.$blackspan.$txts[3].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watched_number.'</b>'.$spanc.'<br />'."\n";
 }
 
@@ -80,7 +80,7 @@ if ($website_name != $sitewatch) {
 	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$number_text_color_span.'<b>'.$watched_number.'</b>'.$spanc.'<br />'."\n";
 }
 
-if ($website_name == $sitewatch and $thingsidofake == True and $site == $sitethingsido or $website_name == $sitethingsido) {
+if ($website_name == $sitewatch and $thingsidofake == True and $website == $sitethingsido or $website_name == $sitethingsido) {
 	$a2019 = false;
 }
 
@@ -94,7 +94,7 @@ if ($website_name == $site2018) {
 }
 
 #YearMaker2.php reader
-include $yearmakerfilephp2test;
+include $year_maker_file_php_2_test;
 
 print_r($medias);
 

@@ -20,7 +20,7 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($website_name == $sitethingsido or $site == $sitethingsido) {
+if ($website_name == $website_things_i_do) {
 	$i = 0;
 	while ($i <= $tabnumb) {
 		if ($i < 1) {
@@ -55,12 +55,12 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($website_name == $sitewatch) {
+if ($website_name == $website_watch_history) {
 	#Citycodes array generator
 	$i = 0;
 	while ($i <= $tabnumb) {
 		if ($i < 3) {
-			$citycodes[$i] = $site.'-'.strtolower($tabnames[$i]);
+			$citycodes[$i] = $website.'-'.strtolower($tabnames[$i]);
 		}
 	
 		if ($i >= 3) {
@@ -79,7 +79,7 @@ else {
 	#Array of button codes
 	$i = 0;
 	while ($i <= $tabnumb) {
-		$citycodes[$i] = $site.'-'.strtolower($tabnames[$i]);
+		$citycodes[$i] = $website.'-'.strtolower($tabnames[$i]);
 
 		$i++;
 	}
@@ -101,12 +101,12 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($hidecitysetting == True) {
-	$hidecitytextvariable = 'style="display:none;"';
+if ($website_hide_tabs_setting == True) {
+	$hide_tabs_text = 'style="display:none;"';
 }
 
-if ($hidecitysetting != True) {
-	$hidecitytextvariable = '';
+if ($website_hide_tabs_setting != True) {
+	$hide_tabs_text = '';
 }
 
 if ($website_uses_tab_body_generator == false) {
@@ -139,35 +139,25 @@ if ($website_uses_tab_body_generator == false) {
 	}
 }
 
-if ($website_name == $sitewatch or $site == $sitewatch) {
-	#Include the buttons loader PHP file
+if ($website_name == $website_watch_history) {
+	# Include the buttons loader PHP file
 	include $computer_buttons_bar_loader;
 
-	#Every Watched Button Yellow
+	# Every Watched Button Yellow
 	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
-	$every_watched_button_first_button_yellow_computer = $yellow_computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
-	$every_watched_button_second_button_yellow_computer = $computer_buttons[0].$yellow_computer_buttons[3].$computer_buttons[4];
-	$every_watched_button_third_button_yellow_computer = $computer_buttons[0].$computer_buttons[3].$yellow_computer_buttons[4];
 
-	#Mobile Every Watched Button Yellow
+	# Mobile Every Watched Button Yellow
 	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[3].$mobile_buttons[4];
-	$every_watched_button_first_button_yellow_mobile = $yellow_mobile_buttons[0].$mobile_buttons[3].$mobile_buttons[4];
-	$every_watched_button_second_button_yellow_mobile = $mobile_buttons[0].$yellow_mobile_buttons[3].$mobile_buttons[4];
-	$every_watched_button_third_button_yellow_mobile = $mobile_buttons[0].$mobile_buttons[3].$yellow_mobile_buttons[4];
 
-	#Every Archived Button Yellow
+	# Every Archived Button Yellow
 	$every_archived_medias_button = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$computer_buttons[6].$div_close;
-	$every_archived_media_button_first_button_yellow = $div_right_animation.$yellow_computer_buttons[5].$div_close.$div_left_animation.$computer_buttons[6].$div_close;
-	$every_archived_media_button_second_button_yellow = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$yellow_computer_buttons[6].$div_close;
 
-	#Mobile Every Archived Button Yellow
+	# Mobile Every Archived Button Yellow
 	$every_archived_medias_button_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[6].$div_close;
-	$everyarchbtny1m = $div_right_animation.$yellow_mobile_buttons[5].$div_close.$div_left_animation.$mobile_buttons[6].$div_close;
-	$every_archived_media_button_second_button_yellow_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$yellow_mobile_buttons[6].$div_close;
 }
 
-if ($website_name == $sitethingsido or $site == $sitethingsido or $website_name == $sitetextmaker) {
-	#Include the buttons loader PHP file
+if ($website_name == $website_things_i_do or $website_name == $website_text_maker) {
+	# Include the buttons loader PHP file
 	include $computer_buttons_bar_loader;
 }
 
@@ -183,7 +173,7 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($website_name == $sitethingsido or $site == $sitethingsido) {
+if ($website_name == $website_things_i_do) {
 	#Include the buttons loader PHP file
 	include $computer_buttons_bar_loader;
 }
@@ -259,7 +249,7 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($website_name != $sitethingsido or $site != $sitethingsido and $website_name != $sitewatch or $site != $sitewatch) {
+if ($website_name != $website_things_i_do and $website_name != $website_watch_history) {
 	#Include the buttons loader PHP file
 	include $computer_buttons_bar_loader;
 }

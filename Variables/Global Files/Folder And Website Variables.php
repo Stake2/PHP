@@ -19,7 +19,7 @@ $cdntxt = $cdn.'txt/';
 $cdn_text_movie_comments = $cdntxt.'Movie Comments/';
 
 $cdnjs = $cdn.'js/';
-$cdncss = $cdn.'css/';
+$cdn_css = $cdn.'css/';
 
 # Notepad/Bloco De Notas folder variables
 $notepad_folder = $mega_folder.'Bloco De Notas/';
@@ -45,7 +45,7 @@ $story_name_files_php_folder = $php_variables.'Story PHP Files/';
 $newdesign_php_folder = $php_variables.'New Design/';
 $css_packs_php_folder = $php_variables.'CSS Packs/';
 
-$story_name_files_php_folder_variable = $story_name_files_php_folder;
+$story_php_files_folder_variable = $story_name_files_php_folder;
 $newdesign_php_folder_variable = $newdesign_php_folder;
 
 $websites_tab_folder = $php_tabs.'Websites Tab/';

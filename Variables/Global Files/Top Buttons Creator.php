@@ -13,53 +13,38 @@ $open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-btn '
 
 $tabnamestxt = $tabnames;
 
-if ($website_name == $sitediario) {
+if ($website_name == $website_diario) {
 	include $websites_tab_button_maker;
 	$tabnumb2 = $tabnumb;
 }
 
-if ($website_name == $sitewatch) {
+if ($website_name == $website_watch_history) {
 	$tabnumb2 = $tabnumb - 3;
 	$tabnamestxt = $tab_titles_without_html;
 }
 
-if ($website_name == $site2018) {
+if ($website_name == $website_2018) {
 	$tabnumb2 = $tabnumb;
 }
 
-if ($website_name == $site2019) {
+if ($website_name == $website_2019) {
 	$tabnumb2 = $tabnumb - 5;
 }
 
-#if ($website_name == $site2020) {
-#	$tabnumb2 = $tabnumb - 0;
-#}
-
-if ($website_name == $sitepequenata) {
+if ($website_name == $website_pequenata) {
 	$tabnumb2 = $tabnumb - 1;
 }
 
-if ($website_name == $sitespaceliving) {
+if ($website_name == $website_spaceliving) {
 	$tabnumb2 = $tabnumb;
 }
 
-if ($website_name == $sitenazzevo) {
+if ($website_name == $website_nazzevo) {
 	$tabnumb2 = $tabnumb;
 }
 
-if ($website_name == $sitetextmaker) {
+if ($website_name == $website_text_maker) {
 	$tabnumb2 = $tabnumb - 2;
-}
-
-if ($website_name == $sitethingsido) {
-	$tabnumb2 = $tabnumb - $prodbtnsnumb;
-	$tabnumb2 = $tabnumb2 - $unprodbtnsnumb;
-	$tabnumb2 = $tabnumb2 - $mediabtnsnumb;
-	$tabnumb2 = $tabnumb2 - 1;
-}
-
-if ($website_name == $siteyourstruly_izaque) {
-	$tabnumb2 = $tabnumb;
 }
 
 if (isset($tabnumb2) == False) {
@@ -81,8 +66,8 @@ if ($website_deactivate_top_buttons_setting == false) {
 	echo '<div id="computer_buttons_bar" class="w3-bar mobileHide w3-animate-top" style="position:fixed;float:right;">'."\n";
 	$sitebtnecho = True;
 
-	if ($website_name == $sitepequenata) {
-		$hide_notification_attribute = 'hidenotif();';
+	if ($website_name == $website_pequenata) {
+		$hide_notification_attribute = 'Hide_Notification();';
 	}
 
 	else {
@@ -90,7 +75,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	}
 
 	while ($i <= $tabnumb) {
-		if ($i == $tabnumb and $website_name == $sitediario) {
+		if ($i == $tabnumb and $website_name == $website_diario) {
 			$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
@@ -116,7 +101,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			}
 		}
 
-		if ($i <= $tabnumb2 and $website_name != $site2019) {
+		if ($i <= $tabnumb2 and $website_name != $website_2019) {
 			if (strpos($computer_buttons[$i], 'Comment') and strpos($computer_buttons[$i], 'Comentar' and $website_has_comments_tab_setting == True)) {
 				#echo $computer_buttons[$i];
 			}
@@ -126,11 +111,11 @@ if ($website_deactivate_top_buttons_setting == false) {
 			}
 		}
 
-		if ($i <= $tabnumb and $website_name == $site2019) {
+		if ($i <= $tabnumb and $website_name == $website_2019) {
 			echo $computer_buttons[$i];
 		}
 
-		if ($website_name == $sitediario and $sitebtnecho == True and $i == $tabnumb) {
+		if ($website_name == $website_diario and $sitebtnecho == True and $i == $tabnumb) {
 			echo ' '.$websites_tab_button_not_centered;
 
 			$sitebtnecho = false;
@@ -139,11 +124,11 @@ if ($website_deactivate_top_buttons_setting == false) {
 		$i++;
 	}
 
-	if ($website_name == $sitewatch) {
+	if ($website_name == $website_watch_history) {
 		echo $computer_buttons[5];
 	}
 
-	if ($website_name == $sitepequenata) {
+	if ($website_name == $website_pequenata) {
 		echo $computer_buttons[5];
 	}
 
@@ -184,7 +169,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 
 		$i2 = $i + 1;
 	
-		if ($i == $tabnumb and $website_name == $sitediario) {
+		if ($i == $tabnumb and $website_name == $website_diario) {
 			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';'.$script.'">'.$tabtxtsm[$i].'</button></a>';
@@ -208,7 +193,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			}
 		}
 
-		if ($i <= $tabnumb2 and $website_name != $site2019) {
+		if ($i <= $tabnumb2 and $website_name != $website_2019) {
 			echo $mobile_buttons[$i];
 		}
 
@@ -216,7 +201,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			echo "\n";
 		}
 
-		if ($i <= $tabnumb and $website_name == $site2019) {
+		if ($i <= $tabnumb and $website_name == $website_2019) {
 			echo $mobile_buttons[$i];
 		}
 
@@ -224,7 +209,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			echo "\n";
 		}
 
-		if ($website_name == $sitediario and $sitebtnecho == True and $i == $tabnumb) {
+		if ($website_name == $website_diario and $sitebtnecho == True and $i == $tabnumb) {
 			echo ' '.$websites_tab_button_not_centered;
 
 			$sitebtnecho = false;
@@ -233,15 +218,15 @@ if ($website_deactivate_top_buttons_setting == false) {
 		$i++;
 	}
 
-	if ($website_name == $sitewatch) {
+	if ($website_name == $website_watch_history) {
 		echo $mobile_buttons[7]."\n"."\n";
 	}
 
-	if ($website_name == $sitepequenata) {
+	if ($website_name == $website_pequenata) {
 		echo $mobile_buttons[5]."\n"."\n";
 	}
 
-	if ($website_name == $sitetextmaker) {
+	if ($website_name == $website_text_maker) {
 		echo $mobile_buttons[1]."\n"."\n";
 	}
 
@@ -259,7 +244,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	$mobile_div.$open_mobile_buttons_sidebar.$div_close;
 }
 
-if ($website_name == $sitewatch) {
+if ($website_name == $website_watch_history) {
 	$archived_media_buttons_array = array();
 
 	$current_variable_year = 2018;

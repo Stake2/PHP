@@ -6,7 +6,7 @@ include $websites_tab_attributes;
 $websites_tab_name_text = 'w3-text-black';
 $websites_tab_border_color = $border_color_black_css_class;
 
-if ($website_name == $sitediario or $site == $sitediario) {
+if ($website_name == $website_diario) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
@@ -14,7 +14,7 @@ if ($website_name == $sitediario or $site == $sitediario) {
 	$websites_tab_border_color = $border_color_black_css_class;
 }
 
-if ($website_name == $sitewatch) {
+if ($website_name == $website_watch_history) {
 	$websites_tab_border = $header_full_border;
 	$websites_tab_name_text = $first_text_color;
 	$websites_tab_number_text_color = $second_text_color;
@@ -23,8 +23,8 @@ if ($website_name == $sitewatch) {
 	$websites_tab_border_color = $first_border_color;
 }
 
-if ($website_name == $sitepequenata) {
-	$websites_tab_border = $border_1px_solid_black_css_class;
+if ($website_name == $website_pequenata) {
+	$websites_tab_border = $border_1px_solid_brown_css_class;
 	$websites_tab_name_text = $first_text_color;
 	$websites_tab_number_text_color = 'w3-text-orange';
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
@@ -32,28 +32,28 @@ if ($website_name == $sitepequenata) {
 	$websites_tab_border_color = $border_color_brown_css_class;
 }
 
-if ($website_name == $sitenazzevo) {
+if ($website_name == $website_nazzevo) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = 'w3-black';
 }
 
-if ($website_name == $sitethingsido or $site == $sitethingsido) {
+if ($website_name == $website_things_i_do) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = 'w3-black';
 }
 
-if ($website_name != $sitewatch and $website_name != $sitepequenata and $website_name != $sitenazzevo and $website_name != $sitethingsido and $site != $sitethingsido and $website_name != $sitediario and $site != $sitediario) {
+if ($website_name != $website_watch_history and $website_name != $website_pequenata and $website_name != $website_nazzevo and $website_name != $website_things_i_do and $website_name != $website_diario) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = 'w3-black';
 }
 
-if ($website_name == $sitespaceliving) {
+if ($website_name == $website_spaceliving) {
 	$websites_tab_border = $border_1px_solid_blue_css_class;
 	$websites_tab_border_color = $border_1px_solid_blue_css_class;
 	$websites_tab_name_text = $first_text_color;
@@ -62,14 +62,14 @@ if ($website_name == $sitespaceliving) {
 	$websites_tab_div_color = 'w3-black';
 }
 
-if ($selected_website == $sitedesertisland) {
+if ($selected_website == $website_desert_island) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = 'w3-text-blue';
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = $background_yellow_sand_css_class;
 }
 
-if ($website_name != $sitewatch and $website_name != $sitepequenata and $website_name != $sitenazzevo and $website_name != $sitethingsido and $site != $sitethingsido and $website_name != $sitediario and $site != $sitediario and $website_name == $sitespaceliving and $selected_website == $sitedesertisland) {
+if ($website_name != $website_watch_history and $website_name != $website_pequenata and $website_name != $website_nazzevo and $website_name != $website_things_i_do and $website_name != $website_diario and $website_name == $website_spaceliving and $selected_website == $website_desert_island) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = $websites_tab_global_number_color;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;

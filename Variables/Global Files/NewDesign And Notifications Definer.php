@@ -16,7 +16,7 @@ else {
 
 #Notifications CSS and script includer
 if ($website_has_notifications == True) {
-	$notificationcss = '<link rel="stylesheet" type="text/css" href="'.$cdncss.'Notification.css" />'."\n";
+	$notificationcss = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Notification.css" />'."\n";
 	$notificationscript = '<script src="'.$cdnjs.'Notification.js"></script>'."\n".
 	'<script src="'.$cdnjs.'HideNotification.js"></script>';
 }
@@ -26,12 +26,12 @@ if ($website_has_notifications == false) {
 	$notificationscript = '';
 }
 
-if ($website_name == $sitetextmaker) {
-	$editbtnscript = '<script src="'.$cdnjs.'EditBtn.js"></script>';
+if ($website_name == $website_text_maker) {
+	$edit_button_script = '<script src="'.$cdnjs.'EditBtn.js"></script>';
 }
 
 else {
-	$editbtnscript = '';
+	$edit_button_script = '';
 }
 
 ?>

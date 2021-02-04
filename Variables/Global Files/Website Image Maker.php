@@ -1,6 +1,6 @@
 <?php 
 
-if ($website_name == $sitepequenata) {
+if ($website_name == $website_pequenata) {
 	$main_website_image_computer = '<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="'.$border_3px_solid_css_class." ".$first_border_color.' '.$computer_variable.'" style="'.$roundedborderstyle4.'" />';
 
 	$main_website_image_mobile = '<img src="'.$website_image_link.'" width="'.$website_image_size_mobile.'%" class="'.$border_3px_solid_css_class." ".$first_border_color.' '.$mobile_variable.'" style="'.$roundedborderstyle4.'" />';

@@ -159,7 +159,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$story_progress_text = "Progresso das histórias";
 	$new_websites_text = "Novos sites";
 	$people_text_i_met_text = "Pessoas que conheci";
-	$comments_on_super_animes_text = "Comentários no site Super Animes";
+	$comments_on_super_animes_text = "Comentários no website Super Animes";
 }
 
 $things_made_in_current_year_text_key = strtolower(str_replace(" ", "_", str_replace(" ".$current_year, " year", $things_made_in_current_year_text)));

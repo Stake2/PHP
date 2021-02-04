@@ -256,11 +256,11 @@ if (strpos ($host_text, $setting_parameters[16].'='.'false') == True) {
 }
 
 if (strpos ($host_text, 'hidecities=True') == True) {
-    $hidecitysetting = True;
+    $website_hide_tabs_setting = True;
 }
 
 if (strpos ($host_text, 'hidecities=false') == True) {
-    $hidecitysetting = false;
+    $website_hide_tabs_setting = false;
 }
 
 ?>

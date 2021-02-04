@@ -57,11 +57,11 @@ echo '<div id="'.$chapter_div_text.$chapter_number_1.'" class="city '.$alternati
 echo '<br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" />'."\n";
 echo '<br />'."\n";
 
-if ($selected_website != $sitedesertisland) {
+if ($selected_website != $website_desert_island) {
 	$span_variable = $yellowspan;
 }
 
-if ($selected_website == $sitedesertisland) {
+if ($selected_website == $website_desert_island) {
 	$span_variable = $cyanspan;
 }
 

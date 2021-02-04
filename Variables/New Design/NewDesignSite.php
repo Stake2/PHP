@@ -68,7 +68,7 @@ echo '<script type="text/javascript" language="javascript">'."
 echo '
 <div class="conteudoBox">';
 
-include $chapter_generator_global;
+include $chapters_generator_php;
 
 echo '</div>
 </div>

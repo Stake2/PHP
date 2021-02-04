@@ -1,11 +1,11 @@
 <?php 
 
-if ($hidecitysetting == True) {
-	$hidecitytextvariable = 'style="display:none;"';
+if ($website_hide_tabs_setting == True) {
+	$hide_tabs_text = 'style="display:none;"';
 }
 
-if ($hidecitysetting != True) {
-	$hidecitytextvariable = '';
+if ($website_hide_tabs_setting != True) {
+	$hide_tabs_text = '';
 }
 
 if ($website_not_so_much_space_setting == True) {

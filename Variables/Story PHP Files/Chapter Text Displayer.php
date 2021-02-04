@@ -67,7 +67,7 @@ if ($write_new_chapter == True and $chapter_number_1 == $chapters + 1) {
 }
 
 #Chapter date displayer
-if ($website_name != $sitenazzevo and $story_has_dates == True) {
+if ($website_name != $website_nazzevo and $story_has_dates == True) {
 	if (file_exists($chapter_dates_file) == True) {
 		$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 		if ($fp) {

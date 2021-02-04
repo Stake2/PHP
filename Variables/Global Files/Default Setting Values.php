@@ -36,7 +36,7 @@ $deactivate_js = false;
 
 $website_new_design_setting = false;
 
-$hidecitysetting = True;
+$website_hide_tabs_setting = True;
 $website_not_so_much_space_setting = false;
 $website_story_has_bookcovers_setting = false;
 $story_namewritesstoryfiles = false;

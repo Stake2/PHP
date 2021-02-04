@@ -1,7 +1,7 @@
 <?php 
 
 if ($website_name == $sitepequenata) {
-	$hide_notification_attribute = 'hidenotif();hidenotifm();';
+	$hide_notification_attribute = 'Hide_Notification();hidenotifm();';
 }
 
 else {

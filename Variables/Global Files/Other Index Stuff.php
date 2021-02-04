@@ -2,7 +2,7 @@
 
 if ($website_has_notifications == True and $website_deactivate_notification_setting != True) {
 	echo '<script>
-ChangeTitle();
+Change_Title();
 </script>';
 }
 
@@ -22,7 +22,7 @@ while ($i <= 0) {
 */
 
 
-#Site notification file includer if setting is True
+#Website notification file includer if setting is True
 if ($website_has_notifications == True and $website_deactivate_notification_setting == false) {
 	echo $notificationscript."\n"."\n";
 }
@@ -37,7 +37,7 @@ if ($site_is_prototype == false) {
 	echo $animationstylecss."\n"."\n";
 }
 
-if ($website_name == $sitethingsido) {
+if ($website_name == $website_things_i_do) {
 	echo '
 <style>
 a:link {color: blue!important;}

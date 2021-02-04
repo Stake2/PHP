@@ -21,21 +21,23 @@ $sitecodes = array(
 'tasks'.' '.$siteicons[7],
 'things_I_do',
 'years'.' '.$siteicons[3],
-'2018',
-'2019',
-'2020',
-'2021',
-'stories_historias'.' '.$siteicons[0],
-'new_world'.' '.$siteicons[4],
-'pequenata'.' '.$siteicons[0],
-'new_world'.' '.$siteicons[4].'/'.'spaceliving'.' '.$siteicons[0],
-'nazzevo'.' '.$siteicons[0],
-'desert_island',
-'lonely stories',
-'mental_frameworks',
-'template',
-'stake2',
 );
+
+
+array_push($sitecodes, '2018');
+array_push($sitecodes, '2019');
+array_push($sitecodes, '2020');
+array_push($sitecodes, '2021');
+array_push($sitecodes, 'stories_historias'.' '.$siteicons[0]);
+array_push($sitecodes, 'new_world'.' '.$siteicons[4]);
+array_push($sitecodes, 'pequenata'.' '.$siteicons[0]);
+array_push($sitecodes, 'new_world'.' '.$siteicons[4].'/'.'spaceliving'.' '.$siteicons[0]);
+array_push($sitecodes, 'nazzevo'.' '.$siteicons[0]);
+array_push($sitecodes, 'desert_island');
+array_push($sitecodes, 'lonely stories');
+array_push($sitecodes, 'mental_frameworks');
+array_push($sitecodes, 'template');
+array_push($sitecodes, 'stake2');
 
 if (in_array($website_language, $en_languages_array)) {
 	$thingsIdolink = $main_website_url.$sitecodes[7].'/';
@@ -106,7 +108,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$sitename_years = 'Anos'.' '.$siteicons[3],
 	$sitename_stories = 'Histórias'.' '.$siteicons[0],
 	$sitename_mentalframeworks = 'Frameworks Mentais',
-	$sitename_websitetemplate = 'Modelo de Site',
+	$sitename_websitetemplate = 'Modelo de Website',
 	);
 }
 
@@ -192,13 +194,13 @@ if (in_array($website_language, $pt_languages_array)) {
 	$sitename_years = 'Anos'.' '.$siteicons[3],
 	$sitename_stories = 'Histórias'.' '.$siteicons[0],
 	$sitename_mentalframeworks = 'Frameworks Mentais',
-	$sitename_websitetemplate = 'Modelo de Site',
+	$sitename_websitetemplate = 'Modelo de Website',
 	);
 }
 
 
 $i = 0;
-foreach ($sitetitlesarray as $value) {
+foreach ($website_titles_array as $value) {
 	$websites_names_array[$i] = $value;
 
 	$i++;
@@ -305,7 +307,7 @@ while ($i <= $storiessitenumb) {
 #Year Sites Buttons generator
 $i = 0;
 $z = 11;
-while ($i <= $yearnumb) {
+while ($i <= $years_number) {
 	$year_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$n.">".$yearnames[$i].": ".$icons[3]."</".$n."></button>";
 
 	$z++;
@@ -314,7 +316,7 @@ while ($i <= $yearnumb) {
 
 $i = 0;
 $z = 11;
-while ($i <= $yearnumb) {
+while ($i <= $years_number) {
 	$year_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$m.">".$yearnames[$i].": ".$icons[3]."</".$m."></button>";
 
 	$z++;

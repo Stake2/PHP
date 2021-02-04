@@ -12,7 +12,7 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-if ($website_name == $sitewatch) {
+if ($website_name == $website_watch_history) {
 	$current_variable_year = 2018;
 	$current_year = $current_year;
 
@@ -25,18 +25,18 @@ if ($website_name == $sitewatch) {
 	}
 }
 
-#Diario site php file loader
-if ($website_name == $sitediario or $website_name == ucwords($sitediario) or $site == $sitediario) {
+#Diario website php file loader
+if ($website_name == $website_diario) {
 	include $websites_tab_generator;
 	require $chapter_generator_global_variable;
 }
 
 #ChapterReader.php includer for Pequenata website
-if ($sitetype1 == $website_types_array[1]) {
+if ($website_type == $story_website_type) {
 	require $chapter_generator_global_variable;
 }
 
-if ($website_name != $sitediario or $website_name != ucwords($sitediario) or $site != $sitediario) {
+if ($website_name != $website_diario) {
 	#SiteButton displayer and SiteButtons tab includer
 	if ($website_deactivate_website_buttons_setting == false) {
 		echo "<br /><br /><br /><br /><br /><br /><br /><br /><br />"."\n";

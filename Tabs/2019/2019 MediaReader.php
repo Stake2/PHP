@@ -66,7 +66,7 @@ if ($website_name == $sitewatch) {
 	$media_type_videos_line = $original5;
 }
 
-if ($website_name == $sitewatch and $thingsidofake == True and $site == $sitethingsido or $website_name == $sitethingsido) {
+if ($website_name == $sitewatch and $thingsidofake == True and $website == $sitethingsido or $website_name == $sitethingsido) {
 	echo '<b>'.$blackspan.$txts[4].': '.$spanc.'</b>'.$number_text_color_span.'<b>'.$watched_number_.'</b>'.$spanc.'<br />'."\n";
 }
 
@@ -84,7 +84,7 @@ $a2019text = false;
 $regeneratemedias2019 = True;
 $generate2019 = false;
 #YearMaker2.php reader
-include $yearmakerfilephp2test;
+include $year_maker_file_php_2_test;
 echo '<br />'."\n".
 '<b>'.$medias[0].'</b>'."\n".
 '<b>'.$medias[1].'</b>'."\n".

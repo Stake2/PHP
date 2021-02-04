@@ -1,8 +1,8 @@
 <?php 
 
 echo 'function OpenChapter() {'."\n".
-	'	var site = window.location;'."\n".
-	'	var site2 = '."'".'"'."'".' + site + '."'".'"'."'".';'."\n".
+	'	var website = window.location;'."\n".
+	'	var site2 = '."'".'"'."'".' + website + '."'".'"'."'".';'."\n".
 	'	var userLang = navigator.language || navigator.userLanguage;'."\n".
 	'	var captext1 = "'.$chapter_div_text.'";
 	'.

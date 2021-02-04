@@ -1,15 +1,15 @@
 <?php 
 
 #2018 Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$site2018) == True) {
-	$selected_website = $site2018;
+if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2018) == True) {
+	$selected_website = $website_2018;
 
-	$site = $selected_website;
-	$current_year = $site;
+	$website = $selected_website;
+	$current_year = $website;
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	#Site settings setter file includer
+	#Website settings setter file includer
 	include $setting_parameters_file;
 
 	$tabs = array($current_year, 'Media', 'Tasks', 'Years');

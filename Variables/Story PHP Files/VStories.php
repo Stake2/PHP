@@ -16,7 +16,7 @@ $status_writing = $status[1];
 $status_reviewing_and_editing = $status[2];
 $status_finished_and_publishing = $status[3];
 
-if ($sitetype1 == $site_website_type and $website_name != $sitediario) {
+if ($website_type == $normal_website_type and $website_name != $website_diario) {
 	$story_name = '';
 }
 
@@ -167,7 +167,7 @@ if (in_array($website_language, $pt_languages_array)) {
 $chapter_div_text = $chapter_text.'-';
 $captextdiv = $chapter_tab_text.'-';
 
-if ($sitetype1 == $website_types_array[1]) {
+if ($website_type == $story_website_type) {
 	#Story status definer
 	if ($story_status == $status[0]) {
 		$story_status = $story_statuses[0];
@@ -205,7 +205,7 @@ $lsstoryfolder = 'Lonely Stories',
 $sistoryfolder = 'Yours truly, Izaque',
 );
 
-if ($sitetype1 == $website_types_array[1]) {
+if ($website_type == $story_website_type) {
 	$commentheader = $computer_div.'<br />'.$div_close.
 	$mobile_div.'<br /><br />'.$div_close.
 	$computer_div.'<'.$n.'><b>'.$comments_texts_array[0].'s:</b> '.$icons[12].'</'.$n.'>'.$div_close.
@@ -245,7 +245,7 @@ $spaceliving_image_link = $cdnimg.'SpaceLiving Logo.jpg';
 $desert_island_border = $border_4px_solid_blue_css_class;
 $desert_island_background = $background_green_water_css_class." ".$desert_island_border.' shakesidetoside';
 $desert_island_text = $text_dark_green_water_css_class;
-$desert_island_new_link = str_replace(' ', '_', strtolower($sitename_desertisland));
+$desert_island_new_link = str_replace(' ', '_', strtolower($website_desert_island));
 $desert_island_link = $main_website_url.$desert_island_new_link.'/';
 $desert_island_image_link = $cdn_image_stories_desertisland.'Base Da Capa.jpg';
 

@@ -1,8 +1,8 @@
 <?php
 
-# VGlobal.php $website_folder, site, cdn and fontawesome link variables
-$website_folder = strtolower($site);
-$site = $website_folder;
+# VGlobal.php $website_folder, website, cdn and fontawesome link variables
+$website_folder = strtolower($website);
+$website = $website_folder;
 
 $folder_and_website_variables_php = $php_vars_global_files.'Folder And Website Variables.php';
 $php_files_php = $php_vars_global_files.'PHP Files.php';
@@ -36,7 +36,7 @@ $website_css_file = $choosed_website_css_file;
 # NewDesign and Notifications definer
 require $newdesign_and_notifications_definer_php;
 
-# Site CSS and Javascript definer
+# Website CSS and Javascript definer
 require $website_css_and_javascript_definer_php;
 
 # Date style definer
@@ -45,6 +45,9 @@ $data = date("d/m/Y");
 
 # Global CSS variables loader
 require $global_style_file_php;
+
+# Website Style Chooser.php file loader
+require $website_style_chooser_file;
 
 if ($site_is_prototype == false) {
 	#Story variables PHP file includer if the website is a story website
@@ -59,14 +62,11 @@ if (in_array($website_name, $years_array)) {
 	require $vyears_php;
 }
 
-# Website Style Chooser.php file loader
-require $website_style_chooser_file;
-
 # Websites array
 $i = 0;
 foreach ($website_names_array as $value) {
 	if ($website_name == $value) {
-		require $sitefilevars[$i];
+		require $website_variables_files[$i];
 	}
 
 	$i++;
@@ -108,7 +108,7 @@ $website_head = '
 <meta name="description" content="'.$website_meta_description.'" />
 <meta property="og:description" content="'.$website_meta_description.'" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" value="@The_Snakes90" />
+<meta name="twitter:website" value="@The_Snakes90" />
 <meta name="twitter:creator" content="@The_Snakes90" />
 '.$website_css_files.
 '<meta name="revised" content="'."Stake's Enterprisetm".', '.$data.'" />
@@ -118,7 +118,7 @@ $include_custom_website_head_content;
 
 /*'<link rel="stylesheet" href="'.$fontawesome_link.'" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />';*/
 
-if ($website_name == $sitetextmaker) {
+if ($website_name == $website_text_maker) {
 	$website_meta_description = $website_meta_description;
 }
 
@@ -126,7 +126,7 @@ if (in_array($website_name, $years_array)) {
 	$website_meta_description = $website_header_description;
 }
 
-if ($website_name != $sitetextmaker) {
+if ($website_name != $website_text_maker) {
 	$website_meta_description = $website_meta_description;
 }
 

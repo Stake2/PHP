@@ -32,16 +32,7 @@ $setting_parameters = array(
 'website_deactivate_header_setting',
 );
 
-#Queries for site website_types_array
-$website_types_array = array(
-'site',
-'story',
-);
-
-$site_website_type = $website_types_array[0];
-$story_website_type = $website_types_array[1];
-
-#Queries for site languages
+#Queries for website languages
 $languages_array = array(
 'geral',
 'enus',
@@ -53,6 +44,11 @@ $geral_language = $languages_array[0];
 $enus_language = $languages_array[1];
 $ptbr_language = $languages_array[2];
 $ptpt_language = $languages_array[3];
+
+$language_geral = $languages_array[0];
+$language_enus = $languages_array[1];
+$language_ptbr = $languages_array[2];
+$language_ptpt = $languages_array[3];
 
 #Array of Portuguese languages
 $pt_languages_array = array(

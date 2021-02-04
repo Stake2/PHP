@@ -4,59 +4,12 @@ if ($website_new_design_setting == false and $website_not_so_much_space_setting 
 	$computerspace = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br />'.$div_close."\n";
 }
 
-elseif ($website_not_so_much_space_setting == false) {
+else if ($website_not_so_much_space_setting == false) {
 	$computerspace = '<div class="'.$computer_variable.'"><br /><br /><br />'.$div_close;
 }
 
-elseif ($website_not_so_much_space_setting == True) {
+else if ($website_not_so_much_space_setting == True) {
 	$computerspace = '';
-}
-
-#if ($website_name != $sitediario and $site != $sitediario and $website_name == $sitepqnt or $website_name == $sitenazzevo) {
-#	$website_meta_description = $website_meta_description.'<br /> <b>'.$div_zoom_animationlouco.$orangespan.$redondodesc.$spanc.$div_close.'</b>'."\n";
-#	$website_header_description = $website_header_description.'<br /> <b>'.$div_zoom_animationlouco.$orangespan.$redondodesc.$spanc.$div_close.'</b>'."\n";
-#}
-#
-#if ($website_name != $sitediario and $site != $sitediario and $website_name != $sitepqnt and $website_name != $sitenazzevo ) {
-#	$website_meta_description = $website_meta_description.'<br /> <b>'.$div_zoom_animationlouco.$bluespan.$redondodesc.$spanc.$div_close.'</b>'."\n";
-#	$website_header_description = $website_header_description.'<br /> <b>'.$div_zoom_animationlouco.$bluespan.$redondodesc.$spanc.$div_close.'</b>'."\n";
-#}
-
-
-# Website Info Class
-/*
-
-A Class that contains the title of the website, the description, images
-A Class that contains the styles of the selected website
-
-
-*/
-
-#require $website_classes_php;
-
-function format($text, $parameters) {
-	$parameters = (array)$parameters;
-
-	$text = preg_replace_callback("#\{\}#",
-	function ($parameters_array) {
-		static $i = 0;
-		return '{'.($i++).'}';
-	},
-	$text);
-
-	return str_replace(
-		array_map(
-		function ($key) {
-			return '{'.$key.'}';
-		},
-
-		array_keys($parameters)),
-
-		array_values($parameters),
-
-		$text
-	);
-
 }
 
 # Blank website generator using templates
@@ -89,25 +42,25 @@ if (!isset($website_title_html) and !isset($website_meta_description) and $websi
 
 	$website_header_wrapper = $computerspace.
 	'<div class="'.$default_background_color.'" '.$styletext2.' style="margin-left:5%;margin-right:5%;'.$first_border_color.$rounded_border_style_2.'">
-	<'.$n.' class="'.$colortext.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_html.'</b><br /><br /><p></'.$n.'>'."\n".'
+	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_html.'</b><br /><br /><p></'.$n.'>'."\n".'
 	<hr class="'.$first_full_border.'" />
 	'.$website_images_variable.'
-	<'.$n.' class="'.$colortext.' '.$computer_variable.'">'.$website_meta_description.'</'.$n.'>
-	<'.$m.' class="'.$colortext.' '.$mobile_variable.'">'.$website_meta_description.'</'.$m.'>
+	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_meta_description.'</'.$n.'>
+	<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_meta_description.'</'.$m.'>
 	<br />
 	'.$div_close."\n";	
 }
 
-if ($sitetype1 == $website_types_array[0] and $website_deactivate_header_setting == false or $sitetype1 == 'Years' and $website_deactivate_header_setting == false) {
-	if ($site == $sitediario) {
+if ($website_type == $normal_website_type and $website_deactivate_header_setting == false or in_array($website_name, $years_array) and $website_deactivate_header_setting == false) {
+	if ($website_name == $website_diario) {
 		$blockstextonheader = $blockstext.'<br />'."\n";
-		$diariostuff1 = '<'.$n.' class="'.$colortext.' '.$computer_variable.'">'.$blockstextonheader.'</'.$n.'>
+		$diariostuff1 = '<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$blockstextonheader.'</'.$n.'>
 		';
-		$diariostuff2 = '<'.$m.' class="'.$colortext.' '.$mobile_variable.'">'.$blockstextonheader.'</'.$m.'>
+		$diariostuff2 = '<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$blockstextonheader.'</'.$m.'>
 		';
 	}
 
-	if ($site != $sitediario) {
+	if ($website_name != $website_diario) {
 		$blockstextonheader = '';
 		$diariostuff1 = '';
 		$diariostuff2 = '';
@@ -127,13 +80,13 @@ if ($sitetype1 == $website_types_array[0] and $website_deactivate_header_setting
 }
 
 # Story website header generator
-if ($sitetype1 == $website_types_array[1]) {
+if ($website_type == $story_website_type) {
 	if ($story_status != $story_statuses[1] or $story_status != $story_statuses[2]) {
-		$newchaptertext = '';
+		$new_chapter_text = '';
 	}
 
 	if ($story_status == $story_statuses[1] or $story_status == $story_statuses[2]) {
-		$newchaptertext = '<span class="'.$third_text_color.'">'.' ['.$newtxt.'!]'.$spanc;
+		$new_chapter_text = '<span class="'.$third_text_color.'">'.' ['.$newtxt.'!]'.$spanc;
 	}
 
 /*
@@ -145,7 +98,7 @@ if ($sitetype1 == $website_types_array[1]) {
 	'<'.$m.' class="'.$colortext.'" style="'.$margincss1.'">'.$website_header_description.'</'.$m.'>'."\n".
 	'<'.$m.' class="'.$colortext.'">'."\n".
 	$author_text.": ".'<span class="'.$colorsubtext.'">'.$author_name."<br />".'</span>'."\n".
-	$chapters_text.': <span class="'.$colorsubtext.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
+	$chapters_text.': <span class="'.$colorsubtext.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$colorsubtext.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
 	$chapter_date_text.': <span class="'.$colorsubtext.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$colorsubtext.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
@@ -160,7 +113,7 @@ if ($sitetype1 == $website_types_array[1]) {
 	format('<'.$m.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description).
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
-	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$newchaptertext.'</span><br />'."\n".
+	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
 	$read_texts_array[6].': <span class="'.$second_text_color.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
 	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
@@ -168,26 +121,26 @@ if ($sitetype1 == $website_types_array[1]) {
 }
 
 if ($website_has_notifications == True and $website_deactivate_notification_setting == false) {
-	$changetitlescript = '<script>
-var olddocumenttitle = "";
+	$change_website_title_script = '<script>
+var old_website_title = "";
 
-function ChangeTitle() {
-	olddocumenttitle = document.title;
+function Change_Title() {
+	old_website_title = document.title;
 	document.title = "(1) " + document.title;
 }
 
-function ResetTitle() {
-	document.title = olddocumenttitle;
+function Reset_Title() {
+	document.title = old_website_title;
 }
 </script>';
 
-	$sitenotification = $sitenotification;
+	$website_notification = $website_notification;
 }
 
 else {
-	$changetitlescript = '';
+	$change_website_title_script = '';
 
-	$sitenotification = '';
+	$website_notification = '';
 }
 
 if ($website_new_design_setting == True) {
@@ -226,10 +179,10 @@ $site_js.
 '.$center."\n"."\n".
 $buttons."\n".
 
-$changetitlescript."\n".
+$change_website_title_script."\n".
 
 $sitewrappershow."\n".
 
-$sitenotification."\n";
+$website_notification."\n";
 
 ?>

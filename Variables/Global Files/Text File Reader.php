@@ -42,13 +42,13 @@ if ($website_uses_universal_file_reader == True) {
 	}
 }
 
-if ($website_name == $sitediario) {
-	$diarionumbersfile = $used_folder.'Diário Numbers.txt';
+if ($website_name == $website_diario) {
+	$diario_numbers_text_file = $used_folder.'Diário Numbers.txt';
 
-	if (file_exists($diarionumbersfile) == True) {
-		$diarionumbersfp = fopen($diarionumbersfile, 'r', 'UTF-8');
-		if ($diarionumbersfp) {
-			$blocksnumber = explode("\n", fread($diarionumbersfp, filesize($diarionumbersfile)));
+	if (file_exists($diario_numbers_text_file) == True) {
+		$diario_numbers_fp = fopen($diario_numbers_text_file, 'r', 'UTF-8');
+		if ($diario_numbers_fp) {
+			$diario_blocks_number = explode("\n", fread($diario_numbers_fp, filesize($diario_numbers_text_file)));
 		}
 	}
 }
@@ -76,11 +76,11 @@ if (in_array($website_name, $years_array)) {
 	}
 }
 
-if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
+if ($website_name == $website_watch_history or in_array($website_name, $years_array)) {
 	#require($watch_history_text_file_reader_module);
 }
 
-if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
+if ($website_name == $website_watch_history or in_array($website_name, $years_array)) {
 	$to_watch_episodes_file = $notepad_watch_history_folder.'To Watch Episodes.txt';
 	$to_watch_status_file = $notepad_watch_history_folder.'To Watch Status.txt';
 	$to_watch_folders_file = $notepad_watch_history_folder.'To Watch Folders.txt';
@@ -330,7 +330,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 	if (file_exists($to_watch_episodes_file) == True) {
 		$i = 0;
 		$to_watch_items = 0;
-		while ($i <= $to_watch_line_number) {
+		while ($i <= $to_watch_line_number - 1) {
 			if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
 				$to_watch_items++;
 			}
@@ -378,7 +378,7 @@ if ($website_name == $sitewatch or in_array($website_name, $years_array)) {
 	$selected_media_type_array = $year_code_numbes_array[$current_year];
 }
 
-if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetype1 == $website_types_array[1]) {
+if ($website_name == $website_pequenata or $website_name == $website_nazzevo or $website_type == $story_website_type) {
 	$story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
 	$story_info_folder = $story_folder.'Story Info/';
 	$story_comments_folder = $story_folder.'Comments/';
@@ -555,7 +555,7 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		}
 	}
 
-	if ($website_name == $sitenazzevo) {
+	if ($website_name == $website_nazzevo) {
 		if (file_exists($chapter_number_file) == True) {
 			$fp = fopen($chapter_number_file, 'r', 'UTF-8'); 
 			if ($fp) {
@@ -602,31 +602,31 @@ if ($website_name == $sitepequenata or $website_name == $sitenazzevo or $sitetyp
 		$story_synopsis = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $story_synopsis);
 	}
 
-	if ($website_name == $sitenazzevo) {
+	if ($website_name == $website_nazzevo) {
 		$chapters = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $chapters);
 	}
 }
 
 if ($website_has_changelog_setting == True) {
 	#Changelog text file definer
-	if ($website_name == $sitewatch) {
+	if ($website_name == $website_watch_history) {
 		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[1].'.php';
+			$website_changelog_file = $selected_website_folder.'Changelog '.$language_enus.'.php';
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[2].'.php';
+			$website_changelog_file = $selected_website_folder.'Changelog '.$language_ptbr.'.php';
 		}
 	}
 
 	#Changelog text file definer
 	else {
 		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[1].'.txt';
+			$website_changelog_file = $selected_website_folder.'Changelog '.$language_enus.'.txt';
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$languages_array[2].'.txt';
+			$website_changelog_file = $selected_website_folder.'Changelog '.$language_ptbr.'.txt';
 		}
 	}
 

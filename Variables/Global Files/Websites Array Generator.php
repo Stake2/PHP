@@ -2,24 +2,25 @@
 
 #Websites array
 $i = 0;
-foreach ($sitearray as $value) {
+foreach ($websites_array as $value) {
 	$value = strtolower($value);
+	$value = str_replace("á", "a", $value);
 
-    ${"site$value"} = $value;
+    ${"website_$value"} = $value;
 
-	$website_names_array[$i] = ${"site$value"};
+	$website_names_array[$i] = ${"website_$value"};
 
 	$i++;
 }
 
 #Website chapter_titles array
 $i = 0;
-foreach ($sitetitlesarray as $value) {
+foreach ($website_titles_array as $value) {
 	$varresource = strtolower($website_names_array[$i]);
 
-    ${"sitename_$varresource"} = $value;
+    ${"website_name_$varresource"} = $value;
 
-	$sitetitlesarray[$i] = ${"sitename_$varresource"};
+	$website_titles_array[$i] = ${"website_name_$varresource"};
 
 	$i++;
 }
@@ -27,9 +28,15 @@ foreach ($sitetitlesarray as $value) {
 #Array of the paths of the website folders in the local drive
 $i = 0;
 foreach ($website_names_array as $value) {
-    ${"sitefolder_$value"} = $php_tabs.ucwords($sitearray[$i]).'/';
+	$folder_to_use = $websites_array[$i];
 
-	$website_folders[$i] = ${"sitefolder_$value"};
+	if ($value == "diario") {
+		$folder_to_use = "Diário";
+	}
+
+	${"website_folder_$value"} = $php_tabs.$folder_to_use.'/';
+
+	$website_folders[$i] = ${"website_folder_$value"};
 
 	$i++;
 }
@@ -43,16 +50,16 @@ foreach ($website_folders as $folder) {
 
 $website_style_files = array();
 
-# V[Site].php Files array
+# V[Website].php Files array
 $i = 0;
-foreach ($sitearray as $value) {
+foreach ($websites_array as $value) {
 	$website_folder = $php_tabs.ucwords($value);
 
-	$variables_file = $website_folder.'/'.'V'.ucwords($value).'.php';
+	$variables_file = $website_folder.'/'.'V_'.$value.'.php';
 	$website_style_file = $website_folder.'/'.'Website Style.php';
 
 	if (file_exists($variables_file)) {
-		$sitefilevars[$i] = $variables_file;
+		$website_variables_files[$i] = $variables_file;
 	}
 
 	else {
@@ -72,7 +79,7 @@ foreach ($sitearray as $value) {
 
 # Website.php Files array
 $i = 0;
-foreach ($sitearray as $value) {
+foreach ($websites_array as $value) {
 	$websitefile = $php_tabs.ucwords($value).'/'.'Website.php';
 
 	if (file_exists($websitefile)) {

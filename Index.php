@@ -46,7 +46,7 @@ $php_global_tabs = $global_tabs_folder;
 
 $main_arrays_php = $php_vars_global_files.'Main Arrays.php';
 $global_arrays_php = $php_vars_global_files.'Global Arrays.php';
-$website_language_and_type_definer_php = $php_vars_global_files.'Website Language And Type Definer.php';
+$website_language_definer_php = $php_vars_global_files.'Website Language Definer.php';
 $website_arrays_generator_php = $php_vars_global_files.'Websites Array Generator.php';
 $default_setting_values_php = $php_vars_global_files.'Default Setting Values.php';
 $vglobal_php = $php_variables.'VGlobal.php';
@@ -58,6 +58,31 @@ $website_style_variables_foreach = $php_vars_global_files.'Website Style Variabl
 $generic_tabs_generator_file = $php_vars_global_files.'GenericCities Generator.php';
 $setting_parameters_file = $php_vars_global_files.'Settings Params.php';
 
+function format($text, $parameters) {
+	$parameters = (array)$parameters;
+
+	$text = preg_replace_callback("#\{\}#",
+	function ($parameters_array) {
+		static $i = 0;
+		return '{'.($i++).'}';
+	},
+	$text);
+
+	return str_replace(
+		array_map(
+		function ($key) {
+			return '{'.$key.'}';
+		},
+
+		array_keys($parameters)),
+
+		array_values($parameters),
+
+		$text
+	);
+
+}
+
 # Main Arrays PHP file loader
 require $main_arrays_php;
 
@@ -67,18 +92,22 @@ require $global_arrays_php;
 # Websites Array Generator PHP file loader
 require $website_arrays_generator_php;
 
-$year_arrays_php = $sitefolder_years.'Year Arrays.php';
+$year_arrays_php = $website_folder_years.'Year Arrays.php';
 
 # Year Arrays PHP file loader
 require $year_arrays_php;
 
-# Website Language and Type Definer PHP file loader
-require $website_language_and_type_definer_php;
-
+# Default Setting Values file includer
 require $default_setting_values_php;
+
+# Website Language Definer file includer
+require $website_language_definer_php;
 
 # Website selector file includer
 require $website_selector_file;
+
+$website_title = $website_titles_array[$selected_website_number];
+$website_type = $website_types_array[$selected_website_number];
 
 # Language modifier
 $hyphen_separated_website_language = strtoupper($website_language);
@@ -107,6 +136,10 @@ if ($website_deactivate_tabs_setting == false and $site_is_prototype == false) {
 }
 
 require $other_index_stuff_php;
+
+echo "<script>
+Define_Colors_And_Styles();
+<script>";
 
 echo '</center>
 </body>

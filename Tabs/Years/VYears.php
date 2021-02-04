@@ -44,7 +44,7 @@ $years_number = 3;
 #VYears PHP files
 $year_maker_file_php = $php_tabs.ucwords($sitetextmaker).'/YearMaker.php';
 $year_maker_2_file = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
-$yearmakerfilephp2test = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$year_maker_file_php_2_test = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
 $yearsbuttonsgenerator = $php_tabs.'Years/'.'YearsButtons Generator.php';
 
 #English texts for all websites
@@ -59,7 +59,7 @@ $yearsbuttonsgenerator = $php_tabs.'Years/'.'YearsButtons Generator.php';
 #	$marginstyle22 = 'style="margin-right:76%;border-width:3px;border-color:'.$color2.';border-style:solid;"';
 #}
 
-# Site image link and image size
+# Website image link and image size
 $website_image = $current_year;
 $website_image = $cdnimg.$website_image.".png";
 $website_image_link = $website_image;
@@ -67,16 +67,16 @@ $website_image_size_computer = 30;
 $website_image_size_mobile = 66;
 $screenshot_link = '<a href="'.$cdnimg.'Jogos 616-691.gif" class="w3-text-blue">Jogos 616-691.gif</a>';
 
-#Site descriptions
+#Website descriptions
 $website_descriptions_array = array(
-'Website to show my '.$current_year.', Site para mostar o meu '.$current_year.' (stake2)', 
+'Website to show my '.$current_year.', Website para mostar o meu '.$current_year.' (stake2)', 
 'Website to show my '.$current_year.'. (stake2)',
-'Site para mostar o meu '.$current_year.' (stake2)',
+'Website para mostar o meu '.$current_year.' (stake2)',
 );
 
 $website_html_descriptions_array = array(
 'Description: A website to show how my year '.$orangespan.'('.$current_year.')'.$spanc.' was and what I did during it, I am '.$orangespan.'stake2'.$spanc.', or '.$orangespan.'Izaque'.$spanc.'.',
-'Descrição: Um site para mostar como meu ano '.$orangespan.'('.$current_year.')'.$spanc.' foi e o que eu fiz durante ele, eu sou '.$orangespan.'stake2'.$spanc.', ou '.$orangespan.'Izaque'.$spanc.'.',
+'Descrição: Um website para mostar como meu ano '.$orangespan.'('.$current_year.')'.$spanc.' foi e o que eu fiz durante ele, eu sou '.$orangespan.'stake2'.$spanc.', ou '.$orangespan.'Izaque'.$spanc.'.',
 );
 
 #Year texts and YearNumbs.txt reader
@@ -87,7 +87,7 @@ if ($website_language == $languages_array[0]) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$website_name = $site;
+	$website_name = $website;
 	$website_title = $current_year;
 	$website_title_html = $current_year.': '.$icons[3];
 	$website_link = $selected_website_url;
