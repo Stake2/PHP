@@ -26,7 +26,7 @@ if ($website_has_notifications == false) {
 }
 
 if ($website_name == $website_text_maker) {
-	$edit_button_script = '<script src="'.$cdnjs.'EditBtn.js"></script>';
+	$edit_button_script = '<script src="'.$cdnjs.'Edit Button.js"></script>';
 }
 
 else {
