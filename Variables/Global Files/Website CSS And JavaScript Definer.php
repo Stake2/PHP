@@ -1,7 +1,7 @@
 <?php 
 
 if ($new_write_style == True) {
-	$write_chapter_script = '<script src="'.$cdnjs.'WriteChapter.js"></script>'."\n";
+	$write_chapter_script = '<script src="'.$cdnjs.'Write Chapter.js"></script>'."\n";
 }
 
 else {
@@ -24,7 +24,7 @@ if ($site_is_prototype == false) {
 	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Colors Prototype.css" />';
 	$stories_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Stories.css" />';
 	$mobile_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Mobile.css" />';
-	$imghover_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'ImgHover.css" />';
+	$imghover_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Image Hover.css" />';
 
 #Website CSS definer
 	$website_css_files = $site_css_file_loader.'
@@ -35,16 +35,16 @@ if ($site_is_prototype == false) {
 '.$stories_css.'
 '.$mobile_css.'
 '.$imghover_css."\n".
-$notificationcss.
-$newdesigncss;
+$notification_css.
+$new_design_css;
 }
 
 else {
 	#Website CSS definer
 	$website_css_files = '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 '.
-$notificationcss.
-$newdesigncss;
+$notification_css.
+$new_design_css;
 }
 
 if ($site_is_prototype == false) {
@@ -56,9 +56,10 @@ if ($site_is_prototype == false) {
 <script src="'.$cdnjs.'SideMenu.js"></script>
 <script src="'.$cdnjs.'Set Revised Date.js"></script>
 <script src="'.$cdnjs.'Open Chapter By Keys.js"></script>
-<script src="'.$cdnjs.'Change Button Color.js"></script>'."\n".
+<script src="'.$cdnjs.'Change Button Color.js"></script>'
+."\n".
 $edit_button_script.
-$newdesignscript.
+$new_design_script.
 $write_chapter_script.
 '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>'."\n";
 }

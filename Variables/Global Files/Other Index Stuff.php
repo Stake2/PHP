@@ -24,7 +24,7 @@ while ($i <= 0) {
 
 #Website notification file includer if setting is True
 if ($website_has_notifications == True and $website_deactivate_notification_setting == false) {
-	echo $notificationscript."\n"."\n";
+	echo $notification_script."\n"."\n";
 }
 
 if ($site_haves_additional_website_content == True) {
@@ -50,7 +50,7 @@ a:active {color: blue!important;}
 if ($website_new_design_setting == True) {
 	#SuperAnimes test loader
 	require $newdesignsitephp;
-	echo $newdesignscript;
+	echo $new_design_script;
 }
 
 #Chapter Opener Script includer if the setting is True

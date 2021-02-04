@@ -226,7 +226,7 @@ echo $website_header;
 
 #Website notification file includer if setting is True
 if ($website_has_notifications == True) {
-	echo $notificationscript;
+	echo $notification_script;
 	echo '<script>
 function Hide_Notification() {
 	var notifdiv = document.getElementById("notificationdiv");

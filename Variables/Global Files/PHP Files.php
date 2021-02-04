@@ -24,7 +24,7 @@ $website_image_maker = $php_vars_global_files.'Website Image Maker.php';
 $website_forms_php = $php_vars_global_files.'Website Forms.php';
 
 # New Design PHP Files
-$newdesignphp = $newdesign_php_folder_variable.'NewDesignScript.php';
+$new_design_php = $newdesign_php_folder_variable.'NewDesignScript.php';
 $newdesignsitephp = $newdesign_php_folder_variable.'NewDesignSite.php';
 
 # CSS Packs Variables

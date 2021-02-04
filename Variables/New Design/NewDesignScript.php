@@ -1,6 +1,6 @@
 <?php 
 
-$newdesignscript = '<script src="https://www.superanimes.org/js/config.min.js?v=11.1"></script>
+$new_design_script = '<script src="https://www.superanimes.org/js/config.min.js?v=11.1"></script>
 <script>
 	eval(function(p,a,c,k,e,d){e=function(c){return c};if(!"".replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return"\\w+"};c=1};while(c--){if(k[c]){p=p.replace(new RegExp("\\b"+e(c)+"\\b","g"),k[c])}}return p}("1.0=1.0||{};1.0.3="2";",4,4,"lazySizesConfig|window|lazy|lazyClass".split("|"),0,{}))
 </script>
@@ -31,7 +31,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a
 <script src="https://www.superanimes.org/js/main.js?v=11.1"></script>
 <script src="https://www.superanimes.org/js/jquery.min.js?v=1.0"></script>';
 
-$newdesigncss = '
+$new_design_css = '
 <style>
 * {
     margin: 0;
