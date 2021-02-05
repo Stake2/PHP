@@ -150,7 +150,7 @@ if ($new_write_style == True) {
 	}
 
 	#Chapter date displayer
-	if ($website_name != $sitenazzevo and $story_has_dates == True) {
+	if ($website_name != $website_nazzevo and $story_has_dates == True) {
 		if (file_exists($chapter_dates_file) == True) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {
@@ -174,27 +174,27 @@ if ($new_write_style == True) {
 	#echo $show_story_chapter_text_button;
 	#echo '<div style="display:none;">'.$edit_story_chapter_button.$div_close;
 
-	echo '<textarea id="edit_chapter_title_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
-
-	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
-
-	#Checks if the variable show_write_form_text is set to True
 	if ($show_write_form_text == True) {
-		#Checks if the variable website_show_write_form_text_setting is set to True and shows the title text
 		if ($website_show_write_form_text_setting == True) {
-			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
+			$title_text = $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 
 		else {
-			echo $chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
+			$title_text = $chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 	}
 
-	echo '</textarea>'."\n";
+	echo '<input id="edit_chapter_title_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" value="'.$title_text.'" style="height:50px;'.$roundedborderstyle3.'">'."\n";
 
-	echo '<textarea id="edit_chapter_story_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
+	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
-	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:3000px;'.$roundedborderstyle3.'">'."\n";
+	#echo $title_text;
+
+	echo '</input>'."\n";
+
+	echo '<textarea id="edit_chapter_story_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:3300px;'.$roundedborderstyle3.'">'."\n";
+
+	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:4000px;'.$roundedborderstyle3.'">'."\n";
 
 	if ($website_show_write_form_text_setting == True) {
 		echo $story_text_text.': '."\n"."\n";
@@ -242,7 +242,7 @@ if ($new_write_style == True) {
 
 	if ($show_write_form_text == True and $story_has_dates == True) {
 		#Chapter date displayer
-		if ($website_name != $sitenazzevo) {
+		if ($website_name != $website_nazzevo) {
 			if (file_exists($chapter_dates_file) == True) {
 				$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 				if ($fp) {
