@@ -6,6 +6,21 @@ if ($new_write_style == True) {
 	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
 }
 
+$chapter_story_text_string = "";
+
+if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
+	while(!feof($file)) {
+		$line = fgets($file);
+		$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
+		$chapter_story_text_string .= $line;
+	}
+
+	fclose($file);
+}
+
+$chapter_word_count = str_word_count($chapter_story_text_string);
+$chapter_word_count = number_format($chapter_word_count);
+
 if (isset($normal_chapters[$chapter_number_1])) {
 	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
 		if ($story_namewritesstoryfiles == True) {
@@ -47,6 +62,7 @@ if (isset($normal_chapters[$chapter_number_1])) {
 
 				echo $line."\n".'<br />';
 			}
+
 			fclose($file);
 
 			if ($story_namewritesstoryfiles == True) {
@@ -79,6 +95,7 @@ if ($website_name != $website_nazzevo and $story_has_dates == True) {
 	echo '<br />';
 	if (isset($chapter_written_dates[$chapter_date_number])) {
 		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
+		echo "<br />".$words_text.": ".$chapter_word_count."."."\n";
 	}
 }
 

@@ -77,6 +77,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$stories_text = 'Stories';
 	$form_name = 'Name';
 	$form_text = 'Form';
+	$words_text = "Words";
 
 	$readers_description = 'Thanks everyone ♥';
 	$website_notification_text = 'New reviewed chapter';
@@ -148,6 +149,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$stories_text = 'Histórias';
 	$form_name = 'Nome';
 	$form_text = 'Formulário';
+	$words_text = "Palavras";
 
 	$readers_description = 'Obrigado a todos ♥';
 	$website_notification_text = 'Novo capítulo revisado';
