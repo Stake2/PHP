@@ -105,8 +105,6 @@ Test();
 #print_r($websites_names_array_2);
 */
 
-#echo $sitecodes[16];
-
 echo '<script>
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -127,5 +125,12 @@ foreach ($website_titles_array as $title) {
 }
 
 #echo $div_close."\n\n";
+
+if ($website_type == $story_website_type) {
+	echo '<script>
+Chapter_Number = 1;
+var Last_Chapter = '.$chapters.';
+</script>';
+}
 
 ?>

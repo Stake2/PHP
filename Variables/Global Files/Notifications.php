@@ -12,7 +12,7 @@ if ($website_name != $website_nazzevo) {
 
 #Computer Website notification div and text
 $website_notification_text_computer = '<h3 class="'.$computer_variable.'">'.
-'<span id="notification_close_button_computer" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="Hide_Notification()">'.'<b>X</b>'.$spanc.
+'<span id="notification_close_button_computer" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="Hide_Notification()">'.'<b style="font-size:20px;">X</b>'.$spanc.
 '<span class="notification_text">'.$website_notification_text." ".$icons[13].$spanc.
 '<b>'.'<span class="notification_text" style="margin-left:2%;">'.$reviewed_chaptercode.$spanc.'</b>'.
 '</h3>';
@@ -22,24 +22,24 @@ $website_notification_text_mobile = '<h4 class="'.$mobile_variable.'">'.
 '<span id="notification_close_button_mobile" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text '.$mobile_variable.'" style="'.$notifbtncss2.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="Hide_Notification_Mobile()">'.'<b>X</b>'.$spanc.
 '<br /><br />'.
 '<b>'.'<span class="notification_text '.$mobile_variable.'">'.$website_notification_text." ".$icons[13].$spanc.'</b>'.
-'<b>'.'<span class="notification_text '.$mobile_variable.'">'.$reviewed_chaptercode.$spanc.'</b>'.
+'<br /><b>'.'<span class="notification_text '.$mobile_variable.'">'.$reviewed_chaptercode.$spanc.'</b>'.
 '</h4>
 
 <style>
 @keyframes blink_black_to_white {
 	0% {
-		color: black;
-		border-color:black;
+		color: black!important;
+		border-color:black!important;
 	} 
 
 	50% {
-		color: white;
-		border-color:white;
+		color: white!important;
+		border-color:white!important;
 	}
 
 	100% {
-		color: black;
-		border-color:black;
+		color: black!important;
+		border-color:black!important;
 	} 
 }
 
