@@ -30,11 +30,13 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_things_i_do
 		$tabnames = array('Coisas Produtivas', 'Coisas Não Produtivas', 'Escrever', 'Fazer Sites', 'Programar', 'Editar Vídeos', 'Desenhar', 'Ouvir música', 'Conversar', 'Assistir', 'Jogar Jogos', 'Músicas', 'Playlists');
 	}
 
-	#Number of tabs
-	$tabnumb = 12;
+	# Number of tabs
+	$tabnumb = count($tabs) - 1;
 
-	#Includer of the array of the GenericTabs files
+	# Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;
+
+	$found_selected_website = True;
 }
 
 ?>

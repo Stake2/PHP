@@ -13,7 +13,7 @@ else if ($website_not_so_much_space_setting == True) {
 }
 
 # Blank website generator using templates
-if (!isset($website_title_html) and !isset($website_meta_description) and $website_deactivate_header_setting == false) {
+if (!isset($website_title_html) and !isset($website_meta_description) and $website_deactivate_header_setting == False) {
 	$website_image = $cdnimg.'Template.png';
 	$website_image_link = $website_image;
 	$website_image_size_computer = 33;
@@ -51,7 +51,7 @@ if (!isset($website_title_html) and !isset($website_meta_description) and $websi
 	'.$div_close."\n";	
 }
 
-if ($website_type == $normal_website_type and $website_deactivate_header_setting == false or in_array($website_name, $years_array) and $website_deactivate_header_setting == false) {
+if ($website_type == $normal_website_type and $website_deactivate_header_setting == False or in_array($website_name, $years_array) and $website_deactivate_header_setting == False) {
 	if ($website_name == $website_diario) {
 		$blockstextonheader = $blockstext.'<br />'."\n";
 		$diariostuff1 = '<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$blockstextonheader.'</'.$n.'>
@@ -120,7 +120,7 @@ if ($website_type == $story_website_type) {
 	'</div>'."\n";
 }
 
-if ($website_has_notifications == True and $website_deactivate_notification_setting == false) {
+if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
 	$change_website_title_script = '<script>
 var old_website_title = "";
 

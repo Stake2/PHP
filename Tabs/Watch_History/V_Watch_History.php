@@ -69,7 +69,7 @@ $website_descriptions_array = array(
 'Website para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti e mídias que eu vou assistir, feito por stake2.',
 );
 
-$text = 'Website to show {}, {}, {}, {}, and {} that I watched and {} that I will watch, made by stake2.';
+$text = 'Website to show {}, {}, {}, {},<br />and {} that I watched and {} that I will watch, made by stake2.';
 
 $array = array(
 "Animes",
@@ -88,6 +88,7 @@ foreach ($array as $item) {
 
 $replacer_one = format($text, $replacer_array_one);
 
+$text = 'Website para mostrar {}, {}, {}, {},<br />e {} que assisti e {} que eu vou assistir, feito por stake2.';
 
 $array = array(
 "Animes",
@@ -173,7 +174,7 @@ if ($website_language == $enus_language) {
 	$website_name = $website;
 	
 	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($website_title).' '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
+	$website_title_html = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -186,7 +187,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_name = $website;
 
 	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($website_title).' '.$hyphen_separated_website_language.': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
+	$website_title_html = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[1];

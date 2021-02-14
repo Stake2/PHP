@@ -92,11 +92,11 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$watched_episodes_has_time_array_2018 = array(1, 6, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 46, 47, 48, 49, 52);
 
 	if (in_array($website_language, $en_languages_array)) {
-		$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($enus_language).'.txt';
+		$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch Media Types '.strtoupper($enus_language).'.txt';
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch MediaType '.strtoupper($ptbr_language).'.txt';
+		$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch Media Types '.strtoupper($ptbr_language).'.txt';
 	}
 
 	if (file_exists($to_watch_episodes_file) == True) {
@@ -169,15 +169,15 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$current_variable_year = 2018;
 	while ($current_variable_year <= $current_year_backup) {
 		$current_year = $current_variable_year;
-		$current_year_watched_episodes_file = $notepad_watch_history_folder.$current_year.'/'.$watched_episodes_text.'.txt';
-		$current_year_watched_time_file = $notepad_watch_history_folder.$current_year.'/'.$watched_time_text.'.txt';
+		$current_year_watched_episodes_file = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/'.$watched_episodes_text.'.txt';
+		$current_year_watched_time_file = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/'.$watched_time_text.'.txt';
 
 		if (in_array($website_language, $en_languages_array)) {
-			$current_year_watched_media_type_file = $notepad_watch_history_folder.$current_year.'/'.$watched_media_type_text.' '.strtoupper($enus_language).'.txt';
+			$current_year_watched_media_type_file = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/'.$watched_media_type_text.' '.strtoupper($enus_language).'.txt';
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$current_year_watched_media_type_file = $notepad_watch_history_folder.$current_year.'/'.$watched_media_type_text.' '.strtoupper($ptbr_language).'.txt';
+			$current_year_watched_media_type_file = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/'.$watched_media_type_text.' '.strtoupper($ptbr_language).'.txt';
 		}
 
 		$file = $current_year_watched_episodes_file;

@@ -1,11 +1,11 @@
 <?php 
 
-if ($selected_website != $sitedesertisland) {
+if ($selected_website != $website_desert_island) {
 	$span_variable = $whitespan;
 	$hover_variable = $text_hover_white_css_class;
 }
 
-if ($selected_website == $sitedesertisland) {
+if ($selected_website == $website_desert_island) {
 	$span_variable = $whitespan;
 	$hover_variable = $text_hover_cyan_css_class;
 }
@@ -29,5 +29,7 @@ while ($i <= $readers_file_number) {
 
     $i++;
 }
+
+echo "<br />"."\n";
 
 ?>

@@ -9,6 +9,7 @@ $website_shows_comments = false;
 $website_has_comments = false;
 $website_has_comments_tab = false;
 $website_has_changelog_setting = false;
+$website_has_custom_layout_setting = False;
 
 $website_writing_pack_setting = false;
 $website_show_write_form_text_setting = false;

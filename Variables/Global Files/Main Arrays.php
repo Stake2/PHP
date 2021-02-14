@@ -1,13 +1,13 @@
 <?php 
 
-#Queries for parameters
+# Queries for parameters
 $website_selector_parameters = array(
 'website',
-'website_type',
+#'website_type',
 'website_language',
 );
 
-#Queries for parameters of settings
+# Queries for parameters of settings
 $setting_parameters = array(
 'website_notification_setting',
 'website_comment_tab_setting',
@@ -32,7 +32,7 @@ $setting_parameters = array(
 'website_deactivate_header_setting',
 );
 
-#Queries for website languages
+# Queries for website languages
 $languages_array = array(
 'geral',
 'enus',
@@ -50,19 +50,19 @@ $language_enus = $languages_array[1];
 $language_ptbr = $languages_array[2];
 $language_ptpt = $languages_array[3];
 
-#Array of Portuguese languages
+# Array of Portuguese languages
 $pt_languages_array = array(
 $ptbr_language,
 $ptpt_language,
 );
 
-#Array of English languages
+# Array of English languages
 $en_languages_array = array(
 $geral_language,
 $enus_language,
 );
 
-#CSS file variables
+# CSS file variables
 $website_css_files_array = array(
 $css_file_pocb = 'Pocb',
 $css_file_pequenata = 'Pequenata',

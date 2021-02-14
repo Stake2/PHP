@@ -69,8 +69,8 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 $watched_episodes_text = "Watched Episodes";
-$watched_time_text = "Watched Time";
-$watched_media_type_text = "Watched MediaType";
+$watched_time_text = "Watched Times";
+$watched_media_type_text = "Watched Media Types";
 
 $langreadtext2 = strtolower($langreadtext);
 $author_name = 'Izaque Sanvezzo (stake2)';

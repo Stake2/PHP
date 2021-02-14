@@ -1,38 +1,38 @@
 <?php 
 
 #CSS style variables
-$color = 'black';
-$color2 = 'blue';
-$color3 = 'blue';
-$color4 = 'w3-blue w3-text-black';
-$colortext = 'w3-text-blue';
-$colortext2 = 'w3-text-blue';
-$sitehr = 'bluehr';
-$sitehr2 = 'bluehr';
-$sitehr3 = 'bluehr';
-$spanstyle = 'blue w3-text-black';
-$formbtnstyle = 'black w3-text-blue';
-
-#Variables that mixes CSS tags
-$textstyle = $colortext.' black';
-$textstyle2 = 'w3-text-black white';
-$first_button_style = $color4.' '.$cssbtn1;
-$btnstyle2 = $color2.' '.$cssbtn1;
-$sitewhilestyle = $color4;
-$subtextspan = $whitespan;
-$formcolor = $colortext2;
+#$color = 'black';
+#$color2 = 'blue';
+#$color3 = 'blue';
+#$color4 = 'w3-blue w3-text-black';
+#$colortext = 'w3-text-blue';
+#$colortext2 = 'w3-text-blue';
+#$sitehr = 'bluehr';
+#$sitehr2 = 'bluehr';
+#$sitehr3 = 'bluehr';
+#$spanstyle = 'blue w3-text-black';
+#$formbtnstyle = 'black w3-text-blue';
+#
+##Variables that mixes CSS tags
+#$textstyle = $colortext.' black';
+#$textstyle2 = 'w3-text-black white';
+#$first_button_style = $color4.' '.$cssbtn1;
+#$btnstyle2 = $color2.' '.$cssbtn1;
+#$sitewhilestyle = $color4;
+#$subtextspan = $whitespan;
+#$formcolor = $colortext2;
 
 #HTML and HTML Style variables
-$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$widthsize = '';
-$size = '';
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
-$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
+#$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+#$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+#$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
+#$widthsize = '';
+#$size = '';
+#$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
+#$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
+#$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'';
 
 #Website URL subdirectory for the online link
 $siteurlcodes = array(
@@ -41,7 +41,7 @@ $siteurlcodes = array(
 );
 
 #Story Variables php file includer
-include $story_namevarsphp;
+include $story_variables_php;
 
 #Watch History website texts file includer
 include $watch_texts_php;
@@ -49,22 +49,22 @@ include $watch_texts_php;
 #Folder variables
 $selected_website_url = $main_website_url.$siteurlcodes[0].'/';
 $siteurlgeral2 = $main_website_url.$siteurlcodes[1].'/';
-$selected_website_folder = $php_tabs.ucwords($sitethingsido).'/';
+$selected_website_folder = $website_folder_things_i_do;
 $imageswebfolder = $local_cdn_image_drawings;
 $drawingswebfolder = $cdn_image_drawings;
 
-$watched_media_reader_2018 = $php_tabs.ucwords($site2018).'/'.$site2018.' MediaReader'.'.php';
-$watched_media_reader_2019 = $php_tabs.ucwords($site2019).'/'.$site2019.' MediaReader'.'.php';
+$watched_media_reader_2018 = $php_tabs.ucwords($website_2018).'/'.$website_2018.' MediaReader'.'.php';
+$watched_media_reader_2019 = $php_tabs.ucwords($website_2019).'/'.$website_2019.' MediaReader'.'.php';
 
 if (in_array($website_language, $en_languages_array)) {
-	$watched_media_type_2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$languages_array[1].'.txt';
+	$watched_media_type_2018 = $notepad_years_folder_variable.$website_2018.'/Watched VideoTypes '.$languages_array[1].'.txt';
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$watched_media_type_2018 = $notepad_years_folder_variable.$site2018.'/Watched VideoTypes '.$languages_array[2].'.txt';
+	$watched_media_type_2018 = $notepad_years_folder_variable.$website_2019.'/Watched VideoTypes '.$languages_array[2].'.txt';
 }
 
-$watchedtypefile2019 = $notepad_years_folder_variable.$site2019.'/Watched VideoTypes.txt';
+$watchedtypefile2019 = $notepad_years_folder_variable.$website_2019.'/Watched VideoTypes.txt';
 $year_maker_file_php_2_test = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
 $year_maker_file_php_2_test = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $year_maker_file_php_2_test);
 
@@ -113,7 +113,7 @@ $website_image = $website_image;
 $website_image = $cdnimg.$website_image.".png";
 $website_image_link = $website_image;
 $website_image_size_computer = 30;
-$imagesize2 = 66;
+$website_image_size_mobile= 66;
 
 #Website descriptions
 $website_descriptions_array = array(

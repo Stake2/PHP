@@ -113,8 +113,19 @@ function getElementByXpath(path) {
 }
 </script>'."\n\n";
 
-echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.'</div>';
-echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.'</div>';
-echo '<div style="display:none;" id="button_number">'.$tabnumb.'</div>';
+echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.$div_close."\n";
+echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.$div_close."\n";
+echo '<div style="display:none;" id="button_number">'.$tabnumb.$div_close."\n";
+
+#echo "\n".'<div class="w3-text-white" style="text-weight: bold;">'."\n";
+
+$i = 0;
+foreach ($website_titles_array as $title) {
+	#echo $i." - ".$title.": ".$website_types_array[$i]."<br />\n";
+
+	$i++;
+}
+
+#echo $div_close."\n\n";
 
 ?>

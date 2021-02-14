@@ -113,7 +113,7 @@ $website_type = $website_types_array[$selected_website_number];
 $hyphen_separated_website_language = strtoupper($website_language);
 $hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-if ($site_is_prototype == false) {
+if ($site_is_prototype == False) {
 	#VGlobal.php variables file includer
 	require $vglobal_php;
 }
@@ -123,9 +123,7 @@ if ($site_is_prototype == True) {
 	@require $vglobal_php;
 }
 
-?>
-<!DOCTYPE html>
-<?php 
+echo "<!DOCTYPE html>\n";
 
 # Website Header displayer
 echo $website_header;
