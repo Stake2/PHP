@@ -23,7 +23,7 @@ while ($i <= 0) {
 
 
 #Website notification file includer if setting is True
-if ($website_has_notifications == True and $website_deactivate_notification_setting == false) {
+if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
 	echo $notification_script."\n"."\n";
 }
 

@@ -1,11 +1,7 @@
 <?php 
 
-if ($website_name == $sitepequenata) {
-	$hide_notification_attribute = 'Hide_Notification();hidenotifm();';
-}
-
-else {
-	$hide_notification_attribute = '';
+if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
+	$hide_notification_attribute = 'Hide_Notification_Computer();Hide_Notification_Mobile();';
 }
 
 $reviewed_chapter = 0;
