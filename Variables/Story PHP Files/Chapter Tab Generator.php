@@ -110,7 +110,7 @@ echo '<h5 class="'.$alternative_full_tab_style.'" style="'.$hstyle.'text-align:l
 if ($chapter_number_1 != 1) {
 	if ($new_write_style == True) {
 		$onclickscript = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');';
-		$onclickscript = $onclickscript.'DefineChapter('.$chapter_number_3.');OpenChapter2(ReadContent'.$chapter_number_3.');';
+		$onclickscript = $onclickscript.'Define_Chapter('.$chapter_number_3.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_3.');';
 	}
 
 	else if ($new_write_style == false) {
@@ -123,14 +123,14 @@ if ($chapter_number_1 != 1) {
 }
 
 else {
-	$has_previous_chapter_button = false;
+	$has_previous_chapter_button = False;
 }
 
 # Top Next chapter button
 if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
 	if ($new_write_style == True) {
 		$onclickscript = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');';
-		$onclickscript = $onclickscript.'DefineChapter('.$chapter_number_2.');OpenChapter2(ReadContent'.$chapter_number_2.');';
+		$onclickscript = $onclickscript.'Define_Chapter('.$chapter_number_2.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_2.');';
 	}
 
 	else if ($new_write_style == false) {
@@ -143,7 +143,7 @@ if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
 }
 
 else {
-	$has_next_chapter_button = false;
+	$has_next_chapter_button = False;
 }
 
 if ($new_write_style == True) {
@@ -155,19 +155,19 @@ if ($new_write_style == True) {
 		$local_button_style = 'float: left;'.$rounded_border_style_2;
 	}
 
-	$edit_story_chapter_button = '<span id="edit_story_chapter_button_number_'.$chapter_number_1.'" style="display:none;">WriteContent'.$chapter_number_1.'</span>'.
+	$edit_story_chapter_button = '<span id="edit_story_chapter_button_number_'.$chapter_number_1.'" style="display:none;">Write_Content_'.$chapter_number_1.'</span>'.
 
-	'<button id="'.$write_button_text.'-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
+	'<button id="'.$write_button_text.'-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="Write_Chapter(Write_Content_'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
 	"\n"."\n";
 
-	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">ReadContent'.$chapter_number_1.'</span>'.
-	'<button id="'.$write_button_text.'-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
+	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">Read_Content_'.$chapter_number_1.'</span>'.
+	'<button id="'.$write_button_text.'-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
 
-	'<button id="write-button-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="WriteChapter(WriteContent'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
+	'<button id="write-button-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="Write_Chapter(Write_Content_'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
 	"\n"."\n";
 
-	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">ReadContent'.$chapter_number_1.'</span>'.
-	'<button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="OpenChapter2(ReadContent'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
+	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">Read_Content_'.$chapter_number_1.'</span>'.
+	'<button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
 
 	"\n"."\n";
 
@@ -204,7 +204,7 @@ echo '<br /><br /><br /><br />'."\n";
 echo $div_zoom_animation."\n";
 
 # Story cover shower if story has the website_story_has_bookcovers_setting setting as True
-if ($website_story_has_bookcovers_setting == True or $website_story_has_bookcovers_setting == True and $website_name == $sitepequenata and $chapter_number_1 <= 10) {
+if ($website_story_has_bookcovers_setting == True or $website_story_has_bookcovers_setting == True and $website_name == $website_pequenata and $chapter_number_1 <= 10) {
 	echo '<center>'."\n";
 
 	if (isset($coverimages[$book_cover_number]) and isset($coverimagesm[$book_cover_number])) {
@@ -216,7 +216,7 @@ if ($website_story_has_bookcovers_setting == True or $website_story_has_bookcove
 	echo "<br />"."\n";
 }
 
-if ($new_write_style == false) {
+if ($new_write_style == False) {
 	echo '<div id="'.$captextdiv.$chapter_number_1.'" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">'."\n";
 }
 
@@ -224,15 +224,13 @@ if ($new_write_style == True) {
 	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
 }
 
-$website_write_story_setting = false;
+$website_write_story_setting = False;
 
 # Chapter writer tab displayer
 if ($website_write_story_setting == True and $story_name_website_chapter_to_write == $chapter_number_1 or $website_write_story_setting == True and $story_name_website_chapter_to_write.(int)'0' == $chapter_number_1 and $chapter_number_1 != 0) {
 	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
 
 	require $chapter_writer_displayer_php;
-
-	#echo "$chapter_writer_displayer_php was loaded.";
 
 	if ($new_write_style == True) {
 		#echo $new_write_stylescript."\n";
@@ -250,12 +248,12 @@ else {
 
 # Bottom Previous chapter button
 if ($chapter_number_1 != 1) {
-	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_3."');".'DefineChapter('.$chapter_number_3.');OpenChapter2(ReadContent'.$chapter_number_3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
+	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_3."');".'Define_Chapter('.$chapter_number_3.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 }
 
 # Bottom Next chapter button
 if ($chapter_number_1 != $chapters) {
-	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_2."');".'DefineChapter('.$chapter_number_2.');OpenChapter2(ReadContent'.$chapter_number_2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
+	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_2."');".'Define_Chapter('.$chapter_number_2.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 }
 
 #Computer Comment button
@@ -270,7 +268,7 @@ if ($story_has_reads == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
 	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$read_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
 	echo $div_close."\n";
-	echo $bigspacemobileandcomputer;
+	echo $big_space_mobile_and_computer;
 }
 
 if ($story_has_chapter_comments == false and $story_has_reads == false) {

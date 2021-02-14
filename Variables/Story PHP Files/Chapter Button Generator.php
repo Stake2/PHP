@@ -33,7 +33,7 @@ while ($chapter_number_1 <= $chapters) {
 
 	if ($chapter_number_1 == $chapters) {
 		if ($new_write_style == True) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');DefineChapter('.$chapter_number_1.');';
+			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 		}
 
 		else if ($new_write_style == false) {
@@ -122,7 +122,7 @@ while ($chapter_number_1 <= $chapters) {
 
 	else {
 		if ($new_write_style == True) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');DefineChapter('.$chapter_number_1.');';
+			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 		}
 
 		else if ($new_write_style == false) {

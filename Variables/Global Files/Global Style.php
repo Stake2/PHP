@@ -173,7 +173,7 @@ $h1c = '</h1>';
 $h2c = '</h2>';
 $h4_close = '</h4>';
 $bigspace = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
-$bigspacemobileandcomputer = '<div class="'.$mobile_variable.'"><br /><br /><br />'.$div_close."\n".'<div class="'.$computer_variable.'"><br /><br /><br /><br /><br />'.$div_close."\n";
+$big_space_mobile_and_computer = '<div class="'.$mobile_variable.'"><br /><br /><br />'.$div_close."\n".'<div class="'.$computer_variable.'"><br /><br /><br /><br /><br />'.$div_close."\n";
 
 $margin_css_style = 'style="margin:10%;"';
 

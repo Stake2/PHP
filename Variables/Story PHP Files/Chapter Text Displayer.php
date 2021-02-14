@@ -107,10 +107,7 @@ echo '<br /><br />'."\n";
 if ($new_write_style == True) {
 	#JavaScript version for the read story text
 	echo '<script>'.
-	'var ReadContent'.$chapter_number_1.' = `';
-
-	#echo $edit_story_chapter_button;
-	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
+	'var Read_Content_'.$chapter_number_1.' = `';
 
 	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
 		if ($story_namewritesstoryfiles == True) {
@@ -186,7 +183,7 @@ if ($new_write_style == True) {
 
 	#JavaScript version for the write story form
 	echo '<script>'.
-	'var WriteContent'.$chapter_number_1.' = `';
+	'var Write_Content_'.$chapter_number_1.' = `';
 
 	#echo $show_story_chapter_text_button;
 	#echo '<div style="display:none;">'.$edit_story_chapter_button.$div_close;
@@ -203,15 +200,9 @@ if ($new_write_style == True) {
 
 	echo '<input id="edit_chapter_title_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" value="'.$title_text.'" style="height:50px;'.$roundedborderstyle3.'">'."\n";
 
-	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
-
-	#echo $title_text;
-
 	echo '</input>'."\n";
 
 	echo '<textarea id="edit_chapter_story_text_textarea_number_'.$chapter_number_1.'" type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:3300px;'.$roundedborderstyle3.'">'."\n";
-
-	#echo '<textarea type="text" width="1000" class="'.$text_black_css_class.' '.$background_color.' '.$second_full_border.' w3-input" placeholder="'.$story_text_text.': " style="height:4000px;'.$roundedborderstyle3.'">'."\n";
 
 	if ($website_show_write_form_text_setting == True) {
 		echo $story_text_text.': '."\n"."\n";

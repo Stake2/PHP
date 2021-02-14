@@ -11,7 +11,7 @@ require $chapter_writer_form_php_variable;
 if ($new_write_style == True) {
 	#JavaScript version for the write story form
 	echo '<script>'.
-	'var WriteContent'.$chapter_number_1.' = `<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:60px;'.$roundedborderstyle3.'">'."\n";
+	'var Write_Content_'.$chapter_number_1.' = `<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:60px;'.$roundedborderstyle3.'">'."\n";
 
 	#Checks if the variable website_show_chapter_text_on_write_form_setting is set to True
 	if ($website_show_chapter_text_on_write_form_setting == True) {
@@ -104,7 +104,6 @@ if ($new_write_style == True) {
 
 	echo '`;'.
 	'</script>';
-	#$write_chapter_script;
 }
 
 ?>
