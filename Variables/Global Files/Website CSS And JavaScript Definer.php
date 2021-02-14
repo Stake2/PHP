@@ -18,7 +18,7 @@ if ($site_is_prototype == false) {
 	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Colors Prototype.css" />';
 	$stories_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Stories.css" />';
 	$mobile_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Mobile.css" />';
-	$image_hover_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Image Hover.css" />';
+	$image_hover_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Image_Hover.css" />';
 
 #Website CSS definer
 	$website_css_files = $website_css_file_loader.'

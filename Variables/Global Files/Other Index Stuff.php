@@ -6,23 +6,7 @@ Change_Title();
 </script>';
 }
 
-/*
-$i = 0;
-while ($i <= 0) {
-	$text_to_use = $current_year_watched_episodes_text[208];
-	$text_to_find = "/(".$rewatched_text_enus." 1x - ".$rewatched_text_ptbr." 1x)/i";
-
-	#echo preg_replace($text_to_find, $rewatched_text." 1x", $text_to_use) . "<br />"."\n";
-
-	$a = $text_to_use;
-	#echo $newString;
-
-	$i++;
-}
-*/
-
-
-#Website notification file includer if setting is True
+# Website notification file includer if setting is True
 if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
 	echo $notification_script."\n"."\n";
 }

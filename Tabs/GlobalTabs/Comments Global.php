@@ -92,10 +92,10 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 		$b = 0;
 		$number_of_chapter_comments = 0;
 		while ($c <= $comments_number) {
-			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name == $sitenazzevo) {
+			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name == $website_nazzevo) {
 				$cmntsgeral[$b] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'."\n".$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
-				if ($website_name == $sitenazzevo and strlen($commentformname[$a]) == 43) {
+				if ($website_name == $website_nazzevo and strlen($commentformname[$a]) == 43) {
 					echo $cmntsgeral[$b];
 				}
 
@@ -103,10 +103,10 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 				$b++;
 			}
 
-			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name != $sitenazzevo) {
+			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name != $website_nazzevo) {
 				$cmntsgeral[$b] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'."\n".$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
-				if ($website_name == $sitenazzevo and strlen($commentformname[$a]) == 43) {
+				if ($website_name == $website_nazzevo and strlen($commentformname[$a]) == 43) {
 					echo $cmntsgeral[$b];
 				}
 
@@ -114,7 +114,7 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 				$b++;
 			}
 
-			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name != $sitenazzevo) {
+			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name != $website_nazzevo) {
 				$story_name_chapter_comments_array[$v] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'.$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
 				#echo $story_name_chapter_comments_array[$z];
@@ -123,7 +123,7 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 				$number_of_chapter_comments++;
 			}
 
-			if ($website_name == $sitenazzevo and in_array(strlen($commentformname[$a]), $commentslens2)) {
+			if ($website_name == $website_nazzevo and in_array(strlen($commentformname[$a]), $commentslens2)) {
 				$a2 = $a2;
 				$story_name_chapter_comments_array[$v] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'.$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 

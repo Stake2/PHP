@@ -22,16 +22,16 @@ while ($chapter_number_1 <= $chapters) {
 
 	#Computer comment-modal Tab div id
 	echo '<a name="modal-comment-'.$a.'"></a>'."\n";
-	echo '<div id="modal-comment-'.$a.'" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo '<div id="modal-comment-'.$a.'" class="modal '.$computer_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="modal-content '.$tab_background_color.' '.$border_3px_solid_brown_css_class.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$computer_variable.'">'."\n";
 
     # Close comment-modal button computer
-	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button>'."\n";
+	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     # Computer Comment-modal form
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).' '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $margin2."\n";
 
@@ -62,19 +62,19 @@ while ($chapter_number_1 <= $chapters) {
 
 	echo "\n";
 
-	#Mobile Comment-modal Tab div id
+	# Mobile Comment-modal Tab div id
 	echo '<a name="modal-comment-'.$a2.'m"></a>'."\n";
-	echo '<div id="modal-comment-'.$a2.'m" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo '<div id="modal-comment-'.$a2.'m" class="modal '.$mobile_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="modal-content '.$tab_background_color.' '.$border_3px_solid_brown_css_class.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
 
-    #Close comment-modal button mobile
+    # Close comment-modal button mobile
 	echo '<button class="w3-btn '.$first_button_style.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' modal_close_button" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
-    #Mobile Comment-modal form
+    # Mobile Comment-modal form
 	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><p></p><br /><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).' '.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).':<br />'.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";
 

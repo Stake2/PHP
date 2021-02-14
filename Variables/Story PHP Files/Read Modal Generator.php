@@ -25,15 +25,15 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<a name="modal-read-'.$a.'"></a>'."\n";
 	echo '<div id="modal-read-'.$a.'" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation;
-	echo '<div class="modal-content w3-black '.$first_full_border.'" '.$roundedborderstyle.'>'."\n";
+	echo '<div class="modal-content '.$tab_background_color.' '.$border_3px_solid_brown_css_class.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$computer_variable.'" '.$roundedborderstyle.'>';
 	
 	# Close read-modal button
-	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a.'">&times;</button>'."\n";
+	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a.'">&times;</button><br /><br /><br />'."\n";
 	
 	# Computer Read-modal form
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$read_texts_array[3].':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$iconbookreader.'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$read_texts_array[3].': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b></'.$n.'>'.$div_close."\n";
 	echo $margin2;
 
 	# Name input text
@@ -62,7 +62,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<a name="modal-read-'.$a2.'m"></a>'."\n";
 	echo '<div id="modal-read-'.$a2.'m" class="modal" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation;
-	echo '<div class="modal-content w3-black" '.$roundedborderstyle.'>'."\n";
+	echo '<div class="modal-content '.$tab_background_color.' '.$border_3px_solid_brown_css_class.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$mobile_variable.'" '.$roundedborderstyle.'>';
 
 	# Close read-modal button
@@ -70,7 +70,7 @@ while ($chapter_number_1 <= $chapters) {
 
 	# Mobile Read-modal form
 	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$read_texts_array[3].': '.$capnum12.' - '.$chapter_titles[$capnum42].'</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$read_texts_array[3].':<br />'.$capnum12.' - '.$chapter_titles[$capnum42].' '.$iconbookreader.'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo $margin2;
 	echo '<br />';
 
