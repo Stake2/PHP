@@ -221,7 +221,7 @@ if ($new_write_style == False) {
 }
 
 if ($new_write_style == True) {
-	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
+	echo '<div class="'.$captextdiv."class".'" id="'.$captextdiv.$chapter_number_1.'">'."\n";
 }
 
 $website_write_story_setting = False;
@@ -352,6 +352,10 @@ if ($story_has_reads == True) {
 if ($site_uses_new_comment_and_read_displayer == True) {
 	if (isset($array1[$number_variable]) or isset($array2[$number_variable])) {
 		echo '<hr class="'.$third_full_border.'" />'."\n";
+	}
+
+	else {
+		echo $mobile_div.'<br />'.$div_close."\n";
 	}
 }
 

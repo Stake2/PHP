@@ -117,4 +117,70 @@ var Last_Chapter = '.$chapters.';
 </script>';
 }
 
+echo '<style>
+:root {
+	--one-dot-six-line-height: 1.6;
+}
+
+@media screen and (max-width: 2000px) {
+	h2 {
+		font-size: 30px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	div.chapter-text-class {
+		font-size: 18px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+}
+
+@media screen and (max-width: 1500px) {
+	h2 {
+		font-size: 25px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	div.chapter-text-class {
+		font-size: 16px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	h2 {
+		font-size: 18px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	div.chapter-text-class {
+		font-size: 14px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	h2 {
+		font-size: 17px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	div.chapter-text-class {
+		font-size: 13px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+}
+
+@media screen and (min-width: 400px) and (max-width: 500px) {
+	h2 {
+		font-size: 16px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	div.chapter-text-class {
+		font-size: 13px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+}
+</style>'."\n\n";
+
 ?>

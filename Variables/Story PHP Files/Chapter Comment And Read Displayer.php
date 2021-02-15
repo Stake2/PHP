@@ -3,7 +3,7 @@
 #Readings and Comments displayer on chapters
 if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 	if ($chapter_number_1 == 1) {
-		echo $commentheader."\n";
+		echo $comment_header."\n";
 
 		echo $story_name_chapter_comments_array[1]."\n";
 
@@ -11,7 +11,7 @@ if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 	}
 
 	if ($chapter_number_1 == 2) {
-		echo $commentheader."\n";
+		echo $comment_header."\n";
 
 		echo $story_name_chapter_comments_array[(4 + $zw)]."\n";
 		echo $story_name_chapter_comments_array[(1 + $zw)]."\n";
@@ -20,7 +20,7 @@ if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 	}
 
 	if ($chapter_number_1 == 3) {
-		echo $commentheader."\n";
+		echo $comment_header."\n";
 
 		echo $story_name_chapter_comments_array[(2 + $zw)]."\n";
 		echo $story_name_chapter_comments_array[(5 + $zw)]."\n";
@@ -30,7 +30,7 @@ if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 
 
 	if ($chapter_number_1 == 7) {
-		echo $commentheader."\n";
+		echo $comment_header."\n";
 
 		echo $story_name_chapter_comments_array[0]."\n";
 
@@ -38,7 +38,7 @@ if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 	}
 
 	if ($chapter_number_1 == 8) {
-		echo $commentheader."\n";
+		echo $comment_header."\n";
 
 		echo $story_name_chapter_comments_array[(3 + $zw)]."\n";
 
@@ -46,11 +46,11 @@ if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 	}
 
 	if ($chapter_number_1 == 1) {
-		echo $readingsheader."\n";
+		echo $readings_header."\n";
 	}
 
 	if ($chapter_number_1 > 1 and $chapter_number_1 < 11) {
-		echo $readingsheader."\n";
+		echo $readings_header."\n";
 
 		echo $story_name_reads_array[$h]."\n";
 	}
@@ -67,7 +67,7 @@ if ($website_name == $sitepequenata and $story_has_chapter_comments == True) {
 
 if ($website_name == $sitenazzevo and $story_has_chapter_comments == True) {
 	if ($chapter_number_1 == 1) {
-		echo $commentheader."\n";
+		echo $comment_header."\n";
 
 		echo $story_name_chapter_comments_array[0]."\n";
 		echo $story_name_chapter_comments_array[1]."\n";
@@ -78,7 +78,7 @@ if ($website_name == $sitenazzevo and $story_has_chapter_comments == True) {
 
 if ($website_name == $sitenazzevo and $story_website_contains_reads) {
 	if ($chapter_number_1 == 1) {
-		echo $readingsheader."\n";
+		echo $readings_header."\n";
 
 		echo $story_name_reads_array[0]."\n";
 		echo $story_name_reads_array[1]."\n";
@@ -87,7 +87,7 @@ if ($website_name == $sitenazzevo and $story_website_contains_reads) {
 
 if ($website_name == $sitespaceliving and $story_has_chapter_comments == True and $story_website_contains_comments == True) {
 	if ($chapter_number_1 == 1) {
-		echo $commentheader."\n";
+		echo $comment_header."\n";
 
 		$i = 0;
 		while ($i <= count($story_name_chapter_comments_array) - 1) {
@@ -105,7 +105,7 @@ if ($website_name == $sitespaceliving and $story_has_chapter_comments == True an
 
 if ($website_name == $sitespaceliving and $story_website_contains_reads) {
 	if ($chapter_number_1 == 1) {
-		echo $readingsheader."\n";
+		echo $readings_header."\n";
 
 		echo $story_name_reads_array[0]."\n";
 		echo $story_name_reads_array[1]."\n";

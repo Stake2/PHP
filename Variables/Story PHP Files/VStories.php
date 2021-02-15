@@ -208,7 +208,7 @@ $sistoryfolder = 'Yours truly, Izaque',
 );
 
 if ($website_type == $story_website_type) {
-	$commentheader = $computer_div.'<br />'.$div_close.
+	$comment_header = $computer_div.'<br />'.$div_close.
 	$mobile_div.'<br /><br />'.$div_close.
 	$computer_div.'<'.$n.'><b>'.$comments_texts_array[0].'s:</b> '.$icons[12].'</'.$n.'>'.$div_close.
 	$mobile_div.'<'.$m.'><b>'.$comments_texts_array[0].'s:</b> '.$icons[12].'</'.$m.'>'.$div_close.
@@ -217,7 +217,7 @@ if ($website_type == $story_website_type) {
 	$computer_div.'<br /><br />'.$div_close.
 	$margin;
 	
-	$readingsheader = $computer_div.'<br />'.$div_close.
+	$readings_header = $computer_div.'<br />'.$div_close.
 	$mobile_div.'<br />'.$div_close.
 	$computer_div.'<'.$n.'><b>'.$read_texts_array[5].': ✓</b></'.$n.'>'.$div_close.
 	$mobile_div.'<'.$m.'><b>'.$read_texts_array[5].': ✓</b></'.$m.'>'.$div_close.
