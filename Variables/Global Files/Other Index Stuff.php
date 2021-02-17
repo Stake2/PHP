@@ -111,13 +111,13 @@ foreach ($website_titles_array as $title) {
 #echo $div_close."\n\n";
 
 if ($website_type == $story_website_type) {
-	echo '<script>
+	echo "\n".'<script>
 Chapter_Number = 1;
 var Last_Chapter = '.$chapters.';
 </script>';
 }
 
-echo '<style>
+echo "\n\n".'<style>
 :root {
 	--one-dot-six-line-height: 1.6;
 }
@@ -125,6 +125,11 @@ echo '<style>
 @media screen and (max-width: 2000px) {
 	h2 {
 		font-size: 30px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	h3 {
+		font-size: 25px!important;
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 
@@ -140,6 +145,11 @@ echo '<style>
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 
+	h3 {
+		font-size: 23px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
 	div.chapter-text-class {
 		font-size: 16px!important;
 		line-height: var(--one-dot-six-line-height)!important;
@@ -149,6 +159,11 @@ echo '<style>
 @media screen and (max-width: 1000px) {
 	h2 {
 		font-size: 18px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	h3 {
+		font-size: 17px!important;
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 
@@ -164,6 +179,11 @@ echo '<style>
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 
+	h3 {
+		font-size: 16px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
 	div.chapter-text-class {
 		font-size: 13px!important;
 		line-height: var(--one-dot-six-line-height)!important;
@@ -176,8 +196,30 @@ echo '<style>
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 
+	h3 {
+		font-size: 16px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
 	div.chapter-text-class {
 		font-size: 13px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+}
+
+@media screen and (min-width: 100px) and (max-width: 300px) {
+	h2 {
+		font-size: 13px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	h3 {
+		font-size: 14px!important;
+		line-height: var(--one-dot-six-line-height)!important;
+	}
+
+	div.chapter-text-class {
+		font-size: 10px!important;
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 }

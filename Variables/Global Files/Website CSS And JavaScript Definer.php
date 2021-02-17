@@ -1,6 +1,14 @@
 <?php 
 
-$write_chapter_script = "\n".'<script src="'.$cdnjs.'Write Chapter.js"></script>'."\n";
+if ($new_write_style == True) {
+	$open_chapter_by_keys = '';
+}
+
+if ($new_write_style == False) {
+	$open_chapter_by_keys = "\n".'<script src="'.$cdnjs.'Open Chapter By Keys.js"></script>';
+}
+
+$write_chapter_script = "\n".'<script src="'.$cdnjs.'Write Chapter.js"></script>';
 
 # CSS Pack generator by class
 /*
@@ -48,8 +56,7 @@ if ($site_is_prototype == False) {
 <script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
 <script src="'.$cdnjs.'ShowHide.js"></script>
 <script src="'.$cdnjs.'SideMenu.js"></script>
-<script src="'.$cdnjs.'Set Revised Date.js"></script>
-<script src="'.$cdnjs.'Open Chapter By Keys.js"></script>'.$write_chapter_script.'
+<script src="'.$cdnjs.'Set Revised Date.js"></script>'.$open_chapter_by_keys.$write_chapter_script.'
 <script src="'.$cdnjs.'Change Button Color.js"></script>'
 ."\n".
 $edit_button_script.
