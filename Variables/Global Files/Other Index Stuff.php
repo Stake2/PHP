@@ -192,12 +192,12 @@ echo "\n\n".'<style>
 
 @media screen and (min-width: 400px) and (max-width: 500px) {
 	h2 {
-		font-size: 16px!important;
+		font-size: 19px!important;
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 
 	h3 {
-		font-size: 16px!important;
+		font-size: 19px!important;
 		line-height: var(--one-dot-six-line-height)!important;
 	}
 

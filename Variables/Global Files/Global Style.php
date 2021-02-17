@@ -180,7 +180,7 @@ $margin_css_style = 'style="margin:10%;"';
 $margin = '<div style="margin:3%;">';
 $margin2 = '<div style="margin:3%;">';
 $margin3 = '<div style="margin:5%;">';
-$notifbtncss1 = 'float:left;margin-left:-10%;';
+$notifbtncss1 = 'float:left;margin-left:-7.3%;';
 $notifbtncss2 = 'float:left;';
 
 $margin_style_10percent = 'margin:10%;';
