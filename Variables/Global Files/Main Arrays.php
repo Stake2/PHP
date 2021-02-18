@@ -66,6 +66,7 @@ $enus_language,
 $website_css_files_array = array(
 $css_file_pocb = 'Pocb',
 $css_file_pequenata = 'Pequenata',
+$css_file_swid_mc = 'Swid_MC',
 $css_file_spaceliving = 'SpaceLiving',
 $css_file_watch_history = 'Watch',
 $css_file_desert_island = 'Desert_Island',

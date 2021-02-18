@@ -14,7 +14,7 @@ require $folder_and_website_variables_php;
 require $php_files_php;
 
 # FontAwesome link and script definer
-if ($site_is_prototype == false) {
+if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
 	$fontawesome_link = "\n".'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
 	$fontawesome_script = "\n".'<script src="https://kit.fontawesome.com/df0c191291.js" crossorigin="anonymous"></script>';
 }
@@ -47,9 +47,11 @@ $data = date("d/m/Y");
 require $global_style_file_php;
 
 # Website Style Chooser.php file loader
-require $website_style_chooser_file;
+if ($website_uses_custom_layout_setting == False) {
+	require $website_style_chooser_file;
+}
 
-if ($site_is_prototype == false) {
+if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
 	#Story variables PHP file includer if the website is a story website
 	require $story_variables_php_variable;
 
@@ -73,17 +75,19 @@ foreach ($website_names_array as $value) {
 }
 
 # Website Image Maker.php file loader
-require $website_image_maker;
+if ($website_uses_custom_layout_setting == False) {
+	require $website_image_maker;
 
-# Website Classes.php file loader
-require $website_classes_php;
+	# Website Classes.php file loader
+	require $website_classes_php;
+}
 
 # Website notifications includer if the website has notifications activated
 if ($website_has_notifications == True) {
 	require $notifications_php;
 }
 
-if ($site_is_prototype == false) {
+if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
 	require $websites_tab_button_maker;
 }
 
@@ -95,28 +99,48 @@ else {
 	$include_custom_website_head_content = '';
 }
 
+if ($deactivate_js == False and isset($website_js_files)) {
+	$website_js_files = $website_js_files;
+}
+
+else {
+	$website_js_files = "";
+}
+
+if ($website_is_for_other_person_setting == True) {
+	$twitter_info = '';
+}
+
+if ($website_is_for_other_person_setting == False) {
+	$twitter_info = "\n".'<meta name="twitter:card" content="summary" />
+<meta name="twitter:website" value="@The_Snakes90" />
+<meta name="twitter:site" value="@The_Snakes90" />
+<meta name="twitter:creator" content="@The_Snakes90" />';
+}
+
 $website_head = '
 <title>'.$website_title.'</title>
-<meta charset="UTF-8" />
+<meta property="og:type" content="website" />
 <meta property="og:title" content="'.$website_title.'" />
 <meta property="og:site_name" content="'.$website_title.'" />
+<meta property="og:url" content="'.$website_link.'" />
+<meta property="og:image" content="'.$website_image.'" />
+<meta property="og:description" content="'.$website_meta_description.'" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="pt_PT" />
 <link rel="canonical" href="'.$website_link.'" />
-<meta property="og:main_website_url" content="'.$website_link.'" />
 <link rel="icon" href="'.$website_image.'" />
 <link rel="image_src" href="'.$website_image.'" />
-<meta property="og:image" content="'.$website_image.'" />
-<meta name="description" content="'.$website_meta_description.'" />
-<meta property="og:description" content="'.$website_meta_description.'" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:website" value="@The_Snakes90" />
-<meta name="twitter:creator" content="@The_Snakes90" />
-'.$website_css_files.
-'<meta name="revised" content="'."Stake's Enterprisetm".', '.$data.'" />
+<meta name="description" content="'.$website_meta_description.'" />'
+.$twitter_info.'
+<meta name="revised" content="'."Stake's Enterprise TM".', '.$data.'" />
 <meta name="author" content="Stake Ferreira" />
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />'.$fontawesome_script.
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
+<meta charset="UTF-8" />'.$fontawesome_script.
+$website_css_files.
+$website_js_files.
 $include_custom_website_head_content;
-
-/*'<link rel="stylesheet" href="'.$fontawesome_link.'" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />';*/
 
 if ($website_name == $website_text_maker) {
 	$website_meta_description = $website_meta_description;

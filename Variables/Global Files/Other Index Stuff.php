@@ -17,7 +17,7 @@ if ($site_haves_additional_website_content == True) {
 	}
 }
 
-if ($site_is_prototype == false) {
+if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
 	echo $animationstylecss."\n"."\n";
 }
 
@@ -46,69 +46,17 @@ if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
 }
 
-#echo $website_style_file;
-
-/*
-echo '<div class="'.$alternative_full_tab_style.'" style="'.$margin_style_10percent.' '.$rounded_border_style_2.'">';
-
-echo '<h2><b><textarea type="text" id="websites_list" class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle7.'height: 1200px;width: 1200px;" placeholder="';
-
-$array = "";
-
-foreach ($websites_names_array_2 as $website) {
-	$array .= $website.'
-';
-}
-
-echo '"></textarea></b></h2>'."\n";
-
-echo $div_close;
-
-echo '<script>
-document.getElementById("websites_list").value = `'.$array.'`; 
-
-function Copy_Text_To_Clipboard() {
-
-  var text_element = document.getElementById("websites_list");
-
-	var text_content = text_element.textContent;
-
-  console.log(text_content);
-}
-
-async function Test() {
-	await navigator.clipboard.write("Hello");
-}
-</script>';
-
-echo '<script>
-Copy_Text_To_Clipboard();
-Test();
-</script>';
-
-#print_r($websites_names_array_2);
-*/
-
-echo '<script>
+echo "\n"."\n".'<script>
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 }
-</script>'."\n\n";
+</script>';
 
-echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.$div_close."\n";
-echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.$div_close."\n";
-echo '<div style="display:none;" id="button_number">'.$tabnumb.$div_close."\n";
-
-#echo "\n".'<div class="w3-text-white" style="text-weight: bold;">'."\n";
-
-$i = 0;
-foreach ($website_titles_array as $title) {
-	#echo $i." - ".$title.": ".$website_types_array[$i]."<br />\n";
-
-	$i++;
+if ($website_uses_custom_layout_setting == False) {
+	echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.$div_close."\n";
+	echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.$div_close."\n";
+	echo '<div style="display:none;" id="button_number">'.$tabnumb.$div_close."\n";
 }
-
-#echo $div_close."\n\n";
 
 if ($website_type == $story_website_type) {
 	echo "\n".'<script>

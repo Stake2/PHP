@@ -16,11 +16,11 @@ foreach ($websites_array as $value) {
 #Website chapter_titles array
 $i = 0;
 foreach ($website_titles_array as $value) {
-	$varresource = strtolower($website_names_array[$i]);
+	$resource_variable = strtolower($website_names_array[$i]);
 
-    ${"website_name_$varresource"} = $value;
+    ${"website_name_$resource_variable"} = $value;
 
-	$website_titles_array[$i] = ${"website_name_$varresource"};
+	$website_titles_array[$i] = ${"website_name_$resource_variable"};
 
 	$i++;
 }

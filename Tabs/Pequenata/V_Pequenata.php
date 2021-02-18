@@ -5,6 +5,7 @@ require $css_pack_pequenata;
 
 # Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_url = $website_pequenata_link;
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 $story_name_folder = $littletato_story_folder;
 
@@ -203,8 +204,6 @@ if ($website_writing_pack_setting == True) {
 	$tabnames[0] = str_replace('Read', 'Write', $tabnames[0]);
 	$tabnames[0] = str_replace('Ler', 'Escrever', $tabnames[0]);
 }
-
-#str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filetextarraynames[$i]"});
 
 # Button names
 $citiestxts = array(

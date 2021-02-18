@@ -20,7 +20,7 @@ Make the website style arrays inside each folder of each website, called "CSS Pa
 
 */
 
-if ($site_is_prototype == false) {
+if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
 	$website_css_file_loader = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.$website_css_file.'.css" />';
 	$main_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Main_CSS.css" />';
 	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Colors Prototype.css" />';
@@ -28,9 +28,10 @@ if ($site_is_prototype == false) {
 	$mobile_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Mobile.css" />';
 	$image_hover_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Image_Hover.css" />';
 
-#Website CSS definer
-	$website_css_files = $website_css_file_loader.'
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" /> -->
+	# Website CSS definer
+	$website_css_files = "\n\n"."<!-- CSS files -->"."\n".
+$website_css_file_loader.'
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
 <link rel="stylesheet" type="text/css" href="'.$cdn_css.'w3.css" />
 '.$main_css.'
 '.$colors_css.'
@@ -41,17 +42,19 @@ $notification_css.
 $new_design_css;
 }
 
-else {
-	#Website CSS definer
-	$website_css_files = '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+else if ($website_uses_custom_layout_setting == False) {
+	# Website CSS definer
+	$website_css_files = "\n".'<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 '.
 $notification_css.
 $new_design_css;
 }
 
-if ($site_is_prototype == False) {
-	#Website JavaScript definer
-	$sitejs = '<script src="'.$cdnjs.'Search.js"></script>
+if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+	# Website JavaScript definer
+	$website_js_files = '
+<!-- JavaScript files -->
+<script src="'.$cdnjs.'Search.js"></script>
 <script src="'.$cdnjs.'Tabs.js"></script>
 <script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
 <script src="'.$cdnjs.'ShowHide.js"></script>
@@ -64,9 +67,9 @@ $new_design_script.
 '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>'."\n";
 }
 
-else {
+else if ($website_uses_custom_layout_setting == False) {
 #Website JavaScript definer
-	$sitejs = '<script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
+	$website_js_files = '<script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
 <script src="'.$cdnjs.'Set Revised Date.js"></script>'."\n";
 }
 

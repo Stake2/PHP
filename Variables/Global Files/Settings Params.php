@@ -6,6 +6,18 @@ $settings_params_array = array(
 'show_title_text',
 );
 
+if ($website_is_for_other_person_setting == True) {
+	$website_deactivate_websites_tab_setting = True;
+	$website_deactivate_image_link_setting = True;
+}
+
+if ($website_is_for_other_person_setting == True and $website_uses_custom_layout_setting == True) {
+	$website_deactivate_top_buttons_setting = True;
+	$website_deactivate_header_setting = True;
+	$website_deactivate_website_buttons_setting = True;
+	$website_deactivate_tabs_setting = True;
+}
+
 foreach ($settings_params_array as $param) {	
 	if (strpos($host_text, $param.'='.'true') == True) {
 		${"$param"} = True;

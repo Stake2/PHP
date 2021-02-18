@@ -1,7 +1,38 @@
 <?php
 
 # Get the localhost link
-$host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if (isset($host_text) == False) {
+	$host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$return = False;
+}
+
+if (isset($host_text) == True) {
+	$return = False;
+}
+
+function format($text, $parameters) {
+	$parameters = (array)$parameters;
+
+	$text = preg_replace_callback("#\{\}#",
+	function ($parameters_array) {
+		static $i = 0;
+		return '{'.($i++).'}';
+	},
+	$text);
+
+	return str_replace(
+		array_map(
+		function ($key) {
+			return '{'.$key.'}';
+		},
+
+		array_keys($parameters)),
+
+		array_values($parameters),
+
+		$text
+	);
+}
 
 $current_year = strftime("%Y");
 
@@ -58,31 +89,6 @@ $website_style_variables_foreach = $php_vars_global_files.'Website Style Variabl
 $generic_tabs_generator_file = $php_vars_global_files.'GenericCities Generator.php';
 $setting_parameters_file = $php_vars_global_files.'Settings Params.php';
 
-function format($text, $parameters) {
-	$parameters = (array)$parameters;
-
-	$text = preg_replace_callback("#\{\}#",
-	function ($parameters_array) {
-		static $i = 0;
-		return '{'.($i++).'}';
-	},
-	$text);
-
-	return str_replace(
-		array_map(
-		function ($key) {
-			return '{'.$key.'}';
-		},
-
-		array_keys($parameters)),
-
-		array_values($parameters),
-
-		$text
-	);
-
-}
-
 # Main Arrays PHP file loader
 require $main_arrays_php;
 
@@ -123,24 +129,72 @@ if ($site_is_prototype == True) {
 	@require $vglobal_php;
 }
 
-echo "<!DOCTYPE html>\n";
+if ($return == False) {
+	echo "<!DOCTYPE html>"."\n";
 
-# Website Header displayer
-echo $website_header;
+	# Website Header displayer
+	echo $website_header;
 
-if ($website_deactivate_tabs_setting == false and $site_is_prototype == false) {
-	#"Tabs loader" file loader
-	require $website_tabs_loader;
+	if ($website_deactivate_tabs_setting == False and $site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+		#"Tabs loader" file loader
+		require $website_tabs_loader;
+	}
+
+	require $other_index_stuff_php;
+
+	echo "<script>
+	Define_Colors_And_Styles();
+	</script>"."\n\n";
+
+	if ($website_uses_custom_layout_setting == False) {
+		echo '</center>'."\n";
+	}
+
+	echo '</body>
+	</html>';
 }
 
-require $other_index_stuff_php;
+if ($return == True) {
+	$website = "";
+	$website .= "<!DOCTYPE html>"."\n";
 
-echo "<script>
-Define_Colors_And_Styles();
-<script>";
+	# Website Header displayer
+	$website .= $website_header;
 
-echo '</center>
-</body>
-</html>';
+	if ($website_deactivate_tabs_setting == False and $site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+		#"Tabs loader" file loader
+		ob_start();
+		require $website_tabs_loader;
+		$website .= ob_get_clean();
+	}
+
+	ob_start();
+	require $other_index_stuff_php;
+	$website .= ob_get_clean();
+
+	$website .= "<script>
+	Define_Colors_And_Styles();
+	</script>"."\n\n";
+
+	if ($website_uses_custom_layout_setting == False) {
+		$website .= '</center>'."\n";
+	}
+
+	$website .= '</body>
+	</html>';
+
+	$html_folder = $selected_website_folder.$hyphen_separated_website_language."/";
+	$html_index_file = $html_folder."Index.html";
+
+	if (file_exists($html_folder) == False) {
+		mkdir($html_folder);
+	}
+
+	if (file_exists($html_index_file) == True) {
+		$file_open = fopen($html_index_file, 'w');
+		fwrite($file_open, $website);
+		fclose($file_open);
+	}
+}
 
 ?>

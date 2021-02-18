@@ -38,12 +38,14 @@ if ($website_type == $story_website_type) {
 
 if ($website_name != $website_diario) {
 	#SiteButton displayer and SiteButtons tab includer
-	if ($website_deactivate_website_buttons_setting == false) {
+	if ($website_deactivate_website_buttons_setting == False and $website_deactivate_websites_tab_setting == False) {
 		echo "<br /><br /><br /><br /><br /><br /><br /><br /><br />"."\n";
 		echo $websites_tab_button_centered."\n";
 	}
 
-	include $websites_tab_generator;
+	if ($website_deactivate_websites_tab_setting == False) {
+		include $websites_tab_generator;
+	}
 }
 
 ?>
