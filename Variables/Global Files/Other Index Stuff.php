@@ -37,15 +37,6 @@ if ($website_new_design_setting == True) {
 	echo $new_design_script;
 }
 
-#Chapter Opener Script includer if the setting is True
-if ($story_website_uses_chapter_opener == True) {
-	echo "\n";
-	echo '<script>'."\n";
-	require $open_chapter_script_php;
-	echo '</script>'."\n";
-	echo "\n";
-}
-
 echo "\n"."\n".'<script>
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -172,5 +163,14 @@ echo "\n\n".'<style>
 	}
 }
 </style>'."\n\n";
+
+#Chapter Opener Script includer if the setting is True
+if ($story_website_uses_chapter_opener == True) {
+	echo "\n";
+	echo '<script>'."\n";
+	require $open_chapter_script_php;
+	echo '</script>'."\n";
+	echo "\n";
+}
 
 ?>

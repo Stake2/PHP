@@ -1,6 +1,7 @@
 <?php 
 
-echo 'function Open_Chapter() {'."\n".
+echo '
+function Open_Chapter() {'."\n".
 	'	var website = window.location;'."\n".
 	'	var site2 = '."'".'"'."'".' + website + '."'".'"'."'".';'."\n".
 	'	var userLang = navigator.language || navigator.userLanguage;'."\n".
@@ -40,6 +41,7 @@ while ($i < $chapters) {
 	echo '		var captext = captext1 + "'.$i2.'";'."\n";
 	echo '		openCity(captext);'."\n";
 	echo '		document.getElementById(captext).scrollIntoView();'."\n";
+	echo '		Chapter_Number = '.$i2.';'."\n";
 	echo '		Define_Chapter('.$i2.');'."\n";
 	echo '	}'."\n";
 

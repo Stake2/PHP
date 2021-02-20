@@ -143,15 +143,15 @@ if ($return == False) {
 	require $other_index_stuff_php;
 
 	echo "<script>
-	Define_Colors_And_Styles();
-	</script>"."\n\n";
+Define_Colors_And_Styles();
+</script>"."\n\n";
 
 	if ($website_uses_custom_layout_setting == False) {
 		echo '</center>'."\n";
 	}
 
 	echo '</body>
-	</html>';
+</html>';
 }
 
 if ($return == True) {
