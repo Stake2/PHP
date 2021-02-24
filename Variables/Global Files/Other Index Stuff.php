@@ -1,14 +1,14 @@
 <?php 
 
-if ($website_has_notifications == True and $website_deactivate_notification_setting != True) {
-	echo '<script>
-Change_Title();
-</script>';
-}
-
 # Website notification file includer if setting is True
 if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
 	echo $notification_script."\n"."\n";
+}
+
+if ($website_has_notifications == True and $website_deactivate_notification_setting != True) {
+	echo '<script>
+document.onload = Change_Title();
+</script>';
 }
 
 if ($site_haves_additional_website_content == True) {

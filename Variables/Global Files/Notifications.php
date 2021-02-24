@@ -50,8 +50,8 @@ $website_notification_text_mobile = '<h4 class="'.$mobile_variable.'">'.
 </style>';
 
 #Website notification definer
-$website_notification = '<div id="notification_div_computer" onload="Change_Title();" class="stake2animatebottom border '.$div_style_for_notification.' '.$computer_variable.'" style="position:fixed;right:0;bottom:0;padding-top:2%;padding-bottom:2%;padding-left:7%;padding-right:7%;'.$rounded_border_style_2.'">'.$website_notification_text_computer.$div_close."\n".
+$website_notification = '<div id="notification_div_computer" class="stake2animatebottom border '.$div_style_for_notification.' '.$computer_variable.'" style="position:fixed;right:0;bottom:0;padding-top:2%;padding-bottom:2%;padding-left:7%;padding-right:7%;'.$rounded_border_style_2.'">'.$website_notification_text_computer.$div_close."\n".
 
-'<div id="notification_div_mobile" onload="Change_Title();" class="stake2animatebottom border '.$div_style_for_notification.' '.$mobile_variable.'" style="position:fixed;right:0;bottom: 0;padding-top:1%;padding-bottom:1%;padding-left:10%;padding-right:10%;'.$rounded_border_style_2.'">'.$website_notification_text_mobile.$div_close."\n";
+'<div id="notification_div_mobile" class="stake2animatebottom border '.$div_style_for_notification.' '.$mobile_variable.'" style="position:fixed;right:0;bottom: 0;padding-top:1%;padding-bottom:1%;padding-left:10%;padding-right:10%;'.$rounded_border_style_2.'">'.$website_notification_text_mobile.$div_close."\n";
 
 ?>

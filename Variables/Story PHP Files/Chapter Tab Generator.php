@@ -108,16 +108,20 @@ echo '<h5 class="'.$alternative_full_tab_style.'" style="'.$hstyle.'text-align:l
 
 # Top Previous chapter button
 if ($chapter_number_1 != 1) {
+	$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3." - ".$chapter_titles[$chapter_number_3 - 1];
+
+	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."');";
+
 	if ($new_write_style == True) {
-		$onclickscript = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');';
-		$onclickscript = $onclickscript.'Define_Chapter('.$chapter_number_3.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_3.');';
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');'.$change_title_on_click_script;
+		$on_click_script = $on_click_script.'Define_Chapter('.$chapter_number_3.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_3.');';
 	}
 
 	else if ($new_write_style == false) {
-		$onclickscript = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');';
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');'.$change_title_on_click_script;
 	}
 
-	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
+	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="'.$on_click_script.'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
 
 	$has_previous_chapter_button = True;
 }
@@ -128,16 +132,20 @@ else {
 
 # Top Next chapter button
 if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
+	$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_2." - ".$chapter_titles[$chapter_number_4];
+
+	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."');";
+
 	if ($new_write_style == True) {
-		$onclickscript = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');';
-		$onclickscript = $onclickscript.'Define_Chapter('.$chapter_number_2.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_2.');';
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');'.$change_title_on_click_script;
+		$on_click_script = $on_click_script.'Define_Chapter('.$chapter_number_2.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_2.');';
 	}
 
 	else if ($new_write_style == false) {
-		$onclickscript = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');';
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');'.$change_title_on_click_script;
 	}
 
-	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;'.$rounded_border_style_2.'" onclick="'.$onclickscript.'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
+	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;'.$rounded_border_style_2.'" onclick="'.$on_click_script.'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
 
 	$has_next_chapter_button = True;
 }
@@ -248,12 +256,42 @@ else {
 
 # Bottom Previous chapter button
 if ($chapter_number_1 != 1) {
-	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_3."');".'Define_Chapter('.$chapter_number_3.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_3.');"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
+	$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3." - ".$chapter_titles[$chapter_number_3 - 1];
+
+	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."');";
+
+	if ($new_write_style == True) {
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');'.$change_title_on_click_script;
+		$on_click_script = $on_click_script.'Define_Chapter('.$chapter_number_3.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_3.');';
+	}
+
+	else if ($new_write_style == false) {
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');'.$change_title_on_click_script;
+	}
+
+	echo '<a href="#'.$chapter_div_text.$chapter_number_3.'"><button class="w3-btn '.$second_button_style.'" style="float:left;'.$rounded_border_style_2.'" onclick="'.$on_click_script.'"><h3><i class="fas fa-arrow-circle-left"></i></h3></button></a>'."\n";
+
+	$has_previous_chapter_button = True;
 }
 
 # Bottom Next chapter button
 if ($chapter_number_1 != $chapters) {
-	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$chapter_div_text.$chapter_number_2."');".'Define_Chapter('.$chapter_number_2.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_2.');"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
+	$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_2." - ".$chapter_titles[$chapter_number_4];
+
+	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."');";
+
+	if ($new_write_style == True) {
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');'.$change_title_on_click_script;
+		$on_click_script = $on_click_script.'Define_Chapter('.$chapter_number_2.');Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_2.');';
+	}
+
+	else if ($new_write_style == false) {
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');'.$change_title_on_click_script;
+	}
+
+	echo '<a href="#'.$chapter_div_text.$chapter_number_2.'"><button class="w3-btn '.$second_button_style.'" style="float:right;'.$rounded_border_style_2.'" onclick="'.$on_click_script.'"><h3><i class="fas fa-arrow-circle-right"></i></h3></button></a>'."\n";
+
+	$has_next_chapter_button = True;
 }
 
 #Computer Comment button

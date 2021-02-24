@@ -107,15 +107,33 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 
 if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
 	$change_website_title_script = '<script>
-var old_website_title = "";
+var old_website_title, current_website_title;
+old_website_title = document.title;
+
+function Get_Title() {
+	old_website_title = document.title;
+}
 
 function Change_Title() {
 	old_website_title = document.title;
 	document.title = "(1) " + document.title;
+	current_website_title = document.title;
 }
 
-function Reset_Title() {
-	document.title = old_website_title;
+function Reset_Title(mode) {
+	if (mode == "chapter") {
+		document.title = current_website_title;
+	}
+
+	if (mode == "notification") {
+		document.title = document.title.replace("(1) ", "");
+		current_website_title = document.title;
+	}
+}
+
+function Add_To_Website_Title(text_to_add) {
+	Reset_Title("chapter");
+	document.title = document.title + " " + text_to_add;
 }
 </script>';
 
