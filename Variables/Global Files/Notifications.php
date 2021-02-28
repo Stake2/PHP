@@ -10,19 +10,19 @@ if ($website_name != $website_nazzevo) {
 	$button_style_for_notification = $first_button_style;
 }
 
-#Computer Website notification div and text
+# Computer Website notification div and text
 $website_notification_text_computer = '<h3 class="'.$computer_variable.'">'.
-'<span id="notification_close_button_computer" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="Hide_Notification()">'.'<b>X</b>'.$spanc.
+'<span id="notification_close_button_computer" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="function () {document.title = document.title.replace("(1) ", "")};">'.'<b>X</b>'.$spanc.
 '<span class="notification_text">'.$website_notification_text." ".$icons[13].$spanc.
-'<b>'.'<span class="notification_text" style="margin-left:2%;">'.$reviewed_chaptercode.$spanc.'</b>'.
+'<b>'.'<span class="notification_text" style="margin-left:2%;">'.$reviewed_chapter_code.$spanc.'</b>'.
 '</h3>';
 
-#Mobile Website notification div and text
+# Mobile Website notification div and text
 $website_notification_text_mobile = '<h4 class="'.$mobile_variable.'">'.
-'<span id="notification_close_button_mobile" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text '.$mobile_variable.'" style="'.$notifbtncss2.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="Hide_Notification_Mobile()">'.'<b>X</b>'.$spanc.
+'<span id="notification_close_button_mobile" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text '.$mobile_variable.'" style="'.$notifbtncss2.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="function () {document.title = document.title.replace("(1) ", "")};">'.'<b>X</b>'.$spanc.
 '<br /><br />'.
 '<b>'.'<span class="notification_text '.$mobile_variable.'">'.$website_notification_text." ".$icons[13].$spanc.'</b>'.
-'<br /><b>'.'<span class="notification_text '.$mobile_variable.'">'.$reviewed_chaptercode.$spanc.'</b>'.
+'<br /><b>'.'<span class="notification_text '.$mobile_variable.'">'.$reviewed_chapter_code.$spanc.'</b>'.
 '</h4>
 
 <style>

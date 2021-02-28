@@ -5,10 +5,10 @@ if ($website_has_notifications == True and $website_deactivate_notification_sett
 	echo $notification_script."\n"."\n";
 }
 
-if ($website_has_notifications == True and $website_deactivate_notification_setting != True) {
-	echo '<script>
-document.onload = Change_Title();
-</script>';
+if ($website_has_notifications == True) {
+	echo '<script>'."\n";
+	echo 'Change_Title();'."\n";
+	echo '</script>';
 }
 
 if ($site_haves_additional_website_content == True) {

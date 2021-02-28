@@ -110,7 +110,7 @@ echo '<h5 class="'.$alternative_full_tab_style.'" style="'.$hstyle.'text-align:l
 if ($chapter_number_1 != 1) {
 	$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3." - ".$chapter_titles[$chapter_number_3 - 1];
 
-	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."');";
+	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."', 'notification');";
 
 	if ($new_write_style == True) {
 		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_3."'".');'.$change_title_on_click_script;
@@ -134,7 +134,7 @@ else {
 if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
 	$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_2." - ".$chapter_titles[$chapter_number_4];
 
-	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."');";
+	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."', 'notification');";
 
 	if ($new_write_style == True) {
 		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_2."'".');'.$change_title_on_click_script;

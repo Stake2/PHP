@@ -43,6 +43,7 @@ while ($i < $chapters) {
 	echo '		document.getElementById(captext).scrollIntoView();'."\n";
 	echo '		Chapter_Number = '.$i2.';'."\n";
 	echo '		Define_Chapter('.$i2.');'."\n";
+	echo '		Add_To_Website_Title("'." - ".ucwords($chapter_text). ": ".$i2." - ".$chapter_titles[$i2 - 1].'", "notification");'."\n";
 	echo '	}'."\n";
 
 	if ($i != $chapters) {

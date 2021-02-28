@@ -81,7 +81,7 @@ else {
 include $story_variables_php_variable;
 
 # Reviewed chapter number
-$reviewed_chapter = 17;
+$reviewed_chapter = 18;
 
 # Website descriptions
 $website_descriptions_array = array(
@@ -225,7 +225,7 @@ include $website_tabs_generator;
 # Website notification variables if the website notification setting is True
 if ($website_has_notifications == True) {
 	# Reviewed chapter title
-	$reviewed_chaptercode = $chapter_buttons[$reviewed_chapter];
+	$reviewed_chapter_code = $chapter_buttons[$reviewed_chapter];
 	$reviewed_chapter_button_mobile = $chapter_buttons[$reviewed_chapter];
 }
 

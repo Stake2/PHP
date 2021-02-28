@@ -49,6 +49,10 @@ while ($chapter_number_1 <= $chapters) {
 		}
 
 		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
+			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
+
+			$on_click_script = $on_click_script.$chapter_number_and_text;
+
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -96,6 +100,10 @@ while ($chapter_number_1 <= $chapters) {
 		}
 
 		else {
+			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
+
+			$on_click_script = $on_click_script.$chapter_number_and_text;
+
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -121,12 +129,14 @@ while ($chapter_number_1 <= $chapters) {
 	}
 
 	else {
+		
+
 		if ($new_write_style == True) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
+			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');'.$chapter_number_and_text;
 		}
 
 		else if ($new_write_style == false) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
+			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');'.$chapter_number_and_text;
 		}
 
 		if ($website_deactivate_notification_setting == True) {
@@ -138,6 +148,10 @@ while ($chapter_number_1 <= $chapters) {
 		}
 
 		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
+			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
+
+			$on_click_script = $on_click_script.$chapter_number_and_text;
+
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -185,6 +199,10 @@ while ($chapter_number_1 <= $chapters) {
 		}
 
 		else {
+			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
+
+			$on_click_script = $on_click_script.$chapter_number_and_text;
+
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {

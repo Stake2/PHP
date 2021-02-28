@@ -105,24 +105,26 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	'</div>'."\n";
 }
 
-if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
-	$change_website_title_script = '<script>
+$change_website_title_script = '<script>
 var old_website_title, current_website_title;
-old_website_title = document.title;
 
 function Get_Title() {
 	old_website_title = document.title;
+	current_website_title = document.title;
 }
 
 function Change_Title() {
-	old_website_title = document.title;
 	document.title = "(1) " + document.title;
 	current_website_title = document.title;
 }
 
-function Reset_Title(mode) {
+function Reset_Title(mode, source = null) {
 	if (mode == "chapter") {
 		document.title = current_website_title;
+
+		if (source == "notification") {
+			document.title = document.title.replace("(1) ", "");
+		}
 	}
 
 	if (mode == "notification") {
@@ -131,18 +133,17 @@ function Reset_Title(mode) {
 	}
 }
 
-function Add_To_Website_Title(text_to_add) {
-	Reset_Title("chapter");
+function Add_To_Website_Title(text_to_add, source = null) {
+	Reset_Title("chapter", source);
 	document.title = document.title + " " + text_to_add;
 }
 </script>';
 
+if ($website_has_notifications == True and $website_deactivate_notification_setting != True) {
 	$website_notification = $website_notification;
 }
 
 else {
-	$change_website_title_script = '';
-
 	$website_notification = '';
 }
 
