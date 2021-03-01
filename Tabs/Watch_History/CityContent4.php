@@ -119,7 +119,7 @@ while ($i <= $watched_movies_line_number - 1) {
 	}
 
 	if ($i != 1 and $i < 4) {
-		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watched_movies_text[$i].'</span>'.' - <span class="w3-text-white">'.$unknown_watched_time_text.'</span>'.$div_close."\n";
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$moviestxt.') - </span> '.$watched_movies_text[$i].'</span>'.' - <span class="w3-text-white">('.$unknown_watched_time_text.')</span>'.$div_close."\n";
 	}
 
 	$i++;

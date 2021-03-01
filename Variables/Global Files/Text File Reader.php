@@ -86,7 +86,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$to_watch_folders_file = $notepad_watch_history_folder.'To Watch Folders.txt';
 
 	$watched_movies_file = $notepad_watch_history_folder.'Watched Movies.txt';
-	$watched_movies_time_file = $notepad_watch_history_folder.'Watched Movies Time.txt';
+	$watched_movies_time_file = $notepad_watch_history_folder.'Watched Movies Times.txt';
 	$watched_movie_time_numbers_array = array('0', 1, 4, 5, 6, 7, 8, 9, 10);
 	$watched_movie_comment_numbers_array = array(1, 4, 5, 6, 7, 8);
 	$watched_episodes_has_time_array_2018 = array(1, 6, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 46, 47, 48, 49, 52);
