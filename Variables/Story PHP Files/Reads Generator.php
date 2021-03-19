@@ -15,8 +15,8 @@ $read_style = $additional_background_color." ".$text_black_css_class." ".$border
 #Read date converter, that converts the date of the readings into a date format
 while ($v2 <= $readsfilenumb) {
 	$v3 = $v2 + 2;
-	$readstxt[$v3] = substr($readstxt[$v3], 0, -1);
-	$readstxt[$v3] = date("H:i d/m/Y", strtotime($readstxt[$v3]));
+	$reads_text[$v3] = substr($reads_text[$v3], 0, -1);
+	$reads_text[$v3] = date("H:i d/m/Y", strtotime($reads_text[$v3]));
 
 	$v2++;
 	$v2++;
@@ -34,13 +34,13 @@ while ($b1 <= $readsfilenumb) {
 
 	$story_name_reads_array[$v1] = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 	#Reader text and name
-	$read_texts_array[7].': </b>'.$readstxt[$b1].'<br /><b>'.
+	$read_texts_array[7].': </b>'.$reads_text[$b1].'<br /><b>'.
 
 	#Chapter text and title
-	#substr($chapters_text, 0, -1).':</b> '.$readstxt[$b22].'<br />'.'<b>'.
+	#substr($chapters_text, 0, -1).':</b> '.$reads_text[$b22].'<br />'.'<b>'.
 
 	#Read time text and time
-	$time_text.':</b> '.$readstxt[$b3].' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
+	$time_text.':</b> '.$reads_text[$b3].' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
 
 	$readed_number++;
 	$b1++;

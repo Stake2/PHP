@@ -1,7 +1,7 @@
 <?php 
 
 $citytitles[1] = '<'.$n.'><p><br /><b>'.$wtxt0.': '.$icons[0].'</b><br /><br /><p></'.$n.'><hr class="'.$sitehr.'" />';
-$citybodies[1] = '<div style="text-align:left;">'.'
+$city_bodies[1] = '<div style="text-align:left;">'.'
 '.$writtentxt.'<br />'.'<br /><br />
 <b>'.$watchedtxt.': '.$bluespan.$watched_number_.$spanc.'</b><br />'.'
 <br />
@@ -13,6 +13,6 @@ $citybodies[1] = '<div style="text-align:left;">'.'
 <br />'.'
 <b>'.$wtxt1.': '.$bluespan.$watched_movies_number.$spanc.'</b>'.'<br />'.
 "\n";
-$citycontent2 = $citytitles[1].$citybodies[1];
+$citycontent2 = $citytitles[1].$city_bodies[1];
 
 ?>

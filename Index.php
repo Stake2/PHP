@@ -40,10 +40,12 @@ $current_year = strftime("%Y");
 $main_website_url = 'https://diario.netlify.app/';
 $hard_drive_letter = "C";
 $mega_folder = $hard_drive_letter.':/Mega/';
+$medias_local_folder = $hard_drive_letter.':/Midias/';
 
 if (!file_exists($mega_folder)) {
 	$hard_drive_letter = "D";
 	$mega_folder = $hard_drive_letter.':/Mega/';
+	$medias_local_folder = $hard_drive_letter.':/Midias/';
 }
 
 $mega_folder_diario = $mega_folder.'Diario/';
@@ -176,7 +178,7 @@ if ($return == True) {
 	Define_Colors_And_Styles();
 	</script>"."\n\n";
 
-	if ($website_uses_custom_layout_setting == False) {
+	if ($website_uses_custom_layout_setting == False and $website_is_not_centered_setting == False) {
 		$website .= '</center>'."\n";
 	}
 

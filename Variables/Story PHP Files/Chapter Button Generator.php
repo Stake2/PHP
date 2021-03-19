@@ -31,12 +31,17 @@ while ($chapter_number_1 <= $chapters) {
 		$cover_image_button = '';
 	}
 
+	if (strpos($chapter_titles[$chapter_number_4], "'") == True or strpos($chapter_titles[$chapter_number_4], "&#39;") == True) {
+		$chapter_title = str_replace("'", "", $chapter_titles[$chapter_number_4]);
+		$chapter_number_and_text = "Add_To_Website_Title("."'"." - ".ucwords($chapter_text).": ".$chapter_number_1." - ".$chapter_title."'".", 'notification');";
+	}
+
 	if ($chapter_number_1 == $chapters) {
 		if ($new_write_style == True) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 		}
 
-		else if ($new_write_style == false) {
+		if ($new_write_style == False) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
 		}
 
@@ -48,11 +53,9 @@ while ($chapter_number_1 <= $chapters) {
 			$hide_notification_attribute = $hide_notification_attribute;
 		}
 
+		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
+
 		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
-			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
-
-			$on_click_script = $on_click_script.$chapter_number_and_text;
-
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -86,7 +89,7 @@ while ($chapter_number_1 <= $chapters) {
 	animation-iteration-count: infinite;
 }
 </style>'."\n".
-			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.$on_click_script.'">'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc."</button></a> "."\n";
+			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc."</button></a> "."\n";
 
 			echo $chapter_button;
 
@@ -100,10 +103,6 @@ while ($chapter_number_1 <= $chapters) {
 		}
 
 		else {
-			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
-
-			$on_click_script = $on_click_script.$chapter_number_and_text;
-
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -114,7 +113,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 
-			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' onclick="'.$on_click_script.'">'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc.'</button></a> '."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' onclick="'.$scripts.'">'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc.'</button></a> '."\n";
 
 			echo $chapter_button;
 
@@ -129,14 +128,12 @@ while ($chapter_number_1 <= $chapters) {
 	}
 
 	else {
-		
-
 		if ($new_write_style == True) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');'.$chapter_number_and_text;
+			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 		}
 
-		else if ($new_write_style == false) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');'.$chapter_number_and_text;
+		if ($new_write_style == False) {
+			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
 		}
 
 		if ($website_deactivate_notification_setting == True) {
@@ -147,11 +144,9 @@ while ($chapter_number_1 <= $chapters) {
 			$hide_notification_attribute = $hide_notification_attribute;
 		}
 
+		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
+
 		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
-			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
-
-			$on_click_script = $on_click_script.$chapter_number_and_text;
-
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -185,7 +180,7 @@ while ($chapter_number_1 <= $chapters) {
 	animation-iteration-count: infinite;
 }
 </style>'."\n".
-			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.$on_click_script.'">'.$chapter_text_variable."</button></a> "."\n";
+			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable."</button></a> "."\n";
 
 			echo $chapter_button;
 
@@ -199,10 +194,6 @@ while ($chapter_number_1 <= $chapters) {
 		}
 
 		else {
-			$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."', 'notification');";
-
-			$on_click_script = $on_click_script.$chapter_number_and_text;
-
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -213,7 +204,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 
-			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' onclick="'.$on_click_script.'">'.$chapter_text_variable."</button></a> "."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable."</button></a> "."\n";
 
 			echo $chapter_button;
 

@@ -1,6 +1,6 @@
 <?php 
 
-#Text Maker Website setter
+# Text Maker Website setter
 if (strpos ($host_text, $website_selector_parameters[0].'='.$website_text_maker) == True) {
 	$selected_website = $website_text_maker;
 
@@ -31,6 +31,12 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_text_maker)
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;
+
+	$found_selected_website = True;
+}
+
+else {
+	$found_selected_website = False;
 }
 
 ?>

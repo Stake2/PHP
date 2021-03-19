@@ -49,18 +49,19 @@ $size = '';
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
-$story_name_folder = $slstoryfolder;
+$story_folder = $spaceliving_story_folder;
 
 #Form code for the comment and read forms
 $formcode = 'spaceliving';
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
+$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_displayer_php_variable;
 
 #Story name definer
 $story_name_variable = $spaceliving_story_name;
+$story_name = $spaceliving_story_name;
 
 #Story status
 $story_status = $status[2];
@@ -72,13 +73,13 @@ $website_image = 'SpaceLiving Logo';
 if ($website_story_has_bookcovers_setting == True) {
 	$website_image = $coverfolder.'1 '.$covertxt.'.png';
 	$website_image_size_computer = 60;
-	$imagesize2 = 88;
+	$website_image_size_mobile = 88;
 }
 
 else {
 	$website_image = $cdnimg.$website_image.'.jpg';
 	$website_image_size_computer = 55;
-	$imagesize2 = 99;
+	$website_image_size_mobile = 99;
 }
 
 $website_image_link = $website_image;
@@ -197,8 +198,8 @@ if ($website_language == $languages_array[0]) {
 
 	$website_language = $languages_array[0];
 
-	$website_title = $story_name_folder;
-	$website_title_html = $story_name_folder.': '.$icons[11];
+	$website_title = $story_folder;
+	$website_title_html = $story_folder.': '.$icons[11];
 	$website_link = $website_spaceliving_link;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -256,7 +257,7 @@ $icons[13],
 
 #Buttons and tabs definer
 #Tab chapter_titles definer
-$tabtitles = array(
+$tab_titles = array(
 $tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
 $tabnames[2].': '.$icons[12],
@@ -266,7 +267,7 @@ $tabnames[4].': '.$whitespan.'<span class="'.$websites_tab_number_hover_color.'"
 
 # Button names definer
 $i = 0;
-foreach ($tabtitles as $tabname) {
+foreach ($tab_titles as $tabname) {
 	$citiestxts[$i] = $tabname;
 
 	$i++;

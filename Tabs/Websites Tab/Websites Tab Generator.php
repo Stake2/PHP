@@ -53,7 +53,7 @@ if ($website_name != $website_watch_history and $website_name != $website_pequen
 	$websites_tab_div_color = 'w3-black';
 }
 
-if ($website_name == $website_spaceliving) {
+if ($selected_website == $website_spaceliving) {
 	$websites_tab_border = $border_1px_solid_blue_css_class;
 	$websites_tab_border_color = $border_1px_solid_blue_css_class;
 	$websites_tab_name_text = $first_text_color;
@@ -70,8 +70,9 @@ if ($selected_website == $website_desert_island) {
 }
 
 if ($website_name != $website_watch_history and $website_name != $website_pequenata and $website_name != $website_nazzevo and $website_name != $website_things_i_do and $website_name != $website_diario and $website_name == $website_spaceliving and $selected_website == $website_desert_island) {
-	$websites_tab_border = $border_1px_solid_black_css_class;
-	$websites_tab_number_text_color = $websites_tab_global_number_color;
+	$websites_tab_border = $border_color;
+	$websites_tab_name_text = $first_text_color;
+	$websites_tab_number_text_color = $first_text_color;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = 'w3-black';
 }
@@ -110,7 +111,6 @@ echo $div_close."\n";
 echo "\n";
 
 echo '<div class="'.$mobile_variable.'">'."\n";
-#echo $h42."\n";
 
 echo '<'.$m.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
 

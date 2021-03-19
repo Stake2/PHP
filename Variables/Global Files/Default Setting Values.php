@@ -36,6 +36,7 @@ $website_deactivate_header_setting = False;
 $website_deactivate_website_buttons_setting = False;
 $website_deactivate_websites_tab_setting = False;
 $website_deactivate_image_link_setting = False;
+$website_is_not_centered_setting = False;
 $deactivate_js = False;
 
 $website_new_design_setting = False;

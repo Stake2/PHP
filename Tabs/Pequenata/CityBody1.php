@@ -8,6 +8,6 @@ if ($website_language == $languages_array[0]) {
 }
 
 $citytitles[0] = $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$chapters_text.' '.$hyphen_separated_website_language.': '.$siteicon.'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
-$citybodies[0] = '';
+$city_bodies[0] = '';
 
 ?>

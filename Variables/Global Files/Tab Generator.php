@@ -3,10 +3,10 @@
 #Array of button names
 $i = 0;
 while ($i <= $tabnumb) {
-	$txtsize = 'h2';
+	$text_size = 'h2';
 
 	if (isset($citiestxts[$i])) {
-		$citytxts[$i] = '<'.$txtsize.'>'.$citiestxts[$i].'</'.$txtsize.'>';
+		$citytxts[$i] = '<'.$text_size.'>'.$citiestxts[$i].'</'.$text_size.'>';
 	}
 
 	$i++;
@@ -24,14 +24,14 @@ if ($website_name == $website_things_i_do) {
 	$i = 0;
 	while ($i <= $tabnumb) {
 		if ($i < 1) {
-			$txtsize = 'h6';	
+			$text_size = 'h6';	
 		}
 
 		if ($i > 1) {
-			$txtsize = 'h4';	
+			$text_size = 'h4';	
 		}
 
-		$citytxts[$i] = '<'.$txtsize.'>'.$citiestxts[$i].'</'.$txtsize.'>';
+		$citytxts[$i] = '<'.$text_size.'>'.$citiestxts[$i].'</'.$text_size.'>';
 		$i++;
 	}
 }
@@ -40,8 +40,8 @@ else {
 	#Array of mobile button names
 	$i = 0;
 	while ($i <= $tabnumb) {
-		$txtsize = 'h4';
-		$citytxts[$i] = '<'.$txtsize.'>'.$citiestxts[$i].'</'.$txtsize.'>';
+		$text_size = 'h4';
+		$citytxts[$i] = '<'.$text_size.'>'.$citiestxts[$i].'</'.$text_size.'>';
 	
 		$i++;
 	}
@@ -109,7 +109,7 @@ if ($website_hide_tabs_setting != True) {
 	$hide_tabs_text = '';
 }
 
-if ($website_uses_tab_body_generator == false) {
+if ($website_uses_tab_body_generator == False) {
 	#Array of the city body files
 	$i = 0;
 	$i2 = $i + 1;
@@ -120,7 +120,7 @@ if ($website_uses_tab_body_generator == false) {
 		while ($i <= $tabnumb) {
 			$i2 = $i + 1;
 
-			$citybodyfiles[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
+			$city_body_files[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
 
 			$i++;
 		}
@@ -128,14 +128,14 @@ if ($website_uses_tab_body_generator == false) {
 
 	else {
 		if (in_array($website_language, $en_languages_array)) {
-			$placeholdercitybody = 'Placeholder for the Body of the Tab: [Icon]';
+			$city_body_place_holder = 'Placeholder for the Body of the Tab: [Icon]';
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$placeholdercitybody = 'Espaço reservado para o Corpo da Aba: [Ícone]';
+			$city_body_place_holder = 'Espaço reservado para o Corpo da Aba: [Ícone]';
 		}
 
-		$citybodyfiles[$i] = $placeholdercitybody;
+		$city_body_files[$i] = $city_body_place_holder;
 	}
 }
 
@@ -143,17 +143,17 @@ if ($website_name == $website_watch_history) {
 	# Include the buttons loader PHP file
 	include $computer_buttons_bar_loader;
 
-	# Every Watched Button Yellow
+	# Every Watched Button Computer
 	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
 
-	# Mobile Every Watched Button Yellow
+	# Mobile Every Watched Button
 	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[3].$mobile_buttons[4];
 
 	# Every Archived Button Yellow
-	$every_archived_medias_button = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$computer_buttons[6].$div_close;
+	#$every_archived_medias_button = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$computer_buttons[5].$div_close;
 
 	# Mobile Every Archived Button Yellow
-	$every_archived_medias_button_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[6].$div_close;
+	#$every_archived_medias_button_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[5].$div_close;
 }
 
 if ($website_name == $website_things_i_do or $website_name == $website_text_maker) {
@@ -164,9 +164,9 @@ if ($website_name == $website_things_i_do or $website_name == $website_text_make
 #City body files includer
 $i = 0;
 while ($i <= $tabnumb) {
-	if (isset($citybodyfiles[$i])) {
-		if (file_exists($citybodyfiles[$i])) {
-			include $citybodyfiles[$i];
+	if (isset($city_body_files[$i])) {
+		if (file_exists($city_body_files[$i])) {
+			include $city_body_files[$i];
 		}
 	}
 
@@ -197,23 +197,24 @@ $zzz = 0;
 $zxx = 1;
 $tabnumb3 = $tabnumb + 1;
 while ($zzz <= $tabnumb3) {
-	if (file_exists($selected_website_folder.'CityContent'.$zxx.'.php')) {
+	$tab_contents_file = $selected_website_folder.$tabs_folder_variable."/Contents/".$zxx.'.php';
+	if (file_exists($tab_contents_file)) {
 		ob_start();
-		include $selected_website_folder.'CityContent'.$zxx.'.php';
+		include $tab_contents_file;
 		$citycontents[$zzz] = ob_get_clean();
 		ob_clean();
 	}
 
 	else {
 		if (in_array($website_language, $en_languages_array)) {
-			$placeholdercitycontent = $div_zoom_animation.'Placeholder for the Content of the Tab.'.$div_close;
+			$tab_content_place_holder = $div_zoom_animation.'Placeholder for the Content of the Tab.'.$div_close;
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$placeholdercitycontent = $div_zoom_animation.'Espaço reservado para o Conteúdo da Aba.'.$div_close;
+			$tab_content_place_holder = $div_zoom_animation.'Espaço reservado para o Conteúdo da Aba.'.$div_close;
 		}
 
-		$citycontents[$zzz] = $placeholdercitycontent;
+		$citycontents[$zzz] = $tab_content_place_holder;
 	}
 
 	$zxx++;
@@ -225,24 +226,24 @@ $i = 0;
 while ($i <= $tabnumb) {
 	$i2 = $i + 1;
 
-	if (isset($citybodies[$i])) {
+	if (isset($city_bodies[$i])) {
 		if (isset($citytitles)) {
-			$citiescontent[$i] = $citytitles[$i].$citybodies[$i].$citycontents[$i];
+			$city_contents[$i] = $citytitles[$i].$city_bodies[$i].$citycontents[$i];
 		}
 
 		if (!isset($citytitles)) {
-			$citiescontent[$i] = $citybodies[$i].$citycontents[$i];
+			$city_contents[$i] = $city_bodies[$i].$citycontents[$i];
 		}
 	}
 
 	else {
 		#print_r($citytitles);
 		if (isset($citytitles)) {
-			$citiescontent[$i] = $citytitles[$i].$citycontents[$i];
+			$city_contents[$i] = $citytitles[$i].$citycontents[$i];
 		}
 
 		if (!isset($citytitles)) {
-			$citiescontent[$i] = $citycontents[$i];
+			$city_contents[$i] = $citycontents[$i];
 		}
 	}
 

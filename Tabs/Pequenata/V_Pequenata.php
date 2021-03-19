@@ -7,14 +7,14 @@ require $css_pack_pequenata;
 $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_url = $website_pequenata_link;
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
-$story_name_folder = $littletato_story_folder;
+$story_folder = $littletato_story_folder;
 
 $story_name = $littletato_story_name;
 
 # Form code for the comment and read forms
 $formcode = 'pequenata';
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
+$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
 $single_cover_folder = 'Capas/Kids/';
 $cover_folder = $cdn_image_stories_pequenata.$single_cover_folder;
@@ -153,8 +153,8 @@ if ($website_language == $languages_array[0]) {
 
 	$website_language = $languages_array[0];
 	
-	$website_title = $story_name_folder;
-	$website_title_html = $story_name_folder.': '.$icons[11];
+	$website_title = $story_folder;
+	$website_title_html = $story_folder.': '.$icons[11];
 	$website_link = $website_pequenata_link;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -219,7 +219,7 @@ $icons[13],
 # Website Style.php File Includer
 require $website_style_file;
 
-# TabGenerator.php File Includer
+# Tab Generator.php File Includer
 include $website_tabs_generator;
 
 # Website notification variables if the website notification setting is True

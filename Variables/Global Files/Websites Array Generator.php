@@ -80,7 +80,7 @@ foreach ($websites_array as $value) {
 # Website.php Files array
 $i = 0;
 foreach ($websites_array as $value) {
-	$websitefile = $php_tabs.ucwords($value).'/'.'Website.php';
+	$websitefile = $php_tabs.ucwords($value).'/Website.php';
 
 	if (file_exists($websitefile)) {
 		$sitewebsitefiles[$i] = $websitefile;

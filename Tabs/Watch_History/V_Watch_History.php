@@ -1,40 +1,10 @@
 <?php 
 
-# CSS style variables
-/*
-$color2 = $background_yellow_css_class;
-$color4 = $background_blue_css_class;
-$colortext = "w3-text-blue";
-$sitehr = $border_1px_solid_blue;
-$sitehr2 = $border_1px_solid_yellow;
-$textstyle = $background_white_css_class." w3-text-white";
-
-# Variables that mixes CSS tags
-$first_button_style = $color4.' '.$cssbtn1;
-$btnstyle2 = $color2.' '.$cssbtn1;
-
-# HTML and HTML Style variables
-$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'">';
-$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'">';
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'"';
-$sitewhilestyle = $color4;
-$border = 'border-width:4px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'';
-$border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'';
-*/
-
-#$website_border_color = "slhr";
-#$website_border_color = $border_3px_solid_blue_css_class;
-
-#$watched_movies_number = 0;
-
-#Folder variables
+# Folder variables
 $selected_website_url = $website_watch_history_link;
 $selected_website_folder = $php_tabs.ucwords($website).'/';
 
-#Comment links
+# Comment links
 $watched_movie_comment_links = array(
 $cdn_text_movie_comments.'Hoje, Sexta (Vingadores Guerra Infinita).txt', 
 $cdn_text_movie_comments.'Hoje, Segunda (Power Rangers 2017).txt', 
@@ -44,7 +14,7 @@ $cdn_text_movie_comments.'Hoje, Sabado 2 (Os Vingadores Ultimato).txt',
 $cdn_text_movie_comments.'Homem-Aranha no Aranhaverso (2019, Sony Pictures Animation, Marvel Entertainment).txt',
 );
 
-#Comments buttons
+# Comments buttons
 $watched_movie_comments = array(
 '<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[0]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
 '<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[1]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>', 
@@ -54,7 +24,7 @@ $watched_movie_comments = array(
 '<a class="'.$text_hover_white_css_class.'" onclick="window.open('."'".$watched_movie_comment_links[5]."'".');" style="cursor:pointer;"><i class="fas fa-comments"></i></a>',
 );
 
-#Website image link and image size
+# Website image link and image size
 $website_image = 'WH';
 $website_image = $cdnimg.$website_image.".png";
 $website_image_link = $website_image;
@@ -159,7 +129,7 @@ if ($website_language == $geral_language) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $website;
-	
+
 	$website_title = ucwords($website_title);
 	$website_title_html = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url;
@@ -196,7 +166,7 @@ if (in_array($website_language, $pt_languages_array)) {
 #Tabtexts definers for English and General language
 if (in_array($website_language, $en_languages_array)) {
 	$tabnames[0] = substr_replace($tabnames[0], ' ', 7, 0);
-	$tabnames[7] = substr_replace($tabnames[7], '-', 6, 0);
+	$tabnames[7] = substr_replace($tabnames[5], '-', 5, 0);
 	$tabnames[7] = strtr($tabnames[7], "l", strtoupper("l"));;
 }
 
@@ -204,6 +174,8 @@ if (in_array($website_language, $en_languages_array)) {
 if (in_array($website_language, $pt_languages_array)) {
 	$tabnames[0] = substr_replace($tabnames[0], ' ', 10, 0);
 }
+
+$tab_titles_without_html = array();
 
 $current_variable_year = 2018;
 $archived_medias_number = 0;

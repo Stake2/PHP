@@ -18,4 +18,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_swid_mc) ==
 	$found_selected_website = True;
 }
 
+else {
+	$found_selected_website = False;
+}
+
 ?>

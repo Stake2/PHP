@@ -198,13 +198,13 @@ $lonely_stories_story_name,
 );
 
 #Story folders array
-$story_namefolders = array(
+$story_folders_array = array(
 $littletato_story_folder = 'Pequenata - Littletato',
-$slstoryfolder = 'SpaceLiving',
-$nazzevostoryfolder = 'The Story of the Nazzevo Brothers',
+$spaceliving_story_folder = 'SpaceLiving',
+$nazzevo_story_folder = 'The Story of the Nazzevo Brothers',
 $desert_island_story_folder = 'Desert Island',
-$lsstoryfolder = 'Lonely Stories',
-$sistoryfolder = 'Yours truly, Izaque',
+$lonely_stories_story_folder = 'Lonely Stories',
+$yti_story_folder = 'Yours truly, Izaque',
 );
 
 if ($website_type == $story_website_type) {

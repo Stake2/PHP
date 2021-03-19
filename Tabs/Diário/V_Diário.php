@@ -37,16 +37,16 @@
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
-$story_name_folder = $diario_folder_blocks;
+$story_folder = $diario_folder_blocks;
 
-$no_language_story_folder = $story_name_folder;
+$no_language_story_folder = $story_folder;
 $story_chapter_files_folder = $no_language_story_folder;
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 if ($website_language == $languages_array[0]) {
 	$website_language = $languages_array[1];
 
-	$story_chapter_files_folder_language = $story_name_folder;
+	$story_chapter_files_folder_language = $story_folder;
 
 	if ($website_story_has_bookcovers_setting == True) {
 		$coverfolder = $cdn_image_stories.$formcode.'/'.'Capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';
@@ -57,7 +57,7 @@ if ($website_language == $languages_array[0]) {
 }
 
 else {
-	$story_chapter_files_folder_language = $story_name_folder;
+	$story_chapter_files_folder_language = $story_folder;
 
 	if ($website_story_has_bookcovers_setting == True) {
 		$coverfolder = $cdn_image_stories.$formcode.'/'.'capas'.'/'.'kids'.'/'.strtoupper($website_language).'/';

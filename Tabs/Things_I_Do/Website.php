@@ -39,4 +39,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_things_i_do
 	$found_selected_website = True;
 }
 
+else {
+	$found_selected_website = False;
+}
+
 ?>

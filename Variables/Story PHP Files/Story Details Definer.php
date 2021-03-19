@@ -1,7 +1,7 @@
 <?php 
 
-$new_synopsis = str_replace('<br />', "\n", $synopsis);
-$new_sinopse = str_replace('<br />', "\n", $sinopse);
+$new_synopsis = $story_synopsis[0];
+$new_sinopse = $story_synopsis[1];
 
 # Website descriptions
 $website_descriptions_array = array(
@@ -11,8 +11,8 @@ $website_descriptions_array = array(
 
 # Synopsis text definer using the $synopsis that is generated from TextFileReader.php
 $website_html_descriptions_array = array(
-'Synopsis: <i class="fas fa-scroll"></i> "'.$synopsis.'"<br />',
-'Sinopse: <i class="fas fa-scroll"></i> "'.$sinopse.'"<br />',
+'Synopsis: <i class="fas fa-scroll"></i> "'.$new_synopsis.'"<br />',
+'Sinopse: <i class="fas fa-scroll"></i> "'.$new_sinopse.'"<br />',
 );
 
 # Website name in English and Brazilian Portuguese language

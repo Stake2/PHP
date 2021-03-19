@@ -175,8 +175,8 @@ $comments_on_super_animes_key = strtolower(str_replace(" ", "_", $comments_on_su
 $year_text_files_folder = $notepad_years_folder_variable;
 
 #YearsNumbers.txt files
-$yearnumbsfile2018 = $year_text_files_folder.$site2018.'/'.$site2018.' Numbers.txt';
-$yearnumbsfile2019 = $year_text_files_folder.$site2019.'/'.$site2019.' Numbers.txt';
+$yearnumbsfile2018 = $year_text_files_folder.$website_2018.'/'.$website_2018.' Numbers.txt';
+$yearnumbsfile2019 = $year_text_files_folder.$website_2018.'/'.$website_2019.' Numbers.txt';
 
 #YearNumbers.txt 2018 number counter
 $yearnumbsnumber2018 = 0;
@@ -206,25 +206,25 @@ $yearnumbsnumb2019file = $yearnumbsnumber2019 - 1;
 $yearnumbsnumb2019filetxt = $yearnumbsnumber2019;
 
 #YearNumbers.txt 2018 file reader
-if (file_exists($yearnumbsfile2018)) {
-	$yearnumbs2018fp = fopen($yearnumbsfile2018, 'r', 'UTF-8');
-	if ($yearnumbs2018fp) {
-		$yearnumbs2018root = explode("\n", fread($yearnumbs2018fp, filesize($yearnumbsfile2018)));
-		$yearnumbs2018txt = str_replace("^", "", $yearnumbs2018root);
-	}
-}
+#if (file_exists($yearnumbsfile2018)) {
+#	$yearnumbs2018fp = fopen($yearnumbsfile2018, 'r', 'UTF-8');
+#	if ($yearnumbs2018fp) {
+#		$yearnumbs2018root = explode("\n", fread($yearnumbs2018fp, filesize($yearnumbsfile2018)));
+#		$yearnumbs2018txt = str_replace("^", "", $yearnumbs2018root);
+#	}
+#}
 
 #YearNumbers.txt 2019 file reader
-if (file_exists($yearnumbsfile2019)) {
-	$yearnumbs2019fp = fopen($yearnumbsfile2019, 'r', 'UTF-8');
-	if ($yearnumbs2019fp) {
-		$yearnumbs2019root = explode("\n", fread($yearnumbs2019fp, filesize($yearnumbsfile2019)));
-		$yearnumbs2019txt = str_replace("^", "", $yearnumbs2019root);
-	}
-}
+#if (file_exists($yearnumbsfile2019)) {
+#	$yearnumbs2019fp = fopen($yearnumbsfile2019, 'r', 'UTF-8');
+#	if ($yearnumbs2019fp) {
+#		$yearnumbs2019root = explode("\n", fread($yearnumbs2019fp, filesize($yearnumbsfile2019)));
+#		$yearnumbs2019txt = str_replace("^", "", $yearnumbs2019root);
+#	}
+#}
 
 #Replacer for characters
-$yearnumbs2018txt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearnumbs2018txt);
-$yearnumbs2019txt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearnumbs2019txt);
+#$yearnumbs2018txt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearnumbs2018txt);
+#$yearnumbs2019txt = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $yearnumbs2019txt);
 
 ?>

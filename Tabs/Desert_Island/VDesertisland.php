@@ -24,13 +24,13 @@ $new_site_name = str_replace(' ', '_', strtolower($sitename_desertisland));
 # Folder variables
 $selected_website_url = $main_website_url.$new_site_name.'/';
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
-$story_name_folder = $desert_island_story_folder;
+$story_folder = $desert_island_story_folder;
 
 # Form code for the comment and read forms
 $formcode = 'desert_island';
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
+$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
+$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
 $single_cover_folder = 'Capas';
 $cover_folder = $cdn_image_stories_desertisland.$single_cover_folder.'/';
@@ -189,7 +189,7 @@ $icons[13],
 
 #Buttons and tabs definer
 #Tab chapter_titles definer
-$tabtitles = array(
+$tab_titles = array(
 $tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$newtxt.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.' ❤️ '.' 😊',
 $tabnames[2].': '.$icons[12],
@@ -199,7 +199,7 @@ $tabnames[4].': '.$yellowspan.$stories_number.$spanc.' '.$icons[11],
 
 #Button names definer
 $i = 0;
-foreach ($tabtitles as $tabname) {
+foreach ($tab_titles as $tabname) {
 	$citiestxts[$i] = $tabname;
 
 	$i++;

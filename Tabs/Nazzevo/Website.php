@@ -8,7 +8,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_nazzevo) ==
 	$website = $selected_website;
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pequenata;
-	$selected_website_style_file = $sitefolder_nazzevo."Website Style.php";
+	$selected_website_style_file = $website_folder_nazzevo."Website Style.php";
 
 	#Website settings
 	$website_has_notifications = false; #Defines if website has notifications on
@@ -42,6 +42,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_nazzevo) ==
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;
+
+	$found_selected_website = True;
 }
 
 ?>

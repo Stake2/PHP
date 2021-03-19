@@ -56,6 +56,12 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;
+	
+	$found_selected_website = True;
+}
+
+else {
+	$found_selected_website = False;
 }
 
 ?>

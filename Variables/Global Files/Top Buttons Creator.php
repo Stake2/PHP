@@ -5,11 +5,11 @@ $total_buttons_created = 0;
 $computer_buttons = array();
 $mobile_buttons = array();
 
-$hide_computer_buttons_bar = '<br />'."\n".'<button id="hide_computer_buttons" class="w3-btn '.$first_button_style.' '.$computer_variable.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();"><h2>'.$icons[17].'</h2></button>'."\n";
+$hide_computer_buttons_bar = '<br />'."\n".'<center><button id="hide_computer_buttons" class="w3-center w3-btn '.$first_button_style.' '.$computer_variable.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();"><h2>'.$icons[17].'</h2></button></center>'."\n";
 
-$show_computer_buttons_bar = '<button id="show_computer_buttons" class="w3-btn '.$first_button_style.' '.$computer_variable.'" style="display:none;float:right;'.$rounded_border_style_2.'" onclick="Show_Computer_Buttons();"><h2>'.$icons[18].'</h2></button>'."\n";
+$show_computer_buttons_bar = '<button id="show_computer_buttons" class="w3-center w3-btn '.$first_button_style.' '.$computer_variable.'" style="display:none;float:right;'.$rounded_border_style_2.'" onclick="Show_Computer_Buttons();"><h2>'.$icons[18].'</h2></button>'."\n";
 
-$open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-btn '.$first_button_style.' '.$mobile_variable.'" style="float:left;position:fixed;'.$rounded_border_style_2.'" onclick="Show_Mobile_Buttons();"><h2>'.$icons[16].'</h2></button>'."\n";
+$open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-center w3-btn '.$first_button_style.' '.$mobile_variable.'" style="float:left;position:fixed;'.$rounded_border_style_2.'" onclick="Show_Mobile_Buttons();"><h2>'.$icons[16].'</h2></button>'."\n";
 
 $tabnamestxt = $tabnames;
 
@@ -63,7 +63,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 <!--- Computer Button bar on the top -->
 ';
 
-	echo '<div id="computer_buttons_bar" class="w3-bar mobileHide w3-animate-top" style="position:fixed;float:right;">'."\n";
+	echo '<div id="computer_buttons_bar" class="w3-center w3-bar mobileHide w3-animate-top" style="position:fixed;float:right;">'."\n";
 	$sitebtnecho = True;
 
 	if ($website_name == $website_pequenata) {
@@ -159,7 +159,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	echo '
 <!--- Mobile Button bar at the left -->';
 
-	echo "\n".'<div id="mobile_button_sidebar" class="mobile_button_sidebar_css mobileShow ">'."\n"."\n".
+	echo "\n".'<div id="mobile_button_sidebar" class="w3-center mobile_button_sidebar_css mobileShow ">'."\n"."\n".
 	'<a href="javascript:void(0)" class="close_mobile_sidebar_button" onclick="Hide_Mobile_Buttons();" style="font-size:35px;"><i class="fas fa-times-circle"></i></a>'."\n"."\n".
 	'<span style="font-size:30px;" class="'.$mobile_variable.' '.$first_text_color.'">'.$btnmenutxt.'</span>'."\n"."\n";
 	

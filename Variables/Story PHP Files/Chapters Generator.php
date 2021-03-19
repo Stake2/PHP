@@ -44,11 +44,11 @@ while ($a <= $chapters) {
 $a = 1;
 $z = 1;
 
-if (strpos($host_text, $website_translate_story_setting.'='.'true')) {
+if (strpos($host_text, $website_translate_story_setting.'=true')) {
 	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($enus_language).'/';
 }
 
-if (strpos($host_text, $website_translate_story_setting.'='.'false') or strpos($host_text, $website_translate_story_setting.'='.'false') == false) {
+if (strpos($host_text, $website_translate_story_setting.'=false') or strpos($host_text, $website_translate_story_setting.'='.'false') == false) {
 	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($website_language).'/';
 }
 
@@ -215,15 +215,16 @@ $write_chapter_55 = False;
 if ($write_chapter_55 == True) {
 	$chapter_number_1 = 55;
 	$chapter_number_4 = 54;
+
 	require $chapter_tab_generator_php_variable;
 }
 
 echo '</div>'."\n";
 
 while ($chapter_number_1 <= $chapters) {
-	$testscript = '';
+	$test_script = '';
 
-	echo $testscript;
+	echo $test_script;
 }
 
 if ($story_has_reads == True) {
@@ -235,68 +236,5 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	#Comment-modal Tab generator PHP file
 	require $comment_modal_generator_php_variable;
 }
-
-/*
-Deactivated Form Comment Tab generator
-
-$i = 0;
-$chapter_number_4 = 0;
-$chapters2 = $chapters - 1;
-
-while ($i <= $chapters2) {
-	$i2 = $i + 1;
-	echo '<a name="'.$formcode.'-comment-'.$i2.'"></a>'."\n";
-	echo '<div id="'.$formcode.'-comment-'.$i2.'" class="'.$tab_style.'" style="display:none;">'."\n";
-	echo $bigspace."\n";
-	echo '<'.$m.' class="'.$computer_variable.' '.$textstyle.'" style="'.$margin_style_10percent_rounded_border.'">'."\n";
-	echo $margin."\n";
-	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
-	echo $div_zoom_animation."\n";
-	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="True">'."\n";
-	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
-	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
-	echo '</span><br />'."\n";
-	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$commentdesc.':</b><br />'."\n";
-	echo '<textarea type="text" name="'.$formcode.'-comment" class="'.$formcolor.' w3-input"></textarea>'."\n";
-	echo '<h2><button type="submit" class="w3-btn '.$formbtnstyle.'" style="float:right;margin-top:-10px;"><i class="fas fa-paper-plane"></i></button>';
-	echo '</'.$n.'>'."\n";
-	echo '</span>'."\n";
-	echo '</form>'."\n";
-	echo $div_close."\n";
-	echo $div_close."\n";
-	echo $div_close."\n";
-	echo '</'.$m.'>'."\n";
-	echo $div_close."\n";
-	echo "\n";
-	echo '<a name="'.$formcode.'-comment-'.$i2.'m"></a>'."\n";
-	echo '<div id="'.$formcode.'-comment-'.$i2.'m" class="'.$tab_style_mobile.'" style="display:none;">'."\n";
-	echo $bigspace."\n";
-	echo '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="'.$margin_style_10percent_rounded_border.'">'."\n";
-	echo $margin."\n";
-	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[2].' '.$commenttxt4.' '.substr($chapters_text, 0, -1).'<br /> "'.$i2.' - '.$chapter_titles[$chapter_number_4].'": '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$tab_full_border.'" />'."\n";
-	echo $div_zoom_animation."\n";
-	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$i2.'" method="POST" data-netlify="True">'."\n";
-	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$form_name.':</b><br />'."\n";
-	echo '<textarea type="text" name="'.$formcode.'-name" class="'.$formcolor.' w3-input"></textarea>'."\n";
-	echo '</span><br />'."\n";
-	echo '<span class="w3-btn '.$spanstyle.'"><b>'.$commentdesc.':</b><br />'."\n";
-	echo '<textarea type="text" name="'.$formcode.'-comment" class="'.$formcolor.' w3-input"></textarea> '."\n";
-	echo '<h2><button type="submit" class="w3-btn '.$formbtnstyle.'" style="float:right;margin-top:-10px;"><i class="fas fa-paper-plane"></i></button>';
-	echo '</'.$n.'>'."\n";
-	echo '</span>'."\n";
-	echo '</form>'."\n";
-	echo $div_close."\n";
-	echo $div_close."\n";
-	echo $div_close."\n";
-	echo '</'.$m.'>'."\n";
-	echo $div_close."\n";
-	echo "\n";
-
-	$i++;
-	$chapter_number_4++;
-}
-*/
 
 ?>

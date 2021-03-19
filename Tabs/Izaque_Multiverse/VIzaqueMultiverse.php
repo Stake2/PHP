@@ -102,13 +102,13 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 #Tab chapter_titles definer
-$tabtitles = array(
+$tab_titles = array(
 $tabnames[0],
 );
 
 #Tab chapter_titles definer
-if (!isset($tabtitles) or empty($tabtitles) or $tabtitles[0] == '') {
-	$tabtitles = array(
+if (!isset($tab_titles) or empty($tab_titles) or $tab_titles[0] == '') {
+	$tab_titles = array(
 	$placeholdertitle,
 	);
 }

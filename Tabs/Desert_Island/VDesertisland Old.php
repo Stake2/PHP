@@ -7,7 +7,7 @@ $site_image = 'Capa Original.jpg';
 $website_image = $cdn_image_stories_desertisland.$site_image;
 $website_image_link = $website_image;
 
-$story_name_folder = $desert_island_story_folder;
+$story_folder = $desert_island_story_folder;
 
 #TextFileReader.php file includer
 include $text_file_reader_file_php;

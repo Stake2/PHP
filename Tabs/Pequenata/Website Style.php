@@ -30,6 +30,7 @@ $websites_tab_border_color = $border_color_black_css_class,
 
 $first_button_color = $additional_background_color,
 $second_button_color = $background_color,
+$click_button_color = $background_light_brown_css_class,
 
 $border_color = $default_border_color,
 $border_size = $default_border_color,
@@ -59,7 +60,6 @@ $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color
 );
 
 $website_border_color = $first_border_color;
-$click_button_color = $background_light_brown_css_class;
 
 # Website Style Variables Foreach.php file includer
 require $website_style_variables_foreach;

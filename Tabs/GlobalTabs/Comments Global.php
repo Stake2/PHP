@@ -6,7 +6,7 @@ echo $div_zoom_animation."\n";
 echo $website_comment_form;
 echo "\n".'</b>'."\n".'</'.$m.'>'."\n";
 
-$commentslens = array(45, 47, 52, 43, 49, 56, 21, 22, 54);
+$commentslens = array(45, 47, 52, 43, 49, 56, 21, 22, 54, 50);
 $commentslens2 = array(45, 52);
 
 $comment_style = $additional_background_color." ".$text_black_css_class." ".$border_3px_solid_black_css_class;
@@ -18,22 +18,22 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 		$z = 0;
 		while ($c <= $comments_number) {
 			if (isset($comments[$i])) {
-				$commentformname[$z] = $comments[$i];
+				$comment_form_name[$z] = $comments[$i];
 				$i++;
 			}
 
 			if (isset($comments[$i])) {
-				$commenttername[$z] = $comments[$i];
+				$comentter_name[$z] = $comments[$i];
 				$i++;
 			}
 
 			if (isset($comments[$i])) {
-				$commenttext[$z] = $comments[$i];
+				$comment_text[$z] = $comments[$i];
 				$i++;
 			}
 
 			if (isset($comments[$i])) {
-				$commenttime[$z] = $comments[$i];
+				$comment_time[$z] = $comments[$i];
 				$i++;
 			}
 
@@ -55,10 +55,10 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 
 		$i = 0;
 		$z = 0;
-		if (isset($commenttime[$z])) {
+		if (isset($comment_time[$z])) {
 			while ($z <= $comments_number) {
-				$commenttime[$z] = substr($commenttime[$z], 0, -1);
-				$commenttime[$z] = date("H:i d/m/Y", strtotime($commenttime[$z]));
+				$comment_time[$z] = substr($comment_time[$z], 0, -1);
+				$comment_time[$z] = date("H:i d/m/Y", strtotime($comment_time[$z]));
 
 				$z++;
 			}
@@ -69,11 +69,11 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 		$i = 0;
 		while ($a <= $comments_number) {
 			if (in_array($website_language, $en_languages_array)) {
-				$commentformname[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[4].' '.strtolower($form_text).':</b> "'.ucwords($commentformname[$i]).'"';
+				$comment_form_name[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[4].' '.strtolower($form_text).':</b> "'.ucwords($comment_form_name[$i]).'"';
 			}
 
 			if (in_array($website_language, $pt_languages_array)) {
-				$commentformname[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[3].' '.strtolower($form_text).':</b> "'.ucwords($commentformname[$i]).'"';
+				$comment_form_name[$i] = '<b>'.$comments_texts_array[2].' '.$comments_texts_array[3].' '.strtolower($form_text).':</b> "'.ucwords($comment_form_name[$i]).'"';
 			}
 
 			$a++;
@@ -92,30 +92,30 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 		$b = 0;
 		$number_of_chapter_comments = 0;
 		while ($c <= $comments_number) {
-			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name == $website_nazzevo) {
-				$cmntsgeral[$b] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'."\n".$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+			if (in_array(strlen($comment_form_name[$a]), $commentslens) and $website_name == $website_nazzevo) {
+				$website_comments[$b] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$comentter_name[$i].'</b> - '.$comment_time[$i]."\n".'<br />'.$comment_form_name[$i].' '."\n".'<hr class="'.$third_full_border.'" />'."\n".$comment_text[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
-				if ($website_name == $website_nazzevo and strlen($commentformname[$a]) == 43) {
-					echo $cmntsgeral[$b];
+				if ($website_name == $website_nazzevo and strlen($comment_form_name[$a]) == 43) {
+					echo $website_comments[$b];
 				}
 
 				$a2++;
 				$b++;
 			}
 
-			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name != $website_nazzevo) {
-				$cmntsgeral[$b] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'."\n".$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+			if (in_array(strlen($comment_form_name[$a]), $commentslens) and $website_name != $website_nazzevo) {
+				$website_comments[$b] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$comentter_name[$i].'</b> - '.$comment_time[$i]."\n".'<br />'.$comment_form_name[$i].' '."\n".'<hr class="'.$third_full_border.'" />'."\n".$comment_text[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
-				if ($website_name == $website_nazzevo and strlen($commentformname[$a]) == 43) {
-					echo $cmntsgeral[$b];
+				if ($website_name == $website_nazzevo and strlen($comment_form_name[$a]) == 43) {
+					echo $website_comments[$b];
 				}
 
 				$a2++;
 				$b++;
 			}
 
-			if (in_array(strlen($commentformname[$a]), $commentslens) and $website_name != $website_nazzevo) {
-				$story_name_chapter_comments_array[$v] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'.$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+			if (in_array(strlen($comment_form_name[$a]), $commentslens) and $website_name != $website_nazzevo) {
+				$story_name_chapter_comments_array[$v] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$comentter_name[$i].'</b> - '.$comment_time[$i]."\n".'<br />'.$comment_form_name[$i].' '."\n".'<hr class="'.$third_full_border.'" />'.$comment_text[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
 				#echo $story_name_chapter_comments_array[$z];
 
@@ -123,9 +123,9 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 				$number_of_chapter_comments++;
 			}
 
-			if ($website_name == $website_nazzevo and in_array(strlen($commentformname[$a]), $commentslens2)) {
+			if ($website_name == $website_nazzevo and in_array(strlen($comment_form_name[$a]), $commentslens2)) {
 				$a2 = $a2;
-				$story_name_chapter_comments_array[$v] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$commenttername[$i].'</b> - '.$commenttime[$i]."\n".'<br />'.$commentformname[$i].' '."\n".'<hr class="'.$third_full_border.'" />'.$commenttext[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+				$story_name_chapter_comments_array[$v] = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n".'<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n".'<b>'.$a2.' - '.$comentter_name[$i].'</b> - '.$comment_time[$i]."\n".'<br />'.$comment_form_name[$i].' '."\n".'<hr class="'.$third_full_border.'" />'.$comment_text[$i]."\n".'<br /><br /><br /><br /><br />'."\n".$div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 
 				#echo $story_name_chapter_comments_array[$z];
 				$v++;
@@ -141,8 +141,8 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 		$z = 0;
 		$c = 0;
 		while ($c <= $website_comments_number_to_show) {
-			if (!strpos($cmntsgeral[$z], 'comment-') and isset($cmntsgeral[$z])) {
-				echo $cmntsgeral[$z];
+			if (!strpos($website_comments[$z], 'comment-') and isset($website_comments[$z])) {
+				echo $website_comments[$z];
 			}
 
 			$z++;
@@ -200,9 +200,9 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 #		$b3 = $b + 2;
 #	
 #		if (strlen($commentscheck[$a]) == 17) {
-#			$cmntsgeral[$v] = '<'.$m.' class="'.$alternative_full_tab_style.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.$c2.' - '.$comments[$b].'</b> - '.$comments[$b3].'<br />'.$commentscheckstext[$c].' '.'<hr class="'.$third_full_border.'" />'.$comments[$b2].'<br /><br /><br /><br /><br />'.$div_close.'</'.$m.'>'."<br />"."\n";
+#			$website_comments[$v] = '<'.$m.' class="'.$alternative_full_tab_style.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.$c2.' - '.$comments[$b].'</b> - '.$comments[$b3].'<br />'.$commentscheckstext[$c].' '.'<hr class="'.$third_full_border.'" />'.$comments[$b2].'<br /><br /><br /><br /><br />'.$div_close.'</'.$m.'>'."<br />"."\n";
 #	
-#			echo $cmntsgeral[$v];
+#			echo $website_comments[$v];
 #	
 #			$c2++;
 #		}

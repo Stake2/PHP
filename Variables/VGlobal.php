@@ -118,6 +118,10 @@ if ($website_is_for_other_person_setting == False) {
 <meta name="twitter:creator" content="@The_Snakes90" />';
 }
 
+if ($website_name == $website_website_status) {
+	$website_title = $website_titles_array[$selected_website_number];
+}
+
 $website_head = '
 <title>'.$website_title.'</title>
 <meta property="og:type" content="website" />

@@ -68,13 +68,13 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 	}
 
 	$website_header_wrapper = $computerspace.
-	'<div class="'.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'.
-	$div_zoom_animation.'<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
+	'<div class="w3-center '.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'.
+	$div_zoom_animation.'<'.$n.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
 	$div_zoom_animation.'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$m.'>'.$div_close."\n".'
 	<hr class="'.$header_full_border.'" />
-	'.$website_images_variable.
-	$div_zoom_animation.'<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_header_description.'</'.$n.'>'.$div_close.
-	$div_zoom_animation.'<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_header_description.'</'.$m.'>'.$div_close
+	<div class="w3-center">'.$website_images_variable.$div_close.
+	$div_zoom_animation.'<'.$n.' class="w3-center '.$first_text_color.' '.$computer_variable.'">'.$website_header_description.'</'.$n.'>'.$div_close.
+	$div_zoom_animation.'<'.$m.' class="w3-center '.$first_text_color.' '.$mobile_variable.'">'.$website_header_description.'</'.$m.'>'.$div_close
 	.$diariostuff1.$diariostuff2.
 	'<br />
 	'.$div_close."\n";
@@ -99,7 +99,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
-	$read_texts_array[6].': <span class="'.$second_text_color.'">'.$readersnumb.' '.$iconbookreader.'</span><br />'."\n".
+	$read_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
 	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
 	'</div>'."\n";
@@ -148,23 +148,27 @@ else {
 }
 
 if ($website_new_design_setting == True) {
-	$sitewrappershow = $website_header_wrapper;
+	$website_wrapper_show = $website_header_wrapper;
 }
 
 if ($website_deactivate_header_setting == True) {
-	$sitewrappershow = '';
+	$website_wrapper_show = '';
 }
 
 if ($website_deactivate_header_setting == False) {
-	$sitewrappershow = $website_header_wrapper;
+	$website_wrapper_show = $website_header_wrapper;
 }
 
 if ($website_deactivate_all_setting == True) {
 	$center = null;
 }
 
-if ($website_deactivate_all_setting == False) {
+if ($website_deactivate_all_setting == False and $website_is_not_centered_setting == False) {
 	$center = '<center>';
+}
+
+if ($website_is_not_centered_setting == True) {
+	$center = '';
 }
 
 if ($website_uses_custom_layout_setting == False) {
@@ -177,7 +181,7 @@ $buttons."\n".
 
 $change_website_title_script."\n".
 
-$sitewrappershow."\n".
+$website_wrapper_show."\n".
 
 $website_notification."\n";
 }

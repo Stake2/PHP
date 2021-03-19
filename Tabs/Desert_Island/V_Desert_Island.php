@@ -1,21 +1,5 @@
 <?php 
 
-# HTML and HTML Style variables
-#$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-#$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-#$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-#$border = 'border-width:4px;border-color:'.'#ffffb3'.';border-style:solid;';
-#$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;';
-#$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';'.$rounded_border_style_2.';
-#$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
-#$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-#$widthsize = '';
-#$size = '';
-#$websites_tab_number_text_color = $subtextspan;
-#$websites_tab_number_hover_color = $cssbtn5;
-
-#$textstyle = 'w3-text-black'.' '.$ultimate_bg_color;
-
 $story_name = $desert_island_story_name;
 
 # New website name generator, generates: "desert_island"
@@ -24,13 +8,12 @@ $new_site_name = str_replace(' ', '_', strtolower($sitename_desertisland));
 # Folder variables
 $selected_website_url = $main_website_url.$new_site_name.'/';
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
-$story_name_folder = $desert_island_story_folder;
+$story_folder = $desert_island_story_folder;
 
 # Form code for the comment and read forms
 $formcode = 'desert_island';
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
-$no_language_story_folder = $notepad_stories_folder_variable.$story_name_folder.'/';
+$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
 $single_cover_folder = 'Capas';
 $cover_folder = $cdn_image_stories_desertisland.$single_cover_folder.'/';
@@ -62,10 +45,22 @@ else {
 
 $website_image_link = $website_image;
 
-# TextFileReader.php file includer
+# Text File Reader.php file includer
 require $text_file_reader_file_php;
 
 $chapters = $chapter_number[0];
+
+# Website descriptions
+$website_descriptions_array = array(
+'Website about my story, '.$story_name.', made by stake2', 
+'Website sobre a minha história, '.$story_name.', feito por stake2',
+);
+
+# Synopsis text definer using the $story_synopsis that is generated from Text File Reader.php
+$website_html_descriptions_array = array(
+'Synopsis: <i class="fas fa-scroll"></i> "'.$story_synopsis[0].'"<br />',
+'Sinopse: <i class="fas fa-scroll"></i> "'.$story_synopsis[1].'"<br />',
+);
 
 # Story Details Definer.php file includer
 require $story_name_details_definer_php;
@@ -130,11 +125,11 @@ if (in_array($website_language, $pt_languages_array)) {
 $statustxt = '['.ucfirst($story_status).']';
 
 #Website name, title, main_website_url and description setter
-if ($website_language == $geral_language) {
-	$website_language = $enus_language;
+if ($website_language == $language_geral) {
+	$website_language = $language_enus;
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_language = $geral_language;
+	$website_language = $language_geral;
 
 	$website_name = $enus_title.' '.$hyphen_separated_website_language;
 	$website_title = $enus_title.' '.ucwords($website_language);
@@ -143,10 +138,10 @@ if ($website_language == $geral_language) {
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
 
-	$website_language = $geral_language;
+	$website_language = $language_geral;
 }
 
-if ($website_language == $enus_language) {
+if ($website_language == $language_enus) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
@@ -177,7 +172,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_header_description = $website_html_descriptions_array[1];
 }
 
-#Button names
+# Button names
 $citiestxts = array(
 $tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$newtxt.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.' ❤️ '.' 😊',
@@ -187,9 +182,9 @@ $tabnames[4].': '.$icons[11],
 $icons[13],
 );
 
-#Buttons and tabs definer
-#Tab chapter_titles definer
-$tabtitles = array(
+# Buttons and tabs definer
+# Tab chapter_titles definer
+$tab_titles = array(
 $tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$newtxt.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.' ❤️ '.' 😊',
 $tabnames[2].': '.$icons[12],
@@ -197,15 +192,15 @@ $tabnames[3].': '.$icons[10],
 $tabnames[4].': '.$yellowspan.$stories_number.$spanc.' '.$icons[11],
 );
 
-#Button names definer
+# Button names definer
 $i = 0;
-foreach ($tabtitles as $tabname) {
+foreach ($tab_titles as $tabname) {
 	$citiestxts[$i] = $tabname;
 
 	$i++;
 }
 
-#TabGenerator.php includer
+# Tab Generator.php includer
 include $website_tabs_generator;
 
 ?>
