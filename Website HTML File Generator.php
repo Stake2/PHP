@@ -64,8 +64,26 @@ if (file_exists($html_folder) == False) {
 	mkdir($html_folder);
 }
 
+if (file_exists($html_index_file) == True) {
+	$file_exists = True;
+}
+
+if (file_exists($html_index_file) == False) {
+	$file_exists = False;
+}
+
 $file_open = fopen($html_index_file, 'w');
 fwrite($file_open, $website);
 fclose($file_open);
+
+if ($file_exists == True) {
+	$text = "updated with new contents";
+}
+
+if ($file_exists == False) {
+	$text = "created";
+}
+
+echo "<h2>Website file was ".$text.".</h2><br />"."\n";
 
 ?>
