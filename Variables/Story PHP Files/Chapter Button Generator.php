@@ -32,9 +32,15 @@ while ($chapter_number_1 <= $chapters) {
 	}
 
 	if ($chapter_number_1 == $chapters) {
-		$current_chapter_title = str_replace("'", "", $chapter_titles[$chapter_number_4]);
-		$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text).": ".$chapter_number_1." - ".$current_chapter_title."', 'notification');";
-		echo $current_chapter_title;
+		if ($website_story_has_titles == True) {
+			$current_chapter_text = $chapter_number_1." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
+		}
+
+		if ($website_story_has_titles == False) {
+			$current_chapter_text = $chapter_number_1;
+		}
+
+		$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text).": ".$current_chapter_text."', 'notification');";
 
 		if ($new_write_style == True) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
@@ -44,7 +50,7 @@ while ($chapter_number_1 <= $chapters) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
 		}
 
-		if ($website_deactivate_notification_setting == True) {
+		if ($website_deactivate_notification_setting == True or !isset($hide_notification_attribute)) {
 			$hide_notification_attribute = '';
 		}
 
@@ -127,8 +133,15 @@ while ($chapter_number_1 <= $chapters) {
 	}
 
 	else {
-		$current_chapter_title = str_replace("'", "", $chapter_titles[$chapter_number_4]);
-		$chapter_number_and_text = "Add_To_Website_Title("."'"." - ".ucwords($chapter_text).": ".$chapter_number_1." - ".$current_chapter_title."'".", 'notification');";
+		if ($website_story_has_titles == True) {
+			$current_chapter_text = $chapter_number_1." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
+		}
+
+		if ($website_story_has_titles == False) {
+			$current_chapter_text = $chapter_number_1;
+		}
+
+		$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text).": ".$current_chapter_text."', 'notification');";
 
 		if ($new_write_style == True) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
@@ -138,11 +151,11 @@ while ($chapter_number_1 <= $chapters) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
 		}
 
-		if ($website_deactivate_notification_setting == True) {
+		if ($website_deactivate_notification_setting == True or !isset($hide_notification_attribute)) {
 			$hide_notification_attribute = '';
 		}
 
-		elseif (isset($hide_notification_attribute)) {
+		else if (isset($hide_notification_attribute)) {
 			$hide_notification_attribute = $hide_notification_attribute;
 		}
 

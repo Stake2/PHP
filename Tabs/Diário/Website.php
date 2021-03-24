@@ -16,7 +16,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_diario) == 
 	$website_has_stories_tab_setting = True;
 	$website_shows_comments = false; #Defines if website shows the comments on the Comments Tab
 	$story_has_dates = false; #Defines if the story has dates
-	$website_story_has_titles = false; #Defines if the story has chapter_titles
+	$website_story_has_titles = False; #Defines if the story has chapter_titles
 	$story_uses_status = false; #Defines if the story uses the story statuses
 	$story_has_chapter_comments = false; #Defines if the story has comments on the chapter
 	$story_website_contains_reads = false; #Defines if the story has story_reads_array on it

@@ -41,7 +41,7 @@ $siteimagename = 'stk2';
 $website_image = $cdnimg.$siteimagename.'.png';
 $website_image_link = $website_image;
 $website_image_size_computer = 30;
-$imagesize2 = 66;
+$website_image_size_mobile = 66;
 
 if (empty($siteimagename)) {
 	$website_image = $cdnimg.'template.png';

@@ -17,7 +17,7 @@ if (!isset($website_title_html) and !isset($website_meta_description) and $websi
 	$website_image = $cdnimg.'Template.png';
 	$website_image_link = $website_image;
 	$website_image_size_computer = 33;
-	$imagesize2 = 44;
+	$website_image_size_mobile = 44;
 
 	if (in_array($website_language, $en_languages_array)) {
 		$website_title_html = 'Placeholder for the Title: [Icon]';
@@ -28,7 +28,7 @@ if (!isset($website_title_html) and !isset($website_meta_description) and $websi
 	}
 
 	$main_website_image_computer = '<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="'.$colortext.' '.$computer_variable.'" style="'.$border2.''.$rounded_border_style_2.'" />';
-	$main_website_image_mobile = '<img src="'.$website_image_link.'" width="'.$imagesize2.'%" class="'.$colortext.' '.$mobile_variable.'" style="'.$border2.''.$rounded_border_style_2.'" />';
+	$main_website_image_mobile = '<img src="'.$website_image_link.'" width="'.$website_image_size_mobile.'%" class="'.$colortext.' '.$mobile_variable.'" style="'.$border2.''.$rounded_border_style_2.'" />';
 
 	if ($website_deactivate_image_link_setting == False) {
 		$website_image_button_computer = '<div class="'.$computer_variable.'">'.'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'.'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'.'</button>'.$div_close."\n";

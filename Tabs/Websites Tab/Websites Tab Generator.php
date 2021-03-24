@@ -3,15 +3,13 @@
 # Include Websites Tabs Attributes.php
 include $websites_tab_attributes;
 
-$websites_tab_name_text = 'w3-text-black';
-$websites_tab_border_color = $border_color_black_css_class;
-
-if ($website_name == $website_diario) {
-	$websites_tab_border = $border_1px_solid_black_css_class;
+if ($website == $website_diario) {
+	$websites_tab_name_text = 'w3-text-white';
+	$websites_tab_border = $border_1px_solid_grey_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = 'w3-black';
-	$websites_tab_border_color = $border_color_black_css_class;
+	$websites_tab_border_color = $border_color_grey_css_class;
 }
 
 if ($website_name == $website_watch_history) {
@@ -46,14 +44,7 @@ if ($website_name == $website_things_i_do) {
 	$websites_tab_div_color = 'w3-black';
 }
 
-if ($website_name != $website_watch_history and $website_name != $website_pequenata and $website_name != $website_nazzevo and $website_name != $website_things_i_do and $website_name != $website_diario) {
-	$websites_tab_border = $border_1px_solid_black_css_class;
-	$websites_tab_number_text_color = $text_blue_css_class;
-	$websites_tab_number_hover_color = $text_hover_white_css_class;
-	$websites_tab_div_color = 'w3-black';
-}
-
-if ($selected_website == $website_spaceliving) {
+if ($website_name == $website_spaceliving) {
 	$websites_tab_border = $border_1px_solid_blue_css_class;
 	$websites_tab_border_color = $border_1px_solid_blue_css_class;
 	$websites_tab_name_text = $first_text_color;
@@ -62,20 +53,20 @@ if ($selected_website == $website_spaceliving) {
 	$websites_tab_div_color = 'w3-black';
 }
 
-if ($selected_website == $website_desert_island) {
+if ($website_name == $website_desert_island) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = 'w3-text-blue';
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = $background_yellow_sand_css_class;
 }
 
-if ($website_name != $website_watch_history and $website_name != $website_pequenata and $website_name != $website_nazzevo and $website_name != $website_things_i_do and $website_name != $website_diario and $website_name == $website_spaceliving and $selected_website == $website_desert_island) {
-	$websites_tab_border = $border_color;
-	$websites_tab_name_text = $first_text_color;
-	$websites_tab_number_text_color = $first_text_color;
-	$websites_tab_number_hover_color = $text_hover_white_css_class;
-	$websites_tab_div_color = 'w3-black';
-}
+#if ($website_name != $website_watch_history and $website_name != $website_pequenata and $website_name != $website_nazzevo and $website_name != $website_things_i_do and $website != $website_diario and $website_name == $website_spaceliving and $selected_website == $website_desert_island) {
+#	$websites_tab_border = $border_color;
+#	$websites_tab_name_text = $first_text_color;
+#	$websites_tab_number_text_color = $first_text_color;
+#	$websites_tab_number_hover_color = $text_hover_white_css_class;
+#	$websites_tab_div_color = 'w3-black';
+#}
 
 echo '<a name="'.$websites_tab_code.'"></a>'."\n".'<br />'."\n";
 echo '<div id="'.$websites_tab_code.'" class="city" style="display:none;'.$rounded_border_style_2.'">'."\n";

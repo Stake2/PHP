@@ -37,7 +37,7 @@ if ($website_name == $website_things_i_do) {
 }
 
 else {
-	#Array of mobile button names
+	# Array of mobile button names
 	$i = 0;
 	while ($i <= $tabnumb) {
 		$text_size = 'h4';
@@ -47,7 +47,7 @@ else {
 	}
 }
 
-#Array of mobile tab texts
+# Array of mobile tab texts
 $i = 0;
 while ($i <= $tabnumb) {
 	$tabtxtsm[$i] = $citytxts[$i];
@@ -56,7 +56,7 @@ while ($i <= $tabnumb) {
 }
 
 if ($website_name == $website_watch_history) {
-	#Citycodes array generator
+	# Citycodes array generator
 	$i = 0;
 	while ($i <= $tabnumb) {
 		if ($i < 3) {
@@ -76,7 +76,7 @@ if ($website_name == $website_watch_history) {
 }
 
 else {
-	#Array of button codes
+	# Array of button codes
 	$i = 0;
 	while ($i <= $tabnumb) {
 		$citycodes[$i] = $website.'-'.strtolower($tabnames[$i]);
@@ -85,7 +85,7 @@ else {
 	}
 }
 
-#Array of city codes
+# Array of city codes
 $i = 0;
 while ($i <= $tabnumb) {
 	$tabcodes[$i] = $citycodes[$i];
@@ -93,7 +93,7 @@ while ($i <= $tabnumb) {
 	$i++;
 }
 
-#Array of mobile city codes
+# Array of mobile city codes
 $i = 0;
 while ($i <= $tabnumb) {
 	$tabcodesm[$i] = $citycodes[$i].'m';
@@ -110,7 +110,7 @@ if ($website_hide_tabs_setting != True) {
 }
 
 if ($website_uses_tab_body_generator == False) {
-	#Array of the city body files
+	# Array of the city body files
 	$i = 0;
 	$i2 = $i + 1;
 

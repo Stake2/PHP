@@ -34,7 +34,7 @@ $website_image = 'TM';
 $website_image = $cdnimg.$website_image.".png";
 $website_image_link = $website_image;
 $website_image_size_computer = 27;
-$imagesize2 = 61;
+$website_image_size_mobile = 61;
 
 #Website descriptions
 $website_descriptions_array = array(
