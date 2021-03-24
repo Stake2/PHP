@@ -31,12 +31,11 @@ while ($chapter_number_1 <= $chapters) {
 		$cover_image_button = '';
 	}
 
-	if (strpos($chapter_titles[$chapter_number_4], "'") == True or strpos($chapter_titles[$chapter_number_4], "&#39;") == True) {
-		$chapter_title = str_replace("'", "", $chapter_titles[$chapter_number_4]);
-		$chapter_number_and_text = "Add_To_Website_Title("."'"." - ".ucwords($chapter_text).": ".$chapter_number_1." - ".$chapter_title."'".", 'notification');";
-	}
-
 	if ($chapter_number_1 == $chapters) {
+		$current_chapter_title = str_replace("'", "", $chapter_titles[$chapter_number_4]);
+		$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text).": ".$chapter_number_1." - ".$current_chapter_title."', 'notification');";
+		echo $current_chapter_title;
+
 		if ($new_write_style == True) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 		}
@@ -49,7 +48,7 @@ while ($chapter_number_1 <= $chapters) {
 			$hide_notification_attribute = '';
 		}
 
-		elseif (isset($hide_notification_attribute)) {
+		else if (isset($hide_notification_attribute)) {
 			$hide_notification_attribute = $hide_notification_attribute;
 		}
 
@@ -113,7 +112,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 
-			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' onclick="'.$scripts.'">'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc.'</button></a> '."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc.'</button></a> '."\n";
 
 			echo $chapter_button;
 
@@ -128,6 +127,9 @@ while ($chapter_number_1 <= $chapters) {
 	}
 
 	else {
+		$current_chapter_title = str_replace("'", "", $chapter_titles[$chapter_number_4]);
+		$chapter_number_and_text = "Add_To_Website_Title("."'"." - ".ucwords($chapter_text).": ".$chapter_number_1." - ".$current_chapter_title."'".", 'notification');";
+
 		if ($new_write_style == True) {
 			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 		}

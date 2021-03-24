@@ -164,7 +164,7 @@ echo "\n\n".'<style>
 }
 </style>'."\n\n";
 
-#Chapter Opener Script includer if the setting is True
+# Chapter Opener Script includer if the setting is True
 if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
 	echo '<script>'."\n";
