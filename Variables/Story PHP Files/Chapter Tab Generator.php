@@ -109,11 +109,11 @@ echo '<h5 class="'.$alternative_full_tab_style.'" style="'.$hstyle.'text-align:l
 # Top Previous chapter button
 if ($chapter_number_1 != 1) {
 	if ($website_story_has_titles == True) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".str_replace("'", "", $chapter_titles[$chapter_number_3 - 1]);
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3." - ".str_replace("'", "", $chapter_titles[$chapter_number_3 - 1]);
 	}
 
 	if ($website_story_has_titles == False) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1;
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3;
 	}
 
 	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."', 'notification');";
@@ -139,11 +139,11 @@ else {
 # Top Next chapter button
 if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
 	if ($website_story_has_titles == True) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1)." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
 	}
 
 	if ($website_story_has_titles == False) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1;
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1);
 	}
 
 	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."', 'notification');";
@@ -269,11 +269,11 @@ else {
 # Bottom Previous chapter button
 if ($chapter_number_1 != 1) {
 	if ($website_story_has_titles == True) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".str_replace("'", "", $chapter_titles[$chapter_number_3 - 1]);
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3." - ".str_replace("'", "", $chapter_titles[$chapter_number_3 - 1]);
 	}
 
 	if ($website_story_has_titles == False) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1;
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3;
 	}
 
 	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."', 'notification');";
@@ -295,11 +295,11 @@ if ($chapter_number_1 != 1) {
 # Bottom Next chapter button
 if ($chapter_number_1 != $chapters) {
 	if ($website_story_has_titles == True) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1)." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
 	}
 
 	if ($website_story_has_titles == False) {
-		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_1;
+		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1);
 	}
 
 	$change_title_on_click_script = "Add_To_Website_Title('".$chapter_number_and_text."', 'notification');";

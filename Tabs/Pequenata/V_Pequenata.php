@@ -7,8 +7,8 @@ require $css_pack_pequenata;
 $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_url = $website_pequenata_link;
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
-$story_folder = $littletato_story_folder;
 
+$story_folder = $littletato_story_folder;
 $story_name = $littletato_story_name;
 
 # Form code for the comment and read forms

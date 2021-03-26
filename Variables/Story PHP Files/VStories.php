@@ -199,7 +199,7 @@ $lonely_stories_story_name,
 
 #Story folders array
 $story_folders_array = array(
-$littletato_story_folder = 'Pequenata - Littletato',
+$littletato_story_folder = 'The Life of Littletato',
 $spaceliving_story_folder = 'SpaceLiving',
 $nazzevo_story_folder = 'The Story of the Nazzevo Brothers',
 $desert_island_story_folder = 'Desert Island',
