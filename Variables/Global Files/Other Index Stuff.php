@@ -173,4 +173,9 @@ if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
 }
 
+if ($website == $website_diario) {
+	echo '<script>
+	Get_Title();
+	</script>'."\n";
+}
 ?>
