@@ -68,6 +68,9 @@ Null,
 "Português Brasileiro",
 );
 
+$full_language_enus = $full_languages_array[1];
+$full_language_ptbr = $full_languages_array[2];
+
 # CSS file variables
 $website_css_files_array = array(
 $css_file_pocb = 'Pocb',
