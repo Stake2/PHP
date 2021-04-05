@@ -11,18 +11,41 @@ if ($website_name != $website_nazzevo) {
 }
 
 # Computer Website notification div and text
-$website_notification_text_computer = '<h3 class="'.$computer_variable.'">'.
-'<span id="notification_close_button_computer" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="function () {document.title = document.title.replace("(1) ", "")};">'.'<b>X</b>'.$spanc.
-'<span class="notification_text">'.$website_notification_text." ".$icons[13].$spanc.
-'<b>'.'<span class="notification_text" style="margin-left:2%;">'.$reviewed_chapter_code.$spanc.'</b>'.
-'</h3>';
+$website_notification_text_computer = "\n".'<h3 class="'.$computer_variable.'">'."\n"."\n".
+'<span id="notification_close_button_computer" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="function () {document.title = document.title.replace(\'(1) \', \'\')};">'."\n".
+'<b>'."\n".
+'X'."\n".
+'</b>'."\n".
+$spanc."\n"."\n".
+'<span class="notification_text">'."\n".
+$website_notification_text." ".$icons[13]."\n".
+$spanc."\n"."\n".
+'<b>'."\n".
+'<span class="notification_text" style="margin-left:2%;">'."\n".
+$reviewed_chapter_code."\n".
+$spanc."\n".
+'</b>'."\n".
+'</h3>'."\n";
 
 # Mobile Website notification div and text
-$website_notification_text_mobile = '<h4 class="'.$mobile_variable.'">'.
-'<span id="notification_close_button_mobile" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text '.$mobile_variable.'" style="'.$notifbtncss2.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="function () {document.title = document.title.replace("(1) ", "")};">'.'<b>X</b>'.$spanc.
+$website_notification_text_mobile = "\n".'<h4 class="'.$mobile_variable.'">'."\n"."\n".
+'<span id="notification_close_button_mobile" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.' notification_text '.$mobile_variable.'" style="'.$notifbtncss2.$rounded_border_style_2.'box-shadow: 0 9px black!important;" onclick="function () {document.title = document.title.replace(\'(1) \', \'\')};">'."\n".
+'<b>'."\n".
+'X'."\n".
+'</b>'."\n".
+$spanc."\n".
 '<br /><br />'.
-'<b>'.'<span class="notification_text '.$mobile_variable.'">'.$website_notification_text." ".$icons[13].$spanc.'</b>'.
-'<br /><b>'.'<span class="notification_text '.$mobile_variable.'">'.$reviewed_chapter_code.$spanc.'</b>'.
+'<b>'."\n".
+'<span class="notification_text '.$mobile_variable.'">'."\n".
+$website_notification_text." ".$icons[13]."\n".
+$spanc."\n".
+'</b>'."\n".
+'<br />'."\n"."\n".
+'<b>'."\n".
+'<span class="notification_text '.$mobile_variable.'">'."\n".
+$reviewed_chapter_code."\n".
+$spanc."\n".
+'</b>'."\n".
 '</h4>
 
 <style>
@@ -47,7 +70,7 @@ $website_notification_text_mobile = '<h4 class="'.$mobile_variable.'">'.
 	animation: blink_black_to_white 0.8s;
 	animation-iteration-count: infinite;
 }
-</style>';
+</style>'."\n";
 
 #Website notification definer
 $website_notification = '<div id="notification_div_computer" class="stake2animatebottom border '.$div_style_for_notification.' '.$computer_variable.'" style="position:fixed;right:0;bottom:0;padding-top:2%;padding-bottom:2%;padding-left:7%;padding-right:7%;'.$rounded_border_style_2.'">'.$website_notification_text_computer.$div_close."\n".
