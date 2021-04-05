@@ -10,17 +10,12 @@ $selected_website_folder = ${"website_folder_".$website_names_array[$selected_we
 
 $story_folder = $littletato_story_folder;
 $story_name = $littletato_story_name;
-
-# Form code for the comment and read forms
-$formcode = 'pequenata';
-
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
-$single_cover_folder = 'Capas/Kids/';
-$cover_folder = $cdn_image_stories_pequenata.$single_cover_folder;
+$cover_folder = $website_media_images_story_covers_array[$story_folder];
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-require $cover_images_displayer_php_variable;
+require $cover_images_folder_definer_php_variable;
 
 # Story name definer
 $story_name_variable = $littletato_story_name;
@@ -32,11 +27,14 @@ $story_status = $status_reviewing_and_editing;
 # Website image vars
 $website_image = 'pequenata';
 
-# Defines the website image if the website has book covers or not
-if ($website_story_has_bookcovers_setting == True) {
-	$story_name_cover_image_filename = '1';
+# Form code for the comment and read forms
+$formcode = 'pequenata';
 
-	$website_image = $online_cover_subfolder.$story_name_cover_image_filename.'.png';
+# Defines the website image if the website has book covers or not
+if ($website_story_has_book_covers_setting == True) {
+	$story_book_cover_filename = 'Book Cover';
+
+	$website_image = $story_book_cover_folder.$story_book_cover_filename.'.jpeg';
 	$website_image_size_computer = 60;
 	$website_image_size_mobile = 88;
 }
@@ -81,8 +79,8 @@ else {
 # Re-include of the VStories.php file to set the story name
 include $story_variables_php_variable;
 
-# Reviewed chapter number
-$reviewed_chapter = 19;
+# Revised chapter number
+$revised_chapter = 19;
 
 # Website descriptions
 $website_descriptions_array = array(
@@ -97,7 +95,7 @@ $website_html_descriptions_array = array(
 );
 
 # Reads the book cover image directory if the website has book covers
-if ($website_story_has_bookcovers_setting == True) {
+if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
@@ -223,9 +221,9 @@ include $website_tabs_generator;
 
 # Website notification variables if the website notification setting is True
 if ($website_has_notifications == True) {
-	# Reviewed chapter title
-	$reviewed_chapter_code = $chapter_buttons[$reviewed_chapter];
-	$reviewed_chapter_button_mobile = $chapter_buttons[$reviewed_chapter];
+	# Revised chapter title
+	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
+	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
 }
 
 ?>

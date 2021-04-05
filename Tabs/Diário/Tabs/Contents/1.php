@@ -3,7 +3,7 @@
 echo '<'.$m.'>'.'<b>';
 echo $div_zoom_animation;
 
-$reviewed_chapter = 0;
+$revised_chapter = 0;
 
 require $chapter_button_generator_php;
 

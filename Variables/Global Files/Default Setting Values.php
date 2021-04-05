@@ -43,7 +43,7 @@ $website_new_design_setting = False;
 
 $website_hide_tabs_setting = True;
 $website_not_so_much_space_setting = False;
-$website_story_has_bookcovers_setting = False;
+$website_story_has_book_covers_setting = False;
 $story_namewritesstoryfiles = False;
 $story_name_has_write_form = False;
 $story_has_reads = False;

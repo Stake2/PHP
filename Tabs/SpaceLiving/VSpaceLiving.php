@@ -57,7 +57,7 @@ $formcode = 'spaceliving';
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
 #Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-require $cover_images_displayer_php_variable;
+require $cover_images_folder_definer_php_variable;
 
 #Story name definer
 $story_name_variable = $spaceliving_story_name;
@@ -70,7 +70,7 @@ $story_status = $status[2];
 $website_image = 'SpaceLiving Logo';
 
 #Defines the website image if the website has book covers or not
-if ($website_story_has_bookcovers_setting == True) {
+if ($website_story_has_book_covers_setting == True) {
 	$website_image = $coverfolder.'1 '.$covertxt.'.png';
 	$website_image_size_computer = 60;
 	$website_image_size_mobile = 88;
@@ -121,8 +121,8 @@ else {
 #Re-include of the StoryVars.php file to set the story name
 require $story_variables_php_variable;
 
-#Reviewed chapter number
-$reviewed_chapter = 5;
+#Revised chapter number
+$revised_chapter = 5;
 
 #Website descriptions
 $website_descriptions_array = array(
@@ -137,7 +137,7 @@ $website_html_descriptions_array = array(
 );
 
 #Reads the book cover image directory if the website has book covers
-if ($website_story_has_bookcovers_setting == True) {
+if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
@@ -278,8 +278,8 @@ require $website_tabs_generator;
 
 # Website notification variables if the website notification setting is True
 if ($website_has_notifications == True) {
-	#Reviewed chapter title
-	$reviewed_chaptercode = $chapter_buttons[$reviewed_chapter];
+	#Revised chapter title
+	$reviewed_chaptercode = $chapter_buttons[$revised_chapter];
 }
 
 ?>

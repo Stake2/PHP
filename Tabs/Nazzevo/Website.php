@@ -16,7 +16,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_nazzevo) ==
 	$website_has_comments = True; #Defines the website has comments
 	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab
 	$website_has_stories_tab_setting = True; #Defines if website has a Stories Tab
-	$website_story_has_bookcovers_setting = True; #Defines if website has book covers for the story
+	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
 	$story_has_reads = True; #Defines if the story website has "story_reads_array" number, file and elements
 	$story_has_chapter_comments = false; #Defines if the story has comments on the chapter
 	$story_has_dates = false; #Defines if the story has dates

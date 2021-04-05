@@ -19,7 +19,7 @@ $setting_parameters = array(
 'website_show_chapter_text_on_write_form_setting', #7
 'website_translate_story_setting',
 'website_chapter_to_write_setting',
-'website_story_has_bookcovers_setting',
+'website_story_has_book_covers_setting',
 'website_deactivate_top_buttons_setting',
 'website_deactivate_tabs_setting',
 'website_deactivate_notification_setting',
@@ -60,6 +60,12 @@ $ptpt_language,
 $en_languages_array = array(
 $geral_language,
 $enus_language,
+);
+
+$full_languages_array = array(
+Null,
+"English",
+"Português Brasileiro",
 );
 
 # CSS file variables

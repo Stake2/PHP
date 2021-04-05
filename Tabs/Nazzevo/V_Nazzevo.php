@@ -14,7 +14,7 @@ $single_cover_folder = 'Capas/';
 $cover_folder = $cdn_image_stories_nazzevo.$single_cover_folder;
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-require $cover_images_displayer_php_variable;
+require $cover_images_folder_definer_php_variable;
 
 # Story name definer
 $story_name_variable = $nazzevo_story_name;
@@ -29,10 +29,10 @@ $sitecomments = True;
 $website_image = 'nazzevo';
 
 # Defines the website image if the website has book covers or not
-if ($website_story_has_bookcovers_setting == True) {
-	$story_name_cover_image_filename = '1';
+if ($website_story_has_book_covers_setting == True) {
+	$story_book_cover_filename = '1';
 
-	$website_image = $online_cover_subfolder.$story_name_cover_image_filename.'.png';
+	$website_image = $story_chapter_covers_folder.$story_book_cover_filename.'.png';
 	$website_image_size_computer = 60;
 	$website_image_size_mobile = 88;
 }
@@ -179,7 +179,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 # Reads the book cover image directory if the website has book covers
-if ($website_story_has_bookcovers_setting == True) {
+if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
@@ -251,7 +251,7 @@ include $website_tabs_generator;
 
 # Website notification variables
 if ($website_has_notifications == True) {
-	# Reviewed chapter title
+	# Revised chapter title
 	$reviewed_chaptercode = $chapter_buttons[0];
 }
 

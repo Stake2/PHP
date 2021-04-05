@@ -258,7 +258,7 @@ $lonely_stories_link = $main_website_url.'Lonely%20Stories/';
 $lonely_stories_image_link = $cdnimg.'Lonely Stories.jpg';
 
 $cover_text = 'Cover';
-$story_name_cover_image_filename = '1';
+$story_book_cover_filename = '1';
 
 if ($website_language == $geral_language) {
 	$website_language = $enus_language;
@@ -266,8 +266,8 @@ if ($website_language == $geral_language) {
 	$littletato_folder = $littletato_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 	$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 
-	$littletato_image_link = $littletato_folder.$story_name_cover_image_filename.'.png';
-	$nazzevo_image_link = $nazzevo_folder.$story_name_cover_image_filename.'.png';
+	$littletato_image_link = $littletato_folder.$story_book_cover_filename.'.png';
+	$nazzevo_image_link = $nazzevo_folder.$story_book_cover_filename.'.png';
 
 	$website_language = $geral_language;
 }
@@ -277,16 +277,16 @@ else {
 		$littletato_folder = $littletato_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
 
-		$littletato_image_link = $littletato_folder.$story_name_cover_image_filename.'.png';
-		$nazzevo_image_link = $nazzevo_folder.$story_name_cover_image_filename.'.png';
+		$littletato_image_link = $littletato_folder.$story_book_cover_filename.'.png';
+		$nazzevo_image_link = $nazzevo_folder.$story_book_cover_filename.'.png';
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
 		$littletato_folder = $littletato_online_cover_folder.strtoupper($ptbr_language).'/'.$cover_text.'/';
 		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($ptbr_language).'/'.$cover_text.'/';
 
-		$littletato_image_link = $littletato_folder.$story_name_cover_image_filename.'.png';
-		$nazzevo_image_link = $nazzevo_folder.$story_name_cover_image_filename.'.png';
+		$littletato_image_link = $littletato_folder.$story_book_cover_filename.'.png';
+		$nazzevo_image_link = $nazzevo_folder.$story_book_cover_filename.'.png';
 	}
 }
 

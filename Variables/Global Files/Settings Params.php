@@ -174,15 +174,15 @@ if (strpos($host_text, $setting_parameters[18].'='.'false') == True) {
 
 
 if (strpos($host_text, $setting_parameters[10].'='.'true') == True) {
-	$website_story_has_bookcovers_setting = True;
+	$website_story_has_book_covers_setting = True;
 }
 
 if (strpos($host_text, $setting_parameters[10].'='.'false') == True) {
-	$website_story_has_bookcovers_setting = false;
+	$website_story_has_book_covers_setting = false;
 }
 
 else {
-	$website_story_has_bookcovers_setting = $website_story_has_bookcovers_setting;
+	$website_story_has_book_covers_setting = $website_story_has_book_covers_setting;
 }
 
 

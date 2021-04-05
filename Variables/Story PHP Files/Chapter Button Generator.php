@@ -13,11 +13,11 @@ $chapter_number_2 = 1;
 $chapter_number_3 = 1;
 $chapter_number_4 = 0;
 while ($chapter_number_1 <= $chapters) {
-	if ($website_story_has_bookcovers_setting == True) {
-		if (isset($coverimages[$chapter_number_1]) and isset($coverimagesm[$chapter_number_1])) {
-			$cover_image_button = '<center>'."\n".'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'">'.$coverimages[$chapter_number_1]."\n".'</a>'.
+	if ($website_story_has_book_covers_setting == True) {
+		if (isset($chapter_cover_images_computer[$chapter_number_1]) and isset($chapter_cover_images_mobile[$chapter_number_1])) {
+			$cover_image_button = '<center>'."\n".'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'">'.$chapter_cover_images_computer[$chapter_number_1]."\n".'</a>'.
 			"\n"."\n".
-			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'">'."\n".$coverimagesm[$chapter_number_1]."\n".'</a>'.
+			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'">'."\n".$chapter_cover_images_mobile[$chapter_number_1]."\n".'</a>'.
 			"\n".'</center>'.
 			"\n".'<br />'."\n"."\n";
 		}
@@ -60,7 +60,7 @@ while ($chapter_number_1 <= $chapters) {
 
 		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
 
-		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
+		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_has_notifications == True) {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -161,7 +161,7 @@ while ($chapter_number_1 <= $chapters) {
 
 		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
 
-		if (isset($reviewed_chapter) and $chapter_number_1 == $reviewed_chapter and $website_has_notifications == True) {
+		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_has_notifications == True) {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {

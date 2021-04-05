@@ -30,7 +30,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_pequenata) 
 
 	$website_write_story_setting = false; #Defines if website has a story writing chapter
 	$new_write_style = false; #Defines if the website uses the new writing style for chapters
-	$website_story_has_bookcovers_setting = True; #Defines if website has book covers for the story
+	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
 	$story_namewritesstoryfiles = false; #Defines if the story website creates text files with the story text (chapters)
 	$story_has_reads = True; #Defines if the story website has "story_reads_array" number, file and elements
 	$story_has_chapter_comments = True; #Defines if the story has comments on the chapter

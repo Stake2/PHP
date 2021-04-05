@@ -49,7 +49,7 @@ $city_template_php = $generic_tabs_folder.'City Template.php';
 # Story PHP files
 $story_variables_php = $story_php_files_folder_variable.'VStories.php';
 
-$cover_images_displayer_php = $story_php_files_folder_variable.'Cover Images Displayer.php';
+$cover_images_folder_definer_php = $story_php_files_folder_variable.'Cover Images Folder Definer.php';
 $cover_images_generator_php = $story_php_files_folder_variable.'Cover Images Generator.php';
 
 $open_chapter_script_php = $story_php_files_folder_variable.'Open Chapter Script.php';
@@ -69,7 +69,7 @@ $comment_modal_generator_php = $story_php_files_folder_variable.'Comment Modal G
 
 $story_variables_php_variable = $story_variables_php;
 
-$cover_images_displayer_php_variable = $cover_images_displayer_php;
+$cover_images_folder_definer_php_variable = $cover_images_folder_definer_php;
 $cover_images_generator_php_variable = $cover_images_generator_php;
 
 $open_chapter_script_php_variable = $open_chapter_script_php;

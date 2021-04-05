@@ -17,4 +17,12 @@ if (strpos ($host_text, $website_selector_parameters[1].'='.$languages_array[3])
     $website_language = $languages_array[3];
 }
 
+if (in_array($website_language, $en_languages_array)) {
+	$language_number = 1;
+}
+
+if (in_array($website_language, $pt_languages_array)) {
+	$language_number = 2;
+}
+
 ?>
