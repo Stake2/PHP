@@ -17,7 +17,7 @@ if ($website_language == $geral_language) {
 	if ($website_story_has_book_covers_setting == True) {
 		$story_book_cover_folder = $cover_folder.$full_language.'/'.$story_book_cover_folder.'/';
 
-		$story_chapter_covers_folder = $cover_folder.$story_chapter_cover_folder.'/';
+		$story_chapter_covers_folder = $cover_folder.$full_language.'/'.$story_chapter_cover_folder.'/';
 	}
 
 	$website_language = $geral_language;
@@ -35,7 +35,7 @@ else {
 	if ($website_story_has_book_covers_setting == True) {
 		$story_book_cover_folder = $cover_folder.$full_language.'/'.$story_book_cover_folder.'/';
 
-		$story_chapter_covers_folder = $cover_folder.$story_chapter_cover_folder.'/';
+		$story_chapter_covers_folder = $cover_folder.$full_language.'/'.$story_chapter_cover_folder.'/';
 	}
 }
 

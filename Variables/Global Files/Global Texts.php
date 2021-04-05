@@ -21,6 +21,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$redondodesc = 'Round revolution ahead!';
 	$covertxt = 'Cover';
 	$cannotfindfiletxt = 'This file could not be found, sorry';
+	$in_text = "in";
 
 	$month_text = 'month';
 	$months_text = 'months';
@@ -54,6 +55,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$redondodesc = 'Revolução redonda avante!';
 	$covertxt = 'Capa';
 	$cannotfindfiletxt = 'Não foi possível encontrar este arquivo, desculpe';
+	$in_text = "em";
 
 	$month_text = 'mês';
 	$months_text = 'meses';

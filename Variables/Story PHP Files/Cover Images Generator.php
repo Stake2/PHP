@@ -14,14 +14,26 @@ while ($i <= $cover_number) {
 	}
 
 	if ($i <= 9) {
-		$number = "0".(string)$i;
+		$number_text = "0".(string)$i;
 	}
 
 	else {
-		$number = $i;
+		$number_text = $i;
 	}
 
-	$online_image_link = $story_chapter_covers_folder.$number.'.png';
+	if ($number_text <= 10) {
+		$folder = "1 - 10/";
+	}
+
+	if ($number_text >= 11 and $number_text <= 20) {
+		$folder = "11 - 20/";
+	}
+
+	if ($number_text >= 21 and $number_text <= 30) {
+		$folder = "21 - 30/";
+	}
+
+	$online_image_link = $story_chapter_covers_folder.$folder.$number_text.'.png';
 
 	$chapter_cover_images_computer[$i] = '<div class="'.$computer_variable.'">'.'<img src="'.$online_image_link.'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$on_click_script.'" />'."\n".$div_close.'<br class="'.$computer_variable.'" />'."\n";
 

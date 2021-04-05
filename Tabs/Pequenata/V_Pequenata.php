@@ -3,6 +3,8 @@
 # Pequenata CSS Pack file includer
 require $css_pack_pequenata;
 
+#$full_language = $full_languages_array[$language_number];
+
 # Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_url = $website_pequenata_link;
@@ -149,7 +151,7 @@ if ($website_language == $language_geral) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $selected_website;
-	
+
 	$website_title = $general_story_name;
 	$website_title_html = $general_story_name.': '.$icons[11];
 	$website_link = $website_pequenata_link;
@@ -159,11 +161,11 @@ if ($website_language == $language_geral) {
 	$website_language = $language_geral;
 }
 
-if ($website_language == $languages_array[1]) {
+if ($website_language == $language_enus) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $selected_website;
-	
+
 	$website_title = $story_name_variable;
 	$website_title_html = $story_name_variable.': '.$icons[11];
 	$website_link = $website_pequenata_link.strtolower($hyphen_separated_website_language).'/';
@@ -185,10 +187,12 @@ if (in_array($website_language, $pt_languages_array)) {
 	}
 
 	$website_title_html = $story_name_variable.': '.$icons[11];
-	$website_link = $website_pequenata_link.strtolower($hyphen_separated_website_language).'/';
+	$website_link = $website_pequenata_link.strtoupper($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];
 }
+
+echo $website_title;
 
 # Buttons and tabs definer
 #  Tab names replacer for languages_array
