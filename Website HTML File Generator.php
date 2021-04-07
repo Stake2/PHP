@@ -8,7 +8,7 @@ if (!file_exists($mega_folder)) {
 	$mega_folder = $hard_drive_letter.':/Mega/';
 }
 
-$mega_folder_diario = $mega_folder.'Diario/';
+$mega_folder_stake2_website = $mega_folder.'Diario/';
 $main_php_folder = $mega_folder.'PHP/';
 
 $tabs_folder_variable = 'Tabs';
@@ -48,7 +48,7 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
-$html_folder = $mega_folder_diario.str_replace($main_website_url, "", $selected_website_url);
+$html_folder = $mega_folder_stake2_website.str_replace($main_website_url, "", $selected_website_url);
 
 if ($selected_language != $language_geral) {
 	$html_folder = $html_folder.$hyphen_separated_website_language."/";

@@ -34,7 +34,7 @@ require $watch_and_yearwebsites_variables_php;
 $website_css_file = $choosed_website_css_file;
 
 # NewDesign and Notifications definer
-require $newdesign_and_notifications_definer_php;
+require $notifications_definer_php;
 
 # Website CSS and Javascript definer
 require $website_css_and_javascript_definer_php;

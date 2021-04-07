@@ -9,7 +9,7 @@ $computer_buttons_creator = $php_vars_global_files.'Top Buttons Creator.php';
 $computer_buttons_bar_loader = $php_vars_global_files.'Buttons PHP File Loader.php';
 $text_file_reader_file_php = $php_vars_global_files.'Text File Reader.php';
 $watch_and_yearwebsites_variables_php = $php_vars_global_files.'Watch And YearWebsites Variables.php';
-$newdesign_and_notifications_definer_php = $php_vars_global_files.'NewDesign And Notifications Definer.php';
+$notifications_definer_php = $php_vars_global_files.'Notifications Definer.php';
 
 $watch_history_text_file_reader_module = $php_variables_text_file_reader_modules.'Watch History Module.php';
 

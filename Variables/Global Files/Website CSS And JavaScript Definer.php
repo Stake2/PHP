@@ -5,13 +5,14 @@ if ($new_write_style == True) {
 }
 
 if ($new_write_style == False) {
-	$open_chapter_by_keys = "\n".'<script src="'.$cdnjs.'Open Chapter By Keys.js"></script>';
+	$open_chapter_by_keys = "\n".'<script src="'.$website_story_websites_javascript_folder.'Open Chapter By Keys.js"></script>';
 }
 
-$write_chapter_script = "\n".'<script src="'.$cdnjs.'Write Chapter.js"></script>';
+$write_chapter_script = "\n".'<script src="'.$website_story_websites_javascript_folder.'Write Chapter.js"></script>';
 
 # CSS Pack generator by class
 /*
+
 Make a CSS Pack Generator class that sets all the style variables using an array that the specific website contains
 The styles array of the website contains all the styles used for that website
 
@@ -21,46 +22,42 @@ Make the website style arrays inside each folder of each website, called "CSS Pa
 */
 
 if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
-	$website_css_file_loader = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.$website_css_file.'.css" />';
-	$main_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Main_CSS.css" />';
-	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Colors Prototype.css" />';
-	$stories_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Stories.css" />';
-	$mobile_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Mobile.css" />';
-	$image_hover_css = '<link rel="stylesheet" type="text/css" href="'.$cdn_css.'Image_Hover.css" />';
+	$main_css = '<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'Main_CSS.css" />';
+	$website_css_file_loader = '<link rel="stylesheet" type="text/css" href="'.$website_css_website_css_folder.$website_css_file.'.css" />';
+	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'Colors.css" />';
+	#$stories_css = '<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'Stories.css" />';
+	$mobile_css = '<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'Mobile.css" />';
+	$image_hover_css = '<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'Image_Hover.css" />';
 
 	# Website CSS definer
-	$website_css_files = "\n\n"."<!-- CSS files -->"."\n".
-$website_css_file_loader.'
+	$website_css_files = "\n\n"."<!-- CSS files -->".'
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css" />
-<link rel="stylesheet" type="text/css" href="'.$cdn_css.'w3.css" />
+<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'W3.css" />
 '.$main_css.'
+'.$website_css_file_loader.'
 '.$colors_css.'
-'.$stories_css.'
-'.$mobile_css.'
-'.$image_hover_css."\n".
-$notification_css.
-$new_design_css;
+'.$mobile_css.''
+."\n".
+$notification_css;
 }
 
 else if ($website_uses_custom_layout_setting == False) {
 	# Website CSS definer
 	$website_css_files = "\n".'<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 '.
-$notification_css.
-$new_design_css;
+$notification_css;
 }
 
 if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
 	# Website JavaScript definer
 	$website_js_files = '
 <!-- JavaScript files -->
-<script src="'.$cdnjs.'Search.js"></script>
-<script src="'.$cdnjs.'Tabs.js"></script>
-<script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
-<script src="'.$cdnjs.'ShowHide.js"></script>
-<script src="'.$cdnjs.'SideMenu.js"></script>
-<script src="'.$cdnjs.'Set Revised Date.js"></script>'.$open_chapter_by_keys.$write_chapter_script.'
-<script src="'.$cdnjs.'Change Button Color.js"></script>'
+<script src="'.$website_function_javascript_folder.'Tabs.js"></script>
+<script src="'.$website_function_javascript_folder.'Redirect.js" onLoad="Rodar();"></script>
+<script src="'.$website_function_javascript_folder.'Show Hide.js"></script>
+<script src="'.$website_function_javascript_folder.'Mobile Side Menu.js"></script>
+<script src="'.$website_function_javascript_folder.'Set Revised Date.js"></script>'.$open_chapter_by_keys.$write_chapter_script.'
+<script src="'.$website_function_javascript_folder.'Change Button Color.js"></script>'
 ."\n".
 $edit_button_script.
 $new_design_script.
@@ -69,8 +66,8 @@ $new_design_script.
 
 else if ($website_uses_custom_layout_setting == False) {
 #Website JavaScript definer
-	$website_js_files = '<script src="'.$cdnjs.'Redirect.js" onLoad="Rodar();"></script>
-<script src="'.$cdnjs.'Set Revised Date.js"></script>'."\n";
+	$website_js_files = '<script src="'.$website_function_javascript_folder.'Redirect.js" onLoad="Rodar();"></script>
+<script src="'.$website_function_javascript_folder.'Set Revised Date.js"></script>'."\n";
 }
 
 ?>

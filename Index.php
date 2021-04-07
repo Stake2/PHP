@@ -37,7 +37,7 @@ function format($text, $parameters) {
 $current_year = strftime("%Y");
 
 # Website variables
-$main_website_url = 'https://diario.netlify.app/';
+$main_website_url = 'https://thestake2.netlify.app/';
 $hard_drive_letter = "C";
 $mega_folder = $hard_drive_letter.':/Mega/';
 $medias_local_folder = $hard_drive_letter.':/Midias/';
@@ -48,7 +48,7 @@ if (!file_exists($mega_folder)) {
 	$medias_local_folder = $hard_drive_letter.':/Midias/';
 }
 
-$mega_folder_diario = $mega_folder.'Diario/';
+$mega_folder_stake2_website = $mega_folder.'Stake2 Website/';
 $main_php_folder = $mega_folder.'PHP/';
 
 $tabs_folder_variable = 'Tabs';
