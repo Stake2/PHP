@@ -1,7 +1,6 @@
 <?php 
 
 # Folder variables
-$selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 $story_folder = $diario_folder_blocks;
 
@@ -46,6 +45,11 @@ $website_descriptions_array = array(
 $website_html_descriptions_array = array(
 'Website to show my '.$span_second_text_color.$diario_names[0].$spanc.' in HTML form, made by '.$span_second_text_color.'stake2'.$spanc.'.',
 'Website para mostrar o meu '.$span_second_text_color.$diario_names[1].$spanc.' em forma de HTML, feito por '.$span_second_text_color.'stake2'.$spanc.'.',
+);
+
+$website_urls = array(
+$main_website_url."diary/",
+$main_website_url."diario/",
 );
 
 # Language dependent character names
@@ -235,29 +239,33 @@ if ($website_has_stories_tab_setting == True) {
 require $website_tabs_generator;
 
 # Website name, title, main_website_url and description setter
-if ($website_language == $languages_array[0]) {
-	$website_language = $languages_array[1];
+if ($website_language == $language_geral) {
+	$website_language = $language_enus;
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $diario_names[0].' '.$hyphen_separated_website_language;
-	$website_language = $languages_array[0];
-	
+
+	$selected_website_url = $main_website_url.strtolower($diario_names[0]).'/';
+
 	$website_title = $diario_names[0];
 	$website_title_html = $diario_names[0].': '.$icons[11];
-	$website_link = $selected_website_url;
+	$website_link = $website_urls[0];
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
-	$website_language = $languages_array[0];
+
+	$website_language = $language_geral;
 }
 
-if ($website_language == $languages_array[1]) {
+if ($website_language == $language_enus) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $diario_names[0];
 
+	$selected_website_url = $main_website_url.strtolower($diario_names[0]).'/';
+
 	$website_title = $diario_names[0].' '.$hyphen_separated_website_language;
 	$website_title_html = $diario_names[0].': '.$icons[11];
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_link = $website_urls[0];
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
 }
@@ -266,6 +274,8 @@ if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $diario_names[1].' '.$hyphen_separated_website_language;
+
+	$selected_website_url = $main_website_url.str_replace("á", "a", strtolower($diario_names[1])).'/';
 
 	if ($website_language == $ptpt_language) {
 		$website_title = $diario_names[1].' '.strtoupper($hyphen_separated_website_language);
@@ -277,7 +287,7 @@ if (in_array($website_language, $pt_languages_array)) {
 
 	#$website_title = $diario_names[1].' '.$hyphen_separated_website_language;
 	$website_title_html = $website_title.': '.$icons[11];
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_link = $website_urls[1];
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];
 }

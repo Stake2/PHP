@@ -146,16 +146,8 @@ $website_css_files.
 $website_js_files.
 $include_custom_website_head_content;
 
-if ($website_name == $website_text_maker) {
-	$website_meta_description = $website_meta_description;
-}
-
 if (in_array($website_name, $years_array)) {
 	$website_meta_description = $website_header_description;
-}
-
-if ($website_name != $website_text_maker) {
-	$website_meta_description = $website_meta_description;
 }
 
 require $website_header_php;

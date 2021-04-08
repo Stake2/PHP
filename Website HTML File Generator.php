@@ -8,7 +8,7 @@ if (!file_exists($mega_folder)) {
 	$mega_folder = $hard_drive_letter.':/Mega/';
 }
 
-$mega_folder_stake2_website = $mega_folder.'Diario/';
+$mega_folder_stake2_website = $mega_folder.'Stake2 Website/';
 $main_php_folder = $mega_folder.'PHP/';
 
 $tabs_folder_variable = 'Tabs';
@@ -50,8 +50,22 @@ $website = ob_get_clean();
 
 $html_folder = $mega_folder_stake2_website.str_replace($main_website_url, "", $selected_website_url);
 
+echo $html_folder;
+
 if ($selected_language != $language_geral) {
-	$html_folder = $html_folder.$hyphen_separated_website_language."/";
+	if ($selected_website == "diario") {
+		if ($selected_language == $language_ptbr) {
+			$html_folder = $html_folder;
+		}
+
+		if ($selected_language == $language_ptpt) {
+			$html_folder = $html_folder.$hyphen_separated_website_language."/";
+		}
+	}
+
+	else {
+		$html_folder = $html_folder.$hyphen_separated_website_language."/";
+	}
 }
 
 if ($selected_language == $language_geral) {

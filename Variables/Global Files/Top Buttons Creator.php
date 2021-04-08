@@ -43,10 +43,6 @@ if ($website_name == $website_nazzevo) {
 	$tabnumb2 = $tabnumb;
 }
 
-if ($website_name == $website_text_maker) {
-	$tabnumb2 = $tabnumb - 2;
-}
-
 if (isset($tabnumb2) == False) {
 	$tabnumb2 = $tabnumb;
 }

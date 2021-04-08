@@ -21,4 +21,3 @@ Desert Island, S
 Lonely Stories, S
 Years, N
 Website Status, N
-Text Maker, N

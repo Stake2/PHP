@@ -25,4 +25,6 @@ if (in_array($website_language, $pt_languages_array)) {
 	$language_number = 2;
 }
 
+$full_language = $full_languages_array[$language_number];
+
 ?>

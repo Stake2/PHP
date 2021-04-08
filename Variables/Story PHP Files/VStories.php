@@ -226,11 +226,13 @@ if ($website_type == $story_website_type) {
 	$mobile_div.'<br /><br />'.$div_close;
 }
 
+$cover_type = "Landscape";
+
 $littletato_border = $border_4px_solid_dark_brown_css_class;
 $littletato_background = $background_brown_css_class." ".$littletato_border.' shakesidetoside';
 $littletato_text = $text_dark_brown_css_class.' shakesidetoside';
 $littletato_link = $main_website_url.'pequenata/';
-$littletato_online_cover_folder = $cdn_image_stories_pequenata.'Capas/Kids/';
+$littletato_online_cover_folder = $website_media_images_story_covers.$littletato_story_folder."/".$full_language."/".$cover_type."/Story/";
 
 $nazzevo_border = $border_4px_solid_dark_brown_css_class;
 $nazzevo_background = $background_brown_css_class." ".$nazzevo_border.' shakesidetoside';
@@ -257,38 +259,14 @@ $lonely_stories_text = $text_black_css_class.' shakesidetoside';
 $lonely_stories_link = $main_website_url.'Lonely%20Stories/';
 $lonely_stories_image_link = $cdnimg.'Lonely Stories.jpg';
 
-$cover_text = 'Cover';
-$story_book_cover_filename = '1';
+$cover_text = 'Covers';
+$story_book_cover_filename = 'Book Cover';
 
-if ($website_language == $geral_language) {
-	$website_language = $enus_language;
+$littletato_folder = $littletato_online_cover_folder;
+$nazzevo_folder = $nazzevo_online_cover_folder;
 
-	$littletato_folder = $littletato_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
-	$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
-
-	$littletato_image_link = $littletato_folder.$story_book_cover_filename.'.png';
-	$nazzevo_image_link = $nazzevo_folder.$story_book_cover_filename.'.png';
-
-	$website_language = $geral_language;
-}
-
-else {
-	if (in_array($website_language, $en_languages_array)) {
-		$littletato_folder = $littletato_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
-		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($website_language).'/'.$cover_text.'/';
-
-		$littletato_image_link = $littletato_folder.$story_book_cover_filename.'.png';
-		$nazzevo_image_link = $nazzevo_folder.$story_book_cover_filename.'.png';
-	}
-
-	if (in_array($website_language, $pt_languages_array)) {
-		$littletato_folder = $littletato_online_cover_folder.strtoupper($ptbr_language).'/'.$cover_text.'/';
-		$nazzevo_folder = $nazzevo_online_cover_folder.strtoupper($ptbr_language).'/'.$cover_text.'/';
-
-		$littletato_image_link = $littletato_folder.$story_book_cover_filename.'.png';
-		$nazzevo_image_link = $nazzevo_folder.$story_book_cover_filename.'.png';
-	}
-}
+$littletato_image_link = $littletato_folder.$story_book_cover_filename.'.png';
+$nazzevo_image_link = $nazzevo_folder.$story_book_cover_filename.'.png';
 
 $size_variable = $n;
 $border_radius_variable = "5";
