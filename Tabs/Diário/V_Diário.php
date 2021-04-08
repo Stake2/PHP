@@ -29,7 +29,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$story_name = $diario_names[1];
 }
 
-$website_image = $cdnimg.$website_image.".png";
+$website_image = $website_media_images_website_icons.$website_image.".png";
 $website_image_link = $website_image;
 $website_image_size_computer = 30;
 $website_image_size_mobile = 66;
