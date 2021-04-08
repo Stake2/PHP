@@ -20,12 +20,12 @@ $sitecomments = false;
 
 # Website image vars
 if (in_array($website_language, $en_languages_array)) {
-	$website_image = 'diario 2 enus';
+	$website_image = 'Diary/'.$full_language_enus;
 	$story_name = $diario_names[0];
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$website_image = 'diario 2';
+	$website_image = 'Diary/'.$full_language_ptbr;
 	$story_name = $diario_names[1];
 }
 

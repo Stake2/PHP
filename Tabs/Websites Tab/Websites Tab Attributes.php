@@ -19,7 +19,6 @@ $sitecodes = array(
 'foobar_albums'.' '.$siteicons[5],
 'terraria_talk'.' '.$siteicons[6],
 'tasks'.' '.$siteicons[7],
-'things_I_do',
 'years'.' '.$siteicons[3],
 );
 
@@ -39,11 +38,11 @@ array_push($sitecodes, 'stake2');
 array_push($sitecodes, 'website_status');
 
 if (in_array($website_language, $en_languages_array)) {
-	$thingsIdolink = $main_website_url.$sitecodes[7].'/';
+	$things_i_do_link = $main_website_url.$sitecodes[7].'/';
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$thingsIdolink = $main_website_url.'coisas_que_eu_faço'.'/';
+	$things_i_do_link = $main_website_url.'coisas_que_eu_faço'.'/';
 }
 
 $sitelinks = array(
@@ -56,21 +55,22 @@ $main_website_url.$sitecodes[3].'/',
 $main_website_url.$sitecodes[4].'/',
 $main_website_url.$sitecodes[5].'/',
 $main_website_url.$sitecodes[6].'/',
-$thingsIdolink, #Things I Do
+$things_i_do_link, #Things I Do
 $main_website_url.$sitecodes[7].'/',
 $main_website_url.$sitecodes[8].'/',
 $main_website_url.$sitecodes[9].'/',
 $main_website_url.$sitecodes[10].'/',
 $main_website_url.$sitecodes[11].'/',
 $main_website_url.$sitecodes[12].'/',
-$website_pequenata_link = $main_website_url.$sitecodes[13].'/',
-$website_spaceliving_link = $main_website_url.$sitecodes[14].'/',
-$website_nazzevo_link = $main_website_url.$sitecodes[15].'/',
-$website_desert_island_link = $main_website_url.$sitecodes[16].'/',
-$main_website_url.$sitecodes[17].'/',
+$main_website_url.$sitecodes[13].'/',
+$website_pequenata_link = $main_website_url.$sitecodes[14].'/',
+$website_spaceliving_link = $main_website_url.$sitecodes[15].'/',
+$website_nazzevo_link = $main_website_url.$sitecodes[16].'/',
+$website_desert_island_link = $main_website_url.$sitecodes[17].'/',
 $main_website_url.$sitecodes[18].'/',
 $main_website_url.$sitecodes[19].'/',
 $main_website_url.$sitecodes[20].'/',
+$main_website_url.$sitecodes[21].'/',
 $website_website_status_link = $main_website_url.$sitecodes[21].'/',
 );
 

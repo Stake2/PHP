@@ -1,53 +1,8 @@
 <?php 
 
-#CSS color and text style variables
-/*
-$color = "background_blue";
-$color1 = "background_blue";
-$color2 = "background_blue";
-$color3 = "background_blue";
-$color4 = "background_blue";
-$color5 = "background_blue";
-$colortext = "w3-text-blue";
-$colortext2 = "w3-text-black";
-$colorsubtext = "w3-text-orange";
-$colorsubtext2 = "w3-text-black";
-$colorsubtext3 = "w3-text-white";
-$sitehr = $border_1px_solid_with_color_template."blue";
-$sitehr2 = $border_1px_solid_with_color_template."blue";
-$sitehr3 = $border_1px_solid_with_color_template."black";
-$spanstyle = "background_blue w3-text-black";
-$formbtnstyle = "background_black w3-text-blue";
-
-#Variables that mixes CSS tags
-$textstyle = $colortext." background_black";
-$textstyle2 = "w3-text-black background_blue";
-$first_button_style = $color4.' '.$cssbtn1;
-$btnstyle2 = $color3.' '.$cssbtn1;
-$btnstyle3 = $color5.' '.$cssbtn1;
-$subtextspan = '<span class="'.$colorsubtext3.'">';
-$subtextspan2 = '<span class="'.$colorsubtext.'">';
-$spannewtextcolor = $subtextspan;
-$sitewhilestyle = $color4;
-$formcolor = $color4;
-$websites_tab_number_text_color = $subtextspan;
-$websites_tab_number_hover_color = $cssbtn5;
-
-#HTML and HTML Style variables
-$marginstyle1 = 'style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle2 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$marginstyle3 = 'style="margin-right:70%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'"';
-$border = 'border-width:4px;border-color:'.$color3.';border-style:solid;';
-$border2 = 'border-width:7px;border-color:'.$color3.';border-style:solid;';
-$h2 = '<'.$n.' class="'.$computer_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';'.$rounded_border_style_2.';
-$h4 = '<'.$m.' class="'.$mobile_variable.' '.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;">';
-$h42 = '<'.$m.' class="'.$textstyle.'" style="margin:10%;border-width:3px;border-color:'.$color3.';border-style:solid;'.$rounded_border_style_2.'">';
-$widthsize = '';
-$size = '';
-*/
-
 #Folder variables
-$selected_website_url = $main_website_url.$website_folder.'/';
+#$selected_website_url = $main_website_url.$website_folder.'/';
+$selected_website_url = $website_spaceliving_link;
 $selected_website_folder = $php_tabs.ucwords($selected_website).'/';
 $story_folder = $spaceliving_story_folder;
 

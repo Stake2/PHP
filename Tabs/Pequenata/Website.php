@@ -6,6 +6,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_pequenata) 
 
 	#Website title and name definer
 	$website_name = $selected_website;
+	$website = $selected_website;
 	$choosed_website_css_file = $css_file_pequenata;
 
 	$alternative_website_style = false;
