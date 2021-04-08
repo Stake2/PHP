@@ -173,7 +173,7 @@ if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
 }
 
-if ($website == $website_diario) {
+if ($website == $website_diario or $website_name == $website_nazzevo) {
 	echo '<script>
 	Get_Title();
 	</script>'."\n";

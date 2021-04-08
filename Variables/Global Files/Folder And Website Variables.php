@@ -14,8 +14,10 @@ $website_media_images = $main_website_url.'Images/';
 $website_media_images_website_icons = $website_media_images.'Website Icons/';
 $website_media_images_story_covers = $website_media_images.'Story Covers/';
 
+$littletato_name = "The Life of Littletato";
+
 $website_media_images_story_covers_array = array(
-"The Life of Littletato" => $website_media_images_story_covers."The Life of Littletato/",
+$littletato_name => $website_media_images_story_covers.$littletato_name."/",
 );
 
 # CDN and Website variables

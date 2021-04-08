@@ -318,14 +318,14 @@ if ($chapter_number_1 != $chapters) {
 	$has_next_chapter_button = True;
 }
 
-#Computer Comment button
+# Computer Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
 	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$comments_texts_array[1].' '.$icons[12].' ('.$number_of_chapter_comments.')</b></h3></button>'."\n";
 	echo $div_close."\n";
 }
 
-#Computer "I Read it" button
+# Computer "I Read it" button
 if ($story_has_reads == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
 	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$read_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
@@ -337,7 +337,7 @@ if ($story_has_chapter_comments == False and $story_has_reads == False) {
 	echo '<br /><br /><br />'."\n";
 }
 
-#"You're Reading [Story]" bottom text
+# "You're Reading [Story]" bottom text
 if ($story_uses_status == True) {
 	if ($chapter_number_1 == $chapters and $story_status != $story_statuses[0] and $story_status != $story_statuses[3]) {
 		echo '<div style="text-align:center;">'."\n".

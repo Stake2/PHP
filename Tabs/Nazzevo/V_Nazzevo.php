@@ -1,7 +1,7 @@
 <?php 
 
 # Folder variables
-$selected_website_url = $main_website_url.$website_folder."/";
+$selected_website_url = $website_nazzevo_link;
 $selected_website_folder = $php_tabs.ucwords($website_nazzevo).'/';
 $story_folder = $nazzevo_story_folder;
 
@@ -11,7 +11,6 @@ $formcode = 'nazzevo';
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
 $single_cover_folder = 'Capas/';
-$cover_folder = $cdn_image_stories_nazzevo.$single_cover_folder;
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
@@ -30,9 +29,9 @@ $website_image = 'nazzevo';
 
 # Defines the website image if the website has book covers or not
 if ($website_story_has_book_covers_setting == True) {
-	$story_book_cover_filename = '1';
+	$story_book_cover_filename = 'Book Cover';
 
-	$website_image = $story_chapter_covers_folder.$story_book_cover_filename.'.png';
+	$website_image = $story_book_cover_folder.$story_book_cover_filename.'.png';
 	$website_image_size_computer = 60;
 	$website_image_size_mobile = 88;
 }
@@ -49,7 +48,7 @@ $website_image_link = $website_image;
 # Numbers and non-language dependent texts
 $comments_number = 0;
 $comments_number_text = $comments_number + 1;
-$website_comments_number = 1;
+$website_comments_number = 0;
 $website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;

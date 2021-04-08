@@ -118,9 +118,9 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 	if ($website_name == $website_pequenata) {
 		$comments_array = array(
 		null,
-		$story_name_chapter_comments_array[0],
-		[$story_name_chapter_comments_array[1], $story_name_chapter_comments_array[6]],
-		$story_name_chapter_comments_array[2],
+		$story_chapter_comments_array[0],
+		[$story_chapter_comments_array[1], $story_chapter_comments_array[6]],
+		$story_chapter_comments_array[2],
 		null,
 		null,
 		null,
@@ -161,10 +161,10 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 	if ($website_name == $website_spaceliving) {
 		$comments_array = array(
 		null,
-		$story_name_chapter_comments_array[0],
+		$story_chapter_comments_array[0],
 		null,
-		$story_name_chapter_comments_array[1],
-		$story_name_chapter_comments_array[2],
+		$story_chapter_comments_array[1],
+		$story_chapter_comments_array[2],
 		null,
 		null,
 		null,

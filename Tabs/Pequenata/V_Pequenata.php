@@ -14,8 +14,6 @@ $story_folder = $littletato_story_folder;
 $story_name = $littletato_story_name;
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
-$cover_folder = $website_media_images_story_covers_array[$story_folder];
-
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 

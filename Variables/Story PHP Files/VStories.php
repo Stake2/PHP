@@ -223,7 +223,7 @@ if ($website_type == $story_website_type) {
 
 $cover_type = "Landscape";
 
-$middle_path = "/".$full_language."/".$cover_type."/Story/".$story_book_cover_filename.'.png';
+$middle_path = "/".$full_language."/".$cover_type."/Story/Book Cover.png";
 
 $littletato_border = $border_4px_solid_dark_brown_css_class;
 $littletato_background = $background_brown_css_class." ".$littletato_border.' shakesidetoside';
@@ -248,9 +248,6 @@ $desert_island_link = $main_website_url.$desert_island_new_link.'/';
 
 $cover_text = 'Covers';
 $story_book_cover_filename = 'Book Cover';
-
-$littletato_folder = $littletato_online_cover_folder;
-$nazzevo_folder = $nazzevo_online_cover_folder;
 
 $littletato_image_link = $website_media_images_story_covers.$littletato_story_folder.$middle_path;
 $nazzevo_image_link = $website_media_images_story_covers.$nazzevo_story_folder.$middle_path;
