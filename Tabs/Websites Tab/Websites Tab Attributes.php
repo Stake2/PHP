@@ -33,7 +33,6 @@ array_push($sitecodes, 'pequenata'.' '.$siteicons[0]);
 array_push($sitecodes, 'new_world'.' '.$siteicons[4].'/'.'spaceliving'.' '.$siteicons[0]);
 array_push($sitecodes, 'nazzevo'.' '.$siteicons[0]);
 array_push($sitecodes, 'desert_island');
-array_push($sitecodes, 'lonely stories');
 array_push($sitecodes, 'mental_frameworks');
 array_push($sitecodes, 'template');
 array_push($sitecodes, 'stake2');
@@ -58,22 +57,21 @@ $main_website_url.$sitecodes[4].'/',
 $main_website_url.$sitecodes[5].'/',
 $main_website_url.$sitecodes[6].'/',
 $thingsIdolink, #Things I Do
+$main_website_url.$sitecodes[7].'/',
 $main_website_url.$sitecodes[8].'/',
 $main_website_url.$sitecodes[9].'/',
 $main_website_url.$sitecodes[10].'/',
 $main_website_url.$sitecodes[11].'/',
 $main_website_url.$sitecodes[12].'/',
-$main_website_url.$sitecodes[13].'/',
-$website_pequenata_link = $main_website_url.$sitecodes[15].'/',
-$website_spaceliving_link = $main_website_url.$sitecodes[15].'/',
-$website_nazzevo_link = $main_website_url.$sitecodes[16].'/',
-$website_desert_island_link = $main_website_url.$sitecodes[17].'/',
-$website_lonelystories_link = $main_website_url.$sitecodes[18].'/', #Lonely Stores
+$website_pequenata_link = $main_website_url.$sitecodes[13].'/',
+$website_spaceliving_link = $main_website_url.$sitecodes[14].'/',
+$website_nazzevo_link = $main_website_url.$sitecodes[15].'/',
+$website_desert_island_link = $main_website_url.$sitecodes[16].'/',
+$main_website_url.$sitecodes[17].'/',
+$main_website_url.$sitecodes[18].'/',
 $main_website_url.$sitecodes[19].'/',
 $main_website_url.$sitecodes[20].'/',
-$main_website_url.$sitecodes[21].'/',
-$main_website_url.$sitecodes[22].'/',
-$website_website_status_link = $main_website_url.$sitecodes[23].'/',
+$website_website_status_link = $main_website_url.$sitecodes[21].'/',
 );
 
 $story_namenames2 = array(
@@ -81,7 +79,6 @@ $sitename_pequenata = $littletato_story_name.' '.$siteicons[0],
 $sitename_spaceliving = $spaceliving_story_name.' '.$siteicons[0],
 $sitename_nazzevo = $nazzevo_story_name.' '.$siteicons[0],
 $sitename_desertisland = $desert_island_story_name,
-$sitename_lonelystories = $lonely_stories_story_name.' '.$siteicons[0],
 );
 
 if (in_array($website_language, $en_languages_array)) {
@@ -138,7 +135,6 @@ $sitename_pequenata,
 $sitename_spaceliving,
 $sitename_nazzevo,
 $sitename_desertisland,
-$sitename_lonelystories,
 $sitename_mental_frameworks,
 $sitename_website_template,
 'Stake2',
@@ -166,76 +162,10 @@ str_replace(' '.$siteicons[0], "", $sitename_pequenata),
 str_replace(' '.$siteicons[0], "", $sitename_spaceliving),
 str_replace(' '.$siteicons[0], "", $sitename_nazzevo),
 $sitename_desertisland,
-str_replace(' '.$siteicons[0], "", $sitename_lonelystories),
 $sitename_mental_frameworks,
 $sitename_website_template,
 'Stake2',
 );
-
-/*
-if (in_array($website_language, $en_languages_array)) {
-	$language_website_names_array = array(
-	$sitename_diario = 'Diary'.' '.$siteicons[0],
-	$sitename_music = 'Music'.' '.$siteicons[5],
-	$sitename_games = 'Games'.' '.$siteicons[6],
-	$sitename_foobar_albums = 'Foobar_Albums'.' '.$siteicons[5],
-	$sitename_tasks = 'Tasks'.' '.$siteicons[7],
-	$sitename_thingsido = 'Things I Do'.' '.$siteicons[7],
-	$sitename_years = 'Years'.' '.$siteicons[3],
-	$sitename_stories = 'Stories'.' '.$siteicons[0],
-	$sitename_mental_frameworks = 'Mental_Frameworks',
-	$sitename_website_template = 'Website Template',
-	);
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$language_website_names_array = array(
-	$sitename_diario = 'Diário'.' '.$siteicons[0],
-	$sitename_music = 'Música'.' '.$siteicons[5],
-	$sitename_games = 'Jogos'.' '.$siteicons[6],
-	$sitename_foobar_albums = 'Albuns do Foobar (Foobar_Albums)'.' '.$siteicons[5],
-	$sitename_tasks = 'Tarefas'.' '.$siteicons[7],
-	$sitename_thingsido = 'Coisas Que Eu Faço'.' '.$siteicons[7],
-	$sitename_years = 'Anos'.' '.$siteicons[3],
-	$sitename_stories = 'Histórias'.' '.$siteicons[0],
-	$sitename_mental_frameworks = 'Frameworks Mentais',
-	$sitename_website_template = 'Modelo de Website',
-	);
-}
-
-
-$i = 0;
-foreach ($website_titles_array as $value) {
-	$websites_names_array[$i] = $value;
-
-	$i++;
-}
-
-$i = 0;
-foreach ($website_names_array as $value) {
-	$sitelinks[$i] = $main_website_url.strtolower($value).'/';
-
-	$i++;
-}
-*/
-
-/*
-$i = 0;
-foreach ($websites_names_array as $value) {
-	$varresource = strtolower($website_names_array[$i]);
-
-	echo 'Before: '.$websites_names_array[$i].'<br />';
-	echo 'Real var: '.${"sitename_$varresource"}.'<br />';
-
-	if (in_array(${"sitename_$varresource"}, $websites_names_array)) {
-		$websites_names_array[$i] = $language_website_names_array[$i];
-	}
-
-	echo 'After: '.$websites_names_array[$i].'<br />'.'<br />';
-
-	$i++;
-}
-*/
 
 $yearnames = array_keys($year_code_numbes_array);
 
@@ -244,12 +174,11 @@ $website_pequenata_link,
 $website_spaceliving_link,
 $website_nazzevo_link,
 $website_desert_island_link,
-$website_lonelystories_link,
 );
 
 #$websites_number = count($website_names_array) - 1; #22
 
-$websites_number = 25;
+$websites_number = 24;
 $story_name_websites_number = $stories_number - 1;
 $websites_number_text = count($sitelinks);
 

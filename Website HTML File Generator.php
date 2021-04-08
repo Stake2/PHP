@@ -50,8 +50,6 @@ $website = ob_get_clean();
 
 $html_folder = $mega_folder_stake2_website.str_replace($main_website_url, "", $selected_website_url);
 
-echo $html_folder;
-
 if ($selected_language != $language_geral) {
 	if ($selected_website == "diario") {
 		if ($selected_language == $language_ptbr) {
