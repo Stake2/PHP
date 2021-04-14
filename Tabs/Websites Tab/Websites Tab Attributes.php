@@ -74,6 +74,9 @@ $main_website_url.$sitecodes[21].'/',
 $website_website_status_link = $main_website_url.$sitecodes[21].'/',
 );
 
+$website_spaceliving_linked = '<a href="'.$website_spaceliving_link.'" target="_blank" class="w3-text-white">{}</a>';
+$website_spaceliving_linked = format($website_spaceliving_linked, $spaceliving_link_name);
+
 $story_namenames2 = array(
 $sitename_pequenata = $littletato_story_name.' '.$siteicons[0],
 $sitename_spaceliving = $spaceliving_story_name.' '.$siteicons[0],

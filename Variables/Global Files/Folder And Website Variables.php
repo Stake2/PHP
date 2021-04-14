@@ -12,6 +12,7 @@ $website_story_websites_javascript_folder = $website_javascript_folder."Story We
 # Website Meida Images folder
 $website_media_images = $main_website_url.'Images/';
 $website_media_images_website_icons = $website_media_images.'Website Icons/';
+$website_media_images_website_images = $website_media_images.'Website Images/';
 $website_media_images_story_covers = $website_media_images.'Story Covers/';
 
 $littletato_name = "The Life of Littletato";

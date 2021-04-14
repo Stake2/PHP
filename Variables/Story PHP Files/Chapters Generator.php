@@ -130,7 +130,7 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 
 		$reads_array = array(
 		null,
-		[$story_name_reads_array[1], $story_name_reads_array[2], $story_name_reads_array[3], $story_name_reads_array[5]],
+		[$story_name_reads_array[1], $story_name_reads_array[2], $story_name_reads_array[3], $story_name_reads_array[5], $story_name_reads_array[6], $story_name_reads_array[7], $story_name_reads_array[8], $story_name_reads_array[9]],
 		[$story_name_reads_array[0]],
 		null,
 		null,

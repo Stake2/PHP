@@ -20,6 +20,22 @@ if ($website_type == $normal_website_type and $website_name != $website_diario) 
 	$story_name = '';
 }
 
+$littletato_anime_image_link = $website_images_folder."Littletato%20Anime.jpg";
+
+$littletato_a_href = '<a href="'.$littletato_anime_image_link.'">';
+
+$image_style = 'align="left"';
+
+$littletato_anime_image = "<br />".$computer_div.$littletato_a_href.'<img src="'.$littletato_anime_image_link.'" width="35%" '.$chapter_image_style.' />'."</a>".$div_close."\n".
+$mobile_div.$littletato_a_href.'<img src="'.$littletato_anime_image_link.'" width="100%" '.$chapter_image_style.' />'."</a>".$div_close;
+
+$littletato_anime_image = $littletato_anime_image.$computer_div."<br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+
+$replaceables_array = array(
+$website_spaceliving_linked,
+$littletato_anime_image,
+);
+
 $titles_enus_text = 'Titles';
 
 # English texts for story websites
@@ -91,6 +107,8 @@ if (in_array($website_language, $en_languages_array)) {
 	$nazzevo_story_name = 'The Story of the Nazzevo Brothers',
 	$desert_island_story_name = 'Desert Island',
 	);
+
+	$spaceliving_link_name = "SpaceLiving Network";
 }
 
 #Brazilian Portuguese texts for story websites
@@ -162,6 +180,8 @@ if (in_array($website_language, $pt_languages_array)) {
 	$nazzevo_story_name = 'A História dos Irmãos Nazzevo',
 	$desert_island_story_name = 'Ilha Deserta',
 	);
+
+	$spaceliving_link_name = "Rede SpaceLiving";
 }
 
 $chapter_div_text = $chapter_text.'-';

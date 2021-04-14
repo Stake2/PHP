@@ -13,6 +13,7 @@ $selected_website_folder = ${"website_folder_".$website_names_array[$selected_we
 $story_folder = $littletato_story_folder;
 $story_name = $littletato_story_name;
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
+$website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;

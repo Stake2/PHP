@@ -23,7 +23,7 @@ $chapter_word_count = number_format($chapter_word_count);
 
 if (isset($normal_chapters[$chapter_number_1])) {
 	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
-		if ($story_namewritesstoryfiles == True) {
+		if ($story_writes_story_text_files == True) {
 			if (file_exists($chapter_write_to_folder) == True) {
 
 				if ($chapter_number_1 <= 9) {
@@ -42,8 +42,9 @@ if (isset($normal_chapters[$chapter_number_1])) {
 			while(!feof($file)) {
 				$line = fgets($file);
 				$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
+				$line = variable_inserter($replaceables_array, $line);
 
-				if ($story_namewritesstoryfiles == True) {
+				if ($story_writes_story_text_files == True) {
 					if (file_exists($chapter_write_to_folder) == True) {
 						$chapter_file_text[$z123] = $line;
 						$chapter_line_number++;
@@ -65,7 +66,7 @@ if (isset($normal_chapters[$chapter_number_1])) {
 
 			fclose($file);
 
-			if ($story_namewritesstoryfiles == True) {
+			if ($story_writes_story_text_files == True) {
 				if (file_exists($chapter_write_to_folder) == True) {
 					fclose($chapter_test_file);
 				}
@@ -110,7 +111,7 @@ if ($new_write_style == True) {
 	'var Read_Content_'.$chapter_number_1.' = `';
 
 	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
-		if ($story_namewritesstoryfiles == True) {
+		if ($story_writes_story_text_files == True) {
 			if (file_exists($chapter_write_to_folder) == True) {
 
 				if ($chapter_number_1 <= 9) {
@@ -130,7 +131,7 @@ if ($new_write_style == True) {
 			$line = fgets($file);
 			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
 
-			if ($story_namewritesstoryfiles == True) {
+			if ($story_writes_story_text_files == True) {
 				if (file_exists($chapter_write_to_folder) == True) {
 					$chapter_file_text[$z123] = $line;
 					$chapter_line_number++;
@@ -151,7 +152,7 @@ if ($new_write_style == True) {
 		}
 			fclose($file);
 
-			if ($story_namewritesstoryfiles == True) {
+			if ($story_writes_story_text_files == True) {
 				if (file_exists($chapter_write_to_folder) == True) {
 					fclose($chapter_test_file);
 				}

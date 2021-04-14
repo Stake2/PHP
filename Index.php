@@ -74,6 +74,7 @@ $php_vars_global_files = $php_variables_global_files;
 $php_variables_website_classes = $php_variables_global_files.'Website Classes/';
 $website_classes_folder = $php_variables_website_classes;
 $php_vars_website_classes = $php_variables_website_classes;
+$variable_inserter_php = $php_vars_global_files."Variable Inserter.php";
 
 $php_global_tabs = $global_tabs_folder;
 
@@ -90,6 +91,9 @@ $website_style_chooser_file = $php_vars_global_files.'Website Style Chooser.php'
 $website_style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
 $generic_tabs_generator_file = $php_vars_global_files.'GenericCities Generator.php';
 $setting_parameters_file = $php_vars_global_files.'Settings Params.php';
+
+# Variable Inserter PHP file loader
+require $variable_inserter_php;
 
 # Main Arrays PHP file loader
 require $main_arrays_php;

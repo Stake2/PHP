@@ -1,6 +1,5 @@
 <?php 
 
-$text = 'pqnttext';
 $colortext = 'w3-text-white';
 $colorsubtext = 'w3-text-orange';
 $colortext2 = 'w3-text-green';
@@ -144,6 +143,8 @@ $computer_div = $computer_div;
 
 $tab_style = 'city '.$computer_variable;
 $tab_style_mobile = 'city '.$mobile_variable;
+
+$chapter_image_style = 'style="float:left;border-width:3px;border-color:black;border-style:solid;"';
 
 $n = 'h2';
 $m = 'h4';
