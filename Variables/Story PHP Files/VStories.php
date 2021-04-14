@@ -20,7 +20,9 @@ if ($website_type == $normal_website_type and $website_name != $website_diario) 
 	$story_name = '';
 }
 
-$littletato_anime_image_link = $website_images_folder."Littletato%20Anime.jpg";
+$littletato_anime_image_link = $website_images_folder."Chapter Images/Littletato Anime.jpg";
+
+$littletato_anime_image_link_not_cdn = '<a target="_blank" href="https://static.zerochan.net/Shouin.600.1344153.jpg" class="w3-text-white">https://static.zerochan.net/Shouin.600.1344153.jpg</a>';
 
 $littletato_a_href = '<a href="'.$littletato_anime_image_link.'">';
 
@@ -29,12 +31,7 @@ $image_style = 'align="left"';
 $littletato_anime_image = "<br />".$computer_div.$littletato_a_href.'<img src="'.$littletato_anime_image_link.'" width="35%" '.$chapter_image_style.' />'."</a>".$div_close."\n".
 $mobile_div.$littletato_a_href.'<img src="'.$littletato_anime_image_link.'" width="100%" '.$chapter_image_style.' />'."</a>".$div_close;
 
-$littletato_anime_image = $littletato_anime_image.$computer_div."<br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
-
-$replaceables_array = array(
-$website_spaceliving_linked,
-$littletato_anime_image,
-);
+$littletato_anime_image = $littletato_anime_image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 
 $titles_enus_text = 'Titles';
 
@@ -109,6 +106,10 @@ if (in_array($website_language, $en_languages_array)) {
 	);
 
 	$spaceliving_link_name = "SpaceLiving Network";
+
+	$read_chapter_text = "read-chapter-[{}]";
+	$website_language_text = "en-us/";
+	$crossover_next_chapter_text = "This chapter continues here";
 }
 
 #Brazilian Portuguese texts for story websites
@@ -182,6 +183,10 @@ if (in_array($website_language, $pt_languages_array)) {
 	);
 
 	$spaceliving_link_name = "Rede SpaceLiving";
+
+	$read_chapter_text = "ler-capitulo-[{}]";
+	$website_language_text = "pt-br/";
+	$crossover_next_chapter_text = "Este capítulo continua aqui";
 }
 
 $chapter_div_text = $chapter_text.'-';
@@ -205,6 +210,10 @@ if ($website_type == $story_website_type) {
 		$story_status = $story_statuses[3];
 	}
 }
+
+$chapter_link = $website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;'.format($read_chapter_text, '10');
+
+$littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><b><center><h3 class="w3-btn w3-blue w3-text-black shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span style="margin-left:30px;margin-right:30px;">'.$crossover_next_chapter_text.' (Crossover): '.$main_website_url.'spaceliving 📘/10/</span></h3></center></b></div>';
 
 #Story names array
 $stories = array(
@@ -309,5 +318,12 @@ $littletato_story_card_mobile."<br />"."\n"."\n".
 $spaceliving_story_card_mobile."<br />"."\n"."\n".
 $nazzevo_story_card_mobile."<br />"."\n"."\n".
 $desert_island_story_card_mobile."\n";
+
+$replaceables_array = array(
+$website_spaceliving_linked,
+$littletato_anime_image,
+$littletato_anime_image_link_not_cdn,
+$littletato_spaceliving_chapter_crossover_link,
+);
 
 ?>

@@ -52,11 +52,11 @@ if ($website_uses_custom_layout_setting == False) {
 }
 
 if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
-	#Story variables PHP file includer if the website is a story website
-	require $story_variables_php_variable;
-
 	#SitesButtons Attributes.php includer
 	require $websites_tab_attributes;
+
+	#Story variables PHP file includer if the website is a story website
+	require $story_variables_php_variable;
 }
 
 # VYears.php file loader for YearsSites
