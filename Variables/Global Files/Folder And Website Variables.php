@@ -51,7 +51,7 @@ $notepad_media_network_comments_folder = $notepad_media_network_folder.'Comentar
 $notepad_mdn_movie_comments_folder = $notepad_media_network_comments_folder.'Filmes/';
 $notepad_watch_history_folder = $notepad_media_network_folder.'Watch History/';
 
-$diario_folder = $notepad_folder.'Diario/';
+$diario_folder = $notepad_effort_folder.'Diario/';
 $diario_folder_blocks = $diario_folder.'Blocks/';
 
 $notepad_stories_folder = $notepad_effort_folder.'Historias/';
