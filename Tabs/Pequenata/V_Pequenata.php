@@ -81,7 +81,7 @@ else {
 include $story_variables_php_variable;
 
 # Revised chapter number
-$revised_chapter = 20;
+$revised_chapter = 21;
 
 # Website descriptions
 $website_descriptions_array = array(
