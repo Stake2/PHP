@@ -47,7 +47,7 @@ while ($chapter_number_1 <= $chapters) {
 
 	# Hidden chapter title input
 
-	echo '<input type="text" name="read" value="'.$read_texts_array[3].': '.$i.' - '.$chapter_titles[$c].'" class="'.$full_form_style.' w3-input" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo '<input type="text" name="read" value="'.$i.' - '.$chapter_titles[$c].'" class="'.$full_form_style.' w3-input" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_close;
 	echo '<br /><br /><br /><br />';
 	echo '</form>'."\n";
@@ -84,7 +84,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
 
 	# Hidden chapter title input
-	echo '<input type="text" name="read" value="'.$read_texts_array[3].': '.$i22.' - '.$chapter_titles[$c22].'" class="'.$full_form_style.' w3-input" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo '<input type="text" name="read" value="'.$i22.' - '.$chapter_titles[$c22].'" class="'.$full_form_style.' w3-input" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_close;
 	echo '<br /><br /><br /><br />';
 	echo '</form>'."\n";

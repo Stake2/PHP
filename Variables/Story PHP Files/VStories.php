@@ -55,6 +55,8 @@ if (in_array($website_language, $en_languages_array)) {
 	'Reader',
 	);
 
+	$i_read_it_text = "I Read It ✓";
+
 	$comments_texts_array = array(
 	'Comment',
 	'Comment',
@@ -131,6 +133,8 @@ if (in_array($website_language, $pt_languages_array)) {
 	'Leitores',
 	'Leitor',
 	);
+
+	$i_read_it_text = "Eu Li ✓";
 
 	$comments_texts_array = array(
 	'Comentário',
