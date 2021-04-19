@@ -157,7 +157,7 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 #	
 #	$i = 0;
 #	$z = 0;
-#	while ($z <= $cmntsfile) {
+#	while ($z <= $story_comments_number_file) {
 #		$i2 = $z + 2;
 #		$comments[$i2] = substr($comments[$i2], 0, -1);
 #		$comments[$i2] = date("H:i d/m/Y", strtotime($comments[$i2]));
@@ -193,7 +193,7 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 #	$c = 0;
 #	$c2 = 1;
 #	$v = 0;
-#	while ($i <= $cmntsfile) {
+#	while ($i <= $story_comments_number_file) {
 #		$i2 = $i + 1;
 #		$i3 = $i + 2;
 #		$b2 = $b + 1;

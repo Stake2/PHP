@@ -34,6 +34,41 @@ function format($text, $parameters) {
 	);
 }
 
+function Remove_Text_From_String($item, $text_to_replace = Null) {
+	if ($text_to_replace == Null) {
+		$text_to_replace = array("\r\n", "\r", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
+	}
+
+	if (is_string($item) or is_array($item)) {
+		return str_replace($text_to_replace, "", $item);
+	}
+}
+
+function Read_Lines($file) {
+	if (file_exists($file) == True) {
+		$file_read = fopen($file, 'r', 'UTF-8'); 
+		if ($file_read) {
+			$array = explode("\n", fread($file_read, filesize($file)));
+			$array = Remove_Text_From_String($array);
+		}
+
+		return $array;
+	}
+}
+
+function Line_Number($file) {
+	if (file_exists($file) == True) {
+		$line_number = 0;
+		$file_read = fopen ($file, "r");
+		while (!feof ($file_read)){
+			$line = fgets($file_read);
+			$line_number++;
+		}
+
+		return $line_number;
+	}
+}
+
 $current_year = strftime("%Y");
 
 # Website variables
@@ -114,6 +149,22 @@ require $default_setting_values_php;
 
 # Website Language Definer file includer
 require $website_language_definer_php;
+
+function Define_Language_Variable($english_variable, $brazilian_portuguese_variable) {
+	$website_language = $GLOBALS["website_language"];
+	$en_languages_array = $GLOBALS["en_languages_array"];
+	$pt_languages_array = $GLOBALS["pt_languages_array"];
+
+	if (in_array($website_language, $en_languages_array)) {
+		$variable = $english_variable;
+	}
+
+	if (in_array($website_language, $pt_languages_array)) {
+		$variable = $brazilian_portuguese_variable;
+	}
+
+	return $variable;
+}
 
 # Website selector file includer
 require $website_selector_file;

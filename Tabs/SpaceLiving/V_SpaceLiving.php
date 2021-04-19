@@ -59,7 +59,7 @@ $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 #Text File Reader.php file includer
 require $text_file_reader_file_php;
 
-$comments_number = $comments_check_number - 1;
+$comments_number = $story_comments_check_number - 1;
 
 #Story date definer using story date text file
 $story_creation_date = $story_creation_date[0];

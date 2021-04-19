@@ -34,6 +34,7 @@ $mobile_div.$littletato_a_href.'<img src="'.$littletato_anime_image_link.'" widt
 $littletato_anime_image = $littletato_anime_image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 
 $titles_enus_text = 'Titles';
+$titles_ptbr_text = 'Títulos';
 
 # English texts for story websites
 if (in_array($website_language, $en_languages_array)) {

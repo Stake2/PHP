@@ -66,7 +66,7 @@ while ($a <= $chapters) {
 	}
 
 	if ($website_story_has_titles == True) {
-		$english_chapters[$a] = $main_story_folder_4.$text_to_add.$z.' - '.$titlesenus[$a2].'.txt';
+		$english_chapters[$a] = $main_story_folder_4.$text_to_add.$z.' - '.$chapter_titles_enus[$a2].'.txt';
 		$english_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $english_chapters[$a]);
 	}
 
@@ -150,7 +150,7 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 		$story_name_reads_array[23],
 		$story_name_reads_array[24],
 		$story_name_reads_array[25],
-		null,
+		$story_name_reads_array[26],
 		null,
 		null,
 		null,

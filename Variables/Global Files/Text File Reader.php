@@ -406,208 +406,73 @@ if ($website_type == $story_website_type) {
 	$story_comments_folder = $story_folder.'Comments/';
 	$story_readers_and_reads_folder = $story_folder.'Readers and Reads/';
 
-	# Story Synopsis, Readers, comments, readings,  and story date file paths
+	# Story Creation Date, Synopsis, Readers, and Comments file paths
+	$story_creation_date_file = $story_info_folder.'Creation Date.txt';
 	$story_synopsis_file = $story_info_folder.'Synopsis.txt';
 	$story_readers_file = $story_readers_and_reads_folder.'Readers.txt';
 	$story_comments_file = $story_comments_folder.'Comments.txt';
 	$story_comments_check_file = $story_comments_folder.'Check.txt';
-	$story_creation_date_file = $story_info_folder.'Creation Date.txt';
+	$story_chapter_status = $story_info_folder.'Chapter Status.txt';
+
+	# Last Posted Chapter file
+	$last_posted_chapter = end(array_values(Read_Lines($story_chapter_status)));
 
 	$chapter_number_file = $story_folder.'Chapter Number.txt'; 
 
 	$titles_enus_file = $story_chapter_files_folder.$full_language_enus.'/'.$titles_enus_text.'/'.$titles_enus_text.'.txt';
 
 	# Language-dependent text files
-	if (in_array($website_language, $en_languages_array)) {
-		$titles_file = $story_chapter_files_folder_language.'/'.$titles_text.'/'.$titles_text.'.txt';
-		$story_reads_file = $story_readers_and_reads_folder.'Reads'.'.txt';
-	}
+	$titles_file = $story_chapter_files_folder.$full_language.'/'."|text|".'/'."|text|".'.txt';
+	$text_to_add = Define_Language_Variable($titles_enus_text, $titles_ptbr_text);
+	$titles_file = str_replace("|text|", $text_to_add, $titles_file);
 
-	if (in_array($website_language, $pt_languages_array)) {
-		$titles_file = $story_chapter_files_folder_language.'/'.$titles_text.'/'.$titles_text.'.txt';
-		$story_reads_file = $story_readers_and_reads_folder.'Leituras'.'.txt';
-	}
+	$text_to_add = Define_Language_Variable("Reads", "Leituras");
+	$story_reads_file = $story_readers_and_reads_folder.$text_to_add.'.txt';
 
-	# File line number counters
-	if (file_exists($titles_file) == True) {
-		$chapters = 0;
-		$handle = fopen ($titles_file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			$chapters++;
-		}
-	}
+	$chapters = Line_Number($titles_file);
 
-	if (file_exists($story_comments_file) == True) {
-		$story_comments_number = 0;
-		$handle = fopen ($story_comments_file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			$story_comments_number++;
-		}
-	}
+	$story_comments_number = Line_Number($story_comments_file);
+	$story_comments_check_number = Line_Number($story_comments_check_file);
 
-	/*$file = $story_comments_check_file;
-	if (file_exists($file) == True) {
-		${str_replace("file", "number", "$file")} = 0;
-		$handle = fopen ($file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			${str_replace("file", "number", print_var_name($story_comments_check_file))}++;
-			$newvar = ${str_replace("file", "number", print_var_name($story_comments_check_file))};
-		}
-	}*/
+	$readers_number = Line_Number($story_readers_file);
 
-	
-	$file = $story_comments_check_file;
-	if (file_exists($file) == True) {
-		$comments_check_number = 0;
-		$handle = fopen ($file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			$comments_check_number++;
-		}
-	}
-
-
-	if (file_exists($story_readers_file) == True) {
-		$readers_number = 0;
-		$handle = fopen ($story_readers_file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			$readers_number++;
-		}
-	}
-
-	if (file_exists($story_reads_file) == True) {
-		$readsnumb = 0;
-		$handle = fopen ($story_reads_file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			$readsnumb++;
-		}
-	}
+	$reads_number = Line_Number($story_reads_file);
 
 	#File line number fixers
     if (isset($story_comments_number)) {
-        $cmntsfile = $story_comments_number - 1;
-        $cmntstxt = $story_comments_number;
+        $story_comments_number_file = $story_comments_number - 1;
+        $story_comments_number_text = $story_comments_number;
     }
 
     if (isset($readers_number)) {
-        $readers_file_number = $readers_number - 1;
-        $readerstxt = $readers_number;
+        $story_readers_number_file = $readers_number - 1;
+        $story_readers_number_text = $readers_number;
     }
 
-    if (isset($readsnumb)) {
-        $readsfilenumb = $readsnumb - 1;
-        $readsfiletxt = $readsnumb;
+    if (isset($reads_number)) {
+        $story_reads_number_file = $reads_number - 1;
+        $story_reads_number_text = $reads_number;
     }
 
-	#File text readers
-	if (file_exists($titles_file) == True) {
-		$file_read = fopen($titles_file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$chapter_titles = explode("\n", fread($file_read, filesize($titles_file)));
-		}
-	}
+	$story_creation_date = Read_Lines($story_creation_date_file);
 
-	if (file_exists($titles_enus_file) == True) {
-		$file_read = fopen($titles_enus_file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$titlesenus = explode("\n", fread($file_read, filesize($titles_enus_file)));
-		}
-	}
+	$story_synopsis = Read_Lines($story_synopsis_file);
 
-	if (file_exists($story_readers_file) == True) {
-		$file_read = fopen($story_readers_file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$story_readers_file = explode("\n", fread($file_read, filesize($story_readers_file)));
-			$readers = str_replace("^", "", $story_readers_file);
-		}
-	}
+	$chapter_titles = Read_Lines($titles_file);
 
-	if (file_exists($story_comments_file) == True) {
-		$file_read = fopen($story_comments_file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$commentsfilearray = explode("\n", fread($file_read, filesize($story_comments_file)));
-			$comments = str_replace("|", "", $commentsfilearray);
-		}
-	}
+	$chapter_titles_enus = Read_Lines($titles_enus_file);
 
-	if (file_exists($story_reads_file) == True) {
-		$file_read = fopen($story_reads_file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$reads_text = explode("\n", fread($file_read, filesize($story_reads_file)));
-			$reads_text = str_replace("|", "", $reads_text);
-		}
-	}
+	$readers = Read_Lines($story_readers_file);
 
-	if (file_exists($story_creation_date_file) == True) {
-		$file_read = fopen($story_creation_date_file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$story_creation_date = explode("\n", fread($file_read, filesize($story_creation_date_file)));
-			$story_creation_date = str_replace("", "", $story_creation_date);
-		}
-	}
+	$comments = Read_Lines($story_comments_file);
 
-	if (file_exists($story_synopsis_file) == True) {
-		$file_read = fopen($story_synopsis_file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$story_synopsis = explode("\n", fread($file_read, filesize($story_synopsis_file)));
-		}
-	}
+	$reads_text = Read_Lines($story_reads_file);
 
 	if ($website_name == $website_nazzevo) {
-		if (file_exists($chapter_number_file) == True) {
-			$file_read = fopen($chapter_number_file, 'r', 'UTF-8'); 
-			if ($file_read) {
-				$chapters_text = explode("\n", fread($file_read, filesize($chapter_number_file)));
-				$chapters = str_replace("^", "", $chapters_text);
-			}
-		}
+		$chapters = Read_Lines($chapter_number_file);
 	}
 
-	if (file_exists($chapter_number_file) == True) {
-		$file_read = fopen($chapter_number_file, 'r', 'UTF-8');
-		if ($file_read) {
-			$chapter_number_text = explode("\n", fread($file_read, filesize($chapter_number_file)));
-			$chapter_number = str_replace("^", "", $chapter_number_text);
-		}
-	}
-
-	#File character replacers
-    if (isset($titlesenus)) {
-		$titlesenus = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $titlesenus);
-    }
-
-    if (isset($chapter_titles)) {
-		$chapter_titles = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $chapter_titles);
-    }
-
-	if (isset($readers)) {
-		$readers = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $readers);
-	}
-
-	if (isset($comments)) {
-		$comments = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $comments);
-	}
-
-	if (isset($reads_text)) {
-		$reads_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $reads_text);
-	}
-
-	if (isset($story_creation_date)) {
-		$story_creation_date = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $story_creation_date);
-	}
-
-	if (isset($story_synopsis)) {
-		$story_synopsis = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $story_synopsis);
-	}
-
-	if ($website_name == $website_nazzevo) {
-		$chapters = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $chapters);
-	}
+	$chapter_number = Read_Lines($chapter_number_file);
 }
 
 if ($website_has_changelog_setting == True) {

@@ -8,7 +8,7 @@ if ($show_title_text == True) {
 	# Shows the chapter title if the setting is set to True
 	if ($show_write_form_text == True) {
 		if ($website_translate_story_setting == True) {
-			echo $titletxt.': '."\n".$chapter_number_1.' - '.$titlesenus[($chapter_number_4 - 1)];
+			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles_enus[($chapter_number_4 - 1)];
 		}
 
 		if ($website_translate_story_setting == false) {
@@ -18,7 +18,7 @@ if ($show_title_text == True) {
 
 	else {
 		if ($website_translate_story_setting == True) {
-			echo $chapter_number_1.' - '.$titlesenus[($chapter_number_4 - 1)];
+			echo $chapter_number_1.' - '.$chapter_titles_enus[($chapter_number_4 - 1)];
 		}
 
 		if ($website_translate_story_setting == false) {

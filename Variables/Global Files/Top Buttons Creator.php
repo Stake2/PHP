@@ -222,10 +222,6 @@ if ($website_deactivate_top_buttons_setting == false) {
 		echo $mobile_buttons[5]."\n"."\n";
 	}
 
-	if ($website_name == $website_text_maker) {
-		echo $mobile_buttons[1]."\n"."\n";
-	}
-
 	$i = 0;
 	while ($i <= $tabnumb) {
 		$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';

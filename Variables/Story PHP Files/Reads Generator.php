@@ -13,7 +13,7 @@ $v2 = 0;
 $read_style = $additional_background_color." ".$text_black_css_class." ".$border_3px_solid_black_css_class;
 
 #Read date converter, that converts the date of the readings into a date format
-while ($v2 <= $readsfilenumb) {
+while ($v2 <= $story_reads_number_file) {
 	$v3 = $v2 + 2;
 	$reads_text[$v3] = substr($reads_text[$v3], 0, -1);
 	$reads_text[$v3] = date("H:i d/m/Y", strtotime($reads_text[$v3]));
@@ -28,7 +28,7 @@ $v1 = 0;
 $readed_number = 0;
 
 #"Reads" array generator, it generates the array of the readings
-while ($b1 <= $readsfilenumb) {
+while ($b1 <= $story_reads_number_file) {
 	$b22 = $b1 + 1;
 	$b3 = $b1 + 2;
 

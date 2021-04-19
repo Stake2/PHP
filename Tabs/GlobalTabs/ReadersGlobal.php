@@ -11,7 +11,7 @@ if ($selected_website == $website_desert_island) {
 }
 
 $i = 0;
-while ($i <= $readers_file_number) {
+while ($i <= $story_readers_number_file) {
 	$i2 = $i + 1;
 	
 	echo '<'.$n.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$computer_variable.'">'.$span_variable.$i2.$spanc.' - '.$readers[$i].'</'.$n.'>'."\n";
@@ -22,7 +22,7 @@ while ($i <= $readers_file_number) {
 echo "\n";
 
 $i = 0;
-while ($i <= $readers_file_number) {
+while ($i <= $story_readers_number_file) {
 	$i2 = $i + 1;
 	
 	echo '<'.$m.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$mobile_variable.'">'.$span_variable.$i2.$spanc.' - '.$readers[$i]."</".$m.'>'."\n";
