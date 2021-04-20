@@ -1,6 +1,6 @@
 <?php 
 
-if ($website_name == $website_pequenata) {
+if ($website_name == $website_the_life_of_littletato) {
 	$main_website_image_computer = '<center><img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="w3-center '.$border_3px_solid_css_class." ".$first_border_color.' '.$computer_variable.' w3-center" style="'.$roundedborderstyle4.'" /></center>';
 
 	$main_website_image_mobile = '<center><img src="'.$website_image_link.'" width="'.$website_image_size_mobile.'%" class="'.$border_3px_solid_css_class." ".$first_border_color.' '.$mobile_variable.' w3-center" style="'.$roundedborderstyle4.'" /></center>';

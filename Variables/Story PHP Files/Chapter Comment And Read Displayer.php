@@ -1,7 +1,7 @@
 <?php
 
 #Readings and Comments displayer on chapters
-if ($website_name == $website_pequenata and $story_has_chapter_comments == True) {
+if ($website_name == $website_the_life_of_littletato and $story_has_chapter_comments == True) {
 	if ($chapter_number_1 == 1) {
 		echo $comment_header."\n";
 

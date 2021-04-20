@@ -1,0 +1,22 @@
+Stake2, N
+Prints of Computer Blocks, N
+Diário, N
+My Little Pony, N
+Watch History, N
+Música, N
+Jogos, N
+Álbuns do Foobar (Foobar_Albums), N
+Terraria Talk, N
+Tarefas, N
+Coisas Que Eu Faço, N
+Frameworks Mentais, N
+Modelo de Site, N
+New World, N
+Histórias, S
+Multiverso Izaque, S
+A Vida de Pequenata, S
+SpaceLiving, S
+A História dos Irmãos Nazzevo, S
+Ilha Deserta, S
+Years, N
+Status Dos Sites, N

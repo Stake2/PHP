@@ -224,7 +224,7 @@ echo '<br /><br /><br /><br />'."\n";
 echo $div_zoom_animation."\n";
 
 # Story cover shower if story has the website_story_has_book_covers_setting setting as True
-if ($website_story_has_book_covers_setting == True or $website_story_has_book_covers_setting == True and $website_name == $website_pequenata and $chapter_number_1 <= 10) {
+if ($website_story_has_book_covers_setting == True or $website_story_has_book_covers_setting == True and $website_name == $website_the_life_of_littletato and $chapter_number_1 <= 10) {
 	echo '<center>'."\n";
 
 	if (isset($chapter_cover_images_computer[$book_cover_number]) and isset($chapter_cover_images_mobile[$book_cover_number])) {

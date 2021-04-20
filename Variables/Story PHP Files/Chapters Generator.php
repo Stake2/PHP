@@ -115,7 +115,7 @@ $b1 = 0;
 $b2 = 1;
 
 if ($site_uses_new_comment_and_read_displayer == True and $story_website_contains_reads == True and $story_website_contains_comments == True) {
-	if ($website_name == $website_pequenata) {
+	if ($website_name == $website_the_life_of_littletato) {
 		$comments_array = array(
 		null,
 		$story_chapter_comments_array[0],

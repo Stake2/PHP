@@ -31,7 +31,7 @@ if ($website_name == $website_2019) {
 	$tabnumb2 = $tabnumb - 5;
 }
 
-if ($website_name == $website_pequenata) {
+if ($website_name == $website_the_life_of_littletato) {
 	$tabnumb2 = $tabnumb - 1;
 }
 
@@ -62,7 +62,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	echo '<div id="computer_buttons_bar" class="w3-center w3-bar mobileHide w3-animate-top" style="position:fixed;float:right;">'."\n";
 	$sitebtnecho = True;
 
-	if ($website_name == $website_pequenata) {
+	if ($website_name == $website_the_life_of_littletato) {
 		$hide_notification_attribute = 'Hide_Notification();';
 	}
 
@@ -124,7 +124,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		echo $computer_buttons[5];
 	}
 
-	if ($website_name == $website_pequenata) {
+	if ($website_name == $website_the_life_of_littletato) {
 		echo $computer_buttons[5];
 	}
 
@@ -218,7 +218,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		echo $mobile_buttons[7]."\n"."\n";
 	}
 
-	if ($website_name == $website_pequenata) {
+	if ($website_name == $website_the_life_of_littletato) {
 		echo $mobile_buttons[5]."\n"."\n";
 	}
 

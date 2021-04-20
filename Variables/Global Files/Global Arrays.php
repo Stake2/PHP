@@ -17,6 +17,8 @@ if (file_exists($file) == True) {
 	}
 }
 
+$verbose = False;
+
 $websites_number = 0;
 foreach ($websites as $website) {
 	$split = explode(", ", $website);
@@ -29,6 +31,10 @@ foreach ($websites as $website) {
 
 	if ($selected_website_type == "S") {
 		$selected_website_type = $story_website_type;
+	}
+
+	if ($verbose == True) {
+		echo $selected_website_name."<br />"."\n";
 	}
 
 	if ($selected_website_name == "Years") {
@@ -63,6 +69,10 @@ foreach ($website_titles_array as $website_title_selector) {
 	$website_title_selector = str_replace(",", "", $website_title_selector);
 	$website_title_selector = str_replace(".", "", $website_title_selector);
 	$website_title_selector = ucwords($website_title_selector);
+
+	if ($verbose == True) {
+		echo $website_title_selector."<br />"."\n";
+	}
 
 	array_push($websites_array, $website_title_selector);
 }
