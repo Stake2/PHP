@@ -1,4 +1,4 @@
-# php
+# Stake2-PHP
 The PHP files for the Diario website https://diario.netlify.app/<br>
 Made by me, [stake2](https://github.com/stake2)
 
