@@ -10,8 +10,6 @@ if (isset($host_text) == True) {
 	$return = False;
 }
 
-$test = "test";
-
 function format($text, $parameters) {
 	$parameters = (array)$parameters;
 
