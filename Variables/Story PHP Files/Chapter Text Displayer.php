@@ -1,99 +1,21 @@
 <?php
 
-#Chapter text reader
-if ($new_write_style == True) {
-	#echo $edit_story_chapter_button;
-	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
-}
+$chapter_file = $normal_chapters[$chapter_number_1];
 
-$chapter_story_text_string = "";
+$chapter_word_count = Word_Number($chapter_file);
 
-if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
-	while(!feof($file)) {
-		$line = fgets($file);
-		$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
-		$chapter_story_text_string .= $line;
-	}
-
-	fclose($file);
-}
-
-$chapter_word_count = str_word_count($chapter_story_text_string);
-$chapter_word_count = number_format($chapter_word_count);
-
-if (isset($normal_chapters[$chapter_number_1])) {
-	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
-		if ($story_writes_story_text_files == True) {
-			if (file_exists($chapter_write_to_folder) == True) {
-
-				if ($chapter_number_1 <= 9) {
-					$text_to_add = "0";
-				}
-
-				if ($chapter_number_1 > 9) {
-					$text_to_add = "";
-				}
-
-				$chapter_test_file = fopen($chapter_write_to_folder.$text_to_add.$chapter_number_1.' - '.str_replace("?", "", $chapter_titles[($chapter_number_4 - 1)]).'.txt', 'w');
-			}
-		}
-
-		if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
-			while(!feof($file)) {
-				$line = fgets($file);
-				$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
-				$line = variable_inserter($replaceables_array, $line);
-
-				if ($story_writes_story_text_files == True) {
-					if (file_exists($chapter_write_to_folder) == True) {
-						$chapter_file_text[$z123] = $line;
-						$chapter_line_number++;
-						$chapter_lines_array[$chapter_number_1] = $chapter_line_number;
-						$z123++;
-
-						if (feof($file)) {
-							fwrite($chapter_test_file, $line);
-						}
-						
-						else {
-							fwrite($chapter_test_file, $line."\n");
-						}
-					}
-				}
-
-				echo $line."\n".'<br />';
-			}
-
-			fclose($file);
-
-			if ($story_writes_story_text_files == True) {
-				if (file_exists($chapter_write_to_folder) == True) {
-					fclose($chapter_test_file);
-				}
-			}
-		}
-	}
-
-	if (file_exists($normal_chapters[$chapter_number_1]) == false) {
-		echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
-	}
-}
+Show_Text($chapter_file);
 
 if ($write_new_chapter == True and $chapter_number_1 == $chapters + 1) {
 	require $chapter_writer_form_php_variable;
 }
 
-#Chapter date displayer
+# Chapter date displayer
 if ($website_name != $website_nazzevo and $story_has_dates == True) {
-	if (file_exists($chapter_dates_file) == True) {
-		$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
-		if ($fp) {
-			$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
-			$chapter_written_dates = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $chapter_written_dates);
-		}
-	}
+	$chapter_written_dates = Read_Lines($chapter_dates_file);
 
-	echo '<br />';
+	echo "<br />";
+
 	if (isset($chapter_written_dates[$chapter_date_number])) {
 		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
 		echo "<br />".$words_text.": ".$chapter_word_count."."."\n";
@@ -110,72 +32,18 @@ if ($new_write_style == True) {
 	echo '<script>'.
 	'var Read_Content_'.$chapter_number_1.' = `';
 
-	if (file_exists($normal_chapters[$chapter_number_1]) == True) {
-		if ($story_writes_story_text_files == True) {
-			if (file_exists($chapter_write_to_folder) == True) {
+	Show_Text($chapter_file);
 
-				if ($chapter_number_1 <= 9) {
-					$text_to_add = "0";
-				}
-
-				if ($chapter_number_1 > 9) {
-					$text_to_add = "";
-				}
-
-				$chapter_test_file = fopen($chapter_write_to_folder.$text_to_add.$chapter_number_1.' - '.str_replace("?", "", $chapter_titles[($chapter_number_4 - 1)]).'.txt', 'w');
-			}
-		}
-
-		if ($file = fopen($normal_chapters[$chapter_number_1], "r")) {
-		while(!feof($file)) {
-			$line = fgets($file);
-			$line = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $line);
-
-			if ($story_writes_story_text_files == True) {
-				if (file_exists($chapter_write_to_folder) == True) {
-					$chapter_file_text[$z123] = $line;
-					$chapter_line_number++;
-					$chapter_lines_array[$chapter_number_1] = $chapter_line_number;
-					$z123++;
-
-					if (feof($file)) {
-						fwrite($chapter_test_file, $line);
-					}
-					
-					else {
-						fwrite($chapter_test_file, $line."\n");
-					}
-				}
-			}
-
-			echo $line.'<br />'."\n";
-		}
-			fclose($file);
-
-			if ($story_writes_story_text_files == True) {
-				if (file_exists($chapter_write_to_folder) == True) {
-					fclose($chapter_test_file);
-				}
-			}
-		}
-	}
-
-	else {
-		echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
-	}
-
-	#Chapter date displayer
+	# Chapter date displayer
 	if ($website_name != $website_nazzevo and $story_has_dates == True) {
-		if (file_exists($chapter_dates_file) == True) {
-			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
-			if ($fp) {
-				$chapter_written_dates = explode("\n", fread($fp, filesize($chapter_dates_file)));
-				$chapter_written_dates = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $chapter_written_dates);
-			}
-		}
+		$chapter_written_dates = Read_Lines($chapter_dates_file);
 
-		echo '<br />';
-		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
+		echo "<br />";
+
+		if (isset($chapter_written_dates[$chapter_date_number])) {
+			echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
+			echo "<br />".$words_text.": ".$chapter_word_count."."."\n";
+		}
 	}
 
 	echo '`;'.
@@ -276,6 +144,12 @@ if ($write_new_chapter == True) {
 		openCity("'.$chapter_div_text.($chapters + 1).'");
 	}
 	</script>';
+}
+
+# Chapter text reader
+if ($new_write_style == True) {
+	#echo $edit_story_chapter_button;
+	#echo '<div style="display:none;">'.$show_story_chapter_text_button.$div_close;
 }
 
 ?>

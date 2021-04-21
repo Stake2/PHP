@@ -1,5 +1,7 @@
 <?php
 
+$line_replace_array = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
+
 # Get the localhost link
 if (isset($host_text) == False) {
 	$host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -35,8 +37,10 @@ function format($text, $parameters) {
 }
 
 function Remove_Text_From_String($item, $text_to_replace = Null) {
+	global $line_replace_array;
+
 	if ($text_to_replace == Null) {
-		$text_to_replace = array("\r\n", "\r", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
+		$text_to_replace = $line_replace_array;
 	}
 
 	if (is_string($item) or is_array($item)) {
@@ -44,29 +48,64 @@ function Remove_Text_From_String($item, $text_to_replace = Null) {
 	}
 }
 
-function Read_Lines($file) {
-	if (file_exists($file) == True) {
-		$file_read = fopen($file, 'r', 'UTF-8'); 
-		if ($file_read) {
-			$array = explode("\n", fread($file_read, filesize($file)));
-			$array = Remove_Text_From_String($array);
-		}
+function Open_File($file, $mode = Null) {
+	if ($mode == Null) {
+		$mode = "r";
+	}
 
-		return $array;
+	if (file_exists($file) == True) {
+		return $file = fopen($file, $mode, 'UTF-8');
+	}
+}
+
+function Read_Lines($file) {
+	$file_read = Open_File($file);
+
+	$array = explode("\n", fread($file_read, filesize($file)));
+	$array = Remove_Text_From_String($array);
+
+	return $array;
+}
+
+function Show_Text($file) {
+	global $variable_inserter_array;
+
+	$file_read = Open_File($file);
+
+	while(!feof($file_read)) {
+		$text_line = fgets($file_read);
+		$text_line = Remove_Text_From_String($text_line);
+		$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+
+		echo $text_line."\n".'<br />';
 	}
 }
 
 function Line_Number($file) {
-	if (file_exists($file) == True) {
-		$line_number = 0;
-		$file_read = fopen ($file, "r");
-		while (!feof ($file_read)){
-			$line = fgets($file_read);
-			$line_number++;
-		}
+	$file = Open_File($file);
 
-		return $line_number;
+	$line_number = 0;
+	while (!feof($file)) {
+		$line = fgets($file);
+		$line_number++;
 	}
+
+	return $line_number;
+}
+
+function Word_Number($file) {
+	$file_read = Open_File($file);
+
+	$lines = Read_Lines($file);
+	$lines_text = "";
+
+	foreach ($lines as $line) {
+		$lines_text .= $line;
+	}
+
+	$words = number_format(str_word_count($lines_text));
+
+	return $words;
 }
 
 $current_year = strftime("%Y");
@@ -127,9 +166,6 @@ $website_style_variables_foreach = $php_vars_global_files.'Website Style Variabl
 $generic_tabs_generator_file = $php_vars_global_files.'GenericCities Generator.php';
 $setting_parameters_file = $php_vars_global_files.'Settings Params.php';
 
-# Variable Inserter PHP file loader
-require $variable_inserter_php;
-
 # Main Arrays PHP file loader
 require $main_arrays_php;
 
@@ -150,21 +186,47 @@ require $default_setting_values_php;
 # Website Language Definer file includer
 require $website_language_definer_php;
 
-function Define_Language_Variable($english_variable, $brazilian_portuguese_variable) {
-	$website_language = $GLOBALS["website_language"];
-	$en_languages_array = $GLOBALS["en_languages_array"];
-	$pt_languages_array = $GLOBALS["pt_languages_array"];
+function Language_Item_Definer($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False) {
+	global $website_language;
+	global $language_enus;
+	global $language_ptbr;
+	global $language_ptpt;
+
+	if ($website_language == $language_enus) {
+		return $enus_item;
+	}
+
+	if ($website_language == $language_ptbr) {
+		return $ptbr_item;
+	}
+
+	if ($website_language == $language_ptpt and $same_from_ptbr == False) {
+		return $ptpt_item;
+	}
+
+	if ($website_language == $language_ptpt and $same_from_ptbr == True) {
+		return $ptbr_item;
+	}
+}
+
+function Language_Item_Definer_By_Array($english_variable, $portuguese_variable) {
+	global $website_language;
+	global $en_languages_array;
+	global $pt_languages_array;
 
 	if (in_array($website_language, $en_languages_array)) {
 		$variable = $english_variable;
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$variable = $brazilian_portuguese_variable;
+		$variable = $portuguese_variable;
 	}
 
 	return $variable;
 }
+
+# Variable Inserter PHP file loader
+require $variable_inserter_php;
 
 # Website selector file includer
 require $website_selector_file;

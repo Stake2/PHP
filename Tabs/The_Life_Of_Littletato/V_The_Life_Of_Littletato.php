@@ -7,7 +7,7 @@ require $css_pack_pequenata;
 
 # Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
-$selected_website_url = $website_pequenata_link;
+$selected_website_url = $website_the_life_of_littletato_link;
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 
 $story_folder = $littletato_story_folder;
@@ -153,7 +153,7 @@ if ($website_language == $language_geral) {
 
 	$website_title = $general_story_name;
 	$website_title_html = $general_story_name.': '.$icons[11];
-	$website_link = $website_pequenata_link;
+	$website_link = $website_the_life_of_littletato_link;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
 
@@ -167,7 +167,7 @@ if ($website_language == $language_enus) {
 
 	$website_title = $story_name_variable;
 	$website_title_html = $story_name_variable.': '.$icons[11];
-	$website_link = $website_pequenata_link.strtolower($hyphen_separated_website_language).'/';
+	$website_link = $website_the_life_of_littletato_link.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
 }
@@ -186,7 +186,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	}
 
 	$website_title_html = $story_name_variable.': '.$icons[11];
-	$website_link = $website_pequenata_link.strtoupper($hyphen_separated_website_language).'/';
+	$website_link = $website_the_life_of_littletato_link.strtoupper($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];
 }
@@ -228,5 +228,13 @@ if ($website_has_notifications == True) {
 	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
 	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
 }
+
+$variable_inserter_array = array(
+$website_the_life_of_littletato_linked,
+$website_spaceliving_linked,
+$littletato_anime_image,
+$littletato_anime_image_link_not_cdn,
+$the_life_of_littletato_spaceliving_chapter_crossover_link,
+);
 
 ?>

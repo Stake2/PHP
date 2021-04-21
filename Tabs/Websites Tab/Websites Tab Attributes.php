@@ -63,7 +63,7 @@ $main_website_url.$sitecodes[10].'/',
 $main_website_url.$sitecodes[11].'/',
 $main_website_url.$sitecodes[12].'/',
 $main_website_url.$sitecodes[13].'/',
-$website_pequenata_link = $main_website_url.$sitecodes[14].'/',
+$website_the_life_of_littletato_link = $main_website_url.$sitecodes[14].'/',
 $website_spaceliving_link = $main_website_url.$sitecodes[15].'/',
 $website_nazzevo_link = $main_website_url.$sitecodes[16].'/',
 $website_desert_island_link = $main_website_url.$sitecodes[17].'/',
@@ -74,8 +74,14 @@ $main_website_url.$sitecodes[21].'/',
 $website_website_status_link = $main_website_url.$sitecodes[21].'/',
 );
 
+$spaceliving_link_name = Language_Item_Definer_By_Array("SpaceLiving Network", "Rede SpaceLiving");
+$the_life_of_littletato_link_name = Language_Item_Definer_By_Array("The Life of Littletato", "A Vida de Pequenata");
+
 $website_spaceliving_linked = '<a href="'.$website_spaceliving_link.'" target="_blank" class="w3-text-white">{}</a>';
 $website_spaceliving_linked = format($website_spaceliving_linked, $spaceliving_link_name);
+
+$website_the_life_of_littletato_linked = '<a href="'.$website_the_life_of_littletato_link.'" target="_blank" class="w3-text-white">{}</a>';
+$website_the_life_of_littletato_linked = format($website_the_life_of_littletato_linked, $the_life_of_littletato_link_name);
 
 $story_namenames2 = array(
 $sitename_pequenata = $littletato_story_name.' '.$siteicons[0],
@@ -173,7 +179,7 @@ $sitename_website_template,
 $yearnames = array_keys($year_code_numbes_array);
 
 $story_namelinks = array(
-$website_pequenata_link,
+$website_the_life_of_littletato_link,
 $website_spaceliving_link,
 $website_nazzevo_link,
 $website_desert_island_link,
