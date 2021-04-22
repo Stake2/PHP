@@ -26,7 +26,8 @@ while ($i < $chapters) {
 	var first_check_'.$i2.' = site2.includes(captext2 + "'.$i2.'");
 	var second_check_'.$i2.' = site2.includes(captext2 + "['.$i2.']");
 	var third_check_'.$i2.' = site2.includes(captext2 + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
-	var fourth_check_'.$i2.' = site2.includes(captext2 + "%22'.$i2.'%22");';
+	var fourth_check_'.$i2.' = site2.includes(captext2 + "%22'.$i2.'%22");
+	var fifth_check_'.$i2.' = site2.includes("'.$i2.'");';
 
 	$i++;
 }
@@ -37,7 +38,7 @@ $i = 0;
 while ($i < $chapters) {
 	$i2 = $i + 1;
 
-	echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true) {'."\n";
+	echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true || fifth_check_'.$i2.' === true) {'."\n";
 	echo '		var captext = captext1 + "'.$i2.'";'."\n";
 	echo '		openCity(captext);'."\n";
 	echo '		document.getElementById(captext).scrollIntoView();'."\n";

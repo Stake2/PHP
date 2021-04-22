@@ -151,7 +151,7 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 		$story_name_reads_array[24],
 		$story_name_reads_array[25],
 		$story_name_reads_array[26],
-		null,
+		$story_name_reads_array[27],
 		null,
 		null,
 		$story_name_reads_array[4],
