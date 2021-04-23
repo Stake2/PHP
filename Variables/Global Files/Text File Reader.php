@@ -415,7 +415,7 @@ if ($website_type == $story_website_type) {
 	$story_chapter_status = $story_info_folder.'Chapter Status.txt';
 
 	# Last Posted Chapter file
-	$last_posted_chapter = end(array_values(Read_Lines($story_chapter_status)));
+	$last_posted_chapter = explode(" - ", end(array_values(Read_Lines($story_chapter_status))))[0];
 
 	$chapter_number_file = $story_folder.'Chapter Number.txt'; 
 
