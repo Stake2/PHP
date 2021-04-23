@@ -22,15 +22,20 @@ function Variable_Name($var) {
 function Variable_Inserter($array, $text_line) {
 	global $verbose;
 
+	$text_line = str_replace(array(".", "?", ")", "("), "", $text_line);
+
 	foreach ($array as $variable) {
-		$variable_name = Variable_Name($variable);
+		$variable_name = Variable_Name($variable);	
 
 		if ($verbose == True) {
 			echo "<br />Linha: ".$text_line."<br />"."Nome da Variável: $".$variable_name.";<br />"."Variável: $".$variable.";<br />";
 		}
 
+		if (strpos($text_line, "$".$variable_name.";") == True and $verbose == True) {
+			echo "<br />It is true.<br />";
+		}
+
 		if (strpos($text_line, "$".$variable_name.";") == True or $text_line == "$".$variable_name.";") {
-			
 			$text_line = str_replace("$".$variable_name.";", $variable, $text_line);
 		}
 	}
