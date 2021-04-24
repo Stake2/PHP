@@ -46,6 +46,28 @@ $data = date("d/m/Y");
 # Global CSS variables loader
 require $global_style_file_php;
 
+function Make_Linked_Image($image_link, $is_chapter_image = False) {
+	global $computer_div;
+	global $mobile_div;
+	global $div_close;
+	global $chapter_image_style;
+
+	$a_href = '<a href="'.$image_link.'">';
+
+	$image_style = 'align="left"';
+
+	if ($is_chapter_image == True) {
+		$image_style = $chapter_image_style;
+	}
+
+	$image = "<br />".$computer_div.$a_href.'<img src="'.$image_link.'" width="35%" '.$image_style.' />'."</a>".$div_close."\n".
+$mobile_div.$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>".$div_close;
+
+	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+
+	return $image;
+}
+
 # Website Style Chooser.php file loader
 if ($website_uses_custom_layout_setting == False) {
 	require $website_style_chooser_file;

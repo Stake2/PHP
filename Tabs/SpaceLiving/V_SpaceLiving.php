@@ -239,4 +239,11 @@ if ($website_has_notifications == True) {
 	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
 }
 
+$variable_inserter_array = array(
+$website_the_life_of_littletato_linked,
+$human_littletato_image,
+$lisa_image,
+$spaceliving_littletato_chapter_crossover_link,
+);
+
 ?>

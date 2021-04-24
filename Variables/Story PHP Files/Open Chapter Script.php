@@ -16,6 +16,8 @@ function Open_Chapter() {'."\n".
 	else {
 		var read_chapter_text = "read-chapter-";
 	}
+
+	var chapter_number = '.$i2.';
 	';
 
 $i = 0;
@@ -23,11 +25,12 @@ while ($i < $chapters) {
 	$i2 = $i + 1;
 
 	echo '
-	var first_check_'.$i2.' = site2.includes(read_chapter_text + "'.$i2.'");
+	var first_check_'.$i2.' = site2.includes(read_chapter_text + chapter_number);
 	var second_check_'.$i2.' = site2.includes(read_chapter_text + "['.$i2.']");
 	var third_check_'.$i2.' = site2.includes(read_chapter_text + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
 	var fourth_check_'.$i2.' = site2.includes(read_chapter_text + "%22'.$i2.'%22");
-	var fifth_check_'.$i2.' = site2.includes("'.$i2.'");';
+	var fifth_check_'.$i2.' = site2.includes("('.$i2.')");
+	var sixth_check_'.$i2.' = site2.includes("['.$i2.']");';
 
 	$i++;
 }
@@ -38,7 +41,7 @@ $i = 0;
 while ($i < $chapters) {
 	$i2 = $i + 1;
 
-	echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true || fifth_check_'.$i2.' === true) {'."\n";
+	echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true || fifth_check_'.$i2.' === true || sixth_check_'.$i2.' == true) {'."\n";
 	echo '		var new_chapter_text = chapter_text + "'.$i2.'";'."\n";
 	echo '		openCity(new_chapter_text);'."\n";
 	echo '		document.getElementById(new_chapter_text).scrollIntoView();'."\n";

@@ -156,7 +156,7 @@ if ($website_name == $website_watch_history) {
 	#$every_archived_medias_button_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[5].$div_close;
 }
 
-if ($website_name == $website_things_i_do or $website_name == $website_text_maker) {
+if ($website_name == $website_things_i_do) {
 	# Include the buttons loader PHP file
 	include $computer_buttons_bar_loader;
 }

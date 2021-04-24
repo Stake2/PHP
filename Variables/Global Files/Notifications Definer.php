@@ -11,12 +11,6 @@ if ($website_has_notifications == false) {
 	$notification_script = '';
 }
 
-if ($website_name == $website_text_maker) {
-	$edit_button_script = '<script src="'.$cdnjs.'Edit Button.js"></script>';
-}
-
-else {
-	$edit_button_script = '';
-}
+$edit_button_script = '';
 
 ?>

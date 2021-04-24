@@ -30,6 +30,7 @@ $websites_tab_border_color = $border_color_black_css_class,
 
 $first_button_color = $additional_background_color,
 $second_button_color = $background_color,
+$click_button_color = $background_blue_css_class,
 
 $border_color = $default_border_color,
 $border_size = $default_border_color,

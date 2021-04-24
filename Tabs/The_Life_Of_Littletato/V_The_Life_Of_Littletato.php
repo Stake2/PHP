@@ -230,7 +230,6 @@ if ($website_has_notifications == True) {
 }
 
 $variable_inserter_array = array(
-$website_the_life_of_littletato_linked,
 $website_spaceliving_linked,
 $littletato_anime_image,
 $littletato_anime_image_link_not_cdn,

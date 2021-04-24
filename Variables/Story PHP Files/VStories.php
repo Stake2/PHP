@@ -20,18 +20,32 @@ if ($website_type == $normal_website_type and $website_name != $website_diario) 
 	$story_name = '';
 }
 
-$littletato_anime_image_link = $website_images_folder."Chapter Images/Littletato Anime.jpg";
-
 $littletato_anime_image_link_not_cdn = '<a target="_blank" href="https://static.zerochan.net/Shouin.600.1344153.jpg" class="w3-text-white">https://static.zerochan.net/Shouin.600.1344153.jpg</a>';
 
-$littletato_a_href = '<a href="'.$littletato_anime_image_link.'">';
+$littletato_anime_image_link = $website_media_images_website_images.$website_name_the_life_of_littletato."/Chapter Images/Littletato Anime.jpg";
+$littletato_anime_image = Make_Linked_Image($littletato_anime_image_link, $is_chapter_image = True);
 
-$image_style = 'align="left"';
+# ---
 
-$littletato_anime_image = "<br />".$computer_div.$littletato_a_href.'<img src="'.$littletato_anime_image_link.'" width="35%" '.$chapter_image_style.' />'."</a>".$div_close."\n".
-$mobile_div.$littletato_a_href.'<img src="'.$littletato_anime_image_link.'" width="100%" '.$chapter_image_style.' />'."</a>".$div_close;
+$human_littletato_image_link = $website_media_images_website_images.$website_name_the_life_of_littletato."/Other Images/Human Littletato.jpg";
 
-$littletato_anime_image = $littletato_anime_image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+$littletato_a_href = '<a href="'.$human_littletato_image_link.'">';
+
+$human_littletato_image = '<img src="'.$human_littletato_image_link.'" />';
+
+$human_littletato_image = "<br />".$computer_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="35%" '.$chapter_image_style.' />'."</a>".$div_close."\n".
+$mobile_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="100%" '.$chapter_image_style.' />'."</a>".$div_close;
+
+# ---
+
+$lisa_image_link = $website_media_images_website_images.$website_name_spaceliving."/Chapter Images/Lisa.jpg";
+
+$a_href = '<a href="'.$human_littletato_image_link.'">';
+
+$human_littletato_image = '<img src="'.$human_littletato_image_link.'" />';
+
+$human_littletato_image = "<br />".$computer_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="35%" '.$chapter_image_style.' />'."</a>".$div_close."\n".
+$mobile_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="100%" '.$chapter_image_style.' />'."</a>".$div_close;
 
 $titles_enus_text = 'Titles';
 $titles_ptbr_text = 'Títulos';
@@ -186,7 +200,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$crossover_next_chapter_text = "Este capítulo continua aqui";
 }
 
-$spaceliving_link_name = Language_Item_Definer_By_Array("SpaceLiving Network", "Rede SpaceLiving");
+$spaceliving_link_name = Language_Item_Definer_By_Array("SpaceLiving SpaceShip Network", "Rede EspaçoNaves SpaceLiving");
 $the_life_of_littletato_link_name = Language_Item_Definer_By_Array("The Life of Littletato", "A Vida de Pequenata");
 $read_chapter_text = Language_Item_Definer_By_Array("read-chapter-[{}]", "ler-capitulo-[{}]");
 $website_language_text = Language_Item_Definer("en-us/", "pt-br/", "pt-pt/");
@@ -214,14 +228,16 @@ if ($website_type == $story_website_type) {
 }
 
 $crossover_chapter = 10;
-$chapter_link = $website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;'.format($read_chapter_text, $crossover_chapter);
+$chapter_link = $website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;'.$crossover_chapter;
 
-$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><b><center><h3 class="w3-btn w3-blue w3-text-black shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span style="margin-left:30px;margin-right:30px;">'.$crossover_next_chapter_text.' (Crossover): '.$website_spaceliving_link.$crossover_chapter.'/</span></h3></center></b></div>';
+$span_style = 'style="margin-left:50px;margin-right:50px;"';
+
+$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_blue_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'><br />'.$crossover_next_chapter_text.' (Crossover): '.$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
 
 $crossover_chapter = 26;
-$chapter_link = $website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;'.format($read_chapter_text, $crossover_chapter);
+$chapter_link = $website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;'.$crossover_chapter;
 
-$spaceliving_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><b><center><h3 class="w3-btn '.$background_brown_css_class.' w3-text-black shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span style="margin-left:30px;margin-right:30px;">'.$crossover_next_chapter_text.' (Crossover): '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></b></div>';
+$spaceliving_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_next_chapter_text.' (Crossover): '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
 
 #Story names array
 $stories = array(

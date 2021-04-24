@@ -32,7 +32,7 @@ while ($b1 <= $story_reads_number_file) {
 	$b22 = $b1 + 1;
 	$b3 = $b1 + 2;
 
-	$story_name_reads_array[$v1] = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
+	$story_reads_array[$v1] = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 	#Reader text and name
 	$read_texts_array[7].': </b>'.$reads_text[$b1].'<br /><b>'.
 
