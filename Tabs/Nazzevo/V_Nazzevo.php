@@ -1,7 +1,7 @@
 <?php 
 
 # Folder variables
-$selected_website_url = $website_nazzevo_link;
+$selected_website_url = $website_the_story_of_the_nazzevo_brothers_link;
 $selected_website_folder = $php_tabs.ucwords($website_nazzevo).'/';
 $story_folder = $nazzevo_story_folder;
 

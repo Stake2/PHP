@@ -63,9 +63,27 @@ function Make_Linked_Image($image_link, $is_chapter_image = False) {
 	$image = "<br />".$computer_div.$a_href.'<img src="'.$image_link.'" width="35%" '.$image_style.' />'."</a>".$div_close."\n".
 $mobile_div.$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>".$div_close;
 
-	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 
 	return $image;
+}
+
+function Make_Link($link, $link_text = Null, $link_color = Null) {
+	if ($link_color == Null) {
+		$link_color = format('class="{}"', "w3-text-white");
+	}
+
+	if ($link_color != Null) {
+		$link_color = format('class="{}"', $link_color);
+	}
+
+	if ($link_text == Null) {
+		$link_text = $link;
+	}
+
+	$link = '<a '.$link_color.' href="'.$link.'">'.$link_text.'</a>';
+
+	return $link;
 }
 
 # Website Style Chooser.php file loader

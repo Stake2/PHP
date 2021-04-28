@@ -63,7 +63,7 @@ $readed_number = 12;
 #$commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 
 # TextFileReader.php File Includer
-include $text_file_reader_file_php;
+require $text_file_reader_file_php;
 
 # Story date definer using story date text file
 $story_creation_date = $story_creation_date[0];
@@ -77,8 +77,8 @@ else {
 	$story_name_website_chapter_to_write = (int)$website_chapter_to_write_setting;
 }
 
-# Re-include of the VStories.php file to set the story name
-include $story_variables_php_variable;
+# Re-require of the VStories.php file to set the story name
+require $story_variables_php_variable;
 
 # Revised chapter number
 $revised_chapter = $last_posted_chapter;
@@ -220,7 +220,7 @@ $icons[13],
 require $website_style_file;
 
 # Tab Generator.php File Includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 # Website notification variables if the website notification setting is True
 if ($website_has_notifications == True) {

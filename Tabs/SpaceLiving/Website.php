@@ -12,23 +12,23 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 	#Website settings
 	$website_has_notifications = True; #Defines if website has notifications on
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
-	$website_has_comments_tab_setting = false; #Defines if website has a Comments Tab variable
+	$website_has_comments_tab_setting = False; #Defines if website has a Comments Tab variable
 	$website_has_comments = True; #Defines the website has comments
 	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab
 	$website_has_stories_tab_setting = True; #Defines if website has a Stories Tab
-	$website_has_changelog_setting = false; #Defines if website has a changelog tab and file to be read
-	$website_show_write_form_text_setting = false; #Defines if website shows title and story text on the writing chapter
-	$website_show_chapter_text_on_write_form_setting = false; #Defines if website shows the chapter text on the writing chapter form
-	$website_hides_notification_on_clicking_on_read_tab_setting = false; #Defines if website hides the notification when you click on the "Read story" button
+	$website_has_changelog_setting = False; #Defines if website has a changelog tab and file to be read
+	$website_show_write_form_text_setting = False; #Defines if website shows title and story text on the writing chapter
+	$website_show_chapter_text_on_write_form_setting = False; #Defines if website shows the chapter text on the writing chapter form
+	$website_hides_notification_on_clicking_on_read_tab_setting = False; #Defines if website hides the notification when you click on the "Read story" button
 	$story_website_uses_chapter_opener = True; #Defines if website uses the Chapter Opener script
     $website_uses_tab_body_generator = True; #Defines if the website uses the CityBody generator
 	$site_uses_new_comment_and_read_displayer = True;
 
-	$website_write_story_setting = false; #Defines if website has a story writing chapter
-	$new_write_style = false; #Defines if the website uses the new writing style for chapters
-	$website_story_has_book_covers_setting = false; #Defines if website has book covers for the story
+	$website_write_story_setting = False; #Defines if website has a story writing chapter
+	$new_write_style = False; #Defines if the website uses the new writing style for chapters
+	$website_story_has_book_covers_setting = False; #Defines if website has book covers for the story
 	$story_has_reads = True; #Defines if the story website has "story_reads_array" number, file and elements
-	$story_has_dates = false; #Defines if the story has dates
+	$story_has_dates = False; #Defines if the story has dates
 	$website_story_has_titles = True; #Defines if the story has chapter_titles
 	$story_uses_status = True; #Defines if the story uses the story statuses
 	$story_has_chapter_comments = True; #Defines if the story has comments on the chapter
@@ -60,8 +60,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 	$found_selected_website = True;
 }
 
-else {
-	$found_selected_website = False;
-}
+#else {
+#	$found_selected_website = False;
+#}
 
 ?>

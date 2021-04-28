@@ -239,11 +239,49 @@ if ($website_has_notifications == True) {
 	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
 }
 
+$gods_warrior_still_got_something_name = Language_Item_Definer_By_Array("'Still Got Something' from God's Warrior", "'Still Got Something' do God's Warrior");
+
+$songs = array(
+"God's Warrior - Still Got Something" => '<a class="w3-text-white" href="https://www.youtube.com/watch?v=8WYMQbWUxGM">{}</a>',
+);
+
+$gods_warrior_still_got_something = format($songs["God's Warrior - Still Got Something"], "'Still Got Something'");
+$gods_warrior_still_got_something_link = Make_Link("https://www.youtube.com/watch?v=8WYMQbWUxGM", $gods_warrior_still_got_something_name);
+
+$skybreak_mizu_aurora_link = Make_Link("https://www.youtube.com/watch?v=J2P1_v9aFV8", "Skybreak & Mizu - Aurora", "w3-text-white");
+
 $variable_inserter_array = array(
+$gods_warrior_still_got_something,
+$skybreak_mizu_aurora_link,
 $website_the_life_of_littletato_linked,
+$website_the_story_of_the_nazzevo_brothers_linked,
 $human_littletato_image,
 $lisa_image,
-$spaceliving_littletato_chapter_crossover_link,
+$spaceliving_the_life_of_littletato_chapter_crossover_link,
 );
+
+$variable_inserter_replacer_array = array(
+" (".$the_life_of_littletato_link_name.")",
+);
+
+/*
+$variable_inserter_array = array(
+$gods_warrior_still_got_something_link,
+$website_the_life_of_littletato_linked,
+$website_the_story_of_the_nazzevo_brothers_linked,
+$human_littletato_image,
+$lisa_image,
+$spaceliving_the_life_of_littletato_chapter_crossover_link,
+);
+
+$variable_inserter_replacer_array = array(
+$gods_warrior_still_got_something_name,
+$the_life_of_littletato_link_name,
+$the_story_of_the_nazzevo_brothers_link_name,
+"$"."human_littletato_image;",
+"$"."lisa_image",
+$crossover_previous_chapter_text_with_link_the_life_of_littletato,
+);
+*/
 
 ?>

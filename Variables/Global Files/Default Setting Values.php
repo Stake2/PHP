@@ -61,4 +61,6 @@ $site_is_prototype = False;
 
 $alternative_website_style = False;
 
+$use_text_as_replacer = False;
+
 ?>

@@ -31,12 +31,6 @@ a:active {color: blue!important;}
 </style>';
 }
 
-if ($website_new_design_setting == True) {
-	#SuperAnimes test loader
-	require $newdesignsitephp;
-	echo $new_design_script;
-}
-
 echo "\n"."\n".'<script>
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -178,5 +172,7 @@ if ($website == $website_diario or $website_type == $story_website_type) {
 	Get_Title();
 	</script>'."\n";
 }
+
+echo '<h2 class="w3-text-white">'.print_r($reads_array).'</h2>';
 
 ?>

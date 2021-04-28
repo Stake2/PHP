@@ -64,7 +64,7 @@ $chapter_comment_and_read_displayer_php = $story_php_files_folder_variable.'Chap
 $new_chapter_comment_and_read_displayer_php = $story_php_files_folder_variable.'New Chapter Comment And Read Displayer.php';
 $story_name_details_definer_php = $story_php_files_folder_variable.'Story Details Definer.php';
 
-$reads_generator_php = $story_php_files_folder_variable.'Reads Generator.php';
+$read_generator_php = $story_php_files_folder_variable.'Read Generator.php';
 $read_modal_generator_php = $story_php_files_folder_variable.'Read Modal Generator.php';
 $comment_modal_generator_php = $story_php_files_folder_variable.'Comment Modal Generator.php';
 
@@ -84,7 +84,7 @@ $chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_dis
 $new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
 $story_name_details_definer_php_variable = $story_name_details_definer_php;
 
-$reads_generator_php_variable = $reads_generator_php;
+$reads_generator_php_variable = $read_generator_php;
 $read_modal_generator_php_variable = $read_modal_generator_php;
 $comment_modal_generator_php_variable = $comment_modal_generator_php;
 

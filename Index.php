@@ -56,15 +56,38 @@ function Open_File($file, $mode = Null) {
 	if (file_exists($file) == True) {
 		return $file = fopen($file, $mode, 'UTF-8');
 	}
+
+	else {
+		return null;
+	}
 }
 
-function Read_Lines($file) {
+function Read_Lines($file, $add_none = False) {
 	$file_read = Open_File($file);
 
-	$array = explode("\n", fread($file_read, filesize($file)));
-	$array = Remove_Text_From_String($array);
+	if ($file_read != Null) {
+		if ($add_none == False) {
+			$array = explode("\n", fread($file_read, filesize($file)));
+			$array = Remove_Text_From_String($array);
+		}
 
-	return $array;
+		if ($add_none == True) {
+			$array = array("None");
+
+			while(!feof($file_read)) {
+				$text_line = fgets($file_read);
+				$text_line = Remove_Text_From_String($text_line);
+
+				array_push($array, $text_line);
+			}
+		}
+
+		return $array;
+	}
+
+	else {
+		return null;
+	}
 }
 
 function Show_Text($file) {
@@ -239,12 +262,12 @@ $hyphen_separated_website_language = strtoupper($website_language);
 $hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 if ($site_is_prototype == False) {
-	#VGlobal.php variables file includer
+	# VGlobal.php variables file includer
 	require $vglobal_php;
 }
 
 if ($site_is_prototype == True) {
-	#VGlobal.php variables file includer
+	# VGlobal.php variables file includer
 	@require $vglobal_php;
 }
 
@@ -255,7 +278,7 @@ if ($return == False) {
 	echo $website_header;
 
 	if ($website_deactivate_tabs_setting == False and $site_is_prototype == False and $website_uses_custom_layout_setting == False) {
-		#"Tabs loader" file loader
+		# "Tabs loader" file loader
 		require $website_tabs_loader;
 	}
 

@@ -7,7 +7,9 @@ $chapter_number_3 = 0;
 $chapter_number_4 = 0;
 $chapter_number_4a = 0;
 $chapter_number_7 = 0;
-$captxtname = str_replace("s", "", $chapters_text);
+$chapter_text_name = str_replace("s", "", $chapters_text);
+
+$reads_array = array(Null);
 
 $chapter_write_to_folder = $story_chapter_files_folder_language.'Test/';
 
@@ -128,38 +130,38 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 		null,
 		);
 
-		$reads_array = array(
-		Null, #0
-		[$story_reads_array[1], $story_reads_array[2], $story_reads_array[3], $story_reads_array[5], $story_reads_array[6]], #1
-		[$story_reads_array[0], $story_reads_array[7]],
-		$story_reads_array[8],
-		$story_reads_array[9],
-		$story_reads_array[10],
-		$story_reads_array[11],
-		$story_reads_array[12],
-		$story_reads_array[13],
-		$story_reads_array[14],
-		$story_reads_array[15], #10
-		$story_reads_array[16],
-		$story_reads_array[17],
-		$story_reads_array[18],
-		$story_reads_array[19],
-		$story_reads_array[20],
-		$story_reads_array[21],
-		$story_reads_array[22],
-		$story_reads_array[23],
-		$story_reads_array[24],
-		$story_reads_array[25], #20
-		$story_reads_array[26],
-		$story_reads_array[27],
-		$story_reads_array[28],
-		Null,
-		$story_reads_array[4],
-		Null,
-		Null,
-		Null,
-		Null, # 29
-		);
+		#$reads_array = array(
+		#Null, #0
+		#[$story_reads_array[1], $story_reads_array[2], $story_reads_array[3], $story_reads_array[5], $story_reads_array[6]], #1
+		#[$story_reads_array[0], $story_reads_array[7]],
+		#$story_reads_array[8],
+		#$story_reads_array[9],
+		#$story_reads_array[10],
+		#$story_reads_array[11],
+		#$story_reads_array[12],
+		#$story_reads_array[13],
+		#$story_reads_array[14],
+		#$story_reads_array[15], #10
+		#$story_reads_array[16],
+		#$story_reads_array[17],
+		#$story_reads_array[18],
+		#$story_reads_array[19],
+		#$story_reads_array[20],
+		#$story_reads_array[21],
+		#$story_reads_array[22],
+		#$story_reads_array[23],
+		#$story_reads_array[24],
+		#$story_reads_array[25], #20
+		#$story_reads_array[26], #21
+		#$story_reads_array[27], #22
+		#$story_reads_array[28], #23
+		#$story_reads_array[21],
+		#$story_reads_array[4],
+		#Null,
+		#Null,
+		#Null,
+		#Null, # 29
+		#);
 	}
 
 	if ($website_name == $website_spaceliving) {
@@ -190,9 +192,7 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 		);
 	}
 
-	$array1 = $comments_array;
-	$array2 = $reads_array;
-	$number_variable = $chapter_number_1;
+	#$number_variable = $chapter_number_1;
 }
 
 $zw = 1;

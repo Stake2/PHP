@@ -1,12 +1,12 @@
 <?php 
 
-#Comments displayer
-if (isset($array1[$number_variable]) and is_array($array1[$number_variable]) == True and $array1[$number_variable] != null) {
+# Comments displayer
+if (isset($comments_array[$number_variable]) and is_array($comments_array[$number_variable]) == True and $comments_array[$number_variable] != Null) {
 	echo $comment_header."\n";
 
 	$c = 0;
-	while ($c <= count($array1[$number_variable]) - 1) {
-		echo $array1[$number_variable][$c]."\n";
+	while ($c <= count($comments_array[$number_variable]) - 1) {
+		echo $comments_array[$number_variable][$c]."\n";
 
 		$c++;
 	}
@@ -14,30 +14,30 @@ if (isset($array1[$number_variable]) and is_array($array1[$number_variable]) == 
 	echo $div_close."\n";
 }
 
-else if (isset($array1[$number_variable]) and $array1[$number_variable] != null) {
+else if (isset($comments_array[$number_variable]) and $comments_array[$number_variable] != Null) {
 	echo $comment_header."\n";
 
-	echo $array1[$number_variable]."\n";
+	echo $comments_array[$number_variable]."\n";
 
 	echo $div_close."\n";
 }
 
-#Readings and Reads displayer
-if (isset($array2[$number_variable]) and is_array($array2[$number_variable]) == True and $array2[$number_variable] != null) {
+# Readings and Reads displayer
+if (isset($reads_array[$number_variable]) and is_array($reads_array[$number_variable]) == True and $reads_array[$number_variable] != Null) {
 	echo $readings_header."\n";
 
-	$c = 0;
-	while ($c <= count($array2[$number_variable]) - 1) {
-		echo $array2[$number_variable][$c]."\n";
+	$c = 1;
+	while ($c <= count($reads_array[$number_variable])) {
+		echo $reads_array[$number_variable][$c]."\n";
 
 		$c++;
 	}
 }
 
-else if (isset($array2[$number_variable]) and $array2[$number_variable] != null) {
+else if (isset($reads_array[$number_variable]) and $reads_array[$number_variable] != Null) {
 	echo $readings_header."\n";
 
-	echo $array2[$number_variable]."\n";
+	echo $reads_array[$number_variable]."\n";
 }
 
 ?>

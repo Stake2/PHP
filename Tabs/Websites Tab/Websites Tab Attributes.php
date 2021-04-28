@@ -65,7 +65,7 @@ $main_website_url.$sitecodes[12].'/',
 $main_website_url.$sitecodes[13].'/',
 $website_the_life_of_littletato_link = $main_website_url.$sitecodes[14].'/',
 $website_spaceliving_link = $main_website_url.$sitecodes[15].'/',
-$website_nazzevo_link = $main_website_url.$sitecodes[16].'/',
+$website_the_story_of_the_nazzevo_brothers_link = $main_website_url.$sitecodes[16].'/',
 $website_desert_island_link = $main_website_url.$sitecodes[17].'/',
 $main_website_url.$sitecodes[18].'/',
 $main_website_url.$sitecodes[19].'/',
@@ -181,7 +181,7 @@ $yearnames = array_keys($year_code_numbes_array);
 $story_namelinks = array(
 $website_the_life_of_littletato_link,
 $website_spaceliving_link,
-$website_nazzevo_link,
+$website_the_story_of_the_nazzevo_brothers_link,
 $website_desert_island_link,
 );
 

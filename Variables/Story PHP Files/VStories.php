@@ -28,24 +28,14 @@ $littletato_anime_image = Make_Linked_Image($littletato_anime_image_link, $is_ch
 # ---
 
 $human_littletato_image_link = $website_media_images_website_images.$website_name_the_life_of_littletato."/Other Images/Human Littletato.jpg";
-
-$littletato_a_href = '<a href="'.$human_littletato_image_link.'">';
-
-$human_littletato_image = '<img src="'.$human_littletato_image_link.'" />';
-
-$human_littletato_image = "<br />".$computer_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="35%" '.$chapter_image_style.' />'."</a>".$div_close."\n".
-$mobile_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="100%" '.$chapter_image_style.' />'."</a>".$div_close;
+$human_littletato_image = Make_Linked_Image($human_littletato_image_link, $is_chapter_image = True);
 
 # ---
 
 $lisa_image_link = $website_media_images_website_images.$website_name_spaceliving."/Chapter Images/Lisa.jpg";
+$lisa_image = Make_Linked_Image($lisa_image_link, $is_chapter_image = True);
 
-$a_href = '<a href="'.$human_littletato_image_link.'">';
-
-$human_littletato_image = '<img src="'.$human_littletato_image_link.'" />';
-
-$human_littletato_image = "<br />".$computer_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="35%" '.$chapter_image_style.' />'."</a>".$div_close."\n".
-$mobile_div.$littletato_a_href.'<img src="'.$human_littletato_image_link.'" width="100%" '.$chapter_image_style.' />'."</a>".$div_close;
+# ---
 
 $titles_enus_text = 'Titles';
 $titles_ptbr_text = 'Títulos';
@@ -125,7 +115,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$crossover_next_chapter_text = "This chapter continues here";
 }
 
-#Brazilian Portuguese texts for story websites
+# Brazilian Portuguese texts for story websites
 if (in_array($website_language, $pt_languages_array)) {
 	$story_statuses = array(
 	'terminada',
@@ -196,20 +186,25 @@ if (in_array($website_language, $pt_languages_array)) {
 	$nazzevo_story_name = 'A História dos Irmãos Nazzevo',
 	$desert_island_story_name = 'Ilha Deserta',
 	);
-
-	$crossover_next_chapter_text = "Este capítulo continua aqui";
 }
 
 $spaceliving_link_name = Language_Item_Definer_By_Array("SpaceLiving SpaceShip Network", "Rede EspaçoNaves SpaceLiving");
 $the_life_of_littletato_link_name = Language_Item_Definer_By_Array("The Life of Littletato", "A Vida de Pequenata");
+$the_story_of_the_nazzevo_brothers_link_name = Language_Item_Definer_By_Array("The Story of the Nazzevo Brothers", "A História dos Irmãos Nazzevo");
 $read_chapter_text = Language_Item_Definer_By_Array("read-chapter-[{}]", "ler-capitulo-[{}]");
 $website_language_text = Language_Item_Definer("en-us/", "pt-br/", "pt-pt/");
+$crossover_next_chapter_text = Language_Item_Definer_By_Array("This chapter continues here", "Este capítulo continua aqui")." (Crossover)";
+$crossover_preivous_chapter_text = Language_Item_Definer_By_Array("Part one of this chapter", "Parte um deste capítulo")." (Crossover)";
+$reader_text = Language_Item_Definer_By_Array("Reader", "Leitor");
+
+$readers_and_reads_folder_text = "Readers and Reads/";
+$reads_folder_text = "Reads/";
 
 $chapter_div_text = $chapter_text.'-';
-$captextdiv = $chapter_tab_text.'-';
+$chapter_tab_div_text = $chapter_tab_text.'-';
 
 if ($website_type == $story_website_type) {
-	#Story status definer
+	# Story status definer
 	if ($story_status == $status[0]) {
 		$story_status = $story_statuses[0];
 	}
@@ -227,19 +222,23 @@ if ($website_type == $story_website_type) {
 	}
 }
 
+$website_the_story_of_the_nazzevo_brothers_linked = Make_Link($website_the_story_of_the_nazzevo_brothers_link, $the_story_of_the_nazzevo_brothers_link_name, $text_black_css_class);
+
 $crossover_chapter = 10;
 $chapter_link = $website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;'.$crossover_chapter;
+$crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_text.": ".$chapter_link;
 
 $span_style = 'style="margin-left:50px;margin-right:50px;"';
 
-$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_blue_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'><br />'.$crossover_next_chapter_text.' (Crossover): '.$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
+$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_blue_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'><br />'.$crossover_next_chapter_text.': '.$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
 
 $crossover_chapter = 26;
 $chapter_link = $website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;'.$crossover_chapter;
+$crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_preivous_chapter_text.": ".$chapter_link;
 
-$spaceliving_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_next_chapter_text.' (Crossover): '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
+$spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_preivous_chapter_text.': '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
 
-#Story names array
+# Story names array
 $stories = array(
 $littletato_story_name,
 $spaceliving_story_name,
@@ -247,7 +246,7 @@ $nazzevo_story_name,
 $desert_island_story_name,
 );
 
-#Story folders array
+# Story folders array
 $story_folders_array = array(
 $littletato_story_folder = 'The Life of Littletato',
 $spaceliving_story_folder = 'SpaceLiving',

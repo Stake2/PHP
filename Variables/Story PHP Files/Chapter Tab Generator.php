@@ -11,24 +11,26 @@ if ($write_new_chapter == True) {
 	array_push($chapter_titles, $chapters + 1);
 }
 
+require $read_generator_php;
+
 # Defines the top and bottom texts
 if ($website_write_story_setting == True and $story_name_website_chapter_to_write == $chapter_number_1) {
 	if ($website_story_has_titles == True) {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$captxtname.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
 	}
 
 	else {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$captxtname.': '.$chapter_number_1.'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.'</b>'."\n"."\n";
 	}
 }
 
 else {
 	if ($website_story_has_titles == True) {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$captxtname.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
 	}
 
 	else {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$captxtname.': '.$chapter_number_1.'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.'</b>'."\n"."\n";
 	}
 }
 
@@ -237,18 +239,18 @@ if ($website_story_has_book_covers_setting == True or $website_story_has_book_co
 }
 
 if ($new_write_style == False) {
-	echo '<div id="'.$captextdiv.$chapter_number_1.'" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">'."\n";
+	echo '<div id="'.$chapter_tab_div_text.$chapter_number_1.'" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" onselectstart="return false;" onmousedown="return false;">'."\n";
 }
 
 if ($new_write_style == True) {
-	echo '<div class="'.$captextdiv."class".'" id="'.$captextdiv.$chapter_number_1.'">'."\n";
+	echo '<div class="'.$chapter_tab_div_text."class".'" id="'.$chapter_tab_div_text.$chapter_number_1.'">'."\n";
 }
 
 $website_write_story_setting = False;
 
 # Chapter writer tab displayer
 if ($website_write_story_setting == True and $story_name_website_chapter_to_write == $chapter_number_1 or $website_write_story_setting == True and $story_name_website_chapter_to_write.(int)'0' == $chapter_number_1 and $chapter_number_1 != 0) {
-	echo '<div id="'.$captextdiv.$chapter_number_1.'">'."\n";
+	echo '<div id="'.$chapter_tab_div_text.$chapter_number_1.'">'."\n";
 
 	require $chapter_writer_displayer_php;
 
