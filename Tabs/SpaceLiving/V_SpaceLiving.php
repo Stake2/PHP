@@ -61,6 +61,8 @@ require $text_file_reader_file_php;
 
 $comments_number = $story_comments_check_number - 1;
 
+$readed_number = 12;
+
 #Story date definer using story date text file
 $story_creation_date = $story_creation_date[0];
 
@@ -153,8 +155,8 @@ if ($website_language == $languages_array[0]) {
 
 	$website_language = $languages_array[0];
 
-	$website_title = $story_folder;
-	$website_title_html = $story_folder.': '.$icons[11];
+	$website_title = $spaceliving_story_name;
+	$website_title_html = $spaceliving_story_name.': '.$icons[11];
 	$website_link = $website_spaceliving_link;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];

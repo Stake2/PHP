@@ -143,20 +143,6 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 		null,
 		null,
 		);
-
-		$reads_array = array(
-		null,
-		$story_reads_array[0],
-		null,
-		$story_reads_array[1],
-		$story_reads_array[2],
-		null,
-		null,
-		null,
-		null,
-		null,
-		null,
-		);
 	}
 
 	#$number_variable = $chapter_number_1;
