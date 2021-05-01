@@ -238,6 +238,8 @@ $crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_p
 
 $spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_preivous_chapter_text.': '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
 
+$spaceliving_discord_join_link = Language_Item_Definer_By_Array("https://spaceliving.netlify.app/join_the_discord/", "https://spaceliving.netlify.app/entre_no_discord/");
+
 # Story names array
 $stories = array(
 $littletato_story_name,

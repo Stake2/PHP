@@ -258,6 +258,7 @@ $website_the_story_of_the_nazzevo_brothers_linked,
 $human_littletato_image,
 $lisa_image,
 $spaceliving_the_life_of_littletato_chapter_crossover_link,
+$spaceliving_discord_join_link,
 );
 
 $variable_inserter_replacer_array = array(

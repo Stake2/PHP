@@ -173,6 +173,4 @@ if ($website == $website_diario or $website_type == $story_website_type) {
 	</script>'."\n";
 }
 
-echo '<h2 class="w3-text-white">'.print_r($reads_array).'</h2>';
-
 ?>
