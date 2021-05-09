@@ -422,10 +422,10 @@ if ($website_type == $story_website_type) {
 
 	# Language-dependent text files
 	$titles_file = $story_chapter_files_folder.$full_language.'/'."|text|".'/'."|text|".'.txt';
-	$text_to_add = Language_Item_Definer_By_Array($titles_enus_text, $titles_ptbr_text);
+	$text_to_add = Language_Item_Definer($titles_enus_text, $titles_ptbr_text);
 	$titles_file = str_replace("|text|", $text_to_add, $titles_file);
 
-	$text_to_add = Language_Item_Definer_By_Array("Reads", "Leituras");
+	$text_to_add = Language_Item_Definer("Reads", "Leituras");
 	$story_reads_file = $story_readers_and_reads_folder.$text_to_add.'.txt';
 
 	$chapters = Line_Number($titles_file);

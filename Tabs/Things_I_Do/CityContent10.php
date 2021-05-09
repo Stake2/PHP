@@ -58,14 +58,14 @@ $make2018medias = True;
 $make2019medias = false;
 $media_array_year = $site2018;
 $regeneratemedias2019 = false;
-include $mediaarraygenerator;
+require $mediaarraygenerator;
 
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 $a2018text = True;
 $a2019text = false;
 #MediaReader imported from 2018.php (MediaReader 2018.php)
-include $watched_media_reader_2018;
+require $watched_media_reader_2018;
 $website_name = $sitename2;
 
 echo $div_close."\n";
@@ -86,12 +86,12 @@ $make2019medias = True;
 $regenerate_2019_medias = True;
 $a2019 = false;
 $media_array_year = $site2019;
-include $mediaarraygenerator;
+require $mediaarraygenerator;
 
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 #MediaReader imported from 2019.php (MediaReader 2019.php)
-include $watched_media_reader_2019;
+require $watched_media_reader_2019;
 $website_name = $sitename2;
 
 echo $div_close."\n";
@@ -115,10 +115,10 @@ $website_name = $sitewatch;
 $mobileversion = false;
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+require $textfilereaderphp;
 
 #WatchedmMedia2020 Generator file includer
-include $current_year_watched_media_generator;
+require $current_year_watched_media_generator;
 
 $website_name = $sitename2;
 
@@ -174,12 +174,12 @@ $thingsidofake = True;
 $make2018medias = True;
 $make2019medias = false;
 $media_array_year = $site2018;
-include $mediaarraygenerator;
+require $mediaarraygenerator;
 
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 #MediaReader imported from 2018.php (MediaReader 2018.php)
-include $watched_media_reader_2018;
+require $watched_media_reader_2018;
 $website_name = $sitename2;
 
 echo $div_close."\n";
@@ -201,12 +201,12 @@ $make2019medias = True;
 $regenerate_2019_medias = True;
 $a2019 = false;
 $media_array_year = $site2019;
-include $mediaarraygenerator;
+require $mediaarraygenerator;
 
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 #MediaReader imported from 2019.php (MediaReader 2019.php)
-include $watched_media_reader_2019;
+require $watched_media_reader_2019;
 $website_name = $sitename2;
 
 echo $div_close."\n";
@@ -231,10 +231,10 @@ $website_name = $sitewatch;
 $mobileversion = True;
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+require $textfilereaderphp;
 
 #WatchedmMedia2020 Generator file includer
-include $current_year_watched_media_generator;
+require $current_year_watched_media_generator;
 
 $website_name = $sitename2;
 

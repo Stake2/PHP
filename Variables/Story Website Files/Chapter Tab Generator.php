@@ -26,11 +26,11 @@ if ($website_write_story_setting == True and $story_name_website_chapter_to_writ
 
 else {
 	if ($website_story_has_titles == True) {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_and_reader_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
 	}
 
 	else {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_and_reader_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.'</b>'."\n"."\n";
 	}
 }
 
@@ -69,7 +69,7 @@ if ($selected_website == $website_desert_island) {
 
 # "You're Reading [Story]" top text displayer
 if ($story_uses_status == True) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_statuses[0] and $story_status != $story_statuses[3]) {
+	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3]) {
 		echo '<div class="'.$computer_variable.'">'.'<'.$n.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$n.'>'.$div_close."\n";
 
 		echo '<div class="'.$mobile_variable.'">'.'<'.$m.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.$div_close.'</'.$m.'>'.$div_close."\n";
@@ -330,7 +330,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 # Computer "I Read it" button
 if ($story_has_reads == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$read_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$read_and_reader_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
 	echo $div_close."\n";
 	echo $big_space_mobile_and_computer;
 }
@@ -341,7 +341,7 @@ if ($story_has_chapter_comments == False and $story_has_reads == False) {
 
 # "You're Reading [Story]" bottom text
 if ($story_uses_status == True) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_statuses[0] and $story_status != $story_statuses[3]) {
+	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3]) {
 		echo '<div style="text-align:center;">'."\n".
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".
@@ -407,7 +407,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 #Mobile "I Read it" button
 if ($story_has_reads == True) {
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$read_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></'.$m.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$read_and_reader_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></'.$m.'></button>'."\n";
 	echo $div_close."\n";
 	echo '<br /><div class="'.$mobile_variable.'"><br /><br />'."\n".'</div>'."\n";
 }

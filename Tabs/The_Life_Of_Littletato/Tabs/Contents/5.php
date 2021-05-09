@@ -1,5 +1,5 @@
 <?php 
 
-include $storiesglobal;
+require $stories_tab_php;
 
 ?>

@@ -2,7 +2,7 @@
 
 function Include_Classes($class_name) {
 	$class_php_file = $class_name.".php";
-	$website_classes_folder = $GLOBALS["php_variables_website_classes"];
+	$website_classes_folder = $GLOBALS["website_classes_folder"];
 
 	$class_php_file_inside_folder = $website_classes_folder.$class_php_file;
 

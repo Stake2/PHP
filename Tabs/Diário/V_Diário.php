@@ -165,7 +165,7 @@ if (in_array($website_language, $pt_languages_array)) {
 
 # English texts for Pequenata website
 if (in_array($website_language, $en_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "You're reading",
 	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
@@ -185,7 +185,7 @@ if (in_array($website_language, $en_languages_array)) {
 
 # Brazilian Portuguese texts for Pequenata website
 if (in_array($website_language, $pt_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "Você está lendo",
 	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',

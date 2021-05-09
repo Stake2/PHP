@@ -1,5 +1,5 @@
 <?php 
 
-include $readersglobal;
+require $readersglobal;
 
 ?>

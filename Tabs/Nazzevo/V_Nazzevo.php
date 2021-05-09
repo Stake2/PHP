@@ -57,7 +57,7 @@ $author_name = 'Izaque Sanvezzo (stake2)'.' '.$whitespan.$andtxt.$spanc.' '.$pur
 #$commentsbtnm = '<a href="# '.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 
 # Text File Reader.php file includer
-include $text_file_reader_file_php;
+require $text_file_reader_file_php;
 
 # Chapters and storydate definer using Story date.txt and ChapterNumber.txt
 $chapters = $chapter_number[0];
@@ -74,8 +74,8 @@ $website_html_descriptions_array = array(
 'Sinopse: <i class="fas fa-scroll"></i> "'.$story_synopsis[1].'"<br />',
 );
 
-# Re-include of the VStories.php file to set the story name
-include $story_variables_php_variable;
+# Re-require of the VStories.php file to set the story name
+require $story_variables_php;
 
 # Texts for the English language
 if (in_array($website_language, $en_languages_array)) {
@@ -91,7 +91,7 @@ if (in_array($website_language, $en_languages_array)) {
 	# Status text definer, that sets the status text with [] around it
 	$statustxt = ucfirst($story_status);
 
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "You're reading",
 	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
@@ -142,7 +142,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	# Status text definer, that sets the status text with [] around it
 	$statustxt = ucfirst($story_status);
 
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "Você está lendo",
 	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',
@@ -246,7 +246,7 @@ $icons[13],
 require $selected_website_style_file;
 
 # Tab Generator.php includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 # Website notification variables
 if ($website_has_notifications == True) {

@@ -1,20 +1,25 @@
 <?php 
 
-#Year websites array
+/*
+# Year websites array
 $years_array = array(
-#$website_2018,
-#$website_2019,
-#$website_2020,
-#$website_2021,
+$website_2018,
+$website_2019,
+$website_2020,
+$website_2021,
 );
 
-#Links for the year websites
+# Links for the year websites
 $year_websites_links = array(
-#$main_website_url.'/'.$years_folder_variable.'/'.$website_2018.'/', 
-#$main_website_url.'/'.$years_folder_variable.'/'.$website_2019.'/', 
-#$main_website_url.'/'.$years_folder_variable.'/'.$website_2020.'/',
-#$main_website_url.'/'.$years_folder_variable.'/'.$website_2021.'/',
+$main_website_url.'/'.$years_folder_variable.'/'.$website_2018.'/', 
+$main_website_url.'/'.$years_folder_variable.'/'.$website_2019.'/', 
+$main_website_url.'/'.$years_folder_variable.'/'.$website_2020.'/',
+$main_website_url.'/'.$years_folder_variable.'/'.$website_2021.'/',
 );
+*/
+
+$years_array = array();
+$year_websites_links = array();
 
 $current_variable_year = 2018;
 

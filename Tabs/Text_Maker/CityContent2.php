@@ -14,7 +14,7 @@ echo '<div style="text-align:left;">'."\n";
 echo '<'.$n.' class="'.$textstyle.' '.$computer_variable.'" id="teste1div" style="text-align:left;">';
 echo $div_zoom_animation;
 
-include $year_maker_file_php;
+require $year_maker_file_php;
 
 echo '</'.$n.'>'."\n";
 echo $div_close."\n";
@@ -44,7 +44,7 @@ echo '<div style="text-align:left;">'."\n";
 echo '<'.$m.' class="'.$textstyle.' '.$mobile_variable.'" id="teste3div" style="text-align:left;">';
 echo $div_zoom_animation;
 
-include $year_maker_file_php;
+require $year_maker_file_php;
 
 echo '</'.$m.'>'."\n";
 echo $div_close."\n";

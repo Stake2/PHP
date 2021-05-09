@@ -1,6 +1,6 @@
 <?php 
 
-include "config.php";
+require "config.php";
 
 $upload_folder = 'upload/';
 

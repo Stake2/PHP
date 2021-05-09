@@ -41,10 +41,10 @@ $siteurlcodes = array(
 );
 
 #Story Variables php file includer
-include $story_variables_php;
+require $story_variables_php;
 
 #Watch History website texts file includer
-include $watch_texts_php;
+require $watch_texts_php;
 
 #Folder variables
 $selected_website_url = $main_website_url.$siteurlcodes[0].'/';
@@ -82,7 +82,7 @@ if (file_exists($watchedtypefile2019) == True) {
 	}
 }
 
-include $websites_tab_attributes;
+require $websites_tab_attributes;
 
 $prodbtnsnumb = 5;
 $unprodbtnsnumb = 4;
@@ -127,7 +127,7 @@ $website_html_descriptions_array = array(
 );
 
 #ThindsIDo Texts.php file includer
-include $selected_website_folder.'ThingsIDo Texts.php';
+require $selected_website_folder.'ThingsIDo Texts.php';
 
 #Buttons definer
 
@@ -172,7 +172,7 @@ $mediatabnames[1].': '.$icons[23],
 );
 
 #TabGenerator.php includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 #Website name, title, main_website_url and description setter
 if ($website_language == $languages_array[0]) {

@@ -40,7 +40,7 @@ if (isset($_GET['category']))
 			exit();
 		}
 		// <<<<<<<<<<<<<<<<<<<<
-		// Fetch the files in the category, and include them in an HTML ul list
+		// Fetch the files in the category, and require them in an HTML ul list
 		// >>>>>>>>>>>>>>>>>>>>
 		$files                    = list_files($settings, $ignored_categories_and_files);
 		if (count($files) >= 1)
@@ -79,7 +79,7 @@ if (isset($_GET['category']))
 else
 { // If no category was requested
 	// <<<<<<<<<<<<<<<<<<<<
-	// Fetch categories, and include them in a HTML ul list
+	// Fetch categories, and require them in a HTML ul list
 	// >>>>>>>>>>>>>>>>>>>>
 	$requested_category      = $translator->string('Categories');
 	$categories              = list_directories($ignored_categories_and_files);

@@ -113,7 +113,7 @@ while ($b1 <= $story_reads_number_file) {
 
 	$story_reads_array[$v1] = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 	#Reader text and name
-	$read_texts_array[7].': </b>'.$reads_text[$b1].'<br /><b>'.
+	$read_and_reader_texts_array[7].': </b>'.$reads_text[$b1].'<br /><b>'.
 
 	#Chapter text and title
 	#substr($chapters_text, 0, -1).':</b> '.$reads_text[$b22].'<br />'.'<b>'.

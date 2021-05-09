@@ -23,7 +23,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_watch_histo
 	$website_watch_history_new_watched_style_setting = True; #If website uses the new Watched Media displaying style or not
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	#Website Tabs array
 	$tabs = array('Watched', 'To Watch', 'Links', 'Movies', 'Arch', 'Changelog');
@@ -41,7 +41,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_watch_histo
 	$website_tab_number = count($tabnames) - 1;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

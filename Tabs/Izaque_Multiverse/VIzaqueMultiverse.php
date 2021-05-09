@@ -69,7 +69,7 @@ foreach ($filetextarraynames as $filename) {
 }
 
 #TextFileReader.php file includer
-include $textfilereaderphp;
+require $textfilereaderphp;
 
 if (in_array($website_language, $en_languages_array)) {
 	$placeholderdesc = 'Placeholder for the Description';
@@ -122,7 +122,7 @@ foreach ($tabnames as $tabname) {
 }
 
 #TabGenerator.php includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 #Website name, title, main_website_url and description setter
 if ($website_language == $languages_array[0]) {

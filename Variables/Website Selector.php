@@ -15,7 +15,7 @@ while ($c <= count($website_folders) - 1) {
 			$website_style_file = $website_folders[$i].'Website Style.php';
 		}
 
-		include $current_website_file;
+		require $current_website_file;
 
 		if (file_exists($website_style_file)) {
 			#require $website_style_file;

@@ -1,12 +1,12 @@
 <?php 
 
-include $year_variables_file;
+require $year_variables_file;
 
 if ($website_name == $sitethingsido) {
 	#TextFileReader.php file includer
 	$sitename2 = $website_name;
 	$website_name = $sitewatch;
-	include $textfilereaderphp;
+	require $textfilereaderphp;
 	$website_name = $sitename2;
 
 	if ($make2018medias == True and $make2019medias == false) {

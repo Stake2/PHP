@@ -61,7 +61,7 @@ if (in_array($website_language, $pt_languages_array)) {
 $story_namemakerfilephp = $php_folder_tabs.ucwords($website).'/StoryMaker.php';
 
 #YearsVars.php file includer
-include $yearsvarsfilephp;
+require $yearsvarsfilephp;
 
 #Website name, title, URL and description setter, by language
 if ($website_language == $languages_array[0]) {
@@ -101,7 +101,7 @@ if (in_array($website_language, $pt_languages_array)) {
 ob_start();
 if (file_exists($selected_website_folder.'CityContent2.php')) {
 	$file = $selected_website_folder.'CityContent2.php';
-	include $file;
+	require $file;
 }
 
 $citycontents2 = ob_get_clean();
@@ -114,6 +114,6 @@ $tabnames[2].': '.$icons[14],
 );
 
 #TabGenerator.php includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 ?>

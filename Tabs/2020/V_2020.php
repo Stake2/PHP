@@ -226,6 +226,6 @@ $website_style_file = $sitefolder_2020.'Website Style.php';
 require $website_style_file;
 
 #TabGenerator.php includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 ?>

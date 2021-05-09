@@ -40,7 +40,7 @@ function getElementByXpath(path) {
 if ($website_uses_custom_layout_setting == False) {
 	echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.$div_close."\n";
 	echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.$div_close."\n";
-	echo '<div style="display:none;" id="button_number">'.$website_tabs_number.$div_close."\n";
+	echo '<div style="display:none;" id="button_number">'.$website_tab_number.$div_close."\n";
 }
 
 if ($website_type == $story_website_type) {

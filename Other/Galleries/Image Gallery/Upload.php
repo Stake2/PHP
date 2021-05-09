@@ -3,7 +3,7 @@
 <head>
 	<?php
 
-	include("config.php");
+	require("config.php");
 
 	$upload_message_file = "Upload Message.php";
 

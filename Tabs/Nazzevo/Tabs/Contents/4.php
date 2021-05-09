@@ -1,5 +1,5 @@
 <?php 
 
-include $writeglobal;
+require $writeglobal;
 
 ?>

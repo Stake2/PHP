@@ -31,7 +31,7 @@ echo $div_close."\n";
 echo $div_close."\n";
 echo $div_close."\n";
 
-include $storiesglobal;
+require $stories_tab_php;
 
 echo $div_close."\n";
 
@@ -54,7 +54,7 @@ echo $div_close."\n";
 echo $div_close."\n";
 echo $div_close."\n";
 
-include $storiesglobal;
+require $stories_tab_php;
 
 echo $div_close."\n";
 

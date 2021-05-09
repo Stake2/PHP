@@ -1,5 +1,11 @@
 <?php 
 
+$colortext = 'w3-text-white';
+$colorsubtext = 'w3-text-orange';
+$colortext2 = 'w3-text-green';
+$bordercolor = 'w3-black';
+$colortext3 = 'w3-text-yellow';
+
 $border_1px_solid_css_class = "border_1px";
 $border_1px_solid_with_color_template = "border_1px_solid_";
 
@@ -105,10 +111,10 @@ $default_full_border = $default_border_size." ".$default_border_color." ".$defau
 
 $website_border_color = $default_border_color;
 
-#$cssbtn1 = $default_full_border;
-#$cssbtn2 = $create_border_on_hover_css_class;
-#$cssbtn5 = "borderbtnblue";
-#$classcsbtn4 = 'class="borderbtn3"';
+$cssbtn1 = $default_full_border;
+$cssbtn2 = $create_border_on_hover_css_class;
+$cssbtn5 = "borderbtnblue";
+$classcsbtn4 = 'class="borderbtn3"';
 $zoom_animation_class = 'w3-animate-zoom';
 $bottanim = 'w3-animate-bottom';
 $shake_side_to_side_animation = 'shake_side_to_side_animation';
@@ -252,15 +258,15 @@ $icon_smile_beam_painted_cyan = $cyanspan.$icon_smile_beam.$spanc;
 
 $icon_plus = '<i class="fas fa-plus"></i>';
 
-#$hstyle = 'margin:5%;';
-#$hstyle2 = 'margin:10%;border-width:3px;border-color:'.$color.';border-style:solid;';
-#$readmorestyle = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
-#$marginstyle2m = 'style="margin-right:32%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
-#$marginstyle2m2 = 'style="margin-right:35%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
-#$margincss1 = 'margin-left:11%;margin-right:11%;';
-#$margincss2 = 'margin-left:10%;margin-right:10%;';
-#$margincss3 = 'margin-left:5%;margin-right:5%;';
-#$readmorestylem = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
+$hstyle = 'margin:5%;';
+$hstyle2 = 'margin:10%;border-width:3px;border-color:'.$color.';border-style:solid;';
+$readmorestyle = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
+$marginstyle2m = 'style="margin-right:32%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
+$marginstyle2m2 = 'style="margin-right:35%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
+$margincss1 = 'margin-left:11%;margin-right:11%;';
+$margincss2 = 'margin-left:10%;margin-right:10%;';
+$margincss3 = 'margin-left:5%;margin-right:5%;';
+$readmorestylem = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
 
 $color2 = 'yellow';
 $sitewhilestyle = $color2;

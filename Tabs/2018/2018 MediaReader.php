@@ -94,7 +94,7 @@ if ($website_name == $site2018) {
 }
 
 #YearMaker2.php reader
-include $year_maker_file_php_2_test;
+require $year_maker_file_php_2_test;
 
 print_r($medias);
 
@@ -128,7 +128,7 @@ while ($a < $a2) {
 }
 
 while ($e < $watched_movies_number) {
-	include $mediastyler;
+	require $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2018[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
@@ -165,7 +165,7 @@ while ($a < $a2) {
 }
 
 while ($e < $watched_cartoons_number) {
-	include $mediastyler;
+	require $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2018[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
@@ -202,7 +202,7 @@ while ($a < $a2) {
 }
 
 while ($e < $watched_series_number) {
-	include $mediastyler;
+	require $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2018[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
@@ -238,7 +238,7 @@ while ($a < $a2) {
 }
 
 while ($e < $watched_animes_number) {
-	include $mediastyler;
+	require $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2018[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;
@@ -274,7 +274,7 @@ while ($a < $a2) {
 }
 
 while ($e < $watched_videos_number) {
-	include $mediastyler;
+	require $mediastyler;
 
 	$echostyle = '<span class="'.$text_hover_white_css_class.'">'.$namespan.' - '.$watchedfile2018[$i[$e]].$spanc."<br />"."\n";
 	echo $echostyle;

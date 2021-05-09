@@ -74,8 +74,8 @@ else {
 	$story_name_website_chapter_to_write = (int)$website_chapter_to_write_setting;
 }
 
-#Re-include of the StoryVars.php file to set the story name
-require $story_variables_php_variable;
+# Re-require of the StoryVars.php file to set the story name
+require $story_variables_php;
 
 # Revised chapter number
 $revised_chapter = $last_posted_chapter;
@@ -99,7 +99,7 @@ if ($website_story_has_book_covers_setting == True) {
 
 #English texts for Pequenata website
 if (in_array($website_language, $en_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "You're reading",
 	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
@@ -121,7 +121,7 @@ if (in_array($website_language, $en_languages_array)) {
 
 #Brazilian Portuguese texts for Pequenata website
 if (in_array($website_language, $pt_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "Você está lendo",
 	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',
@@ -240,7 +240,7 @@ if ($website_has_notifications == True) {
 	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
 }
 
-$gods_warrior_still_got_something_name = Language_Item_Definer_By_Array("'Still Got Something' from God's Warrior", "'Still Got Something' do God's Warrior");
+$gods_warrior_still_got_something_name = Language_Item_Definer("'Still Got Something' from God's Warrior", "'Still Got Something' do God's Warrior");
 
 $songs = array(
 "God's Warrior - Still Got Something" => '<a class="w3-text-white" href="https://www.youtube.com/watch?v=8WYMQbWUxGM">{}</a>',
@@ -252,7 +252,7 @@ $gods_warrior_still_got_something_link = Make_Link("https://www.youtube.com/watc
 $skybreak_mizu_aurora_link = Make_Link("https://www.youtube.com/watch?v=J2P1_v9aFV8", "Skybreak & Mizu - Aurora", "w3-text-white");
 $panda_eyes_take_my_hand_ft_azuria_sky_zane_remix = Make_Link("https://www.youtube.com/watch?v=OCIEd71mViM", "Panda Eyes - Take My Hand Ft. Azuria Sky (Z∆NE Remix)", $text_white_css_class);
 
-$tom_and_jerrys_2021_soundtrack_playlist_name = Language_Item_Definer_By_Array("the soundtrack of the Tom & Jerry movie from 2021", "a trilha sonora do filme Tom e Jerry de 2021");
+$tom_and_jerrys_2021_soundtrack_playlist_name = Language_Item_Definer("the soundtrack of the Tom & Jerry movie from 2021", "a trilha sonora do filme Tom e Jerry de 2021");
 $tom_and_jerrys_2021_soundtrack_playlist = Make_Link("https://www.youtube.com/playlist?list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa", $tom_and_jerrys_2021_soundtrack_playlist_name, $text_white_css_class);
 $tom_and_jerry_2021_married_in_the_park = Make_Link("https://www.youtube.com/watch?v=cAlTw8szj6Q&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=42", "Tom & Jerry 2021 - Married In The Park", $text_white_css_class);
 $tom_and_jerry_2021_the_weddings_off = Make_Link("https://www.youtube.com/watch?v=SCxnA10GOMA&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=40", "Tom & Jerry 2021 - The Wedding's Off", $text_white_css_class);

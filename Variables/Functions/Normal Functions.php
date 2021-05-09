@@ -42,7 +42,7 @@ function Word_Number($file) {
 	return $words;
 }
 
-function Language_Item_Definer($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False) {
+function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False) {
 	global $website_language;
 	global $language_enus;
 	global $language_ptbr;
@@ -65,7 +65,7 @@ function Language_Item_Definer($enus_item, $ptbr_item, $ptpt_item, $same_from_pt
 	}
 }
 
-function Language_Item_Definer_By_Array($english_variable, $portuguese_variable) {
+function Language_Item_Definer($english_variable, $portuguese_variable) {
 	global $website_language;
 	global $en_languages_array;
 	global $pt_languages_array;
@@ -134,7 +134,14 @@ function Create_Element($element, $class, $text) {
 
 	$element_prototype = '<{} class="{}">{}</{}>';
 
-	return format($element_prototype, $element, $classes, $text, $element);
+	$parameters = array(
+	$element,
+	$class,
+	$text,
+	$element,
+	);
+
+	return format($element_prototype, $parameters);
 }
 
 function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
@@ -144,11 +151,12 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	global $readers;
 	global $n;
 	global $m;
-	global $hover_variable;
+	global $text_hover_white_css_class;
 	global $zoom_animation_class;
+	global $span_element;
 
 	$classes = array(
-	$hover_variable,
+	$text_hover_white_css_class,
 	$zoom_animation_class,
 	$computer_variable,
 	);
@@ -172,7 +180,7 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	echo "\n";
 
 	$classes = array(
-	$hover_variable,
+	$text_hover_white_css_class,
 	$zoom_animation_class,
 	$mobile_variable,
 	);

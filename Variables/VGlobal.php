@@ -4,8 +4,8 @@
 $website_folder = strtolower($website);
 $website = $website_folder;
 
-$folder_and_website_variables_php = $php_vars_global_files.'Folder And Website Variables.php';
-$php_files_php = $php_vars_global_files.'PHP Files.php';
+$folder_and_website_variables_php = $global_files_folder.'Folder And Website Variables.php';
+$php_files_php = $global_files_folder.'PHP Files.php';
 
 # Folder And Website Variables PHP file loader
 require $folder_and_website_variables_php;
@@ -39,6 +39,8 @@ require $notifications_definer_php;
 # Website CSS and Javascript definer
 require $website_css_and_javascript_definer_php;
 
+require $elements_file;
+
 # Global CSS variables loader
 require $global_style_file_php;
 
@@ -51,11 +53,14 @@ if ($website_uses_custom_layout_setting == False) {
 }
 
 if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
-	#SitesButtons Attributes.php includer
+	# Story variables PHP file includer if the website is a story website
+	require $story_variables_php;
+
+	# Websites Tab Attributes.php includer
 	require $websites_tab_attributes;
 
-	#Story variables PHP file includer if the website is a story website
-	require $story_variables_php_variable;
+	# Story variables PHP file includer if the website is a story website
+	require $story_variables_php;
 }
 
 # VYears.php file loader for YearsSites

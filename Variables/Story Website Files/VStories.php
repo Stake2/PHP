@@ -1,9 +1,9 @@
 <?php 
 
-#Stories numb
+# Stories number
 $stories_number = 4;
 
-#Story status text array
+# Story status text array
 $status = array(
 'finished',
 'writing',
@@ -18,6 +18,14 @@ $status_finished_and_publishing = $status[3];
 
 if ($website_type == $normal_website_type and $website_name != $website_diario) {
 	$story_name = '';
+}
+
+if (isset($story_name) == False) {
+	$story_name = "";
+}
+
+if (isset($story_status) == False) {
+	$story_status = "";
 }
 
 $littletato_anime_image_link_not_cdn = '<a target="_blank" href="https://static.zerochan.net/Shouin.600.1344153.jpg" class="w3-text-white">https://static.zerochan.net/Shouin.600.1344153.jpg</a>';
@@ -40,44 +48,86 @@ $lisa_image = Make_Linked_Image($lisa_image_link, $is_chapter_image = True);
 $titles_enus_text = 'Titles';
 $titles_ptbr_text = 'Títulos';
 
+$english = array(
+'finished',
+'writing',
+'revising and editing',
+'finished and publishing',
+);
+
+$brazilian_portuguese = array(
+'terminada',
+'escrevendo',
+'revisando e editando',
+'terminada e postando',
+);
+
+$story_status_texts = Language_Item_Definer($english, $brazilian_portuguese);
+
+$english = array(
+$reading_text = "You're reading",
+$reading_text.': '.ucwords($story_name),
+'I Read It ✓',
+'I read the Chapter',
+'Read the Chapter',
+'Readings',
+'Readers',
+'Reader',
+);
+
+$brazilian_portuguese = array(
+$reading_text = "Você está lendo",
+$reading_text.': '.ucwords($story_name),
+'Eu li ✓',
+'Eu li o Capítulo',
+'Leu o Capítulo',
+'Leituras',
+'Leitores',
+'Leitor',
+);
+
+$read_and_reader_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
+
+$i_read_it_text = Language_Item_Definer("I Read It ✓", "Eu Li ✓");
+
+$english = array(
+'Comment',
+'Comment',
+'Commented',
+'in the',
+'on',
+'Say what you think about the story',
+'Say what you think about the chapter',
+);
+
+$brazilian_portuguese = array(
+'Comentário',
+'Comentar',
+'Comentado',
+'no',
+'em',
+'Comente o que achou da história',
+'Comente o que achou do capítulo',
+);
+
+$comments_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
+
+$english = array(
+'Write',
+'Write the Chapter',
+substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
+);
+
+$write_texts_array = array(
+'Escrever',
+'Escreva o capítulo',
+substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
+);
+
+$write_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
+
 # English texts for story websites
 if (in_array($website_language, $en_languages_array)) {
-	$story_statuses = array(
-	'finished',
-	'writing',
-	'revising and editing',
-	'finished and publishing',
-	);
-
-	$read_texts_array = array(
-	$reading_text = "You're reading",
-	$reading_text.': '.ucwords($story_name),
-	'I Read It ✓',
-	'I read the Chapter',
-	'Read the Chapter',
-	'Readings',
-	'Readers',
-	'Reader',
-	);
-
-	$i_read_it_text = "I Read It ✓";
-
-	$comments_texts_array = array(
-	'Comment',
-	'Comment',
-	'Commented',
-	'in the',
-	'on',
-	'Say what you think about the story',
-	'Say what you think about the chapter',
-	);
-
-	$write_texts_array = array(
-	'Write',
-	'Write the Chapter',
-	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
-	);
-
 	$chapter_text = 'chapter';
 	$chapter_tab_text = $chapter_text.'-text';
 
@@ -117,42 +167,6 @@ if (in_array($website_language, $en_languages_array)) {
 
 # Brazilian Portuguese texts for story websites
 if (in_array($website_language, $pt_languages_array)) {
-	$story_statuses = array(
-	'terminada',
-	'escrevendo',
-	'revisando e editando',
-	'terminada e postando',
-	);
-
-	$read_texts_array = array(
-	$reading_text = "Você está lendo",
-	$reading_text.': '.ucwords($story_name),
-	'Eu li ✓',
-	'Eu li o Capítulo',
-	'Leu o Capítulo',
-	'Leituras',
-	'Leitores',
-	'Leitor',
-	);
-
-	$i_read_it_text = "Eu Li ✓";
-
-	$comments_texts_array = array(
-	'Comentário',
-	'Comentar',
-	'Comentado',
-	'no',
-	'em',
-	'Comente o que achou da história',
-	'Comente o que achou do capítulo',
-	);
-
-	$write_texts_array = array(
-	'Escrever',
-	'Escreva o capítulo',
-	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
-	);
-
 	$chapter_text = 'capítulo';
 	$chapter_tab_text = 'texto-'.$chapter_text;
 
@@ -188,21 +202,21 @@ if (in_array($website_language, $pt_languages_array)) {
 	);
 }
 
-$spaceliving_link_name = Language_Item_Definer_By_Array("SpaceLiving SpaceShip Network", "Rede de EspaçoNaves SpaceLiving");
-$the_life_of_littletato_link_name = Language_Item_Definer_By_Array("The Life of Littletato", "A Vida de Pequenata");
-$the_story_of_the_nazzevo_brothers_link_name = Language_Item_Definer_By_Array("The Story of the Nazzevo Brothers", "A História dos Irmãos Nazzevo");
-$read_chapter_text = Language_Item_Definer_By_Array("read-chapter-[{}]", "ler-capitulo-[{}]");
-$website_language_text = Language_Item_Definer("en-us/", "pt-br/", "pt-pt/");
-$crossover_next_chapter_text = Language_Item_Definer_By_Array("This chapter continues here", "Este capítulo continua aqui")." (Crossover)";
-$crossover_preivous_chapter_text = Language_Item_Definer_By_Array("Part one of this chapter", "Parte um deste capítulo")." (Crossover)";
-$reader_text = Language_Item_Definer_By_Array("Reader", "Leitor");
+$spaceliving_link_name = Language_Item_Definer("SpaceLiving SpaceShip Network", "Rede de EspaçoNaves SpaceLiving");
+$the_life_of_littletato_link_name = Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata");
+$the_story_of_the_nazzevo_brothers_link_name = Language_Item_Definer("The Story of the Nazzevo Brothers", "A História dos Irmãos Nazzevo");
+$read_chapter_text = Language_Item_Definer("read-chapter-[{}]", "ler-capitulo-[{}]");
+$website_language_text = Language_Item_Definer_Per_Language("en-us/", "pt-br/", "pt-pt/");
+$crossover_next_chapter_text = Language_Item_Definer("This chapter continues here", "Este capítulo continua aqui")." (Crossover)";
+$crossover_preivous_chapter_text = Language_Item_Definer("Part one of this chapter", "Parte um deste capítulo")." (Crossover)";
+$reader_text = Language_Item_Definer("Reader", "Leitor");
 
 $readers_and_reads_folder_text = "Readers and Reads/";
 $reads_folder_text = "Reads/";
 
-$till_chapter_nine_text = Language_Item_Definer_By_Array("till chapter nine", "até o capítulo nove");
-$chapter_ten_text = Language_Item_Definer_By_Array("chapter number ten", "capítulo número dez");
-$chapter_twenty_six_text = Language_Item_Definer_By_Array("chapter number twenty-six", "capítulo número vinte e seis");
+$till_chapter_nine_text = Language_Item_Definer("till chapter nine", "até o capítulo nove");
+$chapter_ten_text = Language_Item_Definer("chapter number ten", "capítulo número dez");
+$chapter_twenty_six_text = Language_Item_Definer("chapter number twenty-six", "capítulo número vinte e seis");
 
 $chapter_div_text = $chapter_text.'-';
 $chapter_tab_div_text = $chapter_tab_text.'-';
@@ -210,70 +224,79 @@ $chapter_tab_div_text = $chapter_tab_text.'-';
 if ($website_type == $story_website_type) {
 	# Story status definer
 	if ($story_status == $status[0]) {
-		$story_status = $story_statuses[0];
+		$story_status = $story_status_texts[0];
 	}
 	
 	if ($story_status == $status[1]) {
-		$story_status = $story_statuses[1];
+		$story_status = $story_status_texts[1];
 	}
 	
 	if ($story_status == $status[2]) {
-		$story_status = $story_statuses[2];
+		$story_status = $story_status_texts[2];
 	}
 	
 	if ($story_status == $status[3]) {
-		$story_status = $story_statuses[3];
+		$story_status = $story_status_texts[3];
 	}
 }
 
-$website_the_story_of_the_nazzevo_brothers_linked = Make_Link($website_the_story_of_the_nazzevo_brothers_link, $the_story_of_the_nazzevo_brothers_link_name, $text_white_css_class);
+if (isset($website_spaceliving_link)) {
+	$crossover_chapter = 10;
+	$chapter_link = $website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;('.$crossover_chapter.")";
+	$crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_text.": ".$chapter_link;
 
-$crossover_chapter = 10;
-$chapter_link = $website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;('.$crossover_chapter.")";
-$crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_text.": ".$chapter_link;
+	$span_style = 'style="margin-left:50px;margin-right:50px;"';
 
-$span_style = 'style="margin-left:50px;margin-right:50px;"';
+	$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_blue_css_class.' '.$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'><br />'.$crossover_next_chapter_text.': '.$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
+}
 
-$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_blue_css_class.' '.$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'><br />'.$crossover_next_chapter_text.': '.$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
+if (isset($website_the_life_of_littletato_link)) {
+	$crossover_chapter = 26;
+	$chapter_link = $website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;('.$crossover_chapter.")";
+	$crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_preivous_chapter_text.": ".$chapter_link;
 
-$crossover_chapter = 26;
-$chapter_link = $website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;('.$crossover_chapter.")";
-$crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_preivous_chapter_text.": ".$chapter_link;
+	$spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_preivous_chapter_text.': '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
+}
 
-$spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_preivous_chapter_text.': '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
+$website_subdomain_name = "spaceliving";
+$normal_link = $https_text.$website_subdomain_name.$netlify_url."/";
 
-$spaceliving_discord_join_link = Language_Item_Definer_By_Array("https://spaceliving.netlify.app/join_the_discord/", "https://spaceliving.netlify.app/entre_no_discord/");
+$spaceliving_discord_join_link = Language_Item_Definer($normal_link."join_the_discord/", $normal_link."entre_no_discord/");
 
 $the_life_of_littletato_chapter_links = array(Null);
 
-$i = 1;
-while ($i <= 26) {
-	$local_story_name = "the_life_of_littletato";
+if (isset($website_the_life_of_littletato_link)) {
+	$i = 1;
+	while ($i <= 26) {
+		$local_story_name = "the_life_of_littletato";
 
-	$chapter_link = Make_Link($website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;('.$i.")", $chapter_twenty_six_text, $text_white_css_class);
+		$chapter_link = Make_Link($website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;('.$i.")", $chapter_twenty_six_text, $text_white_css_class);
 
-	${$local_story_name."_chapter_".$i} = $chapter_link;
-	array_push($the_life_of_littletato_chapter_links, $chapter_link);
+		${$local_story_name."_chapter_".$i} = $chapter_link;
+		array_push($the_life_of_littletato_chapter_links, $chapter_link);
 
-	$i++;
+		$i++;
+	}
 }
 
 $spaceliving_chapter_links = array(Null);
 
-$i = 1;
-while ($i <= 15) {
-	$local_story_name = "spaceliving";
+if (isset($website_spaceliving_link)) {
+	$i = 1;
+	while ($i <= 15) {
+		$local_story_name = "spaceliving";
 
-	$chapter_link = Make_Link($website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;('.$i.")", $till_chapter_nine_text, $text_white_css_class);
+		$chapter_link = Make_Link($website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;('.$i.")", $till_chapter_nine_text, $text_white_css_class);
 
-	if ($i == 10) {
-		$chapter_link = Make_Link($website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;('.$i.")", $chapter_ten_text, $text_white_css_class);
+		if ($i == 10) {
+			$chapter_link = Make_Link($website_spaceliving_link.$website_language_text.'?no-redirect=true&amp;('.$i.")", $chapter_ten_text, $text_white_css_class);
+		}
+
+		${$local_story_name."_chapter_".$i} = $chapter_link;
+		array_push($spaceliving_chapter_links, $chapter_link);
+
+		$i++;
 	}
-
-	${$local_story_name."_chapter_".$i} = $chapter_link;
-	array_push($spaceliving_chapter_links, $chapter_link);
-
-	$i++;
 }
 
 # Story names array
@@ -304,8 +327,8 @@ if ($website_type == $story_website_type) {
 	
 	$readings_header = $computer_div.'<br />'.$div_close.
 	$mobile_div.'<br />'.$div_close.
-	$computer_div.'<'.$n.'><b>'.$read_texts_array[5].': ✓</b></'.$n.'>'.$div_close.
-	$mobile_div.'<'.$m.'><b>'.$read_texts_array[5].': ✓</b></'.$m.'>'.$div_close.
+	$computer_div.'<'.$n.'><b>'.$read_and_reader_texts_array[5].': ✓</b></'.$n.'>'.$div_close.
+	$mobile_div.'<'.$m.'><b>'.$read_and_reader_texts_array[5].': ✓</b></'.$m.'>'.$div_close.
 	''.
 	$computer_div.'<br /><br />'.$div_close.
 	$mobile_div.'<br /><br />'.$div_close;
@@ -368,13 +391,13 @@ $nazzevo_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_cla
 
 $desert_island_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$desert_island_background.'" href="'.$desert_island_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$desert_island_text.'"><b>'.$desert_island_story_name.'</b></'.$size_variable.'><img class="'.$desert_island_border.'" src="'.$desert_island_image_link.'" width="230" style="'.$story_image_style.'"><br /><br /></a><br />';
 
-$story_name_cards_computer = "\n".
+$story_cards_computer = "\n".
 $littletato_story_card_computer."<br />"."\n"."\n".
 $spaceliving_story_card_computer."<br />"."\n"."\n".
 $nazzevo_story_card_computer."<br />"."\n"."\n".
 $desert_island_story_card_computer."\n";
 
-$story_name_cards_mobile = "\n".
+$story_cards_mobile = "\n".
 $littletato_story_card_mobile."<br />"."\n"."\n".
 $spaceliving_story_card_mobile."<br />"."\n"."\n".
 $nazzevo_story_card_mobile."<br />"."\n"."\n".

@@ -36,8 +36,6 @@ $main_php_folder = $mega_folder.'PHP/';
 $php_folder_tabs = $main_php_folder."Tabs/";
 $php_folder_variables = $main_php_folder."Variables/";
 
-$generic_tabs_folder = $php_folder_tabs."Generic Tabs/";
-$global_tabs_folder = $php_folder_tabs."Global Tabs/";
 $global_files_folder = $php_folder_variables."Global Files/";
 
 $main_php_folders = $global_files_folder."Main PHP Folders.php";
@@ -63,22 +61,24 @@ require $website_arrays_generator_php;
 # Year Arrays PHP file loader
 require $year_arrays_php;
 
-# Default Setting Values file include
+# Default Setting Values file require
 require $default_setting_values_php;
 
-# Website Language Definer file include
+# Website Language Definer file require
 require $website_language_definer_php;
 
 # Variable Inserter PHP file loader
 require $variable_inserter_php;
 
-# Website selector file include
+# Website selector file require
 require $website_selector_file;
 
 $website_title = $website_titles_array[$selected_website_number];
 $website_type = $website_types_array[$selected_website_number];
 
-# VGlobal.php variables file include
+$vglobal_php = $php_folder_variables.'VGlobal.php';
+
+# VGlobal.php variables file require
 require $vglobal_php;
 
 if ($return == False) {

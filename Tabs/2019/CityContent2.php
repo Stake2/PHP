@@ -1,5 +1,5 @@
 <?php 
 
-include $watched_media_reader_2019;
+require $watched_media_reader_2019;
 
 ?>

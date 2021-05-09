@@ -49,7 +49,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_desert_isla
 	}
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	#Website Tabs array
 	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories');
@@ -68,7 +68,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_desert_isla
 	$tabnumb2 = $website_tab_number;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

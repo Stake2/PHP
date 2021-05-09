@@ -106,7 +106,7 @@ if ($story_has_dates == True) {
 echo "\n";
 
 if ($story_has_reads == True and $story_website_contains_reads == True) {
-	require $reads_generator_php_variable;
+	require $read_generator_php;
 
 	$h = $readed_number;
 }
@@ -184,12 +184,12 @@ while ($chapter_number_1 <= $chapters) {
 
 if ($story_has_reads == True) {
 	#Read-modal Tab generator PHP file
-	require $read_modal_generator_php_variable;
+	require $read_modal_generator_php;
 }
 
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	#Comment-modal Tab generator PHP file
-	require $comment_modal_generator_php_variable;
+	require $comment_modal_generator_php;
 }
 
 ?>

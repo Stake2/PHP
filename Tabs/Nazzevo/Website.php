@@ -41,7 +41,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_nazzevo) ==
 	$website_tab_number = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

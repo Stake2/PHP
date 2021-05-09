@@ -16,7 +16,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_things_i_do
 	$website_has_stories_tab_setting = True; #If website has a Stories Tab
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	#Website Tabs array
 	$tabs = array('Productive Things', 'Not Productive Things');
@@ -34,7 +34,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_things_i_do
 	$website_tab_number = count($tabs) - 1;
 
 	# Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

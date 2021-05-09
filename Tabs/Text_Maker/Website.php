@@ -12,7 +12,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_text_maker)
 	$website_uses_tab_body_generator = false;
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	#Website Tabs array
 	$tabs = array('Output', 'My Year', 'My Stories');
@@ -30,7 +30,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_text_maker)
 	$website_tab_number = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

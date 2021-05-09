@@ -82,11 +82,11 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 
 # Story website header generator
 if ($website_type == $story_website_type and $website_uses_custom_layout_setting == False) {
-	if ($story_status != $story_statuses[1] or $story_status != $story_statuses[2]) {
+	if ($story_status != $story_status_texts[1] or $story_status != $story_status_texts[2]) {
 		$new_chapter_text = '';
 	}
 
-	if ($story_status == $story_statuses[1] or $story_status == $story_statuses[2]) {
+	if ($story_status == $story_status_texts[1] or $story_status == $story_status_texts[2]) {
 		$new_chapter_text = '<span class="'.$third_text_color.'">'.' ['.$newtxt.'!]'.$spanc;
 	}
 
@@ -99,7 +99,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
-	$read_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
+	$read_and_reader_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
 	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
 	'</div>'."\n";

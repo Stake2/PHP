@@ -87,6 +87,6 @@ $tabnames[3].': '.$icons[3],
 );
 
 #TabGenerator.php includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 ?>

@@ -41,7 +41,7 @@ echo '
 				</div>
 				<ul class="menu" style="display: none;">';
 
-include $chapter_button_generator_php;
+require $chapter_button_generator_php;
 
 echo '
 					<i>&nbsp;</i>
@@ -68,7 +68,7 @@ echo '<script type="text/javascript" language="javascript">'."
 echo '
 <div class="conteudoBox">';
 
-include $chapters_generator_php;
+require $chapters_generator_php;
 
 echo '</div>
 </div>

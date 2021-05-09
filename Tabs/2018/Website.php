@@ -10,7 +10,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2018) == Tr
 	$choosed_website_css_file = $css_file_pocb;
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	$tabs = array($current_year, 'Media', 'Tasks', 'Years');
 
@@ -25,7 +25,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2018) == Tr
 	$website_tab_number = 3;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

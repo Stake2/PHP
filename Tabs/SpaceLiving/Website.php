@@ -37,7 +37,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 	$story_website_contains_comments = True; #Defines if the story has comments on it
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	#Website Tabs array
 	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories');
@@ -55,13 +55,9 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 	$website_tab_number = count($tabs) - 1;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 	
 	$found_selected_website = True;
 }
-
-#else {
-#	$found_selected_website = False;
-#}
 
 ?>

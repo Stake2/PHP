@@ -1,7 +1,7 @@
 <?php
 
 # Include Websites Tabs Attributes.php
-include $websites_tab_attributes;
+require $websites_tab_attributes;
 
 if ($website == $website_diario) {
 	$websites_tab_name_text = 'w3-text-white';

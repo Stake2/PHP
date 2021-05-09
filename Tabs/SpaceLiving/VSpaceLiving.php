@@ -118,8 +118,8 @@ else {
 	$story_name_website_chapter_to_write = (int)$website_chapter_to_write_setting;
 }
 
-#Re-include of the StoryVars.php file to set the story name
-require $story_variables_php_variable;
+#Re-require of the StoryVars.php file to set the story name
+require $story_variables_php;
 
 #Revised chapter number
 $revised_chapter = 5;
@@ -143,7 +143,7 @@ if ($website_story_has_book_covers_setting == True) {
 
 #English texts for Pequenata website
 if (in_array($website_language, $en_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "You're reading",
 	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
@@ -165,7 +165,7 @@ if (in_array($website_language, $en_languages_array)) {
 
 #Brazilian Portuguese texts for Pequenata website
 if (in_array($website_language, $pt_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "Você está lendo",
 	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',

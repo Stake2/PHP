@@ -80,7 +80,7 @@ $website_html_descriptions_array = array(
 );
 
 #Year texts and YearNumbs.txt reader
-include $year_variables_file;
+require $year_variables_file;
 
 #General language website_name, title, main_website_url and description
 if ($website_language == $languages_array[0]) {
@@ -188,14 +188,14 @@ if (isset($year_made_tasks_filetxt)) {
 }
 
 #TextFileReader.php file includer
-include $text_file_reader_file_php;
+require $text_file_reader_file_php;
 
 #$a2019 = false;
 #$regenerate_2019_medias = 'a';
 #$generate2019 = True;
 #YearMaker2.php reader
 #ob_start();
-#include $year_maker_2_file;
+#require $year_maker_2_file;
 #$year_maker_2_file = ob_get_clean();
 
 ?>

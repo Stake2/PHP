@@ -12,7 +12,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2019) == Tr
 	$website_uses_tab_body_generator = True;
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	$tabs = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 
@@ -27,7 +27,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2019) == Tr
 	$website_tab_number = count($tabnames) - 1;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

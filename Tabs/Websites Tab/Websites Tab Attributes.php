@@ -74,9 +74,9 @@ $main_website_url.$sitecodes[21].'/',
 $website_website_status_link = $main_website_url.$sitecodes[21].'/',
 );
 
-$spaceliving_link_name = Language_Item_Definer_By_Array("SpaceLiving SpaceShip Network", "Rede SpaceLiving");
+$spaceliving_link_name = Language_Item_Definer("SpaceLiving SpaceShip Network", "Rede SpaceLiving");
 $spaceliving_link_name_alternate = "SpaceLiving";
-$the_life_of_littletato_link_name = Language_Item_Definer_By_Array("The Life of Littletato", "A Vida de Pequenata");
+$the_life_of_littletato_link_name = Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata");
 
 $website_spaceliving_link_a = '<a href="'.$website_spaceliving_link.'" target="_blank" class="w3-text-white">{}</a>';
 $website_spaceliving_linked = format($website_spaceliving_link_a, $spaceliving_link_name);
@@ -84,6 +84,9 @@ $website_spaceliving_linked_alternate = format($website_spaceliving_link_a, $spa
 
 $website_the_life_of_littletato_linked = '<a href="'.$website_the_life_of_littletato_link.'" target="_blank" class="w3-text-white">{}</a>';
 $website_the_life_of_littletato_linked = format($website_the_life_of_littletato_linked, $the_life_of_littletato_link_name);
+
+$the_story_of_the_nazzevo_brothers_link_name = Language_Item_Definer("The Story of the Nazzevo Brothers", "A História dos Irmãos Nazzevo");
+$website_the_story_of_the_nazzevo_brothers_linked = Make_Link($website_the_story_of_the_nazzevo_brothers_link, $the_story_of_the_nazzevo_brothers_link_name, $text_white_css_class);
 
 $story_namenames2 = array(
 $sitename_pequenata = $littletato_story_name.' '.$siteicons[0],

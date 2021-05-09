@@ -15,7 +15,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_izaque_mult
 	$tabs = array();
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	if (in_array($website_language, $en_languages_array)) {
 		$tabnames = array('First Tab');
@@ -39,7 +39,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_izaque_mult
 	$tabnumb2 = $website_tab_number;
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 }
 
 ?>

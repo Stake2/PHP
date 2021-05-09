@@ -14,7 +14,7 @@ echo '<div style="text-align:left;">'."\n";
 echo '<'.$n.' class="'.$textstyle.' '.$computer_variable.'" id="teste2div" style="text-align:left;">';
 echo $div_zoom_animation;
 
-include $story_namemakerfilephp;
+require $story_namemakerfilephp;
 
 echo '</'.$n.'>'."\n";
 echo $div_close."\n";
@@ -44,7 +44,7 @@ echo '<div style="text-align:left;">'."\n";
 echo '<'.$m.' class="'.$textstyle.' '.$mobile_variable.'" id="teste4div" style="text-align:left;">';
 echo $div_zoom_animation;
 
-include $story_namemakerfilephp;
+require $story_namemakerfilephp;
 
 echo '</'.$m.'>'."\n";
 echo $div_close."\n";

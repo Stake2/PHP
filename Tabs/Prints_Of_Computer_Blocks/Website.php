@@ -23,7 +23,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_prints_of_c
 	$story_website_contains_comments = false; #Defines if the story has comments on it
 
 	#Website settings setter file includer
-	include $setting_parameters_file;
+	require $setting_parameters_file;
 
 	#Website Tabs array
 	$tabs = array('Blocks', 'Characters', 'BlocksTexts', 'Comment');
@@ -57,7 +57,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_prints_of_c
 	}
 
 	#Includer of the array of the GenericTabs files
-	include $generic_tabs_generator_file;
+	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
 }

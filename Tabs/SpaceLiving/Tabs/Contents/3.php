@@ -1,5 +1,5 @@
 <?php 
 
-include $commentsglobal;
+require $website_comments_generator;
 
 ?>

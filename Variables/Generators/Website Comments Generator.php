@@ -1,6 +1,6 @@
 <?php 
 
-#Comment form
+# Comment form
 echo '<'.$m.'>'."\n".'<b>'."\n";
 echo $div_zoom_animation."\n";
 echo $website_comment_form;
@@ -150,83 +150,5 @@ if ($website_has_comments_tab == True and $website_has_comments == True) {
 		}
 	}
 }
-
-#if ($sitecomments == True) {
-#	echo '<hr class="'.$third_full_border.'" />'."\n";
-#	echo $div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tabnames[7].': '.$orangespan.$comments_number.$spanc.' '.$icons[12].'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$sitehr.'" />'."\n";
-#	
-#	$i = 0;
-#	$z = 0;
-#	while ($z <= $story_comments_number_file) {
-#		$i2 = $z + 2;
-#		$comments[$i2] = substr($comments[$i2], 0, -1);
-#		$comments[$i2] = date("H:i d/m/Y", strtotime($comments[$i2]));
-#	
-#		$z++;
-#		$z++;
-#		$z++;
-#	}
-#	
-#	$a = 0;
-#	$z = 0;
-#	$i = 0;
-#	while ($a <= $cmntscheckfilenumb) {
-#		if (in_array($website_language, $en_languages_array)) {
-#			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt5.' '.strtolower($form_text).':</b> "'.ucwords($commentscheck[$i]).'"';
-#		}
-#	
-#		if (in_array($website_language, $pt_languages_array)) {
-#			$commentscheckstext[$i] = '<b>'.$commenttxt3.' '.$commenttxt4.' '.strtolower($form_text).':</b> "'.ucwords($commentscheck[$i]).'"';
-#		}
-#	
-#		$a++;
-#		$z++;
-#		$i++;
-#	}
-#		
-#	$i = 0;
-#	$a = 0;
-#	$a2 = 1;
-#	$z = 0;
-#	
-#	$b = 0;
-#	$c = 0;
-#	$c2 = 1;
-#	$v = 0;
-#	while ($i <= $story_comments_number_file) {
-#		$i2 = $i + 1;
-#		$i3 = $i + 2;
-#		$b2 = $b + 1;
-#		$b3 = $b + 2;
-#	
-#		if (strlen($commentscheck[$a]) == 17) {
-#			$website_comments[$v] = '<'.$m.' class="'.$alternative_full_tab_style.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.$c2.' - '.$comments[$b].'</b> - '.$comments[$b3].'<br />'.$commentscheckstext[$c].' '.'<hr class="'.$third_full_border.'" />'.$comments[$b2].'<br /><br /><br /><br /><br />'.$div_close.'</'.$m.'>'."<br />"."\n";
-#	
-#			echo $website_comments[$v];
-#	
-#			$c2++;
-#		}
-#	
-#		if (strlen($commentscheck[$a]) == 19) {
-#			$story_chapter_comments_array[$z] = '<'.$m.' class="'.$alternative_full_tab_style.'" style="text-align:left;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.$a2.' - '.$comments[$i].'</b> - '.$comments[$i3].'<br />'.$commentscheckstext[$a].' '.'<hr class="'.$third_full_border.'" />'.$comments[$i2].'<br /><br /><br /><br /><br />'.$div_close.'</'.$m.'>'."<br />"."\n";
-#	
-#			#echo $story_chapter_comments_array[$z];
-#	
-#			$z++;
-#			$a2++;
-#		}
-#	
-#		$b++;
-#		$b++;
-#		$b++;
-#		$c++;
-#		$v++;
-#	
-#		$i++;
-#		$i++;
-#		$i++;
-#		$a++;
-#	}
-#}
 
 ?>

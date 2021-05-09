@@ -10,7 +10,7 @@ $website_image_link = $website_image;
 $story_folder = $desert_island_story_folder;
 
 #TextFileReader.php file includer
-include $text_file_reader_file_php;
+require $text_file_reader_file_php;
 
 #Website descriptions
 $website_descriptions_array = array(
@@ -144,8 +144,8 @@ $website_html_descriptions_array = array(
 #Story name definer
 $story_name_variable = $desert_island_story_name;
 
-#Re-include of the StoryVars.php file to set the story name
-include $story_variables_php_variable;
+#Re-require of the StoryVars.php file to set the story name
+require $story_variables_php;
 
 #Story name definer
 $story_name_variable = $desert_island_story_name;

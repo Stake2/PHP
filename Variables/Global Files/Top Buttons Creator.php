@@ -14,7 +14,7 @@ $open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-cente
 $tabnamestxt = $tabnames;
 
 if ($website_name == $website_diario) {
-	include $websites_tab_button_maker;
+	require $websites_tab_button_maker;
 	$tabnumb2 = $website_tab_number;
 }
 

@@ -215,7 +215,7 @@ $hyphen_separated_website_language = strtoupper($website_language);
 $hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 #VGlobal.php variables file includer
-include $sitetabsgeralvarsfolder."VGlobal.php";
+require $sitetabsgeralvarsfolder."VGlobal.php";
 
 ?>
 <!DOCTYPE html>
@@ -247,7 +247,7 @@ function Hide_Notification() {
 }
 
 #Tabs loader
-include $sitetabsgeralvarsfolder."Tabs.php";
+require $sitetabsgeralvarsfolder."Tabs.php";
 
 ?>
 </center>

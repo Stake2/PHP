@@ -33,7 +33,7 @@ else {
 <arm align="right" /><hand /></arm><br />
 <tummy><bellybutton></tummy></tshirt>
 <pants size="short"><underwear>
-<?php include "private.php"; ?></underwear></pants>
+<?php require "private.php"; ?></underwear></pants>
 <leg align="left" /><leg align="right" />
 <sneaker align="left" class="Nike" /><foot /></sneaker>
 <sneaker align="right" class="Nike" /><foot /></sneaker>

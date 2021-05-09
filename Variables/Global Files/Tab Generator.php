@@ -141,7 +141,7 @@ if ($website_uses_tab_body_generator == False) {
 
 if ($website_name == $website_watch_history) {
 	# Include the buttons loader PHP file
-	include $computer_buttons_bar_loader;
+	require $computer_buttons_bar_loader;
 
 	# Every Watched Button Computer
 	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
@@ -158,7 +158,7 @@ if ($website_name == $website_watch_history) {
 
 if ($website_name == $website_things_i_do) {
 	# Include the buttons loader PHP file
-	include $computer_buttons_bar_loader;
+	require $computer_buttons_bar_loader;
 }
 
 #City body files includer
@@ -166,7 +166,7 @@ $i = 0;
 while ($i <= $website_tab_number) {
 	if (isset($city_body_files[$i])) {
 		if (file_exists($city_body_files[$i])) {
-			include $city_body_files[$i];
+			require $city_body_files[$i];
 		}
 	}
 
@@ -175,50 +175,48 @@ while ($i <= $website_tab_number) {
 
 if ($website_name == $website_things_i_do) {
 	#Include the buttons loader PHP file
-	include $computer_buttons_bar_loader;
+	require $computer_buttons_bar_loader;
 }
 
-#Comments Tab includer if the setting is True
+# Comments Tab includer if the setting is True
 if ($website_has_comments_tab == True or $story_name_has_write_form == True) {
-	include $website_forms_php;
+	require $website_forms_php;
 }
 
-#Stories Tab includer if the setting is True
+# Stories Tab includer if the setting is True
 if ($website_has_stories_tab_setting == True) {
-	include $story_variables_php_variable;
+	require $story_variables_php;
 }
 
 if ($website_uses_tab_body_generator == True) {
 	require $tab_bodies_generator_php_variable;
 }
 
-#City content array generator
-$zzz = 0;
-$zxx = 1;
-$tabnumb3 = $website_tab_number + 1;
-while ($zzz <= $tabnumb3) {
-	$tab_contents_file = $selected_website_folder.$php_folder_tabs."/Contents/".$zxx.'.php';
-	if (file_exists($tab_contents_file)) {
+$first_number = 0;
+$second_number = 1;
+
+# "Tab Contents" array generator
+while ($first_number <= $website_tab_number + 1) {
+	$tab_contents_file = $selected_website_folder."Tabs/Contents/".$second_number.'.php';
+
+	if (file_exists($tab_contents_file) == True) {
 		ob_start();
-		include $tab_contents_file;
-		$citycontents[$zzz] = ob_get_clean();
-		ob_clean();
+
+		require $tab_contents_file;
+
+		$tab_contents[$first_number] = ob_get_clean();
 	}
 
 	else {
-		if (in_array($website_language, $en_languages_array)) {
-			$tab_content_place_holder = $div_zoom_animation.'Placeholder for the Content of the Tab.'.$div_close;
-		}
+		$text = Language_Item_Definer("Placeholder for the Content of the Tab", "Espaço reservado para o Conteúdo da Aba").".";
 
-		if (in_array($website_language, $pt_languages_array)) {
-			$tab_content_place_holder = $div_zoom_animation.'Espaço reservado para o Conteúdo da Aba.'.$div_close;
-		}
+		$tab_content_place_holder = $div_zoom_animation.$text.$div_close;
 
-		$citycontents[$zzz] = $tab_content_place_holder;
+		$tab_contents[$first_number] = $tab_content_place_holder;
 	}
 
-	$zxx++;
-	$zzz++;
+	$first_number++;
+	$second_number++;
 }
 
 #Citiescontent array generator
@@ -228,22 +226,22 @@ while ($i <= $website_tab_number) {
 
 	if (isset($city_bodies[$i])) {
 		if (isset($citytitles)) {
-			$city_contents[$i] = $citytitles[$i].$city_bodies[$i].$citycontents[$i];
+			$city_contents[$i] = $citytitles[$i].$city_bodies[$i].$tab_contents[$i];
 		}
 
 		if (!isset($citytitles)) {
-			$city_contents[$i] = $city_bodies[$i].$citycontents[$i];
+			$city_contents[$i] = $city_bodies[$i].$tab_contents[$i];
 		}
 	}
 
 	else {
 		#print_r($citytitles);
 		if (isset($citytitles)) {
-			$city_contents[$i] = $citytitles[$i].$citycontents[$i];
+			$city_contents[$i] = $citytitles[$i].$tab_contents[$i];
 		}
 
 		if (!isset($citytitles)) {
-			$city_contents[$i] = $citycontents[$i];
+			$city_contents[$i] = $tab_contents[$i];
 		}
 	}
 
@@ -252,7 +250,7 @@ while ($i <= $website_tab_number) {
 
 if ($website_name != $website_things_i_do and $website_name != $website_watch_history) {
 	#Include the buttons loader PHP file
-	include $computer_buttons_bar_loader;
+	require $computer_buttons_bar_loader;
 }
 
 ?>

@@ -78,12 +78,12 @@ if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-# Re-include of the StoryVars.php file to set the story name
-include $story_variables_php_variable;
+# Re-require of the StoryVars.php file to set the story name
+require $story_variables_php;
 
 # English texts for Desert Island website
 if (in_array($website_language, $en_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "You're reading",
 	$reading_text.': '.ucwords($story_name),
 	'I Read It ✓',
@@ -103,7 +103,7 @@ if (in_array($website_language, $en_languages_array)) {
 
 #Brazilian Portuguese texts for Desert Island website
 if (in_array($website_language, $pt_languages_array)) {
-	$read_texts_array = array(
+	$read_and_reader_texts_array = array(
 	$reading_text = "Você está lendo",
 	$reading_text.': '.ucwords($story_name),
 	'Eu li ✓',
@@ -201,6 +201,6 @@ foreach ($tab_titles as $tabname) {
 }
 
 # Tab Generator.php includer
-include $website_tabs_generator;
+require $website_tabs_generator;
 
 ?>
