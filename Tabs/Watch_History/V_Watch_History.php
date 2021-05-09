@@ -2,7 +2,7 @@
 
 # Folder variables
 $selected_website_url = $website_watch_history_link;
-$selected_website_folder = $php_tabs.ucwords($website).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($website).'/';
 
 # Comment links
 $watched_movie_comment_links = array(

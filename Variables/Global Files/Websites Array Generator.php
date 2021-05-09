@@ -34,7 +34,7 @@ foreach ($website_names_array as $value) {
 		$folder_to_use = "Diário";
 	}
 
-	${"website_folder_$value"} = $php_tabs.$folder_to_use.'/';
+	${"website_folder_$value"} = $php_folder_tabs.$folder_to_use.'/';
 
 	$website_folders[$i] = ${"website_folder_$value"};
 
@@ -53,7 +53,7 @@ $website_style_files = array();
 # V[Website].php Files array
 $i = 0;
 foreach ($websites_array as $value) {
-	$website_folder = $php_tabs.ucwords($value);
+	$website_folder = $php_folder_tabs.ucwords($value);
 
 	$variables_file = $website_folder.'/'.'V_'.$value.'.php';
 	$website_style_file = $website_folder.'/'.'Website Style.php';
@@ -80,7 +80,7 @@ foreach ($websites_array as $value) {
 # Website.php Files array
 $i = 0;
 foreach ($websites_array as $value) {
-	$websitefile = $php_tabs.ucwords($value).'/Website.php';
+	$websitefile = $php_folder_tabs.ucwords($value).'/Website.php';
 
 	if (file_exists($websitefile)) {
 		$sitewebsitefiles[$i] = $websitefile;
@@ -92,5 +92,7 @@ foreach ($websites_array as $value) {
 
 	$i++;
 }
+
+$year_arrays_php = $website_folder_years.'Year Arrays.php';
 
 ?>

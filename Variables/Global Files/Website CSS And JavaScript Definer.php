@@ -21,7 +21,7 @@ Make the website style arrays inside each folder of each website, called "CSS Pa
 
 */
 
-if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 	$main_css = '<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'Main_CSS.css" />';
 	$website_css_file_loader = '<link rel="stylesheet" type="text/css" href="'.$website_css_website_css_folder.$website_css_file.'.css" />';
 	$colors_css = '<link rel="stylesheet" type="text/css" href="'.$website_css_styler_css_folder.'Colors.css" />';
@@ -48,7 +48,7 @@ else if ($website_uses_custom_layout_setting == False) {
 $notification_css;
 }
 
-if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 	# Website JavaScript definer
 	$website_js_files = '
 <!-- JavaScript files -->
@@ -60,7 +60,6 @@ if ($site_is_prototype == False and $website_uses_custom_layout_setting == False
 <script src="'.$website_function_javascript_folder.'Change Button Color.js"></script>'
 ."\n".
 $edit_button_script.
-$new_design_script.
 '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>'."\n";
 }
 

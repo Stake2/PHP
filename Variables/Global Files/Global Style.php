@@ -1,11 +1,5 @@
 <?php 
 
-$colortext = 'w3-text-white';
-$colorsubtext = 'w3-text-orange';
-$colortext2 = 'w3-text-green';
-$bordercolor = 'w3-black';
-$colortext3 = 'w3-text-yellow';
-
 $border_1px_solid_css_class = "border_1px";
 $border_1px_solid_with_color_template = "border_1px_solid_";
 
@@ -117,7 +111,7 @@ $cssbtn5 = "borderbtnblue";
 $classcsbtn4 = 'class="borderbtn3"';
 $zoom_animation_class = 'w3-animate-zoom';
 $bottanim = 'w3-animate-bottom';
-$shake_side_to_side_animation = 'shakesidetoside';
+$shake_side_to_side_animation = 'shake_side_to_side_animation';
 
 $border_button_white = 'border_button_white';
 
@@ -127,8 +121,7 @@ $div_right_animation = '<div class="w3-animate-right">';
 $div_left_animation = '<div class="w3-animate-left">';
 $divlefta = '<div class="zoomnimateleft">';
 $divrighta = '<div class="zoomnimateright">';
-$div_shake_animation = '<div class="animationthing">';
-$div_zoom_animationlouco = '<div class="animationthing2">';
+#$div_shake_animation = '<div class="animationthing">';
 
 $div_text_align_left = '<div style="text-align:left;">';
 $textalign_left = '<div style="text-align:left;">';
@@ -259,75 +252,22 @@ $icon_smile_beam_painted_cyan = $cyanspan.$icon_smile_beam.$spanc;
 
 $icon_plus = '<i class="fas fa-plus"></i>';
 
-$hstyle = 'margin:5%;';
-$hstyle2 = 'margin:10%;border-width:3px;border-color:'.$color.';border-style:solid;';
-$readmorestyle = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
-$marginstyle2m = 'style="margin-right:32%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
-$marginstyle2m2 = 'style="margin-right:35%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
-$margincss1 = 'margin-left:11%;margin-right:11%;';
-$margincss2 = 'margin-left:10%;margin-right:10%;';
-$margincss3 = 'margin-left:5%;margin-right:5%;';
-$readmorestylem = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
+#$hstyle = 'margin:5%;';
+#$hstyle2 = 'margin:10%;border-width:3px;border-color:'.$color.';border-style:solid;';
+#$readmorestyle = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
+#$marginstyle2m = 'style="margin-right:32%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
+#$marginstyle2m2 = 'style="margin-right:35%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
+#$margincss1 = 'margin-left:11%;margin-right:11%;';
+#$margincss2 = 'margin-left:10%;margin-right:10%;';
+#$margincss3 = 'margin-left:5%;margin-right:5%;';
+#$readmorestylem = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
 
 $color2 = 'yellow';
 $sitewhilestyle = $color2;
 
 $animationstylecss = '
 <style>
-@media only screen
-  and (min-device-width : 320px)
-  and (max-device-width : 684px){
-    .videostyle {
-		width: 350;
-		height: 450;
-	}
-}
 
-button:hover {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shakesidetoside22 0.8s;
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
-}
-
-span.w3-btn:hover {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shakesidetoside22 0.8s;
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
-}
-
-.shakesidetoside:hover {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shakesidetoside22 0.8s;
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
-}
-
-.animationthing {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shakesidetoside22 0.5s;
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
-}
-
-.animationthing2 {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: animatezoom22 0.5s;
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
-}
-
-@keyframes animatezoom22 {
-  0% {transform: width(5px)} 
-  100% {transform: width(15px)}
-}
-
-@keyframes shakesidetoside22 {
-  0% {transform: translateX(-10px);} 
-  50% {transform: translateX(10px);} 
-  100% {transform: translateX(-10px);} 
-}
 </style>';
 
 ?>

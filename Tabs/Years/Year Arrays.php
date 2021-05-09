@@ -21,7 +21,7 @@ $current_variable_year = 2018;
 $i = 0;
 while ($current_variable_year <= $current_year) {
 	array_push($years_array, ${"website_".$current_variable_year});
-	array_push($years_array, $main_website_url.'/'.$years_folder_variable.'/'.${"website_".$current_variable_year}.'/');
+	array_push($years_array, $main_website_url."/Years/".${"website_".$current_variable_year}.'/');
 
     $current_variable_year++;
 	$i++;

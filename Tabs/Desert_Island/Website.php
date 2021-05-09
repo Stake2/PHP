@@ -11,7 +11,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_desert_isla
 
 	#Website settings definer
 	$website_deactivate_all_setting = false;
-	$site_is_prototype = false;
+	$website_is_prototype_setting = false;
 	$site_haves_additional_website_content = false;
 
 	$website_has_notifications = false; #Defines if website has notifications on
@@ -44,7 +44,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_desert_isla
 	if ($site_is_beta == True) {
 		#Website settings definer
 		$website_deactivate_all_setting = True;
-		$site_is_prototype = True;
+		$website_is_prototype_setting = True;
 		$site_haves_additional_website_content = True;
 	}
 

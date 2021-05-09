@@ -48,7 +48,7 @@ $size = '';
 
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
-$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 $story_folder = $spaceliving_story_folder;
 
 #Form code for the comment and read forms

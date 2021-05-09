@@ -38,14 +38,14 @@ while ($current_variable_year <= $current_year) {
 
 $website_folder = strtolower($years_folder_variable);
 $selected_website_url = $main_website_url.$website_folder.'/'.$current_year.'/';
-$selected_website_folder = $php_tabs.$current_year.'/';
+$selected_website_folder = $php_folder_tabs.$current_year.'/';
 $years_number = 3;
 
 #VYears PHP files
-$year_maker_file_php = $php_tabs.ucwords($sitetextmaker).'/YearMaker.php';
-$year_maker_2_file = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
-$year_maker_file_php_2_test = $php_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
-$yearsbuttonsgenerator = $php_tabs.'Years/'.'YearsButtons Generator.php';
+$year_maker_file_php = $php_folder_tabs.ucwords($sitetextmaker).'/YearMaker.php';
+$year_maker_2_file = $php_folder_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$year_maker_file_php_2_test = $php_folder_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$yearsbuttonsgenerator = $php_folder_tabs.'Years/'.'YearsButtons Generator.php';
 
 #English texts for all websites
 #if (in_array($website_language, $en_languages_array)) {

@@ -23,7 +23,7 @@ $hard_drive_letter = "C";
 $mega_folder = $hard_drive_letter.':/Mega/';
 $medias_local_folder = $hard_drive_letter.':/Midias/';
 
-if (!file_exists($mega_folder)) {
+if (file_exists($mega_folder) == False) {
 	$hard_drive_letter = "D";
 	$mega_folder = $hard_drive_letter.':/Mega/';
 	$medias_local_folder = $hard_drive_letter.':/Midias/';
@@ -33,50 +33,19 @@ $mega_folder_stake2_website = $mega_folder.'Stake2 Website/';
 $subdomain_file = $mega_folder_stake2_website.'Subdomain.txt';
 $main_php_folder = $mega_folder.'PHP/';
 
-$tabs_folder_variable = 'Tabs';
-$variables_folder_variable = 'Variables';
-$years_folder_variable = 'Years';
-$global_variable = 'Global';
-$generic_variable = 'Generic';
+$php_folder_tabs = $main_php_folder."Tabs/";
+$php_folder_variables = $main_php_folder."Variables/";
 
-$php_folder_tabs = $main_php_folder.$tabs_folder_variable.'/';
-$php_folder_variables = $main_php_folder.$variables_folder_variable.'/';
-$generic_tabs_folder = $main_php_folder.$tabs_folder_variable.'/'.$generic_variable.$tabs_folder_variable.'/';
-$global_tabs_folder = $main_php_folder.$tabs_folder_variable.'/'.$global_variable.$tabs_folder_variable.'/';
+$generic_tabs_folder = $php_folder_tabs."/Generic Tabs/";
+$global_tabs_folder = $php_folder_tabs."/Global Tabs/";
+$global_files_folder = $php_folder_variables."Global Files/";
 
-$php_tabs = $php_folder_tabs;
+$main_php_folders = $global_files_folder."Main PHP Folders.php";
 
-$php_variables = $php_folder_variables;
-$php_vars = $php_folder_variables;
+# "Main PHP Folders" PHP File Loader
+require $main_php_folders;
 
-$php_variables_global_files = $php_folder_variables.$global_variable.' Files/';
-$php_variables_website_classes = $php_variables_global_files.'Website Classes/';
-$php_variables_text_file_reader_modules = $php_variables_global_files.'Text File Reader Modules/';
-$php_vars_global_files = $php_variables_global_files;
-$php_variables_website_classes = $php_variables_global_files.'Website Classes/';
-$website_classes_folder = $php_variables_website_classes;
-$php_vars_website_classes = $php_variables_website_classes;
-$variable_inserter_php = $php_vars_global_files."Variable Inserter.php";
-
-$php_global_tabs = $global_tabs_folder;
-
-$main_arrays_php = $php_vars_global_files.'Main Arrays.php';
-$global_arrays_php = $php_vars_global_files.'Global Arrays.php';
-$website_language_definer_php = $php_vars_global_files.'Website Language Definer.php';
-$website_arrays_generator_php = $php_vars_global_files.'Websites Array Generator.php';
-$default_setting_values_php = $php_vars_global_files.'Default Setting Values.php';
-$vglobal_php = $php_variables.'VGlobal.php';
-$other_index_stuff_php = $php_vars_global_files.'Other Index Stuff.php';
-
-$website_selector_file = $php_variables.'Website Selector.php';
-$website_style_chooser_file = $php_vars_global_files.'Website Style Chooser.php';
-$website_style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
-$generic_tabs_generator_file = $php_vars_global_files.'Generic Tabs Generator.php';
-$setting_parameters_file = $php_vars_global_files.'Settings Params.php';
-$crucial_functions_file_php = $php_vars_global_files."Crucial Functions.php";
-$normal_functions_file_php = $php_vars_global_files."Functions.php";
-
-# Global Crucial Functions PHP File Loader
+# Crucial Functions PHP File Loader
 require $crucial_functions_file_php;
 
 $website_subdomain_name = Read_Lines($subdomain_file)[0];
@@ -91,32 +60,25 @@ require $global_arrays_php;
 # Websites Array Generator PHP file loader
 require $website_arrays_generator_php;
 
-$year_arrays_php = $website_folder_years.'Year Arrays.php';
-
 # Year Arrays PHP file loader
 require $year_arrays_php;
 
-# Default Setting Values file includer
+# Default Setting Values file include
 require $default_setting_values_php;
 
-# Website Language Definer file includer
+# Website Language Definer file include
 require $website_language_definer_php;
 
 # Variable Inserter PHP file loader
 require $variable_inserter_php;
 
-# Website selector file includer
+# Website selector file include
 require $website_selector_file;
 
 $website_title = $website_titles_array[$selected_website_number];
 $website_type = $website_types_array[$selected_website_number];
 
-# Language modifier
-#$hyphen_separated_website_language = strtoupper($website_language);
-#$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-#
-
-# VGlobal.php variables file includer
+# VGlobal.php variables file include
 require $vglobal_php;
 
 if ($return == False) {
@@ -125,7 +87,7 @@ if ($return == False) {
 	# Website Header displayer
 	echo $website_header;
 
-	if ($website_deactivate_tabs_setting == False and $site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+	if ($website_deactivate_tabs_setting == False and $website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 		# "Tabs loader" file loader
 		require $website_tabs_loader;
 	}
@@ -151,7 +113,7 @@ if ($return == True) {
 	# Website Header displayer
 	$website .= $website_header;
 
-	if ($website_deactivate_tabs_setting == False and $site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+	if ($website_deactivate_tabs_setting == False and $website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 		#"Tabs loader" file loader
 		ob_start();
 		require $website_tabs_loader;

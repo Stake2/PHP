@@ -2,7 +2,7 @@
 
 # Folder variables
 $selected_website_url = $website_the_story_of_the_nazzevo_brothers_link;
-$selected_website_folder = $php_tabs.ucwords($website_nazzevo).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($website_nazzevo).'/';
 $story_folder = $nazzevo_story_folder;
 
 # Form code for the comment and read forms

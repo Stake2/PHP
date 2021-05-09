@@ -2,7 +2,7 @@
 
 # Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
-$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 $website_style_file = $selected_website_folder.'Website Style.php';
 
 $yeartabcode = array(

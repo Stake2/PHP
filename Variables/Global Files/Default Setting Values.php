@@ -57,7 +57,7 @@ $website_has_comments_tab_setting = False;
 $site_uses_new_comment_and_read_displayer = False;
 
 $site_haves_additional_website_content = False;
-$site_is_prototype = False;
+$website_is_prototype_setting = False;
 
 $alternative_website_style = False;
 

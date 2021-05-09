@@ -1,45 +1,39 @@
 <?php 
 
 # Global PHP Files
-$global_texts_php = $php_vars_global_files.'Global Texts.php';
-$global_style_file_php = $php_vars_global_files.'Global Style.php';
-$website_tabs_generator = $php_vars_global_files.'Tab Generator.php';
-$website_tabs_loader = $php_vars_global_files.'Tab Loader.php';
-$computer_buttons_creator = $php_vars_global_files.'Top Buttons Creator.php';
-$computer_buttons_bar_loader = $php_vars_global_files.'Buttons PHP File Loader.php';
-$text_file_reader_file_php = $php_vars_global_files.'Text File Reader.php';
-$watch_and_yearwebsites_variables_php = $php_vars_global_files.'Watch And YearWebsites Variables.php';
-$notifications_definer_php = $php_vars_global_files.'Notifications Definer.php';
-$variable_inserter_php = $php_vars_global_files."Variable Inserter.php";
-$crucial_functions_file_php = $php_vars_global_files."Crucial Functions.php";
-$normal_functions_file_php = $php_vars_global_files."Functions.php";
+$global_texts_php = $global_files_folder.'Global Texts.php';
+$global_style_file_php = $global_files_folder.'Global Style.php';
+$website_tabs_generator = $global_files_folder.'Tab Generator.php';
+$website_tabs_loader = $global_files_folder.'Tab Loader.php';
+$computer_buttons_creator = $global_files_folder.'Top Buttons Creator.php';
+$computer_buttons_bar_loader = $global_files_folder.'Buttons PHP File Loader.php';
+$text_file_reader_file_php = $global_files_folder.'Text File Reader.php';
+$watch_and_yearwebsites_variables_php = $global_files_folder.'Watch And YearWebsites Variables.php';
+$notifications_definer_php = $global_files_folder.'Notifications Definer.php';
+$variable_inserter_php = $global_files_folder."Variable Inserter.php";
+$crucial_functions_file_php = $global_files_folder."Crucial Functions.php";
+$normal_functions_file_php = $global_files_folder."Functions.php";
 
 $watch_history_text_file_reader_module = $php_variables_text_file_reader_modules.'Watch History Module.php';
 
 # Website PHP Files
-$website_classes_php = $php_vars_global_files.'Website Classes.php';
+$website_classes_php = $global_files_folder.'Website Classes.php';
 $website_info_interface_and_abstract_class = $php_vars_website_classes."Website Info Interface and Abstract Class.php";
 $website_style_interface_and_abstract_class = $php_vars_website_classes."Website Style Interface and Abstract Class.php";
-$website_header_php = $php_vars_global_files.'Website Header.php';
-$website_style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
-$website_css_and_javascript_definer_php = $php_vars_global_files.'Website CSS And JavaScript Definer.php';
-$website_image_maker = $php_vars_global_files.'Website Image Maker.php';
-$website_forms_php = $php_vars_global_files.'Website Forms.php';
-
-# New Design PHP Files
-$new_design_php = $newdesign_php_folder_variable.'NewDesignScript.php';
-$newdesignsitephp = $newdesign_php_folder_variable.'NewDesignSite.php';
+$website_header_php = $global_files_folder.'Website Header.php';
+$website_style_variables_foreach = $global_files_folder.'Website Style Variables Foreach.php';
+$website_css_and_javascript_definer_php = $global_files_folder.'Website CSS And JavaScript Definer.php';
+$website_image_maker = $global_files_folder.'Website Image Maker.php';
+$website_forms_php = $global_files_folder.'Website Forms.php';
 
 # CSS Packs Variables
 $css_pack_pequenata = $css_packs_php_folder.'Pequenata CSS Pack.php';
 $css_pack_desertisland = $css_packs_php_folder.'DesertIsland CSS Pack.php';
 
-$vyears_php = $website_folder_years.'VYears.php';
-
 # PHP Files
 $globalfilesphp = array(
-$notifications_php = $php_vars_global_files.'Notifications.php',
-$tab_bodies_generator = $php_vars_global_files.'Tab Bodies Generator.php',
+$notifications_php = $global_files_folder.'Notifications.php',
+$tab_bodies_generator = $global_files_folder.'Tab Bodies Generator.php',
 $websites_tab_attributes = $websites_tab_folder_variable.'Websites Tab Attributes.php',
 $websites_tab_generator = $websites_tab_folder_variable.'Websites Tab Generator.php',
 $websites_tab_button_maker = $websites_tab_folder_variable.'Websites Tab Button Maker.php',
@@ -90,9 +84,10 @@ $reads_generator_php_variable = $read_generator_php;
 $read_modal_generator_php_variable = $read_modal_generator_php;
 $comment_modal_generator_php_variable = $comment_modal_generator_php;
 
+# Story Tabs
+
 #Global Tabs array
 $globaltabs = array(
-$readersglobal = $php_global_tabs.'Readers'.$global_variable.'.php',
 $commentsglobal = $php_global_tabs.'Comments '.$global_variable.'.php',
 $writeglobal = $php_global_tabs.'Write'.$global_variable.'.php',
 $storiesglobal = $php_global_tabs.'Stories'.$global_variable.'.php',

@@ -26,7 +26,7 @@ $website_header_description = 'tet';
 
 #Folder variables
 $selected_website_url = $main_website_url.$website_folder."/";
-$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 $year_text_files_folder = $notepad_years_folder_variable;
 
 #Website image vars
@@ -44,8 +44,8 @@ $website_descriptions_array = array(
 
 #Year Numbers.txt file and YearMaker.php file definers
 $yearnumbsfile = $year_text_files_folder.'2019/2019 Numbers.txt';
-$year_maker_file_php = $php_tabs.ucwords($website).'/YearMaker.php';
-$year_maker_2_file = $php_tabs.ucwords($website).'/YearMaker2.php';
+$year_maker_file_php = $php_folder_tabs.ucwords($website).'/YearMaker.php';
+$year_maker_2_file = $php_folder_tabs.ucwords($website).'/YearMaker2.php';
 $story_namenumbsfile = $notepad_stories_folder_variable.'Story Numbers'.'.txt';
 
 #Story text file definer
@@ -58,7 +58,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 #StoryMaker.php definer
-$story_namemakerfilephp = $php_tabs.ucwords($website).'/StoryMaker.php';
+$story_namemakerfilephp = $php_folder_tabs.ucwords($website).'/StoryMaker.php';
 
 #YearsVars.php file includer
 include $yearsvarsfilephp;

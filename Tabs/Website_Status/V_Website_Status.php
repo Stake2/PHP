@@ -2,7 +2,7 @@
 
 #Folder variables
 $selected_website_url = $website_website_status_link;
-$selected_website_folder = $php_tabs.ucwords($website).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($website).'/';
 $website_title = $website_titles_array[$selected_website_number];
 
 #Website image link and image size

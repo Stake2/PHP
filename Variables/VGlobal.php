@@ -14,7 +14,7 @@ require $folder_and_website_variables_php;
 require $php_files_php;
 
 # FontAwesome link and script definer
-if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 	$fontawesome_link = "\n".'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
 	$fontawesome_script = "\n".'<script src="https://kit.fontawesome.com/df0c191291.js" crossorigin="anonymous"></script>';
 }
@@ -50,7 +50,7 @@ if ($website_uses_custom_layout_setting == False) {
 	require $website_style_chooser_file;
 }
 
-if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 	#SitesButtons Attributes.php includer
 	require $websites_tab_attributes;
 
@@ -86,7 +86,7 @@ if ($website_has_notifications == True) {
 	require $notifications_php;
 }
 
-if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 	require $websites_tab_button_maker;
 }
 

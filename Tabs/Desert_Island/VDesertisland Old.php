@@ -1,7 +1,7 @@
 <?php 
 
 $selected_website_url = $main_website_url.str_replace(' ', '_', strtolower($sitename_desertisland)).'/';
-$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 
 $site_image = 'Capa Original.jpg';
 $website_image = $cdn_image_stories_desertisland.$site_image;

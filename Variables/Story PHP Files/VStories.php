@@ -234,13 +234,13 @@ $crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_tex
 
 $span_style = 'style="margin-left:50px;margin-right:50px;"';
 
-$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_blue_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'><br />'.$crossover_next_chapter_text.': '.$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
+$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_blue_css_class.' '.$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'><br />'.$crossover_next_chapter_text.': '.$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
 
 $crossover_chapter = 26;
 $chapter_link = $website_the_life_of_littletato_link.$website_language_text.'?no-redirect=true&amp;('.$crossover_chapter.")";
 $crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_preivous_chapter_text.": ".$chapter_link;
 
-$spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shakesidetoside" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_preivous_chapter_text.': '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
+$spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" onclick="window.open('."'".$chapter_link."'".');" ><center><h3 class="w3-btn '.$background_brown_css_class.' '.$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.'>'.$crossover_preivous_chapter_text.': '.$website_the_life_of_littletato_link.$crossover_chapter.'/</span></h3></center></div>';
 
 $spaceliving_discord_join_link = Language_Item_Definer_By_Array("https://spaceliving.netlify.app/join_the_discord/", "https://spaceliving.netlify.app/entre_no_discord/");
 
@@ -316,22 +316,22 @@ $cover_type = "Landscape";
 $middle_path = "/".$full_language."/".$cover_type."/Story/Book Cover.png";
 
 $littletato_border = $border_4px_solid_dark_brown_css_class;
-$littletato_background = $background_brown_css_class." ".$littletato_border.' shakesidetoside';
-$littletato_text = $text_dark_brown_css_class.' shakesidetoside';
+$littletato_background = $background_brown_css_class." ".$littletato_border.' shake_side_to_side_animation';
+$littletato_text = $text_dark_brown_css_class.' shake_side_to_side_animation';
 $littletato_link = $main_website_url.'pequenata/';
 
 $nazzevo_border = $border_4px_solid_dark_brown_css_class;
-$nazzevo_background = $background_brown_css_class." ".$nazzevo_border.' shakesidetoside';
-$nazzevo_text = $text_dark_brown_css_class.' shakesidetoside';
+$nazzevo_background = $background_brown_css_class." ".$nazzevo_border.' shake_side_to_side_animation';
+$nazzevo_text = $text_dark_brown_css_class.' shake_side_to_side_animation';
 $nazzevo_link = $main_website_url.'nazzevo/';
 
 $spaceliving_border = $border_4px_solid_blue_css_class;
-$spaceliving_background = $background_dark_blue_css_class." ".$spaceliving_border.' shakesidetoside';
-$spaceliving_text = $text_blue_css_class.' shakesidetoside';
+$spaceliving_background = $background_dark_blue_css_class." ".$spaceliving_border.' shake_side_to_side_animation';
+$spaceliving_text = $text_blue_css_class.' shake_side_to_side_animation';
 $spaceliving_link = $main_website_url.'new_world/spaceliving/';
 
 $desert_island_border = $border_4px_solid_blue_css_class;
-$desert_island_background = $background_green_water_css_class." ".$desert_island_border.' shakesidetoside';
+$desert_island_background = $background_green_water_css_class." ".$desert_island_border.' shake_side_to_side_animation';
 $desert_island_text = $text_dark_green_water_css_class;
 $desert_island_new_link = str_replace(' ', '_', strtolower($website_desert_island));
 $desert_island_link = $main_website_url.$desert_island_new_link.'/';

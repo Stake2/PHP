@@ -16,8 +16,8 @@ $variables_folder_variable = 'Variables';
 $global_variable = 'Global';
 
 $php_folder_variables = $main_php_folder.$variables_folder_variable.'/';
-$php_variables_global_files = $php_folder_variables.$global_variable.' Files/';
-$php_vars_global_files = $php_variables_global_files;
+$global_files_folder = $php_folder_variables.$global_variable.' Files/';
+$php_vars_global_files = $global_files_folder;
 $main_arrays_php = $php_vars_global_files.'Main Arrays.php';
 
 $index_php = $main_php_folder."Index.php";

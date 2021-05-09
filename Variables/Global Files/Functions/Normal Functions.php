@@ -121,4 +121,77 @@ function Make_Link($link, $link_text = Null, $link_color = Null) {
 	return $link;
 }
 
+function Create_Element($element, $class, $text) {
+	if (is_array($class) == True) {
+		$new_class = "";
+
+		foreach ($class_name in $class) {
+			$new_class .= $class_name." ";
+		}
+
+		$class = $new_class;
+	}
+
+	$element_prototype = '<{} class="{}">{}</{}>';
+
+	return format($element_prototype, $element, $classes, $text, $element);
+}
+
+function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
+	global $story_readers_number_file;
+	global $computer_variable;
+	global $mobile_variable;
+	global $readers;
+	global $n;
+	global $m;
+	global $hover_variable;
+	global $zoom_animation_class;
+
+	$classes = array(
+	$hover_variable,
+	$zoom_animation_class,
+	$computer_variable,
+	);
+
+	$i = 0;
+	while ($i <= $story_readers_number_file) {
+		$i2 = $i + 1;
+
+		$reader_name = $readers[$i];
+
+		$reader_number_text = Create_Element($span_element, $number_text_color, $i2);
+		$reader_name_text = Create_Element($n, $classes, $reader_number_text." - ".$reader_name);
+
+		echo $reader_name_text;
+
+		#echo '<'.$n.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$computer_variable.'">'.$text_color.$i2.$spanc.' - '..'</'.$n.'>'."\n";
+
+		$i++;
+	}
+
+	echo "\n";
+
+	$classes = array(
+	$hover_variable,
+	$zoom_animation_class,
+	$mobile_variable,
+	);
+
+	$i = 0;
+	while ($i <= $story_readers_number_file) {
+		$i2 = $i + 1;
+
+		$reader_name = $readers[$i];
+
+		$reader_number_text = Create_Element($span_element, $number_text_color, $i2);
+		$reader_name_text = Create_Element($n, $classes, $reader_number_text." - ".$reader_name);
+
+		echo $reader_name_text;
+
+		#echo '<'.$m.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$mobile_variable.'">'.$text_color.$i2.$spanc.' - '.$readers[$i]."</".$m.'>'."\n";
+
+		$i++;
+	}
+}
+
 ?>

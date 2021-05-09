@@ -17,7 +17,7 @@ if ($site_haves_additional_website_content == True) {
 	}
 }
 
-if ($site_is_prototype == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
 	echo $animationstylecss."\n"."\n";
 }
 

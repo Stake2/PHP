@@ -7,7 +7,7 @@ $new_site_name = str_replace(' ', '_', strtolower($sitename_desertisland));
 
 # Folder variables
 $selected_website_url = $main_website_url.$new_site_name.'/';
-$selected_website_folder = $php_tabs.ucwords($selected_website).'/';
+$selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 $story_folder = $desert_island_story_folder;
 
 # Form code for the comment and read forms
