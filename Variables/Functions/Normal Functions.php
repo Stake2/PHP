@@ -125,7 +125,7 @@ function Create_Element($element, $class, $text) {
 	if (is_array($class) == True) {
 		$new_class = "";
 
-		foreach ($class_name in $class) {
+		foreach ($class as $class_name) {
 			$new_class .= $class_name." ";
 		}
 

@@ -36,8 +36,8 @@ $main_php_folder = $mega_folder.'PHP/';
 $php_folder_tabs = $main_php_folder."Tabs/";
 $php_folder_variables = $main_php_folder."Variables/";
 
-$generic_tabs_folder = $php_folder_tabs."/Generic Tabs/";
-$global_tabs_folder = $php_folder_tabs."/Global Tabs/";
+$generic_tabs_folder = $php_folder_tabs."Generic Tabs/";
+$global_tabs_folder = $php_folder_tabs."Global Tabs/";
 $global_files_folder = $php_folder_variables."Global Files/";
 
 $main_php_folders = $global_files_folder."Main PHP Folders.php";

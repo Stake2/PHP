@@ -11,7 +11,7 @@ if (!file_exists($mega_folder)) {
 $mega_folder_stake2_website = $mega_folder.'Stake2 Website/';
 $main_php_folder = $mega_folder.'PHP/';
 
-$tabs_folder_variable = 'Tabs';
+$php_folder_tabs = 'Tabs';
 $variables_folder_variable = 'Variables';
 $global_variable = 'Global';
 

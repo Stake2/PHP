@@ -197,7 +197,7 @@ $zzz = 0;
 $zxx = 1;
 $tabnumb3 = $website_tab_number + 1;
 while ($zzz <= $tabnumb3) {
-	$tab_contents_file = $selected_website_folder.$tabs_folder_variable."/Contents/".$zxx.'.php';
+	$tab_contents_file = $selected_website_folder.$php_folder_tabs."/Contents/".$zxx.'.php';
 	if (file_exists($tab_contents_file)) {
 		ob_start();
 		include $tab_contents_file;

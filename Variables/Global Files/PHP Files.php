@@ -11,8 +11,6 @@ $text_file_reader_file_php = $global_files_folder.'Text File Reader.php';
 $watch_and_yearwebsites_variables_php = $global_files_folder.'Watch And YearWebsites Variables.php';
 $notifications_definer_php = $global_files_folder.'Notifications Definer.php';
 $variable_inserter_php = $global_files_folder."Variable Inserter.php";
-$crucial_functions_file_php = $global_files_folder."Crucial Functions.php";
-$normal_functions_file_php = $global_files_folder."Functions.php";
 
 $watch_history_text_file_reader_module = $php_variables_text_file_reader_modules.'Watch History Module.php';
 
@@ -87,11 +85,11 @@ $comment_modal_generator_php_variable = $comment_modal_generator_php;
 # Story Tabs
 
 #Global Tabs array
-$globaltabs = array(
-$commentsglobal = $php_global_tabs.'Comments '.$global_variable.'.php',
-$writeglobal = $php_global_tabs.'Write'.$global_variable.'.php',
-$storiesglobal = $php_global_tabs.'Stories'.$global_variable.'.php',
-);
+#$globaltabs = array(
+#$commentsglobal = $php_global_tabs.'Comments '.$global_variable.'.php',
+#$writeglobal = $php_global_tabs.'Write'.$global_variable.'.php',
+#$storiesglobal = $php_global_tabs.'Stories'.$global_variable.'.php',
+#);
 
 $chapter_generator_global_variable = $chapters_generator_php;
 

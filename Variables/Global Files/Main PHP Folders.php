@@ -1,6 +1,6 @@
 <?php 
 
-$global_files_functions = $global_files_folder."Functions/";
+$global_files_functions = $php_folder_variables."Functions/";
 
 $php_variables_website_classes = $global_files_folder.'Website Classes/';
 $php_variables_text_file_reader_modules = $global_files_folder.'Text File Reader Modules/';

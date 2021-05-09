@@ -105,10 +105,10 @@ $default_full_border = $default_border_size." ".$default_border_color." ".$defau
 
 $website_border_color = $default_border_color;
 
-$cssbtn1 = $default_full_border;
-$cssbtn2 = $create_border_on_hover_css_class;
-$cssbtn5 = "borderbtnblue";
-$classcsbtn4 = 'class="borderbtn3"';
+#$cssbtn1 = $default_full_border;
+#$cssbtn2 = $create_border_on_hover_css_class;
+#$cssbtn5 = "borderbtnblue";
+#$classcsbtn4 = 'class="borderbtn3"';
 $zoom_animation_class = 'w3-animate-zoom';
 $bottanim = 'w3-animate-bottom';
 $shake_side_to_side_animation = 'shake_side_to_side_animation';
