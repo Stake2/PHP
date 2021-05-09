@@ -1,6 +1,6 @@
 <?php
 
-# VGlobal.php $website_folder, website, cdn and fontawesome link variables
+# V_Global.php $website_folder, website and FontAwesome link variables
 $website_folder = strtolower($website);
 $website = $website_folder;
 
@@ -10,7 +10,7 @@ $php_files_php = $php_vars_global_files.'PHP Files.php';
 # Folder And Website Variables PHP file loader
 require $folder_and_website_variables_php;
 
-# "PHP Files" file loader
+# "PHP Files.php" file loader
 require $php_files_php;
 
 # FontAwesome link and script definer
@@ -39,52 +39,11 @@ require $notifications_definer_php;
 # Website CSS and Javascript definer
 require $website_css_and_javascript_definer_php;
 
-# Date style definer
-date_default_timezone_set("America/Sao_Paulo");
-$data = date("d/m/Y");
-
 # Global CSS variables loader
 require $global_style_file_php;
 
-function Make_Linked_Image($image_link, $is_chapter_image = False) {
-	global $computer_div;
-	global $mobile_div;
-	global $div_close;
-	global $chapter_image_style;
-
-	$a_href = '<a href="'.$image_link.'">';
-
-	$image_style = 'align="left"';
-
-	if ($is_chapter_image == True) {
-		$image_style = $chapter_image_style;
-	}
-
-	$image = "<br />".$computer_div.$a_href.'<img src="'.$image_link.'" width="35%" '.$image_style.' />'."</a>".$div_close."\n".
-$mobile_div.$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>".$div_close;
-
-	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
-
-	return $image;
-}
-
-function Make_Link($link, $link_text = Null, $link_color = Null) {
-	if ($link_color == Null) {
-		$link_color = format('class="{}"', "w3-text-white");
-	}
-
-	if ($link_color != Null) {
-		$link_color = format('class="{}"', $link_color);
-	}
-
-	if ($link_text == Null) {
-		$link_text = $link;
-	}
-
-	$link = '<a '.$link_color.' href="'.$link.'">'.$link_text.'</a>';
-
-	return $link;
-}
+# Global Normal Functions PHP File Loader
+require $normal_functions_file_php;
 
 # Website Style Chooser.php file loader
 if ($website_uses_custom_layout_setting == False) {

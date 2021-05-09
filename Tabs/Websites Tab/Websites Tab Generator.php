@@ -70,7 +70,7 @@ if ($website_name == $website_desert_island) {
 
 echo '<a name="'.$websites_tab_code.'"></a>'."\n".'<br />'."\n";
 echo '<div id="'.$websites_tab_code.'" class="city" style="display:none;'.$rounded_border_style_2.'">'."\n";
-echo $bigspace."\n";
+echo $big_space."\n";
 echo '<div class="'.$computer_variable.'" '.$roundedborderstyle.'>'."\n";
 #echo $h42."\n";
 

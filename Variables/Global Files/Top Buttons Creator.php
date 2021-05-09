@@ -15,36 +15,36 @@ $tabnamestxt = $tabnames;
 
 if ($website_name == $website_diario) {
 	include $websites_tab_button_maker;
-	$tabnumb2 = $tabnumb;
+	$tabnumb2 = $website_tab_number;
 }
 
 if ($website_name == $website_watch_history) {
-	$tabnumb2 = $tabnumb - 3;
+	$tabnumb2 = $website_tab_number - 3;
 	$tabnamestxt = $tab_titles_without_html;
 }
 
 if ($website_name == $website_2018) {
-	$tabnumb2 = $tabnumb;
+	$tabnumb2 = $website_tab_number;
 }
 
 if ($website_name == $website_2019) {
-	$tabnumb2 = $tabnumb - 5;
+	$tabnumb2 = $website_tab_number - 5;
 }
 
 if ($website_name == $website_the_life_of_littletato) {
-	$tabnumb2 = $tabnumb - 1;
+	$tabnumb2 = $website_tab_number - 1;
 }
 
 if ($website_name == $website_spaceliving) {
-	$tabnumb2 = $tabnumb;
+	$tabnumb2 = $website_tab_number;
 }
 
 if ($website_name == $website_nazzevo) {
-	$tabnumb2 = $tabnumb;
+	$tabnumb2 = $website_tab_number;
 }
 
 if (isset($tabnumb2) == False) {
-	$tabnumb2 = $tabnumb;
+	$tabnumb2 = $website_tab_number;
 }
 
 if ($website_deactivate_top_buttons_setting == false) {
@@ -70,8 +70,8 @@ if ($website_deactivate_top_buttons_setting == false) {
 		$hide_notification_attribute = '';
 	}
 
-	while ($i <= $tabnumb) {
-		if ($i == $tabnumb and $website_name == $website_diario) {
+	while ($i <= $website_tab_number) {
+		if ($i == $website_tab_number and $website_name == $website_diario) {
 			$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
@@ -107,11 +107,11 @@ if ($website_deactivate_top_buttons_setting == false) {
 			}
 		}
 
-		if ($i <= $tabnumb and $website_name == $website_2019) {
+		if ($i <= $website_tab_number and $website_name == $website_2019) {
 			echo $computer_buttons[$i];
 		}
 
-		if ($website_name == $website_diario and $sitebtnecho == True and $i == $tabnumb) {
+		if ($website_name == $website_diario and $sitebtnecho == True and $i == $website_tab_number) {
 			echo ' '.$websites_tab_button_not_centered;
 
 			$sitebtnecho = false;
@@ -129,7 +129,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	}
 
 	$i = 0;
-	while ($i <= $tabnumb) {
+	while ($i <= $website_tab_number) {
 		$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
 		$yellow_computer_buttons[$i] = '<span title="'.$tabnamestxt[$i].'" alt="'.$tabnamestxt[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button class="w3-btn '.$default_text_color." ".$background_yellow_css_class." ".$second_full_border." ".$default_background_hover_color.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
@@ -160,12 +160,12 @@ if ($website_deactivate_top_buttons_setting == false) {
 	'<span style="font-size:30px;" class="'.$mobile_variable.' '.$first_text_color.'">'.$btnmenutxt.'</span>'."\n"."\n";
 	
 	$i = 0;
-	while ($i <= $tabnumb) {
+	while ($i <= $website_tab_number) {
 		$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
 		$i2 = $i + 1;
 	
-		if ($i == $tabnumb and $website_name == $website_diario) {
+		if ($i == $website_tab_number and $website_name == $website_diario) {
 			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';'.$script.'">'.$tabtxtsm[$i].'</button></a>';
@@ -193,19 +193,19 @@ if ($website_deactivate_top_buttons_setting == false) {
 			echo $mobile_buttons[$i];
 		}
 
-		if ($i != $tabnumb) {
+		if ($i != $website_tab_number) {
 			echo "\n";
 		}
 
-		if ($i <= $tabnumb and $website_name == $website_2019) {
+		if ($i <= $website_tab_number and $website_name == $website_2019) {
 			echo $mobile_buttons[$i];
 		}
 
-		if ($i != $tabnumb) {
+		if ($i != $website_tab_number) {
 			echo "\n";
 		}
 
-		if ($website_name == $website_diario and $sitebtnecho == True and $i == $tabnumb) {
+		if ($website_name == $website_diario and $sitebtnecho == True and $i == $website_tab_number) {
 			echo ' '.$websites_tab_button_not_centered;
 
 			$sitebtnecho = false;
@@ -223,7 +223,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	}
 
 	$i = 0;
-	while ($i <= $tabnumb) {
+	while ($i <= $website_tab_number) {
 		$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
 		$yellow_mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button class="w3-btn '.$default_text_color." ".$background_yellow_css_class." ".$second_full_border." ".$default_background_hover_color.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';'.$script.'">'.$tabtxtsm[$i].'</button></a>';

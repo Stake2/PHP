@@ -16,7 +16,7 @@ $single_cover_folder = 'Capas/';
 require $cover_images_folder_definer_php_variable;
 
 # Story name definer
-$story_name_variable = $nazzevo_story_name;
+$story_name_variable = $the_story_of_the_nazzevo_brothers_story_name;
 
 # Story status
 $story_status = $status_finished_and_publishing;

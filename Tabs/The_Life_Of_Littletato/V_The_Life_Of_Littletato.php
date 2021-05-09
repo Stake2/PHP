@@ -145,9 +145,7 @@ $statustxt = '['.ucfirst($story_status).']';
 
 # Website name, title, URL and description setter, by language
 if ($website_language == $language_geral) {
-	$website_language = $language_enus;
-
-	$hyphen_separated_website_language = strtoupper($website_language);
+	$hyphen_separated_website_language = strtoupper($language_enus);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $selected_website;
 
@@ -156,8 +154,6 @@ if ($website_language == $language_geral) {
 	$website_link = $website_the_life_of_littletato_link;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
-
-	$website_language = $language_geral;
 }
 
 if ($website_language == $language_enus) {
@@ -190,8 +186,6 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];
 }
-
-echo $website_title;
 
 # Buttons and tabs definer
 #  Tab names replacer for languages_array
@@ -230,10 +224,20 @@ if ($website_has_notifications == True) {
 }
 
 $variable_inserter_array = array(
+$website_the_life_of_littletato_linked,
 $website_spaceliving_linked,
+$website_spaceliving_linked_alternate,
+$spaceliving_chapter_9,
 $littletato_anime_image,
 $littletato_anime_image_link_not_cdn,
 $the_life_of_littletato_spaceliving_chapter_crossover_link,
+);
+
+$variable_inserter_replacer_array = array(
+" ".$the_life_of_littletato_link_name,
+" ".$spaceliving_link_name,
+$spaceliving_story_name." ",
+" ".$till_chapter_nine_text,
 );
 
 ?>

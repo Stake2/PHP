@@ -12,129 +12,13 @@ if (isset($host_text) == True) {
 	$return = False;
 }
 
-function format($text, $parameters) {
-	$parameters = (array)$parameters;
-
-	$text = preg_replace_callback("#\{\}#",
-	function ($parameters_array) {
-		static $i = 0;
-		return '{'.($i++).'}';
-	},
-	$text);
-
-	return str_replace(
-		array_map(
-		function ($key) {
-			return '{'.$key.'}';
-		},
-
-		array_keys($parameters)),
-
-		array_values($parameters),
-
-		$text
-	);
-}
-
-function Remove_Text_From_String($item, $text_to_replace = Null) {
-	global $line_replace_array;
-
-	if ($text_to_replace == Null) {
-		$text_to_replace = $line_replace_array;
-	}
-
-	if (is_string($item) or is_array($item)) {
-		return str_replace($text_to_replace, "", $item);
-	}
-}
-
-function Open_File($file, $mode = Null) {
-	if ($mode == Null) {
-		$mode = "r";
-	}
-
-	if (file_exists($file) == True) {
-		return $file = fopen($file, $mode, 'UTF-8');
-	}
-
-	else {
-		return null;
-	}
-}
-
-function Read_Lines($file, $add_none = False) {
-	$file_read = Open_File($file);
-
-	if ($file_read != Null) {
-		if ($add_none == False) {
-			$array = explode("\n", fread($file_read, filesize($file)));
-			$array = Remove_Text_From_String($array);
-		}
-
-		if ($add_none == True) {
-			$array = array("None");
-
-			while(!feof($file_read)) {
-				$text_line = fgets($file_read);
-				$text_line = Remove_Text_From_String($text_line);
-
-				array_push($array, $text_line);
-			}
-		}
-
-		return $array;
-	}
-
-	else {
-		return null;
-	}
-}
-
-function Show_Text($file) {
-	global $variable_inserter_array;
-
-	$file_read = Open_File($file);
-
-	while(!feof($file_read)) {
-		$text_line = fgets($file_read);
-		$text_line = Remove_Text_From_String($text_line);
-		$text_line = Variable_Inserter($variable_inserter_array, $text_line);
-
-		echo $text_line."\n".'<br />';
-	}
-}
-
-function Line_Number($file) {
-	$file = Open_File($file);
-
-	$line_number = 0;
-	while (!feof($file)) {
-		$line = fgets($file);
-		$line_number++;
-	}
-
-	return $line_number;
-}
-
-function Word_Number($file) {
-	$file_read = Open_File($file);
-
-	$lines = Read_Lines($file);
-	$lines_text = "";
-
-	foreach ($lines as $line) {
-		$lines_text .= $line;
-	}
-
-	$words = number_format(str_word_count($lines_text));
-
-	return $words;
-}
-
 $current_year = strftime("%Y");
+date_default_timezone_set("America/Sao_Paulo");
+$data = date("d/m/Y");
 
 # Website variables
-$main_website_url = 'https://thestake2.netlify.app/';
+$https_text = "https://";
+$netlify_url = "netlify.app";
 $hard_drive_letter = "C";
 $mega_folder = $hard_drive_letter.':/Mega/';
 $medias_local_folder = $hard_drive_letter.':/Midias/';
@@ -146,6 +30,7 @@ if (!file_exists($mega_folder)) {
 }
 
 $mega_folder_stake2_website = $mega_folder.'Stake2 Website/';
+$subdomain_file = $mega_folder_stake2_website.'Subdomain.txt';
 $main_php_folder = $mega_folder.'PHP/';
 
 $tabs_folder_variable = 'Tabs';
@@ -186,8 +71,16 @@ $other_index_stuff_php = $php_vars_global_files.'Other Index Stuff.php';
 $website_selector_file = $php_variables.'Website Selector.php';
 $website_style_chooser_file = $php_vars_global_files.'Website Style Chooser.php';
 $website_style_variables_foreach = $php_vars_global_files.'Website Style Variables Foreach.php';
-$generic_tabs_generator_file = $php_vars_global_files.'GenericCities Generator.php';
+$generic_tabs_generator_file = $php_vars_global_files.'Generic Tabs Generator.php';
 $setting_parameters_file = $php_vars_global_files.'Settings Params.php';
+$crucial_functions_file_php = $php_vars_global_files."Crucial Functions.php";
+$normal_functions_file_php = $php_vars_global_files."Functions.php";
+
+# Global Crucial Functions PHP File Loader
+require $crucial_functions_file_php;
+
+$website_subdomain_name = Read_Lines($subdomain_file)[0];
+$main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
 
 # Main Arrays PHP file loader
 require $main_arrays_php;
@@ -209,45 +102,6 @@ require $default_setting_values_php;
 # Website Language Definer file includer
 require $website_language_definer_php;
 
-function Language_Item_Definer($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False) {
-	global $website_language;
-	global $language_enus;
-	global $language_ptbr;
-	global $language_ptpt;
-
-	if ($website_language == $language_enus) {
-		return $enus_item;
-	}
-
-	if ($website_language == $language_ptbr) {
-		return $ptbr_item;
-	}
-
-	if ($website_language == $language_ptpt and $same_from_ptbr == False) {
-		return $ptpt_item;
-	}
-
-	if ($website_language == $language_ptpt and $same_from_ptbr == True) {
-		return $ptbr_item;
-	}
-}
-
-function Language_Item_Definer_By_Array($english_variable, $portuguese_variable) {
-	global $website_language;
-	global $en_languages_array;
-	global $pt_languages_array;
-
-	if (in_array($website_language, $en_languages_array)) {
-		$variable = $english_variable;
-	}
-
-	if (in_array($website_language, $pt_languages_array)) {
-		$variable = $portuguese_variable;
-	}
-
-	return $variable;
-}
-
 # Variable Inserter PHP file loader
 require $variable_inserter_php;
 
@@ -258,18 +112,12 @@ $website_title = $website_titles_array[$selected_website_number];
 $website_type = $website_types_array[$selected_website_number];
 
 # Language modifier
-$hyphen_separated_website_language = strtoupper($website_language);
-$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+#$hyphen_separated_website_language = strtoupper($website_language);
+#$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
+#
 
-if ($site_is_prototype == False) {
-	# VGlobal.php variables file includer
-	require $vglobal_php;
-}
-
-if ($site_is_prototype == True) {
-	# VGlobal.php variables file includer
-	@require $vglobal_php;
-}
+# VGlobal.php variables file includer
+require $vglobal_php;
 
 if ($return == False) {
 	echo "<!DOCTYPE html>"."\n";

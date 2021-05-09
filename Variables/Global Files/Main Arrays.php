@@ -7,6 +7,8 @@ $website_selector_parameters = array(
 'website_language',
 );
 
+$website_language_parameter = $website_selector_parameters[1];
+
 # Queries for parameters of settings
 $setting_parameters = array(
 'website_notification_setting',

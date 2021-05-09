@@ -2,7 +2,7 @@
 
 #Array of button names
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	$text_size = 'h2';
 
 	if (isset($citiestxts[$i])) {
@@ -14,7 +14,7 @@ while ($i <= $tabnumb) {
 
 #Array of tab texts
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	$tabtxts[$i] = $citytxts[$i];
 
 	$i++;
@@ -22,7 +22,7 @@ while ($i <= $tabnumb) {
 
 if ($website_name == $website_things_i_do) {
 	$i = 0;
-	while ($i <= $tabnumb) {
+	while ($i <= $website_tab_number) {
 		if ($i < 1) {
 			$text_size = 'h6';	
 		}
@@ -39,7 +39,7 @@ if ($website_name == $website_things_i_do) {
 else {
 	# Array of mobile button names
 	$i = 0;
-	while ($i <= $tabnumb) {
+	while ($i <= $website_tab_number) {
 		$text_size = 'h4';
 		$citytxts[$i] = '<'.$text_size.'>'.$citiestxts[$i].'</'.$text_size.'>';
 	
@@ -49,7 +49,7 @@ else {
 
 # Array of mobile tab texts
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	$tabtxtsm[$i] = $citytxts[$i];
 
 	$i++;
@@ -58,7 +58,7 @@ while ($i <= $tabnumb) {
 if ($website_name == $website_watch_history) {
 	# Citycodes array generator
 	$i = 0;
-	while ($i <= $tabnumb) {
+	while ($i <= $website_tab_number) {
 		if ($i < 3) {
 			$citycodes[$i] = $website.'-'.strtolower($tabnames[$i]);
 		}
@@ -78,7 +78,7 @@ if ($website_name == $website_watch_history) {
 else {
 	# Array of button codes
 	$i = 0;
-	while ($i <= $tabnumb) {
+	while ($i <= $website_tab_number) {
 		$citycodes[$i] = $website.'-'.strtolower($tabnames[$i]);
 
 		$i++;
@@ -87,7 +87,7 @@ else {
 
 # Array of city codes
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	$tabcodes[$i] = $citycodes[$i];
 
 	$i++;
@@ -95,7 +95,7 @@ while ($i <= $tabnumb) {
 
 # Array of mobile city codes
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	$tabcodesm[$i] = $citycodes[$i].'m';
 
 	$i++;
@@ -117,7 +117,7 @@ if ($website_uses_tab_body_generator == False) {
 	#$citybodyfiles_array[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
 
 	if (file_exists($selected_website_folder.'CityBody'.$i2.'.php')) {
-		while ($i <= $tabnumb) {
+		while ($i <= $website_tab_number) {
 			$i2 = $i + 1;
 
 			$city_body_files[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
@@ -163,7 +163,7 @@ if ($website_name == $website_things_i_do) {
 
 #City body files includer
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	if (isset($city_body_files[$i])) {
 		if (file_exists($city_body_files[$i])) {
 			include $city_body_files[$i];
@@ -195,7 +195,7 @@ if ($website_uses_tab_body_generator == True) {
 #City content array generator
 $zzz = 0;
 $zxx = 1;
-$tabnumb3 = $tabnumb + 1;
+$tabnumb3 = $website_tab_number + 1;
 while ($zzz <= $tabnumb3) {
 	$tab_contents_file = $selected_website_folder.$tabs_folder_variable."/Contents/".$zxx.'.php';
 	if (file_exists($tab_contents_file)) {
@@ -223,7 +223,7 @@ while ($zzz <= $tabnumb3) {
 
 #Citiescontent array generator
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	$i2 = $i + 1;
 
 	if (isset($city_bodies[$i])) {

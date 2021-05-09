@@ -17,11 +17,11 @@ if ($website_name != $website_nazzevo and $story_has_dates == True) {
 	echo "<br />";
 
 	if (isset($chapter_written_dates[$chapter_date_number])) {
-		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.'."<br />"."\n";		
+		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.'."\n";		
 	}
 }
 
-echo $words_text.": ".$chapter_word_count."."."\n";
+echo "<br />".$words_text.": ".$chapter_word_count."."."\n";
 
 #echo $write_chapter_script."\n";
 echo $div_close."\n";

@@ -2,10 +2,10 @@
 
 #Cities array includer
 $i = 0;
-while ($i <= $tabnumb) {
-	require $cities[$i];
+while ($i <= $website_tab_number) {
+	require $website_tabs[$i];
 	
-	if ($i != $tabnumb) {
+	if ($i != $website_tab_number) {
 		echo "\n";
 	}
 

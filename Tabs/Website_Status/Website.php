@@ -32,7 +32,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_website_sta
 	}
 
 	#Number of tabs
-	$tabnumb = count($tabnames) - 1;
+	$website_tab_number = count($tabnames) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;

@@ -11,6 +11,8 @@ $text_file_reader_file_php = $php_vars_global_files.'Text File Reader.php';
 $watch_and_yearwebsites_variables_php = $php_vars_global_files.'Watch And YearWebsites Variables.php';
 $notifications_definer_php = $php_vars_global_files.'Notifications Definer.php';
 $variable_inserter_php = $php_vars_global_files."Variable Inserter.php";
+$crucial_functions_file_php = $php_vars_global_files."Crucial Functions.php";
+$normal_functions_file_php = $php_vars_global_files."Functions.php";
 
 $watch_history_text_file_reader_module = $php_variables_text_file_reader_modules.'Watch History Module.php';
 

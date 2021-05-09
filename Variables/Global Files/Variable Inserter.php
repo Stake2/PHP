@@ -10,6 +10,16 @@ With their respective variables.
 $verbose = False;
 $has_variable = False;
 
+function match($source_string, $pattern) {
+	if (preg_match("~\b$pattern\b~", $source_string)) {
+		return true;
+	} 
+	
+	else {
+		return false;
+	}
+}
+
 function Variable_Name($var) {
     foreach($GLOBALS as $varName => $value) {
         if ($value === $var) {
@@ -25,6 +35,7 @@ function Variable_Inserter($array, $text_line) {
 	global $has_variable;
 	global $variable_inserter_replacer_array;
 	global $use_text_as_replacer;
+	global $website_language_text;
 
 	$backup_text_line = $text_line;
 
@@ -43,7 +54,7 @@ function Variable_Inserter($array, $text_line) {
 				$new_text_line = $text_line;
 
 				$new_text_line = str_replace($text, $variable, $new_text_line);
-
+				
 				$has_variable = True;
 			}
 
@@ -75,6 +86,7 @@ function Variable_Inserter($array, $text_line) {
 	}
 
 	if ($use_text_as_replacer == False) {
+		$i = 0;
 		foreach ($array as $variable) {
 			$variable_name = Variable_Name($variable);	
 
@@ -82,31 +94,106 @@ function Variable_Inserter($array, $text_line) {
 				echo "<br />Linha: ".$text_line."<br />"."Nome da Variável: $".$variable_name.";<br />"."Variável: $".$variable.";<br />";
 			}
 
+			#if (preg_match("/".$variable_name."/m", $text_line) == True and $has_variable == False) {
+			#	$new_text_line = $text_line;
+			#
+			#	if (isset($variable_inserter_replacer_array)) {
+			#		$c = 0;
+			#		while ($c <= count($variable_inserter_replacer_array) - 1) {
+			#			if (preg_match("/".$variable_inserter_replacer_array[$c]."/m", $new_text_line) == True) {
+			#				$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
+			#			}
+			#
+			#			$c++;
+			#		}
+			#	}
+			#
+			#	$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
+			#
+			#	$has_variable = True;
+			#}
+			#
+			#if (preg_match("/".$variable_name."/m", $text_line) == False and $has_variable == False) {
+			#	$new_text_line = str_replace(array(".", "?", ")", "("), "", $text_line);
+			#
+			#	if (isset($variable_inserter_replacer_array)) {
+			#		$c = 0;
+			#		while ($c <= count($variable_inserter_replacer_array) - 1) {
+			#			if (preg_match("/".$variable_inserter_replacer_array[$c]."/m", $new_text_line) == True) {
+			#				$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
+			#			}
+			#
+			#			$c++;
+			#		}
+			#	}
+			#
+			#	if ($new_text_line == "$".$variable_name.";") {
+			#		$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
+			#
+			#		$has_variable = True;
+			#	}
+			#}
+
 			if (strpos($text_line, "$".$variable_name.";") == True and $has_variable == False) {
 				$new_text_line = $text_line;
 
-				if (isset($variable_inserter_replacer_array)) {
-					$new_text_line = str_replace($variable_inserter_replacer_array, "", $new_text_line);
+				if (isset($variable_inserter_replacer_array) == True and strpos($new_text_line, "<a") === False) {
+					$c = 0;
+					while ($c <= count($variable_inserter_replacer_array) - 1) {
+						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True and strpos($new_text_line, "<a") === False) {
+							$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
+						}
+			
+						$c++;
+					}
 				}
 
 				$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
+
+				if (isset($variable_inserter_replacer_array) == True and strpos($new_text_line, "<a") === False) {
+					$c = 0;
+					while ($c <= count($variable_inserter_replacer_array) - 1) {
+						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True and strpos($new_text_line, "<a") === False) {
+							$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
+						}
+			
+						$c++;
+					}
+				}
+
+				#if (isset($variable_inserter_replacer_array)) {
+				#	$new_text_line = str_replace($variable_inserter_replacer_array, "", $new_text_line);
+				#}
 
 				$has_variable = True;
 			}
 
 			if (strpos($text_line, "$".$variable_name.";") == False and $has_variable == False) {
-				$new_text_line = str_replace(array(".", "?", ")", "(", " SpaceLiving Network"), "", $text_line);
-
-				if (isset($variable_inserter_replacer_array)) {
-					$new_text_line = str_replace($variable_inserter_replacer_array, "", $new_text_line);
-				}
+				$new_text_line = str_replace(array(".", "?", ")", "("), "", $text_line);
 
 				if ($new_text_line == "$".$variable_name.";") {
 					$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
 
 					$has_variable = True;
 				}
+
+				if (isset($variable_inserter_replacer_array) and $new_text_line == "$".$variable_name.";" and strpos($new_text_line, "<a") == False) {
+					$c = 0;
+					while ($c <= count($variable_inserter_replacer_array) - 1) {
+						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True and strpos($new_text_line, "<a") == False) {
+							$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
+						}
+			
+						$c++;
+					}
+				}
+
+				#if (isset($variable_inserter_replacer_array) and $new_text_line == "$".$variable_name.";") {
+				#	$new_text_line = str_replace($variable_inserter_replacer_array, "", $new_text_line);
+				#}
 			}
+
+			$i++;
 		}
 	}
 

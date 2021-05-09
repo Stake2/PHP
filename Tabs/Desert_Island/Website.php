@@ -64,8 +64,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_desert_isla
 	}
 
 	#Number of tabs
-	$tabnumb = count($tabs) - 1;
-	$tabnumb2 = $tabnumb;
+	$website_tab_number = count($tabs) - 1;
+	$tabnumb2 = $website_tab_number;
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;

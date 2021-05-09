@@ -8,6 +8,8 @@ if ($chapter_number_1 > 9) {
 	$text_to_add = "";
 }
 
+$show_chapter_on_read = False;
+
 $new_chapter_number_1 = $text_to_add.$chapter_number_1;
 
 $reads_folder = $story_folder.$readers_and_reads_folder_text.$reads_folder_text;
@@ -38,13 +40,15 @@ if ($reads_number > 1 and $chapter_read_dates_text != Null) {
 
 		$read = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'">'.'<div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 		# Reader text and name
-		$reader_text.': </b>'.$reader.'<br /><b>'.
+		$reader_text.': </b>'.$reader.'<br /><b>';
 
 		# Chapter text and title
-		#substr($chapters_text, 0, -1).':</b> '.$chapter_titles[$chapter_number_3].'<br />'.'<b>'.
+		if ($show_chapter_on_read == True) {
+			$read .= substr($chapters_text, 0, -1).':</b> '.$chapter_titles[$chapter_number_3].'<br />'.'<b>';
+		}
 
 		# Read time text and time
-		$time_text.':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
+		$read .= $time_text.':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
 
 		$reads_array[$chapter_number_1][$current_chapter_read_number] = $read;
 
@@ -61,13 +65,15 @@ if ($reads_number == 1 and $chapter_read_dates_text != Null) {
 
 	$read = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 	# Reader text and name
-	$reader_text.': </b>'.$reader.'<br /><b>'.
+	$reader_text.': </b>'.$reader.'<br /><b>';
 
 	# Chapter text and title
-	#substr($chapters_text, 0, -1).':</b> '.$chapter_titles[$chapter_number_3].'<br />'.'<b>'.
+	if ($show_chapter_on_read == True) {
+		$read .= substr($chapters_text, 0, -1).':</b> '.$chapter_titles[$chapter_number_3].'<br />'.'<b>';
+	}
 
 	# Read time text and time
-	$time_text.':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
+	$read .= $time_text.':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
 
 	$reads_array[$chapter_number_1] = $read;
 }

@@ -1,20 +1,20 @@
 <?php 
 
 # Website Language definer
-if (strpos ($host_text, $website_selector_parameters[1].'='.$languages_array[0]) == True) {
-    $website_language = $languages_array[0];
+if (strpos ($host_text, $website_language_parameter.'='.$language_geral) == True) {
+    $website_language = $language_geral;
 }
 
-if (strpos ($host_text, $website_selector_parameters[1].'='.$languages_array[1]) == True) {
-    $website_language = $languages_array[1];
+if (strpos ($host_text, $website_language_parameter.'='.$language_enus) == True) {
+    $website_language = $language_enus;
 }
 
-if (strpos ($host_text, $website_selector_parameters[1].'='.$languages_array[2]) == True) {
-    $website_language = $languages_array[2];
+if (strpos ($host_text, $website_language_parameter.'='.$language_ptbr) == True) {
+    $website_language = $language_ptbr;
 }
 
-if (strpos ($host_text, $website_selector_parameters[1].'='.$languages_array[3]) == True) {
-    $website_language = $languages_array[3];
+if (strpos ($host_text, $website_language_parameter.'='.$language_ptpt) == True) {
+    $website_language = $language_ptpt;
 }
 
 if (in_array($website_language, $en_languages_array)) {

@@ -144,8 +144,6 @@ if ($site_uses_new_comment_and_read_displayer == True and $story_website_contain
 		null,
 		);
 	}
-
-	#$number_variable = $chapter_number_1;
 }
 
 $zw = 1;

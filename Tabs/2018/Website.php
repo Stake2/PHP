@@ -22,7 +22,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2018) == Tr
 		$tabnames = array($current_year, 'Mídia', 'Tarefas', 'Anos');
 	}
 
-	$tabnumb = 3;
+	$website_tab_number = 3;
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;

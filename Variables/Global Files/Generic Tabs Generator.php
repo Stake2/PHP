@@ -9,21 +9,21 @@ if ($website_hide_tabs_setting != True) {
 }
 
 if ($website_not_so_much_space_setting == True) {
-	$bigspace = '';
+	$big_space = '';
 }
 
 else {
 	$computer_variable = 'mobileHide';
-	$bigspace = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
-	$bigspace = $bigspace;
+	$big_space = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
+	$big_space = $big_space;
 }
 
-#Array of the GenericTabs files
+# Array of the Generic Tabs PHP Files
 $i = 0;
-while ($i <= $tabnumb) {
+while ($i <= $website_tab_number) {
 	$i2 = $i + 1;
 
-	$cities[$i] = $generic_tabs_folder.'City'.$i2.'.php';
+	$website_tabs[$i] = $generic_tabs_folder.'City'.$i2.'.php';
 
 	$i++;
 }

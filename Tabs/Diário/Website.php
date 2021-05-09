@@ -50,10 +50,10 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_diario) == 
 	}
 
 	#Number of tabs
-	$tabnumb = 2;
+	$website_tab_number = 2;
 
 	if ($website_has_stories_tab_setting == True) {
-		$tabnumb = $tabnumb + 1;
+		$website_tab_number = $website_tab_number + 1;
 	}
 
 	#Includer of the array of the GenericTabs files

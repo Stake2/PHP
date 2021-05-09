@@ -22,7 +22,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2020) == Tr
 		$tabnames = array($current_year, 'Mídia', 'Prints', 'Tarefas', 'Anos');
 	}
 
-	$tabnumb = count($tabnames) - 1;
+	$website_tab_number = count($tabnames) - 1;
 
 	#Includer of the array of the GenericTabs files
 	include $generic_tabs_generator_file;

@@ -60,7 +60,6 @@ $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 require $text_file_reader_file_php;
 
 $comments_number = $story_comments_check_number - 1;
-
 $readed_number = 12;
 
 #Story date definer using story date text file
@@ -79,7 +78,7 @@ else {
 require $story_variables_php_variable;
 
 # Revised chapter number
-$revised_chapter = 5;
+$revised_chapter = $last_posted_chapter;
 
 # Website descriptions
 $website_descriptions_array = array(
@@ -251,20 +250,41 @@ $gods_warrior_still_got_something = format($songs["God's Warrior - Still Got Som
 $gods_warrior_still_got_something_link = Make_Link("https://www.youtube.com/watch?v=8WYMQbWUxGM", $gods_warrior_still_got_something_name);
 
 $skybreak_mizu_aurora_link = Make_Link("https://www.youtube.com/watch?v=J2P1_v9aFV8", "Skybreak & Mizu - Aurora", "w3-text-white");
+$panda_eyes_take_my_hand_ft_azuria_sky_zane_remix = Make_Link("https://www.youtube.com/watch?v=OCIEd71mViM", "Panda Eyes - Take My Hand Ft. Azuria Sky (Z∆NE Remix)", $text_white_css_class);
+
+$tom_and_jerrys_2021_soundtrack_playlist_name = Language_Item_Definer_By_Array("the soundtrack of the Tom & Jerry movie from 2021", "a trilha sonora do filme Tom e Jerry de 2021");
+$tom_and_jerrys_2021_soundtrack_playlist = Make_Link("https://www.youtube.com/playlist?list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa", $tom_and_jerrys_2021_soundtrack_playlist_name, $text_white_css_class);
+$tom_and_jerry_2021_married_in_the_park = Make_Link("https://www.youtube.com/watch?v=cAlTw8szj6Q&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=42", "Tom & Jerry 2021 - Married In The Park", $text_white_css_class);
+$tom_and_jerry_2021_the_weddings_off = Make_Link("https://www.youtube.com/watch?v=SCxnA10GOMA&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=40", "Tom & Jerry 2021 - The Wedding's Off", $text_white_css_class);
+
+$panda_eyes_opposite_side = Make_Link("https://www.youtube.com/watch?v=e0nay70SaXs", "Panda Eyes - Opposite Side", $text_white_css_class);
 
 $variable_inserter_array = array(
 $gods_warrior_still_got_something,
 $skybreak_mizu_aurora_link,
+$panda_eyes_take_my_hand_ft_azuria_sky_zane_remix,
+$panda_eyes_opposite_side,
+$tom_and_jerrys_2021_soundtrack_playlist,
+$tom_and_jerry_2021_married_in_the_park,
+$tom_and_jerry_2021_the_weddings_off,
 $website_the_life_of_littletato_linked,
 $website_the_story_of_the_nazzevo_brothers_linked,
 $human_littletato_image,
 $lisa_image,
 $spaceliving_the_life_of_littletato_chapter_crossover_link,
+$the_life_of_littletato_chapter_26,
 $spaceliving_discord_join_link,
 );
 
 $variable_inserter_replacer_array = array(
+"Panda Eyes - Take My Hand Ft. Azuria Sky (Z∆NE Remix)",
+$tom_and_jerrys_2021_soundtrack_playlist_name,
+#"Tom & Jerry 2021 - Married In The Park ",
+#"Tom & Jerry 2021 - Married In The Park ",
+"Panda Eyes - Opposite Side ",
 " (".$the_life_of_littletato_link_name.")",
+" (".$the_story_of_the_nazzevo_brothers_story_name.")",
+$chapter_twenty_six_text." ",
 );
 
 /*

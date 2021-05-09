@@ -1,5 +1,7 @@
 <?php 
 
+$verbose = False;
+
 $normal_website_type = "Normal Website Type";
 $story_website_type = "Story Website Type";
 
@@ -8,18 +10,10 @@ $website_types_array = array();
 
 $websites_text_file = $php_variables_global_files."Websites.txt";
 
-$file = $websites_text_file;
-if (file_exists($file) == True) {
-	$file_open = fopen($file, 'r', 'UTF-8'); 
-	if ($file_open) {
-		$websites = explode("\n", fread($file_open, filesize($file)));
-		$websites = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $websites);
-	}
-}
-
-$verbose = False;
+$websites = Read_Lines($websites_text_file);
 
 $websites_number = 0;
+
 foreach ($websites as $website) {
 	$split = explode(", ", $website);
 	$selected_website_name = $split[0];
