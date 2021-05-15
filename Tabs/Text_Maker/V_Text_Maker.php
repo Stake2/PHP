@@ -70,7 +70,7 @@ if ($website_language == $languages_array[0]) {
 
 	$website_name = $website;
 	$website_title = $sitename2;
-	$website_title_html = $sitename2;
+	$website_title_header = $sitename2;
 	$website_link = $selected_website_url;
 	$website_meta_description = $website_descriptions_array[0];
 }
@@ -81,7 +81,7 @@ if ($website_language == $languages_array[1]) {
 
 	$website_name = $website;
 	$website_title = $sitename2;
-	$website_title_html = $sitename2;
+	$website_title_header = $sitename2;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 }
@@ -92,7 +92,7 @@ if (in_array($website_language, $pt_languages_array)) {
 
 	$website_name = $website;
 	$website_title = $sitename2;
-	$website_title_html = $sitename2;
+	$website_title_header = $sitename2;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 }

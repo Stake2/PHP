@@ -34,7 +34,7 @@ if ($website_language == $geral_language) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 	$website_title = ucwords($website_title);
-	$website_title_html = $website_title;
+	$website_title_header = $website_title;
 	$website_link = $selected_website_url;
 	$website_meta_description = $website_html_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -46,7 +46,7 @@ if ($website_language == $enus_language) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($website_title = $website_titles_array[$selected_website_number]);
+	$website_title_header = ucwords($website_title = $website_titles_array[$selected_website_number]);
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_html_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -58,7 +58,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($website_title);
+	$website_title_header = ucwords($website_title);
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_html_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

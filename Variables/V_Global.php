@@ -138,8 +138,8 @@ $website_head = '
 <meta property="og:locale:alternate" content="pt_BR" />
 <meta property="og:locale:alternate" content="pt_PT" />
 <link rel="canonical" href="'.$website_link.'" />
-<link rel="icon" href="'.$website_image.'" />
-<link rel="image_src" href="'.$website_image.'" />
+<link rel="icon" type="image/'.$image_format.'" href="'.$website_image.'" />
+<link rel="image_src" type="image/'.$image_format.'" href="'.$website_image.'" />
 <meta name="description" content="'.$website_meta_description.'" />'
 .$twitter_info.'
 <meta name="revised" content="'."Stake's Enterprise TM".', '.$data.'" />

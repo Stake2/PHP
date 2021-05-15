@@ -183,7 +183,7 @@ if ($website_language == $languages_array[0]) {
 	$website_language = $languages_array[0];
 	
 	$website_title = $websites_names_array[0].' '.ucwords($website_language);
-	$website_title_html = $websites_names_array[0].': '.$icons[4].' '.$icons[22];
+	$website_title_header = $websites_names_array[0].': '.$icons[4].' '.$icons[22];
 	$website_link = $selected_website_url;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -196,7 +196,7 @@ if ($website_language == $languages_array[1]) {
 	$website_name = $websites_names_array[0];
 
 	$website_title = $websites_names_array[0];
-	$website_title_html = $websites_names_array[0].': '.$icons[4].' '.$icons[22];
+	$website_title_header = $websites_names_array[0].': '.$icons[4].' '.$icons[22];
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -208,7 +208,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_name = $websites_names_array[1];
 
 	$website_title = $websites_names_array[1];
-	$website_title_html = $websites_names_array[1].': '.$icons[4].' '.$icons[22];
+	$website_title_header = $websites_names_array[1].': '.$icons[4].' '.$icons[22];
 	$website_link = $siteurlgeral2;
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

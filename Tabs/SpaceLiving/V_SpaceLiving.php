@@ -28,13 +28,17 @@ $website_image = 'SpaceLiving Logo';
 if ($website_story_has_book_covers_setting == True) {
 	$story_book_cover_filename = 'Book Cover';
 
-	$website_image = $story_book_cover_folder.$story_book_cover_filename.'.png';
+	$image_format = "ico";
+
+	$website_image = $story_book_cover_folder.$story_book_cover_filename.".".$image_format;
 	$website_image_size_computer = 60;
 	$website_image_size_mobile = 88;
 }
 
 else {
-	$website_image = $cdnimg.$website_image.'.jpg';
+	$image_format = "jpg";
+
+	$website_image = $cdnimg.$website_image.".".$image_format;
 
 	$website_image_size_computer = 30;
 	$website_image_size_mobile = 77;

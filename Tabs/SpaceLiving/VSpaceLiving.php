@@ -199,7 +199,7 @@ if ($website_language == $languages_array[0]) {
 	$website_language = $languages_array[0];
 
 	$website_title = $story_folder;
-	$website_title_html = $story_folder.': '.$icons[11];
+	$website_title_header = $story_folder.': '.$icons[11];
 	$website_link = $website_spaceliving_link;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -213,7 +213,7 @@ if ($website_language == $languages_array[1]) {
 	$website_name = $selected_website;
 
 	$website_title = $story_name_variable.' '.$hyphen_separated_website_language;
-	$website_title_html = $story_name_variable.': '.$icons[11];
+	$website_title_header = $story_name_variable.': '.$icons[11];
 	$website_link = $website_spaceliving_link.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -225,7 +225,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_name = $selected_website;
 
 	$website_title = $story_name_variable.' '.$hyphen_separated_website_language;
-	$website_title_html = $story_name_variable.': '.$icons[11];
+	$website_title_header = $story_name_variable.': '.$icons[11];
 	$website_link = $website_spaceliving_link.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

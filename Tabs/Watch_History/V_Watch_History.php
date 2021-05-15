@@ -131,7 +131,7 @@ if ($website_language == $geral_language) {
 	$website_name = $website;
 
 	$website_title = ucwords($website_title);
-	$website_title_html = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
+	$website_title_header = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -144,7 +144,7 @@ if ($website_language == $enus_language) {
 	$website_name = $website;
 	
 	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
+	$website_title_header = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -157,7 +157,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_name = $website;
 
 	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_html = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
+	$website_title_header = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[1];

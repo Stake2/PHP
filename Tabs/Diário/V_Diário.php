@@ -248,7 +248,7 @@ if ($website_language == $language_geral) {
 	$selected_website_url = $main_website_url.strtolower($diario_names[0]).'/';
 
 	$website_title = $diario_names[0];
-	$website_title_html = $diario_names[0].': '.$icons[11];
+	$website_title_header = $diario_names[0].': '.$icons[11];
 	$website_link = $website_urls[0];
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -264,7 +264,7 @@ if ($website_language == $language_enus) {
 	$selected_website_url = $main_website_url.strtolower($diario_names[0]).'/';
 
 	$website_title = $diario_names[0].' '.$hyphen_separated_website_language;
-	$website_title_html = $diario_names[0].': '.$icons[11];
+	$website_title_header = $diario_names[0].': '.$icons[11];
 	$website_link = $website_urls[0];
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
@@ -286,7 +286,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	}
 
 	#$website_title = $diario_names[1].' '.$hyphen_separated_website_language;
-	$website_title_html = $website_title.': '.$icons[11];
+	$website_title_header = $website_title.': '.$icons[11];
 	$website_link = $website_urls[1];
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];
