@@ -89,17 +89,17 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 		$language_split_number = 1;
 	}
 
-	$to_watch_episodes_file = $notepad_watch_history_folder.'To Watch Episodes.txt';
-	$to_watch_status_file = $notepad_watch_history_folder.'To Watch Status.txt';
-	$to_watch_folders_file = $notepad_watch_history_folder.'To Watch Folders.txt';
+	$to_watch_episodes_file = $notepad_to_watch_folder.'Episodes.txt';
+	$to_watch_status_file = $notepad_to_watch_folder.'Status.txt';
+	$to_watch_folders_file = $notepad_to_watch_folder.'Folders.txt';
 
-	$watched_movies_file = $notepad_watch_history_folder.'Watched Movies.txt';
-	$watched_movies_time_file = $notepad_watch_history_folder.'Watched Movies Times.txt';
+	$watched_movies_file = $notepad_movies_folder.'Names.txt';
+	$watched_movies_time_file = $notepad_movies_folder.'Times.txt';
 	$watched_movie_time_numbers_array = array('0', 1, 4, 5, 6, 7, 8, 9, 10);
 	$watched_movie_comment_numbers_array = array(1, 4, 5, 6, 7, 8);
 	$watched_episodes_has_time_array_2018 = array(1, 6, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 46, 47, 48, 49, 52);
 
-	$to_watch_media_type_file = $notepad_watch_history_folder.'To Watch Media Types.txt';
+	$to_watch_media_type_file = $notepad_to_watch_folder.'Media Types.txt';
 
 	if (file_exists($to_watch_episodes_file) == True) {
 		$to_watch_line_number = 0;
@@ -179,10 +179,10 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$current_variable_year = 2018;
 	while ($current_variable_year <= $current_year_backup) {
 		$current_year = $current_variable_year;
-		$current_year_watched_episodes_file = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/'.$watched_episodes_text.'.txt';
-		$current_year_watched_time_file = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/'.$watched_time_text.'.txt';
+		$current_year_watched_episodes_file = $current_year_watched_folder.$watched_episodes_text.'.txt';
+		$current_year_watched_time_file = $current_year_watched_folder.$watched_time_text.'.txt';
 
-		$current_year_watched_media_type_file = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/'.$watched_media_type_text.'.txt';
+		$current_year_watched_media_type_file = $current_year_watched_folder.$watched_media_type_text.'.txt';
 
 		$file = $current_year_watched_episodes_file;
 		if (file_exists($file) == True) {
@@ -421,12 +421,10 @@ if ($website_type == $story_website_type) {
 	$titles_enus_file = $story_chapter_files_folder.$full_language_enus.'/'.$titles_enus_text.'/'.$titles_enus_text.'.txt';
 
 	# Language-dependent text files
-	$titles_file = $story_chapter_files_folder.$full_language.'/'."|text|".'/'."|text|".'.txt';
-	$text_to_add = Language_Item_Definer($titles_enus_text, $titles_ptbr_text);
-	$titles_file = str_replace("|text|", $text_to_add, $titles_file);
+	$story_titles_folder = $story_chapter_files_folder.$full_language.'/'.$titles_text.'/';
+	$titles_file = $story_titles_folder.$titles_text.'.txt';
 
-	$text_to_add = Language_Item_Definer("Reads", "Leituras");
-	$story_reads_file = $story_readers_and_reads_folder.$text_to_add.'.txt';
+	#$story_reads_file = $story_readers_and_reads_folder.$read_text.'.txt';
 
 	$chapters = Line_Number($titles_file);
 
@@ -435,7 +433,7 @@ if ($website_type == $story_website_type) {
 
 	$readers_number = Line_Number($story_readers_file);
 
-	$reads_number = Line_Number($story_reads_file);
+	#$reads_number = Line_Number($story_reads_file);
 
 	#File line number fixers
     if (isset($story_comments_number)) {
@@ -453,7 +451,7 @@ if ($website_type == $story_website_type) {
         $story_reads_number_text = $reads_number;
     }
 
-	$story_creation_date = Read_Lines($story_creation_date_file);
+	$story_creation_date = Read_Lines($story_creation_date_file)[0];
 
 	$story_synopsis = Read_Lines($story_synopsis_file);
 
@@ -465,7 +463,7 @@ if ($website_type == $story_website_type) {
 
 	$comments = Read_Lines($story_comments_file);
 
-	$reads_text = Read_Lines($story_reads_file);
+	#$reads_text = Read_Lines($story_reads_file);
 
 	if ($website_name == $website_nazzevo or $website == $website_nazzevo) {
 		$chapters = Read_Lines($chapter_number_file);

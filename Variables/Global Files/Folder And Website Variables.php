@@ -51,6 +51,10 @@ $notepad_media_network_folder = $notepad_networks_folder.'Media Network/';
 $notepad_media_network_comments_folder = $notepad_media_network_folder.'Comentarios/';
 $notepad_mdn_movie_comments_folder = $notepad_media_network_comments_folder.'Filmes/';
 $notepad_watch_history_folder = $notepad_media_network_folder.'Watch History/';
+$notepad_to_watch_folder = $notepad_watch_history_folder.'To Watch/';
+$notepad_movies_folder = $notepad_watch_history_folder.'Movies/';
+$watched_string = "Watched";
+$current_year_watched_folder = $notepad_watch_history_folder.$watched_string.'/'.$current_year.'/';
 
 $diario_folder = $notepad_effort_folder.'Diario/';
 $diario_folder_blocks = $diario_folder.'Blocks/';

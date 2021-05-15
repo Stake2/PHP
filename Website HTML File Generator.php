@@ -59,12 +59,12 @@ if ($selected_language != $language_geral) {
 		}
 
 		if ($selected_language == $language_ptpt) {
-			$html_folder = $html_folder.$hyphen_separated_website_language."/";
+			$html_folder = $html_folder.$website_title_language."/";
 		}
 	}
 
 	else {
-		$html_folder = $html_folder.$hyphen_separated_website_language."/";
+		$html_folder = $html_folder.$website_title_language."/";
 	}
 }
 

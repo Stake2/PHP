@@ -47,6 +47,7 @@ $lisa_image = Make_Linked_Image($lisa_image_link, $is_chapter_image = True);
 
 $titles_enus_text = 'Titles';
 $titles_ptbr_text = 'Títulos';
+$titles_text = Language_Item_Definer($titles_enus_text, $titles_ptbr_text);
 
 $english = array(
 'finished',
@@ -89,6 +90,7 @@ $reading_text.': '.ucwords($story_name),
 $read_and_reader_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
 
 $i_read_it_text = Language_Item_Definer("I Read It ✓", "Eu Li ✓");
+$read_text = Language_Item_Definer("Read", "Leitura");
 
 $english = array(
 'Comment',
@@ -126,13 +128,16 @@ substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_na
 
 $write_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
 
+$chapters_text = Language_Item_Definer("Chapters", "Capítulos");
+$in_text = Language_Item_Definer("in", "em");
+$chapter_in_language = $chapters_text." ".$in_text." ".$full_language;
+
 # English texts for story websites
 if (in_array($website_language, $en_languages_array)) {
 	$chapter_text = 'chapter';
 	$chapter_tab_text = $chapter_text.'-text';
 
 	$author_text = 'Author of the story';
-	$chapters_text = 'Chapters';
 	$chapter_date_text = 'Story creation date';
 	$chapter_date_text_two = ucwords($chapter_text).' written in';
 
@@ -141,7 +146,6 @@ if (in_array($website_language, $en_languages_array)) {
 	$send_form_text = 'Send';
 
 	$titletxt = 'Title';
-	$titles_text = 'Titles';
 	$story_text_text = 'Story text';
 	$time_text = 'Time';
 	$stories_text = 'Stories';
@@ -171,7 +175,6 @@ if (in_array($website_language, $pt_languages_array)) {
 	$chapter_tab_text = 'texto-'.$chapter_text;
 
 	$author_text = 'Autor da história';
-	$chapters_text = 'Capítulos';
 	$chapter_date_text = 'Data de criação da história';
 	$chapter_date_text_two = ucwords($chapter_text).' escrito em';
 
@@ -180,7 +183,6 @@ if (in_array($website_language, $pt_languages_array)) {
 	$send_form_text = 'Enviar';
 
 	$titletxt = 'Título';
-	$titles_text = 'Títulos';
 	$story_text_text = 'Texto da história';
 	$time_text = 'Tempo';
 	$stories_text = 'Histórias';
@@ -201,6 +203,9 @@ if (in_array($website_language, $pt_languages_array)) {
 	$desert_island_story_name = 'Ilha Deserta',
 	);
 }
+
+# Status text definer, that sets the status text with [] around it
+$story_status_text = '['.ucfirst($story_status).']';
 
 $spaceliving_link_name = Language_Item_Definer("SpaceLiving SpaceShip Network", "Rede de EspaçoNaves SpaceLiving");
 $the_life_of_littletato_link_name = Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata");

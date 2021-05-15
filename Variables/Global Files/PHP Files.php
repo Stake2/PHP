@@ -59,7 +59,7 @@ $chapter_writer_displayer_php = $story_website_files_folder.'Chapter Writer Disp
 $chapter_writer_form_php = $story_website_files_folder.'Chapter Writer Form.php';
 $chapter_comment_and_read_displayer_php = $story_website_files_folder.'Chapter Comment And Read Displayer.php';
 $new_chapter_comment_and_read_displayer_php = $story_website_files_folder.'New Chapter Comment And Read Displayer.php';
-$story_name_details_definer_php = $story_website_files_folder.'Story Details Definer.php';
+$story_details_definer = $story_website_files_folder.'Story Details Definer.php';
 
 $read_generator_php = $story_read_and_reads_files_folder.'Read Generator.php';
 $read_modal_generator_php = $story_read_and_reads_files_folder.'Read Modal Generator.php';
@@ -77,7 +77,7 @@ $chapter_writer_displayer_php_variable = $chapter_writer_displayer_php;
 $chapter_writer_form_php_variable = $chapter_writer_form_php;
 $chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_displayer_php;
 $new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
-$story_name_details_definer_php_variable = $story_name_details_definer_php;
+$story_name_details_definer_php_variable = $story_details_definer;
 
 # Global Tabs array
 $globaltabs = array(

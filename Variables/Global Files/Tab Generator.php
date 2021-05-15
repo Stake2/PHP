@@ -1,6 +1,6 @@
 <?php 
 
-#Array of button names
+# Array of button names
 $i = 0;
 while ($i <= $website_tab_number) {
 	$text_size = 'h2';
@@ -12,7 +12,7 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-#Array of tab texts
+# Array of tab texts
 $i = 0;
 while ($i <= $website_tab_number) {
 	$tabtxts[$i] = $citytxts[$i];
@@ -225,22 +225,22 @@ while ($i <= $website_tab_number) {
 	$i2 = $i + 1;
 
 	if (isset($city_bodies[$i])) {
-		if (isset($citytitles)) {
-			$city_contents[$i] = $citytitles[$i].$city_bodies[$i].$tab_contents[$i];
+		if (isset($city_titles)) {
+			$city_contents[$i] = $city_titles[$i].$city_bodies[$i].$tab_contents[$i];
 		}
 
-		if (!isset($citytitles)) {
+		if (!isset($city_titles)) {
 			$city_contents[$i] = $city_bodies[$i].$tab_contents[$i];
 		}
 	}
 
 	else {
-		#print_r($citytitles);
-		if (isset($citytitles)) {
-			$city_contents[$i] = $citytitles[$i].$tab_contents[$i];
+		#print_r($city_titles);
+		if (isset($city_titles)) {
+			$city_contents[$i] = $city_titles[$i].$tab_contents[$i];
 		}
 
-		if (!isset($citytitles)) {
+		if (!isset($city_titles)) {
 			$city_contents[$i] = $tab_contents[$i];
 		}
 	}

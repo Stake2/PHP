@@ -58,15 +58,8 @@ $website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 12;
 
-# Non-language dependent texts
-#$commentsbtn = '<a href="#'.$tabcode[6].'"><button class="w3-btn '.$first_button_style.' '.$computer_variable.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
-#$commentsbtnm = '<a href="#'.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
-
-# TextFileReader.php File Includer
+# Text File Reader PHP File Includer
 require $text_file_reader_file_php;
-
-# Story date definer using story date text file
-$story_creation_date = $story_creation_date[0];
 
 # The chapter that I want to write
 if ($website_chapter_to_write_setting == false) {
@@ -80,111 +73,27 @@ else {
 # Re-require of the VStories.php file to set the story name
 require $story_variables_php;
 
+# Story Details Definer PHP file includer
+require $story_details_definer;
+
 # Revised chapter number
 $revised_chapter = $last_posted_chapter;
-
-# Website descriptions
-$website_descriptions_array = array(
-'Website about my story, '.$story_name.', made by stake2', 
-'Website sobre a minha história, '.$story_name.', feito por stake2',
-);
-
-# Synopsis text definer using the $synopsis that is generated from TextFileReader.php
-$website_html_descriptions_array = array(
-'Synopsis: <i class="fas fa-scroll"></i> "'.$story_synopsis[0].'"<br />',
-'Sinopse: <i class="fas fa-scroll"></i> "'.$story_synopsis[1].'"<br />',
-);
 
 # Reads the book cover image directory if the website has book covers
 if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-# English texts for Pequenata website
-if (in_array($website_language, $en_languages_array)) {
-	$read_and_reader_texts_array = array(
-	$reading_text = "You're reading",
-	$reading_text.': '.ucwords($story_name),
-	'I Read It ✓',
-	'I read the Chapter',
-	'Read the Chapter',
-	'Readings',
-	'Readers',
-	'Reader',
-	);
-
-	$write_texts_array = array(
-	'Write',
-	'Write the Chapter',
-	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
-	);
-}
-
-# Brazilian Portuguese texts for Pequenata website
-if (in_array($website_language, $pt_languages_array)) {
-	$read_and_reader_texts_array = array(
-	$reading_text = "Você está lendo",
-	$reading_text.': '.ucwords($story_name),
-	'Eu li ✓',
-	'Eu li o Capítulo',
-	'Leu o Capítulo',
-	'Leituras',
-	'Leitores',
-	'Leitor',
-	);
-
-	$write_texts_array = array(
-	'Escrever',
-	'Escreva o capítulo',
-	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
-	);
-}
-
-# Status text definer, that sets the status text with [] around it
-$statustxt = '['.ucfirst($story_status).']';
-
 # Website name, title, URL and description setter, by language
-if ($website_language == $language_geral) {
-	$hyphen_separated_website_language = strtoupper($language_enus);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $selected_website;
+$website_name = $selected_website;
+$website_title = $general_story_name;
+$website_title_header = $general_story_name.': '.$icons[11];
+$website_link = $selected_website_url;
 
-	$website_title = $general_story_name;
-	$website_title_html = $general_story_name.': '.$icons[11];
-	$website_link = $website_the_life_of_littletato_link;
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
-}
-
-if ($website_language == $language_enus) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $selected_website;
-
+if ($website_language != $language_geral) {
 	$website_title = $story_name_variable;
-	$website_title_html = $story_name_variable.': '.$icons[11];
-	$website_link = $website_the_life_of_littletato_link.strtolower($hyphen_separated_website_language).'/';
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $selected_website;
-
-	if ($website_language == $ptpt_language) {
-		$website_title = $story_name_variable.' '.strtoupper($hyphen_separated_website_language);
-	}
-
-	else {
-		$website_title = $story_name_variable;
-	}
-
-	$website_title_html = $story_name_variable.': '.$icons[11];
-	$website_link = $website_the_life_of_littletato_link.strtoupper($hyphen_separated_website_language).'/';
-	$website_meta_description = $website_descriptions_array[1];
-	$website_header_description = $website_html_descriptions_array[1];
+	$website_title_header = $website_title.': '.$icons[11];
+	$website_link .= $website_link_language."/";
 }
 
 # Buttons and tabs definer

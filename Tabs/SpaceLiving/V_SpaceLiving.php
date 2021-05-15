@@ -1,45 +1,48 @@
 <?php 
 
-#Folder variables
+# Folder variables
 #$selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_url = $website_spaceliving_link;
 $selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 $story_folder = $spaceliving_story_folder;
 
-#Form code for the comment and read forms
+# Form code for the comment and read forms
 $formcode = 'spaceliving';
 
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
-#Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
+# Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 
-#Story name definer
+# Story name definer
 $story_name_variable = $spaceliving_story_name;
 $story_name = $spaceliving_story_name;
 
-#Story status
+# Story status
 $story_status = $status[2];
 
-#Website image vars
+# Website image vars
 $website_image = 'SpaceLiving Logo';
 
-#Defines the website image if the website has book covers or not
+# Defines the website image if the website has book covers or not
 if ($website_story_has_book_covers_setting == True) {
-	$website_image = $coverfolder.'1 '.$covertxt.'.png';
+	$story_book_cover_filename = 'Book Cover';
+
+	$website_image = $story_book_cover_folder.$story_book_cover_filename.'.png';
 	$website_image_size_computer = 60;
 	$website_image_size_mobile = 88;
 }
 
 else {
 	$website_image = $cdnimg.$website_image.'.jpg';
-	$website_image_size_computer = 55;
-	$website_image_size_mobile = 99;
+
+	$website_image_size_computer = 30;
+	$website_image_size_mobile = 77;
 }
 
 $website_image_link = $website_image;
 
-#Website numbers
+# Website numbers
 $crossover = 9;
 $comments_number = 1;
 $website_comments_number = 0;
@@ -56,16 +59,16 @@ else {
 
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 
-#Text File Reader.php file includer
+# Text File Reader PHP file includer
 require $text_file_reader_file_php;
+
+# Revised chapter number
+$revised_chapter = $last_posted_chapter;
 
 $comments_number = $story_comments_check_number - 1;
 $readed_number = 12;
 
-#Story date definer using story date text file
-$story_creation_date = $story_creation_date[0];
-
-#The chapter that I want to write
+# The chapter that I want to write
 if ($website_chapter_to_write_setting == false) {
 	$story_name_website_chapter_to_write = '';
 }
@@ -77,118 +80,30 @@ else {
 # Re-require of the StoryVars.php file to set the story name
 require $story_variables_php;
 
-# Revised chapter number
-$revised_chapter = $last_posted_chapter;
+# Story Details Definer PHP file includer
+require $story_details_definer;
 
-# Website descriptions
-$website_descriptions_array = array(
-'Website about my story, '.$story_name.', made by stake2', 
-'Website sobre a minha história, '.$story_name.', feito por stake2',
-);
-
-#Synopsis text definer using the $story_synopsis that is generated from TextFileReader.php
-$website_html_descriptions_array = array(
-'Synopsis: <i class="fas fa-scroll"></i> "'.$story_synopsis[0].'"<br />',
-'Sinopse: <i class="fas fa-scroll"></i> "'.$story_synopsis[1].'"<br />',
-);
-
-#Reads the book cover image directory if the website has book covers
+# Reads the book cover image directory if the website has book covers
 if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-#English texts for Pequenata website
-if (in_array($website_language, $en_languages_array)) {
-	$read_and_reader_texts_array = array(
-	$reading_text = "You're reading",
-	$reading_text.': '.ucwords($story_name),
-	'I Read It ✓',
-	'I read the Chapter',
-	'Read the Chapter',
-	'Readings',
-	'Readers',
-	'Reader',
-	);
+$author_name = format("Izaque Sanvezzo (stake2) {}", Language_Item_Definer("and Julia", "e Júlia"));
 
-	$write_texts_array = array(
-	'Write',
-	'Write the Chapter',
-	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
-	);
+# Website name, title, URL and description setter, by language
+$website_name = $selected_website;
+$website_title = $story_name_variable;
+$website_title_header = $story_name_variable.': '.$icons[11];
+$website_link = $selected_website_url;
 
-	$author_name = 'Izaque Sanvezzo (stake2) and Julia';
+if ($website_language != $language_geral) {
+	$website_title .= ' '.$website_title_language;
+	$website_title_header = str_replace(': '.$icons[11], "", $website_title_header)." ".$full_language.': '.$icons[11];
+	$website_link .= $website_link_language."/";
 }
 
-#Brazilian Portuguese texts for Pequenata website
-if (in_array($website_language, $pt_languages_array)) {
-	$read_and_reader_texts_array = array(
-	$reading_text = "Você está lendo",
-	$reading_text.': '.ucwords($story_name),
-	'Eu li ✓',
-	'Eu li o Capítulo',
-	'Leu o Capítulo',
-	'Leituras',
-	'Leitores',
-	'Leitor',
-	);
-
-	$write_texts_array = array(
-	'Escrever',
-	'Escreva o capítulo',
-	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
-	);
-
-	$author_name = 'Izaque Sanvezzo (stake2) e Julia';
-}
-
-#Status text definer, that sets the status text with [] around it
-$statustxt = '['.ucfirst($story_status).']';
-
-#Website name, title, URL and description setter, by language
-if ($website_language == $languages_array[0]) {
-	$website_language = $languages_array[1];
-
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $selected_website;
-
-	$website_language = $languages_array[0];
-
-	$website_title = $spaceliving_story_name;
-	$website_title_html = $spaceliving_story_name.': '.$icons[11];
-	$website_link = $website_spaceliving_link;
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
-
-	$website_language = $languages_array[0];
-}
-
-if ($website_language == $languages_array[1]) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $selected_website;
-
-	$website_title = $story_name_variable.' '.$hyphen_separated_website_language;
-	$website_title_html = $story_name_variable.': '.$icons[11];
-	$website_link = $website_spaceliving_link.strtolower($hyphen_separated_website_language).'/';
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $selected_website;
-
-	$website_title = $story_name_variable.' '.$hyphen_separated_website_language;
-	$website_title_html = $story_name_variable.': '.$icons[11];
-	$website_link = $website_spaceliving_link.strtolower($hyphen_separated_website_language).'/';
-	$website_meta_description = $website_descriptions_array[1];
-	$website_header_description = $website_html_descriptions_array[1];
-}
-
-#Buttons and tabs definer
-#Tab names replacer for languages_array
+# Buttons and tabs definer
+# Tab names replacer for languages_array
 if (in_array($website_language, $en_languages_array)) {
 	$tabnames[5] = substr_replace($tabnames[5], '-', 6, 0);
 	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
@@ -277,13 +192,14 @@ $spaceliving_discord_join_link,
 );
 
 $variable_inserter_replacer_array = array(
+$gods_warrior_still_got_something_name." ",
 "Panda Eyes - Take My Hand Ft. Azuria Sky (Z∆NE Remix)",
 $tom_and_jerrys_2021_soundtrack_playlist_name,
 #"Tom & Jerry 2021 - Married In The Park ",
 #"Tom & Jerry 2021 - Married In The Park ",
 "Panda Eyes - Opposite Side ",
 " (".$the_life_of_littletato_link_name.")",
-" (".$the_story_of_the_nazzevo_brothers_story_name.")",
+$the_story_of_the_nazzevo_brothers_story_name." ",
 $chapter_twenty_six_text." ",
 );
 

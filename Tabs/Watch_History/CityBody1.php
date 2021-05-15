@@ -1,6 +1,6 @@
 <?php
 
-$citytitles[0] = '
+$city_titles[0] = '
 <div class="'.$computer_variable.'">'.$every_watched_button_computer.$div_close.
 '<div class="'.$mobile_variable.'">'.$every_watched_button_mobile.$div_close.
 '<hr class="'.$header_full_border.'" />

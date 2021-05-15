@@ -11,7 +11,7 @@ if (in_array($website_language, $en_languages_array)) {
 	$numbertxt = 'number';
 	$langreadtext = 'Read';
 	$website_image_link_text = 'image link';
-	$siteicon = '🇺🇸';
+	$website_language_icon = '🇺🇸';
 	$btnmenutxt = 'Mobile button menu: ';
 	$editbtntxt1 = 'Edit text';
 	$editbtntxt2 = 'Activate';
@@ -45,7 +45,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$numbertxt = 'número';
 	$langreadtext = 'Ler';
 	$website_image_link_text = 'link da imagem';
-	$siteicon = '🇧🇷';
+	$website_language_icon = '🇧🇷';
 	$btnmenutxt = 'Menu de botões mobile: ';
 	$editbtntxt1 = 'Editar texto';
 	$editbtntxt2 = 'Ativar';
@@ -70,9 +70,9 @@ if (in_array($website_language, $pt_languages_array)) {
 	}
 }
 
-$watched_episodes_text = "Watched Episodes";
-$watched_time_text = "Watched Times";
-$watched_media_type_text = "Watched Media Types";
+$watched_episodes_text = "Episodes";
+$watched_time_text = "Times";
+$watched_media_type_text = "Media Types";
 
 $langreadtext2 = strtolower($langreadtext);
 $author_name = 'Izaque Sanvezzo (stake2)';

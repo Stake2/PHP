@@ -174,7 +174,7 @@ class WebsiteInfo {
 
 }
 
-$website_info = new WebsiteInfo($website_title_html, $website_meta_description, $website_header_description, $website_images_variable);
+$website_info = new WebsiteInfo($website_title_header, $website_meta_description, $website_header_description, $website_images_variable);
 
 $website_title = $website_info -> getTitle();
 $website_description = $website_info -> getDescription();

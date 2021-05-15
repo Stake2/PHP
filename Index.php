@@ -7,7 +7,7 @@ if (isset($host_text) == False) {
 	$host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	$return = False;
 }
-$variable = "";
+
 if (isset($host_text) == True) {
 	$return = False;
 }
@@ -76,10 +76,10 @@ require $website_selector_file;
 $website_title = $website_titles_array[$selected_website_number];
 $website_type = $website_types_array[$selected_website_number];
 
-$vglobal_php = $php_folder_variables.'VGlobal.php';
+$v_global_php = $php_folder_variables.'V_Global.php';
 
 # VGlobal.php variables file require
-require $vglobal_php;
+require $v_global_php;
 
 if ($return == False) {
 	echo "<!DOCTYPE html>"."\n";
@@ -135,7 +135,7 @@ if ($return == True) {
 	$website .= '</body>
 	</html>';
 
-	$html_folder = $selected_website_folder.$hyphen_separated_website_language."/";
+	$html_folder = $selected_website_folder.$website_title_language."/";
 	$html_index_file = $html_folder."Index.html";
 
 	if (file_exists($html_folder) == False) {

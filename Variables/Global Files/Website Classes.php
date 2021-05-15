@@ -26,7 +26,7 @@ $website_style = new Website_Style();
 $website_style -> set_style_file($current_website_folder);
 $website_style_file = $website_style -> get_style_file();
 
-$website_info = new Website_Info($website_title_html, $website_meta_description, $website_header_description, $website_images_variable);
+$website_info = new Website_Info($website_title_header, $website_meta_description, $website_header_description, $website_images_variable);
 
 $website_header_title = $website_info -> get_title();
 $website_description = $website_info -> get_description();

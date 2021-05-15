@@ -2,7 +2,7 @@
 
 $tab_header = '<span class="'.$first_text_color.'">'.$tabnames[6].': '.$spanc.'<span class="'.$second_text_color.'">'.' ['.$watched_number_2019.']'.$spanc;
 
-$citytitles[6] = '
+$city_titles[6] = '
 <div class="'.$computer_variable.'">'.$every_watched_button_computer.$div_close."\n".
 '<div class="'.$mobile_variable.'">'.$every_watched_button_mobile.$div_close."\n".
 '<hr class="'.$header_full_border.'" />

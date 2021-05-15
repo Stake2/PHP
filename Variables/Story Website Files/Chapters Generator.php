@@ -20,21 +20,19 @@ $z = 1;
 while ($a <= $chapters) {
 	$a2 = $a - 1;
 
-	if ($a <= 9) {
-		$text_to_add = "0";
-	}
+	$z_text = $z;
 
-	if ($a > 9) {
-		$text_to_add = "";
+	if ($a <= 9) {
+		$z_text = "0".$z_text;
 	}
 
 	if ($website_story_has_titles == True) {
-		$normal_chapters[$a] = $story_chapter_files_folder_language.$text_to_add.$z.' - '.$chapter_titles[$a2].'.txt';
+		$normal_chapters[$a] = $story_chapter_files_folder_language.$z_text.' - '.$chapter_titles[$a2].'.txt';
 		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 
 	else {
-		$normal_chapters[$a] = $story_chapter_files_folder_language.$text_to_add.$z.'.txt';
+		$normal_chapters[$a] = $story_chapter_files_folder_language.$z_text.'.txt';
 		$normal_chapters[$a] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$a]);
 	}
 

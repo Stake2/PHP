@@ -1,27 +1,15 @@
 <?php 
 
-$new_synopsis = $story_synopsis[0];
-$new_sinopse = $story_synopsis[1];
+$story_synopsis = Language_Item_Definer($story_synopsis[0], $story_synopsis[1]);
 
-# Website descriptions
-$website_descriptions_array = array(
-'Synopsis: '.$new_synopsis,
-'Sinopse: '.$new_sinopse,
-);
+$website_meta_description = format(Language_Item_Definer("Website about my story, {}, made by stake2.", "Site sobre a minha história, {}, feito por stake2."), $story_name_variable);
 
-# Synopsis text definer using the $synopsis that is generated from TextFileReader.php
-$website_html_descriptions_array = array(
-'Synopsis: <i class="fas fa-scroll"></i> "'.$new_synopsis.'"<br />',
-'Sinopse: <i class="fas fa-scroll"></i> "'.$new_sinopse.'"<br />',
-);
+$website_header_description = format(Language_Item_Definer("Synopsis", "Sinopse").': <i class="fas fa-scroll"></i> "{}'.'"<br />', $story_synopsis);
 
 # Website name in English and Brazilian Portuguese language
 $websites_names_array = array(
-$enus_title = $story_name_variable,
-$pt_title = $story_name_variable,
+$title_enus = $story_name_variable,
+$title_ptbr = $story_name_variable,
 );
-
-# Story date definer using story date text file
-$story_creation_date = $story_creation_date[0];
 
 ?>

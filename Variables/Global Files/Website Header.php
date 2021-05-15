@@ -13,18 +13,18 @@ else if ($website_not_so_much_space_setting == True) {
 }
 
 # Blank website generator using templates
-if (!isset($website_title_html) and !isset($website_meta_description) and $website_deactivate_header_setting == False) {
+if (!isset($website_title_header) and !isset($website_meta_description) and $website_deactivate_header_setting == False) {
 	$website_image = $cdnimg.'Template.png';
 	$website_image_link = $website_image;
 	$website_image_size_computer = 33;
 	$website_image_size_mobile = 44;
 
 	if (in_array($website_language, $en_languages_array)) {
-		$website_title_html = 'Placeholder for the Title: [Icon]';
+		$website_title_header = 'Placeholder for the Title: [Icon]';
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$website_title_html = 'Espaço reservado para o Título: [Ícone]';
+		$website_title_header = 'Espaço reservado para o Título: [Ícone]';
 	}
 
 	$main_website_image_computer = '<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="'.$colortext.' '.$computer_variable.'" style="'.$border2.''.$rounded_border_style_2.'" />';
@@ -43,7 +43,7 @@ if (!isset($website_title_html) and !isset($website_meta_description) and $websi
 
 	$website_header_wrapper = $computerspace.
 	'<div class="'.$default_background_color.'" '.$styletext2.' style="margin-left:5%;margin-right:5%;'.$first_border_color.$rounded_border_style_2.'">
-	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_html.'</b><br /><br /><p></'.$n.'>'."\n".'
+	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_header.'</b><br /><br /><p></'.$n.'>'."\n".'
 	<hr class="'.$first_full_border.'" />
 	'.$website_images_variable.'
 	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_meta_description.'</'.$n.'>
@@ -101,7 +101,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
 	$read_and_reader_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
 	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
-	'Status: <span class="'.$second_text_color.'">'.$statustxt.'</span></'.$m.'>'.'<br />'."\n".
+	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'.'<br />'."\n".
 	'</div>'."\n";
 }
 
