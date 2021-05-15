@@ -21,14 +21,11 @@ $story_name = $spaceliving_story_name;
 # Story status
 $story_status = $status[2];
 
-# Website image vars
-$website_image = 'SpaceLiving Logo';
-
 # Defines the website image if the website has book covers or not
 if ($website_story_has_book_covers_setting == True) {
 	$story_book_cover_filename = 'Book Cover';
 
-	$image_format = "ico";
+	$image_format = "png";
 
 	$website_image = $story_book_cover_folder.$story_book_cover_filename.".".$image_format;
 	$website_image_size_computer = 60;
@@ -56,7 +53,7 @@ if ($website_has_comments == True) {
 	$website_comments_number_to_show = $website_comments_number - 1;
 }
 
-else {
+if ($website_has_comments == False) {
 	$comments_number_text = $comments_number;
 	$website_comments_number_to_show = $website_comments_number;	
 }
