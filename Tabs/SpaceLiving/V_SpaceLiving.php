@@ -21,28 +21,6 @@ $story_name = $spaceliving_story_name;
 # Story status
 $story_status = $status[2];
 
-# Defines the website image if the website has book covers or not
-if ($website_story_has_book_covers_setting == True) {
-	$story_book_cover_filename = 'Book Cover';
-
-	$image_format = "png";
-
-	$website_image = $story_book_cover_folder.$story_book_cover_filename.".".$image_format;
-	$website_image_size_computer = 60;
-	$website_image_size_mobile = 88;
-}
-
-else {
-	$image_format = "jpg";
-
-	$website_image = $cdnimg.$website_image.".".$image_format;
-
-	$website_image_size_computer = 30;
-	$website_image_size_mobile = 77;
-}
-
-$website_image_link = $website_image;
-
 # Website numbers
 $crossover = 9;
 $comments_number = 1;
