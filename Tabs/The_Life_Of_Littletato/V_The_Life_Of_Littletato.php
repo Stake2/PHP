@@ -10,7 +10,7 @@ $selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_url = $website_the_life_of_littletato_link;
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 
-$story_folder = $littletato_story_folder;
+$story_folder = $the_life_of_littletato_story_folder;
 $story_name = $littletato_story_name;
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 $website_images_folder = $website_media_images_website_images.$story_folder."/";

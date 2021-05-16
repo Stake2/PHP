@@ -35,8 +35,8 @@ $littletato_anime_image = Make_Linked_Image($littletato_anime_image_link, $is_ch
 
 # ---
 
-$human_littletato_image_link = $website_media_images_website_images.$website_name_the_life_of_littletato."/Other Images/Human Littletato.jpg";
-$human_littletato_image = Make_Linked_Image($human_littletato_image_link, $is_chapter_image = True);
+$human_the_life_of_littletato_image_link = $website_media_images_website_images.$website_name_the_life_of_littletato."/Other Images/Human Littletato.jpg";
+$human_littletato_image = Make_Linked_Image($human_the_life_of_littletato_image_link, $is_chapter_image = True);
 
 # ---
 
@@ -314,7 +314,7 @@ $desert_island_story_name,
 
 # Story folders array
 $story_folders_array = array(
-$littletato_story_folder = 'The Life of Littletato',
+$the_life_of_littletato_story_folder = 'The Life of Littletato',
 $spaceliving_story_folder = 'SpaceLiving',
 $nazzevo_story_folder = 'The Story of the Nazzevo Brothers',
 $desert_island_story_folder = 'Desert Island',
@@ -367,9 +367,9 @@ $desert_island_link = $main_website_url.$desert_island_new_link.'/';
 $cover_text = 'Covers';
 $story_book_cover_filename = 'Book Cover';
 
-$littletato_image_link = $website_media_images_story_covers.$littletato_story_folder.$middle_path;
+$the_life_of_littletato_image_link = $website_media_images_story_covers.$the_life_of_littletato_story_folder.$middle_path;
 $nazzevo_image_link = $website_media_images_story_covers.$nazzevo_story_folder.$middle_path;
-$spaceliving_image_link = $cdnimg.'SpaceLiving Logo.jpg';
+$spaceliving_image_link = $website_media_images_story_covers.$spaceliving_story_folder.$middle_path;
 $desert_island_image_link = $website_media_images_story_covers.$desert_island_story_folder.$middle_path;
 
 $size_variable = $n;
@@ -377,7 +377,7 @@ $border_radius_variable = "5";
 $story_image_style = 'border-radius: '.$border_radius_variable.'%;';
 $story_text_style = 'white-space: initial!important;';
 
-$littletato_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class.' '.$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$littletato_border.'" src="'.$littletato_image_link.'"  width="650" style="'.$story_image_style.'"><br /><br /></a><br />';
+$littletato_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class.' '.$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$littletato_border.'" src="'.$the_life_of_littletato_image_link.'"  width="650" style="'.$story_image_style.'"><br /><br /></a><br />';
 
 $spaceliving_story_card_computer = '<a class="w3-btn '.$background_hover_white_css_class.' '.$spaceliving_background.'" href="'.$spaceliving_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$spaceliving_text.'"><b style="white-space: break-spaces;">'.$stories[1].'</b></'.$size_variable.'><img class="'.$spaceliving_border.'" src="'.$spaceliving_image_link.'" width="650" style="'.$story_image_style.'"><br /><br /></a><br />';
 
@@ -388,7 +388,7 @@ $desert_island_story_card_computer = '<a class="w3-btn '.$background_hover_white
 $size_variable = $m;
 $border_radius_variable = "9";
 $story_image_style = 'border-radius: '.$border_radius_variable.'%;white-space: initial!important;';
-$littletato_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$littletato_border.'" src="'.$littletato_image_link.'" width="230" height="170" style="'.$story_image_style.'"><br /><br /></a><br />';
+$littletato_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class.' '.$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$littletato_border.'" src="'.$the_life_of_littletato_image_link.'" width="230" height="170" style="'.$story_image_style.'"><br /><br /></a><br />';
 
 $spaceliving_story_card_mobile = '<a class="w3-btn  '.$background_hover_white_css_class.' '.$spaceliving_background.'" href="'.$spaceliving_link.'" '.$roundedborderstyle.'><'.$size_variable.' class="'.$spaceliving_text.'"><b style="white-space: break-spaces;">'.$stories[1].'</b></'.$size_variable.'><img class="'.$spaceliving_border.'" src="'.$spaceliving_image_link.'" width="230" height="170" style="'.$story_image_style.'"><br /><br /></a><br />';
 
