@@ -172,12 +172,13 @@ $spaceliving_discord_join_link,
 
 $variable_inserter_replacer_array = array(
 $gods_warrior_still_got_something_name." ",
+"Skybreak & Mizu - Aurora ",
 "Panda Eyes - Take My Hand Ft. Azuria Sky (Z∆NE Remix)",
 $tom_and_jerrys_2021_soundtrack_playlist_name,
 #"Tom & Jerry 2021 - Married In The Park ",
 #"Tom & Jerry 2021 - Married In The Park ",
 "Panda Eyes - Opposite Side ",
-" (".$the_life_of_littletato_link_name.")",
+$the_life_of_littletato_link_name." ",
 $the_story_of_the_nazzevo_brothers_story_name." ",
 $chapter_twenty_six_text." ",
 );
