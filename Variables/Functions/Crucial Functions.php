@@ -78,4 +78,31 @@ function Read_Lines($file, $add_none = False) {
 	}
 }
 
+function Read_String($file) {
+	$file_read = Open_File($file);
+
+	if ($file_read != Null) {
+		$array = explode("\n", fread($file_read, filesize($file)));
+		$array = Remove_Text_From_String($array);
+
+		$string = "";
+
+		foreach ($array as $line) {
+			if ($line != array_reverse($array)[0]) {
+				$string .= $line."<br />"."\n";
+			}
+
+			if ($line == array_reverse($array)[0]) {
+				$string .= $line;
+			}
+		}
+
+		return $string;
+	}
+
+	else {
+		return null;
+	}
+}
+
 ?>

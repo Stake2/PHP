@@ -22,7 +22,7 @@ else {
 
 $website_image_link = $website_image;
 
-$story_synopsis = Language_Item_Definer($story_synopsis[0], $story_synopsis[1]);
+$story_synopsis = Language_Item_Definer($story_synopsis_english, $story_synopsis_portuguese);
 
 $website_meta_description = format(Language_Item_Definer("Website about my story, {}, made by stake2.", "Site sobre a minha história, {}, feito por stake2."), $story_name_variable);
 

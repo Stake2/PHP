@@ -121,6 +121,8 @@ $website_spaceliving_linked_alternate,
 $spaceliving_chapter_9,
 $littletato_anime_image,
 $littletato_anime_image_link_not_cdn,
+$human_littletato_image,
+$lisa_image,
 $the_life_of_littletato_spaceliving_chapter_crossover_link,
 );
 

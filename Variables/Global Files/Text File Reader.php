@@ -408,7 +408,8 @@ if ($website_type == $story_website_type) {
 
 	# Story Creation Date, Synopsis, Readers, and Comments file paths
 	$story_creation_date_file = $story_info_folder.'Creation Date.txt';
-	$story_synopsis_file = $story_info_folder.'Synopsis.txt';
+	$story_synopsis_english_file = $story_info_folder.'Synopsis.txt';
+	$story_synopsis_portuguese_file = $story_info_folder.'Sinopse.txt';
 	$story_readers_file = $story_readers_and_reads_folder.'Readers.txt';
 	$story_comments_file = $story_comments_folder.'Comments.txt';
 	$story_comments_check_file = $story_comments_folder.'Check.txt';
@@ -453,7 +454,8 @@ if ($website_type == $story_website_type) {
 
 	$story_creation_date = Read_Lines($story_creation_date_file)[0];
 
-	$story_synopsis = Read_Lines($story_synopsis_file);
+	$story_synopsis_english = Read_String($story_synopsis_english_file);
+	$story_synopsis_portuguese = Read_String($story_synopsis_portuguese_file);
 
 	$chapter_titles = Read_Lines($titles_file);
 

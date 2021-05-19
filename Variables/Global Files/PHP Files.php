@@ -17,16 +17,6 @@ $variable_inserter_php = $global_files_folder."Variable Inserter.php";
 
 $watch_history_text_file_reader_module = $text_file_reader_modules_folder.'Watch History Module.php';
 
-# Website PHP Files
-$website_classes_php = $global_files_folder.'Website Classes.php';
-$website_info_interface_and_abstract_class = $website_classes_folder."Website Info Interface and Abstract Class.php";
-$website_style_interface_and_abstract_class = $website_classes_folder."Website Style Interface and Abstract Class.php";
-$website_header_php = $global_files_folder.'Website Header.php';
-$website_style_variables_foreach = $global_files_folder.'Website Style Variables Foreach.php';
-$website_css_and_javascript_definer_php = $global_files_folder.'Website CSS And JavaScript Definer.php';
-$website_image_maker = $global_files_folder.'Website Image Maker.php';
-$website_forms_php = $global_files_folder.'Website Forms.php';
-
 # CSS Packs Variables
 $css_pack_pequenata = $css_packs_php_folder.'Pequenata CSS Pack.php';
 $css_pack_desertisland = $css_packs_php_folder.'DesertIsland CSS Pack.php';

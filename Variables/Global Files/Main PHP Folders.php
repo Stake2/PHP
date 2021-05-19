@@ -6,7 +6,8 @@ $global_tabs_folder = $php_folder_tabs."Global Tabs/";
 $functions_folder = $php_folder_variables."Functions/";
 $website_styling_folder = $php_folder_variables."Website Styling/";
 $generators_folder = $php_folder_variables."Generators/";
-$website_classes_folder = $global_files_folder.'Website Classes/';
+$website_php_files_folder = $php_folder_variables."Website PHP Files/";
+$website_classes_folder = $website_php_files_folder.'Website Classes/';
 $text_file_reader_modules_folder = $global_files_folder.'Text File Reader Modules/';
 $css_packs_php_folder = $php_folder_variables.'CSS Packs/';
 $websites_tab_folder = $php_folder_tabs.'Websites Tab/';
@@ -23,14 +24,23 @@ $normal_functions_file_php = $functions_folder."Normal Functions.php";
 $variable_inserter_php = $global_files_folder."Variable Inserter.php";
 $main_arrays_php = $global_files_folder.'Main Arrays.php';
 $global_arrays_php = $global_files_folder.'Global Arrays.php';
-$website_language_definer_php = $global_files_folder.'Website Language Definer.php';
-$website_arrays_generator_php = $global_files_folder.'Websites Array Generator.php';
 $default_setting_values_php = $global_files_folder.'Default Setting Values.php';
 $other_index_stuff_php = $global_files_folder.'Other Index Stuff.php';
 $website_selector_file = $php_folder_variables.'Website Selector.php';
-$website_style_chooser_file = $global_files_folder.'Website Style Chooser.php';
-$website_style_variables_foreach = $global_files_folder.'Website Style Variables Foreach.php';
 $generic_tabs_generator_file = $global_files_folder.'Generic Tabs Generator.php';
 $setting_parameters_file = $global_files_folder.'Settings Params.php';
+
+# Website PHP Files
+$website_language_definer_php = $website_php_files_folder.'Language Definer.php';
+$website_arrays_generator_php = $website_php_files_folder.'Websites Array Generator.php';
+$website_style_chooser_file = $website_php_files_folder.'Style Chooser.php';
+$website_style_variables_foreach = $website_php_files_folder.'Style Variables Foreach.php';
+$website_classes_php = $website_php_files_folder.'Classes.php';
+$website_info_interface_and_abstract_class = $website_classes_folder."Website Info Interface and Abstract Class.php";
+$website_style_interface_and_abstract_class = $website_classes_folder."Website Style Interface and Abstract Class.php";
+$website_header_php = $website_php_files_folder.'Header.php';
+$website_css_and_javascript_definer_php = $website_php_files_folder.'CSS And JavaScript Definer.php';
+$website_image_maker = $website_php_files_folder.'Image Maker.php';
+$website_forms_php = $website_php_files_folder.'Forms.php';
 
 ?>

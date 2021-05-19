@@ -121,7 +121,7 @@ function Make_Link($link, $link_text = Null, $link_color = Null) {
 	return $link;
 }
 
-function Create_Element($element, $class, $text) {
+function Create_Element($element, $class, $text, $custom_parameters = Null) {
 	if (is_array($class) == True) {
 		$new_class = "";
 
@@ -132,11 +132,28 @@ function Create_Element($element, $class, $text) {
 		$class = $new_class;
 	}
 
-	$element_prototype = '<{} class="{}">{}</{}>';
+	if ($custom_parameters != Null) {
+		if (is_array($custom_parameters) == True) {
+			$new_custom_parameters = "";
+
+			foreach ($custom_parameters as $custom_parameter) {
+				$new_custom_parameters .= $custom_parameter." ";
+			}
+
+			$custom_parameters = $new_custom_parameters;
+		}
+	}
+
+	else {
+		$custom_parameters = "";
+	}
+
+	$element_prototype = '<{} class="{}"{}>{}</{}>';
 
 	$parameters = array(
 	$element,
 	$class,
+	$custom_parameters,
 	$text,
 	$element,
 	);

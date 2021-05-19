@@ -8,7 +8,7 @@ $story_website_type = "Story Website Type";
 $website_titles_array = array();
 $website_types_array = array();
 
-$websites_text_file = $global_files_folder."Websites.txt";
+$websites_text_file = $website_php_files_folder."Websites.txt";
 
 $websites = Read_Lines($websites_text_file);
 

@@ -93,7 +93,7 @@ $chapters_text = $formcode.'-';
 
 # Texts for English language
 if (in_array($website_language, $en_languages_array)) {
-	$blockstext = 'The '.$diario_names[0].' has ['.$bluespan.$blocks.$spanc.'] blocks written, each block is a chapter.';
+	$diario_blocks_text = 'The '.$diario_names[0].' has ['.$bluespan.$blocks.$spanc.'] blocks written, each block is a chapter.';
 	$charactersdescs = array(
 	"\n".'<div style="margin-left:3%;">'."\n".'Me of course xD, my dialogue is shown with:<br />'."\n".
 	'[Current time]: "My dialogue"<br /><br />'."\n".
@@ -129,7 +129,7 @@ if (in_array($website_language, $en_languages_array)) {
 
 #Texts for Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
-	$blockstext = 'O '.$diario_names[1].' tem ['.$bluespan.$blocks.$spanc.'] blocks escritos, cada block é um capítulo.';
+	$diario_blocks_text = 'O '.$diario_names[1].' tem ['.$bluespan.$blocks.$spanc.'] blocks escritos, cada block é um capítulo.';
 	$charactersdescs = array(
 	"\n".'<div style="margin-left:3%;">'."\n".'Eu, é claro kkkkk, meu diálogo é mostrado com:<br />."\n"'.
 	'[Hora atual]: "Meu diálogo"<br /><br />'."\n".
