@@ -219,4 +219,14 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	}
 }
 
+function Add_Leading_Zeros($number) {
+	if ($number <= 9) {
+		return "0".(string)$number;
+	}
+
+	if ($number > 9) {
+		return $number;
+	}
+}
+
 ?>

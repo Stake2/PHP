@@ -1,23 +1,24 @@
 <?php 
 
 # Comments displayer
-if (isset($comments_array[$chapter_number_1]) and is_array($comments_array[$chapter_number_1]) == True and $comments_array[$chapter_number_1] != Null) {
+if (isset($chapter_comments_array[$chapter_number_1]) and is_array($chapter_comments_array[$chapter_number_1]) == True and $chapter_comments_array[$chapter_number_1] != Null) {
 	echo $comment_header."\n";
 
-	$c = 0;
-	while ($c <= count($comments_array[$chapter_number_1]) - 1) {
-		echo $comments_array[$chapter_number_1][$c]."\n";
+	$number = 1;
+	$array_number = count($chapter_comments_array[$chapter_number_1]);
+	while ($number <= $array_number) {
+		echo $chapter_comments_array[$chapter_number_1][$number]."\n";
 
-		$c++;
+		$number++;
 	}
 
 	echo $div_close."\n";
 }
 
-else if (isset($comments_array[$number_variable]) and $comments_array[$number_variable] != Null) {
+else if (isset($chapter_comments_array[$chapter_number_1]) and $chapter_comments_array[$chapter_number_1] != Null) {
 	echo $comment_header."\n";
 
-	echo $comments_array[$number_variable]."\n";
+	echo $chapter_comments_array[$chapter_number_1]."\n";
 
 	echo $div_close."\n";
 }

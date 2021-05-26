@@ -22,7 +22,7 @@ $css_pack_pequenata = $css_packs_php_folder.'Pequenata CSS Pack.php';
 $css_pack_desertisland = $css_packs_php_folder.'DesertIsland CSS Pack.php';
 
 # PHP Files
-$globalfilesphp = array(
+$global_files_php = array(
 $notifications_php = $global_files_folder.'Notifications.php',
 $tab_bodies_generator = $global_files_folder.'Tab Bodies Generator.php',
 $websites_tab_attributes = $websites_tab_folder.'Websites Tab Attributes.php',
@@ -35,7 +35,7 @@ $tab_bodies_generator_php_variable = $tab_bodies_generator;
 $city_template_php = $generic_tabs_folder.'City Template.php';
 
 # Story PHP files
-$story_variables_php = $story_website_files_folder.'VStories.php';
+$story_variables_php = $story_website_files_folder.'V_Stories.php';
 
 $cover_images_folder_definer_php = $story_website_files_folder.'Cover Images Folder Definer.php';
 $cover_images_generator_php = $story_website_files_folder.'Cover Images Generator.php';
@@ -51,9 +51,11 @@ $chapter_comment_and_read_displayer_php = $story_website_files_folder.'Chapter C
 $new_chapter_comment_and_read_displayer_php = $story_website_files_folder.'New Chapter Comment And Read Displayer.php';
 $story_details_definer = $story_website_files_folder.'Story Details Definer.php';
 
-$read_generator_php = $story_read_and_reads_files_folder.'Read Generator.php';
-$read_modal_generator_php = $story_read_and_reads_files_folder.'Read Modal Generator.php';
-$comment_modal_generator_php = $story_website_files_folder.'Comment Modal Generator.php';
+$read_generator = $story_read_and_reads_files_folder.'Read Generator.php';
+$read_modal_generator_php = $story_read_and_reads_files_folder.'Modal Generator.php';
+
+$comment_generator = $story_comments_files_folder.'Comment Generator.php';
+$comment_modal_generator_php = $story_comments_files_folder.'Modal Generator.php';
 
 $cover_images_folder_definer_php_variable = $cover_images_folder_definer_php;
 $cover_images_generator_php_variable = $cover_images_generator_php;

@@ -11,7 +11,11 @@ if ($write_new_chapter == True) {
 	array_push($chapter_titles, $chapters + 1);
 }
 
-require $read_generator_php;
+# Read Generator PHP File Includer
+require $read_generator;
+
+# Comment Generator PHP File Includer
+require $comment_generator;
 
 # Defines the top and bottom texts
 if ($website_write_story_setting == True and $story_name_website_chapter_to_write == $chapter_number_1) {
@@ -32,15 +36,6 @@ else {
 	else {
 		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_and_reader_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.'</b>'."\n"."\n";
 	}
-}
-
-# New design div
-if ($website_new_design_setting == True) {
-	echo '
-<section>
-<div class="box-line">
-<div class="box-bar">
-<div class="boxConteudo">';
 }
 
 # Tab div id, a name and big space generator
@@ -394,7 +389,7 @@ else {
 	}
 }
 
-#Mobile Comment button
+# Mobile Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo "\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
@@ -404,7 +399,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo $div_close."\n";
 }
 
-#Mobile "I Read it" button
+# Mobile "I Read it" button
 if ($story_has_reads == True) {
 	echo '<div class="'.$mobile_variable.'">'."\n";
 	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$read_and_reader_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></'.$m.'></button>'."\n";
@@ -412,7 +407,7 @@ if ($story_has_reads == True) {
 	echo '<br /><div class="'.$mobile_variable.'"><br /><br />'."\n".'</div>'."\n";
 }
 
-#Hr displayer if the story has comments or story_reads_array
+# HR displayer if the story has comments or story_reads_array
 if ($site_uses_new_comment_and_read_displayer == True) {
 	if (isset($array1[$number_variable]) or isset($array2[$number_variable])) {
 		echo '<hr class="'.$third_full_border.'" />'."\n";
@@ -429,31 +424,28 @@ else if ($story_has_chapter_comments == True and $story_website_contains_comment
 
 echo '</h5>'."\n";
 
+/*
+if ($story_has_chapter_comments == True and $story_website_contains_comments == True or $story_has_reads == True and $story_website_contains_reads == True) {
+	require $new_chapter_comment_and_read_displayer_php_variable;
+}
+*/
+
 if ($site_uses_new_comment_and_read_displayer == True) {
 	if ($story_has_chapter_comments == True and $story_website_contains_comments == True) {
 		require $new_chapter_comment_and_read_displayer_php_variable;
 	}
 }
 
-else if ($story_has_chapter_comments == True and $story_website_contains_comments == True) {
+else if ($story_has_chapter_comments == True and $story_website_contains_comments == True or $story_has_reads == True and $story_website_contains_reads == True) {
 	require $chapter_comment_and_read_displayer_php_variable;
 }
 
 echo $div_close."\n";
 
-#New design elements
-if ($website_new_design_setting == True) {
-	echo '</div>
-	</div>
-	</div>
-	</section>';
-}
-
-#Adds to the variables
+# Adds to the variables
 $i++;
 $i2++;
 $a++;
-$a2++;
 
 if (isset($h) == True) {
 	if ($h != 0) {

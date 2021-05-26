@@ -33,7 +33,7 @@ $formcode = 'pequenata';
 
 # Website numbers
 $crossover_chapter_number = 26;
-$comments_number = 11;
+$comments_number = 7;
 $comments_number_text = $comments_number + 1;
 $website_comments_number = 8;
 $website_comments_number_to_show = $website_comments_number - 1;

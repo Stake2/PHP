@@ -14,6 +14,7 @@ $websites_tab_folder = $php_folder_tabs.'Websites Tab/';
 
 $story_website_files_folder = $php_folder_variables.'Story Website Files/';
 $story_read_and_reads_files_folder = $story_website_files_folder.'Reader And Reads Files/';
+$story_comments_files_folder = $story_website_files_folder.'Comments Files/';
 $story_tab_templates = $story_website_files_folder.'Tab Templates/';
 
 $stories_tab_php = $story_tab_templates.'Stories Tab.php';
