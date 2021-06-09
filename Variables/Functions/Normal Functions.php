@@ -19,9 +19,11 @@ function Line_Number($file) {
 	$file = Open_File($file);
 
 	$line_number = 0;
-	while (!feof($file)) {
-		$line = fgets($file);
-		$line_number++;
+	if ($file != Null) {
+		while (!feof($file)) {
+			$line = fgets($file);
+			$line_number++;
+		}
 	}
 
 	return $line_number;

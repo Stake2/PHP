@@ -463,7 +463,7 @@ if ($website_type == $story_website_type) {
 
 	$readers = Read_Lines($story_readers_file);
 
-	$comments = Read_Lines($story_comments_file);
+	#$comments = Read_Lines($story_comments_file);
 
 	#$reads_text = Read_Lines($story_reads_file);
 
