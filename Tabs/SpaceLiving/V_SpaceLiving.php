@@ -7,7 +7,7 @@ $selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 $story_folder = $spaceliving_story_folder;
 
 # Form code for the comment and read forms
-$formcode = 'spaceliving';
+$website_form_code = 'spaceliving';
 
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
@@ -95,7 +95,7 @@ if ($website_writing_pack_setting == True) {
 
 # Button names
 $citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$new_text.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],
@@ -106,7 +106,7 @@ $icons[13],
 # Buttons and tabs definer
 # Tab chapter_titles definer
 $tab_titles = array(
-$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$new_text.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],

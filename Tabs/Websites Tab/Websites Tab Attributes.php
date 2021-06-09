@@ -89,7 +89,7 @@ $the_story_of_the_nazzevo_brothers_link_name = Language_Item_Definer("The Story 
 $website_the_story_of_the_nazzevo_brothers_linked = Make_Link($website_the_story_of_the_nazzevo_brothers_link, $the_story_of_the_nazzevo_brothers_link_name, $text_white_css_class);
 
 $story_namenames2 = array(
-$sitename_pequenata = $littletato_story_name.' '.$siteicons[0],
+$sitename_pequenata = $the_life_of_littletato_story_name.' '.$siteicons[0],
 $sitename_spaceliving = $spaceliving_story_name.' '.$siteicons[0],
 $sitename_nazzevo = $the_story_of_the_nazzevo_brothers_story_name.' '.$siteicons[0],
 $sitename_desertisland = $desert_island_story_name,

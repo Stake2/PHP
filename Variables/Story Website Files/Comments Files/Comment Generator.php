@@ -6,15 +6,12 @@ $new_chapter_number_1 = Add_Leading_Zeros($chapter_number_1);
 $show_chapter_on_comment = False;
 
 # Folders definer
-$comments_folder = $story_folder.$chapter_comments_english_folder_text;
-$current_chapter_comments_folder = $comments_folder.$new_chapter_number_1."/";
+$current_chapter_comments_folder = $story_chapter_comments_folder.$new_chapter_number_1."/";
 
 # Files definer
 $commenter_file = $current_chapter_comments_folder."Commenter.txt";
 $comment_file = $current_chapter_comments_folder.$comment_text.".txt";
 $comment_date_file = $current_chapter_comments_folder."Date.txt";
-
-echo $comment_file;
 
 # Text array creators
 $commenters = Read_Lines($commenter_file, $add_none = True);

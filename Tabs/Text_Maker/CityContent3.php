@@ -3,10 +3,10 @@
 echo $computer_buttons[1].$computer_buttons[2];
 echo '<hr class="'.$sitehr.'" />';
 
-echo '<div class="'.$computer_variable.'">'.'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' id="cetoggle2btn" onClick="Cetoggle4cmnd();">'.'<'.$n.'>'.$editbtntxt1.': '.$icons[10].'</'.$n.'>'.'</button>';
+echo '<div class="'.$computer_variable.'">'.'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' id="cetoggle2btn" onClick="Cetoggle4cmnd();">'.'<'.$n.'>'.$edit_text.': '.$icons[10].'</'.$n.'>'.'</button>';
 
-echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" '.$roundedborderstyle.' onclick="copyToClipboard4()">'.'<'.$n.'>'.''.$copybtntxt2.': '.$icons[15].'</'.$n.'>'.'</button>';
-echo '<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="copyToClipboard3()">'.'<'.$n.'>'.''.$copybtntxt1.': '.$icons[15].'</'.$n.'>'.'</button>';
+echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" '.$roundedborderstyle.' onclick="copyToClipboard4()">'.'<'.$n.'>'.''.$copy_text_text.': '.$icons[15].'</'.$n.'>'.'</button>';
+echo '<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="copyToClipboard3()">'.'<'.$n.'>'.''.$copy_html_text.': '.$icons[15].'</'.$n.'>'.'</button>';
 echo $div_close."\n";
 echo '<hr class="'.$sitehr.' '.$computer_variable.'" />';
 echo '<div style="text-align:left;">'."\n";
@@ -35,8 +35,8 @@ function copyToClipboard4() {
 </script>';
 
 echo '<div class="'.$mobile_variable.'">';
-echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" onclick="copyToClipboard4()">'.'<'.$m.'>'.''.$copybtntxt2.': '.$icons[15].'</'.$m.'>'.'</button>';
-echo '<button class="w3-btn '.$first_button_style.'" onclick="copyToClipboard3()">'.'<'.$m.'>'.''.$copybtntxt1.': '.$icons[15].'</'.$m.'>'.'</button>';
+echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" onclick="copyToClipboard4()">'.'<'.$m.'>'.''.$copy_text_text.': '.$icons[15].'</'.$m.'>'.'</button>';
+echo '<button class="w3-btn '.$first_button_style.'" onclick="copyToClipboard3()">'.'<'.$m.'>'.''.$copy_html_text.': '.$icons[15].'</'.$m.'>'.'</button>';
 echo $div_close."\n";
 echo '<hr class="'.$sitehr.' '.$mobile_variable.'" />';
 echo '<div style="text-align:left;">'."\n";

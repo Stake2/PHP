@@ -3,33 +3,27 @@
 # Pequenata CSS Pack file includer
 require $css_pack_pequenata;
 
-#$full_language = $full_languages_array[$language_number];
-
 # Folder variables
-$selected_website_url = $main_website_url.$website_folder.'/';
 $selected_website_url = $website_the_life_of_littletato_link;
-$selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 
 $story_folder = $the_life_of_littletato_story_folder;
-$story_name = $littletato_story_name;
-$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
+$story_name = $the_life_of_littletato_story_name;
+$no_language_story_folder = $notepad_stories_folder_variable.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 
 # Story name definer
-$story_name_variable = $littletato_story_name;
+$story_name_variable = $the_life_of_littletato_story_name;
+$english_story_name_variable = $the_life_of_littletato_story_name;
 $general_story_name = "Littletato - Pequenata";
 
 # Story status
 $story_status = $status_reviewing_and_editing;
 
-# Website image vars
-$website_image = 'pequenata';
-
 # Form code for the comment and read forms
-$formcode = 'pequenata';
+$website_form_code = strtolower(str_replace(" ", "-", $story_name_variable));#'pequenata';
 
 # Website numbers
 $crossover_chapter_number = 26;
@@ -92,7 +86,7 @@ if ($website_writing_pack_setting == True) {
 
 # Button names
 $citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.'<span class="w3-text-yellow"> ['.$newtxt.' '.$chapters.']</span>',
+$tabnames[0].': '.$icons[21].' '.'<span class="w3-text-yellow"> ['.$new_text.' '.$chapters.']</span>',
 $tabnames[1].': '.$icons[20].' ❤️ 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],

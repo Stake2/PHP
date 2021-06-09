@@ -6,7 +6,7 @@ $selected_website_folder = $php_folder_tabs.ucwords($website_nazzevo).'/';
 $story_folder = $nazzevo_story_folder;
 
 # Form code for the comment and read forms
-$formcode = 'nazzevo';
+$website_form_code = 'nazzevo';
 
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 
@@ -52,7 +52,7 @@ $website_comments_number = 0;
 $website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;
-$author_name = 'Izaque Sanvezzo (stake2)'.' '.$whitespan.$andtxt.$spanc.' '.$purplespan.'Lulu Black Fazbear'.$spanc;
+$author_name = 'Izaque Sanvezzo (stake2)'.' '.$whitespan.$and_text.$spanc.' '.$purplespan.'Lulu Black Fazbear'.$spanc;
 #$commentsbtn = '<a href="# '.$tabcode[6].'"><button class="w3-btn '.$first_button_style.' '.$computer_variable.'" onclick="openCity('."'".$tabcode[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 #$commentsbtnm = '<a href="# '.$tabcodem[6].'"><button class="w3-btn '.$first_button_style.' '.$mobile_variable.'" onclick="openCity('."'".$tabcodem[6]."')".'">'.$comments_number.' '.$icons[12].'</button></a>'."\n";
 
@@ -76,106 +76,6 @@ $website_html_descriptions_array = array(
 
 # Re-require of the VStories.php file to set the story name
 require $story_variables_php;
-
-# Texts for the English language
-if (in_array($website_language, $en_languages_array)) {
-	$author_text = 'Author';
-	$chapters_text = 'Chapters';
-	$chapter_date_text = 'Date';
-	$chapter_date_text_two = 'Made in';
-
-	$person_name_text = 'Name';
-	$person_name_text_two = 'Your';
-	$send_form_text = 'Send';
-
-	# Status text definer, that sets the status text with [] around it
-	$statustxt = ucfirst($story_status);
-
-	$read_and_reader_texts_array = array(
-	$reading_text = "You're reading",
-	$reading_text.': '.ucwords($story_name),
-	'I Read It ✓',
-	'I read the Chapter',
-	'Read the Chapter',
-	'Readings',
-	'Readers',
-	'Reader',
-	);
-
-	$comments_texts_array = array(
-	'Comment',
-	'Comment',
-	'Commented',
-	'in the',
-	'on',
-	'Say what you think about the story',
-	'Say what you think about the chapter',
-	);
-
-	$titletxt = 'Title';
-	$story_text_text = 'Story text';
-	$time_text = 'Time';
-	$stories_text = 'Stories';
-	$form_name = 'Name';
-	$form_text = 'Form';
-	
-	$write_texts_array = array(
-	'Write',
-	'Write the Chapter',
-	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
-	);
-
-	$readers_description = "Thanks everyone ♥";
-}
-
-# Texts for the Brazilian Portuguese language
-if (in_array($website_language, $pt_languages_array)) {
-	$author_text = 'Autor';
-	$chapters_text = "Capítulos";
-	$chapter_date_text = "Data";
-	$chapter_date_text_two = "Feito em";
-
-	$person_name_text = 'Nome';
-	$person_name_text_two = 'Seu';
-	$send_form_text = 'Enviar';
-
-	# Status text definer, that sets the status text with [] around it
-	$statustxt = ucfirst($story_status);
-
-	$read_and_reader_texts_array = array(
-	$reading_text = "Você está lendo",
-	$reading_text.': '.ucwords($story_name),
-	'Eu li ✓',
-	'Eu li o Capítulo',
-	'Leu o Capítulo',
-	'Leituras',
-	'Leitores',
-	'Leitor',
-	);
-
-	$comments_texts_array = array(
-	'Comentário',
-	'Comentar',
-	'Comentado',
-	'no',
-	'em',
-	'Comente o que achou da história',
-	'Comente o que achou do capítulo',
-	);
-
-	$time_text = 'Tempo';
-	$stories_text = "Histórias";
-	$form_name = "Nome";
-	$form_text = 'Formulário';
-
-	$write_texts_array = array(
-	'Escrever',
-	'Escreva o capítulo',
-	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
-	);
-
-	$readers_description = "Obrigado a todos ♥";
-}
 
 # Reads the book cover image directory if the website has book covers
 if ($website_story_has_book_covers_setting == True) {

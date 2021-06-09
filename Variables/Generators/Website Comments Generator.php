@@ -8,12 +8,9 @@ echo "\n".'</b>'."\n".'</'.$m.'>'."\n";
 
 $show_chapter_on_comment = False;
 
-# Folders definer
-$website_comments_folder = $story_folder.$website_comments_english_folder_text;
-
 # Files definer
 $commenter_file = $website_comments_folder."Commenter.txt";
-$comment_file = $website_comments_folder.$current_chapter_comment_text.".txt";
+$comment_file = $website_comments_folder.$comment_text.".txt";
 $comment_date_file = $website_comments_folder."Date.txt";
 
 # Text array creators
@@ -40,7 +37,7 @@ if ($local_comment_number > 1 and $comment_dates != Null) {
 	while ($comment_number <= $local_comment_number) {
 		$comment_date = date("H:i d/m/Y", strtotime($comment_dates[$comment_number]));
 		$commenter = $commenters[$comment_number];
-		$current_chapter_comment_text = $comments[$comment_number];
+		$current_comment = $comments[$comment_number];
 
 		$comment = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
 
@@ -55,7 +52,7 @@ if ($local_comment_number > 1 and $comment_dates != Null) {
 			$comment .= substr($chapters_text, 0, -1).':</b> '.$chapter_titles[$chapter_number_3].'<br />'."<b>"."\n";
 		}
 
-		$comment .= '<hr class="'.$third_full_border.'" />'.$current_chapter_comment_text."\n".'<br /><br /><br /><br /><br />'."\n";
+		$comment .= '<hr class="'.$third_full_border.'" />'.$current_comment."\n".'<br /><br /><br /><br /><br />'."\n";
 
 		$comment .= $div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
 

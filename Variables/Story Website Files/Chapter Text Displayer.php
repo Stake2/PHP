@@ -17,7 +17,7 @@ if ($website_name != $website_nazzevo and $story_has_dates == True) {
 	echo "<br />";
 
 	if (isset($chapter_written_dates[$chapter_date_number])) {
-		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.'."\n";		
+		echo $chapter_written_in_text.': '.$chapter_written_dates[$chapter_date_number].'.'."\n";		
 	}
 }
 
@@ -42,7 +42,7 @@ if ($new_write_style == True) {
 		echo "<br />";
 
 		if (isset($chapter_written_dates[$chapter_date_number])) {
-			echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
+			echo $chapter_written_in_text.': '.$chapter_written_dates[$chapter_date_number].'.';
 			echo "<br />".$words_text.": ".$chapter_word_count."."."\n";
 		}
 	}
@@ -60,7 +60,7 @@ if ($new_write_style == True) {
 
 	if ($show_write_form_text == True) {
 		if ($website_show_write_form_text_setting == True) {
-			$title_text = $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
+			$title_text = $title_text.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 
 		else {
@@ -93,7 +93,7 @@ if ($new_write_style == True) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$english_chapters[$chapter_number_1].'<br />';
+				echo $can_not_find_file_text.': <br />'.$english_chapters[$chapter_number_1].'<br />';
 			}
 		}
 
@@ -111,7 +111,7 @@ if ($new_write_style == True) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
+				echo $can_not_find_file_text.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
 			}
 		}
 	}
@@ -131,7 +131,7 @@ if ($new_write_style == True) {
 			}
 
 			echo '<br />'."\n";
-			echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
+			echo $chapter_written_in_text.': '.$chapter_written_dates[$chapter_date_number].'.';
 		}
 	}
 

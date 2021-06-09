@@ -88,8 +88,8 @@ $number_of_chapter_comments = 0;
 # Re require of the VStories.php file to set the story name
 require $story_variables_php;
 
-$formcode = 'diario';
-$chapters_text = $formcode.'-';
+$website_form_code = 'diario';
+$chapters_text = $website_form_code.'-';
 
 # Texts for English language
 if (in_array($website_language, $en_languages_array)) {
@@ -111,8 +111,6 @@ if (in_array($website_language, $en_languages_array)) {
 	'23:42 19/04/2020: ~His dialogue'."\n".$div_close."\n",
 	);
 
-	$person_name_text = 'Name';
-	$person_name_text_two = 'Your';
 	$send_form_text = 'Send';
 	$commenttxt = 'Comment';
 	$commenttxt2 = "Comment";
@@ -147,7 +145,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	'23:42 19/04/2020: ~O diálogo dele'."\n".$div_close."\n",
 	);
 
-	$person_name_text = 'Nome';
+	$name_text = 'Nome';
 	$person_name_text_two = 'Seu';
 	$send_form_text = 'Enviar';
 	$commenttxt = 'Comentário';
@@ -226,7 +224,7 @@ if (in_array($website_language, $pt_languages_array)) {
 #Buttons definer
 #Buttons names
 $citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.$span_second_text_color.' ['.$newtxt.' '.ucwords($chapter_text).' '.$published_blocks.']'.$spanc,
+$tabnames[0].': '.$icons[21].' '.$span_second_text_color.' ['.$new_text.' '.ucwords($chapter_text).' '.$published_blocks.']'.$spanc,
 $tabnames[1].': '.$icons[1],
 $tabnames[2].': '.$icons[12],
 );

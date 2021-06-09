@@ -205,7 +205,7 @@ $year_number_texts[$people_text_i_met_text_key] = $people_text_i_met_text;
 $year_number_texts[$comments_on_super_animes_key] = $comments_on_super_animes_text;
 
 $citiestxts = array(
-$langreadtext.': '.$siteicon,
+$read_text.': '.$siteicon,
 $tabnames[1].': '.$icons[0],
 $tabnames[2].': '.$icons[1],
 $tabnames[3].': '.$icons[2],

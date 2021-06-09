@@ -157,7 +157,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 
 	echo "\n".'<div id="mobile_button_sidebar" class="w3-center mobile_button_sidebar_css mobileShow ">'."\n"."\n".
 	'<a href="javascript:void(0)" class="close_mobile_sidebar_button" onclick="Hide_Mobile_Buttons();" style="font-size:35px;"><i class="fas fa-times-circle"></i></a>'."\n"."\n".
-	'<span style="font-size:30px;" class="'.$mobile_variable.' '.$first_text_color.'">'.$btnmenutxt.'</span>'."\n"."\n";
+	'<span style="font-size:30px;" class="'.$mobile_variable.' '.$first_text_color.'">'.$mobile_buttons_menu_text.': </span>'."\n"."\n";
 	
 	$i = 0;
 	while ($i <= $website_tab_number) {

@@ -11,13 +11,13 @@ require $chapter_writer_form_php_variable;
 if ($new_write_style == True) {
 	#JavaScript version for the write story form
 	echo '<script>'.
-	'var Write_Content_'.$chapter_number_1.' = `<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:60px;'.$roundedborderstyle3.'">'."\n";
+	'var Write_Content_'.$chapter_number_1.' = `<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$title_text.': " style="height:60px;'.$roundedborderstyle3.'">'."\n";
 
 	#Checks if the variable website_show_chapter_text_on_write_form_setting is set to True
 	if ($website_show_chapter_text_on_write_form_setting == True) {
 		#Checks if the variable website_show_write_form_text_setting is set to True and shows the title text
 		if ($show_write_form_text == True) {
-			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
+			echo $title_text.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 
 		else {
@@ -55,7 +55,7 @@ if ($new_write_style == True) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$english_chapters[$chapter_number_1].'<br />';
+				echo $can_not_find_file_text.': <br />'.$english_chapters[$chapter_number_1].'<br />';
 			}
 		}
 
@@ -80,7 +80,7 @@ if ($new_write_style == True) {
 			}
 
 			else {
-				echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
+				echo $can_not_find_file_text.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
 			}
 		}
 	}
@@ -99,7 +99,7 @@ if ($new_write_style == True) {
 		}
 
 		echo '<br />'."\n";
-		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
+		echo $chapter_written_in_text.': '.$chapter_written_dates[$chapter_date_number].'.';
 	}
 
 	echo '`;'.

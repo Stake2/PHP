@@ -80,7 +80,7 @@ $date1 = $txts[0].': '.$date1;
 $dates = $date1.'<br />';
 
 $citiestxts = array(
-$langreadtext.': '.$siteicon,
+$read_text.': '.$siteicon,
 $tabnames[1].': '.$icons[0],
 $tabnames[2].': '.$icons[4],
 $tabnames[3].': '.$icons[3],

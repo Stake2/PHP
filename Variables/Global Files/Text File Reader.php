@@ -1,5 +1,13 @@
 <?php 
 
+/*
+$website_comments_file = $selected_website_folder.'Comments.txt';
+
+if (file_exists($website_comments_file) == False) {
+	Create_File($website_comments_file);
+}
+*/
+
 if ($website_uses_universal_file_reader == True) {
 	$i = 0;
 	foreach ($filenamesarray as $file) {
@@ -179,10 +187,10 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$current_variable_year = 2018;
 	while ($current_variable_year <= $current_year_backup) {
 		$current_year = $current_variable_year;
-		$current_year_watched_episodes_file = $current_year_watched_folder.$watched_episodes_text.'.txt';
-		$current_year_watched_time_file = $current_year_watched_folder.$watched_time_text.'.txt';
+		$current_year_watched_episodes_file = $current_year_watched_folder.$english_watched_episodes_text.'.txt';
+		$current_year_watched_time_file = $current_year_watched_folder.$english_watched_times_text.'.txt';
 
-		$current_year_watched_media_type_file = $current_year_watched_folder.$watched_media_type_text.'.txt';
+		$current_year_watched_media_type_file = $current_year_watched_folder.$english_watched_media_types_text.'.txt';
 
 		$file = $current_year_watched_episodes_file;
 		if (file_exists($file) == True) {
@@ -411,7 +419,6 @@ if ($website_type == $story_website_type) {
 	$story_synopsis_english_file = $story_info_folder.'Synopsis.txt';
 	$story_synopsis_portuguese_file = $story_info_folder.'Sinopse.txt';
 	$story_readers_file = $story_readers_and_reads_folder.'Readers.txt';
-	$story_comments_file = $story_comments_folder.'Comments.txt';
 	$story_comments_check_file = $story_comments_folder.'Check.txt';
 	$story_chapter_status = $story_info_folder.'Chapter Status.txt';
 
@@ -425,31 +432,14 @@ if ($website_type == $story_website_type) {
 	$story_titles_folder = $story_chapter_files_folder.$full_language.'/'.$titles_text.'/';
 	$titles_file = $story_titles_folder.$titles_text.'.txt';
 
-	#$story_reads_file = $story_readers_and_reads_folder.$read_text.'.txt';
-
 	$chapters = Line_Number($titles_file);
-
-	$story_comments_number = Line_Number($story_comments_file);
-	$story_comments_check_number = Line_Number($story_comments_check_file);
 
 	$readers_number = Line_Number($story_readers_file);
 
-	#$reads_number = Line_Number($story_reads_file);
-
-	#File line number fixers
-    if (isset($story_comments_number)) {
-        $story_comments_number_file = $story_comments_number - 1;
-        $story_comments_number_text = $story_comments_number;
-    }
-
+	# File line number fixers
     if (isset($readers_number)) {
         $story_readers_number_file = $readers_number - 1;
         $story_readers_number_text = $readers_number;
-    }
-
-    if (isset($reads_number)) {
-        $story_reads_number_file = $reads_number - 1;
-        $story_reads_number_text = $reads_number;
     }
 
 	$story_creation_date = Read_Lines($story_creation_date_file)[0];
@@ -462,10 +452,6 @@ if ($website_type == $story_website_type) {
 	$chapter_titles_enus = Read_Lines($titles_enus_file);
 
 	$readers = Read_Lines($story_readers_file);
-
-	#$comments = Read_Lines($story_comments_file);
-
-	#$reads_text = Read_Lines($story_reads_file);
 
 	if ($website_name == $website_nazzevo or $website == $website_nazzevo) {
 		$chapters = Read_Lines($chapter_number_file);

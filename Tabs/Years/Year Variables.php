@@ -20,11 +20,11 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 if (in_array($website_language, $en_languages_array)) {
-	$newtxt = $newtxt;
+	$new_text = $new_text;
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$newtxt = $newtxt2;
+	$new_text = $new_feminine_text;
 }
 
 #Story language variables array setter

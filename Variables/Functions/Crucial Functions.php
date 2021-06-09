@@ -36,6 +36,10 @@ function Remove_Text_From_String($item, $text_to_replace = Null) {
 	}
 }
 
+function Create_File($file) {
+	$file = fopen($file, "w");
+}
+
 function Open_File($file, $mode = Null) {
 	if ($mode == Null) {
 		$mode = "r";

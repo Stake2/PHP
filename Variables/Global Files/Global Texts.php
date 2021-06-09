@@ -3,78 +3,44 @@
 $watched_string = "Watched";
 $to_watch_string = "To_Watch";
 
-#English texts for all websites
-if (in_array($website_language, $en_languages_array)) {
-	$andtxt = 'and';
-	$newtxt = 'New';
-	$ortxt = 'or';
-	$numbertxt = 'number';
-	$langreadtext = 'Read';
-	$website_image_link_text = 'image link';
-	$website_language_icon = '🇺🇸';
-	$btnmenutxt = 'Mobile button menu: ';
-	$editbtntxt1 = 'Edit text';
-	$editbtntxt2 = 'Activate';
-	$editbtntxt3 = 'Deactivate';
-	$copybtntxt1 = 'Copy HTML';
-	$copybtntxt2 = 'Copy text';
-	$redondodesc = 'Round revolution ahead!';
-	$covertxt = 'Cover';
-	$cannotfindfiletxt = 'This file could not be found, sorry';
-	$in_text = "in";
+$in_text = Language_Item_Definer("in", "em");
+$on_text = Language_Item_Definer("on", "no");
+$or_text = Language_Item_Definer("or", "or");
+$and_text = Language_Item_Definer("and", "e");
+$of_text = Language_Item_Definer("of", "do");
+$of_feminine_text = Language_Item_Definer("of", "da");
 
-	$month_text = 'month';
-	$months_text = 'months';
-	$day_text = 'day';
-	$days_text = 'days';
+$new_text = Language_Item_Definer("New", "Novo");
+$new_feminine_text = "Nova";
+$name_text = Language_Item_Definer("Name", "Nome");
+$number_text = Language_Item_Definer("number", "número");
+$english_text_text = "Text";
+$text_text = Language_Item_Definer($english_text_text, $english_text_text."o");
+$time_text = Language_Item_Definer("Time", "Tempo");
+$form_text = Language_Item_Definer("Form", "Formulário");
+$words_text = Language_Item_Definer("Words", "Palavras");
+$copy_text = Language_Item_Definer("Copy", "Copiar");
 
-	if ($website_new_design_setting == True) {
-		$newdesigntxts = array(
-		'Story menu',
-		'Chapter menu',
-		);
-	}
-}
+$read_text = Language_Item_Definer("Read", "Ler");
+$send_form_text = Language_Item_Definer("Send", "Enviar");
 
-#Brazilian Portuguese texts for all websites
-if (in_array($website_language, $pt_languages_array)) {
-	$andtxt = 'e';
-	$newtxt = 'Novo';
-	$newtxt2 = 'Nova';
-	$ortxt = 'ou';
-	$numbertxt = 'número';
-	$langreadtext = 'Ler';
-	$website_image_link_text = 'link da imagem';
-	$website_language_icon = '🇧🇷';
-	$btnmenutxt = 'Menu de botões mobile: ';
-	$editbtntxt1 = 'Editar texto';
-	$editbtntxt2 = 'Ativar';
-	$editbtntxt3 = 'Desativar';
-	$copybtntxt1 = 'Copiar HTML';
-	$copybtntxt2 = 'Copiar texto';
-	$redondodesc = 'Revolução redonda avante!';
-	$covertxt = 'Capa';
-	$cannotfindfiletxt = 'Não foi possível encontrar este arquivo, desculpe';
-	$in_text = "em";
+$website_image_link_text = Language_Item_Definer("image link", "link da imagem");
+$website_language_icon = Language_Item_Definer("🇺🇸", "🇧🇷");
+$mobile_buttons_menu_text = Language_Item_Definer("Mobile button menu", "Menu de botões mobile");
 
-	$month_text = 'mês';
-	$months_text = 'meses';
-	$day_text = 'dia';
-	$days_text = 'dias';
+$edit_text = Language_Item_Definer("Edit text", "Editar texto");
+$activate_text = Language_Item_Definer("Activate", "Ativar");
+$deactivate_text = Language_Item_Definer("Deactivate", "Desativar");
+$copy_html_text = Language_Item_Definer("Copy", "Copiar")." HTML";
+$copy_text_text = $copy_text." ".$text_text;
 
-	if ($website_new_design_setting == True) {
-		$newdesigntxts = array(
-		'Menu de histórias',
-		'Menu de capítulos',
-		);
-	}
-}
+$can_not_find_file_text = Language_Item_Definer("This file could not be found, sorry", "Não foi possível encontrar este arquivo, desculpe");
 
-$watched_episodes_text = "Episodes";
-$watched_time_text = "Times";
-$watched_media_type_text = "Media Types";
+$english_watched_episodes_text = "Episodes";
+$english_watched_times_text = "Times";
+$english_watched_media_types_text = "Media Types";
 
-$langreadtext2 = strtolower($langreadtext);
-$author_name = 'Izaque Sanvezzo (stake2)';
+$read_text_lower = strtolower($read_text);
+$author_name = "Izaque Sanvezzo (stake2)";
 
 ?>

@@ -27,7 +27,7 @@ $selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
 $story_folder = $desert_island_story_folder;
 
 # Form code for the comment and read forms
-$formcode = 'desert_island';
+$website_form_code = 'desert_island';
 
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
@@ -179,7 +179,7 @@ if (in_array($website_language, $pt_languages_array)) {
 
 #Button names
 $citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.' ❤️ '.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],
@@ -190,7 +190,7 @@ $icons[13],
 #Buttons and tabs definer
 #Tab chapter_titles definer
 $tab_titles = array(
-$tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$newtxt.' '.$chapters.']'.$spanc,
+$tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
 $tabnames[1].': '.$icons[20].' '.' ❤️ '.' 😊',
 $tabnames[2].': '.$icons[12],
 $tabnames[3].': '.$icons[10],

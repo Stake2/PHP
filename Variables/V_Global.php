@@ -3,6 +3,8 @@
 # V_Global.php $website_folder, website and FontAwesome link variables
 $website_folder = strtolower($website);
 $website = $website_folder;
+$selected_website_url = $main_website_url.$website_folder."/";
+$selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 
 $folder_and_website_variables_php = $global_files_folder.'Folder And Website Variables.php';
 $php_files_php = $global_files_folder.'PHP Files.php';
@@ -24,9 +26,6 @@ else {
 	$fontawesome_script = null;
 }
 
-# Global Texts PHP file loader
-require $global_texts_php;
-
 # Watch History and YearWebsites year variables
 require $watch_and_yearwebsites_variables_php;
 
@@ -46,6 +45,9 @@ require $global_style_file_php;
 
 # Global Normal Functions PHP File Loader
 require $normal_functions_file_php;
+
+# Global Texts PHP file loader
+require $global_texts_php;
 
 # Website Style Chooser.php file loader
 if ($website_uses_custom_layout_setting == False) {

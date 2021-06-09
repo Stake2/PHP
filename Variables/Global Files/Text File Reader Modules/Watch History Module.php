@@ -1,37 +1,37 @@
 <?php 
 /*
 #Files definer for Watch.php and Years websites
-$watched_episodes_2018_file = $notepad_watch_history_folder.$site2018.'/'.$watched_episodes_text.'.txt';
-$watched_time_2018_file = $notepad_watch_history_folder.$site2018.'/'.$watched_time_text.'.txt';
+$watched_episodes_2018_file = $notepad_watch_history_folder.$site2018.'/'.$english_watched_episodes_text.'.txt';
+$watched_time_2018_file = $notepad_watch_history_folder.$site2018.'/'.$english_watched_times_text.'.txt';
 
 if (in_array($website_language, $en_languages_array)) {
-	$watched_media_type_2018_file = $notepad_watch_history_folder.$site2018.'/'.$watched_media_type_text.' '.strtoupper($enus_language).'.txt';
+	$watched_media_type_2018_file = $notepad_watch_history_folder.$site2018.'/'.$english_watched_media_types_text.' '.strtoupper($enus_language).'.txt';
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$watched_media_type_2018_file = $notepad_watch_history_folder.$site2018.'/'.$watched_media_type_text.' '.strtoupper($ptbr_language).'.txt';
+	$watched_media_type_2018_file = $notepad_watch_history_folder.$site2018.'/'.$english_watched_media_types_text.' '.strtoupper($ptbr_language).'.txt';
 }
 
-$watched_episodes_2019_file = $notepad_watch_history_folder.$site2019.'/'.$watched_episodes_text.'.txt';
-$watched_time_2019_file = $notepad_watch_history_folder.$site2019.'/'.$watched_time_text.'.txt';
+$watched_episodes_2019_file = $notepad_watch_history_folder.$site2019.'/'.$english_watched_episodes_text.'.txt';
+$watched_time_2019_file = $notepad_watch_history_folder.$site2019.'/'.$english_watched_times_text.'.txt';
 
 if (in_array($website_language, $en_languages_array)) {
-	$watched_media_type_2019_file = $notepad_watch_history_folder.$site2019.'/'.$watched_media_type_text.' '.strtoupper($enus_language).'.txt';
+	$watched_media_type_2019_file = $notepad_watch_history_folder.$site2019.'/'.$english_watched_media_types_text.' '.strtoupper($enus_language).'.txt';
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$watched_media_type_2019_file = $notepad_watch_history_folder.$site2019.'/'.$watched_media_type_text.' '.strtoupper($ptbr_language).'.txt';
+	$watched_media_type_2019_file = $notepad_watch_history_folder.$site2019.'/'.$english_watched_media_types_text.' '.strtoupper($ptbr_language).'.txt';
 }
 
-$watched_episodes_2020_file = $notepad_watch_history_folder.$site2020.'/'.$watched_episodes_text.'.txt';
-$watched_time_2020_file = $notepad_watch_history_folder.$site2020.'/'.$watched_time_text.'.txt';
+$watched_episodes_2020_file = $notepad_watch_history_folder.$site2020.'/'.$english_watched_episodes_text.'.txt';
+$watched_time_2020_file = $notepad_watch_history_folder.$site2020.'/'.$english_watched_times_text.'.txt';
 
 if (in_array($website_language, $en_languages_array)) {
-	$watched_media_type_2020_file = $notepad_watch_history_folder.$site2020.'/'.$watched_media_type_text.' '.strtoupper($enus_language).'.txt';
+	$watched_media_type_2020_file = $notepad_watch_history_folder.$site2020.'/'.$english_watched_media_types_text.' '.strtoupper($enus_language).'.txt';
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$watched_media_type_2020_file = $notepad_watch_history_folder.$site2020.'/'.$watched_media_type_text.' '.strtoupper($ptbr_language).'.txt';
+	$watched_media_type_2020_file = $notepad_watch_history_folder.$site2020.'/'.$english_watched_media_types_text.' '.strtoupper($ptbr_language).'.txt';
 }
 
 $current_year_watched_media_type_file_array = array(

@@ -99,7 +99,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	}
 
 	if ($story_status == $story_status_texts[1] or $story_status == $story_status_texts[2]) {
-		$new_chapter_text = '<span class="'.$third_text_color.'">'.' ['.$newtxt.'!]'.$spanc;
+		$new_chapter_text = '<span class="'.$third_text_color.'">'.' ['.$new_text.'!]'.$spanc;
 	}
 
 	$text = Create_Element("div", $default_background_color.' '.$first_full_border, $margin.'<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
@@ -110,7 +110,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
 	$read_and_reader_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
-	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
+	$story_creation_date.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'.'<br />'."\n", 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
 
 	$website_header_wrapper = $computer_space.
@@ -122,7 +122,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
 	$read_and_reader_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
-	$chapter_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
+	$story_creation_date.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'.'<br />'."\n", 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"').
 	'</div>'."\n";
 }

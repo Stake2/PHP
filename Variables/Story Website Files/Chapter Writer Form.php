@@ -1,18 +1,18 @@
 <?php 
 
 #Shows the text area where the title of the chapter is shown
-echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$titletxt.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
+echo '<textarea type="text" width="1000" class="border '.$textstyle2.' w3-input" placeholder="'.$title_text.': " style="height:85px;'.$roundedborderstyle3.'">'."\n";
 
 #Checks if the variable show_write_form_text is set to True
 if ($show_title_text == True) {
 	# Shows the chapter title if the setting is set to True
 	if ($show_write_form_text == True) {
 		if ($website_translate_story_setting == True) {
-			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles_enus[($chapter_number_4 - 1)];
+			echo $title_text.': '."\n".$chapter_number_1.' - '.$chapter_titles_enus[($chapter_number_4 - 1)];
 		}
 
 		if ($website_translate_story_setting == false) {
-			echo $titletxt.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
+			echo $title_text.': '."\n".$chapter_number_1.' - '.$chapter_titles[($chapter_number_4 - 1)];
 		}
 	}
 
@@ -51,7 +51,7 @@ if ($show_write_form_text == True) {
 		}
 
 		else {
-			echo $cannotfindfiletxt.': <br />'.$english_chapters[$chapter_number_1].'<br />';
+			echo $can_not_find_file_text.': <br />'.$english_chapters[$chapter_number_1].'<br />';
 		}
 	}
 
@@ -69,7 +69,7 @@ if ($show_write_form_text == True) {
 		}
 
 		else {
-			echo $cannotfindfiletxt.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
+			echo $can_not_find_file_text.': <br />'.$normal_chapters[$chapter_number_1].'<br />';
 		}
 	}
 }
@@ -89,7 +89,7 @@ if ($show_write_form_text == True and $story_has_dates == True) {
 		}
 
 		echo '<br />'."\n";
-		echo $chapter_date_text_two.': '.$chapter_written_dates[$chapter_date_number].'.';
+		echo $chapter_written_in_text.': '.$chapter_written_dates[$chapter_date_number].'.';
 	}
 }
 

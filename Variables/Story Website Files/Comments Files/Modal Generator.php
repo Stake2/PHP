@@ -31,12 +31,12 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     # Computer Comment-modal form
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
-	echo '<form name="'.$formcode.'-comment-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+	echo '<form name="'.$website_form_code.'-comment-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $margin2."\n";
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$n.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -44,7 +44,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<br />'."\n";
 
 	# Comment input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$comments_texts_array[5].':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$comment_what_you_think_on_chapter_text.':</b></'.$n.'>'.$div_close."\n";
 
 	# Comment input
 	echo '<input type="text" name="comment" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -73,13 +73,13 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$first_button_style.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' modal_close_button" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     # Mobile Comment-modal form
-	echo '<form name="'.$formcode.'-comment-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$tabnames[2].' '.$comments_texts_array[3].' '.substr($chapters_text, 0, -1).':<br />'.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+	echo '<form name="'.$website_form_code.'-comment-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$m.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -87,7 +87,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<br />'."\n";
 
 	# Comment input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$comments_texts_array[5].':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$comment_what_you_think_on_chapter_text.':</b></'.$m.'>'.$div_close."\n";
 
 	# Comment input
 	echo '<input type="text" name="comment" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";

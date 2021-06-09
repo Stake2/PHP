@@ -94,7 +94,7 @@ while ($chapter_number_1 <= $chapters) {
 	animation-iteration-count: infinite;
 }
 </style>'."\n".
-			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc."</button></a> "."\n";
+			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$new_text.'!]'.$spanc."</button></a> "."\n";
 
 			echo $chapter_button;
 
@@ -118,7 +118,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 
-			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$newtxt.'!]'.$spanc.'</button></a> '."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$new_text.'!]'.$spanc.'</button></a> '."\n";
 
 			echo $chapter_button;
 

@@ -65,9 +65,9 @@ if ($selected_website == $website_desert_island) {
 # "You're Reading [Story]" top text displayer
 if ($story_uses_status == True) {
 	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3]) {
-		echo '<div class="'.$computer_variable.'">'.'<'.$n.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$n.'>'.$div_close."\n";
+		echo '<div class="'.$computer_variable.'">'.'<'.$n.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$n.'>'.$div_close."\n";
 
-		echo '<div class="'.$mobile_variable.'">'.'<'.$m.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.$div_close.'</'.$m.'>'.$div_close."\n";
+		echo '<div class="'.$mobile_variable.'">'.'<'.$m.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.$div_close.'</'.$m.'>'.$div_close."\n";
 
 		$chapter_number_4++;
 	}
@@ -83,9 +83,9 @@ if ($story_uses_status == True) {
 
 else {
 	if ($chapter_number_1 == $chapters) {
-		echo '<div class="'.$computer_variable.'">'.'<'.$n.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$n.'>'.$div_close."\n";
+		echo '<div class="'.$computer_variable.'">'.'<'.$n.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$n.'>'.$div_close."\n";
 
-		echo '<div class="'.$mobile_variable.'">'.'<'.$m.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$newtxt.'!]</b>'.$spanc.$div_close.'</'.$m.'>'.$div_close."\n";
+		echo '<div class="'.$mobile_variable.'">'.'<'.$m.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.$div_close.'</'.$m.'>'.$div_close."\n";
 
 		$chapter_number_4++;
 	}
@@ -318,7 +318,7 @@ if ($chapter_number_1 != $chapters) {
 # Computer Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$comments_texts_array[1].' '.$icons[12].' ('.$number_of_chapter_comments.')</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$to_comment_text." ".$icons[12].' ('.$number_of_chapter_comments.')</b></h3></button>'."\n";
 	echo $div_close."\n";
 }
 
@@ -341,7 +341,7 @@ if ($story_uses_status == True) {
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".
 		'<br />'.$top_and_bottom_chapter_text."\n".
-		'<b>'.$span_variable.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
+		'<b>'.$span_variable.'['.$new_text.'!]'.$spanc.'</b>'."\n".
 		'<br /></span>'."\n".
 		$div_close."\n".
 		$div_close."\n";
@@ -368,7 +368,7 @@ else {
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".
 		'<br />'.$top_and_bottom_chapter_text."\n".
-		'<b>'.$span_variable.'['.$newtxt.'!]'.$spanc.'</b>'."\n".
+		'<b>'.$span_variable.'['.$new_text.'!]'.$spanc.'</b>'."\n".
 		'<br /></span>'."\n".
 		$div_close."\n".
 		$div_close."\n";
@@ -394,7 +394,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo "\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="commentbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$comments_texts_array[1].' '.$icons[12].' ('.$number_of_chapter_comments.')</b></'.$m.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="commentbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$to_comment_text.' '.$icons[12].' ('.$number_of_chapter_comments.')</b></'.$m.'></button>'."\n";
 	echo '<br /><br />'."\n";
 	echo $div_close."\n";
 }

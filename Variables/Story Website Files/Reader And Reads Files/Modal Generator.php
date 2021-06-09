@@ -33,11 +33,11 @@ while ($chapter_number_1 <= $chapters) {
 	
 	# Computer Read-modal form
 	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$read_and_reader_texts_array[3].':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$iconbookreader.'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
-	echo '<form name="'.$formcode.'-read-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
+	echo '<form name="'.$website_form_code.'-read-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $margin2;
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($name_text).':</b></'.$n.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -69,13 +69,13 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$first_button_style.' '.$mobile_variable.' modal_close_button" '.$roundedborderstyle.' id="closereadmodal'.$a2.'m">&times;</button><br /><br /><br />'."\n";
 
 	# Mobile Read-modal form
-	echo '<form name="'.$formcode.'-read-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
+	echo '<form name="'.$website_form_code.'-read-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$read_and_reader_texts_array[3].':<br />'.$capnum12.' - '.$chapter_titles[$capnum42].' '.$iconbookreader.'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo $margin2;
 	echo '<br />';
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($person_name_text).':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($name_text).':</b></'.$m.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
