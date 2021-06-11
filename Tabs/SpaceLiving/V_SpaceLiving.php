@@ -169,6 +169,7 @@ $spaceliving_the_life_of_littletato_chapter_crossover_link,
 $the_life_of_littletato_chapter_26,
 $spaceliving_discord_join_link,
 $spaceliving_lonelyship_pixel_art_story_cover,
+$spaceliving_lonelyship_pixel_art_front_signboards,
 );
 
 $variable_inserter_replacer_array = array(

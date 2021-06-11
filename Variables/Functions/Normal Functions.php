@@ -83,7 +83,7 @@ function Language_Item_Definer($english_variable, $portuguese_variable) {
 	return $variable;
 }
 
-function Make_Linked_Image($image_link, $is_chapter_image = False) {
+function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = null) {
 	global $computer_div;
 	global $mobile_div;
 	global $div_close;
@@ -97,7 +97,11 @@ function Make_Linked_Image($image_link, $is_chapter_image = False) {
 		$image_style = $chapter_image_style;
 	}
 
-	$image = "<br />".$computer_div.$a_href.'<img src="'.$image_link.'" width="35%" '.$image_style.' />'."</a>".$div_close."\n".
+	if ($computer_width == null) {
+		$computer_width = "35";
+	}
+
+	$image = "<br />".$computer_div.$a_href.'<img src="'.$image_link.'" width="'.$computer_width.'%" '.$image_style.' />'."</a>".$div_close."\n".
 $mobile_div.$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>".$div_close;
 
 	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";

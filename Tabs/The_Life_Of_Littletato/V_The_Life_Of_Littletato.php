@@ -118,12 +118,14 @@ $littletato_anime_image_link_not_cdn,
 $human_littletato_image,
 $lisa_image,
 $the_life_of_littletato_spaceliving_chapter_crossover_link,
+$spaceliving_lonelyship_pixel_art_story_cover,
+$spaceliving_lonelyship_pixel_art_front_signboards,
 );
 
 $variable_inserter_replacer_array = array(
 " ".$the_life_of_littletato_link_name,
 " ".$spaceliving_link_name,
-$spaceliving_story_name." ",
+$spaceliving_story_name."\ ",
 " ".$till_chapter_nine_text,
 );
 
