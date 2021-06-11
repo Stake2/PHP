@@ -44,7 +44,7 @@ require $text_file_reader_file_php;
 # Revised chapter number
 $revised_chapter = $last_posted_chapter;
 
-$comments_number = $story_comments_check_number - 1;
+#$comments_number = $story_comments_check_number - 1;
 $readed_number = 12;
 
 # The chapter that I want to write
@@ -168,6 +168,7 @@ $lisa_image,
 $spaceliving_the_life_of_littletato_chapter_crossover_link,
 $the_life_of_littletato_chapter_26,
 $spaceliving_discord_join_link,
+$spaceliving_lonelyship_pixel_art_story_cover,
 );
 
 $variable_inserter_replacer_array = array(

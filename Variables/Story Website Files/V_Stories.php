@@ -45,6 +45,11 @@ $lisa_image = Make_Linked_Image($lisa_image_link, $is_chapter_image = True);
 
 # ---
 
+$spaceliving_lonelyship_pixel_art_story_cover_link = $website_media_images_website_images.$website_name_spaceliving."/Chapter Images/LonelyShip Story Cover.png";
+$spaceliving_lonelyship_pixel_art_story_cover = Make_Linked_Image($spaceliving_lonelyship_pixel_art_story_cover_link, $is_chapter_image = True);
+
+# ---
+
 $title_text = Language_Item_Definer("Title", "Título");
 $titles_enus_text = $title_text."s";
 $titles_ptbr_text = $title_text."s";

@@ -37,7 +37,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo $margin2;
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($name_text).':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$n.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -75,7 +75,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<br />';
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$person_name_text_two.' '.strtolower($name_text).':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$m.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$full_form_style.' w3-input" '.$roundedborderstyle.'>'."\n";
