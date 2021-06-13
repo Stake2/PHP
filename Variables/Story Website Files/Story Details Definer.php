@@ -7,7 +7,9 @@ $story_chapter_comments_folder = $story_folder.$chapter_comments_english_folder_
 if ($website_story_has_book_covers_setting == True) {
 	$story_book_cover_filename = 'Book Cover';
 
-	$image_format = "png";
+	if (isset($image_format) == False) {
+		$image_format = "png";
+	}
 
 	$website_image = $story_book_cover_folder.$story_book_cover_filename.".".$image_format;
 	$website_image_size_computer = 60;
