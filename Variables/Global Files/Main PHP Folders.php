@@ -1,7 +1,6 @@
 <?php 
 
 $generic_tabs_folder = $php_folder_tabs."Generic Tabs/";
-$global_tabs_folder = $php_folder_tabs."Global Tabs/";
 
 $functions_folder = $php_folder_variables."Functions/";
 $website_styling_folder = $php_folder_variables."Website Styling/";

@@ -149,6 +149,47 @@ $write_texts_array = array(
 substr($reading_text, 0, -6)." ".strtolower("Escrevendo").": ".ucwords($story_name),
 );
 
+if (isset($website_form_code) == False) {
+	$website_form_code = "test";
+}
+
+$story_website_write_form = "\n".'
+<div class="'.$computer_variable.'">
+<form name="'.$website_form_code.'-write" method="POST" data-netlify="True">
+<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$name_text.':</b><br />
+<textarea type="text" name="name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
+</span><br />
+<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$write_texts_array[1].':</b><br />
+
+<textarea type="text" name="comment" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea> 
+<h2><button type="submit" class="w3-btn '.$full_form_send_button_style.'" style="float:right;margin-top:-10px;'.$rounded_border_style_2.'"><b>'.$send_form_text.'</b>: <i class="fas fa-paper-plane"></i></button></h2>
+
+</span>
+</form>
+</div>
+
+<div class="'.$mobile_variable.'">
+<form name="'.$website_form_code.'-write" method="POST" data-netlify="True">
+<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$name_text.':</b><br />
+<textarea type="text" name="'.$website_form_code.'-name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
+</span><br />
+<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$write_texts_array[1].':</b><br />
+
+<textarea type="text" name="comment" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea> 
+<h2><button type="submit" class="w3-btn '.$full_form_send_button_style.'" style="float:right;margin-top:-10px;'.$rounded_border_style_2.'"><b>'.$send_form_text.'</b>: <i class="fas fa-paper-plane"></i></button></h2>
+
+</span>
+</form>
+</div>
+
+</div>'.
+"\n";
+
+$write_form_display = '<'.$m.'>'."\n".'<b>'."\n".
+$div_zoom_animation.
+$story_website_write_form.
+"\n".'</b>'."\n".'</'.$m.'>'."\n";
+
 $write_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
 $write_new_chapter_tab_text = Language_Item_Definer("write-new-chapter", "escrever-novo-capítulo");
 $write_button_text = Language_Item_Definer("write-button", "botão-de-escrever");
@@ -161,6 +202,8 @@ $spaceliving_story_name = "SpaceLiving",
 $the_story_of_the_nazzevo_brothers_story_name = "The Story of the Nazzevo Brothers",
 $desert_island_story_name = "Desert Island",
 );
+
+$the_life_of_littletato_english_story_name = "The Life of Littletato";
 
 $brazilian_portuguese = array(
 $the_life_of_littletato_story_name = "A Vida de Pequenata",
@@ -217,7 +260,7 @@ if (isset($website_spaceliving_link)) {
 
 	$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom"'.
 	' onclick="window.open('."'".$chapter_link."'".');">'.
-	'<center><h3 class="w3-btn "'.$background_blue_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;">'."<span ".$span_style."><br />".$crossover_next_chapter_text.": ".
+	'<center><h3 class="w3-btn '.$background_blue_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;">'."<span ".$span_style."><br />".$crossover_next_chapter_text.": ".
 	$website_spaceliving_link.$crossover_chapter.'/<br /><br /></span></h3></center></div>';
 }
 
@@ -227,7 +270,8 @@ if (isset($website_the_life_of_littletato_link)) {
 	$crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_preivous_chapter_text.": ".$chapter_link;
 
 	$spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom" '.
-	'onclick="window.open('."'".$chapter_link."'".');"><center><h3 class="w3-btn '.$background_brown_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.">".$crossover_preivous_chapter_text.": ".$website_the_life_of_littletato_link.$crossover_chapter."/</span></h3></center></div>";
+	'onclick="window.open('."'".$chapter_link."'".');">'.
+	'<center><h3 class="w3-btn '.$background_brown_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;"><span '.$span_style.">".$crossover_preivous_chapter_text.": ".$website_the_life_of_littletato_link.$crossover_chapter."/</span></h3></center></div>";
 }
 
 $website_subdomain_name = "spaceliving";

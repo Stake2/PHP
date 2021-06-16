@@ -154,7 +154,7 @@ function Create_Element($element, $class, $text, $custom_parameters = Null) {
 		$custom_parameters = "";
 	}
 
-	$element_prototype = '<{} class="{}"{}>{}</{}>';
+	$element_prototype = '<{} class="{}" {}>{}</{}>';
 
 	$parameters = array(
 	$element,

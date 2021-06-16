@@ -23,7 +23,7 @@ $general_story_name = "Littletato - Pequenata";
 $story_status = $status_reviewing_and_editing;
 
 # Form code for the comment and read forms
-$website_form_code = strtolower(str_replace(" ", "-", $story_name_variable));#'pequenata';
+$website_form_code = strtolower(str_replace(" ", "-", $the_life_of_littletato_english_story_name));
 
 # Website numbers
 $crossover_chapter_number = 26;

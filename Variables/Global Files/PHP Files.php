@@ -71,12 +71,6 @@ $chapter_comment_and_read_displayer_php_variable = $chapter_comment_and_read_dis
 $new_chapter_comment_and_read_displayer_php_variable = $new_chapter_comment_and_read_displayer_php;
 $story_name_details_definer_php_variable = $story_details_definer;
 
-# Global Tabs array
-$globaltabs = array(
-$writeglobal = $global_tabs_folder.'WriteGlobal.php',
-#$stories_tab_php = $global_tabs_folder.'StoriesGlobal.php',
-);
-
 $chapter_generator_global_variable = $chapters_generator_php;
 
 # Watch PHP files

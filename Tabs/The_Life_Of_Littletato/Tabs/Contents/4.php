@@ -1,5 +1,5 @@
 <?php 
 
-require $writeglobal;
+echo $write_form_display;
 
 ?>
