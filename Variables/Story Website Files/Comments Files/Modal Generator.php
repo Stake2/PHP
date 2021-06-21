@@ -24,7 +24,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<a name="modal-comment-'.$a.'"></a>'."\n";
 	echo '<div id="modal-comment-'.$a.'" class="modal '.$computer_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
-	echo '<div class="modal-content '.$tab_background_color.' '.$border_3px_solid_brown_css_class.'" '.$roundedborderstyle.'>'."\n";
+	echo '<div class="modal-content '.$tab_background_color.' '.$first_full_border.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$computer_variable.'">'."\n";
 
     # Close comment-modal button computer
@@ -32,7 +32,7 @@ while ($chapter_number_1 <= $chapters) {
 
     # Computer Comment-modal form
 	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
-	echo '<form name="'.$website_form_code.'-comment-'.$a.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
+	echo '<form name="'.$website_form_code.'-comment" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $margin2."\n";
 
 	# Name input text
@@ -66,14 +66,14 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<a name="modal-comment-'.$a2.'m"></a>'."\n";
 	echo '<div id="modal-comment-'.$a2.'m" class="modal '.$mobile_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
-	echo '<div class="modal-content '.$tab_background_color.' '.$border_3px_solid_brown_css_class.'" '.$roundedborderstyle.'>'."\n";
+	echo '<div class="modal-content '.$tab_background_color.' '.$first_full_border.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
 
     # Close comment-modal button mobile
 	echo '<button class="w3-btn '.$first_button_style.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' modal_close_button" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     # Mobile Comment-modal form
-	echo '<form name="'.$website_form_code.'-comment-'.$a2.'" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
+	echo '<form name="'.$website_form_code.'-comment" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";
