@@ -39,7 +39,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$n.'>'.$div_close."\n";
 
 	# Name input
-	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
+	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input unexistant class" '.$roundedborderstyle.'>'."\n";
 
 	echo '<br />'."\n";
 
