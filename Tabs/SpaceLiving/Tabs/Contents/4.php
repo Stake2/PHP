@@ -1,5 +1,5 @@
 <?php 
 
-echo $write_form_display;
+#echo $write_form_display;
 
 ?>
