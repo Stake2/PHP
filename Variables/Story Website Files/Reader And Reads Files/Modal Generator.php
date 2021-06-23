@@ -33,6 +33,7 @@ while ($chapter_number_1 <= $chapters) {
 	
 	# Computer Read-modal form
 	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$read_and_reader_texts_array[3].':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$iconbookreader.'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+
 	echo '<form name="'.$website_form_code.'-read" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $margin2;
 
