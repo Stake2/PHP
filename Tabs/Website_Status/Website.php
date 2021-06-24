@@ -24,15 +24,15 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_website_sta
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Website Status');
+		$tab_names = array('Website Status');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Status dos Sites');
+		$tab_names = array('Status dos Sites');
 	}
 
 	#Number of tabs
-	$website_tab_number = count($tabnames) - 1;
+	$website_tab_number = count($tab_names) - 1;
 
 	#Includer of the array of the GenericTabs files
 	require $generic_tabs_generator_file;

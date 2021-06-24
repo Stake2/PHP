@@ -1,5 +1,7 @@
 <?php 
 
+$use_custom_tab_titles_array = False;
+
 #Default value for website settings
 $roundedbuttonson = True;
 $website_has_notifications = False;

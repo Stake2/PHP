@@ -11,7 +11,7 @@ $show_computer_buttons_bar = '<button id="show_computer_buttons" class="w3-cente
 
 $open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-center w3-btn '.$first_button_style.' '.$mobile_variable.'" style="float:left;position:fixed;'.$rounded_border_style_2.'" onclick="Show_Mobile_Buttons();"><h2>'.$icons[16].'</h2></button>'."\n";
 
-$tabnamestxt = $tabnames;
+$tabnamestxt = $tab_names;
 
 if ($website_name == $website_diario) {
 	require $websites_tab_button_maker;
@@ -74,7 +74,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 		if ($i == $website_tab_number and $website_name == $website_diario) {
 			$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
-			$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
+			$computer_buttons[$i] = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 			$total_buttons_created++;
 		}
@@ -83,7 +83,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			if ($i == 0 and $website_has_notifications == True and $website_hides_notification_on_clicking_on_read_tab_setting == True) {
 				$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
-				$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
+				$computer_buttons[$i] = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 				$total_buttons_created++;
 			}
@@ -91,7 +91,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 			else {
 				$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
-				$computer_buttons[$i] = '<span title="'.$tabnames[$i].'" alt="'.$tabnames[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
+				$computer_buttons[$i] = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 				$total_buttons_created++;
 			}
@@ -125,18 +125,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	}
 
 	if ($website_name == $website_the_life_of_littletato) {
-		echo $computer_buttons[5];
-	}
-
-	$i = 0;
-	while ($i <= $website_tab_number) {
-		$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
-
-		$yellow_computer_buttons[$i] = '<span title="'.$tabnamestxt[$i].'" alt="'.$tabnamestxt[$i].'">'."\n".'<a href="#'.$tabcodes[$i].'"><button class="w3-btn '.$default_text_color." ".$background_yellow_css_class." ".$second_full_border." ".$default_background_hover_color.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".';'.$script.'">'.$tabtxts[$i].'</button></a>'.$spanc."\n";
-
-		$total_buttons_created++;
-	
-		$i++;
+		echo $computer_buttons[3];
 	}
 
 	echo $hide_computer_buttons_bar.
@@ -219,17 +208,7 @@ if ($website_deactivate_top_buttons_setting == false) {
 	}
 
 	if ($website_name == $website_the_life_of_littletato) {
-		echo $mobile_buttons[5]."\n"."\n";
-	}
-
-	$i = 0;
-	while ($i <= $website_tab_number) {
-		$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
-
-		$yellow_mobile_buttons[$i] = '<a href="#'.$tabcodesm[$i].'" onclick="Hide_Mobile_Buttons();"><button class="w3-btn '.$default_text_color." ".$background_yellow_css_class." ".$second_full_border." ".$default_background_hover_color.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".';'.$script.'">'.$tabtxtsm[$i].'</button></a>';
-
-		$i++;
-		$total_buttons_created++;
+		echo $mobile_buttons[3]."\n"."\n";
 	}
 	
 	echo "\n".$div_close."\n"."\n".

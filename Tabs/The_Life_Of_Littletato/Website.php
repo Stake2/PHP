@@ -1,7 +1,7 @@
 <?php 
 
 #Pequenata Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$website_the_life_of_littletato) == True) {
+if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of_littletato) == True) {
 	$selected_website = $website_the_life_of_littletato;
 
 	#Website title and name definer
@@ -45,17 +45,17 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_the_life_of
 	require $setting_parameters_file;
 
 	#Website Tabs array
-	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog');
+	$tabs = array("Read", "Readers", "Stories", "Changelog");
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Changelog', 'Chapters', 'Comments');
-		$website = ucwords('littletato');
+		$tab_names = array("Read story", "Readers", $other_stories_text, "Changelog");
+		#$website = ucwords("littletato");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Registro de Mudanças', 'Capítulos', 'Comentários');
-		$website = ucwords($selected_website);
+		$tab_names = array("Ler história", "Leitores", $other_stories_text, "Registro de Mudanças");
+		#$website = ucwords($selected_website);
 	}
 
 	#Number of tabs

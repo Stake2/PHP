@@ -1,6 +1,6 @@
 <?php
 
-function Show_Text($file) {
+function Show_Text($file, $style_format = Null, $use_variable_inserter = True) {
 	global $variable_inserter_array;
 
 	$file_read = Open_File($file);
@@ -8,8 +8,15 @@ function Show_Text($file) {
 	while(!feof($file_read)) {
 		$text_line = fgets($file_read);
 		$text_line = Remove_Text_From_String($text_line);
-		$text_line = Variable_Inserter($variable_inserter_array, $text_line);
-		$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+
+		if ($style_format != Null) {
+			$text_line = format($style_format, $text_line);
+		}
+
+		if ($use_variable_inserter == True) {
+			$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+			$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+		}
 
 		echo $text_line."\n".'<br />';
 	}
@@ -65,22 +72,6 @@ function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, 
 	if ($website_language == $language_ptpt and $same_from_ptbr == True) {
 		return $ptbr_item;
 	}
-}
-
-function Language_Item_Definer($english_variable, $portuguese_variable) {
-	global $website_language;
-	global $en_languages_array;
-	global $pt_languages_array;
-
-	if (in_array($website_language, $en_languages_array)) {
-		$variable = $english_variable;
-	}
-
-	if (in_array($website_language, $pt_languages_array)) {
-		$variable = $portuguese_variable;
-	}
-
-	return $variable;
 }
 
 function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = null) {
@@ -232,6 +223,87 @@ function Add_Leading_Zeros($number) {
 
 	if ($number > 9) {
 		return $number;
+	}
+}
+
+function Remove_Leading_Zeros($number) {
+	if ($number <= 9) {
+		return str_replace("0", "", (string)$number);
+	}
+}
+
+function Mix_Arrays($first_array, $second_array, $left_or_right = Null, $additional_value = False) {
+	global $left_english_text;
+	global $right_english_text;
+
+	$length = count($first_array) - 1;
+
+	if ($additional_value != False) {
+		$additional_value_direction = $additional_value[1];
+		$additional_value = $additional_value[0];
+	}
+
+	$i = 0;
+	while ($i <= $length) {
+		$first_value = $first_array[$i];
+		$second_value = $second_array[$i];
+
+		if ($additional_value != False) {
+			if ($additional_value_direction == $left_english_text) {
+				$second_value = $additional_value.$second_value;
+			}
+
+			if ($additional_value_direction == $right_english_text) {
+				$second_value = $second_value.$additional_value;
+			}
+		}
+
+		if ($left_or_right == $left_english_text) {
+			$value = $second_value.$first_value;
+		}
+
+		if ($left_or_right == $right_english_text) {
+			$value = $first_value.$second_value;
+		}
+
+		$first_array[$i] = $value;
+
+		$i++;
+	}
+
+	return $first_array;
+}
+
+function Make_Button_Names() {
+	global $tab_texts;
+	global $tab_titles;
+
+	# Button names definer
+	$i = 0;
+	foreach ($tab_titles as $tab_name) {
+		$tab_texts[$i] = $tab_name;
+
+		$i++;
+	}
+}
+
+function Make_Tab_Titles($custom_tab_titles_array = Null) {
+	global $tab_titles;
+	global $div_zoom_animation;
+	global $n;
+	global $div_close;
+	global $alternative_tab_full_border;
+	global $city_titles;
+
+	if ($custom_tab_titles_array != Null) {
+		$tab_titles = $custom_tab_titles_array;
+	}
+
+	$i = 0;
+	foreach ($tab_titles as $value) {
+		$city_titles[$i] = $div_zoom_animation.'<'.$n.' class="w3-center"><p></p><br /><b>'.$value.'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+
+		$i++;
 	}
 }
 

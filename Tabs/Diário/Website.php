@@ -34,18 +34,18 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_diario) == 
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Read the Diary', 'Characters', 'Comment');
+		$tab_names = array('Read the Diary', 'Characters', 'Comment');
 
 		if ($website_has_stories_tab_setting == True) {
-			array_push($tabnames, 'Stories');
+			array_push($tab_names, 'Stories');
 		}
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Ler o Diário', 'Personagens', 'Comentar');
+		$tab_names = array('Ler o Diário', 'Personagens', 'Comentar');
 
 		if ($website_has_stories_tab_setting == True) {
-			array_push($tabnames, 'Histórias');
+			array_push($tab_names, 'Histórias');
 		}
 	}
 

@@ -5,7 +5,7 @@
 <?php echo $margin."\n"; ?>
 <?php 
 
-echo $city_contents[1];
+echo $content_of_tabs[1];
 
 ?>
 <?php echo $div_close."\n"; ?>
@@ -19,7 +19,7 @@ echo $city_contents[1];
 <?php echo $margin."\n"; ?>
 <?php 
 
-echo $city_contents[1];
+echo $content_of_tabs[1];
 
 ?>
 <?php echo $div_close."\n"; ?>

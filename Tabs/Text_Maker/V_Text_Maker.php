@@ -107,10 +107,10 @@ if (file_exists($selected_website_folder.'CityContent2.php')) {
 $citycontents2 = ob_get_clean();
 
 #Button names
-$citiestxts = array(
-$tabnames[0].': '.$icons[14], 
-$tabnames[1].': '.$icons[14],
-$tabnames[2].': '.$icons[14],
+$tab_texts = array(
+$tab_names[0].': '.$icons[14], 
+$tab_names[1].': '.$icons[14],
+$tab_names[2].': '.$icons[14],
 );
 
 #TabGenerator.php includer

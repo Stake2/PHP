@@ -4,7 +4,6 @@ $elements_file = $website_styling_folder."Elements.php";
 $website_comments_generator = $generators_folder."Website Comments Generator.php";
 
 # Global PHP Files
-$global_texts_php = $global_files_folder.'Global Texts.php';
 $global_style_file_php = $global_files_folder.'Global Style.php';
 $website_tabs_generator = $global_files_folder.'Tab Generator.php';
 $website_tabs_loader = $global_files_folder.'Tab Loader.php';

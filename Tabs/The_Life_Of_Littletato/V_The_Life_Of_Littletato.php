@@ -73,26 +73,17 @@ if ($website_language != $language_geral) {
 }
 
 # Buttons and tabs definer
-#  Tab names replacer for languages_array
-if (in_array($website_language, $en_languages_array)) {
-	$tabnames[5] = substr_replace($tabnames[5], '-', 6, 0);
-	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
-}
-
 if ($website_writing_pack_setting == True) {
-	$tabnames[0] = str_replace('Read', 'Write', $tabnames[0]);
-	$tabnames[0] = str_replace('Ler', 'Escrever', $tabnames[0]);
+	$tab_names[0] = str_replace('Read', 'Write', $tab_names[0]);
+	$tab_names[0] = str_replace('Ler', 'Escrever', $tab_names[0]);
 }
 
 # Button names
-$citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.'<span class="w3-text-yellow"> ['.$new_text.' '.$chapters.']</span>',
-$tabnames[1].': '.$icons[20].' ❤️ 😊',
-$tabnames[2].': '.$icons[12],
-$tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$icons[11],
+$tab_texts = array(
+$tab_names[0].": ".$icons[21],
+$tab_names[1].": ".$icons[20]." ❤️",
+$tab_names[2].": ".$icons[11],
 $icons[13],
-'',
 );
 
 # Website Style.php File Includer
@@ -100,6 +91,8 @@ require $website_style_file;
 
 # Tab Generator.php File Includer
 require $website_tabs_generator;
+
+$read_story_button = $computer_buttons[0];
 
 # Website notification variables if the website notification setting is True
 if ($website_has_notifications == True) {
@@ -120,6 +113,7 @@ $lisa_image,
 $the_life_of_littletato_spaceliving_chapter_crossover_link,
 $spaceliving_lonelyship_pixel_art_story_cover,
 $spaceliving_lonelyship_pixel_art_front_signboards,
+$read_story_button,
 );
 
 $variable_inserter_replacer_array = array(

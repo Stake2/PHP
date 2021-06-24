@@ -17,14 +17,14 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2019) == Tr
 	$tabs = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
+		$tab_names = array($current_year, 'Media', 'Friends', 'Screenshots', 'Tasks', 'Years');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array($current_year, 'Mídia', 'Amigos', 'Prints', 'Tarefas', 'Anos');
+		$tab_names = array($current_year, 'Mídia', 'Amigos', 'Prints', 'Tarefas', 'Anos');
 	}
 
-	$website_tab_number = count($tabnames) - 1;
+	$website_tab_number = count($tab_names) - 1;
 
 	#Includer of the array of the GenericTabs files
 	require $generic_tabs_generator_file;

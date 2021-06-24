@@ -6,4 +6,5 @@
 21:08 17/03/2020: Added a "read" button to tell which chapter you read and added readings from readers in the tab where you read the chapter.
 20:21 01/04/2020: I created a modal for the comments, allowing a window to appear at the top of the site for you to comment.
 00:01 02/04/2020: Added the 2 comments from 01/04/2020.
-21:26 05/05/2020: Added various book covers on the button "Read story:" and on the tab where you read the chapters.
+21:26 05/05/2020: Added various book covers on the button $read_story_button; and on the tab where you read the chapters.
+23:27 23/06/2021: Simplified the website, removed some useless tabs like the Comment and Write tabs, changed the name of the Stories tab to "Other stories".

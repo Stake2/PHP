@@ -127,17 +127,17 @@ if (in_array($website_language, $pt_languages_array)) {
 
 # Buttons definer
 if (in_array($website_language, $en_languages_array)) {
-	$tabnames[5] = substr_replace($tabnames[5], '-', 6, 0);
-	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
+	$tab_names[5] = substr_replace($tab_names[5], '-', 6, 0);
+	$tab_names[5] = strtr($tab_names[5], "l", strtoupper("l"));;
 }
 
 # Button names
-$citiestxts = array(
-$tabnames[0].': '.$icons[21],
-$tabnames[1].': '.$icons[20].' ❤️ 😊',
-$tabnames[2].': '.$icons[12],
-$tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$icons[11],
+$tab_texts = array(
+$tab_names[0].': '.$icons[21],
+$tab_names[1].': '.$icons[20].' ❤️ 😊',
+$tab_names[2].': '.$icons[12],
+$tab_names[3].': '.$icons[10],
+$tab_names[4].': '.$icons[11],
 $icons[13],
 '',
 );

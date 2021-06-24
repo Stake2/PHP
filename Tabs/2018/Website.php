@@ -15,11 +15,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2018) == Tr
 	$tabs = array($current_year, 'Media', 'Tasks', 'Years');
 
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array($current_year, 'Media', 'Tasks', 'Years');
+		$tab_names = array($current_year, 'Media', 'Tasks', 'Years');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array($current_year, 'Mídia', 'Tarefas', 'Anos');
+		$tab_names = array($current_year, 'Mídia', 'Tarefas', 'Anos');
 	}
 
 	$website_tab_number = 3;

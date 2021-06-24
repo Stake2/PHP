@@ -204,12 +204,12 @@ if ($new_websites_switch == True) {
 $year_number_texts[$people_text_i_met_text_key] = $people_text_i_met_text;
 $year_number_texts[$comments_on_super_animes_key] = $comments_on_super_animes_text;
 
-$citiestxts = array(
+$tab_texts = array(
 $read_text.': '.$siteicon,
-$tabnames[1].': '.$icons[0],
-$tabnames[2].': '.$icons[1],
-$tabnames[3].': '.$icons[2],
-$tabnames[4].': '.$icons[3],
+$tab_names[1].': '.$icons[0],
+$tab_names[2].': '.$icons[1],
+$tab_names[3].': '.$icons[2],
+$tab_names[4].': '.$icons[3],
 );
 
 #Previous year button

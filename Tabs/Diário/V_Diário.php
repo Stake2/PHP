@@ -223,14 +223,14 @@ if (in_array($website_language, $pt_languages_array)) {
 
 #Buttons definer
 #Buttons names
-$citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.$span_second_text_color.' ['.$new_text.' '.ucwords($chapter_text).' '.$published_blocks.']'.$spanc,
-$tabnames[1].': '.$icons[1],
-$tabnames[2].': '.$icons[12],
+$tab_texts = array(
+$tab_names[0].': '.$icons[21].' '.$span_second_text_color.' ['.$new_text.' '.ucwords($chapter_text).' '.$published_blocks.']'.$spanc,
+$tab_names[1].': '.$icons[1],
+$tab_names[2].': '.$icons[12],
 );
 
 if ($website_has_stories_tab_setting == True) {
-	array_push($citiestxts, end(array_values($tabnames)).': '.$icons[11]);
+	array_push($tab_texts, end(array_values($tab_names)).': '.$icons[11]);
 }
 
 # Tab Generator.php includer

@@ -46,9 +46,6 @@ require $global_style_file_php;
 # Global Normal Functions PHP File Loader
 require $normal_functions_file_php;
 
-# Global Texts PHP file loader
-require $global_texts_php;
-
 # Website Style Chooser.php file loader
 if ($website_uses_custom_layout_setting == False) {
 	require $website_style_chooser_file;

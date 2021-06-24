@@ -178,29 +178,29 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 #Button names
-$citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
-$tabnames[1].': '.$icons[20].' '.' ❤️ '.' 😊',
-$tabnames[2].': '.$icons[12],
-$tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$icons[11],
+$tab_texts = array(
+$tab_names[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
+$tab_names[1].': '.$icons[20].' '.' ❤️ '.' 😊',
+$tab_names[2].': '.$icons[12],
+$tab_names[3].': '.$icons[10],
+$tab_names[4].': '.$icons[11],
 $icons[13],
 );
 
 #Buttons and tabs definer
 #Tab chapter_titles definer
 $tab_titles = array(
-$tabnames[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
-$tabnames[1].': '.$icons[20].' '.' ❤️ '.' 😊',
-$tabnames[2].': '.$icons[12],
-$tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$yellowspan.$stories_number.$spanc.' '.$icons[11],
+$tab_names[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
+$tab_names[1].': '.$icons[20].' '.' ❤️ '.' 😊',
+$tab_names[2].': '.$icons[12],
+$tab_names[3].': '.$icons[10],
+$tab_names[4].': '.$yellowspan.$stories_number.$spanc.' '.$icons[11],
 );
 
 #Button names definer
 $i = 0;
 foreach ($tab_titles as $tabname) {
-	$citiestxts[$i] = $tabname;
+	$tab_texts[$i] = $tabname;
 
 	$i++;
 }

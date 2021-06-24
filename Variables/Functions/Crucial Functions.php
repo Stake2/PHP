@@ -109,4 +109,20 @@ function Read_String($file) {
 	}
 }
 
+function Language_Item_Definer($english_variable, $portuguese_variable) {
+	global $website_language;
+	global $en_languages_array;
+	global $pt_languages_array;
+
+	if (in_array($website_language, $en_languages_array)) {
+		$variable = $english_variable;
+	}
+
+	if (in_array($website_language, $pt_languages_array)) {
+		$variable = $portuguese_variable;
+	}
+
+	return $variable;
+}
+
 ?>

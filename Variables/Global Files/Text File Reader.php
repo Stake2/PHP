@@ -37,7 +37,7 @@ if ($website_uses_universal_file_reader == True) {
 	foreach ($filesarray as $file) {
 		if (file_exists($file) == True) {
 			${"$filenumberarraynames[$i]"} = 0;
-			$handle = fopen ($file, "r");
+			$handle = fopen($file, "r");
 			while (!feof ($handle)){
 				$line = fgets ($handle);
 				${"$filenumberarraynames[$i]"}++;
@@ -111,7 +111,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 
 	if (file_exists($to_watch_episodes_file) == True) {
 		$to_watch_line_number = 0;
-		$handle = fopen ($to_watch_episodes_file, "r");
+		$handle = fopen($to_watch_episodes_file, "r");
 		while (!feof ($handle)){
 			$line = fgets($handle);
 			$to_watch_line_number++;
@@ -160,7 +160,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 
 	if (file_exists($watched_movies_file) == True) {
 		$watched_movies_line_number = 0;
-		$handle = fopen ($watched_movies_file, "r");
+		$handle = fopen($watched_movies_file, "r");
 		while (!feof ($handle)){
 			$line = fgets ($handle);
 			$watched_movies_line_number++;
@@ -195,7 +195,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 		$file = $current_year_watched_episodes_file;
 		if (file_exists($file) == True) {
 			$current_year_watched_episodes_line_number = 0;
-			$handle = fopen ($file, "r");
+			$handle = fopen($file, "r");
 			while (!feof ($handle)){
 				$line = fgets ($handle);
 				$current_year_watched_episodes_line_number++;
@@ -426,7 +426,7 @@ if ($website_type == $story_website_type) {
 	$last_posted_chapter = explode(" - ", array_reverse(Read_Lines($story_chapter_status))[0])[0];
 	$chapter_number_file = $story_folder.'Chapter Number.txt'; 
 
-	$titles_enus_file = $story_chapter_files_folder.$full_language_enus.'/'.$titles_enus_text.'/'.$titles_enus_text.'.txt';
+	$titles_enus_file = $story_chapter_files_folder.$full_language_enus.'/'.$titles_english_text.'/'.$titles_english_text.'.txt';
 
 	# Language-dependent text files
 	$story_titles_folder = $story_chapter_files_folder.$full_language.'/'.$titles_text.'/';
@@ -460,19 +460,18 @@ if ($website_type == $story_website_type) {
 	$chapter_number = Line_Number($titles_file);
 }
 
+# Webiste Changelog files and text definer
 if ($website_has_changelog_setting == True) {
-	#Changelog text file definer
 	if ($website_name == $website_watch_history) {
 		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$language_enus.'.php';
+			$website_changelog_file = $selected_website_folder."Changelog ".$language_enus.".php";
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$language_ptbr.'.php';
+			$website_changelog_file = $selected_website_folder."Changelog ".$language_ptbr.".php";
 		}
 	}
 
-	#Changelog text file definer
 	else {
 		if (in_array($website_language, $en_languages_array)) {
 			$website_changelog_file = $selected_website_folder.'Changelog '.$language_enus.'.txt';
@@ -484,24 +483,9 @@ if ($website_has_changelog_setting == True) {
 	}
 
 	if (file_exists($website_changelog_file) == True) {
-		#Changelog number counter
-		$clnumber = 0;
-		$handle = fopen ($website_changelog_file, "r");
-		while (!feof ($handle)) {
-			$line = fgets ($handle);
-			$clnumber++;
-		}
-	
-		#Changelog number
-		$clfile = $clnumber - 1;
-		$clfiletext = $clnumber;
-	
-		#Changelog file reader
-		$clfilefp = fopen ($website_changelog_file, 'r', 'UTF-8');
-		if ($clfilefp) {
-			$clroot = explode("\n", fread($clfilefp, filesize($website_changelog_file)));
-			$website_changelog_file_text = str_replace("^", "", $clroot);
-		}
+		$website_changelog_length = Line_Number($website_changelog_file) - 1;
+
+		$website_changelog = Read_Lines($website_changelog_file);
 	}
 }
 

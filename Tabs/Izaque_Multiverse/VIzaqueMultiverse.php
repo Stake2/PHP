@@ -103,7 +103,7 @@ if (in_array($website_language, $pt_languages_array)) {
 
 #Tab chapter_titles definer
 $tab_titles = array(
-$tabnames[0],
+$tab_names[0],
 );
 
 #Tab chapter_titles definer
@@ -115,8 +115,8 @@ if (!isset($tab_titles) or empty($tab_titles) or $tab_titles[0] == '') {
 
 #Button names definer
 $i = 0;
-foreach ($tabnames as $tabname) {
-	$citiestxts[$i] = $tabname;
+foreach ($tab_names as $tabname) {
+	$tab_texts[$i] = $tabname;
 
 	$i++;
 }

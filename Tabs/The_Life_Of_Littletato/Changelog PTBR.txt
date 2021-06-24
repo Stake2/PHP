@@ -7,3 +7,4 @@
 20:21 01/04/2020: Criei um modal para os comentários, permitindo que uma janela apareça no topo do site para você comentar.
 00:01 02/04/2020: Adicionei os 2 comentários de 01/04/2020.
 21:26 05/05/2020: Adicionei várias capas de livro no botão "Ler História:" e na aba onde se lê os capítulos.
+23:27 23/06/2021: Simplificado o site, removido algumas abas inúteis como as abas de Comentários e Escrever, mudado o nome da aba de Histórias para "Outras histórias".

@@ -19,11 +19,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_text_maker)
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Output', 'My Year', 'My Stories');
+		$tab_names = array('Output', 'My Year', 'My Stories');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Resultado', 'Meu Ano', 'Minhas Histórias');
+		$tab_names = array('Resultado', 'Meu Ano', 'Minhas Histórias');
 	}
 
 	#Number of tabs

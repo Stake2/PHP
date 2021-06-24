@@ -11,13 +11,13 @@ $website_image = $cdnimg.$website_image.".png";
 $website_image_link = $website_image;
 
 #Tabtexts array
-$citiestxts = array(
-$tabnames[0],
+$tab_texts = array(
+$tab_names[0],
 );
 
 #Tabtexts array
 $tab_titles_without_html = array(
-$tabnames[0],
+$tab_names[0],
 );
 
 $website_html_descriptions_array = array(
@@ -65,7 +65,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 $tab_titles = array(
-$tabnames[0],
+$tab_names[0],
 );
 
 #Tab Generator.php includer

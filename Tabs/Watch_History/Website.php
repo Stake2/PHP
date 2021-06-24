@@ -30,15 +30,15 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_watch_histo
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Watched'.$current_year, 'To Watch', 'Links', 'Movies', 'Archived Media', 'Changelog');
+		$tab_names = array('Watched'.$current_year, 'To Watch', 'Links', 'Movies', 'Archived Media', 'Changelog');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Assistidos'.$current_year, 'Para Assistir', 'Links', 'Filmes', 'Mídias Arquivadas', 'Registro de Mudanças');
+		$tab_names = array('Assistidos'.$current_year, 'Para Assistir', 'Links', 'Filmes', 'Mídias Arquivadas', 'Registro de Mudanças');
 	}
 
 	#Number of tabs
-	$website_tab_number = count($tabnames) - 1;
+	$website_tab_number = count($tab_names) - 1;
 
 	#Includer of the array of the GenericTabs files
 	require $generic_tabs_generator_file;

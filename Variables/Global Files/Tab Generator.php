@@ -3,10 +3,10 @@
 # Array of button names
 $i = 0;
 while ($i <= $website_tab_number) {
-	$text_size = 'h2';
+	$text_size = "h2";
 
-	if (isset($citiestxts[$i])) {
-		$citytxts[$i] = '<'.$text_size.'>'.$citiestxts[$i].'</'.$text_size.'>';
+	if (isset($tab_texts[$i])) {
+		$citytxts[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
 	}
 
 	$i++;
@@ -24,14 +24,14 @@ if ($website_name == $website_things_i_do) {
 	$i = 0;
 	while ($i <= $website_tab_number) {
 		if ($i < 1) {
-			$text_size = 'h6';	
+			$text_size = "h6";	
 		}
 
 		if ($i > 1) {
-			$text_size = 'h4';	
+			$text_size = "h4";	
 		}
 
-		$citytxts[$i] = '<'.$text_size.'>'.$citiestxts[$i].'</'.$text_size.'>';
+		$citytxts[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
 		$i++;
 	}
 }
@@ -40,8 +40,8 @@ else {
 	# Array of mobile button names
 	$i = 0;
 	while ($i <= $website_tab_number) {
-		$text_size = 'h4';
-		$citytxts[$i] = '<'.$text_size.'>'.$citiestxts[$i].'</'.$text_size.'>';
+		$text_size = "h4";
+		$citytxts[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
 	
 		$i++;
 	}
@@ -60,15 +60,15 @@ if ($website_name == $website_watch_history) {
 	$i = 0;
 	while ($i <= $website_tab_number) {
 		if ($i < 3) {
-			$citycodes[$i] = $website.'-'.strtolower($tabnames[$i]);
+			$citycodes[$i] = $website."-".strtolower($tab_names[$i]);
 		}
 	
 		if ($i >= 3) {
-			$citycodes[$i] = 'watched'.'-'.strtolower($tabnames[$i]);
+			$citycodes[$i] = "watched-".strtolower($tab_names[$i]);
 		}
 		
 		if ($i == 7) {
-			$citycodes[$i] = strtolower($tabnames[7]);
+			$citycodes[$i] = strtolower($tab_names[7]);
 		}
 	
 		$i++;
@@ -79,7 +79,7 @@ else {
 	# Array of button codes
 	$i = 0;
 	while ($i <= $website_tab_number) {
-		$citycodes[$i] = $website.'-'.strtolower($tabnames[$i]);
+		$citycodes[$i] = $website."-".strtolower($tab_names[$i]);
 
 		$i++;
 	}
@@ -106,7 +106,7 @@ if ($website_hide_tabs_setting == True) {
 }
 
 if ($website_hide_tabs_setting != True) {
-	$hide_tabs_text = '';
+	$hide_tabs_text = "";
 }
 
 if ($website_uses_tab_body_generator == False) {
@@ -116,11 +116,11 @@ if ($website_uses_tab_body_generator == False) {
 
 	#$citybodyfiles_array[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
 
-	if (file_exists($selected_website_folder.'CityBody'.$i2.'.php')) {
+	if (file_exists($selected_website_folder."CityBody".$i2.".php")) {
 		while ($i <= $website_tab_number) {
 			$i2 = $i + 1;
 
-			$city_body_files[$i] = $selected_website_folder.'CityBody'.$i2.'.php';
+			$city_body_files[$i] = $selected_website_folder."CityBody".$i2.".php";
 
 			$i++;
 		}
@@ -128,11 +128,11 @@ if ($website_uses_tab_body_generator == False) {
 
 	else {
 		if (in_array($website_language, $en_languages_array)) {
-			$city_body_place_holder = 'Placeholder for the Body of the Tab: [Icon]';
+			$city_body_place_holder = "Placeholder for the Body of the Tab: [Icon]";
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$city_body_place_holder = 'Espaço reservado para o Corpo da Aba: [Ícone]';
+			$city_body_place_holder = "Espaço reservado para o Corpo da Aba: [Ícone]";
 		}
 
 		$city_body_files[$i] = $city_body_place_holder;
@@ -148,12 +148,6 @@ if ($website_name == $website_watch_history) {
 
 	# Mobile Every Watched Button
 	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[3].$mobile_buttons[4];
-
-	# Every Archived Button Yellow
-	#$every_archived_medias_button = $div_left_animation.$computer_buttons[5].$div_close.$div_right_animation.$computer_buttons[5].$div_close;
-
-	# Mobile Every Archived Button Yellow
-	#$every_archived_medias_button_mobile = $div_left_animation.$mobile_buttons[5].$div_close.$div_right_animation.$mobile_buttons[5].$div_close;
 }
 
 if ($website_name == $website_things_i_do) {
@@ -219,29 +213,28 @@ while ($first_number <= $website_tab_number + 1) {
 	$second_number++;
 }
 
-#Citiescontent array generator
+# Tab Contents array generator
 $i = 0;
 while ($i <= $website_tab_number) {
 	$i2 = $i + 1;
 
 	if (isset($city_bodies[$i])) {
 		if (isset($city_titles)) {
-			$city_contents[$i] = $city_titles[$i].$city_bodies[$i].$tab_contents[$i];
+			$content_of_tabs[$i] = $city_titles[$i].$city_bodies[$i].$tab_contents[$i];
 		}
 
 		if (!isset($city_titles)) {
-			$city_contents[$i] = $city_bodies[$i].$tab_contents[$i];
+			$content_of_tabs[$i] = $city_bodies[$i].$tab_contents[$i];
 		}
 	}
 
 	else {
-		#print_r($city_titles);
 		if (isset($city_titles)) {
-			$city_contents[$i] = $city_titles[$i].$tab_contents[$i];
+			$content_of_tabs[$i] = $city_titles[$i].$tab_contents[$i];
 		}
 
 		if (!isset($city_titles)) {
-			$city_contents[$i] = $tab_contents[$i];
+			$content_of_tabs[$i] = $tab_contents[$i];
 		}
 	}
 
@@ -249,7 +242,7 @@ while ($i <= $website_tab_number) {
 }
 
 if ($website_name != $website_things_i_do and $website_name != $website_watch_history) {
-	#Include the buttons loader PHP file
+	# Require the Computer Buttons Bar Loader PHP file
 	require $computer_buttons_bar_loader;
 }
 

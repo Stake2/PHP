@@ -17,11 +17,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_years) == T
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Output');
+		$tab_names = array('Output');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Resultado');
+		$tab_names = array('Resultado');
 	}
 
 	#Number of tabs

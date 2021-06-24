@@ -1,6 +1,6 @@
 <?php
 
-$tab_header = '<span class="'.$first_text_color.'">'.$tabnames[4].': '.$spanc.'<span class="'.$second_text_color.'">'.' ['.$archived_medias_number.']'.$spanc;
+$tab_header = '<span class="'.$first_text_color.'">'.$tab_names[4].': '.$spanc.'<span class="'.$second_text_color.'">'.' ['.$archived_medias_number.']'.$spanc;
 
 $city_titles[4] = '
 <div class="'.$computer_variable.'">'.$every_watched_button_computer.$div_close."\n".

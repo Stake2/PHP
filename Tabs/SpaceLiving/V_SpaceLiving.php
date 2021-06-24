@@ -84,44 +84,47 @@ if ($website_language != $language_geral) {
 }
 
 # Buttons and tabs definer
-# Tab names replacer for languages_array
-if (in_array($website_language, $en_languages_array)) {
-	$tabnames[5] = substr_replace($tabnames[5], '-', 6, 0);
-	$tabnames[5] = strtr($tabnames[5], "l", strtoupper("l"));;
-}
-
 if ($website_writing_pack_setting == True) {
-	$tabnames[0] = str_replace('Read', 'Write', $tabnames[0]);
-	$tabnames[0] = str_replace('Ler', 'Escrever', $tabnames[0]);
+	$tab_names[0] = str_replace('Read', 'Write', $tab_names[0]);
+	$tab_names[0] = str_replace('Ler', 'Escrever', $tab_names[0]);
 }
-
-# Button names
-$citiestxts = array(
-$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$new_text.' '.$chapters.']'.$spanc,
-$tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
-$tabnames[2].': '.$icons[12],
-$tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$icons[11],
-$icons[13],
-);
 
 # Buttons and tabs definer
 # Tab chapter_titles definer
-$tab_titles = array(
-$tabnames[0].': '.$icons[21].' '.$whitespan.'['.$new_text.' '.$chapters.']'.$spanc,
-$tabnames[1].': '.$icons[20].' '.$icon_heart_painted_red.' ❤️ '.$icon_smile_beam_painted_yellow.' 😊',
-$tabnames[2].': '.$icons[12],
-$tabnames[3].': '.$icons[10],
-$tabnames[4].': '.$whitespan.'<span class="'.$text_hover_white_css_class.'">'.$stories_number.$spanc.$spanc.' '.$icons[11],
+$tab_titles_prototype = array(
+$icons[21],
+$icons[20].' ❤️',
+" ".$icons[11],
 );
 
+$tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
+
+$custom_tab_names = $tab_names;
+$custom_tab_names[0] = "";
+
+$custom_tab_titles_array = array(
+$chapter_in_language.": ".$website_language_icon,#$icons[21].' '.Create_Element("span", $w3_text_white, '['.$new_text.' '.$chapters.']'),
+": ".Create_Element("span", $w3_text_white." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
+": ".Create_Element("span", $w3_text_white, $stories_number)." ".$icons[11],
+);
+
+$custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
+
+$use_custom_tab_titles_array = True;
+
+$tab_texts = array();
+
+/*
 # Button names definer
 $i = 0;
-foreach ($tab_titles as $tabname) {
-	$citiestxts[$i] = $tabname;
+foreach ($tab_titles as $tab_name) {
+	$tab_texts[$i] = $tab_name;
 
 	$i++;
 }
+*/
+
+Make_Button_Names();
 
 # Website Style.php File Includer
 require $website_style_file;

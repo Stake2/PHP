@@ -49,13 +49,13 @@ $pastebinlinks = array(
 '<a href="https://pastebin.com/cx0jA1fx">https://pastebin.com/cx0jA1fx</a>',
 '<a href="https://pastebin.com/FaGftvR0">https://pastebin.com/FaGftvR0</a>');
 
-$citiestxts = array(
+$tab_texts = array(
 $read_text.': '.$siteicon,
-$tabnames[1].': '.$icons[0],
-$tabnames[2].': '.$icons[1],
-$tabnames[3].': '.$icons[2],
-$tabnames[4].': '.$icons[4],
-$tabnames[5].': '.$icons[3],
+$tab_names[1].': '.$icons[0],
+$tab_names[2].': '.$icons[1],
+$tab_names[3].': '.$icons[2],
+$tab_names[4].': '.$icons[4],
+$tab_names[5].': '.$icons[3],
 );
 
 #TabGenerator.php includer

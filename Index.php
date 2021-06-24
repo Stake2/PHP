@@ -39,6 +39,7 @@ $php_folder_variables = $main_php_folder."Variables/";
 $global_files_folder = $php_folder_variables."Global Files/";
 
 $main_php_folders = $global_files_folder."Main PHP Folders.php";
+$global_texts_php = $global_files_folder.'Global Texts.php';
 
 # "Main PHP Folders" PHP File Loader
 require $main_php_folders;
@@ -69,6 +70,9 @@ require $website_language_definer_php;
 
 # Variable Inserter PHP file loader
 require $variable_inserter_php;
+
+# Global Texts PHP file loader
+require $global_texts_php;
 
 # Website selector file require
 require $website_selector_file;

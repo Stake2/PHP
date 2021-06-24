@@ -109,8 +109,8 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
-	$read_and_reader_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
-	$story_creation_date.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
+	$readers_text.': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
+	$story_creation_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'.'<br />'."\n", 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
 
 	$website_header_wrapper = $computer_space.
@@ -121,8 +121,8 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
 	$author_text.": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	$chapters_text.': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
-	$read_and_reader_texts_array[6].': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
-	$story_creation_date.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
+	$readers_text.': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
+	$story_creation_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'."\n".
 	'<br />'."\n", 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
 }

@@ -40,15 +40,17 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 	require $setting_parameters_file;
 
 	#Website Tabs array
-	$tabs = array('Read', 'Readers', 'Comment', 'Write', 'Stories');
+	$tabs = array('Read', 'Readers', 'Stories');
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
+		#$tab_names = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
+		$tab_names = array('Read story', 'Readers', 'Other stories');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
+		#$tab_names = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
+		$tab_names = array('Ler história', 'Leitores', 'Outras histórias');
 	}
 
 	#Number of tabs

@@ -1,10 +1,10 @@
 <?php 
 
-$colortext = 'w3-text-white';
-$colorsubtext = 'w3-text-orange';
-$colortext2 = 'w3-text-green';
+#$colortext = 'w3-text-white';
+#$colorsubtext = 'w3-text-orange';
+#$colortext2 = 'w3-text-green';
 $bordercolor = 'w3-black';
-$colortext3 = 'w3-text-yellow';
+#$colortext3 = 'w3-text-yellow';
 
 $border_1px_solid_css_class = "border_1px";
 $border_1px_solid_with_color_template = "border_1px_solid_";
@@ -111,6 +111,9 @@ $default_full_border = $default_border_size." ".$default_border_color." ".$defau
 
 $website_border_color = $default_border_color;
 
+$w3_text_white = "w3-text-white";
+$w3_text_orange = "w3-text-orange";
+
 $cssbtn1 = $default_full_border;
 $cssbtn2 = $create_border_on_hover_css_class;
 $cssbtn5 = "borderbtnblue";
@@ -127,7 +130,6 @@ $div_right_animation = '<div class="w3-animate-right">';
 $div_left_animation = '<div class="w3-animate-left">';
 $divlefta = '<div class="zoomnimateleft">';
 $divrighta = '<div class="zoomnimateright">';
-#$div_shake_animation = '<div class="animationthing">';
 
 $div_text_align_left = '<div style="text-align:left;">';
 $textalign_left = '<div style="text-align:left;">';
@@ -257,6 +259,14 @@ $icon_smile_beam_painted_yellow = $yellowspan.$icon_smile_beam.$spanc;
 $icon_smile_beam_painted_cyan = $cyanspan.$icon_smile_beam.$spanc;
 
 $icon_plus = '<i class="fas fa-plus"></i>';
+
+$reader_icon = '<i class="fas fa-book-reader"></i>';
+
+$icons_array = array(
+"Reader" => '<i class="fas fa-book-reader"></i>',
+);
+
+$reader_icon = '<i class="fas fa-book-reader"></i>';
 
 $hstyle = 'margin:5%;';
 $hstyle2 = 'margin:10%;border-width:3px;border-color:'.$color.';border-style:solid;';

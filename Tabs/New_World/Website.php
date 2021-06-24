@@ -16,11 +16,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_new_world) 
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array();
+		$tab_names = array();
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array();
+		$tab_names = array();
 	}
 
 	#Number of tabs

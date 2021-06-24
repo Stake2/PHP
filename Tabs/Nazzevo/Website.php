@@ -30,11 +30,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_nazzevo) ==
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
+		$tab_names = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
+		$tab_names = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
 	}
 
 	#Number of tabs

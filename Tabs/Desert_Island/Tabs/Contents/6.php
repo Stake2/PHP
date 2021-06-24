@@ -5,7 +5,7 @@ if (file_exists($website_changelog_file) == True) {
 	
 	$i = 0;
 	while ($i <= $clfile) {
-		echo '<div class="'.$zoom_animation_class.'">'.$website_changelog_file_text[$i].'<br /><br />'.$div_close."\n";
+		echo '<div class="'.$zoom_animation_class.'">'.$website_changelog[$i].'<br /><br />'.$div_close."\n";
 		$i++;
 	}
 	

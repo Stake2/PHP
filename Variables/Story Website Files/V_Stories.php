@@ -56,9 +56,9 @@ $spaceliving_lonelyship_pixel_art_front_signboards = Make_Linked_Image($spaceliv
 # ---
 
 $title_text = Language_Item_Definer("Title", "Título");
-$titles_enus_text = $title_text."s";
-$titles_ptbr_text = $title_text."s";
-$titles_text = Language_Item_Definer($titles_enus_text, $titles_ptbr_text);
+$titles_english_text = $title_text."s";
+$titles_portuguese_text = $title_text."s";
+$titles_text = Language_Item_Definer($titles_english_text, $titles_portuguese_text);
 
 $story_text = Language_Item_Definer("Story", "História");
 $story_text_text = Language_Item_Definer($story_text." ".$text_text, $text_text." ".$of_feminine_text." ".$story_text);
@@ -71,7 +71,7 @@ $chapter_tab_text = $chapter_text."-text";
 $chapter_in_language = $chapters_text." ".$in_text." ".$full_language;
 
 $author_text = Language_Item_Definer("Author of the story", "Autor da história");
-$story_creation_date = Language_Item_Definer("Story creation date", "Data de criação da história");
+$story_creation_date_text = Language_Item_Definer("Story creation date", "Data de criação da história");
 $chapter_written_in_text = $chapter_title_text." ".Language_Item_Definer("written in", "escrito em");
 $your_name_text = Language_Item_Definer("Your", "Seu")." ".strtolower($name_text);
 
@@ -118,7 +118,8 @@ $read_and_reader_texts_array = Language_Item_Definer($english, $brazilian_portug
 $i_read_it_text = Language_Item_Definer("I Read It ✓", "Eu Li ✓");
 $read_text = Language_Item_Definer("Read", "Leitura");
 $reader_text = Language_Item_Definer("Reader", "Leitor");
-$readers_description = Language_Item_Definer("Thanks everyone ♥", "Obrigado a todos ♥");
+$readers_text = Language_Item_Definer($reader_text."s", $reader_text."es");
+$thanks_everyone_text = Language_Item_Definer("Thanks everyone", "Obrigado à todos")." 😊 ❤️";
 $read_the_chapter_text = Language_Item_Definer("Read the Chapter", "Leu o Capítulo");
 $readers_and_reads_folder_text = "Readers and Reads/";
 $reads_folder_text = $readers_and_reads_folder_text."Reads/";
@@ -213,6 +214,8 @@ $desert_island_story_name = "Ilha Deserta",
 );
 
 $story_names_array = Language_Item_Definer($english, $brazilian_portuguese);
+
+$the_life_of_littletato_story_name = Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata");
 
 # Status text definer, that sets the status text with [] around it
 $story_status_text = "[".ucfirst($story_status)."]";
@@ -332,7 +335,7 @@ $desert_island_story_folder = "Desert Island",
 );
 
 if ($website_type == $story_website_type) {
-	$middle_text = "<b>".$comments_text."s:</b> ".$icons[12];
+	$middle_text = "<b>".$comments_text.":</b> ".$icons[12];
 
 	$comment_header = $computer_div."<br />".$div_close.
 	$mobile_div."<br /><br />".$div_close.
@@ -403,7 +406,7 @@ $desert_island_story_card_computer = '<a class="w3-btn '.$background_hover_white
 $size_variable = $m;
 $border_radius_variable = "9";
 $story_image_style = "border-radius: ".$border_radius_variable."%;white-space: initial!important;";
-$littletato_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class." ".$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle."><".$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class='.$littletato_border.'" src="'.$the_life_of_littletato_image_link.'" width="230" height="170" style="'.$story_image_style.'"><br /><br /></a><br />';
+$littletato_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class." ".$littletato_background.'" href="'.$littletato_link.'" '.$roundedborderstyle."><".$size_variable.' class="'.$littletato_text.'"><b style="white-space: break-spaces;">'.$stories[0].'</b></'.$size_variable.'><img class="'.$littletato_border.'" src="'.$the_life_of_littletato_image_link.'" width="230" height="170" style="'.$story_image_style.'"><br /><br /></a><br />';
 
 $spaceliving_story_card_mobile = '<a class="w3-btn '.$background_hover_white_css_class." ".$spaceliving_background.'" href="'.$spaceliving_link.'" '.$roundedborderstyle."><".$size_variable.' class="'.$spaceliving_text.'"><b style="white-space: break-spaces;">'.$stories[1].'</b></'.$size_variable.'><img class="'.$spaceliving_border.'" src="'.$spaceliving_image_link.'" width="230" height="170" style="'.$story_image_style.'"><br /><br /></a><br />';
 

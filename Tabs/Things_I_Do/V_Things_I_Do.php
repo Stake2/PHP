@@ -133,31 +133,31 @@ require $selected_website_folder.'ThingsIDo Texts.php';
 
 #Array of productive tab names
 $prodtabnames = array(
-$tabnames[2],
-$tabnames[3],
-$tabnames[4],
-$tabnames[5],
-$tabnames[6],
+$tab_names[2],
+$tab_names[3],
+$tab_names[4],
+$tab_names[5],
+$tab_names[6],
 );
 
 #Array of unproductive tab names
 $unprodtabnames = array(
-$tabnames[7],
-$tabnames[8],
-$tabnames[9],
-$tabnames[10],
+$tab_names[7],
+$tab_names[8],
+$tab_names[9],
+$tab_names[10],
 );
 
 #Array of emdia tab names
 $mediatabnames = array(
-$tabnames[11],
-$tabnames[12],
+$tab_names[11],
+$tab_names[12],
 );
 
 #Buttons names
-$citiestxts = array(
-$tabnames[0].': '.'<b>'.$pinkspan.$icons[10].$spanc.' '.'<span>'.$icons[24].' '.$icons[25].$spanc.$cyanspan.' ['.$icons[27].' '.$icons[0].'] '.$spanc.$pinkspan.$icons[26].$spanc.'</b>',
-$tabnames[1].': '.'<b>'.'<span>'.$icons[23].$spanc.' '.$pinkspan.$icons[12].$spanc.' '.$cyanspan.$icons[0].$spanc.' '.$greenspan.$icons[22].$spanc.'</b>',
+$tab_texts = array(
+$tab_names[0].': '.'<b>'.$pinkspan.$icons[10].$spanc.' '.'<span>'.$icons[24].' '.$icons[25].$spanc.$cyanspan.' ['.$icons[27].' '.$icons[0].'] '.$spanc.$pinkspan.$icons[26].$spanc.'</b>',
+$tab_names[1].': '.'<b>'.'<span>'.$icons[23].$spanc.' '.$pinkspan.$icons[12].$spanc.' '.$cyanspan.$icons[0].$spanc.' '.$greenspan.$icons[22].$spanc.'</b>',
 $prodtabnames[0].': '.$icons[10],
 $prodtabnames[1].': '.$icons[24],
 $prodtabnames[2].': '.$icons[25],

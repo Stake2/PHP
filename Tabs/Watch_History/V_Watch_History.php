@@ -165,14 +165,14 @@ if (in_array($website_language, $pt_languages_array)) {
 
 #Tabtexts definers for English and General language
 if (in_array($website_language, $en_languages_array)) {
-	$tabnames[0] = substr_replace($tabnames[0], ' ', 7, 0);
-	$tabnames[7] = substr_replace($tabnames[5], '-', 5, 0);
-	$tabnames[7] = strtr($tabnames[7], "l", strtoupper("l"));;
+	$tab_names[0] = substr_replace($tab_names[0], ' ', 7, 0);
+	$tab_names[7] = substr_replace($tab_names[5], '-', 5, 0);
+	$tab_names[7] = strtr($tab_names[7], "l", strtoupper("l"));;
 }
 
 #Tabtexts definers for Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
-	$tabnames[0] = substr_replace($tabnames[0], ' ', 10, 0);
+	$tab_names[0] = substr_replace($tab_names[0], ' ', 10, 0);
 }
 
 $tab_titles_without_html = array();
@@ -188,12 +188,12 @@ while ($current_variable_year <= $current_year - 1) {
 }
 
 #Tabtexts array
-$citiestxts = array(
-$tabnames[0].' ['.$current_year_watched_number_text.']'.': '.$icons[5],
-$tabnames[1].' ['.$to_watch_items.']'.': '.$icons[6],
-$tabnames[2].' ['.$media_links_number.']'.': '.$icons[7],
-$tabnames[3].' ['.$watched_movies_number.']'.': '.$icons[19],
-$tabnames[4].' ['.$archived_medias_number.']'.': '.$icons[8],
+$tab_texts = array(
+$tab_names[0].' ['.$current_year_watched_number_text.']'.': '.$icons[5],
+$tab_names[1].' ['.$to_watch_items.']'.': '.$icons[6],
+$tab_names[2].' ['.$media_links_number.']'.': '.$icons[7],
+$tab_names[3].' ['.$watched_movies_number.']'.': '.$icons[19],
+$tab_names[4].' ['.$archived_medias_number.']'.': '.$icons[8],
 $icons[13],
 );
 
@@ -209,11 +209,11 @@ while ($current_variable_year <= $current_year - 1) {
 
 #Tabtexts array
 $tab_titles_without_html = array(
-$tabnames[0].' ['.$current_year_watched_number_text.']',
-$tabnames[1].' ['.$to_watch_items.']',
-$tabnames[2].' ['.$media_links_number.']',
-$tabnames[3].' ['.$watched_movies_number.']',
-$tabnames[4].' ['.$archived_medias_number.']',
+$tab_names[0].' ['.$current_year_watched_number_text.']',
+$tab_names[1].' ['.$to_watch_items.']',
+$tab_names[2].' ['.$media_links_number.']',
+$tab_names[3].' ['.$watched_movies_number.']',
+$tab_names[4].' ['.$archived_medias_number.']',
 $icons[13],
 );
 

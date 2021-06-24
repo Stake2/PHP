@@ -18,20 +18,20 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_izaque_mult
 	require $setting_parameters_file;
 
 	if (in_array($website_language, $en_languages_array)) {
-		$tabnames = array('First Tab');
+		$tab_names = array('First Tab');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tabnames = array('Primeira Aba');
+		$tab_names = array('Primeira Aba');
 	}
 
-	if (empty($tabnames)) {
+	if (empty($tab_names)) {
 		if (in_array($website_language, $en_languages_array)) {
-			array_push($tabnames, 'Placeholder of the Tab');
+			array_push($tab_names, 'Placeholder of the Tab');
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			array_push($tabnames, 'Espaço reservado para a Aba');
+			array_push($tab_names, 'Espaço reservado para a Aba');
 		}
 	}
 
