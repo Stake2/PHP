@@ -102,6 +102,10 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 		$new_chapter_text = '<span class="'.$third_text_color.'">'." [".$new_text."!]".$spanc;
 	}
 
+	if (isset($author_name) == False) {
+		$author_name = $person_names_painted["Izaque"];
+	}
+
 	$website_header_wrapper = $computer_space.
 	Create_Element("div", $default_background_color.' '.$first_full_border, $margin."\n".'<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'."\n".$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
 	'<hr class="'.$header_full_border.'" />'."\n".
