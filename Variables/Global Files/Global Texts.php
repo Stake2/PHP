@@ -50,25 +50,31 @@ $izaque_sanvezzo_name = "Izaque Sanvezzo (Stake2)";
 $izaque_sanvezzo_name_small = "Izaque";
 $lulu_black_fazbear_name = "Lulu Black Fazbear";
 $lulu_black_fazbear_name_small = "Lulu";
+$julia_name = Language_Item_Definer("Julia", "Júlia");
+$julia_english_name = "Julia";
 
 $person_names = array(
 $izaque_sanvezzo_name_small => $izaque_sanvezzo_name,
 $lulu_black_fazbear_name_small => $lulu_black_fazbear_name,
+$julia_english_name => $julia_name,
 );
 
 $person_names_small = array(
 $izaque_sanvezzo_name_small => $izaque_sanvezzo_name_small,
 $lulu_black_fazbear_name_small => $lulu_black_fazbear_name_small,
+$julia_english_name => $julia_name,
 );
 
 $person_names_painted = array(
-$izaque_sanvezzo_name_small => Create_Element("span", $w3_text_orange, $person_names[$izaque_sanvezzo_name_small]),
-$lulu_black_fazbear_name_small => Create_Element("span", $w3_text_purple, $person_names[$lulu_black_fazbear_name_small]),
+$izaque_sanvezzo_name_small => Create_Element("span", $w3_text_colors["orange"], $person_names[$izaque_sanvezzo_name_small]),
+$lulu_black_fazbear_name_small => Create_Element("span", $w3_text_colors["purple"], $person_names[$lulu_black_fazbear_name_small]),
+$julia_english_name => Create_Element("span", $w3_text_colors["pink"], $person_names[$julia_english_name]),
 );
 
 $person_names_painted_small = array(
-$izaque_sanvezzo_name_small => Create_Element("span", $w3_text_orange, $person_names_small[$izaque_sanvezzo_name_small]),
-$lulu_black_fazbear_name_small => Create_Element("span", $w3_text_purple, $person_names_small[$lulu_black_fazbear_name_small]),
+$izaque_sanvezzo_name_small => Create_Element("span", $w3_text_colors["orange"], $person_names_small[$izaque_sanvezzo_name_small]),
+$lulu_black_fazbear_name_small => Create_Element("span", $w3_text_colors["purple"], $person_names_small[$lulu_black_fazbear_name_small]),
+$julia_english_name => Create_Element("span", $w3_text_colors["pink"], $person_names[$julia_english_name]),
 );
 
 $izaque_sanvezzo_name_painted = $person_names_painted[$izaque_sanvezzo_name_small];
@@ -76,6 +82,8 @@ $lulu_black_fazbear_name_painted = $person_names_painted[$lulu_black_fazbear_nam
 
 $izaque_sanvezzo_name_painted_small = $person_names_painted_small[$izaque_sanvezzo_name_small];
 $lulu_black_fazbear_name_painted_small = $person_names_painted_small[$lulu_black_fazbear_name_small];
+
+$julia_name_painted = $person_names_painted[$julia_english_name];
 
 $w3_text_format = "w3-text-{}";
 

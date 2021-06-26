@@ -113,9 +113,33 @@ $website_border_color = $default_border_color;
 
 $w3_text_format = "w3-text-{}";
 
-$w3_text_white = format($w3_text_format, "white");
-$w3_text_orange = format($w3_text_format, "orange");
-$w3_text_purple = format($w3_text_format, "purple");
+$w3_text_colors = array(
+#"white" => $w3_text_white = format($w3_text_format, "white"),
+#"orange" => $w3_text_orange = format($w3_text_format, "orange"),
+#"purple" => $w3_text_purple = format($w3_text_format, "purple"),
+#"pink" => $w3_text_pink = format($w3_text_format, "pink"),
+);
+
+array_push($colors_array, "orange");
+array_push($colors_array, "purple");
+array_push($colors_array, "pink");
+
+$css_class_arrays_length = count($css_class_arrays) - 1;
+
+$i = 0;
+while ($i <= $css_class_arrays_length) {
+	foreach ($colors_array as $color) {
+		$w3_text_ = "w3_text_";
+
+		$replaced_color = str_replace("-", "_", $color);
+
+		${$w3_text_.$replaced_color} = format($w3_text_format, $color);
+
+		$w3_text_colors[$replaced_color] = ${$w3_text_.$replaced_color};
+	}
+
+	$i++;
+}
 
 $cssbtn1 = $default_full_border;
 $cssbtn2 = $create_border_on_hover_css_class;

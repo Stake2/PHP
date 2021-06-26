@@ -66,7 +66,7 @@ if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-$author_name = format($izaque_sanvezzo_name." {}", Language_Item_Definer("and Julia", "e Júlia"));
+$author_name = format($person_names_painted[$izaque_sanvezzo_name_small]." {}", Language_Item_Definer("and", "e"))." ".$julia_name_painted;
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
@@ -100,9 +100,9 @@ $custom_tab_names = $tab_names;
 $custom_tab_names[0] = "";
 
 $custom_tab_titles_array = array(
-$chapter_in_language.": ".$website_language_icon,#$icons[21].' '.Create_Element("span", $w3_text_white, '['.$new_text.' '.$chapters.']'),
-": ".Create_Element("span", $w3_text_white." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
-": ".Create_Element("span", $w3_text_white, $stories_number)." ".$icons[11],
+$chapter_in_language.": ".$website_language_icon,
+": ".Create_Element("span", $w3_text_colors["white"]." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
+": ".Create_Element("span", $w3_text_colors["white"], $stories_number)." ".$icons[11],
 );
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
