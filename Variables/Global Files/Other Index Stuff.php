@@ -50,6 +50,12 @@ var Last_Chapter = '.$chapters.';
 </script>';
 }
 
+if ($website == $website_diario or $website_type == $story_website_type) {
+	echo '<script>
+	Get_Title();
+	</script>'."\n";
+}
+
 # Chapter Opener Script includer if the setting is True
 if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
@@ -57,12 +63,6 @@ if ($story_website_uses_chapter_opener == True) {
 	require $open_chapter_script_php;
 	echo '</script>'."\n";
 	echo "\n";
-}
-
-if ($website == $website_diario or $website_type == $story_website_type) {
-	echo '<script>
-	Get_Title();
-	</script>'."\n";
 }
 
 ?>

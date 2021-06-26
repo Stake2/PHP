@@ -21,8 +21,8 @@ while ($chapter_number_1 <= $chapters) {
 	echo "\n";
 
 	#Computer comment-modal Tab div id
-	echo '<a name="modal-comment-'.$a.'"></a>'."\n";
-	echo '<div id="modal-comment-'.$a.'" class="modal '.$computer_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo '<a name="comment-modal-'.$a.'"></a>'."\n";
+	echo '<div id="comment-modal-'.$a.'" class="modal '.$computer_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="modal-content '.$tab_background_color.' '.$first_full_border.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$computer_variable.'">'."\n";
@@ -64,8 +64,8 @@ while ($chapter_number_1 <= $chapters) {
 	echo "\n";
 
 	# Mobile Comment-modal Tab div id
-	echo '<a name="modal-comment-'.$a2.'m"></a>'."\n";
-	echo '<div id="modal-comment-'.$a2.'m" class="modal '.$mobile_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
+	echo '<a name="comment-modal-'.$a2.'m"></a>'."\n";
+	echo '<div id="comment-modal-'.$a2.'m" class="modal '.$mobile_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
 	echo '<div class="modal-content '.$tab_background_color.' '.$first_full_border.'" '.$roundedborderstyle.'>'."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
@@ -108,23 +108,23 @@ while ($chapter_number_1 <= $chapters) {
 
 	#Computer Comment-modal open and close script
 	echo '<script>
-var commentmodal'.$a.' = document.getElementById("modal-comment-'.$a.'");
+var comment_modal_'.$a.' = document.getElementById("comment-modal-'.$a.'");
 
-var commentbtn'.$a.' = document.getElementById("commentbtn'.$a.'");
+var comment_button_'.$a.' = document.getElementById("comment_button_'.$a.'");
 
-var commentclosebtn'.$a.' = document.getElementById("closecommentmodal'.$a.'");
+var close_comment_modal_button_'.$a.' = document.getElementById("closecommentmodal'.$a.'");
 
-commentbtn'.$a.'.onclick = function() {
-	commentmodal'.$a.'.style.display = "block";
+comment_button_'.$a.'.onclick = function() {
+	comment_modal_'.$a.'.style.display = "block";
 }
 
-commentclosebtn'.$a.'.onclick = function() {
-	commentmodal'.$a.'.style.display = "none";
+close_comment_modal_button_'.$a.'.onclick = function() {
+	comment_modal_'.$a.'.style.display = "none";
 }
 
-commentmodal'.$a.'.onclick = function(event) {
-	if (event.target == commentmodal'.$a.') {
-		commentmodal'.$a.'.style.display = "none";
+comment_modal_'.$a.'.onclick = function(event) {
+	if (event.target == comment_modal_'.$a.') {
+		comment_modal_'.$a.'.style.display = "none";
 	}
 }
 </script>';
@@ -133,23 +133,23 @@ commentmodal'.$a.'.onclick = function(event) {
 
 	#Mobile Comment-modal open and close script
 	echo '<script>
-var commentmodal'.$a2.'m = document.getElementById("modal-comment-'.$a2.'m");
+var comment_modal_'.$a2.'m = document.getElementById("comment-modal-'.$a2.'m");
 
-var commentbtn'.$a2.'m = document.getElementById("commentbtn'.$a2.'m");
+var comment_button_'.$a2.'m = document.getElementById("comment_button_'.$a2.'m");
 
-var commentclosebtn'.$a2.'m = document.getElementById("closecommentmodal'.$a2.'m");
+var close_comment_modal_button_'.$a2.'m = document.getElementById("closecommentmodal'.$a2.'m");
 
-commentbtn'.$a2.'m.onclick = function() {
-	commentmodal'.$a2.'m.style.display = "block";
+comment_button_'.$a2.'m.onclick = function() {
+	comment_modal_'.$a2.'m.style.display = "block";
 }
 
-commentclosebtn'.$a2.'m.onclick = function() {
-	commentmodal'.$a2.'m.style.display = "none";
+close_comment_modal_button_'.$a2.'m.onclick = function() {
+	comment_modal_'.$a2.'m.style.display = "none";
 }
 
-commentmodal'.$a2.'m.onclick = function(event) {
-	if (event.target == commentmodal'.$a2.'m) {
-		commentmodal'.$a2.'m.style.display = "none";
+comment_modal_'.$a2.'m.onclick = function(event) {
+	if (event.target == comment_modal_'.$a2.'m) {
+		comment_modal_'.$a2.'m.style.display = "none";
 	}
 }
 </script>';

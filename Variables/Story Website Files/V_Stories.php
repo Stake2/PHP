@@ -71,6 +71,7 @@ $chapter_tab_text = $chapter_text."-text";
 $chapter_in_language = $chapters_text." ".$in_text." ".$full_language;
 
 $author_text = Language_Item_Definer("Author of the story", "Autor da história");
+$authors_text = Language_Item_Definer("Authors of the story", "Autores da história");
 $story_creation_date_text = Language_Item_Definer("Story creation date", "Data de criação da história");
 $chapter_written_in_text = $chapter_title_text." ".Language_Item_Definer("written in", "escrito em");
 $your_name_text = Language_Item_Definer("Your", "Seu")." ".strtolower($name_text);
@@ -91,31 +92,14 @@ $brazilian_portuguese = array(
 
 $story_status_texts = Language_Item_Definer($english, $brazilian_portuguese);
 
-$english = array(
-$reading_text = "You are reading",
-$reading_text.": ".ucwords($story_name),
-"I Read It ✓",
-"I read the Chapter",
-"Read the Chapter",
-"Readings",
-"Readers",
-"Reader",
-);
+$you_are_reading_text = Language_Item_Definer("You are reading", "Você está lendo");
 
-$brazilian_portuguese = array(
-$reading_text = "Você está lendo",
-$reading_text.": ".ucwords($story_name),
-"Eu li ✓",
-"Eu li o Capítulo",
-"Leu o Capítulo",
-"Leituras",
-"Leitores",
-"Leitor",
-);
-
-$read_and_reader_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
+if (isset($story_name_variable)) {
+	$you_are_reading_story_text = $you_are_reading_text.": ".$story_name_variable;
+}
 
 $i_read_it_text = Language_Item_Definer("I Read It ✓", "Eu Li ✓");
+$i_read_the_chapter_text = Language_Item_Definer("I read the", "Eu li o")." ".$chapter_text;
 $read_text = Language_Item_Definer("Read", "Leitura");
 $reader_text = Language_Item_Definer("Reader", "Leitor");
 $readers_text = Language_Item_Definer($reader_text."s", $reader_text."es");
@@ -141,57 +125,23 @@ $website_comments_english_folder_text = $comments_english_folder_text."Website/"
 $english = array(
 "Write",
 "Write the Chapter",
-substr($reading_text, 0, -8)." ".strtolower("Writing").": ".ucwords($story_name),
+substr("Reading", 0, -8)." ".strtolower("Writing").": ".ucwords($story_name),
 );
 
 $write_texts_array = array(
 "Escrever",
 "Escreva o capítulo",
-substr($reading_text, 0, -6)." ".strtolower("Escrevendo").": ".ucwords($story_name),
+substr("Lendo", 0, -6)." ".strtolower("Escrevendo").": ".ucwords($story_name),
 );
 
-if (isset($website_form_code) == False) {
-	$website_form_code = "test";
+$write_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
+
+$you_are_writing_text = Language_Item_Definer("You are writing", "Você está escrevendo");
+
+if (isset($story_name_variable)) {
+	$you_are_writing_story_text = $you_are_writing_text.": ".$story_name_variable;
 }
 
-$story_website_write_form = "\n".'
-<div class="'.$computer_variable.'">
-<form name="'.$website_form_code.'-write" method="POST" data-netlify="True">
-<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$name_text.':</b><br />
-<textarea type="text" name="name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
-</span><br />
-<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$write_texts_array[1].':</b><br />
-
-<textarea type="text" name="comment" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea> 
-<h2><button type="submit" class="w3-btn '.$full_form_send_button_style.'" style="float:right;margin-top:-10px;'.$rounded_border_style_2.'"><b>'.$send_form_text.'</b>: <i class="fas fa-paper-plane"></i></button></h2>
-
-</span>
-</form>
-</div>
-
-<div class="'.$mobile_variable.'">
-<form name="'.$website_form_code.'-write" method="POST" data-netlify="True">
-<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$name_text.':</b><br />
-<textarea type="text" name="'.$website_form_code.'-name" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea>
-</span><br />
-<span class="w3-btn '.$full_form_style.'" '.$roundedborderstyle.'><b style="white-space: break-spaces;">'.$write_texts_array[1].':</b><br />
-
-<textarea type="text" name="comment" class="'.$form_color_background.' w3-input" '.$roundedborderstyle.'></textarea> 
-<h2><button type="submit" class="w3-btn '.$full_form_send_button_style.'" style="float:right;margin-top:-10px;'.$rounded_border_style_2.'"><b>'.$send_form_text.'</b>: <i class="fas fa-paper-plane"></i></button></h2>
-
-</span>
-</form>
-</div>
-
-</div>'.
-"\n";
-
-$write_form_display = '<'.$m.'>'."\n".'<b>'."\n".
-$div_zoom_animation.
-$story_website_write_form.
-"\n".'</b>'."\n".'</'.$m.'>'."\n";
-
-$write_texts_array = Language_Item_Definer($english, $brazilian_portuguese);
 $write_new_chapter_tab_text = Language_Item_Definer("write-new-chapter", "escrever-novo-capítulo");
 $write_button_text = Language_Item_Definer("write-button", "botão-de-escrever");
 
@@ -205,6 +155,7 @@ $desert_island_story_name = "Desert Island",
 );
 
 $the_life_of_littletato_english_story_name = "The Life of Littletato";
+$the_story_of_the_nazzevo_brothers_english_story_name = "The Story of the Nazzevo Brothers";
 
 $brazilian_portuguese = array(
 $the_life_of_littletato_story_name = "A Vida de Pequenata",
@@ -216,6 +167,7 @@ $desert_island_story_name = "Ilha Deserta",
 $story_names_array = Language_Item_Definer($english, $brazilian_portuguese);
 
 $the_life_of_littletato_story_name = Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata");
+$the_story_of_the_nazzevo_brothers_story_name = Language_Item_Definer("The Story of the Nazzevo Brothers", "A História dos Irmãos Nazzevo");
 
 # Status text definer, that sets the status text with [] around it
 $story_status_text = "[".ucfirst($story_status)."]";
@@ -330,7 +282,7 @@ $desert_island_story_name,
 $story_folders_array = array(
 $the_life_of_littletato_story_folder = "The Life of Littletato",
 $spaceliving_story_folder = "SpaceLiving",
-$nazzevo_story_folder = "The Story of the Nazzevo Brothers",
+$the_story_of_the_nazzevo_brothers_folder = "The Story of the Nazzevo Brothers",
 $desert_island_story_folder = "Desert Island",
 );
 
@@ -386,7 +338,7 @@ $cover_text = "Covers";
 $story_book_cover_filename = "Book Cover";
 
 $the_life_of_littletato_image_link = $website_media_images_story_covers.$the_life_of_littletato_story_folder.$middle_path;
-$nazzevo_image_link = $website_media_images_story_covers.$nazzevo_story_folder.$middle_path;
+$nazzevo_image_link = $website_media_images_story_covers.$the_story_of_the_nazzevo_brothers_folder.$middle_path;
 $spaceliving_image_link = $website_media_images_story_covers.$spaceliving_story_folder.$middle_path;
 $desert_island_image_link = $website_media_images_story_covers.$desert_island_story_folder.$middle_path;
 

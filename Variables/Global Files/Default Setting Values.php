@@ -1,6 +1,9 @@
 <?php 
 
 $use_custom_tab_titles_array = False;
+$use_variable_inserter = True;
+$use_variable_inserter_in_read_lines = False;
+$story_shows_story_covers = True;
 
 #Default value for website settings
 $roundedbuttonson = True;

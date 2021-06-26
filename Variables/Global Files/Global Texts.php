@@ -46,6 +46,37 @@ $english_watched_times_text = "Times";
 $english_watched_media_types_text = "Media Types";
 
 $read_text_lower = strtolower($read_text);
-$author_name = "Izaque Sanvezzo (stake2)";
+$izaque_sanvezzo_name = "Izaque Sanvezzo (Stake2)";
+$izaque_sanvezzo_name_small = "Izaque";
+$lulu_black_fazbear_name = "Lulu Black Fazbear";
+$lulu_black_fazbear_name_small = "Lulu";
+
+$person_names = array(
+$izaque_sanvezzo_name_small => $izaque_sanvezzo_name,
+$lulu_black_fazbear_name_small => $lulu_black_fazbear_name,
+);
+
+$person_names_small = array(
+$izaque_sanvezzo_name_small => $izaque_sanvezzo_name_small,
+$lulu_black_fazbear_name_small => $lulu_black_fazbear_name_small,
+);
+
+$person_names_painted = array(
+$izaque_sanvezzo_name_small => Create_Element("span", $w3_text_orange, $person_names[$izaque_sanvezzo_name_small]),
+$lulu_black_fazbear_name_small => Create_Element("span", $w3_text_purple, $person_names[$lulu_black_fazbear_name_small]),
+);
+
+$person_names_painted_small = array(
+$izaque_sanvezzo_name_small => Create_Element("span", $w3_text_orange, $person_names_small[$izaque_sanvezzo_name_small]),
+$lulu_black_fazbear_name_small => Create_Element("span", $w3_text_purple, $person_names_small[$lulu_black_fazbear_name_small]),
+);
+
+$izaque_sanvezzo_name_painted = $person_names_painted[$izaque_sanvezzo_name_small];
+$lulu_black_fazbear_name_painted = $person_names_painted[$lulu_black_fazbear_name_small];
+
+$izaque_sanvezzo_name_painted_small = $person_names_painted_small[$izaque_sanvezzo_name_small];
+$lulu_black_fazbear_name_painted_small = $person_names_painted_small[$lulu_black_fazbear_name_small];
+
+$w3_text_format = "w3-text-{}";
 
 ?>

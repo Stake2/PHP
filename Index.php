@@ -40,6 +40,7 @@ $global_files_folder = $php_folder_variables."Global Files/";
 
 $main_php_folders = $global_files_folder."Main PHP Folders.php";
 $global_texts_php = $global_files_folder.'Global Texts.php';
+$global_style_file_php = $global_files_folder.'Global Style.php';
 
 # "Main PHP Folders" PHP File Loader
 require $main_php_folders;
@@ -70,6 +71,9 @@ require $website_language_definer_php;
 
 # Variable Inserter PHP file loader
 require $variable_inserter_php;
+
+# Global CSS variables loader
+require $global_style_file_php;
 
 # Global Texts PHP file loader
 require $global_texts_php;

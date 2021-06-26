@@ -1,10 +1,10 @@
 <?php 
 
-#Pequenata Website setter
+# The Life of Littletato website setter
 if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of_littletato) == True) {
 	$selected_website = $website_the_life_of_littletato;
 
-	#Website title and name definer
+	# Website title and name definer
 	$website_name = $selected_website;
 	$website = $selected_website;
 	$choosed_website_css_file = $css_file_pequenata;
@@ -16,7 +16,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of
 		$alternative_website_style_file = $alternative_website_style_folder."Website Style.php";
 	}
 
-	#Website settings definer
+	# Website settings definer
 	$website_has_notifications = True; #Defines if website has notifications on
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
 	$website_has_comments = True; #Defines the website has comments
@@ -26,7 +26,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of
 	$website_show_write_form_text_setting = False; #Defines if website shows title and story text on the writing chapter
 	$website_show_chapter_text_on_write_form_setting = False; #Defines if website shows the chapter text on the writing chapter form
 	$website_hides_notification_on_clicking_on_read_tab_setting = False; #Defines if website hides the notification when you click on the "Read story" button
-	$story_website_uses_chapter_opener = True; #Defines if the website uses the ChapterOpener Script
+	$story_website_uses_chapter_opener = True; #Defines if the website uses the Open Chapter Script
 	$site_uses_new_comment_and_read_displayer = True;
 
 	$website_write_story_setting = False; #Defines if website has a story writing chapter
@@ -41,27 +41,25 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of
 	$story_website_contains_reads = True; #Defines if the story has story_reads_array on it
 	$story_website_contains_comments = True; #Defines if the story has comments on it
 
-	#Website settings setter file includer
+	# Website settings setter file includer
 	require $setting_parameters_file;
 
-	#Website Tabs array
+	# Website Tabs array
 	$tabs = array("Read", "Readers", "Stories", "Changelog");
 
-	#Website Tabnames array
+	# Website Tab Names array
 	if (in_array($website_language, $en_languages_array)) {
 		$tab_names = array("Read story", "Readers", $other_stories_text, "Changelog");
-		#$website = ucwords("littletato");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
 		$tab_names = array("Ler história", "Leitores", $other_stories_text, "Registro de Mudanças");
-		#$website = ucwords($selected_website);
 	}
 
-	#Number of tabs
+	# Number of tabs
 	$website_tab_number = count($tabs) - 1;
 
-	#Includer of the array of the GenericTabs files
+	# Includer of the array of the GenericTabs files
 	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;

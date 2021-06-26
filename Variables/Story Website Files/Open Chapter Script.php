@@ -2,8 +2,8 @@
 
 echo '
 function Open_Chapter() {'."\n".
-	'	var website = window.location;'."\n".
-	'	var site2 = '."'".'"'."'".' + website + '."'".'"'."'".';'."\n".
+	'	var first_website_url = window.location;'."\n".
+	'	var second_website_url = '."'".'"'."'".' + first_website_url + '."'".'"'."'".';'."\n".
 	'	var userLang = navigator.language || navigator.userLanguage;'."\n".
 	'	var chapter_text = "'.$chapter_div_text.'";
 	'.
@@ -25,12 +25,12 @@ while ($i < $chapters) {
 	$i2 = $i + 1;
 
 	echo '
-	var first_check_'.$i2.' = site2.includes(read_chapter_text + chapter_number);
-	var second_check_'.$i2.' = site2.includes(read_chapter_text + "['.$i2.']");
-	var third_check_'.$i2.' = site2.includes(read_chapter_text + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
-	var fourth_check_'.$i2.' = site2.includes(read_chapter_text + "%22'.$i2.'%22");
-	var fifth_check_'.$i2.' = site2.includes("('.$i2.')");
-	var sixth_check_'.$i2.' = site2.includes("['.$i2.']");';
+	var first_check_'.$i2.' = second_website_url.includes(read_chapter_text + chapter_number);
+	var second_check_'.$i2.' = second_website_url.includes(read_chapter_text + "['.$i2.']");
+	var third_check_'.$i2.' = second_website_url.includes(read_chapter_text + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
+	var fourth_check_'.$i2.' = second_website_url.includes(read_chapter_text + "%22'.$i2.'%22");
+	var fifth_check_'.$i2.' = second_website_url.includes("('.$i2.')");
+	var sixth_check_'.$i2.' = second_website_url.includes("['.$i2.']");';
 
 	$i++;
 }

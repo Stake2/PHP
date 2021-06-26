@@ -23,7 +23,7 @@ $general_story_name = "Littletato - Pequenata";
 $story_status = $status_reviewing_and_editing;
 
 # Form code for the comment and read forms
-$website_form_code = strtolower(str_replace(" ", "-", $the_life_of_littletato_english_story_name));
+$website_form_code = strtolower(str_replace(" ", "-", $english_story_name_variable));
 
 # Website numbers
 $crossover_chapter_number = 26;
@@ -51,9 +51,6 @@ require $story_variables_php;
 
 # Story Details Definer PHP file includer
 require $story_details_definer;
-
-# Revised chapter number
-$revised_chapter = $last_posted_chapter;
 
 # Reads the book cover image directory if the website has book covers
 if ($website_story_has_book_covers_setting == True) {

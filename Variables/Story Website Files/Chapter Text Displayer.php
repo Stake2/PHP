@@ -49,9 +49,8 @@ if ($new_write_style == True) {
 
 	echo '`;'.
 	'</script>';
-	#$write_chapter_script;
 
-	#JavaScript version for the write story form
+	# JavaScript version for the write story form
 	echo '<script>'.
 	'var Write_Content_'.$chapter_number_1.' = `';
 

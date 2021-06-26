@@ -40,9 +40,6 @@ require $website_css_and_javascript_definer_php;
 
 require $elements_file;
 
-# Global CSS variables loader
-require $global_style_file_php;
-
 # Global Normal Functions PHP File Loader
 require $normal_functions_file_php;
 

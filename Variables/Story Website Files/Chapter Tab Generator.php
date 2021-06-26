@@ -20,21 +20,21 @@ require $comment_generator;
 # Defines the top and bottom texts
 if ($website_write_story_setting == True and $story_name_website_chapter_to_write == $chapter_number_1) {
 	if ($website_story_has_titles == True) {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_writing_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."</b>"."\n\n";
 	}
 
 	else {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$write_texts_array[2].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_writing_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1."</b>"."\n\n";
 	}
 }
 
 else {
 	if ($website_story_has_titles == True) {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_and_reader_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_reading_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."</b>"."\n\n";
 	}
 
 	else {
-		$top_and_bottom_chapter_text = "\n"."\n".'<b>'.$read_and_reader_texts_array[1].'<br />'."\n".$chapter_text_name.': '.$chapter_number_1.'</b>'."\n"."\n";
+		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_reading_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1."</b>"."\n\n";
 	}
 }
 
@@ -221,15 +221,15 @@ echo '<br /><br /><br /><br />'."\n";
 echo $div_zoom_animation."\n";
 
 # Story cover shower if story has the website_story_has_book_covers_setting setting as True
-if ($website_story_has_book_covers_setting == True or $website_story_has_book_covers_setting == True and $website_name == $website_the_life_of_littletato and $chapter_number_1 <= 10) {
-	echo '<center>'."\n";
+if ($website_story_has_book_covers_setting == True and $story_shows_story_covers == True) {
+	echo "<center>"."\n";
 
 	if (isset($chapter_cover_images_computer[$book_cover_number]) and isset($chapter_cover_images_mobile[$book_cover_number])) {
 		echo $chapter_cover_images_computer[$book_cover_number];
 		echo $chapter_cover_images_mobile[$book_cover_number];
 	}
 
-	echo '</center>'."\n";
+	echo "</center>"."\n";
 	echo "<br />"."\n";
 }
 
@@ -318,14 +318,14 @@ if ($chapter_number_1 != $chapters) {
 # Computer Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="commentbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$to_comment_text." ".$icons[12].' ('.$number_of_chapter_comments.')</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="comment_button_'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$to_comment_text." ".$icons[12].' ('.$number_of_chapter_comments.')</b></h3></button>'."\n";
 	echo $div_close."\n";
 }
 
 # Computer "I Read it" button
 if ($story_has_reads == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$read_and_reader_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
 	echo $div_close."\n";
 	echo $big_space_mobile_and_computer;
 }
@@ -394,7 +394,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo "\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="commentbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$to_comment_text.' '.$icons[12].' ('.$number_of_chapter_comments.')</b></'.$m.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$to_comment_text.' '.$icons[12].' ('.$number_of_chapter_comments.')</b></'.$m.'></button>'."\n";
 	echo '<br /><br />'."\n";
 	echo $div_close."\n";
 }
@@ -402,7 +402,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 # Mobile "I Read it" button
 if ($story_has_reads == True) {
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$read_and_reader_texts_array[2].' ('.$readed_number.' '.$icons[20].')</b></'.$m.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></'.$m.'></button>'."\n";
 	echo $div_close."\n";
 	echo '<br /><div class="'.$mobile_variable.'"><br /><br />'."\n".'</div>'."\n";
 }

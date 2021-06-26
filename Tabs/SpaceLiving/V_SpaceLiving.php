@@ -41,9 +41,6 @@ $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 # Text File Reader PHP file includer
 require $text_file_reader_file_php;
 
-# Revised chapter number
-$revised_chapter = $last_posted_chapter;
-
 #$comments_number = $story_comments_check_number - 1;
 $readed_number = 12;
 
@@ -69,7 +66,7 @@ if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-$author_name = format("Izaque Sanvezzo (stake2) {}", Language_Item_Definer("and Julia", "e Júlia"));
+$author_name = format($izaque_sanvezzo_name." {}", Language_Item_Definer("and Julia", "e Júlia"));
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;

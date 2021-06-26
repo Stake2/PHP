@@ -409,28 +409,33 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 }
 
 if ($website_type == $story_website_type) {
-	$story_folder = $notepad_stories_folder_variable.$story_folder.'/';
-	$story_info_folder = $story_folder.'Story Info/';
-	$story_comments_folder = $story_folder.'Comments/';
-	$story_readers_and_reads_folder = $story_folder.'Readers and Reads/';
+	$story_folder = $notepad_stories_folder_variable.$story_folder."/";
+	$story_info_folder = $story_folder."Story Info/";
+	$story_comments_folder = $story_folder."Comments/";
+	$story_readers_and_reads_folder = $story_folder."Readers and Reads/";
 
 	# Story Creation Date, Synopsis, Readers, and Comments file paths
-	$story_creation_date_file = $story_info_folder.'Creation Date.txt';
-	$story_synopsis_english_file = $story_info_folder.'Synopsis.txt';
-	$story_synopsis_portuguese_file = $story_info_folder.'Sinopse.txt';
-	$story_readers_file = $story_readers_and_reads_folder.'Readers.txt';
-	$story_comments_check_file = $story_comments_folder.'Check.txt';
-	$story_chapter_status = $story_info_folder.'Chapter Status.txt';
+	$story_creation_date_file = $story_info_folder."Creation Date.txt";
+	$story_synopsis_english_file = $story_info_folder."Synopsis.txt";
+	$story_synopsis_portuguese_file = $story_info_folder."Sinopse.txt";
+	$story_readers_file = $story_readers_and_reads_folder."Readers.txt";
+	$story_comments_check_file = $story_comments_folder."Check.txt";
+	$story_chapter_status_file = $story_info_folder."Chapter Status.txt";
+	$chapter_number_file = $story_info_folder."Chapter Number.txt"; 
+	$story_author_file = $story_info_folder."Author.txt";
 
 	# Last Posted Chapter file
-	$last_posted_chapter = explode(" - ", array_reverse(Read_Lines($story_chapter_status))[0])[0];
-	$chapter_number_file = $story_folder.'Chapter Number.txt'; 
+	$last_posted_chapter = explode(" - ", array_reverse(Read_Lines($story_chapter_status_file))[0])[0];
+	$revised_chapter = $last_posted_chapter;
 
-	$titles_enus_file = $story_chapter_files_folder.$full_language_enus.'/'.$titles_english_text.'/'.$titles_english_text.'.txt';
+	$story_author = Read_Lines($story_author_file);
+	$story_author_number = Line_Number($story_author_file);
+
+	$titles_enus_file = $story_chapter_files_folder.$full_language_enus."/".$titles_english_text."/".$titles_english_text.".txt";
 
 	# Language-dependent text files
-	$story_titles_folder = $story_chapter_files_folder.$full_language.'/'.$titles_text.'/';
-	$titles_file = $story_titles_folder.$titles_text.'.txt';
+	$story_titles_folder = $story_chapter_files_folder.$full_language."/".$titles_text."/";
+	$titles_file = $story_titles_folder.$titles_text.".txt";
 
 	$chapters = Line_Number($titles_file);
 
@@ -454,7 +459,7 @@ if ($website_type == $story_website_type) {
 	$readers = Read_Lines($story_readers_file);
 
 	if ($website_name == $website_nazzevo or $website == $website_nazzevo) {
-		$chapters = Read_Lines($chapter_number_file);
+		$chapters = Read_Lines($chapter_number_file)[0];
 	}
 
 	$chapter_number = Line_Number($titles_file);
@@ -474,11 +479,11 @@ if ($website_has_changelog_setting == True) {
 
 	else {
 		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$language_enus.'.txt';
+			$website_changelog_file = $selected_website_folder."Changelog ".$language_enus.".txt";
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $selected_website_folder.'Changelog '.$language_ptbr.'.txt';
+			$website_changelog_file = $selected_website_folder."Changelog ".$language_ptbr.".txt";
 		}
 	}
 

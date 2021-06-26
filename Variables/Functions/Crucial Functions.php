@@ -54,31 +54,55 @@ function Open_File($file, $mode = Null) {
 	}
 }
 
-function Read_Lines($file, $add_none = False) {
+function Read_Lines($file, $add_none = False, $read_string = False) {
 	$file_read = Open_File($file);
 
+	echo $read_string;
+
 	if ($file_read != Null) {
-		if ($add_none == False) {
+		if ($read_string == False) {
+			if ($add_none == False) {
+				$array = explode("\n", fread($file_read, filesize($file)));
+				$array = Remove_Text_From_String($array);
+			}
+
+			if ($add_none == True) {
+				$array = array("None");
+
+				while(!feof($file_read)) {
+					$text_line = fgets($file_read);
+					$text_line = Remove_Text_From_String($text_line);
+
+					array_push($array, $text_line);
+				}
+			}
+
+			return $array;
+		}
+
+		if ($read_string == True) {
 			$array = explode("\n", fread($file_read, filesize($file)));
 			$array = Remove_Text_From_String($array);
-		}
 
-		if ($add_none == True) {
-			$array = array("None");
+			$string = "";
 
-			while(!feof($file_read)) {
-				$text_line = fgets($file_read);
-				$text_line = Remove_Text_From_String($text_line);
+			foreach ($array as $line) {
+				echo $line;
+				if ($line != array_reverse($array)[0]) {
+					$string .= $line."<br />"."\n";
+				}
 
-				array_push($array, $text_line);
+				if ($line == array_reverse($array)[0]) {
+					$string .= $line;
+				}
 			}
-		}
 
-		return $array;
+			return $string;
+		}
 	}
 
-	else {
-		return null;
+	if ($file_read == Null) {
+		return Null;
 	}
 }
 
@@ -123,6 +147,46 @@ function Language_Item_Definer($english_variable, $portuguese_variable) {
 	}
 
 	return $variable;
+}
+
+function Create_Element($element, $class, $text, $custom_parameters = Null) {
+	if (is_array($class) == True) {
+		$new_class = "";
+
+		foreach ($class as $class_name) {
+			$new_class .= $class_name." ";
+		}
+
+		$class = $new_class;
+	}
+
+	if ($custom_parameters != Null) {
+		if (is_array($custom_parameters) == True) {
+			$new_custom_parameters = "";
+
+			foreach ($custom_parameters as $custom_parameter) {
+				$new_custom_parameters .= $custom_parameter." ";
+			}
+
+			$custom_parameters = $new_custom_parameters;
+		}
+	}
+
+	else {
+		$custom_parameters = "";
+	}
+
+	$element_prototype = '<{} class="{}" {}>{}</{}>';
+
+	$parameters = array(
+	$element,
+	$class,
+	$custom_parameters,
+	$text,
+	$element,
+	);
+
+	return format($element_prototype, $parameters);
 }
 
 ?>

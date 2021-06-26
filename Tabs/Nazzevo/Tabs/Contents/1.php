@@ -4,7 +4,9 @@ if ($website_has_notifications == True and $website_deactivate_notification_sett
 	$hide_notification_attribute = 'Hide_Notification_Computer();Hide_Notification_Mobile();';
 }
 
-$revised_chapter = 0;
+if (isset($alternative_website_style_file) == True) {
+	require $alternative_website_style_file;
+}
 
 echo '<'.$m.'>'.'<b>'."\n";
 echo $div_zoom_animation."\n";

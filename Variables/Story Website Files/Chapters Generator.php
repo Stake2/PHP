@@ -98,23 +98,6 @@ $z123 = 0;
 $chapter_line_number = 0;
 $b1 = 0;
 $b2 = 1;
-
-if ($site_uses_new_comment_and_read_displayer == True and $story_website_contains_reads == True and $story_website_contains_comments == True) {
-	#if ($website_name == $website_spaceliving) {
-	#	$comments_array = array(
-	#	null,
-	#	$story_chapter_comments_array[0],
-	#	null,
-	#	$story_chapter_comments_array[1],
-	#	$story_chapter_comments_array[2],
-	#	null,
-	#	null,
-	#	null,
-	#	null,
-	#	);
-	#}
-}
-
 $zw = 1;
 $zq = 1;
 $za = 2;

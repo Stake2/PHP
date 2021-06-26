@@ -1,5 +1,5 @@
 <?php 
 
-require $website_comments_generator;
+require $stories_tab_php;
 
 ?>

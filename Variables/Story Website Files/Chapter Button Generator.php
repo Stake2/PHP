@@ -13,7 +13,7 @@ $chapter_number_2 = 1;
 $chapter_number_3 = 1;
 $chapter_number_4 = 0;
 while ($chapter_number_1 <= $chapters) {
-	if ($website_story_has_book_covers_setting == True) {
+	if ($website_story_has_book_covers_setting == True and $story_shows_story_covers == True) {
 		if (isset($chapter_cover_images_computer[$chapter_number_1]) and isset($chapter_cover_images_mobile[$chapter_number_1])) {
 			$cover_image_button = '<center>'."\n".'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'">'.$chapter_cover_images_computer[$chapter_number_1]."\n".'</a>'.
 			"\n"."\n".

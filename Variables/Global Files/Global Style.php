@@ -96,7 +96,7 @@ $background_colors_array,
 $text_colors_array,
 );
 
-$website_style_file = $current_website_folder."Website Style.php";
+#$website_style_file = $current_website_folder."Website Style.php";
 
 $create_border_on_hover_css_class = "create_border_on_hover";
 
@@ -111,8 +111,11 @@ $default_full_border = $default_border_size." ".$default_border_color." ".$defau
 
 $website_border_color = $default_border_color;
 
-$w3_text_white = "w3-text-white";
-$w3_text_orange = "w3-text-orange";
+$w3_text_format = "w3-text-{}";
+
+$w3_text_white = format($w3_text_format, "white");
+$w3_text_orange = format($w3_text_format, "orange");
+$w3_text_purple = format($w3_text_format, "purple");
 
 $cssbtn1 = $default_full_border;
 $cssbtn2 = $create_border_on_hover_css_class;

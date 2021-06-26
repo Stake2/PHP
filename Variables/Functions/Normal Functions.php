@@ -1,7 +1,10 @@
 <?php
 
-function Show_Text($file, $style_format = Null, $use_variable_inserter = True) {
+function Show_Text($file, $style_format = Null) {
 	global $variable_inserter_array;
+	global $use_variable_inserter;
+	global $website_name;
+	global $website_nazzevo;
 
 	$file_read = Open_File($file);
 
@@ -16,6 +19,10 @@ function Show_Text($file, $style_format = Null, $use_variable_inserter = True) {
 		if ($use_variable_inserter == True) {
 			$text_line = Variable_Inserter($variable_inserter_array, $text_line);
 			$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+		}
+
+		if ($website_name == $website_nazzevo) {
+			$text_line = preg_replace("#https://([\S]+?)#Uis", '<a class="w3-text-white" target="_blank" href="https://\\1">https://\\1</a>', $text_line);
 		}
 
 		echo $text_line."\n".'<br />';
@@ -74,6 +81,16 @@ function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, 
 	}
 }
 
+function Define_Text_By_Number($number, $singular_text, $plural_text) {
+	if ($number <= 1) {
+		return $singular_text;
+	}
+
+	if ($number > 1) {
+		return $plural_text;
+	}
+}
+
 function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = null) {
 	global $computer_div;
 	global $mobile_div;
@@ -116,46 +133,6 @@ function Make_Link($link, $link_text = Null, $link_color = Null) {
 	$link = '<a '.$link_color.' href="'.$link.'">'.$link_text.'</a>';
 
 	return $link;
-}
-
-function Create_Element($element, $class, $text, $custom_parameters = Null) {
-	if (is_array($class) == True) {
-		$new_class = "";
-
-		foreach ($class as $class_name) {
-			$new_class .= $class_name." ";
-		}
-
-		$class = $new_class;
-	}
-
-	if ($custom_parameters != Null) {
-		if (is_array($custom_parameters) == True) {
-			$new_custom_parameters = "";
-
-			foreach ($custom_parameters as $custom_parameter) {
-				$new_custom_parameters .= $custom_parameter." ";
-			}
-
-			$custom_parameters = $new_custom_parameters;
-		}
-	}
-
-	else {
-		$custom_parameters = "";
-	}
-
-	$element_prototype = '<{} class="{}" {}>{}</{}>';
-
-	$parameters = array(
-	$element,
-	$class,
-	$custom_parameters,
-	$text,
-	$element,
-	);
-
-	return format($element_prototype, $parameters);
 }
 
 function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
