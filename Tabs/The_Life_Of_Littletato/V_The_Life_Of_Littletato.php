@@ -111,6 +111,7 @@ $the_life_of_littletato_spaceliving_chapter_crossover_link,
 $spaceliving_lonelyship_pixel_art_story_cover,
 $spaceliving_lonelyship_pixel_art_front_signboards,
 $read_story_button,
+$my_little_pony_fim_wikipedia_link,
 );
 
 $variable_inserter_replacer_array = array(
@@ -118,6 +119,7 @@ $variable_inserter_replacer_array = array(
 " ".$spaceliving_link_name,
 $spaceliving_story_name."\ ",
 " ".$till_chapter_nine_text,
+$mlp_fim_wikipedia_link_text."/",
 );
 
 ?>

@@ -55,6 +55,14 @@ $spaceliving_lonelyship_pixel_art_front_signboards = Make_Linked_Image($spaceliv
 
 # ---
 
+$mlp_fim_wikipedia_link_text = Language_Item_Definer("Link to the cartoon page on English Wikipedia", "Link para a página do desenho na Wikipedia Brasileira").".";
+
+$link = Make_Link(Language_Item_Definer("https://en.wikipedia.org/wiki/My_Little_Pony:_Friendship_Is_Magic", "https://pt.wikipedia.org/wiki/My_Little_Pony:_A_Amizade_%C3%89_M%C3%A1gica"), $mlp_fim_wikipedia_link_text, $text_white_css_class);
+
+$my_little_pony_fim_wikipedia_link = $link;
+
+# ---
+
 $title_text = Language_Item_Definer("Title", "Título");
 $titles_english_text = $title_text."s";
 $titles_portuguese_text = $title_text."s";
