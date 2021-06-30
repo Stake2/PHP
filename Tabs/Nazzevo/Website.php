@@ -23,9 +23,10 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_nazzevo) ==
 	$story_has_dates = False; #Defines if the story has dates
 	$website_story_has_titles = True; #Defines if the story has chapter_titles
 	$story_uses_status = True; #Defines if the story uses the story statuses
-	$story_website_contains_reads = False; #Defines if the story has story_reads_array on it
-	$story_website_contains_comments = False; #Defines if the story has comments on it
+	$story_website_contains_reads = True; #Defines if the story has story_reads_array on it
+	$story_website_contains_comments = True; #Defines if the story has comments on it
 	$story_website_uses_chapter_opener = True; #Defines if the website uses the Open Chapter Script
+	$site_uses_new_comment_and_read_displayer = True;
 
 	$use_variable_inserter = False;
 

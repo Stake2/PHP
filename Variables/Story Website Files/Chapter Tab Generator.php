@@ -50,7 +50,15 @@ else {
 	$display_variable = 'display:none;';
 }
 
-echo '<div id="'.$chapter_div_text.$chapter_number_1.'" class="city '.$alternative_full_tab_style.'" style="'.$display_variable.$hstyle2.''.$rounded_border_style_2.'">'."\n";
+if ($website_name == $website_nazzevo) {
+	$border_color = $background_black_css_class;
+}
+
+else {
+	$border_color = "";
+}
+
+echo '<div id="'.$chapter_div_text.$chapter_number_1.'" class="city '.$alternative_full_tab_style." ".$third_full_border." ".$border_color." ".$border_4px_solid_css_class.'" style="'.$display_variable.$hstyle2.''.$rounded_border_style_2.'">'."\n";
 echo '<br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" /><br class="'.$mobile_variable.'" />'."\n";
 echo '<br />'."\n";
 

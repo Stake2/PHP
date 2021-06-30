@@ -295,8 +295,10 @@ $icons_array = array(
 
 $reader_icon = '<i class="fas fa-book-reader"></i>';
 
+$color = $background_brown_css_class;
 $hstyle = 'margin:5%;';
 $hstyle2 = 'margin:10%;border-width:3px;border-color:'.$color.';border-style:solid;';
+$margin_10 = 'margin:10%;';
 $readmorestyle = '<div style="margin-top:5%;margin-bottom:5%;"><span style="margin-left:4%;">';
 $marginstyle2m = 'style="margin-right:32%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
 $marginstyle2m2 = 'style="margin-right:35%;border-width:3px;border-color:'.$bordercolor.';border-style:solid;"';
