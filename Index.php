@@ -12,8 +12,6 @@ if (isset($host_text) == True) {
 	$return = False;
 }
 
-$variable = True;
-
 $current_year = strftime("%Y");
 date_default_timezone_set("America/Sao_Paulo");
 $data = date("d/m/Y");
