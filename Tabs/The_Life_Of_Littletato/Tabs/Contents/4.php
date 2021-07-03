@@ -5,6 +5,7 @@ if (file_exists($website_changelog_file) == True) {
 
 	$use_variable_inserter = False;
 	Show_Text($website_changelog_file, $style_format = '<div class="'.$zoom_animation_class.'">{}'.$div_close);
+	$use_variable_inserter = True;
 
 	echo "</b></".$m.">"."\n";
 	echo $div_close;

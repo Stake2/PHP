@@ -117,6 +117,7 @@ $my_little_pony_fim_wikipedia_link,
 $variable_inserter_replacer_array = array(
 " ".$the_life_of_littletato_link_name,
 " ".$spaceliving_link_name,
+$spaceliving_story_name." ",
 $spaceliving_story_name."\ ",
 " ".$till_chapter_nine_text,
 $mlp_fim_wikipedia_link_text."/",
