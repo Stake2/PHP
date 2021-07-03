@@ -323,10 +323,12 @@ if ($chapter_number_1 != $chapters) {
 	$has_next_chapter_button = True;
 }
 
+$comment_text = $to_comment_text." ".' ('.$number_of_chapter_comments." ".$icons[12].")";
+
 # Computer Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="comment_button_'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$to_comment_text." ".$icons[12].' ('.$number_of_chapter_comments.')</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="comment_button_'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$comment_text.'</b></h3></button>'."\n";
 	echo $div_close."\n";
 }
 
@@ -336,6 +338,24 @@ if ($story_has_reads == True) {
 	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
 	echo $div_close."\n";
 	echo $big_space_mobile_and_computer;
+}
+
+# Mobile Comment button
+if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
+	echo "\n";
+	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
+	echo '<div class="'.$mobile_variable.'">'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$comment_text.')</b></'.$m.'></button>'."\n";
+	echo '<br /><br />'."\n";
+	echo $div_close."\n";
+}
+
+# Mobile "I Read it" button
+if ($story_has_reads == True) {
+	echo '<div class="'.$mobile_variable.'">'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></'.$m.'></button>'."\n";
+	echo $div_close."\n";
+	echo '<br /><div class="'.$mobile_variable.'"><br /><br />'."\n".'</div>'."\n";
 }
 
 if ($story_has_chapter_comments == False and $story_has_reads == False) {
@@ -395,24 +415,6 @@ else {
 
 		$chapter_number_7++;
 	}
-}
-
-# Mobile Comment button
-if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
-	echo "\n";
-	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
-	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$to_comment_text.' '.$icons[12].' ('.$number_of_chapter_comments.')</b></'.$m.'></button>'."\n";
-	echo '<br /><br />'."\n";
-	echo $div_close."\n";
-}
-
-# Mobile "I Read it" button
-if ($story_has_reads == True) {
-	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$m.'><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></'.$m.'></button>'."\n";
-	echo $div_close."\n";
-	echo '<br /><div class="'.$mobile_variable.'"><br /><br />'."\n".'</div>'."\n";
 }
 
 # HR displayer if the story has comments or story_reads_array

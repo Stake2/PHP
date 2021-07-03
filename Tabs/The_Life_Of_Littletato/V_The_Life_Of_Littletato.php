@@ -27,12 +27,12 @@ $website_form_code = strtolower(str_replace(" ", "-", $english_story_name_variab
 
 # Website numbers
 $crossover_chapter_number = 26;
-$comments_number = 7;
+$comments_number = 5;
 $comments_number_text = $comments_number + 1;
 $website_comments_number = 8;
-$website_comments_number_to_show = $website_comments_number - 1;
-$number_of_chapter_comments = $comments_number_text - $website_comments_number;
-$readed_number = 12;
+$website_comments_number_to_show = $website_comments_number;
+$number_of_chapter_comments = $comments_number;
+$readed_number = 31;
 
 # Text File Reader PHP File Includer
 require $text_file_reader_file_php;
