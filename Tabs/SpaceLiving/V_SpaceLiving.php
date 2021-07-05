@@ -23,30 +23,21 @@ $story_status = $status[2];
 
 # Website numbers
 $crossover = 9;
-$comments_number = 1;
+$comments_number = 3;
 $website_comments_number = 0;
+$comments_number_text = $comments_number;
 
-if ($website_has_comments == True) {
-	$comments_number_text = $comments_number + 1;
-	$website_comments_number_to_show = $website_comments_number - 1;
-}
-
-if ($website_has_comments == False) {
-	$comments_number_text = $comments_number;
-	$website_comments_number_to_show = $website_comments_number;	
-}
-
-$number_of_chapter_comments = $comments_number_text - $website_comments_number;
+$number_of_chapter_comments = $comments_number_text;
 
 # Text File Reader PHP file includer
 require $text_file_reader_file_php;
 
 #$comments_number = $story_comments_check_number - 1;
-$readed_number = 12;
+$readed_number = 3;
 
 # The chapter that I want to write
-if ($website_chapter_to_write_setting == false) {
-	$story_name_website_chapter_to_write = '';
+if ($website_chapter_to_write_setting == False) {
+	$story_name_website_chapter_to_write = "";
 }
 
 else {
@@ -75,7 +66,7 @@ $website_title_header = $story_name_variable.': '.$icons[11];
 $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
-	$website_title .= ' '.$website_title_language;
+	$website_title .= " ".$website_title_language;
 	$website_title_header = str_replace(': '.$icons[11], "", $website_title_header)." ".$full_language.': '.$icons[11];
 	$website_link .= $website_link_language."/";
 }
@@ -166,6 +157,7 @@ $tom_and_jerry_2021_the_weddings_off,
 $website_the_life_of_littletato_linked,
 $website_the_story_of_the_nazzevo_brothers_linked,
 $website_spaceliving_linked,
+$website_spaceliving_linked_alternate,
 $human_littletato_image,
 $lisa_image,
 $spaceliving_the_life_of_littletato_chapter_crossover_link,
@@ -173,6 +165,7 @@ $the_life_of_littletato_chapter_26,
 $spaceliving_discord_join_link,
 $spaceliving_lonelyship_pixel_art_story_cover,
 $spaceliving_lonelyship_pixel_art_front_signboards,
+$my_little_pony_fim_wikipedia_link,
 );
 
 $variable_inserter_replacer_array = array(
@@ -184,6 +177,7 @@ $tom_and_jerrys_2021_soundtrack_playlist_name,
 #"Tom & Jerry 2021 - Married In The Park ",
 "Panda Eyes - Opposite Side ",
 $the_life_of_littletato_link_name." ",
+$spaceliving_story_name." ",
 $the_story_of_the_nazzevo_brothers_story_name." ",
 $chapter_twenty_six_text." ",
 );
