@@ -88,26 +88,64 @@ $file_open = fopen($html_index_file, 'w');
 fwrite($file_open, $website);
 fclose($file_open);
 
+$website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites");
+$website_link = "";
+$website_image = "";
+$website_meta_description = "";
+$image_format = "png";
+$data = date("d/m/Y");
+
+$website_head = '<!DOCTYPE html>
+<head>
+<title>'.$website_title.'</title>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="'.$website_title.'" />
+<meta property="og:site_name" content="'.$website_title.'" />
+<meta property="og:url" content="'.$website_link.'" />
+<meta property="og:image" content="'.$website_image.'" />
+<meta property="og:description" content="'.$website_meta_description.'" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="pt_PT" />
+<link rel="canonical" href="'.$website_link.'" />
+<link rel="icon" type="image/'.$image_format.'" href="'.$website_image.'" />
+<link rel="image_src" type="image/'.$image_format.'" href="'.$website_image.'" />
+<meta name="description" content="'.$website_meta_description.'" />
+<meta name="revised" content="'."Stake's Enterprise TM".', '.$data.'" />
+<meta name="author" content="Stake Ferreira" />
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
+<meta charset="UTF-8" />
+</head>
+<body>'."\n";
+
+echo $website_head;
+
+echo "<center>"."\n";
+
+echo "\n"."<h1>"."\n".
+$website_title."<br />"."\n"
+."</h1>"."\n";
+
 $show_text = Language_Item_Definer("This is the name of the website", "Esse é o nome do site");
 
-echo "<h2>".
-$show_text.": <br />".
-$website_title
-."</h2>"."\n";
+echo "\n"."<h2>"."\n".
+$show_text.": <br />"."\n".
+$website_title."\n"
+."</h2>"."\n"."\n";
 
 $show_text = Language_Item_Definer("This is the folder where the selected website is", "Essa é a pasta onde o site selecionado está");
 
-echo "<h2>".
-$show_text.": <br />".
-Make_Link("file:///".$html_folder, $html_folder, $target = "_blank")
-."</h2>"."\n";
+echo "<h2>"."\n".
+$show_text.": <br />"."\n".
+Make_Link("file:///".$html_folder, $html_folder, $target = "_blank")."\n"
+."</h2>"."\n"."\n";
 
 $show_text = Language_Item_Definer("This is the path to the website HTML file", "Esse é o caminho para o arquivo HTML do site");
 
-echo format("<h2>".
-"{}: <br />".
-"{}"
-."</h2>"."\n", array($show_text, Make_Link("file:///".$html_index_file, $html_index_file, $target = "_blank")));
+echo format("<h2>"."\n".
+"{}: <br />"."\n".
+"{}"."\n"
+."</h2>"."\n", array($show_text, Make_Link("file:///".$html_index_file, $html_index_file, $target = "_blank")))."\n";
 
 if ($file_exists == True) {
 	$text = Language_Item_Definer("updated with new contents", "atualizado com novos conteúdos");
@@ -119,8 +157,13 @@ if ($file_exists == False) {
 
 $show_text = Language_Item_Definer("The file of the website was {}", "O arquivo do site foi {}");
 
-echo "<h2>".
-format($show_text, $text)
-.".</h2><br />"."\n";
+echo "<h2>"."\n".
+format($show_text, $text)."."."\n"
+."</h2><br />"."\n";
+
+echo "\n"."</center>";
+
+echo "\n".'</body>'."\n".
+'</html>';
 
 ?>
