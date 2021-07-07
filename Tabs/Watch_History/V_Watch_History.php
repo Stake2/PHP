@@ -1,8 +1,9 @@
 <?php 
 
-# Folder variables
+# Website variables
 $selected_website_url = $website_watch_history_link;
 $selected_website_folder = $php_folder_tabs.ucwords($website).'/';
+$no_language_website_title = ucwords(str_replace("_", " ", $website));
 
 # Comment links
 $watched_movie_comment_links = array(
@@ -25,16 +26,19 @@ $watched_movie_comments = array(
 );
 
 # Website image link and image size
-$website_image = 'WH';
-$website_image = $cdnimg.$website_image.".png";
+$website_image_file_name = $no_language_website_title;
+$image_format = "png";
+$website_image = $website_media_images_website_icons.$website_image_file_name.".".$image_format;
+
 $website_image_link = $website_image;
-$website_image_size_computer = 27;
-$website_image_size_mobile = 50;
+$website_image_size_computer = 31;
+$website_image_size_mobile = 52;
 
 $span_second_text_color = '<span class="'.$second_text_color.' '.$third_text_color.'">';
 
 #Website descriptions
 $website_descriptions_array = array(
+Null,
 'Website to show Animes, Cartoons, Series, Movies, and Videos that I watched and medias that I will watch, made by stake2.', 
 'Website para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti e mídias que eu vou assistir, feito por stake2.',
 );
@@ -78,6 +82,7 @@ foreach ($array as $item) {
 $replacer_two = format($text, $replacer_array_two);
 
 $website_html_descriptions_array = array(
+Null,
 $replacer_one,
 $replacer_two,
 );
@@ -124,6 +129,21 @@ require $year_variables_file;
 #Watch History website texts file includer
 require $watch_texts_php;
 
+# Website name, title, URL and description setter, by language
+$website_name = $selected_website;
+$website_title = ucwords($website_title);
+$website_title_header = ucwords($website_title).": ".$icons[5]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$mediastxt."]".$spanc;
+$website_link = $selected_website_url;
+$website_meta_description = $website_descriptions_array[$language_number];
+$website_header_description = $website_html_descriptions_array[$language_number];
+
+if ($website_language != $language_geral) {
+	$website_title .= " ".$website_title_language;
+	$website_title_header = str_replace(': '.$icons[11], "", $website_title_header);
+	$website_link .= $website_link_language."/";
+}
+
+/*
 #General language website_name, title, main_website_url and description
 if ($website_language == $geral_language) {
 	$hyphen_separated_website_language = strtoupper($website_language);
@@ -139,15 +159,10 @@ if ($website_language == $geral_language) {
 
 #English language website_name, title, main_website_url and description
 if ($website_language == $enus_language) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $website;
-	
 	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
 	$website_title_header = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
+	
 }
 
 #Brazilian Portuguese language website_name, title, main_website_url and description
@@ -162,6 +177,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[1];
 }
+*/
 
 #Tabtexts definers for English and General language
 if (in_array($website_language, $en_languages_array)) {

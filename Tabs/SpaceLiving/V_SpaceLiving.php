@@ -33,7 +33,7 @@ $number_of_chapter_comments = $comments_number_text;
 require $text_file_reader_file_php;
 
 #$comments_number = $story_comments_check_number - 1;
-$readed_number = 3;
+$readed_number = 5;
 
 # The chapter that I want to write
 if ($website_chapter_to_write_setting == False) {

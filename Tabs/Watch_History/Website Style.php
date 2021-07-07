@@ -50,7 +50,7 @@ $alternative_full_tab_style = $background_color." ".$default_text_color,
 $first_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 $second_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 
-$computer_image_size = "28",
+$computer_image_size = "31",
 $mobile_image_size = "55",
 
 $form_color_border = $border_4px_solid_black_css_class,

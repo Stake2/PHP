@@ -79,17 +79,36 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 		$things_of_diario_two = '';
 	}
 
-	$website_header_wrapper = $computer_space.
-	'<div class="w3-center '.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'.
-	$div_zoom_animation.'<'.$n.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
-	$div_zoom_animation.'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'"><p><br /><b>'.$website_header_title.'</b><br /><br /><p></'.$m.'>'.$div_close."\n".'
-	<hr class="'.$header_full_border.'" />
-	<div class="w3-center">'.$website_images_variable.$div_close.
-	$div_zoom_animation.'<'.$n.' class="w3-center '.$first_text_color.' '.$computer_variable.'">'.$website_header_description.'</'.$n.'>'.$div_close.
-	$div_zoom_animation.'<'.$m.' class="w3-center '.$first_text_color.' '.$mobile_variable.'">'.$website_header_description.'</'.$m.'>'.$div_close
-	.$things_of_diario_one.$things_of_diario_two.
-	'<br />
-	'.$div_close."\n";
+	$website_header_wrapper = "\n".$computer_space."\n".
+	"<!-- Website header -->"."\n".
+	'<div class="w3-center '.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'."\n".
+	$div_zoom_animation."\n".
+	"<!-- Website computer title -->"."\n".
+	'<'.$n.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
+	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'</'.$n.'>'."\n".$div_close."\n\n".
+	$div_zoom_animation."\n".
+	"<!-- Website mobile title -->"."\n".
+	'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
+	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'</'.$m.'>'."\n".$div_close."\n\n".
+	'<hr class="'.$header_full_border.'" />'."\n\n".
+	"<!-- Website images -->"."\n".
+	'<div class="w3-center">'."\n".
+	$website_images_variable.$div_close."\n\n".
+	$div_zoom_animation."\n".
+	"<!-- Website computer header description-->"."\n".
+	'<'.$n.' class="w3-center '.$first_text_color.' '.$computer_variable.'">'."\n".
+	$website_header_description."\n".
+	'</'.$n.'>'."\n".$div_close."\n\n".
+	$div_zoom_animation."\n".
+	"<!-- Website mobile header description-->"."\n".
+	'<'.$m.' class="w3-center '.$first_text_color.' '.$mobile_variable.'">'."\n".
+	$website_header_description."\n".
+	'</'.$m.'>'.$div_close."\n".
+	$things_of_diario_one.$things_of_diario_two.
+	"<br />"."\n".
+	$div_close;
 }
 
 # Story website header generator

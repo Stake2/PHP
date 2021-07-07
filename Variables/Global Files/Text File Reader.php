@@ -241,7 +241,13 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 		$new_current_year_watched_media_type_text = array();
 
 		foreach ($current_year_watched_media_type_text as $line) {
-			$new_current_year_watched_media_type_text[] = explode(", ", $line)[$language_split_number];
+			if (strpos($line, ", ") == True) {
+				$new_current_year_watched_media_type_text[] = explode(", ", $line)[$language_split_number];
+			}
+
+			else {
+				$new_current_year_watched_media_type_text[] = $line;
+			}
 		}
 
 		$current_year_watched_media_type_text = $new_current_year_watched_media_type_text;
