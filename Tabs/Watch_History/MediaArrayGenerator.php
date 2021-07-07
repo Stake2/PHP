@@ -211,7 +211,7 @@ $i = 6;
 $v = 0;
 if ($media_array_year == $site2018 and $thingsidofake == True) {
 	while ($i <= 10) {
-		$medias[$v] = $blackspan.$media_names_array[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
+		$medias[$v] = $blackspan.$media_types_plural[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
 
 		$i++;
 		$v++;
@@ -221,8 +221,8 @@ if ($media_array_year == $site2018 and $thingsidofake == True) {
 $i = 6;
 $v = 0;
 if ($media_array_year == $site2018 and $thingsidofake == null) {
-	while ($i <= count($media_names_array) - 1) {
-		$medias[$v] = $whitespan.$media_names_array[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
+	while ($i <= count($media_types_plural) - 1) {
+		$medias[$v] = $whitespan.$media_types_plural[$i].': '.$spanc.$bluespan.$yearnumbs2018txt[$i].$spanc.'<br />'."\n";
 
 		$i++;
 		$v++;

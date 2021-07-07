@@ -14,12 +14,12 @@ if (in_array($website_language, $en_languages_array)) {
 	$rewatched_text = "Rewatched";
 
 	#Media names
-	$media_names_array = array(
-	'Anime',
-	'Cartoon',
+	$media_types_plural = array(
+	'Animes',
+	'Cartoons',
 	'Series',
-	'Movie',
-	'Video',
+	'Movies',
+	'Videos',
 	);
 
 	#Media type on the Links tab
@@ -68,12 +68,12 @@ if (in_array($website_language, $pt_languages_array)) {
 	$rewatched_text = "Reassistido";
 
 	#Media names
-	$media_names_array = array(
-	'Anime',
-	'Desenho',
-	'Série',
-	'Filme',
-	'Vídeo',
+	$media_types_plural = array(
+	'Animes',
+	'Desenhos',
+	'Séries',
+	'Filmes',
+	'Vídeos',
 	);
 
 	#Media type on the Links tab

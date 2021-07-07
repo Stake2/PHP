@@ -284,4 +284,28 @@ function Make_Tab_Titles($custom_tab_titles_array = Null) {
 	}
 }
 
+function show($thing, $add_br = False) {
+	if (is_array($thing) == True) {
+		foreach ($thing as $text) {
+			if ($add_br == True) {
+				echo $text."<br />"."\n";
+			}
+
+			else {
+				echo $thing."\n";
+			}
+		}
+	}
+
+	if (is_array($thing) == False) {
+		if ($add_br == True) {
+			echo $thing."<br />"."\n";
+		}
+
+		else {
+			echo $thing."\n";
+		}
+	}
+}
+
 ?>

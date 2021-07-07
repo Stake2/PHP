@@ -184,38 +184,26 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 		}
 	}
 
+	# Read medias per media type and make dict with keys of media type
+
 	$current_variable_year = 2018;
 	while ($current_variable_year <= $current_year_backup) {
 		$current_year = $current_variable_year;
-		$current_year_watched_episodes_file = $current_year_watched_folder.$english_watched_episodes_text.'.txt';
-		$current_year_watched_time_file = $current_year_watched_folder.$english_watched_times_text.'.txt';
+		$current_year_watched_folder_to_use = format($watch_history_watched_folder_string, $current_year);
+		$current_year_watched_episodes_file = $current_year_watched_folder_to_use.$english_watched_episodes_text.'.txt';
+		$current_year_watched_time_file = $current_year_watched_folder_to_use.$english_watched_times_text.'.txt';
 
-		$current_year_watched_media_type_file = $current_year_watched_folder.$english_watched_media_types_text.'.txt';
+		$current_year_watched_media_type_file = $current_year_watched_folder_to_use.$english_watched_media_types_text.'.txt';
 
-		$file = $current_year_watched_episodes_file;
-		if (file_exists($file) == True) {
-			$current_year_watched_episodes_line_number = 0;
-			$handle = fopen($file, "r");
-			while (!feof ($handle)){
-				$line = fgets ($handle);
-				$current_year_watched_episodes_line_number++;
-			}
-		}
+		$current_year_watched_episodes_line_number = Line_Number($current_year_watched_episodes_file);
 
 		$current_year_watched_number = $current_year_watched_episodes_line_number - 1;
 		${"watched_episodes_".$current_year."_line_number"} = $current_year_watched_episodes_line_number;
 
-		$file_read = $current_year_watched_episodes_file;
-		if (file_exists($file_read) == True) {
-			$file = fopen($file_read, 'r', 'UTF-8');
-			if ($file) {
-				$current_year_watched_episodes_text = explode("\n", fread($file, filesize($file_read)));
-				$current_year_watched_episodes_text = str_replace(";", ":", $current_year_watched_episodes_text);
-				$current_year_watched_episodes_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $current_year_watched_episodes_text);
-			}
-		}
+		$current_year_watched_episodes_text = Read_Lines($current_year_watched_episodes_file);
 
 		${"year_".$current_year."_watched_episodes_text"} = $current_year_watched_episodes_text;
+
 		$array_to_append_a = array($current_year_watched_episodes_text);
 		$file_read = $current_year_watched_time_file;
 		if (file_exists($file_read) == True) {
@@ -262,7 +250,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 					$media_type = $current_year_watched_media_type_text[$i];
 					#echo $current_year_watched_media_type_text[$i]."<br />"."\n";
 
-					if ($media_type == 'Anime') {
+					if ($media_type == 'Animes') {
 						$watched_animes_number++;
 					}
 
@@ -275,7 +263,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 			while ($i <= count($current_year_watched_media_type_text) - 1) {
 				$media_type = $current_year_watched_media_type_text[$i];
 
-				if ($media_type == 'Cartoon' or $media_type == 'Desenho') {
+				if ($media_type == 'Cartoons' or $media_type == 'Desenhos') {
 					$watched_cartoons_number++;
 				}
 
@@ -287,7 +275,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 			while ($i <= count($current_year_watched_media_type_text) - 1) {
 				$media_type = $current_year_watched_media_type_text[$i];
 
-				if ($media_type == 'Series' or $media_type == 'Série') {
+				if ($media_type == 'Series' or $media_type == 'Séries') {
 					$watched_series_number++;
 				}
 
@@ -299,7 +287,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 			while ($i <= count($current_year_watched_media_type_text) - 1) {
 				$media_type = $current_year_watched_media_type_text[$i];
 
-				if ($media_type == 'Movie' or $media_type == 'Filme') {
+				if ($media_type == 'Movies' or $media_type == 'Filmes') {
 					$watched_movies_number++;
 				}
 
@@ -311,7 +299,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 			while ($i <= count($current_year_watched_media_type_text) - 1) {
 				$media_type = $current_year_watched_media_type_text[$i];
 
-				if ($media_type == 'Video' or $media_type == 'Vídeo') {
+				if ($media_type == 'Videos' or $media_type == 'Vídeos') {
 					$watched_videos_number++;
 				}
 

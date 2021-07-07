@@ -65,6 +65,4 @@ if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
 }
 
-echo ucwords(str_replace("_", " ", $website));
-
 ?>
