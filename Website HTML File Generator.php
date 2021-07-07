@@ -50,8 +50,6 @@ $website = ob_get_clean();
 
 $html_folder = $mega_folder_stake2_website.str_replace($main_website_url, "", $selected_website_url);
 
-echo $html_folder;
-
 if ($selected_language != $language_geral) {
 	if ($selected_website == "diario") {
 		if ($selected_language == $language_ptbr) {
@@ -90,14 +88,39 @@ $file_open = fopen($html_index_file, 'w');
 fwrite($file_open, $website);
 fclose($file_open);
 
+$show_text = Language_Item_Definer("This is the name of the website", "Esse é o nome do site");
+
+echo "<h2>".
+$show_text.": <br />".
+$website_title
+."</h2>"."\n";
+
+$show_text = Language_Item_Definer("This is the folder where the selected website is", "Essa é a pasta onde o site selecionado está");
+
+echo "<h2>".
+$show_text.": <br />".
+Make_Link("file:///".$html_folder, $html_folder, $target = "_blank")
+."</h2>"."\n";
+
+$show_text = Language_Item_Definer("This is the path to the website HTML file", "Esse é o caminho para o arquivo HTML do site");
+
+echo format("<h2>".
+"{}: <br />".
+"{}"
+."</h2>"."\n", array($show_text, Make_Link("file:///".$html_index_file, $html_index_file, $target = "_blank")));
+
 if ($file_exists == True) {
-	$text = "updated with new contents";
+	$text = Language_Item_Definer("updated with new contents", "atualizado com novos conteúdos");
 }
 
 if ($file_exists == False) {
-	$text = "created";
+	$text = Language_Item_Definer("created", "criado");
 }
 
-echo "<h2>Website file was ".$text.".</h2><br />"."\n";
+$show_text = Language_Item_Definer("The file of the website was {}", "O arquivo do site foi {}");
+
+echo "<h2>".
+format($show_text, $text)
+.".</h2><br />"."\n";
 
 ?>

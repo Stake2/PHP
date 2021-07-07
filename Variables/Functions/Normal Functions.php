@@ -117,7 +117,7 @@ $mobile_div.$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />
 	return $image;
 }
 
-function Make_Link($link, $link_text = Null, $link_color = Null) {
+function Make_Link($link, $link_text = Null, $link_color = Null, $target = Null) {
 	if ($link_color == Null) {
 		$link_color = format('class="{}"', "w3-text-white");
 	}
@@ -130,7 +130,15 @@ function Make_Link($link, $link_text = Null, $link_color = Null) {
 		$link_text = $link;
 	}
 
-	$link = '<a '.$link_color.' href="'.$link.'">'.$link_text.'</a>';
+	if ($target != Null) {
+		$target = "target=\"".$target."\" ";
+	}
+
+	else {
+		$target = "";
+	}
+
+	$link = '<a '.$target.$link_color.' href="'.$link.'">'.$link_text.'</a>';
 
 	return $link;
 }
