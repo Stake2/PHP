@@ -88,10 +88,10 @@ $file_open = fopen($html_index_file, 'w');
 fwrite($file_open, $website);
 fclose($file_open);
 
-$local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites");
+$local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$website_title;
 $website_link = "";
 $website_image = "";
-$website_meta_description = "";
+$website_meta_description = Language_Item_Definer("Generator of HTML files for the selected website", "Gerador de arquivos HTMl para o site selecionado").": ".$website_title;
 $image_format = "png";
 $data = date("d/m/Y");
 
