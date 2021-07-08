@@ -88,7 +88,7 @@ $file_open = fopen($html_index_file, 'w');
 fwrite($file_open, $website);
 fclose($file_open);
 
-$website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites");
+$local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites");
 $website_link = "";
 $website_image = "";
 $website_meta_description = "";
@@ -97,10 +97,10 @@ $data = date("d/m/Y");
 
 $website_head = '<!DOCTYPE html>
 <head>
-<title>'.$website_title.'</title>
+<title>'.$local_website_title.'</title>
 <meta property="og:type" content="website" />
-<meta property="og:title" content="'.$website_title.'" />
-<meta property="og:site_name" content="'.$website_title.'" />
+<meta property="og:title" content="'.$local_website_title.'" />
+<meta property="og:site_name" content="'.$local_website_title.'" />
 <meta property="og:url" content="'.$website_link.'" />
 <meta property="og:image" content="'.$website_image.'" />
 <meta property="og:description" content="'.$website_meta_description.'" />

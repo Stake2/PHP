@@ -323,12 +323,12 @@ if ($chapter_number_1 != $chapters) {
 	$has_next_chapter_button = True;
 }
 
-$comment_text = $to_comment_text." ".' ('.$number_of_chapter_comments." ".$icons[12].")";
+$to_comment_button_text = $to_comment_text." ".' ('.$number_of_chapter_comments." ".$icons[12].")";
 
 # Computer Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="comment_button_'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$comment_text.'</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="comment_button_'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$to_comment_button_text.'</b></h3></button>'."\n";
 	echo $div_close."\n";
 }
 
@@ -345,7 +345,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo "\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$comment_text.')</b></'.$m.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$to_comment_button_text.')</b></'.$m.'></button>'."\n";
 	echo '<br /><br />'."\n";
 	echo $div_close."\n";
 }

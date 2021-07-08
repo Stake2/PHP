@@ -295,12 +295,40 @@ function Make_Tab_Titles($custom_tab_titles_array = Null) {
 function show($thing, $add_br = False) {
 	if (is_array($thing) == True) {
 		foreach ($thing as $text) {
-			if ($add_br == True) {
-				echo $text."<br />"."\n";
+			if (is_array($text) == True) {
+				foreach ($text as $text_value) {
+					if (is_array($text_value) == True) {
+						foreach ($text_value as $text_value_value) {
+							if ($add_br == True) {
+								echo $text_value_value."<br />"."\n";
+							}
+
+							else {
+								echo $text_value_value."\n";
+							}
+						}
+					}
+
+					if (is_array($text_value) == False) {
+						if ($add_br == True) {
+							echo $text_value."<br />"."\n";
+						}
+
+						else {
+							echo $text_value."\n";
+						}
+					}
+				}
 			}
 
-			else {
-				echo $thing."\n";
+			if (is_array($text) == False) {
+				if ($add_br == True) {
+					echo $text."<br />"."\n";
+				}
+
+				else {
+					echo $thing."\n";
+				}
 			}
 		}
 	}
