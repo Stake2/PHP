@@ -323,7 +323,7 @@ if ($chapter_number_1 != $chapters) {
 	$has_next_chapter_button = True;
 }
 
-$to_comment_button_text = $to_comment_text." ".' ('.$number_of_chapter_comments." ".$icons[12].")";
+$to_comment_button_text = $to_comment_text." ".' ('.$chapter_comment_numbers_array[$chapter_number_1]." ".$icons[12].")";
 
 # Computer Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
@@ -332,10 +332,12 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo $div_close."\n";
 }
 
+$i_read_it_button_text = $i_read_it_text.' ('.$chapter_read_numbers_array[$chapter_number_1].' '.$icons[20].')';
+
 # Computer "I Read it" button
 if ($story_has_reads == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$i_read_it_button_text.'</b></h3></button>'."\n";
 	echo $div_close."\n";
 	echo $big_space_mobile_and_computer;
 }

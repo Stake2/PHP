@@ -29,6 +29,15 @@ else {
 # Comment Style definer
 $comment_style = $additional_background_color." ".$text_black_css_class." ".$border_3px_solid_black_css_class;
 
+if ($local_comment_number != 0 and $local_comment_number != Null) {
+	$chapter_comment_number = $local_comment_number;
+	$chapter_comment_numbers_array[$chapter_number_1] = $chapter_comment_number;
+}
+
+else {
+	$chapter_comment_numbers_array[$chapter_number_1] = "0";
+}
+
 if ($local_comment_number > 1 and $comment_dates != Null) {
 	$comment_number = 1;
 

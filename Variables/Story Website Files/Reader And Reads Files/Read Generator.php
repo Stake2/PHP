@@ -21,6 +21,19 @@ if ($read_dates != Null) {
 	$reads_number = count($read_dates) - 1;
 }
 
+else {
+	$reads_number = Null;
+}
+
+if ($reads_number != 0 and $reads_number != Null) {
+	$chapter_reads_number = $reads_number;
+	$chapter_read_numbers_array[$chapter_number_1] = $chapter_reads_number;
+}
+
+else {
+	$chapter_read_numbers_array[$chapter_number_1] = "0";
+}
+
 # Read Style definer
 $read_style = $additional_background_color." ".$text_black_css_class." ".$border_3px_solid_black_css_class;
 
@@ -43,7 +56,7 @@ if ($reads_number > 1 and $read_dates != Null) {
 		}
 
 		# Read time text and time
-		$read .= $time_text.':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
+		$read .= ucwords($in_text).':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
 
 		$reads_array[$chapter_number_1][$current_chapter_read_number] = $read;
 
@@ -65,7 +78,7 @@ if ($reads_number == 1 and $read_dates != Null) {
 	}
 
 	# Read time text and time
-	$read .= $time_text.':</b> '.$read_date.' <br /><br />';
+	$read .= ucwords($in_text).':</b> '.$read_date.' <br /><br />';
 
 	$read .= $div_close.'</'.$m.'>'.$div_close."\n";
 
