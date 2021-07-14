@@ -323,7 +323,7 @@ if ($chapter_number_1 != $chapters) {
 	$has_next_chapter_button = True;
 }
 
-$to_comment_button_text = $to_comment_text." ".' ('.$chapter_comment_numbers_array[$chapter_number_1]." ".$icons[12].")";
+$to_comment_button_text = $to_comment_text." ".$icons_array["Comment"];
 
 # Computer Comment button
 if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
@@ -332,7 +332,7 @@ if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
 	echo $div_close."\n";
 }
 
-$i_read_it_button_text = $i_read_it_text.' ('.$chapter_read_numbers_array[$chapter_number_1].' '.$icons[20].')';
+$i_read_it_button_text = $i_read_it_text." ".$icons_array["Reader"];
 
 # Computer "I Read it" button
 if ($story_has_reads == True) {

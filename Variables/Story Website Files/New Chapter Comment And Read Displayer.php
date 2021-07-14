@@ -2,7 +2,7 @@
 
 # Comments displayer
 if (isset($chapter_comments_array[$chapter_number_1]) and is_array($chapter_comments_array[$chapter_number_1]) == True and $chapter_comments_array[$chapter_number_1] != Null) {
-	echo $comment_header."\n";
+	echo format($comment_header, $chapter_comment_numbers_array[$chapter_number_1])."\n";
 
 	$number = 1;
 	$array_number = count($chapter_comments_array[$chapter_number_1]);
@@ -16,7 +16,7 @@ if (isset($chapter_comments_array[$chapter_number_1]) and is_array($chapter_comm
 }
 
 else if (isset($chapter_comments_array[$chapter_number_1]) and $chapter_comments_array[$chapter_number_1] != Null) {
-	echo $comment_header."\n";
+	echo format($comment_header, $chapter_comment_numbers_array[$chapter_number_1])."\n";
 
 	echo $chapter_comments_array[$chapter_number_1]."\n";
 
@@ -25,7 +25,7 @@ else if (isset($chapter_comments_array[$chapter_number_1]) and $chapter_comments
 
 # Readings and Reads displayer
 if (isset($reads_array[$chapter_number_1]) and is_array($reads_array[$chapter_number_1]) == True and $reads_array[$chapter_number_1] != Null) {
-	echo $readings_header."\n";
+	echo format($readings_header, $chapter_read_numbers_array[$chapter_number_1])."\n";
 
 	$number = 1;
 	$array_number = count($reads_array[$chapter_number_1]);
@@ -37,7 +37,7 @@ if (isset($reads_array[$chapter_number_1]) and is_array($reads_array[$chapter_nu
 }
 
 else if (isset($reads_array[$chapter_number_1]) and $reads_array[$chapter_number_1] != Null) {
-	echo $readings_header."\n";
+	echo format($readings_header, $chapter_read_numbers_array[$chapter_number_1])."\n";
 
 	echo $reads_array[$chapter_number_1]."\n";
 }

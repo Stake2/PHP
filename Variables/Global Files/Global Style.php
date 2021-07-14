@@ -288,12 +288,12 @@ $icon_smile_beam_painted_cyan = $cyanspan.$icon_smile_beam.$spanc;
 $icon_plus = '<i class="fas fa-plus"></i>';
 
 $reader_icon = '<i class="fas fa-book-reader"></i>';
+$comment_icon = '<i class="fas fa-comments"></i>';
 
 $icons_array = array(
 "Reader" => '<i class="fas fa-book-reader"></i>',
+"Comment" => '<i class="fas fa-comments"></i>',
 );
-
-$reader_icon = '<i class="fas fa-book-reader"></i>';
 
 $color = $background_brown_css_class;
 $hstyle = 'margin:5%;';

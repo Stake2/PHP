@@ -295,7 +295,7 @@ $desert_island_story_folder = "Desert Island",
 );
 
 if ($website_type == $story_website_type) {
-	$middle_text = "<b>".$comments_text.":</b> ".$icons[12];
+	$middle_text = "<b>".$comments_text." ({}):</b> ".$icons[12];
 
 	$comment_header = $computer_div."<br />".$div_close.
 	$mobile_div."<br /><br />".$div_close.
@@ -306,7 +306,7 @@ if ($website_type == $story_website_type) {
 	$computer_div."<br /><br />".$div_close.
 	$margin;
 
-	$middle_text = "<b>".$read_the_chapter_text.": ✓</b>";
+	$middle_text = "<b>".$read_the_chapter_text." ({}): ✓</b>";
 
 	$readings_header = $computer_div."<br />".$div_close.
 	$mobile_div."<br />".$div_close.
