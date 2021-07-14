@@ -35,9 +35,9 @@ while ($i <= $cover_number) {
 
 	$online_image_link = $story_chapter_covers_folder.$folder.$number_text.'.png';
 
-	$chapter_cover_images_computer[$i] = '<div class="'.$computer_variable.'">'.'<img src="'.$online_image_link.'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$on_click_script.'" />'."\n".$div_close.'<br class="'.$computer_variable.'" />'."\n";
+	$chapter_cover_images_computer[$i] = '<div class="'.$computer_variable.'">'.'<img class="'.$header_background_color.'" src="'.$online_image_link.'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$on_click_script.'" />'."\n".$div_close.'<br class="'.$computer_variable.'" />'."\n";
 
-	$chapter_cover_images_mobile[$i] = '<div class="'.$mobile_variable.'">'.'<img src="'.$online_image_link.'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$on_click_script.'" />'."\n".$div_close.'<br class="'.$mobile_variable.'" />'."\n";
+	$chapter_cover_images_mobile[$i] = '<div class="'.$mobile_variable.'">'.'<img class="'.$header_background_color.'" src="'.$online_image_link.'" width="99%" height="99%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$on_click_script.'" />'."\n".$div_close.'<br class="'.$mobile_variable.'" />'."\n";
 
 	$i++;
 }
