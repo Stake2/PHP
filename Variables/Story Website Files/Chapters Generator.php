@@ -24,11 +24,15 @@ while ($array_index <= $chapters) {
 	if ($website_story_has_titles == True) {
 		$normal_chapters[$array_index] = $story_chapter_files_folder_language.$new_chapter_file_title_number.' - '.$chapter_titles[$array_index_less_one].'.txt';
 		$normal_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$array_index]);
+
+		Create_File($normal_chapters[$array_index]);
 	}
 
 	else {
 		$normal_chapters[$array_index] = $story_chapter_files_folder_language.$new_chapter_file_title_number.'.txt';
 		$normal_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$array_index]);
+
+		Create_File($normal_chapters[$array_index]);
 	}
 
 	$array_index++;
@@ -72,6 +76,8 @@ while ($array_index <= $chapters) {
 $array_index = 0;
 $chapter_dates_file = $story_info_folder.'Chapter Written Dates.txt';
 if ($story_has_dates == True) {
+	Create_File($chapter_dates_file);
+
 	$chapter_dates = Read_Lines($chapter_dates_file);
 
 	while ($array_index <= $chapters) {

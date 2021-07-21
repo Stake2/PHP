@@ -8,24 +8,26 @@ function Show_Text($file, $style_format = Null) {
 
 	$file_read = Open_File($file);
 
-	while(!feof($file_read)) {
-		$text_line = fgets($file_read);
-		$text_line = Remove_Text_From_String($text_line);
+	if ($file_read != Null) {
+		while(!feof($file_read)) {
+			$text_line = fgets($file_read);
+			$text_line = Remove_Text_From_String($text_line);
 
-		if ($style_format != Null) {
-			$text_line = format($style_format, $text_line);
+			if ($style_format != Null) {
+				$text_line = format($style_format, $text_line);
+			}
+
+			if ($use_variable_inserter == True) {
+				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+			}
+
+			if ($website_name == $website_nazzevo) {
+				$text_line = preg_replace("#https://([\S]+?)#Uis", '<a class="w3-text-white" target="_blank" href="https://\\1">https://\\1</a>', $text_line);
+			}
+
+			echo $text_line."\n".'<br />';
 		}
-
-		if ($use_variable_inserter == True) {
-			$text_line = Variable_Inserter($variable_inserter_array, $text_line);
-			$text_line = Variable_Inserter($variable_inserter_array, $text_line);
-		}
-
-		if ($website_name == $website_nazzevo) {
-			$text_line = preg_replace("#https://([\S]+?)#Uis", '<a class="w3-text-white" target="_blank" href="https://\\1">https://\\1</a>', $text_line);
-		}
-
-		echo $text_line."\n".'<br />';
 	}
 }
 

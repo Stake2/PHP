@@ -405,18 +405,32 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 if ($website_type == $story_website_type) {
 	$story_folder = $notepad_stories_folder_variable.$story_folder."/";
 	$story_info_folder = $story_folder."Story Info/";
+
+	Create_Folder($story_info_folder);
+
 	$story_comments_folder = $story_folder."Comments/";
 	$story_readers_and_reads_folder = $story_folder."Readers and Reads/";
+
+	Create_Folder($story_comments_folder);
+	Create_Folder($story_readers_and_reads_folder);
 
 	# Story Creation Date, Synopsis, Readers, and Comments file paths
 	$story_creation_date_file = $story_info_folder."Creation Date.txt";
 	$story_synopsis_english_file = $story_info_folder."Synopsis.txt";
 	$story_synopsis_portuguese_file = $story_info_folder."Sinopse.txt";
 	$story_readers_file = $story_readers_and_reads_folder."Readers.txt";
-	$story_comments_check_file = $story_comments_folder."Check.txt";
+	#$story_comments_check_file = $story_comments_folder."Check.txt";
 	$story_chapter_status_file = $story_info_folder."Chapter Status.txt";
 	$chapter_number_file = $story_info_folder."Chapter Number.txt"; 
 	$story_author_file = $story_info_folder."Author.txt";
+
+	Create_File($story_creation_date_file);
+	Create_File($story_synopsis_english_file);
+	Create_File($story_synopsis_portuguese_file);
+	Create_File($story_readers_file);
+	Create_File($story_chapter_status_file);
+	Create_File($chapter_number_file);
+	Create_File($story_author_file);
 
 	# Last Posted Chapter file
 	$last_posted_chapter = explode(" - ", array_reverse(Read_Lines($story_chapter_status_file))[0])[0];
@@ -425,11 +439,22 @@ if ($website_type == $story_website_type) {
 	$story_author = Read_Lines($story_author_file);
 	$story_author_number = Line_Number($story_author_file);
 
-	$titles_enus_file = $story_chapter_files_folder.$full_language_enus."/".$titles_english_text."/".$titles_english_text.".txt";
+	$titles_enus_folder = $story_chapter_files_folder.$full_language_enus."/".$titles_english_text."/";
+
+	Create_Folder($titles_enus_folder);
+
+	$titles_enus_file = $titles_enus_folder.$titles_english_text.".txt";
+
+	Create_File($titles_enus_file);
 
 	# Language-dependent text files
 	$story_titles_folder = $story_chapter_files_folder.$full_language."/".$titles_text."/";
+
+	Create_Folder($story_titles_folder);
+
 	$titles_file = $story_titles_folder.$titles_text.".txt";
+
+	Create_File($titles_file);
 
 	$chapters = Line_Number($titles_file);
 

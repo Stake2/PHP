@@ -126,17 +126,23 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	}
 
 	$website_header_wrapper = $computer_space.
-	Create_Element("div", $default_background_color.' '.$first_full_border, $margin."\n".'<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'."\n".$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
+	$margin."\n".'<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'."\n".$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
 	'<hr class="'.$header_full_border.'" />'."\n".
 	$website_images."\n".
 	format('<'.$m.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description).
 	'<'.$m.' class="'.$first_text_color.'">'."\n".
 	Define_Text_By_Number($story_author_number, $author_text, $authors_text).": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
-	Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text).': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n".
-	Define_Text_By_Number($readers_number, $reader_text, $readers_text).': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n".
-	$story_creation_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
+	Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text).': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n";
+
+	if ($readers_number != 0) {
+		$website_header_wrapper .= Define_Text_By_Number($readers_number, $reader_text, $readers_text).': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n";
+	}
+
+	$website_header_wrapper .= $story_creation_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'."\n".
-	'<br />'."\n", 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
+	'<br />'."\n";
+
+	$website_header_wrapper = Create_Element("div", $default_background_color.' '.$first_full_border, $website_header_wrapper, 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
 }
 
 $change_website_title_script = '<script>

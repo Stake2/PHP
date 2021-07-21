@@ -19,7 +19,7 @@ if ($website_story_has_book_covers_setting == True) {
 else {
 	$image_format = "jpg";
 
-	$website_image = $cdnimg.$website_image.".".$image_format;
+	$website_image = $website_media_images_website_icons.$website_image.".".$image_format;
 
 	$website_image_size_computer = 30;
 	$website_image_size_mobile = 77;

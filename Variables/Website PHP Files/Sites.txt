@@ -1,6 +1,6 @@
 Stake2, N
 Prints of Computer Blocks, N
-Diário, N
+Diário, S
 My Little Pony, N
 Watch History, N
 Música, N

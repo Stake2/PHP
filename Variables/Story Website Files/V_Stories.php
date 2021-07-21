@@ -64,8 +64,8 @@ $my_little_pony_fim_wikipedia_link = $link;
 # ---
 
 $title_text = Language_Item_Definer("Title", "Título");
-$titles_english_text = $title_text."s";
-$titles_portuguese_text = $title_text."s";
+$titles_english_text = "Titles";
+$titles_portuguese_text = "Títulos";
 $titles_text = Language_Item_Definer($titles_english_text, $titles_portuguese_text);
 
 $story_text = Language_Item_Definer("Story", "História");

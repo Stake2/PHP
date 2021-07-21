@@ -2,12 +2,12 @@
 
 # Folder variables
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
-$story_folder = $diario_folder_blocks;
+$story_folder = "Diary";
 
-$no_language_story_folder = $story_folder;
-$story_chapter_files_folder = $no_language_story_folder;
+$no_language_story_folder = $notepad_stories_folder_variable.$story_folder."/";
 
-$story_chapter_files_folder_language = $story_chapter_files_folder;
+# Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
+require $cover_images_folder_definer_php_variable;
 
 # Diario name in English and Brazilian Portuguese language
 $diario_names = array(
@@ -28,11 +28,6 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_image = 'Diary/'.$full_language_ptbr;
 	$story_name = $diario_names[1];
 }
-
-$website_image = $website_media_images_website_icons.$website_image.".png";
-$website_image_link = $website_image;
-$website_image_size_computer = 30;
-$website_image_size_mobile = 66;
 
 $span_second_text_color = '<span class="'.$second_text_color.' '.$third_text_color.'">';
 
@@ -74,7 +69,14 @@ $margin_3_h1."\n".$cyanspan.$ted_character_name.':'.$spanc."\n".'</b>'.$h1c."\n"
 
 # Text File Reader.php file includer
 $used_folder = $diario_folder;
+
 require $text_file_reader_file_php;
+
+# Re-require of the VStories.php file to set the story name
+require $story_variables_php;
+
+# Story Details Definer PHP file includer
+require $story_details_definer;
 
 #Website numbers
 $blocks = 118;
@@ -161,46 +163,6 @@ if (in_array($website_language, $pt_languages_array)) {
 	$writedesc = "Escreva o capítulo";
 }
 
-# English texts for Pequenata website
-if (in_array($website_language, $en_languages_array)) {
-	$read_and_reader_texts_array = array(
-	$reading_text = "You're reading",
-	$reading_text.': '.ucwords($story_name),
-	'I Read It ✓',
-	'I read the Chapter',
-	'Read the Chapter',
-	'Readings',
-	'Readers',
-	'Reader',
-	);
-
-	$write_texts_array = array(
-	'Write',
-	'Write the Chapter',
-	substr($reading_text, 0, -8).' '.strtolower('Writing').': '.ucwords($story_name),
-	);
-}
-
-# Brazilian Portuguese texts for Pequenata website
-if (in_array($website_language, $pt_languages_array)) {
-	$read_and_reader_texts_array = array(
-	$reading_text = "Você está lendo",
-	$reading_text.': '.ucwords($story_name),
-	'Eu li ✓',
-	'Eu li o Capítulo',
-	'Leu o Capítulo',
-	'Leituras',
-	'Leitores',
-	'Leitor',
-	);
-
-	$write_texts_array = array(
-	'Escrever',
-	'Escreva o capítulo',
-	substr($reading_text, 0, -6).' '.strtolower('Escrevendo').': '.ucwords($story_name),
-	);
-}
-
 # Story name and characters text array
 $characterstext = $margin."\n".
 $margin."\n".
@@ -213,13 +175,15 @@ $div_close."\n".
 $div_close."\n";
 
 #"You're reading" text definers
-if (in_array($website_language, $en_languages_array)) {
-	$reading = "<b>You're reading: ".ucwords($story_name).'<br />'." </b>";
-}
+#if (in_array($website_language, $en_languages_array)) {
+#	$reading = "<b>You're reading: ".ucwords($story_name).'<br />'." </b>";
+#}
+#
+#if (in_array($website_language, $pt_languages_array)) {
+#	$reading = "<b>Você está lendo: ".ucwords($story_name).'<br />'." </b>";
+#}
 
-if (in_array($website_language, $pt_languages_array)) {
-	$reading = "<b>Você está lendo: ".ucwords($story_name).'<br />'." </b>";
-}
+$use_variable_inserter = False;
 
 #Buttons definer
 #Buttons names
@@ -230,7 +194,7 @@ $tab_names[2].': '.$icons[12],
 );
 
 if ($website_has_stories_tab_setting == True) {
-	array_push($tab_texts, end(array_values($tab_names)).': '.$icons[11]);
+	array_push($tab_texts, array_reverse($tab_names)[0].': '.$icons[11]);
 }
 
 # Tab Generator.php includer

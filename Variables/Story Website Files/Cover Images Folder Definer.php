@@ -9,6 +9,14 @@ $cover_folder = $website_media_images_story_covers.$story_folder."/";
 
 $story_chapter_files_folder = $no_language_story_folder.'Chapters/';
 
+Create_Folder($story_chapter_files_folder);
+
+$story_chapter_files_folder_language = $story_chapter_files_folder."English/";
+Create_Folder($story_chapter_files_folder_language);
+
+$story_chapter_files_folder_language = $story_chapter_files_folder."Português Brasileiro/";
+Create_Folder($story_chapter_files_folder_language);
+
 $full_language = $full_languages_array[$language_number];
 
 if ($website_language == $geral_language) {
@@ -40,5 +48,7 @@ else {
 		$story_chapter_covers_folder = $cover_folder.$full_language.'/'.$story_chapter_cover_folder.'/';
 	}
 }
+
+Create_Folder($story_chapter_files_folder_language);
 
 ?>

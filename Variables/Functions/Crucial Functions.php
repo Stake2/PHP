@@ -37,7 +37,15 @@ function Remove_Text_From_String($item, $text_to_replace = Null) {
 }
 
 function Create_File($file) {
-	$file = fopen($file, "w");
+	if (file_exists($file) == False) {
+		$file = fopen($file, "w");
+	}
+}
+
+function Create_Folder($folder) {
+	if (file_exists($folder) == False) {
+		mkdir($folder);
+	}
 }
 
 function Open_File($file, $mode = Null) {
