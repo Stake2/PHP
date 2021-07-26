@@ -99,7 +99,7 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 	global $div_close;
 	global $chapter_image_style;
 
-	$a_href = '<a href="'.$image_link.'">';
+	$a_href = '<a href="'.$image_link.'" target="_blank">';
 
 	$image_style = 'align="left"';
 
@@ -111,15 +111,16 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 		$computer_width = "35";
 	}
 
-	$image = "<br />".$computer_div.$a_href.'<img src="'.$image_link.'" width="'.$computer_width.'%" '.$image_style.' />'."</a>".$div_close."\n".
-$mobile_div.$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>".$div_close;
+	$image = "<br />".$computer_div."\n".$a_href.'<img src="'.$image_link.'" width="'.$computer_width.'%" '.$image_style.' />'."</a>"."\n".$div_close."\n";
+
+	$image .= $mobile_div."\n".$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>"."\n".$div_close;
 
 	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 
 	return $image;
 }
 
-function Make_Link($link, $link_text = Null, $link_color = Null, $target = Null) {
+function Make_Link($link, $link_text = Null, $link_color = Null, $new_tab = False) {
 	if ($link_color == Null) {
 		$link_color = format('class="{}"', "w3-text-white");
 	}
@@ -132,15 +133,15 @@ function Make_Link($link, $link_text = Null, $link_color = Null, $target = Null)
 		$link_text = $link;
 	}
 
-	if ($target != Null) {
-		$target = "target=\"".$target."\" ";
+	if ($new_tab == True) {
+		$target = "_blank";
 	}
 
-	else {
-		$target = "";
+	if ($new_tab == False) {
+		$target = "_self";
 	}
 
-	$link = '<a '.$target.$link_color.' href="'.$link.'">'.$link_text.'</a>';
+	$link = '<a '.$link_color.' href="'.$link.'" target="'.$target.'">'.$link_text.'</a>';
 
 	return $link;
 }
