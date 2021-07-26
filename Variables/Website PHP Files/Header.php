@@ -12,6 +12,8 @@ else if ($website_not_so_much_space_setting == True) {
 	$computer_space = '';
 }
 
+$header_hr = '<hr class="'.$header_full_border.'" style="margin-left:3%;margin-right:3%;" />'."\n";
+
 # Blank website generator using templates
 if (!isset($website_title_header) and !isset($website_meta_description) and $website_deactivate_header_setting == False) {
 	$website_image = $cdnimg.'Template.png';
@@ -31,13 +33,20 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 	$main_website_image_mobile = '<img src="'.$website_image_link.'" width="'.$website_image_size_mobile.'%" class="'.$colortext.' '.$mobile_variable.'" style="'.$border2.''.$rounded_border_style_2.'" />';
 
 	if ($website_deactivate_image_link_setting == False) {
-		$website_image_button_computer = '<div class="'.$computer_variable.'">'.'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'.'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'.'</button>'.$div_close."\n";
+		$website_image_button_computer = '<div class="'.$computer_variable.'">'."\n".
+		'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
+		'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'."\n".
+		'</button>'."\n".$div_close."\n";
 
-		$website_image_button_mobile = '<div class="'.$mobile_variable.'">'.'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'.'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'.'</button>'.$div_close."\n";
+		$website_image_button_mobile = '<div class="'.$mobile_variable.'">'."\n".
+		'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
+		'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'."\n".
+		'</button>'."\n".
+		$div_close."\n";
 	}
 
-	$website_images_variable = $main_website_image_computer."\n".$website_image_button_computer.
-	$main_website_image_mobile."\n".$website_image_button_mobile;
+	$website_images_variable = "\n".$main_website_image_computer."\n".$website_image_button_computer.
+	$main_website_image_mobile."\n".$website_image_button_mobile."\n";
 
 	$styletext2 = '';
 
@@ -54,9 +63,9 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 */
 
 	'<div class="'.$default_background_color.'" '.$styletext2.' style="margin-left:5%;margin-right:5%;'.$first_border_color.$rounded_border_style_2.'">
-	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_header.'</b><br /><br /><p></'.$n.'>'."\n".'
-	<hr class="'.$first_full_border.'" />
-	'.$website_images_variable.'
+	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_header.'</b><br /><br /><p></'.$n.'>'."\n".
+	$header_hr.
+	$website_images_variable.'
 	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_meta_description.'</'.$n.'>
 	<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_meta_description.'</'.$m.'>
 	<br />'
@@ -79,28 +88,31 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 		$things_of_diario_two = '';
 	}
 
-	$website_header_wrapper = #"\n".$computer_space."\n".
+	$website_header_wrapper = "\n".$computer_space."\n".
 	"<!-- Website header -->"."\n".
 	'<div class="w3-center '.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website computer title -->"."\n".
 	'<'.$n.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
 	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
-	'</'.$n.'>'."\n".$div_close."\n\n".
+	'</'.$n.'>'."\n".
+	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile title -->"."\n".
 	'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
 	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
-	'</'.$m.'>'."\n".$div_close."\n\n".
-	'<hr class="'.$header_full_border.'" />'."\n\n".
+	'</'.$m.'>'."\n".
+	$div_close."\n"."\n".
+	$header_hr."\n"."\n".
 	"<!-- Website images -->"."\n".
 	'<div class="w3-center">'."\n".
-	$website_images_variable.$div_close."\n\n".
+	$website_images_variable.$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website computer header description-->"."\n".
 	'<'.$n.' class="w3-center '.$first_text_color.' '.$computer_variable.'">'."\n".
 	$website_header_description."\n".
-	'</'.$n.'>'."\n".$div_close."\n\n".
+	'</'.$n.'>'."\n".
+	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile header description-->"."\n".
 	'<'.$m.' class="w3-center '.$first_text_color.' '.$mobile_variable.'">'."\n".
@@ -125,24 +137,83 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 		$author_name = $person_names_painted["Izaque"];
 	}
 
-	$website_header_wrapper = $computer_space.
-	$margin."\n".'<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'."\n".$website_header_title.'</b><br /><br /><p></'.$n.'>'.$div_close."\n".
-	'<hr class="'.$header_full_border.'" />'."\n".
-	$website_images."\n".
-	format('<'.$m.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description).
-	'<'.$m.' class="'.$first_text_color.'">'."\n".
+	$hide_sensitive_data = False;
+	$joking_around = False;
+
+	if ($hide_sensitive_data == True) {
+		if ($joking_around == True) {
+			$patterns = array(
+			"/s/i",
+			"/j/i",
+			"/his/i",
+			);
+
+			$replaces = array(
+			"x",
+			"x",
+			"ix",
+			);
+		}
+
+		else {
+			$patterns = array(
+			"/[A-Z]|[0-9]/i",
+			);
+
+			$replaces = array(
+			"X",
+			);
+		}
+
+		$i = 0;
+		foreach ($patterns as $pattern) {
+			$replace = $replaces[$i];
+
+			$author_name = preg_replace($pattern, $replace, $author_name);	
+			$website_header_description = preg_replace($pattern, $replace, $website_header_description);
+
+			$i++;
+		}
+	}
+
+	$website_header_wrapper = "<!-- Website header -->"."\n".
+	$div_zoom_animation."\n";
+
+	$website_header_wrapper .= "\n"."<!-- Website computer title -->"."\n".
+	'<'.$n.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
+	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'</'.$n.'>'."\n".
+	$div_close."\n"."\n".
+	$div_zoom_animation."\n".
+	"<!-- Website mobile title -->"."\n".
+	'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
+	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'</'.$m.'>'."\n".
+	$div_close."\n"."\n".
+	$header_hr."\n"."\n";
+
+	$website_header_wrapper .= "<!-- Website images -->"."\n".
+	'<div class="w3-center">'."\n".
+	$website_images_variable.
+	$div_close."\n".
+	"\n".
+	$header_hr."\n"."\n";
+
+	$website_header_wrapper .= format('<'.$m.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description)."\n"."\n";
+
+	$website_header_wrapper .= '<'.$m.' class="'.$first_text_color.'">'."\n".
 	Define_Text_By_Number($story_author_number, $author_text, $authors_text).": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text).': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n";
 
 	if ($readers_number != 0) {
-		$website_header_wrapper .= Define_Text_By_Number($readers_number, $reader_text, $readers_text).': <span class="'.$second_text_color.'">'.$readers_number.' '.$iconbookreader.'</span><br />'."\n";
+		$website_header_wrapper .= Define_Text_By_Number($readers_number, $reader_text, $readers_text).': <span class="'.$second_text_color.'">'.$readers_number.' '.$icons_array["Reader"].'</span><br />'."\n";
 	}
 
 	$website_header_wrapper .= $story_creation_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
 	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'."\n".
 	'<br />'."\n";
 
-	$website_header_wrapper = Create_Element("div", $default_background_color.' '.$first_full_border, $website_header_wrapper, 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
+	$website_header_wrapper = $computer_space.Create_Element("div", $default_background_color.' '.$first_full_border, $website_header_wrapper, 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
 }
 
 $change_website_title_script = '<script>

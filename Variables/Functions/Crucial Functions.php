@@ -197,4 +197,49 @@ function Create_Element($element, $class, $text, $custom_parameters = Null) {
 	return format($element_prototype, $parameters);
 }
 
+function Create_Database_Table($table_name, $columns_array) {
+	global $database_connection;
+
+	$sql = "CREATE TABLE ".$table_name." (";
+
+	$sql .= "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
+
+	foreach ($columns_array as $column) {
+		$sql .= $column."\n";
+	}
+
+	$sql .= ")";
+
+	$database_connection -> query($sql);
+}
+
+function Insert_Into_Database_Table($table_name, $columns, $values) {
+	global $database_connection;
+
+	$sql = "INSERT INTO ".$table_name." (";
+	
+	foreach ($columns_array as $column) {
+		$sql .= $column;
+	}
+
+	$sql .= ")";
+
+	$sql .= "VALUES (";
+
+	foreach ($values as $value) {
+		$sql .= "'".$value."', ";
+	}
+
+	$sql .= ")";
+
+
+if ($database_connection->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $database_connection->error;
+}
+
+	$database_connection -> query($sql);
+}
+
 ?>

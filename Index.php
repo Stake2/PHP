@@ -37,10 +37,12 @@ $php_folder_tabs = $main_php_folder."Tabs/";
 $php_folder_variables = $main_php_folder."Variables/";
 
 $global_files_folder = $php_folder_variables."Global Files/";
+$database_folder = $php_folder_variables."Database/";
 
 $main_php_folders = $global_files_folder."Main PHP Folders.php";
 $global_texts_php = $global_files_folder.'Global Texts.php';
 $global_style_file_php = $global_files_folder.'Global Style.php';
+$connect_php = $database_folder."Connect.php";
 
 # "Main PHP Folders" PHP File Loader
 require $main_php_folders;
@@ -56,6 +58,8 @@ require $main_arrays_php;
 
 # Global Arrays PHP file loader
 require $global_arrays_php;
+
+require $connect_php;
 
 # Websites Array Generator PHP file loader
 require $website_arrays_generator_php;
@@ -82,9 +86,19 @@ require $global_texts_php;
 require $website_selector_file;
 
 $website_title = $website_titles_array[$selected_website_number];
+$website_title_key = str_replace(" ", "_", strtolower($website_title));
 $website_type = $website_types_array[$selected_website_number];
 
 $v_global_php = $php_folder_variables.'V_Global.php';
+
+$columns = array(
+"website_name VARCHAR(50) NOT NULL,",
+"website_description VARCHAR(50) NOT NULL,",
+"website_header_description VARCHAR(50) NOT NULL,",
+"website_image VARCHAR(50) NOT NULL",
+);
+
+Create_Database_Table($website_title_key, $columns);
 
 # VGlobal.php variables file require
 require $v_global_php;

@@ -181,4 +181,20 @@ $website_description = $website_info -> getDescription();
 $website_header_description = $website_info -> getHeaderDescription();
 $website_images = $website_info -> getImages();
 
+$columns = array(
+"website_name, ",
+"website_description, ",
+"website_header_description, ",
+"website_image",
+);
+
+$values = array(
+$website_title;
+$website_description;
+$website_header_description;
+$website_images;
+);
+
+Insert_Into_Database_Table($website_title_key, $columns, $values);
+
 ?>

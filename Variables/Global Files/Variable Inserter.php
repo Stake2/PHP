@@ -94,46 +94,6 @@ function Variable_Inserter($array, $text_line) {
 				echo "<br />Linha: ".$text_line."<br />"."Nome da Variável: $".$variable_name.";<br />"."Variável: $".$variable.";<br />";
 			}
 
-			#if (preg_match("/".$variable_name."/m", $text_line) == True and $has_variable == False) {
-			#	$new_text_line = $text_line;
-			#
-			#	if (isset($variable_inserter_replacer_array)) {
-			#		$c = 0;
-			#		while ($c <= count($variable_inserter_replacer_array) - 1) {
-			#			if (preg_match("/".$variable_inserter_replacer_array[$c]."/m", $new_text_line) == True) {
-			#				$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
-			#			}
-			#
-			#			$c++;
-			#		}
-			#	}
-			#
-			#	$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
-			#
-			#	$has_variable = True;
-			#}
-			#
-			#if (preg_match("/".$variable_name."/m", $text_line) == False and $has_variable == False) {
-			#	$new_text_line = str_replace(array(".", "?", ")", "("), "", $text_line);
-			#
-			#	if (isset($variable_inserter_replacer_array)) {
-			#		$c = 0;
-			#		while ($c <= count($variable_inserter_replacer_array) - 1) {
-			#			if (preg_match("/".$variable_inserter_replacer_array[$c]."/m", $new_text_line) == True) {
-			#				$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
-			#			}
-			#
-			#			$c++;
-			#		}
-			#	}
-			#
-			#	if ($new_text_line == "$".$variable_name.";") {
-			#		$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
-			#
-			#		$has_variable = True;
-			#	}
-			#}
-
 			if (strpos($text_line, "$".$variable_name.";") == True and $has_variable == False) {
 				$new_text_line = $text_line;
 

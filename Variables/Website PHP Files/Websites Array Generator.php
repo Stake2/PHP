@@ -1,6 +1,6 @@
 <?php 
 
-#Websites array
+# Websites array
 $i = 0;
 foreach ($websites_array as $value) {
 	$value = strtolower($value);
@@ -13,7 +13,7 @@ foreach ($websites_array as $value) {
 	$i++;
 }
 
-#Website chapter_titles array
+# Website website_titles_array array
 $i = 0;
 foreach ($website_titles_array as $value) {
 	$resource_variable = strtolower($website_names_array[$i]);
@@ -25,7 +25,7 @@ foreach ($website_titles_array as $value) {
 	$i++;
 }
 
-#Array of the paths of the website folders in the local drive
+# Array of the paths of the website folders in the local drive
 $i = 0;
 foreach ($website_names_array as $value) {
 	$folder_to_use = $websites_array[$i];
@@ -34,7 +34,7 @@ foreach ($website_names_array as $value) {
 		$folder_to_use = "Diário";
 	}
 
-	${"website_folder_$value"} = $php_folder_tabs.$folder_to_use.'/';
+	${"website_folder_$value"} = $php_folder_tabs.$folder_to_use."/";
 
 	$website_folders[$i] = ${"website_folder_$value"};
 
@@ -55,15 +55,15 @@ $i = 0;
 foreach ($websites_array as $value) {
 	$website_folder = $php_folder_tabs.ucwords($value);
 
-	$variables_file = $website_folder.'/'.'V_'.$value.'.php';
-	$website_style_file = $website_folder.'/'.'Website Style.php';
+	$variables_file = $website_folder."/"."V_".$value.".php";
+	$website_style_file = $website_folder."/"."Website Style.php";
 
 	if (file_exists($variables_file)) {
 		$website_variables_files[$i] = $variables_file;
 	}
 
 	else {
-		fopen($variables_file, 'w', 'UTF-8');
+		fopen($variables_file, "w", "UTF-8");
 	}
 
 	if (file_exists($website_style_file)) {
@@ -71,7 +71,7 @@ foreach ($websites_array as $value) {
 	}
 
 	else {
-		fopen($website_style_file, 'w', 'UTF-8');
+		fopen($website_style_file, "w", "UTF-8");
 	}
 
 	$i++;
@@ -80,19 +80,19 @@ foreach ($websites_array as $value) {
 # Website.php Files array
 $i = 0;
 foreach ($websites_array as $value) {
-	$websitefile = $php_folder_tabs.ucwords($value).'/Website.php';
+	$websitefile = $php_folder_tabs.ucwords($value)."/Website.php";
 
 	if (file_exists($websitefile)) {
 		$sitewebsitefiles[$i] = $websitefile;
 	}
 
 	else {
-		fopen($websitefile, 'w', 'UTF-8');
+		fopen($websitefile, "w", "UTF-8");
 	}
 
 	$i++;
 }
 
-$year_arrays_php = $website_folder_years.'Year Arrays.php';
+$year_arrays_php = $website_folder_years."Year Arrays.php";
 
 ?>

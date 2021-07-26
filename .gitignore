@@ -9,6 +9,11 @@ Variables/Global Files/Global Texts.php
 Variables/Database/Connect.php
 Variables/Story Website Files/V_Stories.php
 Variables/Story Website Files/V_Stories.php
+Variables/Global Files/Folder And Website Variables.php
+Variables/Global Files/Main PHP Folders.php
+Variables/Global Files/PHP Files.php
+Variables/Website PHP Files/CSS And JavaScript Definer.php
+Variables/Website PHP Files/Forms.php
 
 $ git status
     [...]
