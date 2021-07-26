@@ -5,6 +5,32 @@ PHP Archive/
 Rubbish/
 Other/
 \Other
-\Variables\Global Files\Global Texts.php
-\Variables\Database\Connect.php
-Variables\Story Website Files\V_Stories.php
+Variables/Global Files/Global Texts.php
+Variables/Database/Connect.php
+Variables/Story Website Files/V_Stories.php
+Variables/Story Website Files/V_Stories.php
+
+$ git status
+    [...]
+    # Untracked files:
+    [...]
+    #       Documentation/foo.html
+    #       Documentation/gitignore.html
+    #       file.o
+    #       lib.a
+    #       src/internal.o
+    [...]
+    $ cat .git/info/exclude
+    # ignore objects and archives, anywhere in the tree.
+    *.[oa]
+    $ cat Documentation/.gitignore
+    # ignore generated html files,
+    *.html
+    # except foo.html which is maintained by hand
+    !foo.html
+    $ git status
+    [...]
+    # Untracked files:
+    [...]
+    #       Documentation/foo.html
+    [...]
