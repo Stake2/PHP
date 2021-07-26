@@ -137,14 +137,18 @@ $gods_warrior_still_got_something = format($songs["God's Warrior - Still Got Som
 $gods_warrior_still_got_something_link = Make_Link("https://www.youtube.com/watch?v=8WYMQbWUxGM", $gods_warrior_still_got_something_name);
 
 $skybreak_mizu_aurora_link = Make_Link("https://www.youtube.com/watch?v=J2P1_v9aFV8", "Skybreak & Mizu - Aurora", "w3-text-white");
+
 $panda_eyes_take_my_hand_ft_azuria_sky_zane_remix = Make_Link("https://www.youtube.com/watch?v=OCIEd71mViM", "Panda Eyes - Take My Hand Ft. Azuria Sky (Z∆NE Remix)", $text_white_css_class);
+
+$panda_eyes_opposite_side = Make_Link("https://www.youtube.com/watch?v=e0nay70SaXs", "Panda Eyes - Opposite Side", $text_white_css_class);
 
 $tom_and_jerrys_2021_soundtrack_playlist_name = Language_Item_Definer("the soundtrack of the Tom & Jerry movie from 2021", "a trilha sonora do filme Tom e Jerry de 2021");
 $tom_and_jerrys_2021_soundtrack_playlist = Make_Link("https://www.youtube.com/playlist?list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa", $tom_and_jerrys_2021_soundtrack_playlist_name, $text_white_css_class);
 $tom_and_jerry_2021_married_in_the_park = Make_Link("https://www.youtube.com/watch?v=cAlTw8szj6Q&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=42", "Tom & Jerry 2021 - Married In The Park", $text_white_css_class);
 $tom_and_jerry_2021_the_weddings_off = Make_Link("https://www.youtube.com/watch?v=SCxnA10GOMA&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=40", "Tom & Jerry 2021 - The Wedding's Off", $text_white_css_class);
 
-$panda_eyes_opposite_side = Make_Link("https://www.youtube.com/watch?v=e0nay70SaXs", "Panda Eyes - Opposite Side", $text_white_css_class);
+$among_us_trap_remix_by_leonz_link_name = Language_Item_Definer("Among Us Drip Theme Song Original (Among Us Trap Remix / Amogus Meme Music) by Leonz", "Tema musical original drip do Among Us (Remix de Trap do Among Us / Música de Meme do Amogus) por Leonz");
+$among_us_trap_remix_by_leonz = Make_Link("https://www.youtube.com/watch?v=grd-K33tOSM", $among_us_trap_remix_by_leonz_link_name, $text_white_css_class);
 
 $variable_inserter_array = array(
 $gods_warrior_still_got_something,
@@ -154,6 +158,7 @@ $panda_eyes_opposite_side,
 $tom_and_jerrys_2021_soundtrack_playlist,
 $tom_and_jerry_2021_married_in_the_park,
 $tom_and_jerry_2021_the_weddings_off,
+$among_us_trap_remix_by_leonz,
 $website_the_life_of_littletato_linked,
 $website_the_story_of_the_nazzevo_brothers_linked,
 $website_spaceliving_linked,
@@ -166,6 +171,9 @@ $spaceliving_discord_join_link,
 $spaceliving_lonelyship_pixel_art_story_cover,
 $spaceliving_lonelyship_pixel_art_front_signboards,
 $my_little_pony_fim_wikipedia_link,
+$orignal_sharks_frog_party_song_cover,
+$edited_sharks_frog_party_song_cover,
+$funky_black_cat_original_picture,
 );
 
 $variable_inserter_replacer_array = array(

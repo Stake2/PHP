@@ -63,6 +63,19 @@ $my_little_pony_fim_wikipedia_link = $link;
 
 # ---
 
+$orignal_sharks_frog_party_song_cover_link = "";
+$orignal_sharks_frog_party_song_cover = Make_Linked_Image($orignal_sharks_frog_party_song_cover_link, $is_chapter_image = True, $computer_width = "65");;
+
+$edited_sharks_frog_party_song_cover_link = "";
+$edited_sharks_frog_party_song_cover = Make_Linked_Image($edited_sharks_frog_party_song_cover_link, $is_chapter_image = True, $computer_width = "65");;
+
+# ---
+
+$funky_black_cat_original_picture_link = "";
+$funky_black_cat_original_picture = Make_Linked_Image($funky_black_cat_original_picture_link, $is_chapter_image = True, $computer_width = "65");
+
+# ---
+
 $title_text = Language_Item_Definer("Title", "Título");
 $titles_english_text = "Titles";
 $titles_portuguese_text = "Títulos";
