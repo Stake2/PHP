@@ -5,5 +5,6 @@ Teste.php
 \Rubbish
 Rubbish/
 Other/
-Variables/Global Files/Global Texts.php
-Variables/Database/Connect.php
+./Variables/Global Files/Global Texts.php
+./Variables/Database/Connect.php
+./Variables/Story Website Files/V_Stories.php

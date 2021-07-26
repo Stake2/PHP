@@ -79,7 +79,7 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 		$things_of_diario_two = '';
 	}
 
-	$website_header_wrapper = "\n".$computer_space."\n".
+	$website_header_wrapper = #"\n".$computer_space."\n".
 	"<!-- Website header -->"."\n".
 	'<div class="w3-center '.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'."\n".
 	$div_zoom_animation."\n".
