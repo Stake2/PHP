@@ -138,42 +138,11 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	}
 
 	$hide_sensitive_data = False;
-	$joking_around = False;
 
 	if ($hide_sensitive_data == True) {
-		if ($joking_around == True) {
-			$patterns = array(
-			"/s/i",
-			"/j/i",
-			"/his/i",
-			);
+		$author_name = "Lorem ipsum";
 
-			$replaces = array(
-			"x",
-			"x",
-			"ix",
-			);
-		}
-
-		else {
-			$patterns = array(
-			"/[A-Z]|[0-9]/i",
-			);
-
-			$replaces = array(
-			"X",
-			);
-		}
-
-		$i = 0;
-		foreach ($patterns as $pattern) {
-			$replace = $replaces[$i];
-
-			$author_name = preg_replace($pattern, $replace, $author_name);	
-			$website_header_description = preg_replace($pattern, $replace, $website_header_description);
-
-			$i++;
-		}
+		$website_header_description = $synopsis_text.": \""."Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."."\"";
 	}
 
 	$website_header_wrapper = "<!-- Website header -->"."\n".

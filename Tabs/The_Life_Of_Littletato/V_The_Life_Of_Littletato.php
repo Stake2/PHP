@@ -112,6 +112,7 @@ $spaceliving_lonelyship_pixel_art_story_cover,
 $spaceliving_lonelyship_pixel_art_front_signboards,
 $read_story_button,
 $my_little_pony_fim_wikipedia_link,
+$mansion_of_littletato_and_friends,
 );
 
 $variable_inserter_replacer_array = array(
