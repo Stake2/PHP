@@ -76,16 +76,16 @@ echo $big_space."\n";
 echo '<div class="'.$computer_variable.'" '.$roundedborderstyle.'>'."\n";
 #echo $h42."\n";
 
-echo '<'.$m.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
+echo '<'.$h4_element.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
 
 echo $margin."\n";
 echo '<center>'."\n";
 echo $div_zoom_animation."\n";
-echo '<'.$n.' class="'.$computer_variable.' '.$websites_tab_name_text.'" style="'.$rounded_border_style_2.'"><p></p><br /><b>'.$websites_tab_button_name.'<span class="'.$websites_tab_number_text_color.' '.$websites_tab_number_hover_color.'">'.$websites_number_text.$spanc.' '.$websites_tab_button_icon.'</b><br /><br /><p></p></'.$n.'>'."\n";
+echo '<'.$h2_element.' class="'.$computer_variable.' '.$websites_tab_name_text.'" style="'.$rounded_border_style_2.'"><p></p><br /><b>'.$websites_tab_button_name.'<span class="'.$websites_tab_number_text_color.' '.$websites_tab_number_hover_color.'">'.$websites_number_text.$spanc.' '.$websites_tab_button_icon.'</b><br /><br /><p></p></'.$h2_element.'>'."\n";
 echo $div_close."\n";
 echo '<hr class="'.$computer_variable.' '.$websites_tab_border.'" />'."\n";
 echo $div_zoom_animation."\n";
-echo '<'.$m.' class="'.$websites_tab_div_color.'" style="'.$rounded_border_style_2.'">'."\n";
+echo '<'.$h4_element.' class="'.$websites_tab_div_color.'" style="'.$rounded_border_style_2.'">'."\n";
 
 $i = 0;
 while ($i <= $websites_number) {
@@ -105,17 +105,17 @@ echo "\n";
 
 echo '<div class="'.$mobile_variable.'">'."\n";
 
-echo '<'.$m.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
+echo '<'.$h4_element.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
 
 echo '<div class="'.$mobile_variable.'">'."\n".$margin.$div_close."\n";
 echo "<center>"."\n";
 echo $div_zoom_animation."\n";
-echo '<'.$n.' class="'.$mobile_variable.' '.$websites_tab_name_text.'" style="'.$rounded_border_style_2.'"><p></p><br /><b>'.$websites_tab_button_name.'<span class="'.$websites_tab_number_text_color.' '.$websites_tab_number_hover_color.'">'.$websites_number_text.$spanc.' '.$websites_tab_button_icon.'</b><br /><br /><p></p></'.$n.'>'."\n";
+echo '<'.$h2_element.' class="'.$mobile_variable.' '.$websites_tab_name_text.'" style="'.$rounded_border_style_2.'"><p></p><br /><b>'.$websites_tab_button_name.'<span class="'.$websites_tab_number_text_color.' '.$websites_tab_number_hover_color.'">'.$websites_number_text.$spanc.' '.$websites_tab_button_icon.'</b><br /><br /><p></p></'.$h2_element.'>'."\n";
 	
 echo $div_close."\n";
 echo '<hr class="'.$mobile_variable.' '.$websites_tab_border.'" />'."\n";
 echo $div_zoom_animation."\n";
-echo '<'.$m.' class="'.$websites_tab_div_color.'" style="'.$rounded_border_style_2.'">'."\n";
+echo '<'.$h4_element.' class="'.$websites_tab_div_color.'" style="'.$rounded_border_style_2.'">'."\n";
 
 $i = 0;
 while ($i <= $websites_number) {

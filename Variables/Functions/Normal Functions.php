@@ -151,8 +151,8 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	global $computer_variable;
 	global $mobile_variable;
 	global $readers;
-	global $n;
-	global $m;
+	global $h2_element;
+	global $h4_element;
 	global $text_hover_white_css_class;
 	global $zoom_animation_class;
 	global $span_element;
@@ -160,8 +160,9 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	$classes = array(
 	$text_hover_white_css_class,
 	$zoom_animation_class,
-	$computer_variable,
 	);
+
+	$classes[2] = $computer_variable;
 
 	$i = 0;
 	while ($i <= $story_readers_number_file) {
@@ -170,22 +171,16 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 		$reader_name = $readers[$i];
 
 		$reader_number_text = Create_Element($span_element, $number_text_color, $i2);
-		$reader_name_text = Create_Element($n, $classes, $reader_number_text." - ".$reader_name);
+		$reader_name_text = Create_Element($h2_element, $classes, $reader_number_text." - ".$reader_name);
 
-		echo $reader_name_text;
-
-		#echo '<'.$n.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$computer_variable.'">'.$text_color.$i2.$spanc.' - '..'</'.$n.'>'."\n";
+		echo $reader_name_text."\n";
 
 		$i++;
 	}
 
 	echo "\n";
 
-	$classes = array(
-	$text_hover_white_css_class,
-	$zoom_animation_class,
-	$mobile_variable,
-	);
+	$classes[2] = $mobile_variable;
 
 	$i = 0;
 	while ($i <= $story_readers_number_file) {
@@ -194,11 +189,11 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 		$reader_name = $readers[$i];
 
 		$reader_number_text = Create_Element($span_element, $number_text_color, $i2);
-		$reader_name_text = Create_Element($n, $classes, $reader_number_text." - ".$reader_name);
+		$reader_name_text = Create_Element($h2_element, $classes, $reader_number_text." - ".$reader_name);
 
-		echo $reader_name_text;
+		echo $reader_name_text."\n";
 
-		#echo '<'.$m.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$mobile_variable.'">'.$text_color.$i2.$spanc.' - '.$readers[$i]."</".$m.'>'."\n";
+		#echo '<'.$h4_element.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$mobile_variable.'">'.$text_color.$i2.$spanc.' - '.$readers[$i]."</".$h4_element.'>'."\n";
 
 		$i++;
 	}
@@ -278,7 +273,7 @@ function Make_Button_Names() {
 function Make_Tab_Titles($custom_tab_titles_array = Null) {
 	global $tab_titles;
 	global $div_zoom_animation;
-	global $n;
+	global $h2_element;
 	global $div_close;
 	global $alternative_tab_full_border;
 	global $city_titles;
@@ -289,7 +284,7 @@ function Make_Tab_Titles($custom_tab_titles_array = Null) {
 
 	$i = 0;
 	foreach ($tab_titles as $value) {
-		$city_titles[$i] = $div_zoom_animation.'<'.$n.' class="w3-center"><p></p><br /><b>'.$value.'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+		$city_titles[$i] = $div_zoom_animation.'<'.$h2_element.' class="w3-center"><p></p><br /><b>'.$value.'</b><br /><br /><p></p></'.$h2_element.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 
 		$i++;
 	}

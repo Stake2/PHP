@@ -1,6 +1,6 @@
 <?php 
 
-echo '<'.$m.' class="'.$first_text_color.'" style="text-align:left;">'."\n";
+echo '<'.$h4_element.' class="'.$first_text_color.'" style="text-align:left;">'."\n";
 
 echo $div_zoom_animation."\n";
 
@@ -18,6 +18,6 @@ echo $div_close;
 
 echo $div_close."\n";
 
-echo '</'.$m.'>'."\n";
+echo '</'.$h4_element.'>'."\n";
 
 ?>

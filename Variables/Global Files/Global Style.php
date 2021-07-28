@@ -174,8 +174,14 @@ $tab_style_mobile = 'city '.$mobile_variable;
 
 $chapter_image_style = 'style="float:left;border-width:3px;border-color:black;border-style:solid;"';
 
-$n = 'h2';
-$m = 'h4';
+$h2_element = 'h2';
+$h4_element = 'h4';
+
+$h2_right_element = '<h2>';
+$h4_right_element = '<h4>';
+
+$h2_close_element = '</h2>';
+$h4_close_element = '</h4>';
 
 $blackspan = '<span class="w3-text-black">';
 $whitespan = '<span class="w3-text-white">';

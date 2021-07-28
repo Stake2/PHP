@@ -3,17 +3,17 @@
 $i = 8;
 $i2 = $i + 2;
 echo '<div class="'.$computer_variable.'">'."\n";
-echo '<a href="#'.$tabcodes[$i].'" style="float:left;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i]."')".'">'.$icons[28].'</button></a>'."\n";
+echo '<a href="#'.$website_tab_codes_computer[$i].'" style="float:left;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".'">'.$icons[28].'</button></a>'."\n";
 
-echo '<a href="#'.$tabcodes[$i2].'" style="float:right;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodes[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
+echo '<a href="#'.$website_tab_codes_computer[$i2].'" style="float:right;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
 
 echo '<a href="#'.$citycodes[1].'"><button class="w3-btn '.$first_button_style.'" style="float:left;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$citycodes[1]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 echo $div_close."\n";
 
 echo '<div class="'.$mobile_variable.'">'."\n";
-echo '<a href="#'.$tabcodesm[$i].'" style="float:left;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i]."')".'">'.$icons[28].'</button></a>'."\n";
+echo '<a href="#'.$website_tab_codes_mobile[$i].'" style="float:left;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".'">'.$icons[28].'</button></a>'."\n";
 
-echo '<a href="#'.$tabcodesm[$i2].'" style="float:right;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$tabcodesm[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
+echo '<a href="#'.$website_tab_codes_mobile[$i2].'" style="float:right;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
 
 echo '<a href="#'.$citycodes[1].'"><button class="w3-btn '.$first_button_style.'" style="float:left;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$citycodes[1]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 echo $div_close."\n";
@@ -49,7 +49,7 @@ echo '<br /><br />'."\n";
 echo '<div class="border" '.$roundedborderstyle.'>'."\n";
 echo $margin."\n";
 echo '<a name="a2018"></a>'."\n";
-echo '<'.$n.'><p></p><br /><b>'.'2018: '.'</b><br /><br /><p></p></'.$n.'>'."\n";
+echo '<'.$h2_element.'><p></p><br /><b>'.'2018: '.'</b><br /><br /><p></p></'.$h2_element.'>'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
 $current_year = 2018;
@@ -76,7 +76,7 @@ echo '<br /><br />'."\n";
 echo '<div class="border" '.$roundedborderstyle.'>'."\n";
 echo $margin."\n";
 echo '<a name="a2019"></a>'."\n";
-echo '<'.$n.'><p></p><br /><b>'.'2019: '.'</b><br /><br /><p></p></'.$n.'>'."\n";
+echo '<'.$h2_element.'><p></p><br /><b>'.'2019: '.'</b><br /><br /><p></p></'.$h2_element.'>'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
 $current_year = 2019;
@@ -102,7 +102,7 @@ echo '<br /><br />'."\n";
 echo '<div class="border" '.$roundedborderstyle.'>'."\n";
 echo $margin."\n";
 echo '<a name="a2020"></a>'."\n";
-echo '<'.$n.'><p></p><br /><b>'.'2020: '.'</b><br /><br /><p></p></'.$n.'>'."\n";
+echo '<'.$h2_element.'><p></p><br /><b>'.'2020: '.'</b><br /><br /><p></p></'.$h2_element.'>'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
 echo '<div style="text-align:left;">'."\n";

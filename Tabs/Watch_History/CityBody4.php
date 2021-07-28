@@ -6,7 +6,7 @@ $city_titles[3] = '
 <div class="'.$computer_variable.'">'.$every_watched_button_computer.$div_close.
 '<div class="'.$mobile_variable.'">'.$every_watched_button_mobile.$div_close.
 '<hr class="'.$header_full_border.'" />
-'.$div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$n.'>'.$div_close.'<hr class="'.$header_full_border.'" />'."\n";
+'.$div_zoom_animation.'<'.$h2_element.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$h2_element.'>'.$div_close.'<hr class="'.$header_full_border.'" />'."\n";
 $city_bodies[3] = '';
 
 ?>

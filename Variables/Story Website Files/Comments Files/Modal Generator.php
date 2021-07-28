@@ -31,13 +31,13 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     # Computer Comment-modal form
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$n.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$h2_element.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$h2_element.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 
 	echo '<form name="'.$website_form_code.'-comment" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
 	echo $margin2."\n";
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$h2_element.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$h2_element.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input unexistant class" '.$roundedborderstyle.'>'."\n";
@@ -45,13 +45,13 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<br />'."\n";
 
 	# Comment input text
-	echo $div_zoom_animation.'<'.$n.' class="'.$first_text_color.'"><b>'.$comment_what_you_think_on_chapter_text.':</b></'.$n.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$h2_element.' class="'.$first_text_color.'"><b>'.$comment_what_you_think_on_chapter_text.':</b></'.$h2_element.'>'.$div_close."\n";
 
 	# Comment input
 	echo '<input type="text" name="comment" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
 
 	# Form submit button
-	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$n.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$n.'></button>'."\n";
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$computer_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$h2_element.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$h2_element.'></button>'."\n";
 
 	echo $div_close."\n";
 	echo '</form>'."\n";
@@ -75,12 +75,12 @@ while ($chapter_number_1 <= $chapters) {
 
     # Mobile Comment-modal form
 	echo '<form name="'.$website_form_code.'-comment" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$m.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
+	echo $div_zoom_animation.'<'.$h4_element.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$capnum12.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$h4_element.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 	echo $margin2."\n";
 	echo '<br />'."\n";
 
 	# Name input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$h4_element.' class="'.$first_text_color.'"><b>'.$your_name_text.':</b></'.$h4_element.'>'.$div_close."\n";
 
 	# Name input
 	echo '<input type="text" name="name" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
@@ -88,13 +88,13 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<br />'."\n";
 
 	# Comment input text
-	echo $div_zoom_animation.'<'.$m.' class="'.$first_text_color.'"><b>'.$comment_what_you_think_on_chapter_text.':</b></'.$m.'>'.$div_close."\n";
+	echo $div_zoom_animation.'<'.$h4_element.' class="'.$first_text_color.'"><b>'.$comment_what_you_think_on_chapter_text.':</b></'.$h4_element.'>'.$div_close."\n";
 
 	# Comment input
 	echo '<input type="text" name="comment" class="'.$first_button_style.' w3-input" '.$roundedborderstyle.'>'."\n";
 
 	# Form submit button
-	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$m.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$m.'></button>'."\n";
+	echo '<button type="submit" class="w3-btn '.$full_form_send_button_style.' '.$mobile_variable.'" style="margin-top:1px;margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$h4_element.'><b>'.$send_form_text.': <i class="fas fa-paper-plane"></i></b></'.$h4_element.'></button>'."\n";
 
 	echo $div_close."\n";
 	echo '</form>'."\n";

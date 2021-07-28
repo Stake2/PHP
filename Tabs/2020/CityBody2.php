@@ -1,6 +1,6 @@
 <?php 
 
-$city_titles[1] = '<'.$n.'><p><br /><b>'.$wtxt0.': '.$icons[0].'</b><br /><br /><p></'.$n.'><hr class="'.$sitehr.'" />';
+$city_titles[1] = '<'.$h2_element.'><p><br /><b>'.$wtxt0.': '.$icons[0].'</b><br /><br /><p></'.$h2_element.'><hr class="'.$sitehr.'" />';
 $city_bodies[1] = '<div style="text-align:left;">'.'
 '.$writtentxt.'<br />'.'<br /><br />
 <b>'.$watchedtxt.': '.$bluespan.$watched_number_.$spanc.'</b><br />'.'

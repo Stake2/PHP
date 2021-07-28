@@ -89,7 +89,7 @@ require $website_style_file;
 # Tab Generator.php File Includer
 require $website_tabs_generator;
 
-$read_story_button = $computer_buttons[0];
+$read_story_button = $computer_buttons_bar[0];
 
 # Website notification variables if the website notification setting is True
 if ($website_has_notifications == True) {

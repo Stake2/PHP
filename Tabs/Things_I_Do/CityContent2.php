@@ -1,6 +1,6 @@
 <?php 
 
-echo '<'.$m.'>'.'<b>';
+echo '<'.$h4_element.'>'.'<b>';
 echo $div_zoom_animation;
 
 echo '<div class="'.$computer_variable.'">';
@@ -26,6 +26,6 @@ while ($c <= $unprodbtnsnumb - 1) {
 echo $div_close;
 
 echo $div_close;
-echo '</b>'.'</'.$m.'>';
+echo '</b>'.'</'.$h4_element.'>';
 
 ?>

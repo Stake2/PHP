@@ -15,7 +15,7 @@ while ($i <= $website_tab_number) {
 # Array of tab texts
 $i = 0;
 while ($i <= $website_tab_number) {
-	$tabtxts[$i] = $citytxts[$i];
+	$website_tab_titles_computer[$i] = $citytxts[$i];
 
 	$i++;
 }
@@ -50,7 +50,7 @@ else {
 # Array of mobile tab texts
 $i = 0;
 while ($i <= $website_tab_number) {
-	$tabtxtsm[$i] = $citytxts[$i];
+	$website_tab_titles_mobile[$i] = $citytxts[$i];
 
 	$i++;
 }
@@ -88,7 +88,7 @@ else {
 # Array of city codes
 $i = 0;
 while ($i <= $website_tab_number) {
-	$tabcodes[$i] = $citycodes[$i];
+	$website_tab_codes_computer[$i] = $citycodes[$i];
 
 	$i++;
 }
@@ -96,7 +96,7 @@ while ($i <= $website_tab_number) {
 # Array of mobile city codes
 $i = 0;
 while ($i <= $website_tab_number) {
-	$tabcodesm[$i] = $citycodes[$i].'m';
+	$website_tab_codes_mobile[$i] = $citycodes[$i].'m';
 
 	$i++;
 }
@@ -141,7 +141,7 @@ if ($website_uses_tab_body_generator == False) {
 
 if ($website_name == $website_watch_history) {
 	# Include the buttons loader PHP file
-	require $computer_buttons_bar_loader;
+	require $website_buttons_generator_php;
 
 	# Every Watched Button Computer
 	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
@@ -168,8 +168,8 @@ while ($i <= $website_tab_number) {
 }
 
 if ($website_name == $website_things_i_do) {
-	#Include the buttons loader PHP file
-	require $computer_buttons_bar_loader;
+	# Include the buttons loader PHP file
+	require $website_buttons_generator_php;
 }
 
 # Comments Tab includer if the setting is True
@@ -243,7 +243,7 @@ while ($i <= $website_tab_number) {
 
 if ($website_name != $website_things_i_do and $website_name != $website_watch_history) {
 	# Require the Computer Buttons Bar Loader PHP file
-	require $computer_buttons_bar_loader;
+	require $website_buttons_generator_php;
 }
 
 ?>

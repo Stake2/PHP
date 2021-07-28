@@ -6,15 +6,15 @@ echo $div_zoom_animation.'<div class="'.$computer_variable.'">
 '.$linktxts[0].': </h1>
 <hr class="'.$header_full_border.'" />
 <img class="'.$first_full_border.'" src="'.$media_image_links_array[0].'" width="28%" style="'.$rounded_border_style_2.'" /><br />
-<'.$m.' class="'.$first_text_color.'">
+<'.$h4_element.' class="'.$first_text_color.'">
 <hr class="'.$header_full_border.'" />
 <span class="'.$first_text_color.'">Links: </span><br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[0].'">'.$media_links_array[0].'</a>'.'<br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[1].'">'.$media_links_array[1].'</a>' .'<br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[2].'">'.$media_links_array[2].'</a>' .'<br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[3].'">'.$media_links_array[3].'</a>' .'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[4].'">'.$media_links_array[4].'</a>' .' -  <a href="'.$media_links_array[5].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><'.$m.'>'.$icons[8].'</'.$m.'>'.'</a>'.'<br />
-</'.$m.'>
+<a '.$text_hover_white_css_class.' href="'.$media_links_array[4].'">'.$media_links_array[4].'</a>' .' -  <a href="'.$media_links_array[5].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><'.$h4_element.'>'.$icons[8].'</'.$h4_element.'>'.'</a>'.'<br />
+</'.$h4_element.'>
 </div>
 
 <br /><br /><br />
@@ -24,11 +24,11 @@ echo $div_zoom_animation.'<div class="'.$computer_variable.'">
 '.$linktxts[1].': </h1>
 <hr class="'.$header_full_border.'" />
 <img class="'.$first_full_border.'" src="'.$media_image_links_array[1].'" width="55%" style="'.$rounded_border_style_2.'" /><br />
-<'.$m.' class="'.$first_text_color.'">
+<'.$h4_element.' class="'.$first_text_color.'">
 <hr class="'.$header_full_border.'" />
 <span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[6].'">'.$media_links_array[6].'</a> - <a href="'.$media_links_array[7].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><'.$m.'>'.$icons[8].'</'.$m.'>'.'</a><br />
-</'.$m.'>
+<a '.$text_hover_white_css_class.' href="'.$media_links_array[6].'">'.$media_links_array[6].'</a> - <a href="'.$media_links_array[7].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><'.$h4_element.'>'.$icons[8].'</'.$h4_element.'>'.'</a><br />
+</'.$h4_element.'>
 </div>
 
 <br /><br /><br />
@@ -38,13 +38,13 @@ echo $div_zoom_animation.'<div class="'.$computer_variable.'">
 '.$linktxts[2].': </h1>
 <hr class="'.$header_full_border.'" />
 <img class="'.$first_full_border.'" src="'.$media_image_links_array[2].'" width="41%" style="'.$rounded_border_style_2.'" /><br />
-<'.$m.' class="'.$first_text_color.'">
+<'.$h4_element.' class="'.$first_text_color.'">
 <hr class="'.$header_full_border.'" />
 <span class="'.$first_text_color.'">Links: </span><br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[8].'">'.$media_links_array[8].'</a>'.'<br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[9].'">'.$media_links_array[9].'</a>'.'<br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[10].'">'.$media_links_array[10].'</a>'.'<br />
-</'.$m.'>
+</'.$h4_element.'>
 </div>
 
 <br /><br /><br />
@@ -54,11 +54,11 @@ echo $div_zoom_animation.'<div class="'.$computer_variable.'">
 '.$linktxts[3].': </h1>
 <hr class="'.$header_full_border.'" />
 <img class="'.$first_full_border.'" src="'.$media_image_links_array[3].'" width="31%" style="'.$rounded_border_style_2.'" /><br />
-<'.$m.' class="'.$first_text_color.'">
+<'.$h4_element.' class="'.$first_text_color.'">
 <hr class="'.$header_full_border.'" />
 <span class="'.$first_text_color.'">Links: </span><br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[11].'">'.$media_links_array[11].'</a>'.'<br />
-</'.$m.'>
+</'.$h4_element.'>
 </div>
 
 <br /><br /><br />
@@ -68,11 +68,11 @@ echo $div_zoom_animation.'<div class="'.$computer_variable.'">
 '.$linktxts[4].': </h1>
 <hr class="'.$header_full_border.'" />
 <img class="'.$first_full_border.'" src="'.$media_image_links_array[4].'" width="33%" style="'.$rounded_border_style_2.'" /><br />
-<'.$m.' class="'.$first_text_color.'">
+<'.$h4_element.' class="'.$first_text_color.'">
 <hr class="'.$header_full_border.'" />
 <span class="'.$first_text_color.'">Links: </span><br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[12].'">'.$media_links_array[12].'</a>'.'<br />
-</'.$m.'>
+</'.$h4_element.'>
 </div>
 
 <br /><br /><br />
@@ -82,12 +82,12 @@ echo $div_zoom_animation.'<div class="'.$computer_variable.'">
 '.$linktxts[5].': </h1>
 <hr class="'.$header_full_border.'" />
 <img class="'.$first_full_border.'" src="'.$media_image_links_array[5].'" width="50%" style="'.$rounded_border_style_2.'" /><br />
-<'.$m.' class="'.$first_text_color.'">
+<'.$h4_element.' class="'.$first_text_color.'">
 <hr class="'.$header_full_border.'" />
 <span class="'.$first_text_color.'">Links: </span><br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[13].'">'.$media_links_array[13].'</a>'.'<br />
 <a '.$text_hover_white_css_class.' href="'.$media_links_array[14].'">'.$media_links_array[14].'</a>'.'<br />
-</'.$m.'>
+</'.$h4_element.'>
 </div>
 </div>'
 .

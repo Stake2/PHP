@@ -106,14 +106,14 @@ if ($website_name == $sitewatch and $a2019 == false and $regeneratemedias2019 ==
 if ($website == $site2019 and $generate2019 == True) {
 	#2019.php version of the YearMaker from TextMaker.php
 
-	echo '<div class="'.$computer_variable.'">'.'<button class="w3-btn '.$first_button_style.'" id="cetoggle1btn" '.$roundedborderstyle.' onClick="Cetoggle2cmnd();">'.'<'.$n.'>'.$edit_text.': '.$icons[10].'</'.$n.'>'.'</button>'."\n";
+	echo '<div class="'.$computer_variable.'">'.'<button class="w3-btn '.$first_button_style.'" id="cetoggle1btn" '.$roundedborderstyle.' onClick="Cetoggle2cmnd();">'.'<'.$h2_element.'>'.$edit_text.': '.$icons[10].'</'.$h2_element.'>'.'</button>'."\n";
 	
-	echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" '.$roundedborderstyle.' onclick="copyToClipboard2()">'.'<'.$n.'>'.''.$copy_text_text.': '.$icons[15].'</'.$n.'>'.'</button>'."\n";
-	echo '<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="copyToClipboard1()">'.'<'.$n.'>'.''.$copy_html_text.': '.$icons[15].'</'.$n.'>'.'</button>'."\n";
+	echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" '.$roundedborderstyle.' onclick="copyToClipboard2()">'.'<'.$h2_element.'>'.''.$copy_text_text.': '.$icons[15].'</'.$h2_element.'>'.'</button>'."\n";
+	echo '<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="copyToClipboard1()">'.'<'.$h2_element.'>'.''.$copy_html_text.': '.$icons[15].'</'.$h2_element.'>'.'</button>'."\n";
 	echo $div_close."\n";
 	echo '<hr class="'.$sitehr.' '.$computer_variable.'" />'."\n";
 	echo '<div style="text-align:left;">'."\n";
-	echo '<'.$n.' class="'.$textstyle.' '.$computer_variable.'" id="teste1div" style="text-align:left;">'."\n";
+	echo '<'.$h2_element.' class="'.$textstyle.' '.$computer_variable.'" id="teste1div" style="text-align:left;">'."\n";
 	echo $div_zoom_animation."\n";
 	
 	echo $author.'<br />'."\n";
@@ -223,7 +223,7 @@ if ($website == $site2019 and $generate2019 == True) {
 	#Comments part displayer
 	echo $txts[$i].': '.$bluespan.$yearnumbs2019txt[$a].$spanc.' (#'.$bluespan.$yearnumbs2019txt[$a2].$spanc.')'.'<br />'."\n";
 	
-	echo '</'.$n.'>'."\n";
+	echo '</'.$h2_element.'>'."\n";
 	echo $div_close."\n";
 	
 	echo '<script>
@@ -243,12 +243,12 @@ if ($website == $site2019 and $generate2019 == True) {
 	
 	
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" onclick="copyToClipboard2()">'.'<'.$m.'>'.''.$copy_text_text.': '.$icons[15].'</'.$m.'>'.'</button>'."\n";
-	echo '<button class="w3-btn '.$first_button_style.'" onclick="copyToClipboard1()">'.'<'.$m.'>'.''.$copy_html_text.': '.$icons[15].'</'.$m.'>'.'</button>'."\n";
+	echo '<button class="w3-btn '.$first_button_style.'" id="copytextbtn" onclick="copyToClipboard2()">'.'<'.$h4_element.'>'.''.$copy_text_text.': '.$icons[15].'</'.$h4_element.'>'.'</button>'."\n";
+	echo '<button class="w3-btn '.$first_button_style.'" onclick="copyToClipboard1()">'.'<'.$h4_element.'>'.''.$copy_html_text.': '.$icons[15].'</'.$h4_element.'>'.'</button>'."\n";
 	echo $div_close."\n";
 	echo '<hr class="'.$sitehr.' '.$mobile_variable.'" />'."\n";
 	echo '<div style="text-align:left;">'."\n";
-	echo '<'.$m.' class="'.$textstyle.' '.$mobile_variable.'" id="teste1div" style="text-align:left;">'."\n";
+	echo '<'.$h4_element.' class="'.$textstyle.' '.$mobile_variable.'" id="teste1div" style="text-align:left;">'."\n";
 	echo $div_zoom_animation."\n";
 	
 	echo $author.'<br />'."\n";
@@ -360,7 +360,7 @@ if ($website == $site2019 and $generate2019 == True) {
 	#Comments part displayer
 	echo $txts[$i].': '.$bluespan.$yearnumbs2019txt[$a].$spanc.' (#'.$bluespan.$yearnumbs2019txt[$a2].$spanc.')'.'<br />'."\n";
 	
-	echo '</'.$m.'>'."\n";
+	echo '</'.$h4_element.'>'."\n";
 	echo $div_close."\n";	
 }
 

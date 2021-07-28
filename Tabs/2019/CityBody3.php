@@ -4,7 +4,7 @@ $izz = 20;
 $izz2 = 21;
 $azz = 24;
 $azz2 = 25;
-$city_titles[2] = $div_zoom_animation.'<'.$n.'><p><br /><b>'.$tab_names[2].': '.$bluespan.$friendsnumb.$spanc.' '.$icons[1].'</b><br /><br /></'.$n.'>'.$div_close.'<hr class="'.$sitehr.'" />'."\n";
+$city_titles[2] = $div_zoom_animation.'<'.$h2_element.'><p><br /><b>'.$tab_names[2].': '.$bluespan.$friendsnumb.$spanc.' '.$icons[1].'</b><br /><br /></'.$h2_element.'>'.$div_close.'<hr class="'.$sitehr.'" />'."\n";
 $city_bodies[2] = '<div style="text-align:left;">'.
 $div_zoom_animation.'
 <b>'.$txts[$izz].': '.$bluespan.$yearnumbs2019txt[$azz].$spanc.'<br />'.'</b>

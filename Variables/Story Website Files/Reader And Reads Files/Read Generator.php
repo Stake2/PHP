@@ -45,7 +45,7 @@ if ($reads_number > 1 and $read_dates != Null) {
 		$reader = $chapter_readers[$current_chapter_read_number];
 
 		# Read creation
-		$read = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'">'.'<div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
+		$read = $margin.'<'.$h4_element.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'">'.'<div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 
 		# Reader text and name
 		$reader_text.': </b>'.$reader.'<br /><b>';
@@ -56,7 +56,7 @@ if ($reads_number > 1 and $read_dates != Null) {
 		}
 
 		# Read time text and time
-		$read .= ucwords($in_text).':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$m.'>'.$div_close."\n";
+		$read .= ucwords($in_text).':</b> '.$read_date.' <br /><br />'.$div_close.'</'.$h4_element.'>'.$div_close."\n";
 
 		$reads_array[$chapter_number_1][$current_chapter_read_number] = $read;
 
@@ -68,7 +68,7 @@ if ($reads_number == 1 and $read_dates != Null) {
 	$read_date = date("H:i d/m/Y", strtotime($read_dates[1]));
 	$reader = $chapter_readers[1];
 
-	$read = $margin.'<'.$m.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
+	$read = $margin.'<'.$h4_element.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'"><div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 	# Reader text and name
 	$reader_text.': </b>'.$reader.'<br /><b>';
 
@@ -80,7 +80,7 @@ if ($reads_number == 1 and $read_dates != Null) {
 	# Read time text and time
 	$read .= ucwords($in_text).':</b> '.$read_date.' <br /><br />';
 
-	$read .= $div_close.'</'.$m.'>'.$div_close."\n";
+	$read .= $div_close.'</'.$h4_element.'>'.$div_close."\n";
 
 	$reads_array[$chapter_number_1] = $read;
 }

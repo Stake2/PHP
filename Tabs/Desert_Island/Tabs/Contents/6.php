@@ -1,7 +1,7 @@
 <?php 
 
 if (file_exists($website_changelog_file) == True) {
-	echo '<'.$m.' class="'.$textstyle.'" style="text-align:left;"><b>'."\n";
+	echo '<'.$h4_element.' class="'.$textstyle.'" style="text-align:left;"><b>'."\n";
 	
 	$i = 0;
 	while ($i <= $clfile) {
@@ -9,7 +9,7 @@ if (file_exists($website_changelog_file) == True) {
 		$i++;
 	}
 	
-	echo '</b>'.'</'.$m.'>'."\n";
+	echo '</b>'.'</'.$h4_element.'>'."\n";
 	echo $div_close;
 }
 

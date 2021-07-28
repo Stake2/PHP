@@ -1,10 +1,10 @@
 <?php 
 
 # Comment form
-echo '<'.$m.'>'."\n".'<b>'."\n";
+echo '<'.$h4_element.'>'."\n".'<b>'."\n";
 echo $div_zoom_animation."\n";
 echo $website_comment_form;
-echo "\n".'</b>'."\n".'</'.$m.'>'."\n";
+echo "\n".'</b>'."\n".'</'.$h4_element.'>'."\n";
 
 $show_chapter_on_comment = False;
 
@@ -39,7 +39,7 @@ if ($local_comment_number > 1 and $comment_dates != Null) {
 		$commenter = $commenters[$comment_number];
 		$current_comment = $comments[$comment_number];
 
-		$comment = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
+		$comment = '<'.$h4_element.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
 
 		$comment .= '<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n";
 		
@@ -54,7 +54,7 @@ if ($local_comment_number > 1 and $comment_dates != Null) {
 
 		$comment .= '<hr class="'.$third_full_border.'" />'.$current_comment."\n".'<br /><br /><br /><br /><br />'."\n";
 
-		$comment .= $div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+		$comment .= $div_close."\n".'</'.$h4_element.'>'."\n"."<br />"."\n"."\n";
 
 		$website_comments_array[$comment_number] = $comment;
 

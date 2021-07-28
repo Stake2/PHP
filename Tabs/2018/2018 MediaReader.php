@@ -75,7 +75,7 @@ if ($website_name == $sitewatch and $thingsidofake == null or $thingsidofake == 
 }
 
 if ($website_name != $sitewatch) {
-	echo '<'.$n.' class="" style="text-align:left;">'."\n";
+	echo '<'.$h2_element.' class="" style="text-align:left;">'."\n";
 
 	echo '<b>'.'<a href="'.$main_website_url.'/watch/" class="w3-text-white">'.$txts[4].'</a>'.': </b>'.$number_text_color_span.'<b>'.$watched_number.'</b>'.$spanc.'<br />'."\n";
 }
@@ -295,7 +295,7 @@ if ($website_name == $sitewatch) {
 }
 
 else {
-	echo '</'.$n.'>'."\n";
+	echo '</'.$h2_element.'>'."\n";
 }
 
 echo $div_close."\n";

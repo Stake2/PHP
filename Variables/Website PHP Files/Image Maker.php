@@ -10,13 +10,13 @@ $main_website_image_mobile = "<center>"."\n".
 if ($website_deactivate_image_link_setting == False) {
 	$website_image_button_computer = '<div class="'.$computer_variable.' w3-center">'."\n".
 	'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
-	'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'."\n".
+	'<'.$h4_element.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
 	'</button>'."\n".
 	$div_close."\n";
 
 	$website_image_button_mobile = '<div class="'.$mobile_variable.' w3-center">'."\n".
 	'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
-	'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'."\n".
+	'<'.$h4_element.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
 	'</button>'."\n".
 	$div_close."\n";
 }

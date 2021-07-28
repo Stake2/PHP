@@ -35,12 +35,12 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 	if ($website_deactivate_image_link_setting == False) {
 		$website_image_button_computer = '<div class="'.$computer_variable.'">'."\n".
 		'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
-		'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'."\n".
+		'<'.$h4_element.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
 		'</button>'."\n".$div_close."\n";
 
 		$website_image_button_mobile = '<div class="'.$mobile_variable.'">'."\n".
 		'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
-		'<'.$m.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$m.'>'."\n".
+		'<'.$h4_element.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
 		'</button>'."\n".
 		$div_close."\n";
 	}
@@ -52,22 +52,12 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 
 	$website_header_wrapper = $computer_space.
 
-/*
-	Create_Element("div", $default_background_color, '<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_header.'</b><br /><br /><p></'.$n.'>'."\n".'
-	<hr class="'.$first_full_border.'" />
-	'.$website_images_variable.'
-	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_meta_description.'</'.$n.'>
-	<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_meta_description.'</'.$m.'>
-	<br />
-	', 'style="margin-left:5%;margin-right:5%;'.$first_border_color.$rounded_border_style_2.'"')
-*/
-
 	'<div class="'.$default_background_color.'" '.$styletext2.' style="margin-left:5%;margin-right:5%;'.$first_border_color.$rounded_border_style_2.'">
-	<'.$n.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_header.'</b><br /><br /><p></'.$n.'>'."\n".
+	<'.$h2_element.' class="'.$first_text_color.' '.$zoom_animation_class.'"><p><br /><b>'.$website_title_header.'</b><br /><br /><p></'.$h2_element.'>'."\n".
 	$header_hr.
 	$website_images_variable.'
-	<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_meta_description.'</'.$n.'>
-	<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_meta_description.'</'.$m.'>
+	<'.$h2_element.' class="'.$first_text_color.' '.$computer_variable.'">'.$website_meta_description.'</'.$h2_element.'>
+	<'.$h4_element.' class="'.$first_text_color.' '.$mobile_variable.'">'.$website_meta_description.'</'.$h4_element.'>
 	<br />'
 
 	.$div_close."\n";	
@@ -76,9 +66,9 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 if ($website_type == $normal_website_type and $website_deactivate_header_setting == False or in_array($website_name, $years_array) and $website_deactivate_header_setting == False and $website_uses_custom_layout_setting == False) {
 	if ($website_name == $website_diario) {
 		$diario_blocks_text_on_header = $diario_blocks_text.'<br />'."\n";
-		$things_of_diario_one = '<'.$n.' class="'.$first_text_color.' '.$computer_variable.'">'.$diario_blocks_text_on_header.'</'.$n.'>
+		$things_of_diario_one = '<'.$h2_element.' class="'.$first_text_color.' '.$computer_variable.'">'.$diario_blocks_text_on_header.'</'.$h2_element.'>
 		';
-		$things_of_diario_two = '<'.$m.' class="'.$first_text_color.' '.$mobile_variable.'">'.$diario_blocks_text_on_header.'</'.$m.'>
+		$things_of_diario_two = '<'.$h4_element.' class="'.$first_text_color.' '.$mobile_variable.'">'.$diario_blocks_text_on_header.'</'.$h4_element.'>
 		';
 	}
 
@@ -93,15 +83,15 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 	'<div class="w3-center '.$default_background_color.' '.$first_full_border.'" style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'">'."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website computer title -->"."\n".
-	'<'.$n.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
+	'<'.$h2_element.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
 	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
-	'</'.$n.'>'."\n".
+	'</'.$h2_element.'>'."\n".
 	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile title -->"."\n".
-	'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
+	'<'.$h4_element.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
 	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
-	'</'.$m.'>'."\n".
+	'</'.$h4_element.'>'."\n".
 	$div_close."\n"."\n".
 	$header_hr."\n"."\n".
 	"<!-- Website images -->"."\n".
@@ -109,15 +99,15 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 	$website_images_variable.$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website computer header description-->"."\n".
-	'<'.$n.' class="w3-center '.$first_text_color.' '.$computer_variable.'">'."\n".
+	'<'.$h2_element.' class="w3-center '.$first_text_color.' '.$computer_variable.'">'."\n".
 	$website_header_description."\n".
-	'</'.$n.'>'."\n".
+	'</'.$h2_element.'>'."\n".
 	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile header description-->"."\n".
-	'<'.$m.' class="w3-center '.$first_text_color.' '.$mobile_variable.'">'."\n".
+	'<'.$h4_element.' class="w3-center '.$first_text_color.' '.$mobile_variable.'">'."\n".
 	$website_header_description."\n".
-	'</'.$m.'>'.$div_close."\n".
+	'</'.$h4_element.'>'.$div_close."\n".
 	$things_of_diario_one.$things_of_diario_two.
 	"<br />"."\n".
 	$div_close;
@@ -149,15 +139,15 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	$div_zoom_animation."\n";
 
 	$website_header_wrapper .= "\n"."<!-- Website computer title -->"."\n".
-	'<'.$n.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
+	'<'.$h2_element.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
 	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
-	'</'.$n.'>'."\n".
+	'</'.$h2_element.'>'."\n".
 	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile title -->"."\n".
-	'<'.$m.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
+	'<'.$h4_element.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
 	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
-	'</'.$m.'>'."\n".
+	'</'.$h4_element.'>'."\n".
 	$div_close."\n"."\n".
 	$header_hr."\n"."\n";
 
@@ -168,9 +158,9 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	"\n".
 	$header_hr."\n"."\n";
 
-	$website_header_wrapper .= format('<'.$m.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$m.'>'."\n", $website_header_description)."\n"."\n";
+	$website_header_wrapper .= format('<'.$h4_element.' class="'.$first_text_color.'" style="'.$margincss1.'">{}</'.$h4_element.'>'."\n", $website_header_description)."\n"."\n";
 
-	$website_header_wrapper .= '<'.$m.' class="'.$first_text_color.'">'."\n".
+	$website_header_wrapper .= '<'.$h4_element.' class="'.$first_text_color.'">'."\n".
 	Define_Text_By_Number($story_author_number, $author_text, $authors_text).": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text).': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n";
 
@@ -179,7 +169,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	}
 
 	$website_header_wrapper .= $story_creation_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".
-	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$m.'>'."\n".
+	'Status: <span class="'.$second_text_color.'">'.$story_status_text.'</span></'.$h4_element.'>'."\n".
 	'<br />'."\n";
 
 	$website_header_wrapper = $computer_space.Create_Element("div", $default_background_color.' '.$first_full_border, $website_header_wrapper, 'style="margin-left:5%;margin-right:5%;'.$rounded_border_style_2.'"');
@@ -257,7 +247,7 @@ $website_head.
 '</head>
 <body onLoad="Define_Colors_And_Styles();">
 '.$center."\n"."\n".
-$buttons."\n".
+$website_buttons."\n".
 
 $change_website_title_script."\n".
 

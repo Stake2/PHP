@@ -34,7 +34,7 @@ if ($thingsidofake == null) {
 	}
 }
 
-echo '<'.$m.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
+echo '<'.$h4_element.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
 $i = 0;
 $a = 0;

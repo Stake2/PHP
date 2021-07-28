@@ -15,7 +15,7 @@ $chapter_number_4 = 0;
 while ($chapter_number_1 <= $chapters) {
 	if ($website_story_has_book_covers_setting == True and $story_shows_story_covers == True) {
 		if (isset($chapter_cover_images_computer[$chapter_number_1]) and isset($chapter_cover_images_mobile[$chapter_number_1])) {
-			$cover_image_button = '<center>'."\n".'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'">'.$chapter_cover_images_computer[$chapter_number_1]."\n".'</a>'.
+			$cover_image_button = '<center>'."\n".'<a id="story_chapter_image_number_'.$chapter_number_1.'" href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].'">'.$chapter_cover_images_computer[$chapter_number_1]."\n".'</a>'.
 			"\n"."\n".
 			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'">'."\n".$chapter_cover_images_mobile[$chapter_number_1]."\n".'</a>'.
 			"\n".'</center>'.
@@ -42,13 +42,7 @@ while ($chapter_number_1 <= $chapters) {
 
 		$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text).": ".$current_chapter_text."', 'notification');";
 
-		if ($new_write_style == True) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
-		}
-
-		if ($new_write_style == False) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
-		}
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 
 		if ($website_deactivate_notification_setting == True or !isset($hide_notification_attribute)) {
 			$hide_notification_attribute = '';
@@ -71,30 +65,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 			
-			$chapter_button = '<style>
-@keyframes blink_black_to_white {
-	0% {
-		color: black;
-		border-color:black;
-	} 
-
-	50% {
-		color: white;
-		border-color:white;
-	}
-
-	100% {
-		color: black;
-		border-color:black;
-	} 
-}
-
-.notification_text {
-	animation: blink_black_to_white 0.8s;
-	animation-iteration-count: infinite;
-}
-</style>'."\n".
-			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$new_text.'!]'.$spanc."</button></a> "."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$new_text.'!]'.$spanc."</button></a> "."\n";
 
 			echo $chapter_button;
 
@@ -143,13 +114,7 @@ while ($chapter_number_1 <= $chapters) {
 
 		$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text).": ".$current_chapter_text."', 'notification');";
 
-		if ($new_write_style == True) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
-		}
-
-		if ($new_write_style == False) {
-			$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');';
-		}
+		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 
 		if ($website_deactivate_notification_setting == True or !isset($hide_notification_attribute)) {
 			$hide_notification_attribute = '';
@@ -172,30 +137,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 
-			$chapter_button = '<style>
-@keyframes blink_black_to_white {
-	0% {
-		color: black;
-		border-color:black;
-	} 
-
-	50% {
-		color: white;
-		border-color:white;
-	}
-
-	100% {
-		color: black;
-		border-color:black;
-	} 
-}
-
-.notification_text {
-	animation: blink_black_to_white 0.8s;
-	animation-iteration-count: infinite;
-}
-</style>'."\n".
-			'<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.' notification_text" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable."</button></a> "."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable."</button></a> "."\n";
 
 			echo $chapter_button;
 

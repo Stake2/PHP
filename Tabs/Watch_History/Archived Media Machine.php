@@ -42,7 +42,7 @@ $tab_title = '
 <div class="'.$computer_variable.'">'.$every_watched_button_computer.$div_close."\n".
 '<div class="'.$mobile_variable.'">'.$every_watched_button_mobile.$div_close."\n".
 '<hr class="'.$header_full_border.'" />
-'.$div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$n.'>'.$div_close.'
+'.$div_zoom_animation.'<'.$h2_element.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$h2_element.'>'.$div_close.'
 <hr class="'.$header_full_border.'" />'."\n".
 $div_zoom_animation.'<div class="'.$computer_variable.'">'.$archived_media_buttons.$div_close."\n".
 '<div class="'.$mobile_variable.'">'.$archived_media_mobile_buttons.$div_close.$div_close;
@@ -50,7 +50,7 @@ $div_zoom_animation.'<div class="'.$computer_variable.'">'.$archived_media_butto
 echo $tab_title."\n";
 
 echo '<hr class="'.$header_full_border.'" />'."\n";
-echo '<'.$m.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
+echo '<'.$h4_element.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
 # Current Year Watched Media Generator file includer
 $mobile_version = False;
@@ -73,13 +73,13 @@ else {
 	echo "<center>"."\n";
 
 	if (in_array($website_language, $en_languages_array)) {
-		echo '<'.$n.' class="'.$first_text_color.' mobileHide"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$n.'>'."\n";
-		echo '<'.$m.' class="'.$first_text_color.' mobileShow"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$m.'>'."\n";
+		echo '<'.$h2_element.' class="'.$first_text_color.' mobileHide"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$h2_element.'>'."\n";
+		echo '<'.$h4_element.' class="'.$first_text_color.' mobileShow"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$h4_element.'>'."\n";
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		echo '<'.$n.' class="'.$first_text_color.' mobileHide"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$n.'>'."\n";
-		echo '<'.$m.' class="'.$first_text_color.' mobileShow"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$m.'>'."\n";
+		echo '<'.$h2_element.' class="'.$first_text_color.' mobileHide"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$h2_element.'>'."\n";
+		echo '<'.$h4_element.' class="'.$first_text_color.' mobileShow"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$h4_element.'>'."\n";
 	}
 
 	echo "</center>"."\n";
@@ -100,13 +100,13 @@ else {
 	echo "<center>"."\n";
 
 	if (in_array($website_language, $en_languages_array)) {
-		echo '<'.$n.' class="'.$first_text_color.' mobileHide"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$n.'>'."\n";
-		echo '<'.$m.' class="'.$first_text_color.' mobileShow"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$m.'>'."\n";
+		echo '<'.$h2_element.' class="'.$first_text_color.' mobileHide"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$h2_element.'>'."\n";
+		echo '<'.$h4_element.' class="'.$first_text_color.' mobileShow"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$h4_element.'>'."\n";
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		echo '<'.$n.' class="'.$first_text_color.' mobileHide"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$n.'>'."\n";
-		echo '<'.$m.' class="'.$first_text_color.' mobileShow"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$m.'>'."\n";
+		echo '<'.$h2_element.' class="'.$first_text_color.' mobileHide"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$h2_element.'>'."\n";
+		echo '<'.$h4_element.' class="'.$first_text_color.' mobileShow"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$h4_element.'>'."\n";
 	}
 
 	echo "</center>"."\n";
@@ -114,7 +114,7 @@ else {
 
 echo $div_close;
 
-echo '</'.$m.'>'."\n";
+echo '</'.$h4_element.'>'."\n";
 
 $current_year = $current_year_backup;
 

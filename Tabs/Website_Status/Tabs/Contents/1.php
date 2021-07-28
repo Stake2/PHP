@@ -2,7 +2,7 @@
 
 echo $div_zoom_animation."\n";
 
-echo "<".$n.">"."\n"."\n";
+echo "<".$h2_element.">"."\n"."\n";
 
 $not_website_array = array(
 "Swid MC",
@@ -44,7 +44,7 @@ $div_close."\n"."\n"."<br />";
 	}
 }
 
-echo "</".$n.">"."\n";
+echo "</".$h2_element.">"."\n";
 
 echo $div_close;
 

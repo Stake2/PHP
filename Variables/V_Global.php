@@ -15,25 +15,11 @@ require $folder_and_website_variables_php;
 # "PHP Files.php" file loader
 require $php_files_php;
 
-# FontAwesome link and script definer
-if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
-	$fontawesome_link = "\n".'https://use.fontawesome.com/releases/v5.8.2/css/all.css';
-	$fontawesome_script = "\n".'<script src="https://kit.fontawesome.com/df0c191291.js" crossorigin="anonymous"></script>';
-}
-
-else {
-	$fontawesome_link = null;
-	$fontawesome_script = null;
-}
-
 # Watch History and YearWebsites year variables
 require $watch_and_yearwebsites_variables_php;
 
 # CSS definers for specific websites
 $website_css_file = $choosed_website_css_file;
-
-# NewDesign and Notifications definer
-require $notifications_definer_php;
 
 # Website CSS and Javascript definer
 require $website_css_and_javascript_definer_php;
@@ -84,7 +70,7 @@ if ($website_uses_custom_layout_setting == False) {
 
 # Website notifications includer if the website has notifications activated
 if ($website_has_notifications == True) {
-	require $notifications_php;
+	require $website_notifications_php;
 }
 
 if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
@@ -141,9 +127,9 @@ $website_head = '
 <meta name="revised" content="'."Stake's Enterprise TM".', '.$data.'" />
 <meta name="author" content="Stake Ferreira" />
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
-<meta charset="UTF-8" />'.$fontawesome_script.
-$website_css_files.
-$website_js_files.
+<meta charset="UTF-8" />'.
+"\n"."\n".$website_css_links.
+"\n"."\n".$website_javascript_links.
 $include_custom_website_head_content;
 
 if (in_array($website_name, $years_array)) {

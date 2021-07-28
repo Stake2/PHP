@@ -39,13 +39,13 @@ $php_folder_variables = $main_php_folder."Variables/";
 $global_files_folder = $php_folder_variables."Global Files/";
 $database_folder = $php_folder_variables."Database/";
 
-$main_php_folders = $global_files_folder."Main PHP Folders.php";
+$main_php_folders_and_files = $global_files_folder."Main PHP Folders And Files.php";
 $global_texts_php = $global_files_folder.'Global Texts.php';
 $global_style_file_php = $global_files_folder.'Global Style.php';
 $connect_php = $database_folder."Connect.php";
 
 # "Main PHP Folders" PHP File Loader
-require $main_php_folders;
+require $main_php_folders_and_files;
 
 # Crucial Functions PHP File Loader
 require $crucial_functions_file_php;

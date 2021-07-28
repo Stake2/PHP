@@ -1,6 +1,6 @@
 <?php 
 
-echo '<'.$m.'>'.'<b>';
+echo '<'.$h4_element.'>'.'<b>';
 echo $div_zoom_animation;
 
 $revised_chapter = 0;
@@ -22,6 +22,6 @@ while ($blocknum1 <= $publishedblocks) {
 }*/
 
 echo $div_close;
-echo '</b>'.'</'.$m.'>';
+echo '</b>'.'</'.$h4_element.'>';
 
 ?>

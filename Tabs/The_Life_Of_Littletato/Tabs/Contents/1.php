@@ -8,12 +8,12 @@ if (isset($alternative_website_style_file) == True) {
 	require $alternative_website_style_file;
 }
 
-echo '<'.$m.'>'.'<b>'."\n";
+echo '<'.$h4_element.'>'.'<b>'."\n";
 echo $div_zoom_animation."\n";
 
 require $chapter_button_generator_php_variable;
 
 echo $div_close."\n";
-echo '</b>'.'</'.$m.'>'."\n";
+echo '</b>'.'</'.$h4_element.'>'."\n";
 
 ?>

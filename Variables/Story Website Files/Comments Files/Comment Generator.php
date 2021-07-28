@@ -46,7 +46,7 @@ if ($local_comment_number > 1 and $comment_dates != Null) {
 		$commenter = $commenters[$comment_number];
 		$current_chapter_comment_text = $comments[$comment_number];
 
-		$comment = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
+		$comment = '<'.$h4_element.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
 
 		$comment .= '<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n";
 		
@@ -61,7 +61,7 @@ if ($local_comment_number > 1 and $comment_dates != Null) {
 
 		$comment .= '<hr class="'.$third_full_border.'" />'.$current_chapter_comment_text."\n".'<br /><br /><br /><br /><br />'."\n";
 
-		$comment .= $div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+		$comment .= $div_close."\n".'</'.$h4_element.'>'."\n"."<br />"."\n"."\n";
 
 		$chapter_comments_array[$chapter_number_1][$comment_number] = $comment;
 
@@ -74,7 +74,7 @@ if ($local_comment_number == 1 and $comment_dates != Null) {
 	$commenter = $commenters[1];
 	$current_chapter_comment_text = $comments[1];
 
-	$comment = '<'.$m.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
+	$comment = '<'.$h4_element.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
 
 	$comment .= '<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n";
 
@@ -89,7 +89,7 @@ if ($local_comment_number == 1 and $comment_dates != Null) {
 
 	$comment .= '<hr class="'.$third_full_border.'" />'.$current_chapter_comment_text."\n".'<br /><br /><br /><br /><br />'."\n";
 
-	$comment .= $div_close."\n".'</'.$m.'>'."\n"."<br />"."\n"."\n";
+	$comment .= $div_close."\n".'</'.$h4_element.'>'."\n"."<br />"."\n"."\n";
 
 	$chapter_comments_array[$chapter_number_1] = $comment;
 }

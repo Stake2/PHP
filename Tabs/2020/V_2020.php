@@ -213,10 +213,10 @@ $tab_names[4].': '.$icons[3],
 );
 
 #Previous year button
-$last_year_button_computer = '<button class="w3-btn '.$first_button_style.'" onclick="window.open('."'".$main_website_url."years/".$current_yearanterior."/'".')"><'.$n.'>'.$current_yearanterior.': <i class="fas fa-globe-americas"></i></'.$n.'></button>';
+$last_year_button_computer = '<button class="w3-btn '.$first_button_style.'" onclick="window.open('."'".$main_website_url."years/".$current_yearanterior."/'".')"><'.$h2_element.'>'.$current_yearanterior.': <i class="fas fa-globe-americas"></i></'.$h2_element.'></button>';
 
 #Mobile previous year button
-$last_year_button_mobile = '<button class="w3-btn '.$first_button_style.'" onclick="window.open('."'".$main_website_url."years/".$current_yearanterior."/'".')"><'.$m.'>'.$current_yearanterior.': <i class="fas fa-globe-americas"></i></'.$m.'></button>';
+$last_year_button_mobile = '<button class="w3-btn '.$first_button_style.'" onclick="window.open('."'".$main_website_url."years/".$current_yearanterior."/'".')"><'.$h4_element.'>'.$current_yearanterior.': <i class="fas fa-globe-americas"></i></'.$h4_element.'></button>';
 
 # Website Style.php File Includer
 $website_image = $current_year;

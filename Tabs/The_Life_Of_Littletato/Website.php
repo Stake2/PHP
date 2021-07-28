@@ -45,15 +45,15 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of
 	require $setting_parameters_file;
 
 	# Website Tabs array
-	$tabs = array("Read", "Readers", "Stories", "Changelog");
+	$tabs = array("Read", "Readers", "Stories");
 
 	# Website Tab Names array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array("Read story", "Readers", $other_stories_text, "Changelog");
+		$tab_names = array("Read story", "Readers", $other_stories_text);
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array("Ler história", "Leitores", $other_stories_text, "Registro de Mudanças");
+		$tab_names = array("Ler história", "Leitores", $other_stories_text);
 	}
 
 	# Number of tabs

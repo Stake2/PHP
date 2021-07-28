@@ -1,10 +1,5 @@
 <?php 
 
-# Website notification file includer if setting is True
-if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
-	echo $notification_script."\n"."\n";
-}
-
 if ($website_has_notifications == True) {
 	echo '<script>'."\n";
 	echo 'Change_Title();'."\n";
@@ -43,6 +38,10 @@ if ($website_uses_custom_layout_setting == False) {
 	echo '<div style="display:none;" id="button_number">'.$website_tab_number.$div_close."\n";
 }
 
+#if ($website_type == $story_website_type) {
+#	echo '<div style="display:none;>'.$chapters.$div_close;
+#}
+
 if ($website_type == $story_website_type) {
 	echo "\n".'<script>
 Chapter_Number = 1;
@@ -64,5 +63,14 @@ if ($story_website_uses_chapter_opener == True) {
 	echo '</script>'."\n";
 	echo "\n";
 }
+
+# Website notification script link includer if setting is True
+if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
+	echo format($javascript_link_string, array($notifications_javascript_link));
+}
+
+echo "<script>"."\n".
+"Hide_Mobile_Buttons();"."\n".
+"</script>";
 
 ?>

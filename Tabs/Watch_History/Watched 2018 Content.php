@@ -42,7 +42,7 @@ $tab_title = '
 <div class="'.$computer_variable.'">'.$every_watched_button_computer.$div_close."\n".
 '<div class="'.$mobile_variable.'">'.$every_watched_button_mobile.$div_close."\n".
 '<hr class="'.$header_full_border.'" />
-'.$div_zoom_animation.'<'.$n.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$n.'>'.$div_close.'
+'.$div_zoom_animation.'<'.$h2_element.'><p></p><br /><b>'.$tab_header.'</b><br /><br /><p></p></'.$h2_element.'>'.$div_close.'
 <hr class="'.$header_full_border.'" />'."\n".
 $div_zoom_animation.'<div class="'.$computer_variable.'">'.$archived_media_buttons.$div_close."\n".
 '<div class="'.$mobile_variable.'">'.$archived_media_mobile_buttons.$div_close.$div_close;
@@ -50,7 +50,7 @@ $div_zoom_animation.'<div class="'.$computer_variable.'">'.$archived_media_butto
 echo $tab_title."\n";
 
 echo '<hr class="'.$header_full_border.'" />'."\n";
-echo '<'.$m.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
+echo '<'.$h4_element.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
 # Current Year Watched Media Generator file includer
 $mobile_version = False;
@@ -71,7 +71,7 @@ echo $mobile_div;
 require $current_year_watched_media_generator;
 echo $div_close;
 
-echo '</'.$m.'>'."\n";
+echo '</'.$h4_element.'>'."\n";
 
 $current_year = $current_year_backup;
 

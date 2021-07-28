@@ -202,7 +202,7 @@ $websites_buttons_style = $first_button_style;
 $i = 0;
 $websites_number = $websites_number;
 while ($i <= $websites_number) {
-	$websites_buttons_array[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$n.">".$websites_names_array[$i]."</".$n."></button>";
+	$websites_buttons_array[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h2_element.">".$websites_names_array[$i]."</".$h2_element."></button>";
 
 	$i++;
 }
@@ -210,7 +210,7 @@ while ($i <= $websites_number) {
 $i = 0;
 $websites_number = $websites_number;
 while ($i <= $websites_number) {
-	$websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$m.">".$websites_names_array[$i]."</".$m."></button>";
+	$websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h4_element.">".$websites_names_array[$i]."</".$h4_element."></button>";
 
 	$i++;
 }
@@ -220,7 +220,7 @@ while ($i <= $websites_number) {
 $i = 0;
 $websites_number = $websites_number;
 while ($i <= $websites_number) {
-	$websites_buttons_blue[$i] = '<button class="w3-btn w3-blue '.$websites_buttons_style.' '.$computer_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$n.">".$websites_names_array[$i]."</".$n."></button>";
+	$websites_buttons_blue[$i] = '<button class="w3-btn w3-blue '.$websites_buttons_style.' '.$computer_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h2_element.">".$websites_names_array[$i]."</".$h2_element."></button>";
 
 	$i++;
 }
@@ -228,7 +228,7 @@ while ($i <= $websites_number) {
 $i = 0;
 $websites_number = $websites_number;
 while ($i <= $websites_number) {
-	$websites_buttons_blue_mobile[$i] = '<button class="w3-btn w3-blue '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$m.">".$websites_names_array[$i]."</".$m."></button>";
+	$websites_buttons_blue_mobile[$i] = '<button class="w3-btn w3-blue '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h4_element.">".$websites_names_array[$i]."</".$h4_element."></button>";
 
 	$i++;
 }
@@ -238,7 +238,7 @@ while ($i <= $websites_number) {
 $i = 0;
 $storiessitenumb = $story_name_websites_number;
 while ($i <= $storiessitenumb) {
-	$story_name_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$story_namenames2[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$story_namelinks[$i]."');".'"'."><".$n.">".$story_namenames2[$i]."</".$n."></button>";
+	$story_name_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$story_namenames2[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$story_namelinks[$i]."');".'"'."><".$h2_element.">".$story_namenames2[$i]."</".$h2_element."></button>";
 
 	$i++;
 }
@@ -246,7 +246,7 @@ while ($i <= $storiessitenumb) {
 $i = 0;
 $storiessitenumb = $story_name_websites_number;
 while ($i <= $storiessitenumb) {
-	$story_name_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$story_namenames2[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$story_namelinks[$i]."');".'"'."><".$m.">".$story_namenames2[$i]."</".$m."></button>";
+	$story_name_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$story_namenames2[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$story_namelinks[$i]."');".'"'."><".$h4_element.">".$story_namenames2[$i]."</".$h4_element."></button>";
 
 	$i++;
 }
@@ -256,7 +256,7 @@ while ($i <= $storiessitenumb) {
 $i = 0;
 $z = 11;
 while ($i <= $years_number) {
-	$year_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$n.">".$yearnames[$i].": ".$icons[3]."</".$n."></button>";
+	$year_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$h2_element.">".$yearnames[$i].": ".$icons[3]."</".$h2_element."></button>";
 
 	$z++;
 	$i++;
@@ -265,7 +265,7 @@ while ($i <= $years_number) {
 $i = 0;
 $z = 11;
 while ($i <= $years_number) {
-	$year_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$m.">".$yearnames[$i].": ".$icons[3]."</".$m."></button>";
+	$year_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$h4_element.">".$yearnames[$i].": ".$icons[3]."</".$h4_element."></button>";
 
 	$z++;
 	$i++;
