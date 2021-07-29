@@ -115,7 +115,7 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 
 	$image .= $mobile_div."\n".$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>"."\n".$div_close;
 
-	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 
 	return $image;
 }

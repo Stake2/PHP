@@ -1,25 +1,25 @@
 <?php 
 
-echo '	var chapter_text = "'.$chapter_div_text.'";';
+echo 'var chapter_text = "'.$chapter_div_text.'";'."\n"."\n";
 
-echo 'function Really_Open_Chapter(chapter_title, chapter_number) {'."\n";
-echo '		var new_chapter_text = chapter_text + chapter_number;'."\n";
-echo '		openCity(new_chapter_text);'."\n";
-echo '		document.getElementById(new_chapter_text).scrollIntoView();'."\n";
-echo '		Chapter_Number = chapter_number;'."\n";
-echo '		Define_Chapter(Chapter_Number);'."\n";
-echo '		Add_To_Website_Title(chapter_title, "notification");'."\n";
-echo '		Hide_Computer_Notification();'."\n";
-echo '		Hide_Mobile_Notification();'."\n";
-echo '	}'."\n";
+echo 'function Open_Chapter(chapter_title, chapter_number) {'."\n";
+echo '	var new_chapter_text = chapter_text + chapter_number;'."\n";
+echo '	openCity(new_chapter_text);'."\n";
+echo '	document.getElementById(new_chapter_text).scrollIntoView();'."\n";
+echo '	Chapter_Number = chapter_number;'."\n";
+echo '	Define_Chapter(Chapter_Number);'."\n";
+echo '	Add_To_Website_Title(chapter_title, "notification");'."\n";
+echo '	Hide_Computer_Notification();'."\n";
+echo '	Hide_Mobile_Notification();'."\n";
+echo '}'."\n";
 
 echo '
-function Open_Chapter() {'."\n".
+function Check_Chapter_Number_On_Link() {'."\n".
 	'	var first_website_url = window.location;'."\n".
 	'	var second_website_url = '."'".'"'."'".' + first_website_url + '."'".'"'."'".';'."\n".
-	'	var userLang = navigator.language || navigator.userLanguage;'."\n".
+	'	var user_language = navigator.language || navigator.userLanguage;'."\n".
 	'
-	if (userLang == "pt-BR" || userLang == "pt-PT") {
+	if (user_language == "pt-BR" || user_language == "pt-PT") {
 		var read_chapter_text = "ler-capitulo-";
 	}
 
@@ -59,7 +59,7 @@ while ($i < $chapters) {
 	#echo '		Chapter_Number = '.$i2.';'."\n";
 	#echo '		Define_Chapter('.$i2.');'."\n";
 	#echo '		Add_To_Website_Title("'." - ".ucwords($chapter_text). ": ".$i2." - ".$chapter_titles[$i2 - 1].'", "notification");'."\n";
-	echo '		Really_Open_Chapter(chapter_title, current_chapter_number);'."\n";
+	echo '		Open_Chapter(chapter_title, current_chapter_number);'."\n";
 	echo '	}'."\n";
 
 	if ($i != $chapters) {
@@ -69,10 +69,10 @@ while ($i < $chapters) {
 	$i++;
 }
 
-echo '}
-console.log("Open Chapter Script was loaded.");'."\n";
+echo "}"."\n".
+'console.log("Open Chapter Script was loaded.");'."\n";
 
 echo "\n";
-echo 'Open_Chapter();'."\n";
+echo 'Check_Chapter_Number_On_Link();'."\n";
 
 ?>
