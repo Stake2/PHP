@@ -8,6 +8,14 @@ if ($selected_website == $website_desert_island) {
 	$span_variable = $cyanspan;
 }
 
+if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
+	$hide_notification_attribute = "Hide_Computer_Notification();Hide_Mobile_Notification();";
+}
+
+else {
+	$hide_notification_attribute = "";
+}
+
 $chapter_number_1 = 1;
 $chapter_number_2 = 1;
 $chapter_number_3 = 1;

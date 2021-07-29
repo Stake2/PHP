@@ -1,9 +1,5 @@
 <?php 
 
-if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
-	$hide_notification_attribute = 'Hide_Notification_Computer();Hide_Notification_Mobile();';
-}
-
 if (isset($alternative_website_style_file) == True) {
 	require $alternative_website_style_file;
 }

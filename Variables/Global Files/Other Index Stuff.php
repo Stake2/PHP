@@ -55,6 +55,11 @@ if ($website == $website_diario or $website_type == $story_website_type) {
 	</script>'."\n";
 }
 
+# Website notification script link includer if setting is True
+if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
+	echo format($javascript_link_string, array($notifications_javascript_link));
+}
+
 # Chapter Opener Script includer if the setting is True
 if ($story_website_uses_chapter_opener == True) {
 	echo "\n";
@@ -62,11 +67,6 @@ if ($story_website_uses_chapter_opener == True) {
 	require $open_chapter_script_php;
 	echo '</script>'."\n";
 	echo "\n";
-}
-
-# Website notification script link includer if setting is True
-if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
-	echo format($javascript_link_string, array($notifications_javascript_link));
 }
 
 echo "<script>"."\n".

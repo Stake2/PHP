@@ -64,7 +64,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 	$sitebtnecho = True;
 
 	if ($website_has_notifications == True) {
-		$hide_notification_attribute = 'Hide_Notification();';
+		$hide_notification_attribute = 'Hide_Computer_Notification();Hide_Mobile_Notification();';
 	}
 
 	else {

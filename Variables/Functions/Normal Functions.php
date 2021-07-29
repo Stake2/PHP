@@ -115,7 +115,7 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 
 	$image .= $mobile_div."\n".$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>"."\n".$div_close;
 
-	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 
 	return $image;
 }
@@ -192,8 +192,6 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 		$reader_name_text = Create_Element($h2_element, $classes, $reader_number_text." - ".$reader_name);
 
 		echo $reader_name_text."\n";
-
-		#echo '<'.$h4_element.' class="'.$hover_variable.' '.$zoom_animation_class.' '.$mobile_variable.'">'.$text_color.$i2.$spanc.' - '.$readers[$i]."</".$h4_element.'>'."\n";
 
 		$i++;
 	}

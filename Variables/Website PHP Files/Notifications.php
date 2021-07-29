@@ -51,7 +51,7 @@ $spanc."\n".
 '</b>'."\n".
 '</'.$h2_element.'>'."\n";
 
-#Website notification definer
+# Website notification definer
 $website_notification = $change_title_script."\n".'<div id="notification_div_computer" class="element_appear_from_bottom border '.$div_style_for_notification.' '.$computer_variable.'" style="position:fixed;right:0;bottom:0;padding-top:2%;padding-bottom:2%;padding-left:7%;padding-right:7%;'.$rounded_border_style_2.'">'.$website_notification_text_computer.$div_close."\n".
 
 '<div id="notification_div_mobile" class="element_appear_from_bottom border '.$div_style_for_notification.' '.$mobile_variable.'" style="position:fixed;right:0;bottom: 0;padding-top:1%;padding-bottom:1%;padding-left:10%;padding-right:10%;'.$rounded_border_style_2.'">'.$website_notification_text_mobile.$div_close."\n";
