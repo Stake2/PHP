@@ -175,6 +175,7 @@ $tab_style_mobile = 'city '.$mobile_variable;
 $chapter_image_style = 'style="float:left;border-width:3px;border-color:black;border-style:solid;"';
 
 $h2_element = 'h2';
+$h3_element = 'h3';
 $h4_element = 'h4';
 
 $h2_right_element = '<h2>';

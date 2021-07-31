@@ -17,7 +17,7 @@ function Change_Website_Title() {
 </script>";
 
 # Computer Website notification div and text
-$website_notification_text_computer = "\n".'<'.$h2_element.' class="'.$computer_variable.'">'."\n"."\n".
+$website_notification_text_computer = "\n".'<'.$h3_element.' class="'.$computer_variable.'">'."\n"."\n".
 '<span id="notification_close_button_computer" class="w3-btn '.$button_style_for_notification.' '.$border_3px_solid_black_css_class.'" style="'.$notifbtncss1.$rounded_border_style_2.'box-shadow: 0 9px black!important;">'."\n".
 '<b>'."\n".
 'X'."\n".
@@ -29,7 +29,7 @@ $website_notification_text." ".$icons[13]."\n".
 $reviewed_chapter_code."\n".
 $spanc."\n".
 '</b>'."\n".
-'</'.$h2_element.'>'."\n";
+'</'.$h3_element.'>'."\n";
 
 # Mobile Website notification div and text
 $website_notification_text_mobile = "\n".'<'.$h2_element.' class="'.$mobile_variable.'">'."\n"."\n".
