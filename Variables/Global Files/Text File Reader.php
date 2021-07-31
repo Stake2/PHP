@@ -435,6 +435,7 @@ if ($website_type == $story_website_type) {
 	# Last Posted Chapter file
 	$last_posted_chapter = explode(" - ", array_reverse(Read_Lines($story_chapter_status_file))[0])[0];
 	$revised_chapter = $last_posted_chapter;
+	$revised_chapter = Remove_Leading_Zeros($revised_chapter);
 
 	$story_author = Read_Lines($story_author_file);
 	$story_author_number = Line_Number($story_author_file);
