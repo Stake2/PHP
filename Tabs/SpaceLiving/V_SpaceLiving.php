@@ -151,6 +151,7 @@ $among_us_trap_remix_by_leonz_link_name = Language_Item_Definer("Among Us Drip T
 $among_us_trap_remix_by_leonz = Make_Link("https://www.youtube.com/watch?v=grd-K33tOSM", $among_us_trap_remix_by_leonz_link_name, $text_white_css_class, $new_tab = True);
 
 $variable_inserter_array = array(
+$porter_robinson_madeon_shelter_official_video,
 $gods_warrior_still_got_something,
 $skybreak_mizu_aurora_link,
 $panda_eyes_take_my_hand_ft_azuria_sky_zane_remix,
