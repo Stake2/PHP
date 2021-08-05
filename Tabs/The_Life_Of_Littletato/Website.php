@@ -28,6 +28,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of
 	$website_hides_notification_on_clicking_on_read_tab_setting = False; #Defines if website hides the notification when you click on the "Read story" button
 	$story_website_uses_chapter_opener = True; #Defines if the website uses the Open Chapter Script
 	$site_uses_new_comment_and_read_displayer = True;
+	$use_variable_inserter = True;
 
 	$website_write_story_setting = False; #Defines if website has a story writing chapter
 	$new_write_style = False; #Defines if the website uses the new writing style for chapters

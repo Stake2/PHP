@@ -1,7 +1,7 @@
 <?php 
 
 /*
-$website_comments_file = $selected_website_folder.'Comments.txt';
+$website_comments_file = $selected_website_folder."Comments.txt";
 
 if (file_exists($website_comments_file) == False) {
 	Create_File($website_comments_file);
@@ -20,7 +20,7 @@ if ($website_uses_universal_file_reader == True) {
 	$i = 0;
 	foreach ($filesarray as $file) {
 		if (file_exists($file) == True) {
-			$file_read = fopen($file, 'r', 'UTF-8'); 
+			$file_read = fopen($file, "r", "UTF-8"); 
 			if ($file_read) {
 				${"$filetextarraynames[$i]"} = explode("\n", fread($file_read, filesize($file)));
 				${"$filetextarraynames[$i]"} = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filetextarraynames[$i]"});
@@ -51,10 +51,10 @@ if ($website_uses_universal_file_reader == True) {
 }
 
 if ($website_name == $website_diario) {
-	$diario_numbers_text_file = $used_folder.'Diário Numbers.txt';
+	$diario_numbers_text_file = $used_folder."Diário Numbers.txt";
 
 	if (file_exists($diario_numbers_text_file) == True) {
-		$diario_numbers_fp = fopen($diario_numbers_text_file, 'r', 'UTF-8');
+		$diario_numbers_fp = fopen($diario_numbers_text_file, "r", "UTF-8");
 		if ($diario_numbers_fp) {
 			$diario_blocks_number = explode("\n", fread($diario_numbers_fp, filesize($diario_numbers_text_file)));
 		}
@@ -62,12 +62,12 @@ if ($website_name == $website_diario) {
 }
 
 if (in_array($website_name, $years_array)) {
-	$current_year_summary_text_file = $year_folders[$current_year].$year_summary_text.' '.$current_year.'.txt';
-	$current_year_summary_year_stuff_file = $year_folders[$current_year].'Year Stuff.txt';
+	$current_year_summary_text_file = $year_folders[$current_year].$year_summary_text." ".$current_year.".txt";
+	$current_year_summary_year_stuff_file = $year_folders[$current_year]."Year Stuff.txt";
 
 	$file = $current_year_summary_text_file;
 	if (file_exists($file) == True) {
-		$read_file = fopen($file, 'r', 'UTF-8');
+		$read_file = fopen($file, "r", "UTF-8");
 		if ($read_file) {
 			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
 			$year_summary_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $replaceable_array);
@@ -76,7 +76,7 @@ if (in_array($website_name, $years_array)) {
 
 	$file = $current_year_summary_year_stuff_file;
 	if (file_exists($file) == True) {
-		$read_file = fopen($file, 'r', 'UTF-8');
+		$read_file = fopen($file, "r", "UTF-8");
 		if ($read_file) {
 			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
 			$year_stuff_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $replaceable_array)[0];
@@ -97,17 +97,12 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 		$language_split_number = 1;
 	}
 
-	$to_watch_episodes_file = $notepad_to_watch_folder.'Episodes.txt';
-	$to_watch_status_file = $notepad_to_watch_folder.'Status.txt';
-	$to_watch_folders_file = $notepad_to_watch_folder.'Folders.txt';
+	/*
+	$to_watch_episodes_file = $notepad_to_watch_folder."Episodes.txt";
+	$to_watch_status_file = $notepad_to_watch_folder."Status.txt";
+	$to_watch_folders_file = $notepad_to_watch_folder."Folders.txt";
 
-	$watched_movies_file = $notepad_movies_folder.'Names.txt';
-	$watched_movies_time_file = $notepad_movies_folder.'Times.txt';
-	$watched_movie_time_numbers_array = array('0', 1, 4, 5, 6, 7, 8, 9, 10);
-	$watched_movie_comment_numbers_array = array(1, 4, 5, 6, 7, 8);
-	$watched_episodes_has_time_array_2018 = array(1, 6, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 46, 47, 48, 49, 52);
-
-	$to_watch_media_type_file = $notepad_to_watch_folder.'Media Types.txt';
+	$to_watch_media_type_file = $notepad_to_watch_folder."Media Types.txt";
 
 	if (file_exists($to_watch_episodes_file) == True) {
 		$to_watch_line_number = 0;
@@ -119,7 +114,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	}
 
 	if (file_exists($to_watch_episodes_file) == True) {
-		$file = fopen($to_watch_episodes_file, 'r', 'UTF-8');
+		$file = fopen($to_watch_episodes_file, "r", "UTF-8");
 		if ($file) {
 			$to_watch_text = explode("\n", fread($file, filesize($to_watch_episodes_file)));
 			$to_watch_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $to_watch_text);
@@ -127,7 +122,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	}
 
 	if (file_exists($to_watch_status_file) == True) {
-		$file = fopen($to_watch_status_file, 'r', 'UTF-8');
+		$file = fopen($to_watch_status_file, "r", "UTF-8");
 		if ($file) {
 			$to_watch_status_file_text = explode("\n", fread($file, filesize($to_watch_status_file)));
 			$to_watch_status_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $to_watch_status_file_text);
@@ -135,7 +130,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	}
 
 	if (file_exists($to_watch_folders_file) == True) {
-		$file = fopen($to_watch_folders_file, 'r', 'UTF-8');
+		$file = fopen($to_watch_folders_file, "r", "UTF-8");
 		if ($file) {
 			$to_watch_folders_text = explode("\n", fread($file, filesize($to_watch_folders_file)));
 			$to_watch_folders_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $to_watch_folders_text);
@@ -143,7 +138,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	}
 
 	if (file_exists($to_watch_media_type_file) == True) {
-		$file = fopen($to_watch_media_type_file, 'r', 'UTF-8');
+		$file = fopen($to_watch_media_type_file, "r", "UTF-8");
 		if ($file) {
 			$to_watch_media_type_text = explode("\n", fread($file, filesize($to_watch_media_type_file)));
 			$to_watch_media_type_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $to_watch_media_type_text);
@@ -158,73 +153,95 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 
 	$to_watch_media_type_text = $new_to_watch_media_type_text;
 
-	if (file_exists($watched_movies_file) == True) {
-		$watched_movies_line_number = 0;
-		$handle = fopen($watched_movies_file, "r");
-		while (!feof ($handle)){
-			$line = fgets ($handle);
-			$watched_movies_line_number++;
+	if (file_exists($to_watch_episodes_file) == True) {
+		$i = 0;
+		$to_watch_items = 0;
+		while ($i <= $to_watch_line_number - 1) {
+			if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
+				$to_watch_items++;
+			}
+
+			$i++;
 		}
 	}
+	*/
 
-	if (file_exists($watched_movies_file) == True) {
-		$file = fopen($watched_movies_file, 'r', 'UTF-8');
-		if ($file) {
-			$watched_movies_text = explode("\n", fread($file, filesize($watched_movies_file)));
-			$watched_movies_text = str_replace(";", ":", $watched_movies_text);
-			$watched_movies_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $watched_movies_text);
-		}
+	$text = "/";
+
+	$media_details_folders = array(
+	$mixed_media_type_names_plural_dict["Animes"] => $media_info_media_details_folder.$mixed_media_type_names_plural_dict["Animes"].$text,
+	$mixed_media_type_names_plural_dict["Cartoons"] => $media_info_media_details_folder.$mixed_media_type_names_plural_dict["Cartoons"].$text,
+	$mixed_media_type_names_plural_dict["Series"] => $media_info_media_details_folder.$mixed_media_type_names_plural_dict["Series"].$text,
+	$mixed_media_type_names_plural_dict["Movies"] => $media_info_media_details_folder.$mixed_media_type_names_plural_dict["Movies"].$text,
+	$mixed_media_type_names_plural_dict["Videos"] => $media_info_media_details_folder.$mixed_media_type_names_plural_dict["Videos"].$text,
+	);
+
+	$text = "Watching Status/";
+
+	$watching_status_folders = array(
+	$mixed_media_type_names_plural_dict["Animes"] => $media_details_folders[$mixed_media_type_names_plural_dict["Animes"]].$text,
+	$mixed_media_type_names_plural_dict["Cartoons"] => $media_details_folders[$mixed_media_type_names_plural_dict["Cartoons"]].$text,
+	$mixed_media_type_names_plural_dict["Series"] => $media_details_folders[$mixed_media_type_names_plural_dict["Series"]].$text,
+	$mixed_media_type_names_plural_dict["Movies"] => $media_details_folders[$mixed_media_type_names_plural_dict["Movies"]].$text,
+	$mixed_media_type_names_plural_dict["Videos"] => $media_details_folders[$mixed_media_type_names_plural_dict["Videos"]].$text,
+	);
+
+	$text = "Watching.txt";
+
+	$watching_media_files = array(
+	$mixed_media_type_names_plural_dict["Animes"] => $watching_status_folders[$mixed_media_type_names_plural_dict["Animes"]].$text,
+	$mixed_media_type_names_plural_dict["Cartoons"] => $watching_status_folders[$mixed_media_type_names_plural_dict["Cartoons"]].$text,
+	$mixed_media_type_names_plural_dict["Series"] => $watching_status_folders[$mixed_media_type_names_plural_dict["Series"]].$text,
+	$mixed_media_type_names_plural_dict["Movies"] => $watching_status_folders[$mixed_media_type_names_plural_dict["Movies"]].$text,
+	$mixed_media_type_names_plural_dict["Videos"] => $watching_status_folders[$mixed_media_type_names_plural_dict["Videos"]].$text,
+	);
+
+	$watching_medias_number = 0;
+	foreach ($watching_media_files as $file) {
+		$number = Line_Number($file);
+
+		$watching_medias_number = ($watching_medias_number + (int)$number);
 	}
 
-	if (file_exists($watched_movies_time_file) == True) {
-		$file = fopen($watched_movies_time_file, 'r', 'UTF-8'); 
-		if ($file) {
-			$text_array = explode("\n", fread($file, filesize($watched_movies_time_file)));
-			$watched_movies_time_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $text_array);
-		}
-	}
+	$watched_movie_names_file = $notepad_movies_folder."Names.txt";
+	$watched_movie_times_file = $notepad_movies_folder."Times.txt";
+	$watched_movie_number_file = $notepad_movies_folder."Number.txt";
 
-	# Read medias per media type and make dict with keys of media type
+	$watched_movie_names_line_number = Line_Number($watched_movie_names_file);
+	$watched_movie_times_line_number = Line_Number($watched_movie_times_file);
+
+	$watched_movie_time_numbers_array = array("0", 1, 4, 5, 6, 7, 8, 9, 10);
+	$watched_movie_comment_numbers_array = array(1, 4, 5, 6, 7, 8);
+	$watched_episodes_has_time_array_2018 = array(1, 6, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 28, 29, 30, 31, 32, 34, 35, 36, 37, 38, 39, 41, 42, 43, 44, 46, 47, 48, 49, 52);
+
+	$watched_movie_names_text = Read_Lines($watched_movie_names_file);
+	$watched_movie_times_text = Read_Lines($watched_movie_times_file);
 
 	$current_variable_year = 2018;
 	while ($current_variable_year <= $current_year_backup) {
 		$current_year = $current_variable_year;
-		$current_year_watched_folder_to_use = format($watch_history_watched_folder_string, $current_year);
-		$current_year_watched_episodes_file = $current_year_watched_folder_to_use.$english_watched_episodes_text.'.txt';
-		$current_year_watched_time_file = $current_year_watched_folder_to_use.$english_watched_times_text.'.txt';
 
-		$current_year_watched_media_type_file = $current_year_watched_folder_to_use.$english_watched_media_types_text.'.txt';
+		$current_year_watched_folder_to_use = format($watch_history_watched_folder_string, $current_year);
+		$current_year_per_media_type_watched_folder = $current_year_watched_folder_to_use."Per Media Type/";
+		$current_year_per_media_type_watched_files_folder = $current_year_per_media_type_watched_folder."Files/";
+		$current_year_per_media_type_watched_folders_folder = $current_year_per_media_type_watched_folder."Folders/";
+
+		Create_Folder($current_year_per_media_type_watched_folder);
+		Create_Folder($current_year_per_media_type_watched_files_folder);
+		Create_Folder($current_year_per_media_type_watched_folders_folder);
+
+		$current_year_watched_episodes_file = $current_year_watched_folder_to_use.$english_watched_episodes_text.".txt";
+		$current_year_watched_times_file = $current_year_watched_folder_to_use.$english_watched_times_text.".txt";
+		$current_year_watched_media_types_file = $current_year_watched_folder_to_use.$english_watched_media_types_text.".txt";
 
 		$current_year_watched_episodes_line_number = Line_Number($current_year_watched_episodes_file);
-
 		$current_year_watched_number = $current_year_watched_episodes_line_number - 1;
 		${"watched_episodes_".$current_year."_line_number"} = $current_year_watched_episodes_line_number;
 
 		$current_year_watched_episodes_text = Read_Lines($current_year_watched_episodes_file);
-
 		${"year_".$current_year."_watched_episodes_text"} = $current_year_watched_episodes_text;
 
-		$array_to_append_a = array($current_year_watched_episodes_text);
-		$file_read = $current_year_watched_time_file;
-		if (file_exists($file_read) == True) {
-			$file = fopen($file_read, 'r', 'UTF-8');
-			if ($file) {
-				$current_year_watched_time_text = explode("\n", fread($file, filesize($file_read)));
-				$current_year_watched_time_text = str_replace(";", ":", $current_year_watched_time_text);
-				$current_year_watched_time_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $current_year_watched_time_text);
-			}
-		}
-
-		${"year_".$current_year."_watched_time_text"} = $current_year_watched_time_text;
-
-		$file_read = $current_year_watched_media_type_file;
-		if (file_exists($file_read) == True) {
-			$file = fopen($file_read, 'r', 'UTF-8');
-			if ($file) {
-				$text_array = explode("\n", fread($file, filesize($file_read)));
-				$current_year_watched_media_type_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $text_array);
-			}
-		}
+		$current_year_watched_media_type_text = Read_Lines($current_year_watched_media_types_file);
 
 		$new_current_year_watched_media_type_text = array();
 
@@ -239,73 +256,26 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 		}
 
 		$current_year_watched_media_type_text = $new_current_year_watched_media_type_text;
-
 		${"year_".$current_year."_watched_media_type_text"} = $current_year_watched_media_type_text;
 
-		if (file_exists($current_year_watched_media_type_file) == True) {
-			$i = 0;
-			$watched_animes_number = 0;
-			if (count($current_year_watched_media_type_text) != 0) {
-				while ($i <= count($current_year_watched_media_type_text) - 1) {
-					$media_type = $current_year_watched_media_type_text[$i];
-					#echo $current_year_watched_media_type_text[$i]."<br />"."\n";
+		$current_year_watched_time_text = Read_Lines($current_year_watched_times_file);
+		${"year_".$current_year."_watched_time_text"} = $current_year_watched_time_text;
 
-					if ($media_type == 'Animes') {
-						$watched_animes_number++;
-					}
+		$text = "/Number.txt";
 
-					$i++;
-				}
-			}
+		$per_media_type_files_folders = array(
+		$mixed_media_type_names_plural_dict["Animes"] => $current_year_per_media_type_watched_files_folder.$mixed_media_type_names_plural_dict["Animes"].$text,
+		$mixed_media_type_names_plural_dict["Cartoons"] => $current_year_per_media_type_watched_files_folder.$mixed_media_type_names_plural_dict["Cartoons"].$text,
+		$mixed_media_type_names_plural_dict["Series"] => $current_year_per_media_type_watched_files_folder.$mixed_media_type_names_plural_dict["Series"].$text,
+		$mixed_media_type_names_plural_dict["Movies"] => $current_year_per_media_type_watched_files_folder.$mixed_media_type_names_plural_dict["Movies"].$text,
+		$mixed_media_type_names_plural_dict["Videos"] => $current_year_per_media_type_watched_files_folder.$mixed_media_type_names_plural_dict["Videos"].$text,
+		);
 
-			$i = 0;
-			$watched_cartoons_number = 0;
-			while ($i <= count($current_year_watched_media_type_text) - 1) {
-				$media_type = $current_year_watched_media_type_text[$i];
-
-				if ($media_type == 'Cartoons' or $media_type == 'Desenhos') {
-					$watched_cartoons_number++;
-				}
-
-				$i++;
-			}
-
-			$i = 0;
-			$watched_series_number = 0;
-			while ($i <= count($current_year_watched_media_type_text) - 1) {
-				$media_type = $current_year_watched_media_type_text[$i];
-
-				if ($media_type == 'Series' or $media_type == 'Séries') {
-					$watched_series_number++;
-				}
-
-				$i++;
-			}
-
-			$i = 0;
-			$watched_movies_number = 0;
-			while ($i <= count($current_year_watched_media_type_text) - 1) {
-				$media_type = $current_year_watched_media_type_text[$i];
-
-				if ($media_type == 'Movies' or $media_type == 'Filmes') {
-					$watched_movies_number++;
-				}
-
-				$i++;
-			}
-
-			$i = 0;
-			$watched_videos_number = 0;
-			while ($i <= count($current_year_watched_media_type_text) - 1) {
-				$media_type = $current_year_watched_media_type_text[$i];
-
-				if ($media_type == 'Videos' or $media_type == 'Vídeos') {
-					$watched_videos_number++;
-				}
-
-				$i++;
-			}
-		}
+		$watched_animes_number = (int)Read_Lines($per_media_type_files_folders[$mixed_media_type_names_plural_dict["Animes"]])[0];
+		$watched_cartoons_number = (int)Read_Lines($per_media_type_files_folders[$mixed_media_type_names_plural_dict["Cartoons"]])[0];
+		$watched_series_number = (int)Read_Lines($per_media_type_files_folders[$mixed_media_type_names_plural_dict["Series"]])[0];
+		$watched_movies_number = (int)Read_Lines($per_media_type_files_folders[$mixed_media_type_names_plural_dict["Animes"]])[0];
+		$watched_videos_number = (int)Read_Lines($per_media_type_files_folders[$mixed_media_type_names_plural_dict["Videos"]])[0];
 
 		# Media numbers array
 		${"watched_media_numbers_".$current_year} = array(
@@ -323,7 +293,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$media_type_anime_line = 5, #Animes
 	$media_type_cartoons_line = 19, #Cartoons
 	$media_type_series_line = 14, #Series
-	$media_type_movies_line = '0', #Movies
+	$media_type_movies_line = "0", #Movies
 	$media_type_video_line = 2, #Videos
 	);
 
@@ -332,7 +302,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$media_type_cartoons_line = 2, #Cartoons
 	$media_type_series_line = 10, #Series
 	$media_type_movies_line = 23, #Movies
-	$media_type_video_line = '0', #Videos
+	$media_type_video_line = "0", #Videos
 	);
 
 	$media_type_text_file_lines_array_2020 = array(
@@ -340,7 +310,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$media_type_cartoons_line = 62, #Cartoons
 	$media_type_series_line = 16, #Series
 	$media_type_movies_line = 84, #Movies
-	$media_type_video_line = '0', #Videos
+	$media_type_video_line = "0", #Videos
 	);
 
 	$media_type_text_file_lines_array_2021 = array(
@@ -348,20 +318,8 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$media_type_cartoons_line = 5, #Cartoons
 	$media_type_series_line = 1, #Series
 	$media_type_movies_line = 12, #Movies
-	$media_type_video_line = '0', #Videos
+	$media_type_video_line = "0", #Videos
 	);
-
-	if (file_exists($to_watch_episodes_file) == True) {
-		$i = 0;
-		$to_watch_items = 0;
-		while ($i <= $to_watch_line_number - 1) {
-			if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
-				$to_watch_items++;
-			}
-
-			$i++;
-		}
-	}
 
 	$watched_media_numbers_current_year = ${"watched_media_numbers_".$current_year};
 
@@ -419,7 +377,6 @@ if ($website_type == $story_website_type) {
 	$story_synopsis_english_file = $story_info_folder."Synopsis.txt";
 	$story_synopsis_portuguese_file = $story_info_folder."Sinopse.txt";
 	$story_readers_file = $story_readers_and_reads_folder."Readers.txt";
-	#$story_comments_check_file = $story_comments_folder."Check.txt";
 	$story_chapter_status_file = $story_info_folder."Chapter Status.txt";
 	$chapter_number_file = $story_info_folder."Chapter Number.txt"; 
 	$story_author_file = $story_info_folder."Author.txt";

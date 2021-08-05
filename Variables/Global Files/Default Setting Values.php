@@ -1,7 +1,13 @@
 <?php 
 
+$website_settings = array(
+"uses_custom_buttons_bar" => False,
+);
+
+$uses_custom_buttons_bar_text = "uses_custom_buttons_bar";
+
 $use_custom_tab_titles_array = False;
-$use_variable_inserter = True;
+$use_variable_inserter = False;
 $use_variable_inserter_in_read_lines = False;
 $story_shows_story_covers = True;
 

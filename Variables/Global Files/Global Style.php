@@ -26,6 +26,7 @@ $colors_array = array(
 "dark-blue",
 "super-dark-blue",
 "cyan",
+"green",
 "green-water",
 "dark-green-water",
 "yellow",

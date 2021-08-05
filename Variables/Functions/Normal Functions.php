@@ -211,6 +211,10 @@ function Remove_Leading_Zeros($number) {
 	if ($number <= 9) {
 		return str_replace("0", "", (string)$number);
 	}
+
+	else {
+		return $number;
+	}
 }
 
 function Mix_Arrays($first_array, $second_array, $left_or_right = Null, $additional_value = False) {

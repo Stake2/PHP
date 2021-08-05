@@ -38,10 +38,6 @@ if ($website_uses_custom_layout_setting == False) {
 	echo '<div style="display:none;" id="button_number">'.$website_tab_number.$div_close."\n";
 }
 
-#if ($website_type == $story_website_type) {
-#	echo '<div style="display:none;>'.$chapters.$div_close;
-#}
-
 if ($website_type == $story_website_type) {
 	echo "\n".'<script>
 Chapter_Number = 1;

@@ -143,42 +143,6 @@ if ($website_language != $language_geral) {
 	$website_link .= $website_link_language."/";
 }
 
-/*
-#General language website_name, title, main_website_url and description
-if ($website_language == $geral_language) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $website;
-
-	$website_title = ucwords($website_title);
-	$website_title_header = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
-	$website_link = $selected_website_url;
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
-}
-
-#English language website_name, title, main_website_url and description
-if ($website_language == $enus_language) {
-	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_header = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
-	
-}
-
-#Brazilian Portuguese language website_name, title, main_website_url and description
-if (in_array($website_language, $pt_languages_array)) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $website;
-
-	$website_title = ucwords($website_title).' '.$hyphen_separated_website_language;
-	$website_title_header = ucwords($website_title).': '.$icons[5].' '.'<span class="'.$second_text_color.'">'.'['.$every_year_watched_number." ".$mediastxt.']'.$spanc;
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[1];
-}
-*/
-
 #Tabtexts definers for English and General language
 if (in_array($website_language, $en_languages_array)) {
 	$tab_names[0] = substr_replace($tab_names[0], ' ', 7, 0);
@@ -206,7 +170,7 @@ while ($current_variable_year <= $current_year - 1) {
 #Tabtexts array
 $tab_texts = array(
 $tab_names[0].' ['.$current_year_watched_number_text.']'.': '.$icons[5],
-$tab_names[1].' ['.$to_watch_items.']'.': '.$icons[6],
+$tab_names[1].' ['.$watching_medias_number.']'.': '.$icons[6],
 $tab_names[2].' ['.$media_links_number.']'.': '.$icons[7],
 $tab_names[3].' ['.$watched_movies_number.']'.': '.$icons[19],
 $tab_names[4].' ['.$archived_medias_number.']'.': '.$icons[8],
@@ -226,7 +190,7 @@ while ($current_variable_year <= $current_year - 1) {
 #Tabtexts array
 $tab_titles_without_html = array(
 $tab_names[0].' ['.$current_year_watched_number_text.']',
-$tab_names[1].' ['.$to_watch_items.']',
+$tab_names[1].' ['.$watching_medias_number.']',
 $tab_names[2].' ['.$media_links_number.']',
 $tab_names[3].' ['.$watched_movies_number.']',
 $tab_names[4].' ['.$archived_medias_number.']',
@@ -235,6 +199,12 @@ $icons[13],
 
 # Website Style.php File Includer
 require $website_style_file;
+
+$website_custom_button_bar_numbers = array(
+0,
+1,
+2,
+);
 
 #Tab Generator.php includer
 require $website_tabs_generator;

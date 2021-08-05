@@ -77,7 +77,11 @@ if ($website_deactivate_top_buttons_setting == False) {
 
 			$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
-			$computer_buttons_bar .= $button;
+			if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+				$computer_buttons_bar .= $button;
+			}
+
+			$computer_buttons[$i] = $button;
 
 			$total_buttons_created++;
 		}
@@ -88,7 +92,11 @@ if ($website_deactivate_top_buttons_setting == False) {
 
 				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
-				$computer_buttons_bar .= $button;
+				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+					$computer_buttons_bar .= $button;
+				}
+
+				$computer_buttons[$i] = $button;
 
 				$total_buttons_created++;
 			}
@@ -98,31 +106,23 @@ if ($website_deactivate_top_buttons_setting == False) {
 
 				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
-				$computer_buttons_bar .= $button;
+				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+					$computer_buttons_bar .= $button;
+				}
+
+				$computer_buttons[$i] = $button;
 
 				$total_buttons_created++;
 			}
 		}
 
-		/*
-		if ($show_buttons_bar == True) {
-			if ($i <= $tabnumb2 and $website_name != $website_2019) {
-				echo $computer_buttons[$i];
-			}
-
-			if ($i <= $website_tab_number and $website_name == $website_2019) {
-				echo $computer_buttons[$i];
-			}
-
-			if ($website_name == $website_diario and $sitebtnecho == True and $i == $website_tab_number) {
-				echo ' '.$websites_tab_button_not_centered;
-
-				$sitebtnecho = False;
-			}
-		}
-		*/
-
 		$i++;
+	}
+
+	if ($website_settings[$uses_custom_buttons_bar_text] == True) {
+		foreach ($website_custom_button_bar_numbers as $button_number) {
+			$computer_buttons_bar .= $computer_buttons[$button_number];
+		}
 	}
 
 	$hide_computer_buttons_element = $hide_computer_buttons_bar.
@@ -162,9 +162,13 @@ if ($website_deactivate_top_buttons_setting == False) {
 		if ($i == $website_tab_number and $website_name == $website_diario) {
 			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
-			$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>';
+			$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
-			$mobile_buttons_bar .= $button."\n";
+			if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+				$mobile_buttons_bar .= $button;
+			}
+
+			$mobile_buttons[$i] = $button;
 
 			$total_buttons_created++;
 		}
@@ -173,49 +177,37 @@ if ($website_deactivate_top_buttons_setting == False) {
 			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			if ($i == 0 and $website_has_notifications == True and $website_hides_notification_on_clicking_on_read_tab_setting == True) {
-				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>';
+				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
-				$mobile_buttons_bar .= $button."\n";
+				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+					$mobile_buttons_bar .= $button;
+				}
+
+				$mobile_buttons[$i] = $button;
 
 				$total_buttons_created++;
 			}
 	
 			else {
-				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>';
+				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
-				$mobile_buttons_bar .= $button."\n";
+				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+					$mobile_buttons_bar .= $button;
+				}
+
+				$mobile_buttons[$i] = $button;
 
 				$total_buttons_created++;
 			}
 		}
 
-		/*
-		if ($show_buttons_bar == True) {
-			if ($i <= $tabnumb2 and $website_name != $website_2019) {
-				echo $mobile_buttons[$i];
-			}
-
-			if ($i != $website_tab_number) {
-				echo "\n";
-			}
-
-			if ($i <= $website_tab_number and $website_name == $website_2019) {
-				echo $mobile_buttons[$i];
-			}
-
-			if ($i != $website_tab_number) {
-				echo "\n";
-			}
-
-			if ($website_name == $website_diario and $sitebtnecho == True and $i == $website_tab_number) {
-				echo ' '.$websites_tab_button_not_centered;
-
-				$sitebtnecho = False;
-			}
-		}
-		*/
-
 		$i++;
+	}
+
+	if ($website_settings[$uses_custom_buttons_bar_text] == True) {
+		foreach ($website_custom_button_bar_numbers as $button_number) {
+			$mobile_buttons_bar .= $mobile_buttons[$button_number];
+		}
 	}
 
 	$close_mobile_div = "\n".$div_close."\n"."\n".

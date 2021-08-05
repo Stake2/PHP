@@ -152,7 +152,7 @@ if ($website_name == $website_watch_history) {
 
 if ($website_name == $website_things_i_do) {
 	# Include the buttons loader PHP file
-	require $computer_buttons_bar_loader;
+	require $website_buttons_generator_php;
 }
 
 #City body files includer

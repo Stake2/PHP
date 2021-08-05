@@ -23,6 +23,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 	$story_website_uses_chapter_opener = True; #Defines if website uses the Chapter Opener script
     $website_uses_tab_body_generator = True; #Defines if the website uses the CityBody generator
 	$site_uses_new_comment_and_read_displayer = True;
+	$use_variable_inserter = True;
 
 	$website_write_story_setting = False; #Defines if website has a story writing chapter
 	$new_write_style = False; #Defines if the website uses the new writing style for chapters
