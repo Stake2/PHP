@@ -30,15 +30,15 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_watch_histo
 	require $setting_parameters_file;
 
 	#Website Tabs array
-	$tabs = array('Watched', 'To Watch', 'Links', 'Movies', 'Arch');
+	$tabs = array('Watched', 'Media being watched', 'Links', 'Movies', 'Arch');
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array('Watched'.$current_year, 'To Watch', 'Links', 'Movies', 'Archived Media');
+		$tab_names = array('Watched Media in '.$current_year, 'Media being watched', 'Links', 'Movies', 'Archived Media');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array('Assistidos'.$current_year, 'Para Assistir', 'Links', 'Filmes', 'Mídias Arquivadas');
+		$tab_names = array('Mídias Assistidas em '.$current_year, 'Mídias sendo assitidas', 'Links', 'Filmes', 'Mídias Arquivadas');
 	}
 
 	#Number of tabs

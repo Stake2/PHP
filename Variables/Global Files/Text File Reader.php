@@ -85,10 +85,6 @@ if (in_array($website_name, $years_array)) {
 }
 
 if ($website_name == $website_watch_history or in_array($website_name, $years_array)) {
-	#require($watch_history_text_file_reader_module);
-}
-
-if ($website_name == $website_watch_history or in_array($website_name, $years_array)) {
 	if (in_array($website_language, $en_languages_array)) {
 		$language_split_number = 0;
 	}
@@ -96,75 +92,6 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	if (in_array($website_language, $pt_languages_array)) {
 		$language_split_number = 1;
 	}
-
-	/*
-	$to_watch_episodes_file = $notepad_to_watch_folder."Episodes.txt";
-	$to_watch_status_file = $notepad_to_watch_folder."Status.txt";
-	$to_watch_folders_file = $notepad_to_watch_folder."Folders.txt";
-
-	$to_watch_media_type_file = $notepad_to_watch_folder."Media Types.txt";
-
-	if (file_exists($to_watch_episodes_file) == True) {
-		$to_watch_line_number = 0;
-		$handle = fopen($to_watch_episodes_file, "r");
-		while (!feof ($handle)){
-			$line = fgets($handle);
-			$to_watch_line_number++;
-		}
-	}
-
-	if (file_exists($to_watch_episodes_file) == True) {
-		$file = fopen($to_watch_episodes_file, "r", "UTF-8");
-		if ($file) {
-			$to_watch_text = explode("\n", fread($file, filesize($to_watch_episodes_file)));
-			$to_watch_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $to_watch_text);
-		}
-	}
-
-	if (file_exists($to_watch_status_file) == True) {
-		$file = fopen($to_watch_status_file, "r", "UTF-8");
-		if ($file) {
-			$to_watch_status_file_text = explode("\n", fread($file, filesize($to_watch_status_file)));
-			$to_watch_status_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $to_watch_status_file_text);
-		}
-	}
-
-	if (file_exists($to_watch_folders_file) == True) {
-		$file = fopen($to_watch_folders_file, "r", "UTF-8");
-		if ($file) {
-			$to_watch_folders_text = explode("\n", fread($file, filesize($to_watch_folders_file)));
-			$to_watch_folders_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $to_watch_folders_text);
-		}
-	}
-
-	if (file_exists($to_watch_media_type_file) == True) {
-		$file = fopen($to_watch_media_type_file, "r", "UTF-8");
-		if ($file) {
-			$to_watch_media_type_text = explode("\n", fread($file, filesize($to_watch_media_type_file)));
-			$to_watch_media_type_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF"), "", $to_watch_media_type_text);
-		}
-	}
-
-	$new_to_watch_media_type_text = array();
-
-	foreach ($to_watch_media_type_text as $line) {
-		$new_to_watch_media_type_text[] = explode(", ", $line)[$language_split_number];
-	}
-
-	$to_watch_media_type_text = $new_to_watch_media_type_text;
-
-	if (file_exists($to_watch_episodes_file) == True) {
-		$i = 0;
-		$to_watch_items = 0;
-		while ($i <= $to_watch_line_number - 1) {
-			if (strpos ($to_watch_status_file_text[$i], $to_watch_string) == True) {
-				$to_watch_items++;
-			}
-
-			$i++;
-		}
-	}
-	*/
 
 	$text = "/";
 

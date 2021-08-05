@@ -145,15 +145,10 @@ if ($website_language != $language_geral) {
 
 #Tabtexts definers for English and General language
 if (in_array($website_language, $en_languages_array)) {
-	$tab_names[0] = substr_replace($tab_names[0], ' ', 7, 0);
 	$tab_names[7] = substr_replace($tab_names[5], '-', 5, 0);
 	$tab_names[7] = strtr($tab_names[7], "l", strtoupper("l"));;
 }
 
-#Tabtexts definers for Brazilian Portuguese language
-if (in_array($website_language, $pt_languages_array)) {
-	$tab_names[0] = substr_replace($tab_names[0], ' ', 10, 0);
-}
 
 $tab_titles_without_html = array();
 
