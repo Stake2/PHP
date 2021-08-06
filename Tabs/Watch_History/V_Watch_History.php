@@ -39,11 +39,11 @@ $span_second_text_color = '<span class="'.$second_text_color.' '.$third_text_col
 #Website descriptions
 $website_descriptions_array = array(
 Null,
-'Website to show Animes, Cartoons, Series, Movies, and Videos that I watched and medias that I will watch, made by stake2.', 
-'Website para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti e mídias que eu vou assistir, feito por stake2.',
+'Website to show Animes, Cartoons, Series, Movies, and Videos that I watched and medias that I will watch, made by Stake2.', 
+'Website para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti e mídias que eu vou assistir, feito por Stake2.',
 );
 
-$text = 'Website to show {}, {}, {}, {},<br />and {} that I watched and {} that I will watch, made by stake2.';
+$text = 'Website to show {}, {}, {}, {},<br />and {} that I watched and {} that I will watch, made by Stake2.';
 
 $array = array(
 "Animes",
@@ -62,7 +62,7 @@ foreach ($array as $item) {
 
 $replacer_one = format($text, $replacer_array_one);
 
-$text = 'Website para mostrar {}, {}, {}, {},<br />e {} que assisti e {} que eu vou assistir, feito por stake2.';
+$text = 'Website para mostrar {}, {}, {}, {},<br />e {} que assisti e {} que eu vou assistir, feito por Stake2.';
 
 $array = array(
 "Animes",
