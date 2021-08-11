@@ -29,6 +29,7 @@ $colors_array = array(
 "green",
 "green-water",
 "dark-green-water",
+"orange",
 "yellow",
 "yellow-sand",
 "light-brown",
