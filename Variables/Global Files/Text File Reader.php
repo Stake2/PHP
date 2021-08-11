@@ -85,6 +85,9 @@ if (in_array($website_name, $years_array)) {
 }
 
 if ($website_name == $website_watch_history or in_array($website_name, $years_array)) {
+	$watch_history_variables_php = $website_folder_watch_history."Watch History Variables.php";
+	require $watch_history_variables_php;
+
 	if (in_array($website_language, $en_languages_array)) {
 		$language_split_number = 0;
 	}
@@ -92,6 +95,16 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	if (in_array($website_language, $pt_languages_array)) {
 		$language_split_number = 1;
 	}
+
+	$text = "/";
+
+	$media_info_folders = array(
+	$mixed_media_type_names_plural_dict["Animes"] => $media_info_folder.$mixed_media_type_names_plural_dict["Animes"].$text,
+	$mixed_media_type_names_plural_dict["Cartoons"] => $media_info_folder.$mixed_media_type_names_plural_dict["Cartoons"].$text,
+	$mixed_media_type_names_plural_dict["Series"] => $media_info_folder.$mixed_media_type_names_plural_dict["Series"].$text,
+	$mixed_media_type_names_plural_dict["Movies"] => $media_info_folder.$mixed_media_type_names_plural_dict["Movies"].$text,
+	$mixed_media_type_names_plural_dict["Videos"] => $media_info_folder.$mixed_media_type_names_plural_dict["Videos"].$text,
+	);
 
 	$text = "/";
 

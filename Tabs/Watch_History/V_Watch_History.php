@@ -166,10 +166,8 @@ while ($current_variable_year <= $current_year - 1) {
 $tab_texts = array(
 $tab_names[0].' ['.$current_year_watched_number_text.']'.': '.$icons[5],
 $tab_names[1].' ['.$watching_medias_number.']'.': '.$icons[6],
-$tab_names[2].' ['.$media_links_number.']'.': '.$icons[7],
-$tab_names[3].' ['.$watched_movies_number.']'.': '.$icons[19],
-$tab_names[4].' ['.$archived_medias_number.']'.': '.$icons[8],
-$icons[13],
+$tab_names[2].' ['.$watched_movies_number.']'.': '.$icons[19],
+$tab_names[3].' ['.$archived_medias_number.']'.': '.$icons[8],
 );
 
 $archived_media_texts = array();
@@ -186,10 +184,8 @@ while ($current_variable_year <= $current_year - 1) {
 $tab_titles_without_html = array(
 $tab_names[0].' ['.$current_year_watched_number_text.']',
 $tab_names[1].' ['.$watching_medias_number.']',
-$tab_names[2].' ['.$media_links_number.']',
-$tab_names[3].' ['.$watched_movies_number.']',
-$tab_names[4].' ['.$archived_medias_number.']',
-$icons[13],
+$tab_names[2].' ['.$watched_movies_number.']',
+$tab_names[3].' ['.$archived_medias_number.']',
 );
 
 # Website Style.php File Includer

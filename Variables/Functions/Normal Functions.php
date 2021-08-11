@@ -217,6 +217,20 @@ function Remove_Leading_Zeros($number) {
 	}
 }
 
+function Stringfy_Array($array, $add_br = False) {
+	$string_array = "";
+
+	foreach ($array as $text) {
+		$string_array .= $text;
+
+		if ($add_br == True) {
+			$string_array .= "<br />"."\n";
+		}
+	}
+
+	return $string_array;
+}
+
 function Mix_Arrays($first_array, $second_array, $left_or_right = Null, $additional_value = False) {
 	global $left_english_text;
 	global $right_english_text;
@@ -342,6 +356,24 @@ function show($thing, $add_br = False) {
 			echo $thing."\n";
 		}
 	}
+}
+
+function Make_Setting_Dictionary($text_array, $setting_splitter = Null) {
+	if ($setting_splitter == Null) {
+		$setting_splitter = ": ";
+	}
+
+	$settings_dictionary = array();
+
+	foreach ($text_array as $setting) {
+		$split = explode($setting_splitter, $setting);
+		$setting = $split[0];
+		$value = $split[1];
+
+		$settings_dictionary[$setting] = $value;
+	}
+
+	return $settings_dictionary;
 }
 
 ?>

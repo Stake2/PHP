@@ -1,191 +1,146 @@
 <?php 
 
-echo $div_zoom_animation.'<div class="'.$computer_variable.'">
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.''.$rounded_border_style_2.'">
-<h1 class="'.$first_text_color.'">
-'.$linktxts[0].': </h1>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[0].'" width="28%" style="'.$rounded_border_style_2.'" /><br />
-<'.$h4_element.' class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[0].'">'.$media_links_array[0].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[1].'">'.$media_links_array[1].'</a>' .'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[2].'">'.$media_links_array[2].'</a>' .'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[3].'">'.$media_links_array[3].'</a>' .'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[4].'">'.$media_links_array[4].'</a>' .' -  <a href="'.$media_links_array[5].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><'.$h4_element.'>'.$icons[8].'</'.$h4_element.'>'.'</a>'.'<br />
-</'.$h4_element.'>
-</div>
+if ($thingsidofake == True) {
+	$spanstyle = $blackspan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-<br /><br /><br />
+	if ($mobileversion == True) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h1 class="'.$first_text_color.'">
-'.$linktxts[1].': </h1>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[1].'" width="55%" style="'.$rounded_border_style_2.'" /><br />
-<'.$h4_element.' class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[6].'">'.$media_links_array[6].'</a> - <a href="'.$media_links_array[7].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><'.$h4_element.'>'.$icons[8].'</'.$h4_element.'>'.'</a><br />
-</'.$h4_element.'>
-</div>
+	if ($mobileversion == false) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
 
-<br /><br /><br />
+if ($thingsidofake == null) {
+	$spanstyle = $whitespan;
+	$hover_text_color = $text_hover_white_css_class;
+	$number_text_color = $first_text_color;
+	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h1 class="'.$first_text_color.'">
-'.$linktxts[2].': </h1>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[2].'" width="41%" style="'.$rounded_border_style_2.'" /><br />
-<'.$h4_element.' class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[8].'">'.$media_links_array[8].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[9].'">'.$media_links_array[9].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[10].'">'.$media_links_array[10].'</a>'.'<br />
-</'.$h4_element.'>
-</div>
+	if ($mobileversion == True) {
+		$margindivstyle = '<div>';
+		$mobileaname = 'm';
+	}
 
-<br /><br /><br />
+	if ($mobileversion == null) {
+		$margindivstyle = '<div style="margin-left:30px;">';
+		$mobileaname = '';
+	}
+}
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h1 class="'.$first_text_color.'">
-'.$linktxts[3].': </h1>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[3].'" width="31%" style="'.$rounded_border_style_2.'" /><br />
-<'.$h4_element.' class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[11].'">'.$media_links_array[11].'</a>'.'<br />
-</'.$h4_element.'>
-</div>
+echo '<'.$h4_element.' class="'.$number_text_color.'" style="text-align:left;">'."\n";
 
-<br /><br /><br />
+$i = 0;
+$a = 0;
+$c = 0;
+while ($i <= $watched_movie_names_line_number) {
+	$i2 = $i + 1;
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h1 class="'.$first_text_color.'">
-'.$linktxts[4].': </h1>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[4].'" width="33%" style="'.$rounded_border_style_2.'" /><br />
-<'.$h4_element.' class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[12].'">'.$media_links_array[12].'</a>'.'<br />
-</'.$h4_element.'>
-</div>
+	if (in_array($i, $watched_movie_time_numbers_array)) {
+		if (in_array($i, $watched_movie_comment_numbers_array)) {
+			if ($i != 10) {
+				#echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.$spanstyle.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].$spanstyle.' - ('.$watched_movies_time[$a].") - </span></span> ".$watched_movie_comments[$c].'<br />'.$div_close."\n";
+			}
 
-<br /><br /><br />
+			if ($i == 10) {
+				#echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.$spanstyle.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].$spanstyle.' - ('.$watched_movies_time[$a].") - </span></span> ".$watched_movie_comments[$c].$div_close."\n";
+			}
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h1 class="'.$first_text_color.'">
-'.$linktxts[5].': </h1>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[5].'" width="50%" style="'.$rounded_border_style_2.'" /><br />
-<'.$h4_element.' class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[13].'">'.$media_links_array[13].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[14].'">'.$media_links_array[14].'</a>'.'<br />
-</'.$h4_element.'>
-</div>
-</div>'
-.
-'</div>';
+			$a++;
+			$c++;
+		}
 
+		if (!in_array($i, $watched_movie_comment_numbers_array)) {
+			if ($i != 10) {
+				#echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movies_time[$a].')</span></span>'.'<br />'.$div_close."\n";
+			}
 
+			if ($i == 10) {
+				#echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movies_time[$a].')</span></span>'.$div_close."\n";
+			}
 
-echo $div_zoom_animation.'<div class="'.$mobile_variable.' zoomnimatebott">
-<div style="'.$margincss2.''.$rounded_border_style_2.' '.$mobile_variable.'">
-<h3 class="'.$first_text_color.'">
-'.$linktxts[0].': </h3>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[0].'" width="88%" style="'.$rounded_border_style_2.'" /><br />
-<h5 class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[0].'">'.$media_links_array[0].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[1].'">'.$media_links_array[1].'</a>' .'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[2].'">'.$media_links_array[2].'</a>' .'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[3].'">'.$media_links_array[3].'</a>' .'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[4].'">'.$media_links_array[4].'</a>' .' -  <a href="'.$media_links_array[5].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><h5>'.$icons[8].'</h5>'.'</a>'.'<br />
-</h5>
-</div>
+			$a++;
+		}
+	}
 
-<br /><br /><br />
+	if (!in_array($i, $watched_movie_time_numbers_array)) {
+		#echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].' - <span class="w3-text-white">'.$unknown_watched_time_text.'</span></span>'.$div_close.''."\n";
+	}
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h3 class="'.$first_text_color.'">
-'.$linktxts[1].': </h3>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[1].'" width="100%" style="'.$rounded_border_style_2.'" /><br />
-<h5 class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[6].'">'.$media_links_array[6].'</a> - <a href="'.$media_links_array[7].'" class="w3-btn '.$first_button_style.'" style="'.$rounded_border_style_2.'"><h5>'.$icons[8].'</h5>'.'</a><br />
-</h5>
-</div>
+    $i++;
+}
 
-<br /><br /><br />
+$i = 0;
+$movie_time_number = 0;
+$comment_number = 0;
+while ($i <= $watched_movie_names_line_number - 1) {
+	$i2 = $i + 1;
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h3 class="'.$first_text_color.'">
-'.$linktxts[2].': </h3>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[2].'" width="90%" style="'.$rounded_border_style_2.'" /><br />
-<h5 class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[8].'">'.$media_links_array[8].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[9].'">'.$media_links_array[9].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[10].'">'.$media_links_array[10].'</a>'.'<br />
-</h5>
-</div>
+	if ($i == 1) {
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span> - '.$watched_movie_comments[$comment_number].$div_close."\n";
 
-<br /><br /><br />
+		$movie_time_number++;
+		$comment_number++;
+	}
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h3 class="'.$first_text_color.'">
-'.$linktxts[3].': </h3>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[3].'" width="72%" style="'.$rounded_border_style_2.'" /><br />
-<h5 class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[11].'">'.$media_links_array[11].'</a>'.'<br />
-</h5>
-</div>
+	if ($i >= 4 and $i < 23) {
+		if (in_array($i, $watched_movie_comment_numbers_array)) {
+			echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span> - '.$watched_movie_comments[$comment_number].$div_close."\n";
 
-<br /><br /><br />
+			$comment_number++;
+		}
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h3 class="'.$first_text_color.'">
-'.$linktxts[4].': </h3>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[4].'" width="88%" style="'.$rounded_border_style_2.'" /><br />
-<h5 class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[12].'">'.$media_links_array[12].'</a>'.'<br />
-</h5>
-</div>
+		if (!in_array($i, $watched_movie_comment_numbers_array)) {
+			echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span>'.$div_close."\n";
+		}
 
-<br /><br /><br />
+		$movie_time_number++;
+	}
 
-<div class="'.$first_full_border.'" style="'.$margincss2.''.$rounded_border_style_2.'">
-<h3 class="'.$first_text_color.'">
-'.$linktxts[5].': </h3>
-<hr class="'.$header_full_border.'" />
-<img class="'.$first_full_border.'" src="'.$media_image_links_array[5].'" width="87%" style="'.$rounded_border_style_2.'" /><br />
-<h5 class="'.$first_text_color.'">
-<hr class="'.$header_full_border.'" />
-<span class="'.$first_text_color.'">Links: </span><br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[13].'">'.$media_links_array[13].'</a>'.'<br />
-<a '.$text_hover_white_css_class.' href="'.$media_links_array[14].'">'.$media_links_array[14].'</a>'.'<br />
-</h5>
-</div>
-</div>'
-.
-'</div>';
+	if ($i >= 23 and $i != 25 and $i != 26) {
+		$c = 0;
+		$number_array = array();
+		while ($c <= 100) {
+			array_push($number_array, " (Rewatched ".$c."x - Reassistido ".$c."x)");
+
+			$c++;
+		}
+
+		$watched_movies_comment_text[$i] = str_replace($number_array, "", $watched_movie_names_text[$i]);
+
+		$watched_movie_comments[$watched_movie_names_text[$i]] = '<a target="_blank" href="'.$cdn_text_movie_comments.$watched_movies_comment_text[$i].'.txt'.'" class="'.$text_hover_white_css_class.'" style="cursor:pointer;"><i class="fas fa-comments"></i></a>';
+
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span> - '.$watched_movie_comments[$watched_movie_names_text[$i]].$div_close."\n";
+
+		$comment_number++;
+		$movie_time_number++;
+	}
+
+	if ($i >= 23 and $i == 25) {
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span>'.$div_close."\n";
+
+		$movie_time_number++;
+	}
+
+	if ($i >= 23 and $i == 26) {
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span>'.$div_close."\n";
+
+		$movie_time_number++;
+	}
+
+	if ($i != 1 and $i < 4) {
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'</span>'.' - <span class="w3-text-white">('.$unknown_watched_time_text.')</span>'.$div_close."\n";
+	}
+
+	$i++;
+}
+
+echo '</h5>';
 
 ?>

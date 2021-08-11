@@ -89,6 +89,11 @@ $website_title = $website_titles_array[$selected_website_number];
 $website_title_key = str_replace(" ", "_", strtolower($website_title));
 $website_type = $website_types_array[$selected_website_number];
 
+if ($website_name == $website_watch_history) {
+	$watch_history_variables_php = $website_folder_watch_history."Watch History Variables.php";
+	require $watch_history_variables_php;
+}
+
 $v_global_php = $php_folder_variables.'V_Global.php';
 
 $columns = array(

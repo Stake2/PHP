@@ -20,7 +20,7 @@ function format($text, $parameters) {
 
 		array_values($parameters),
 
-		$text
+		$text,
 	);
 }
 

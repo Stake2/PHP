@@ -144,10 +144,10 @@ if ($website_name == $website_watch_history) {
 	require $website_buttons_generator_php;
 
 	# Every Watched Button Computer
-	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[3].$computer_buttons[4];
+	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[2].$computer_buttons[3];
 
 	# Mobile Every Watched Button
-	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[3].$mobile_buttons[4];
+	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[2].$mobile_buttons[3];
 }
 
 if ($website_name == $website_things_i_do) {
