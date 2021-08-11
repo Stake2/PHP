@@ -143,13 +143,6 @@ if ($website_language != $language_geral) {
 	$website_link .= $website_link_language."/";
 }
 
-#Tabtexts definers for English and General language
-if (in_array($website_language, $en_languages_array)) {
-	$tab_names[7] = substr_replace($tab_names[5], '-', 5, 0);
-	$tab_names[7] = strtr($tab_names[7], "l", strtoupper("l"));;
-}
-
-
 $tab_titles_without_html = array();
 
 $current_variable_year = 2018;
