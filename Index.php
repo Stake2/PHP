@@ -8,6 +8,8 @@ if (isset($host_text) == False) {
 	$return = False;
 }
 
+$testing = "";
+
 if (isset($host_text) == True) {
 	$return = False;
 }
