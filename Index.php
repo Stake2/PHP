@@ -1,4 +1,4 @@
-asdasdas<?php
+<?php
 
 $line_replace_array = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
 
