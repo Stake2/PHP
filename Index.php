@@ -8,7 +8,7 @@ if (isset($host_text) == False) {
 	$return = False;
 }
 
-$testing = "";
+$variable = "";
 
 if (isset($host_text) == True) {
 	$return = False;
