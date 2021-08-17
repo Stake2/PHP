@@ -1,8 +1,0 @@
-07:07 15/03/2020: I made a tab for comments, changed the photo and the name of the site.
-07:07 15/03/2020: I changed the style of the readers tab :3.
-07:47 15/03/2020: I changed the "chapters" tab so you can read the titles now.
-10:11 15/03/2020: Added a comment button to the tabs where you read the chapters.
-15:54 15/03/2020: Changed the way the site writes the chapter text on the site.
-21:08 17/03/2020: Added a "read" button to tell which chapter you read and added readings from readers in the tab where you read the chapter.
-20:21 01/04/2020: I created a modal for the comments, allowing a window to appear at the top of the site for you to comment.
-00:01 02/04/2020: Added the 2 comments from 01/04/2020.

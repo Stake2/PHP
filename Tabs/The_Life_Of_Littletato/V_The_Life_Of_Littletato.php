@@ -37,15 +37,6 @@ $readed_number = 31;
 # Text File Reader PHP File Includer
 require $text_file_reader_file_php;
 
-# The chapter that I want to write
-if ($website_chapter_to_write_setting == false) {
-	$story_name_website_chapter_to_write = '';
-}
-
-else {
-	$story_name_website_chapter_to_write = (int)$website_chapter_to_write_setting;
-}
-
 # Re-require of the VStories.php file to set the story name
 require $story_variables_php;
 
@@ -77,10 +68,9 @@ if ($website_writing_pack_setting == True) {
 
 # Button names
 $tab_texts = array(
-$tab_names[0].": ".$icons[21],
-$tab_names[1].": ".$icons[20]." ❤️",
-$tab_names[2].": ".$icons[11],
-$icons[13],
+$tab_names[0].": ".$icons_array["open book"],
+$tab_names[1].": ".$icons_array["reader"]." ❤️",
+$tab_names[2].": ".$icons_array["book"],
 );
 
 # Website Style.php File Includer

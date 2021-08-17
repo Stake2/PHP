@@ -29,7 +29,7 @@ $website_image_link = $website_image;
 
 $story_synopsis = Language_Item_Definer($story_synopsis_english, $story_synopsis_portuguese);
 
-$website_meta_description = format(Language_Item_Definer("Website about my story, {}, made by stake2.", "Site sobre a minha história, {}, feito por stake2."), $story_name_variable);
+$website_meta_description = format(Language_Item_Definer("Website about my story, {}, made by Stake2, Funkysnipa Cat, Izaque.", "Site sobre a minha história, {}, feito por Stake2, Funkysnipa Cat, Izaque."), $story_name_variable);
 
 $website_header_description = format($synopsis_text.': <i class="fas fa-scroll"></i> "{}'.'"<br />', $story_synopsis);
 

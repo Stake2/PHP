@@ -162,10 +162,10 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 
 	$website_header_wrapper .= '<'.$h4_element.' class="'.$first_text_color.'">'."\n".
 	Define_Text_By_Number($story_author_number, $author_text, $authors_text).": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
-	Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text).': <span class="'.$second_text_color.'">'.$chapters.$new_chapter_text.'</span><br />'."\n";
+	Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text).': <span class="'.$second_text_color.'">'.$chapters." ".$icons_array["open book"].$new_chapter_text.'</span><br />'."\n";
 
 	if ($readers_number != 0) {
-		$website_header_wrapper .= Define_Text_By_Number($readers_number, $reader_text, $readers_text).': <span class="'.$second_text_color.'">'.$readers_number.' '.$icons_array["Reader"].'</span><br />'."\n";
+		$website_header_wrapper .= Define_Text_By_Number($readers_number, $reader_text, $readers_text).': <span class="'.$second_text_color.'">'.$readers_number.' '.$icons_array["reader"].'</span><br />'."\n";
 	}
 
 	$website_header_wrapper .= $story_creation_date_text.': <span class="'.$second_text_color.'">'.$story_creation_date.'</span><br />'."\n".

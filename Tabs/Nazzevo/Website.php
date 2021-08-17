@@ -27,8 +27,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_nazzevo) ==
 	$story_website_contains_comments = True; #Defines if the story has comments on it
 	$story_website_uses_chapter_opener = True; #Defines if the website uses the Open Chapter Script
 	$site_uses_new_comment_and_read_displayer = True;
-
-	$use_variable_inserter = False;
+	$use_variable_inserter = True;
 
 	# Website Tabs array
 	$tabs = array("Read", "Readers", "Stories");

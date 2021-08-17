@@ -300,8 +300,10 @@ $reader_icon = '<i class="fas fa-book-reader"></i>';
 $comment_icon = '<i class="fas fa-comments"></i>';
 
 $icons_array = array(
-"Reader" => '<i class="fas fa-book-reader"></i>',
-"Comment" => '<i class="fas fa-comments"></i>',
+"reader" => '<i class="fas fa-book-reader"></i>',
+"comment" => '<i class="fas fa-comments"></i>',
+"book" => '<i class="fas fa-book"></i>',
+"open book" => '<i class="fas fa-book-open"></i>',
 );
 
 $color = $background_brown_css_class;

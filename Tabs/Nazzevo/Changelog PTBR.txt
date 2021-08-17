@@ -1,8 +1,0 @@
-07:07 15/03/2020: Fiz uma aba para comentários, mudei a foto e o nome do site.
-07:07 15/03/2020: Mudei o estilo da aba de leitores :3.
-07:47 15/03/2020: Alterei a guia "capítulos" para que você possa ler os títulos agora.
-10:11 15/03/2020: Adicionei um botão de comentar nas guias onde você lê os capítulos.
-15:54 15/03/2020: Mudei a maneira como o site escreve o texto do capítulo no site.
-21:08 17/03/2020: Adicionei um botão "lido" para dizer qual capítulo você leu e adicionei leituras dos leitores na aba onde se lê o capítulo.
-20:21 01/04/2020: Criei um modal para os comentários, permitindo que uma janela apareça no topo do site para você comentar.
-00:01 02/04/2020: Adicionei os 2 comentários de 01/04/2020.

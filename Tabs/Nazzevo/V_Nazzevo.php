@@ -14,7 +14,7 @@ require $cover_images_folder_definer_php_variable;
 # Story name definer
 $story_name_variable = Language_Item_Definer($the_story_of_the_nazzevo_brothers_english_story_name, $the_story_of_the_nazzevo_brothers_story_name);
 $english_story_name_variable = $the_story_of_the_nazzevo_brothers_english_story_name;
-$general_story_name =$english_story_name_variable." Geral";
+$general_story_name = $english_story_name_variable." Geral";
 
 # Story name definer
 $story_name_variable = $the_story_of_the_nazzevo_brothers_story_name;
@@ -46,45 +46,29 @@ if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-# Website name, title, main_website_url and description setter
-if ($website_language == $languages_array[0]) {
-	$website_language = $languages_array[1];
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $website_name;
-	$website_language = $languages_array[0];
-	
-	$website_title = $story_name_variable.' '.ucwords($website_language);
-	$website_title_header = $story_name_variable.': '.$icons[11];
-	$website_link = $selected_website_url;
-	$website_language = $languages_array[0];
-}
+# Website name, title, URL and description setter, by language
+$website_name = $selected_website;
+$website_title = $general_story_name;
+$website_title_header = $general_story_name.': '.$icons[11];
+$website_link = $selected_website_url;
 
-if ($website_language == $languages_array[1]) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $selected_website;
-	
+if ($website_language != $language_geral) {
 	$website_title = $story_name_variable;
-	$website_title_header = $story_name_variable.': '.$icons[11];
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $website_name;
-
-	$website_title = $story_name_variable;
-	$website_title_header = $story_name_variable.': '.$icons[11];
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_title_header = $website_title.': '.$icons[11];
+	$website_link .= $website_link_language."/";
 }
 
 # Button names
 $tab_texts = array(
-$tab_names[0].': '.$icons[21],
-$tab_names[1].': '.$icons[20].' ❤️ 😊',
-$tab_names[2].': '.$icons[11],
+$tab_names[0].': '.$icons_array["open book"],
+$tab_names[1].': '.$icons_array["reader"]." ❤️",
+$tab_names[2].': '.$icons_array["book"],
+);
+
+$variable_inserter_array = array(
+$nazzevo_reference_1_chapter_1,
+$a_name_nazzevo_reference_1_chapter_1,
+$source_nazzevo_reference_1_chapter_1,
 );
 
 # Website Style.php File Includer
