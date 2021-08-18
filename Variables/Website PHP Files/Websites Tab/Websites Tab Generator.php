@@ -30,7 +30,7 @@ if ($website_name == $website_the_life_of_littletato) {
 	$websites_tab_border_color = $border_color_brown_css_class;
 }
 
-if ($website_name == $website_nazzevo) {
+if ($website_name == $website_the_story_of_the_nazzevo_brothers) {
 	$websites_tab_border = $header_full_border;
 	$websites_tab_name_text = $first_text_color;
 	$websites_tab_number_text_color = $second_text_color;
@@ -62,7 +62,7 @@ if ($website_name == $website_desert_island) {
 	$websites_tab_div_color = $background_yellow_sand_css_class;
 }
 
-#if ($website_name != $website_watch_history and $website_name != $website_the_life_of_littletato and $website_name != $website_nazzevo and $website_name != $website_things_i_do and $website != $website_diario and $website_name == $website_spaceliving and $selected_website == $website_desert_island) {
+#if ($website_name != $website_watch_history and $website_name != $website_the_life_of_littletato and $website_name != $website_the_story_of_the_nazzevo_brothers and $website_name != $website_things_i_do and $website != $website_diario and $website_name == $website_spaceliving and $selected_website == $website_desert_island) {
 #	$websites_tab_border = $border_color;
 #	$websites_tab_name_text = $first_text_color;
 #	$websites_tab_number_text_color = $first_text_color;

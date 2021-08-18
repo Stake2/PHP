@@ -50,7 +50,7 @@ else {
 	$display_variable = 'display:none;';
 }
 
-if ($website_name == $website_nazzevo) {
+if ($website_name == $website_the_story_of_the_nazzevo_brothers) {
 	$border_color = $background_black_css_class;
 }
 

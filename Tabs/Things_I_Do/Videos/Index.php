@@ -205,9 +205,9 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == T
 	#Number of tabs
 	$website_tab_number = 2;
 
-	$website_tabs[0] = $generic_tabs_folder.'City1.php';
-	$website_tabs[1] = $generic_tabs_folder.'City2.php';
-	$website_tabs[2] = $generic_tabs_folder.'City3.php';
+	$website_tabs[0] = $generic_tabs_folder.'City 1.php';
+	$website_tabs[1] = $generic_tabs_folder.'City 2.php';
+	$website_tabs[2] = $generic_tabs_folder.'City 3.php';
 }
 
 #Lang modifier

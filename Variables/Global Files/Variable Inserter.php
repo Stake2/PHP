@@ -94,13 +94,13 @@ function Variable_Inserter($array, $text_line) {
 				echo "<br />Linha: ".$text_line."<br />"."Nome da Variável: $".$variable_name.";<br />"."Variável: $".$variable.";<br />";
 			}
 
-			if (strpos($text_line, "$".$variable_name.";") == True and $has_variable == False) {
+			if (strpos($text_line, "$".$variable_name.";") == True and $has_variable == False and strpos($text_line, "<a ") == False) {
 				$new_text_line = $text_line;
 
 				if (isset($variable_inserter_replacer_array) == True) {
 					$c = 0;
 					while ($c <= count($variable_inserter_replacer_array) - 1) {
-						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True) {
+						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True and strpos($new_text_line, "<a ") == False) {
 							$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
 						}
 			
@@ -108,12 +108,14 @@ function Variable_Inserter($array, $text_line) {
 					}
 				}
 
-				$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
+				if (strpos($new_text_line, "<a ") == False) {
+					$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
+				}
 
 				if (isset($variable_inserter_replacer_array) == True) {
 					$c = 0;
 					while ($c <= count($variable_inserter_replacer_array) - 1) {
-						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True) {
+						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True and strpos($new_text_line, "<a ") == False) {
 							$new_text_line = str_replace($variable_inserter_replacer_array[$c], "", $new_text_line);
 						}
 			
@@ -124,16 +126,16 @@ function Variable_Inserter($array, $text_line) {
 				$has_variable = True;
 			}
 
-			if (strpos($text_line, "$".$variable_name.";") == False and $has_variable == False) {
+			if (strpos($text_line, "$".$variable_name.";") == False and $has_variable == False and strpos($text_line, "<a ") == False) {
 				$new_text_line = str_replace(array(".", "?", ")", "("), "", $text_line);
 
-				if ($new_text_line == "$".$variable_name.";") {
+				if ($new_text_line == "$".$variable_name.";" and strpos($new_text_line, "<a ") == False) {
 					$new_text_line = str_replace("$".$variable_name.";", $variable, $new_text_line);
 
 					$has_variable = True;
 				}
 
-				if (isset($variable_inserter_replacer_array) and $new_text_line == "$".$variable_name.";") {
+				if (isset($variable_inserter_replacer_array) and $new_text_line == "$".$variable_name.";" and strpos($new_text_line, "<a ") == False) {
 					$c = 0;
 					while ($c <= count($variable_inserter_replacer_array) - 1) {
 						if (strpos($new_text_line, $variable_inserter_replacer_array[$c]) == True) {

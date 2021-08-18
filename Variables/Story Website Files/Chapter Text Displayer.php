@@ -11,7 +11,7 @@ if ($write_new_chapter == True and $chapter_number_1 == $chapters + 1) {
 }
 
 # Chapter date displayer
-if ($website_name != $website_nazzevo and $story_has_dates == True) {
+if ($website_name != $website_the_story_of_the_nazzevo_brothers and $story_has_dates == True) {
 	$chapter_written_dates = Read_Lines($chapter_dates_file);
 
 	echo "<br />";
@@ -36,7 +36,7 @@ if ($new_write_style == True) {
 	Show_Text($chapter_file);
 
 	# Chapter date displayer
-	if ($website_name != $website_nazzevo and $story_has_dates == True) {
+	if ($website_name != $website_the_story_of_the_nazzevo_brothers and $story_has_dates == True) {
 		$chapter_written_dates = Read_Lines($chapter_dates_file);
 
 		echo "<br />";
@@ -119,7 +119,7 @@ if ($new_write_style == True) {
 
 	if ($show_write_form_text == True and $story_has_dates == True) {
 		#Chapter date displayer
-		if ($website_name != $website_nazzevo) {
+		if ($website_name != $website_the_story_of_the_nazzevo_brothers) {
 			if (file_exists($chapter_dates_file) == True) {
 				$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 				if ($fp) {

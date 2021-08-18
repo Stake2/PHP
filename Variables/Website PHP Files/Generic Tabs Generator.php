@@ -23,7 +23,7 @@ $i = 0;
 while ($i <= $website_tab_number) {
 	$i2 = $i + 1;
 
-	$website_tabs[$i] = $generic_tabs_folder.'City'.$i2.'.php';
+	$website_tabs[$i] = $generic_tabs_folder.'City '.$i2.'.php';
 
 	$i++;
 }

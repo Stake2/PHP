@@ -50,7 +50,7 @@ foreach ($website_folders as $folder) {
 
 $website_style_files = array();
 
-# V[Website].php Files array
+# V_[Website].php Files array
 $i = 0;
 foreach ($websites_array as $value) {
 	$website_folder = $php_folder_tabs.ucwords($value);
@@ -80,14 +80,14 @@ foreach ($websites_array as $value) {
 # Website.php Files array
 $i = 0;
 foreach ($websites_array as $value) {
-	$websitefile = $php_folder_tabs.ucwords($value)."/Website.php";
+	$website_file = $php_folder_tabs.ucwords($value)."/Website.php";
 
-	if (file_exists($websitefile)) {
-		$sitewebsitefiles[$i] = $websitefile;
+	if (file_exists($website_file)) {
+		$website_files[$i] = $website_file;
 	}
 
 	else {
-		fopen($websitefile, "w", "UTF-8");
+		fopen($website_file, "w", "UTF-8");
 	}
 
 	$i++;

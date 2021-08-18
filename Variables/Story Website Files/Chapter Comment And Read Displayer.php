@@ -65,7 +65,7 @@ if ($website_name == $website_the_life_of_littletato and $story_has_chapter_comm
 	}
 }
 
-if ($website_name == $website_nazzevo and $story_has_chapter_comments == True) {
+if ($website_name == $website_the_story_of_the_nazzevo_brothers and $story_has_chapter_comments == True) {
 	if ($chapter_number_1 == 1) {
 		echo $comment_header."\n";
 
@@ -76,7 +76,7 @@ if ($website_name == $website_nazzevo and $story_has_chapter_comments == True) {
 	}
 }
 
-if ($website_name == $website_nazzevo and $story_website_contains_reads == True) {
+if ($website_name == $website_the_story_of_the_nazzevo_brothers and $story_website_contains_reads == True) {
 	if ($chapter_number_1 == 1) {
 		echo $readings_header."\n";
 

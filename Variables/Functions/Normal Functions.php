@@ -4,7 +4,7 @@ function Show_Text($file, $style_format = Null) {
 	global $variable_inserter_array;
 	global $use_variable_inserter;
 	global $website_name;
-	global $website_nazzevo;
+	global $website_the_story_of_the_nazzevo_brothers;
 
 	$file_read = Open_File($file);
 
@@ -20,10 +20,6 @@ function Show_Text($file, $style_format = Null) {
 			if ($use_variable_inserter == True) {
 				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
 				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
-			}
-
-			if ($website_name == $website_nazzevo) {
-				$text_line = preg_replace("#https://([\S]+?)#Uis", '<a class="w3-text-white" target="_blank" href="https://\\1">https://\\1</a>', $text_line);
 			}
 
 			echo $text_line."\n".'<br />';
@@ -141,9 +137,9 @@ function Make_Link($link, $link_text = Null, $link_color = Null, $new_tab = Fals
 		$target = "_self";
 	}
 
-	$link = '<a '.$link_color.' href="'.$link.'" target="'.$target.'">'.$link_text.'</a>';
+	$link_element = '<a '.$link_color.' href="'.$link.'" target="'.$target.'">'.$link_text.'</a>';
 
-	return $link;
+	return $link_element;
 }
 
 function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
@@ -374,6 +370,16 @@ function Make_Setting_Dictionary($text_array, $setting_splitter = Null) {
 	}
 
 	return $settings_dictionary;
+}
+
+function Show_True_Or_False($value) {
+	if ($value == True) {
+		Show("True");
+	}
+
+	if ($value == False) {
+		Show("False");
+	}
 }
 
 ?>

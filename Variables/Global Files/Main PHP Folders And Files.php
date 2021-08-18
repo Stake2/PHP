@@ -1,15 +1,14 @@
 <?php 
 
-$generic_tabs_folder = $php_folder_tabs."Generic Tabs/";
-
 $functions_folder = $php_folder_variables."Functions/";
 $website_styling_folder = $php_folder_variables."Website Styling/";
 $generators_folder = $php_folder_variables."Generators/";
 $website_php_files_folder = $php_folder_variables."Website PHP Files/";
+$generic_tabs_folder = $website_php_files_folder."Generic Tabs/";
+$website_tool_files_folder = $php_folder_variables."Website Tool Files/";
 $website_classes_folder = $website_php_files_folder.'Website Classes/';
-$text_file_reader_modules_folder = $global_files_folder.'Text File Reader Modules/';
 $css_packs_php_folder = $php_folder_variables.'CSS Packs/';
-$websites_tab_folder = $php_folder_tabs.'Websites Tab/';
+$websites_tab_folder = $website_php_files_folder.'Websites Tab/';
 
 $story_website_files_folder = $php_folder_variables.'Story Website Files/';
 $story_read_and_reads_files_folder = $story_website_files_folder.'Reader And Reads Files/';
@@ -27,7 +26,6 @@ $global_arrays_php = $global_files_folder.'Global Arrays.php';
 $default_setting_values_php = $global_files_folder.'Default Setting Values.php';
 $other_index_stuff_php = $global_files_folder.'Other Index Stuff.php';
 $website_selector_file = $php_folder_variables.'Website Selector.php';
-$generic_tabs_generator_file = $global_files_folder.'Generic Tabs Generator.php';
 $setting_parameters_file = $global_files_folder.'Settings Params.php';
 
 # Website PHP Files
@@ -46,5 +44,7 @@ $website_notifications_php = $website_php_files_folder.'Notifications.php';
 $website_buttons_generator_php = $website_php_files_folder."Buttons Generator.php";
 $website_tabs_generator = $website_php_files_folder."Tab Generator.php";
 $website_tabs_loader = $website_php_files_folder."Tab Loader.php";
+$generic_tabs_generator_file = $website_php_files_folder.'Generic Tabs Generator.php';
+$tab_bodies_generator_php = $website_php_files_folder."Tab Bodies Generator.php";
 
 ?>
