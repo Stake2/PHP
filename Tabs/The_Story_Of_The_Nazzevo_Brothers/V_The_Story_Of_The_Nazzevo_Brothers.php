@@ -72,6 +72,8 @@ $a_name_nazzevo_reference_1_chapter_1,
 $source_nazzevo_reference_1_chapter_1,
 $nazzevo_reference_1_chapter_2,
 $a_name_nazzevo_reference_1_chapter_2,
+$nazzevo_reference_1_chapter_3,
+$a_name_nazzevo_reference_1_chapter_3,
 );
 
 # Website Style.php File Includer
