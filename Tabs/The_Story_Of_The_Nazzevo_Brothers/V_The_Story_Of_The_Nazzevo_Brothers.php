@@ -30,7 +30,9 @@ $website_comments_number = 0;
 $website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;
-$author_name = $person_names_painted["Izaque"]." ".Create_Element("span", $text_brown_css_class, $and_text)." ".$person_names_painted["Lulu"];
+$author_name = $person_names_painted["Izaque"];
+
+$website_image = ";3";
 
 # Text File Reader.php file includer
 require $text_file_reader_file_php;
