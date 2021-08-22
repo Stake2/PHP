@@ -67,6 +67,6 @@ if ($story_website_uses_chapter_opener == True) {
 
 echo "<script>"."\n".
 "Hide_Mobile_Buttons();"."\n".
-"</script>";
+"</script>"."\n";
 
 ?>

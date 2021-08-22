@@ -4,7 +4,7 @@ function Show_Text($file, $style_format = Null) {
 	global $variable_inserter_array;
 	global $use_variable_inserter;
 	global $website_name;
-	global $website_the_story_of_the_nazzevo_brothers;
+	global $website_the_story_of_the_bulkan_brothers;
 
 	$file_read = Open_File($file);
 

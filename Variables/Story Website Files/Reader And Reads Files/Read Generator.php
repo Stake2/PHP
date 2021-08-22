@@ -44,6 +44,10 @@ if ($reads_number > 1 and $read_dates != Null) {
 		$read_date = date("H:i d/m/Y", strtotime($read_dates[$current_chapter_read_number]));
 		$reader = $chapter_readers[$current_chapter_read_number];
 
+		if ($hide_sensitive_data == True) {
+			$reader = "Lorem Ipsum";
+		}
+
 		# Read creation
 		$read = $margin.'<'.$h4_element.' class="'.$read_style.'" style="text-align:left;'.$rounded_border_style_2.'">'.'<div style="margin-left:5%;margin-right:5%;">'.'<br /><b>'.
 

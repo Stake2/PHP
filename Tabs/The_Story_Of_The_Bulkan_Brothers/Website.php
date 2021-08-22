@@ -1,14 +1,14 @@
 <?php 
 
-# The Story of the Nazzevo Brothers website definer
-if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_story_of_the_nazzevo_brothers) == True) {
-	$selected_website = $website_the_story_of_the_nazzevo_brothers;
+# The Story of the Bulkan Brothers website definer
+if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_story_of_the_bulkan_brothers) == True) {
+	$selected_website = $website_the_story_of_the_bulkan_brothers;
 
 	# Website title and name definer
 	$website = $selected_website;
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pequenata;
-	$selected_website_style_file = $website_folder_the_story_of_the_nazzevo_brothers."Website Style.php";
+	$selected_website_style_file = $website_folder_the_story_of_the_bulkan_brothers."Website Style.php";
 
 	#Website settings
 	$website_has_notifications = False; #Defines if website has notifications on

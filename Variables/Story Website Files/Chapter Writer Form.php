@@ -78,7 +78,7 @@ echo '</textarea>'."\n";
 
 if ($show_write_form_text == True and $story_has_dates == True) {
 	#Chapter date displayer
-	if ($website_name != $sitenazzevo) {
+	if ($website_name != $sitebulkan) {
 		if (file_exists($chapter_dates_file) == True) {
 			$fp = fopen($chapter_dates_file, 'r', 'UTF-8'); 
 			if ($fp) {

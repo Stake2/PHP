@@ -127,8 +127,6 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 		$author_name = $person_names_painted["Izaque"];
 	}
 
-	$hide_sensitive_data = False;
-
 	if ($hide_sensitive_data == True) {
 		$author_name = "Lorem ipsum";
 

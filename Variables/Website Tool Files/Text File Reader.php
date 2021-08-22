@@ -375,7 +375,7 @@ if ($website_type == $story_website_type) {
 
 	$readers = Read_Lines($story_readers_file);
 
-	if ($website_name == $website_the_story_of_the_nazzevo_brothers or $website == $website_the_story_of_the_nazzevo_brothers) {
+	if ($website_name == $website_the_story_of_the_bulkan_brothers or $website == $website_the_story_of_the_bulkan_brothers) {
 		$chapters = Read_Lines($chapter_number_file)[0];
 	}
 

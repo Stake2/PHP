@@ -7,14 +7,14 @@ $author = 'Izaque Sanvezzo (hm182002) (stake2, Funkysnipa Cat)';
 
 #Story variables for English language
 if (in_array($website_language, $en_languages_array)) {
-	$nazzevo = 'The Story of the Nazzevo Brothers';
+	$bulkan = 'The Story of the Bulkan Brothers';
 	$luiza = 'The Visit of Luiza';
 	$pequenata = 'The Life of Littletato';
 }
 
 #Story variables for Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
-	$nazzevo = 'A História dos irmãos Nazzevo';
+	$bulkan = 'A História dos irmãos Bulkan';
 	$luiza = 'A Visita de Luiza';
 	$pequenata = 'A Vida de Pequenata';
 }
@@ -32,7 +32,7 @@ $stories = array(
 $pequenata,
 'SpaceLiving',
 'A Perfect World',
-$nazzevo,
+$bulkan,
 $luiza,
 );
 
@@ -41,7 +41,7 @@ $story_namelinks = array(
 $main_website_url.'pequenata/',
 $main_website_url.'new_world/spaceliving/',
 $main_website_url.'lonely stories/',
-$main_website_url.'nazzevo/',
+$main_website_url.'bulkan/',
 $main_website_url.'luiza/',
 );
 
