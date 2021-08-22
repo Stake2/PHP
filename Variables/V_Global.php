@@ -124,8 +124,8 @@ $website_head = '
 <link rel="image_src" type="image/'.$image_format.'" href="'.$website_image.'" />
 <meta name="description" content="'.$website_meta_description.'" />'
 .$twitter_info.'
-<meta name="revised" content="'."Stake's Enterprise TM".', '.$data.'" />
-<meta name="author" content="Stake Ferreira" />
+<meta name="revised" content="'."Stake2's Enterprise TM".', '.$data.'" />
+<meta name="author" content="Stake2" />
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
 <meta charset="UTF-8" />'.
 "\n"."\n".$website_css_links.
