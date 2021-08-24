@@ -73,8 +73,6 @@ $bulkan_reference_1_chapter_1,
 $zootopia_soundtrack_work_slowly_and_carry_a_big_shtick,
 $a_name_bulkan_reference_1_chapter_1,
 $source_bulkan_reference_1_chapter_1,
-$bulkan_reference_1_chapter_2,
-$a_name_bulkan_reference_1_chapter_2,
 $bulkan_reference_1_chapter_3,
 $a_name_bulkan_reference_1_chapter_3,
 );
