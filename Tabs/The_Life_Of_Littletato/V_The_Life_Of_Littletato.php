@@ -20,7 +20,7 @@ $english_story_name_variable = $the_life_of_littletato_english_story_name;
 $general_story_name = "Littletato - Pequenata";
 
 # Story status
-$story_status = $status_reviewing_and_editing;
+$story_status = $status_writing;
 
 # Form code for the comment and read forms
 $website_form_code = strtolower(str_replace(" ", "-", $english_story_name_variable));

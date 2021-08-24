@@ -1,0 +1,26 @@
+Get Story Data API:
+
+Data:
+	Text:
+		Name
+		Synopsis
+		Author
+		Creation Date
+		Links
+		Status
+		Chapter Number
+
+	Image:
+		Story Image
+		Story Chapter Images
+
+Architectural Style:
+URI CRUD-based
+
+Style Guide:
+	Media Type: Text, Image
+	Authentication: ?
+
+URL:
+https://thestake2.netlify.app/api/v1/stories/
+Parameters: [story_name]
