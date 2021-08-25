@@ -103,7 +103,7 @@ while ($i <= $watched_movie_names_line_number - 1) {
 		$movie_time_number++;
 	}
 
-	if ($i >= 23 and $i != 25 and $i != 26) {
+	if ($i >= 23 and $i != 25 and $i != 26 and $i != 32) {
 		$c = 0;
 		$number_array = array();
 		while ($c <= 100) {
@@ -129,6 +129,12 @@ while ($i <= $watched_movie_names_line_number - 1) {
 	}
 
 	if ($i >= 23 and $i == 26) {
+		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span>'.$div_close."\n";
+
+		$movie_time_number++;
+	}
+
+	if ($i >= 23 and $i == 32) {
 		echo $div_zoom_animation.'<span class="'.$text_hover_white_css_class.'">'.'<span class="w3-text-white">'.$i2." - ".'('.$media_type_names_portuguese_dict["Movies"].') - </span> '.$watched_movie_names_text[$i].'<span class="w3-text-white"> - ('.$watched_movie_times_text[$movie_time_number].')</span></span>'.$div_close."\n";
 
 		$movie_time_number++;
