@@ -102,16 +102,6 @@ $use_custom_tab_titles_array = True;
 
 $tab_texts = array();
 
-/*
-# Button names definer
-$i = 0;
-foreach ($tab_titles as $tab_name) {
-	$tab_texts[$i] = $tab_name;
-
-	$i++;
-}
-*/
-
 Make_Button_Names();
 
 # Website Style.php File Includer

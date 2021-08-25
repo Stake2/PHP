@@ -67,11 +67,36 @@ if ($website_writing_pack_setting == True) {
 }
 
 # Button names
-$tab_texts = array(
-$tab_names[0].": ".$icons_array["open book"],
-$tab_names[1].": ".$icons_array["reader"]." ❤️",
-$tab_names[2].": ".$icons_array["book"],
+#$tab_texts = array(
+#$tab_names[0].": ".$icons_array["open book"],
+#$tab_names[1].": ".$icons_array["reader"]." ❤️",
+#$tab_names[2].": ".$icons_array["book"],
+#);
+
+$tab_titles_prototype = array(
+$icons_array["open book"],
+$icons_array["reader"]." ❤️",
+$icons_array["book"],
 );
+
+$tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
+
+$custom_tab_names = $tab_names;
+$custom_tab_names[0] = "";
+
+$custom_tab_titles_array = array(
+$chapter_in_language.": ".$website_language_icon,
+": ".Create_Element("span", $w3_text_colors["orange"]." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
+": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
+);
+
+$custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
+
+$use_custom_tab_titles_array = True;
+
+$tab_texts = array();
+
+Make_Button_Names();
 
 # Website Style.php File Includer
 require $website_style_file;
