@@ -72,7 +72,7 @@ if ($selected_website == $website_desert_island) {
 
 # "You're Reading [Story]" top text displayer
 if ($story_uses_status == True) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3]) {
+	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3] and $website_settings["show new chapter text"] == True) {
 		echo '<div class="'.$computer_variable.'">'.'<'.$h2_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$h2_element.'>'.$div_close."\n";
 
 		echo '<div class="'.$mobile_variable.'">'.'<'.$h4_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.$div_close.'</'.$h4_element.'>'.$div_close."\n";
@@ -90,7 +90,7 @@ if ($story_uses_status == True) {
 }
 
 else {
-	if ($chapter_number_1 == $chapters) {
+	if ($chapter_number_1 == $chapters and $website_settings["show new chapter text"] == True) {
 		echo '<div class="'.$computer_variable.'">'.'<'.$h2_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.'<br />'.$div_close.'</'.$h2_element.'>'.$div_close."\n";
 
 		echo '<div class="'.$mobile_variable.'">'.'<'.$h4_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$span_variable.'<b> ['.$new_text.'!]</b>'.$spanc.$div_close.'</'.$h4_element.'>'.$div_close."\n";
@@ -257,10 +257,6 @@ if ($website_write_story_setting == True and $story_name_website_chapter_to_writ
 
 	require $chapter_writer_displayer_php;
 
-	if ($new_write_style == True) {
-		#echo $new_write_stylescript."\n";
-	}
-
 	echo $div_close."\n";
 	echo $div_close."\n";
 	echo '<br /><br />'."\n";
@@ -366,7 +362,7 @@ if ($story_has_chapter_comments == False and $story_has_reads == False) {
 
 # "You're Reading [Story]" bottom text
 if ($story_uses_status == True) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3]) {
+	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3] and $website_settings["show new chapter text"] == True) {
 		echo '<div style="text-align:center;">'."\n".
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".
@@ -393,7 +389,7 @@ if ($story_uses_status == True) {
 }
 
 else {
-	if ($chapter_number_1 == $chapters) {
+	if ($chapter_number_1 == $chapters and $website_settings["show new chapter text"] == True) {
 		echo '<div style="text-align:center;">'."\n".
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".

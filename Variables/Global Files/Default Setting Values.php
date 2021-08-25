@@ -2,6 +2,7 @@
 
 $website_settings = array(
 "uses_custom_buttons_bar" => False,
+"show new chapter text" => True,
 );
 
 $uses_custom_buttons_bar_text = "uses_custom_buttons_bar";
@@ -13,7 +14,7 @@ $use_variable_inserter = False;
 $use_variable_inserter_in_read_lines = False;
 $story_shows_story_covers = True;
 
-#Default value for website settings
+# Default value for website settings
 $roundedbuttonson = True;
 $website_has_notifications = False;
 $sitesbuttonintab = False;

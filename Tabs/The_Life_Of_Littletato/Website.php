@@ -17,6 +17,8 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_life_of
 	}
 
 	# Website settings definer
+	$website_settings["show new chapter text"] = False;
+
 	$website_has_notifications = True; #Defines if website has notifications on
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
 	$website_has_comments = True; #Defines the website has comments

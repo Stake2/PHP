@@ -10,7 +10,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_story_o
 	$choosed_website_css_file = $css_file_pequenata;
 	$selected_website_style_file = $website_folder_the_story_of_the_bulkan_brothers."Website Style.php";
 
-	#Website settings
+	# Website settings
 	$website_has_notifications = False; #Defines if website has notifications on
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
 	$website_has_comments = True; #Defines the website has comments

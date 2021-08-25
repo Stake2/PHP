@@ -116,11 +116,17 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 # Story website header generator
 if ($website_type == $story_website_type and $website_uses_custom_layout_setting == False) {
 	if ($story_status != $story_status_texts[1] or $story_status != $story_status_texts[2]) {
-		$new_chapter_text = '';
+		$new_chapter_text = "";
 	}
 
-	if ($story_status == $story_status_texts[1] or $story_status == $story_status_texts[2]) {
-		$new_chapter_text = '<span class="'.$third_text_color.'">'." [".$new_text."!]".$spanc;
+	if ($website_settings["show new chapter text"] == True) {
+		if ($story_status == $story_status_texts[1] or $story_status == $story_status_texts[2]) {
+			$new_chapter_text = '<span class="'.$third_text_color.'">'." [".$new_text."!]".$spanc;
+		}
+	}
+
+	if ($website_settings["show new chapter text"] == False) {
+		$new_chapter_text = "";
 	}
 
 	if (isset($author_name) == False) {

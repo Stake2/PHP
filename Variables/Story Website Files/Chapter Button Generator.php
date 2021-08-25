@@ -39,7 +39,7 @@ while ($chapter_number_1 <= $chapters) {
 		$cover_image_button = '';
 	}
 
-	if ($chapter_number_1 == $chapters) {
+	if ($chapter_number_1 == $chapters and $website_settings["show new chapter text"] == True) {
 		if ($website_story_has_titles == True) {
 			$current_chapter_text = $chapter_number_1." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
 		}
