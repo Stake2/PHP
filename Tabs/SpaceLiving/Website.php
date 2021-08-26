@@ -1,15 +1,17 @@
 <?php 
 
-#SpaceLiving Website setter
+# SpaceLiving Website setter
 if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving) == True) {
 	$selected_website = $website_spaceliving;
 
-	#Website title and name definer
+	# Website title and name definer
 	$website = ucwords($selected_website);
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_spaceliving;
 
-	#Website settings
+	# Website settings definer
+	$website_settings["show new chapter text"] = False;
+
 	$website_has_notifications = True; #Defines if website has notifications on
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
 	$website_has_comments_tab_setting = False; #Defines if website has a Comments Tab variable
