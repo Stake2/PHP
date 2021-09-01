@@ -17,6 +17,7 @@ require $cover_images_folder_definer_php_variable;
 # Story name definer
 $story_name_variable = Language_Item_Definer($the_life_of_littletato_english_story_name, $the_life_of_littletato_story_name);
 $english_story_name = $the_life_of_littletato_english_story_name;
+$portuguese_story_name = $the_life_of_littletato_portuguese_story_name;
 $general_story_name = "Littletato - Pequenata";
 
 # Story status

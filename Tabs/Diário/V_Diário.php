@@ -5,14 +5,16 @@ $selected_website_folder = ${"website_folder_".$website_names_array[$selected_we
 $story_folder = "Diary";
 
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder."/";
+$english_story_name = "Diary";
+$portuguese_story_name = "Diário";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 
 # Diario name in English and Brazilian Portuguese language
 $diario_names = array(
-'Diary',
-ucwords(substr_replace($website_diario, 'á', 2, 1)),
+$english_story_name,
+$portuguese_story_name,
 );
 
 # Website has comments settings
@@ -43,8 +45,8 @@ $website_html_descriptions_array = array(
 );
 
 $website_urls = array(
-$main_website_url."diary/",
-$main_website_url."diario/",
+$main_website_url.$english_story_name."/",
+$main_website_url.$portuguese_story_name."/",
 );
 
 # Language dependent character names
@@ -90,7 +92,7 @@ $number_of_chapter_comments = 0;
 # Re require of the VStories.php file to set the story name
 require $story_variables_php;
 
-$website_form_code = 'diario';
+$website_form_code = $website_name;
 $chapters_text = $website_form_code.'-';
 
 # Texts for English language
@@ -174,15 +176,6 @@ $div_close."\n".
 $div_close."\n".
 $div_close."\n";
 
-#"You're reading" text definers
-#if (in_array($website_language, $en_languages_array)) {
-#	$reading = "<b>You're reading: ".ucwords($story_name).'<br />'." </b>";
-#}
-#
-#if (in_array($website_language, $pt_languages_array)) {
-#	$reading = "<b>Você está lendo: ".ucwords($story_name).'<br />'." </b>";
-#}
-
 $use_variable_inserter = False;
 
 #Buttons definer
@@ -203,8 +196,6 @@ require $website_tabs_generator;
 # Website name, title, main_website_url and description setter
 if ($website_language == $language_geral) {
 	$website_language = $language_enus;
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $diario_names[0].' '.$hyphen_separated_website_language;
 
 	$selected_website_url = $main_website_url.strtolower($diario_names[0]).'/';
@@ -237,7 +228,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 	$website_name = $diario_names[1].' '.$hyphen_separated_website_language;
 
-	$selected_website_url = $main_website_url.str_replace("á", "a", strtolower($diario_names[1])).'/';
+	$selected_website_url = $main_website_url.$english_story_name.'/';
 
 	if ($website_language == $ptpt_language) {
 		$website_title = $diario_names[1].' '.strtoupper($hyphen_separated_website_language);
@@ -247,7 +238,6 @@ if (in_array($website_language, $pt_languages_array)) {
 		$website_title = $diario_names[1];
 	}
 
-	#$website_title = $diario_names[1].' '.$hyphen_separated_website_language;
 	$website_title_header = $website_title.': '.$icons[11];
 	$website_link = $website_urls[1];
 	$website_meta_description = $website_descriptions_array[1];

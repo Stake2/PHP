@@ -47,7 +47,7 @@ if (in_array($website_language, $pt_languages_array)) {
 
 $sitelinks = array(
 'https://printsofcomputer.netlify.app', #POCB Link
-$main_website_url.$siteicons[0].'/',
+$main_website_url."Diary/",
 $main_website_url.$sitecodes[0].'/',
 $website_watch_history_link = $main_website_url.$sitecodes[1].'/',
 $main_website_url.$sitecodes[2].'/',

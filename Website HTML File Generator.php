@@ -51,23 +51,15 @@ $website = ob_get_clean();
 $html_folder = $mega_folder_stake2_website.str_replace($main_website_url, "", $selected_website_url);
 
 if ($selected_language != $language_geral) {
-	if ($selected_website == "diario") {
-		if ($selected_language == $language_ptbr) {
-			$html_folder = $html_folder;
-		}
-
-		if ($selected_language == $language_ptpt) {
-			$html_folder = $html_folder.$website_title_language."/";
-		}
-	}
-
-	else {
-		$html_folder = $html_folder.$website_title_language."/";
-	}
+	$html_folder = $html_folder.$website_title_language."/";
 }
 
 if ($selected_language == $language_geral) {
 	$html_folder = $html_folder;
+}
+
+if (file_exists($html_folder) == False) {
+	mkdir($html_folder);
 }
 
 $html_index_file = $html_folder."Index.html";
@@ -77,22 +69,18 @@ $update_two_html_files = False;
 if ($website_type == $story_website_type) {
 	$update_two_html_files = True;
 
-	$story_html_folder = $mega_folder_stake2_website.$portuguese_story_name."/";
+	$story_html_folder = $mega_folder_stake2_website.$portuguese_story_name;
+
+	if ($portuguese_story_name != "") {
+		$story_html_folder .= "/";
+	}
+
+	if (file_exists($story_html_folder) == False) {
+		mkdir($story_html_folder);
+	}
 
 	if ($selected_language != $language_geral) {
-		if ($selected_website == "diario") {
-			if ($selected_language == $language_ptbr) {
-				$second_html_folder = $story_html_folder;
-			}
-
-			if ($selected_language == $language_ptpt) {
-				$second_html_folder = $story_html_folder.$website_title_language."/";
-			}
-		}
-
-		else {
-			$second_html_folder = $story_html_folder.$website_title_language."/";
-		}
+		$second_html_folder = $story_html_folder.$website_title_language."/";
 	}
 
 	if ($selected_language == $language_geral) {
