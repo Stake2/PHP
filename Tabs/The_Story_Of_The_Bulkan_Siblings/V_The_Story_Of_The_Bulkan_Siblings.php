@@ -53,7 +53,7 @@ if ($website_story_has_book_covers_setting == True) {
 $website_name = $selected_website;
 $website_title = $general_story_name;
 $website_title_header = $general_story_name.': '.$icons[11];
-$website_link = $selected_website_url;
+$website_link = str_replace(" ", "%20", $selected_website_url);
 
 if ($website_language != $language_geral) {
 	$website_title = $story_name_variable;

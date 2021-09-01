@@ -39,10 +39,12 @@ array_push($sitecodes, 'website_status');
 
 if (in_array($website_language, $en_languages_array)) {
 	$things_i_do_link = $main_website_url.$sitecodes[7].'/';
+	$sitecodes[16] = "The Story of the Bulkan Siblings";
 }
 
 if (in_array($website_language, $pt_languages_array)) {
 	$things_i_do_link = $main_website_url.'coisas_que_eu_faço'.'/';
+	$sitecodes[16] = "A História dos Irmãos Bulkan";
 }
 
 $sitelinks = array(
