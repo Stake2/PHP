@@ -1,10 +1,10 @@
 <?php 
 
 # Folder variables
-$selected_website_url = $website_the_story_of_the_bulkan_brothers_link;
+$selected_website_url = $website_the_story_of_the_bulkan_siblings_link;
 
-$story_folder = $the_story_of_the_bulkan_brothers_folder;
-$story_name = $the_story_of_the_bulkan_brothers_story_name;
+$story_folder = $the_story_of_the_bulkan_siblings_folder;
+$story_name = $the_story_of_the_bulkan_siblings_story_name;
 $no_language_story_folder = $notepad_stories_folder_variable.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
@@ -12,12 +12,12 @@ $website_images_folder = $website_media_images_website_images.$story_folder."/";
 require $cover_images_folder_definer_php_variable;
 
 # Story name definer
-$story_name_variable = Language_Item_Definer($the_story_of_the_bulkan_brothers_english_story_name, $the_story_of_the_bulkan_brothers_story_name);
-$english_story_name_variable = $the_story_of_the_bulkan_brothers_english_story_name;
+$story_name_variable = Language_Item_Definer($the_story_of_the_bulkan_siblings_english_story_name, $the_story_of_the_bulkan_siblings_story_name);
+$english_story_name_variable = $the_story_of_the_bulkan_siblings_english_story_name;
 $general_story_name = $english_story_name_variable." Geral";
 
 # Story name definer
-$story_name_variable = $the_story_of_the_bulkan_brothers_story_name;
+$story_name_variable = $the_story_of_the_bulkan_siblings_story_name;
 
 # Story status
 $story_status = $status_finished_and_publishing;

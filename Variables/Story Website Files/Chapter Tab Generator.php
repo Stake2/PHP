@@ -50,7 +50,7 @@ else {
 	$display_variable = 'display:none;';
 }
 
-if ($website_name == $website_the_story_of_the_bulkan_brothers) {
+if ($website_name == $website_the_story_of_the_bulkan_siblings) {
 	$border_color = $background_black_css_class;
 }
 

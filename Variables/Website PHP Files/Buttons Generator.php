@@ -34,7 +34,7 @@ if ($website_name == $website_spaceliving) {
 	$tabnumb2 = $website_tab_number;
 }
 
-if ($website_name == $website_the_story_of_the_bulkan_brothers) {
+if ($website_name == $website_the_story_of_the_bulkan_siblings) {
 	$tabnumb2 = $website_tab_number;
 }
 

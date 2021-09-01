@@ -7,7 +7,7 @@ $author = 'Izaque Sanvezzo (hm182002) (stake2, Funkysnipa Cat)';
 
 #Story variables for English language
 if (in_array($website_language, $en_languages_array)) {
-	$bulkan = 'The Story of the Bulkan Brothers';
+	$bulkan = 'The Story of the Bulkan Siblings';
 	$luiza = 'The Visit of Luiza';
 	$pequenata = 'The Life of Littletato';
 }

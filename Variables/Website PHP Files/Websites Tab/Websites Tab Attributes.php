@@ -28,10 +28,10 @@ array_push($sitecodes, '2020');
 array_push($sitecodes, '2021');
 array_push($sitecodes, 'stories_historias'.' '.$siteicons[0]);
 array_push($sitecodes, 'new_world'.' '.$siteicons[4]);
-array_push($sitecodes, 'pequenata'.' '.$siteicons[0]);
-array_push($sitecodes, 'new_world'.' '.$siteicons[4].'/'.'spaceliving'.' '.$siteicons[0]);
-array_push($sitecodes, 'bulkan'.' '.$siteicons[0]);
-array_push($sitecodes, 'desert_island');
+array_push($sitecodes, "The Life of Littletato");
+array_push($sitecodes, "New_World/SpaceLiving");
+array_push($sitecodes, 'The Story of the Bulkan Siblings');
+array_push($sitecodes, 'Desert Island');
 array_push($sitecodes, 'mental_frameworks');
 array_push($sitecodes, 'template');
 array_push($sitecodes, 'stake2');
@@ -65,7 +65,7 @@ $main_website_url.$sitecodes[12].'/',
 $main_website_url.$sitecodes[13].'/',
 $website_the_life_of_littletato_link = $main_website_url.$sitecodes[14].'/',
 $website_spaceliving_link = $main_website_url.$sitecodes[15].'/',
-$website_the_story_of_the_bulkan_brothers_link = $main_website_url.$sitecodes[16].'/',
+$website_the_story_of_the_bulkan_siblings_link = $main_website_url.$sitecodes[16].'/',
 $website_desert_island_link = $main_website_url.$sitecodes[17].'/',
 $main_website_url.$sitecodes[18].'/',
 $main_website_url.$sitecodes[19].'/',
@@ -85,13 +85,13 @@ $website_spaceliving_linked_alternate = format($website_spaceliving_link_a, $spa
 $website_the_life_of_littletato_linked = '<a href="'.$website_the_life_of_littletato_link.'" target="_blank" class="w3-text-white">{}</a>';
 $website_the_life_of_littletato_linked = format($website_the_life_of_littletato_linked, $the_life_of_littletato_link_name);
 
-$the_story_of_the_bulkan_brothers_link_name = Language_Item_Definer("The Story of the Bulkan Brothers", "A História dos Irmãos Bulkan");
-$website_the_story_of_the_bulkan_brothers_linked = Make_Link($website_the_story_of_the_bulkan_brothers_link, $the_story_of_the_bulkan_brothers_link_name, $text_white_css_class);
+$the_story_of_the_bulkan_siblings_link_name = Language_Item_Definer("The Story of the Bulkan Siblings", "A História dos Irmãos Bulkan");
+$website_the_story_of_the_bulkan_siblings_linked = Make_Link($website_the_story_of_the_bulkan_siblings_link, $the_story_of_the_bulkan_siblings_link_name, $text_white_css_class);
 
 $story_namenames2 = array(
 $sitename_pequenata = $the_life_of_littletato_story_name.' '.$siteicons[0],
 $sitename_spaceliving = $spaceliving_story_name.' '.$siteicons[0],
-$sitename_bulkan = $the_story_of_the_bulkan_brothers_story_name.' '.$siteicons[0],
+$sitename_bulkan = $the_story_of_the_bulkan_siblings_story_name.' '.$siteicons[0],
 $sitename_desertisland = $desert_island_story_name,
 );
 
@@ -186,7 +186,7 @@ $yearnames = array_keys($year_code_numbes_array);
 $story_namelinks = array(
 $website_the_life_of_littletato_link,
 $website_spaceliving_link,
-$website_the_story_of_the_bulkan_brothers_link,
+$website_the_story_of_the_bulkan_siblings_link,
 $website_desert_island_link,
 );
 

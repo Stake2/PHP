@@ -1,14 +1,14 @@
 <?php 
 
-# The Story of the Bulkan Brothers website definer
-if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_story_of_the_bulkan_brothers) == True) {
-	$selected_website = $website_the_story_of_the_bulkan_brothers;
+# The Story of the Bulkan Siblings website definer
+if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_story_of_the_bulkan_siblings) == True) {
+	$selected_website = $website_the_story_of_the_bulkan_siblings;
 
 	# Website title and name definer
 	$website = $selected_website;
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pequenata;
-	$selected_website_style_file = $website_folder_the_story_of_the_bulkan_brothers."Website Style.php";
+	$selected_website_style_file = $website_folder_the_story_of_the_bulkan_siblings."Website Style.php";
 
 	# Website settings
 	$website_has_notifications = False; #Defines if website has notifications on
@@ -17,7 +17,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_the_story_o
 	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab
 	$website_has_stories_tab_setting = True; #Defines if website has a Stories Tab
 	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
-	$story_shows_story_covers = False;
+	$story_shows_story_covers = True;
 	$story_has_reads = True; #Defines if the story website has "story_reads_array" number, file and elements
 	$story_has_chapter_comments = True; #Defines if the story has comments on the chapter
 	$story_has_dates = False; #Defines if the story has dates
