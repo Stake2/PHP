@@ -72,21 +72,62 @@ if ($selected_language == $language_geral) {
 
 $html_index_file = $html_folder."Index.html";
 
-if (file_exists($html_folder) == False) {
-	mkdir($html_folder);
+$update_two_html_files = False;
+
+if ($website_type == $story_website_type) {
+	$update_two_html_files = True;
+
+	$story_html_folder = $mega_folder_stake2_website.$portuguese_story_name."/";
+
+	if ($selected_language != $language_geral) {
+		if ($selected_website == "diario") {
+			if ($selected_language == $language_ptbr) {
+				$second_html_folder = $story_html_folder;
+			}
+
+			if ($selected_language == $language_ptpt) {
+				$second_html_folder = $story_html_folder.$website_title_language."/";
+			}
+		}
+
+		else {
+			$second_html_folder = $story_html_folder.$website_title_language."/";
+		}
+	}
+
+	if ($selected_language == $language_geral) {
+		$second_html_folder = $story_html_folder;
+	}
+
+	$second_html_index_file = $second_html_folder."Index.html";
 }
 
-if (file_exists($html_index_file) == True) {
-	$file_exists = True;
+function Update_HTML_File($folder, $file) {
+	global $website;
+	global $file_exists;
+
+	if (file_exists($folder) == False) {
+		mkdir($folder);
+	}
+
+	if (file_exists($file) == True) {
+		$file_exists = True;
+	}
+
+	if (file_exists($file) == False) {
+		$file_exists = False;
+	}
+
+	$file_open = fopen($file, 'w');
+	fwrite($file_open, $website);
+	fclose($file_open);
 }
 
-if (file_exists($html_index_file) == False) {
-	$file_exists = False;
-}
+Update_HTML_File($html_folder, $html_index_file);
 
-$file_open = fopen($html_index_file, 'w');
-fwrite($file_open, $website);
-fclose($file_open);
+if ($update_two_html_files == True) {
+	Update_HTML_File($second_html_folder, $second_html_index_file);
+}
 
 $local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$website_title;
 $website_link = "";

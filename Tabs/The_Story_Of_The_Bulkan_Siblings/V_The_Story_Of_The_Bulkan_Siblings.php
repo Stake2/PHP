@@ -13,8 +13,9 @@ require $cover_images_folder_definer_php_variable;
 
 # Story name definer
 $story_name_variable = Language_Item_Definer($the_story_of_the_bulkan_siblings_english_story_name, $the_story_of_the_bulkan_siblings_story_name);
-$english_story_name_variable = $the_story_of_the_bulkan_siblings_english_story_name;
-$general_story_name = $english_story_name_variable." Geral";
+$english_story_name = $the_story_of_the_bulkan_siblings_english_story_name;
+$portuguese_story_name = $the_story_of_the_bulkan_siblings_portuguese_story_name;
+$general_story_name = $english_story_name." Geral";
 
 # Story name definer
 $story_name_variable = $the_story_of_the_bulkan_siblings_story_name;
@@ -23,7 +24,7 @@ $story_name_variable = $the_story_of_the_bulkan_siblings_story_name;
 $story_status = $status_finished_and_publishing;
 
 # Form code for the comment and read forms
-$website_form_code = $english_story_name_variable;
+$website_form_code = $english_story_name;
 $comments_number = 0;
 $comments_number_text = $comments_number + 1;
 $website_comments_number = 0;

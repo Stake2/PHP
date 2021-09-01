@@ -16,14 +16,14 @@ require $cover_images_folder_definer_php_variable;
 
 # Story name definer
 $story_name_variable = Language_Item_Definer($the_life_of_littletato_english_story_name, $the_life_of_littletato_story_name);
-$english_story_name_variable = $the_life_of_littletato_english_story_name;
+$english_story_name = $the_life_of_littletato_english_story_name;
 $general_story_name = "Littletato - Pequenata";
 
 # Story status
 $story_status = $status_writing;
 
 # Form code for the comment and read forms
-$website_form_code = strtolower(str_replace(" ", "-", $english_story_name_variable));
+$website_form_code = strtolower(str_replace(" ", "-", $english_story_name));
 
 # Website numbers
 $crossover_chapter_number = 26;
