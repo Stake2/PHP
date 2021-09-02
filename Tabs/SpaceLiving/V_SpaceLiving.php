@@ -17,6 +17,8 @@ require $cover_images_folder_definer_php_variable;
 # Story name definer
 $story_name_variable = $spaceliving_story_name;
 $story_name = $spaceliving_story_name;
+$english_story_name = $spaceliving_english_story_name;
+$portuguese_story_name = $spaceliving_portuguese_story_name;
 
 # Story status
 $story_status = $status[2];
