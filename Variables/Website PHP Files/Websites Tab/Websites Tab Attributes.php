@@ -78,23 +78,23 @@ $website_website_status_link = $main_website_url.$sitecodes[21].'/',
 
 $spaceliving_link_name = Language_Item_Definer("SpaceLiving SpaceShip Network", "Rede SpaceLiving");
 $spaceliving_link_name_alternate = "SpaceLiving";
-$the_life_of_littletato_link_name = Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata");
+$the_life_of_littletato_link_name = $story_names["The Life of Littletato"];
 
 $website_spaceliving_link_a = '<a href="'.$website_spaceliving_link.'" target="_blank" class="w3-text-white">{}</a>';
 $website_spaceliving_linked = format($website_spaceliving_link_a, $spaceliving_link_name);
 $website_spaceliving_linked_alternate = format($website_spaceliving_link_a, $spaceliving_link_name_alternate);
 
-$website_the_life_of_littletato_linked = '<a href="'.$website_the_life_of_littletato_link.'" target="_blank" class="w3-text-white">{}</a>';
+$website_the_life_of_littletato_linked = '<a href="'.$story_website_links["The Life of Littletato"].'" target="_blank" class="w3-text-white">{}</a>';
 $website_the_life_of_littletato_linked = format($website_the_life_of_littletato_linked, $the_life_of_littletato_link_name);
 
-$the_story_of_the_bulkan_siblings_link_name = Language_Item_Definer("The Story of the Bulkan Siblings", "A História dos Irmãos Bulkan");
+$the_story_of_the_bulkan_siblings_link_name = $story_names["The Story of the Bulkan Siblings"];
 $website_the_story_of_the_bulkan_siblings_linked = Make_Link($website_the_story_of_the_bulkan_siblings_link, $the_story_of_the_bulkan_siblings_link_name, $text_white_css_class);
 
 $story_namenames2 = array(
-$sitename_pequenata = $the_life_of_littletato_story_name.' '.$siteicons[0],
-$sitename_spaceliving = $spaceliving_story_name.' '.$siteicons[0],
-$sitename_bulkan = $the_story_of_the_bulkan_siblings_story_name.' '.$siteicons[0],
-$sitename_desertisland = $desert_island_story_name,
+$sitename_pequenata = $story_names["The Life of Littletato"].' '.$siteicons[0],
+$sitename_spaceliving = $story_names["SpaceLiving"].' '.$siteicons[0],
+$sitename_bulkan = $story_names["The Story of the Bulkan Siblings"].' '.$siteicons[0],
+#$sitename_desertisland = $story_names["Desert Island"],
 );
 
 if (in_array($website_language, $en_languages_array)) {
@@ -150,7 +150,7 @@ $sitename_stories,
 $sitename_pequenata,
 $sitename_spaceliving,
 $sitename_bulkan,
-$sitename_desertisland,
+#$sitename_desertisland,
 $sitename_mental_frameworks,
 $sitename_website_template,
 'Stake2',
@@ -177,7 +177,7 @@ str_replace(' '.$siteicons[0], "", $sitename_stories),
 str_replace(' '.$siteicons[0], "", $sitename_pequenata),
 str_replace(' '.$siteicons[0], "", $sitename_spaceliving),
 str_replace(' '.$siteicons[0], "", $sitename_bulkan),
-$sitename_desertisland,
+#$sitename_desertisland,
 $sitename_mental_frameworks,
 $sitename_website_template,
 'Stake2',
@@ -189,18 +189,16 @@ $story_namelinks = array(
 $website_the_life_of_littletato_link,
 $website_spaceliving_link,
 $website_the_story_of_the_bulkan_siblings_link,
-$website_desert_island_link,
+#$website_desert_island_link,
 );
 
-#$websites_number = count($website_names_array) - 1; #22
-
-$websites_number = 24;
-$story_name_websites_number = $stories_number - 1;
+$websites_number = 23;
+$story_name_websites_number = $stories_number;
 $websites_number_text = count($sitelinks);
 
 $websites_buttons_style = $first_button_style;
 
-#Normal Sites Buttons generator
+# Normal Sites Buttons generator
 $i = 0;
 $websites_number = $websites_number;
 while ($i <= $websites_number) {
@@ -217,26 +215,7 @@ while ($i <= $websites_number) {
 	$i++;
 }
 
-
-#Blue Sites Buttons generator
-$i = 0;
-$websites_number = $websites_number;
-while ($i <= $websites_number) {
-	$websites_buttons_blue[$i] = '<button class="w3-btn w3-blue '.$websites_buttons_style.' '.$computer_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h2_element.">".$websites_names_array[$i]."</".$h2_element."></button>";
-
-	$i++;
-}
-
-$i = 0;
-$websites_number = $websites_number;
-while ($i <= $websites_number) {
-	$websites_buttons_blue_mobile[$i] = '<button class="w3-btn w3-blue '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h4_element.">".$websites_names_array[$i]."</".$h4_element."></button>";
-
-	$i++;
-}
-
-
-#Stories Sites Buttons generator
+# Stories Websites Buttons generator
 $i = 0;
 $storiessitenumb = $story_name_websites_number;
 while ($i <= $storiessitenumb) {

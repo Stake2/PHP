@@ -1,24 +1,24 @@
 <?php 
 
+# Story name definer
+$text = "SpaceLiving";
+$website_story_name = $story_names[$text];
+$english_story_name = $english_story_names[$text];
+$portuguese_story_name = $portuguese_story_names[$english_story_name];
+$general_story_name = $english_story_name;
+
 # Folder variables
-#$selected_website_url = $main_website_url.$website_folder.'/';
-$selected_website_url = $website_spaceliving_link;
-$selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
-$story_folder = $spaceliving_story_folder;
+$selected_website_url = $story_website_links[$english_story_name];
+
+$story_folder = $english_story_name;
+$no_language_story_folder = $mega_stories_folder.$story_folder."/";
+$website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Form code for the comment and read forms
 $website_form_code = 'spaceliving';
 
-$no_language_story_folder = $mega_stories_folder.$story_folder.'/';
-
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
-
-# Story name definer
-$story_name_variable = $spaceliving_story_name;
-$story_name = $spaceliving_story_name;
-$english_story_name = $spaceliving_english_story_name;
-$portuguese_story_name = $spaceliving_portuguese_story_name;
 
 # Story status
 $story_status = $status[2];
@@ -61,8 +61,8 @@ if ($website_story_has_book_covers_setting == True) {
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
-$website_title = $story_name_variable;
-$website_title_header = $story_name_variable.': '.$icons[11];
+$website_title = $website_story_name;
+$website_title_header = $website_story_name.': '.$icons[11];
 $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {

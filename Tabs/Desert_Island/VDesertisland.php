@@ -171,7 +171,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	}
 
 	$website_name = $selected_website;
-	$website_title_header = $story_name_variable.': '.$icons[11];
+	$website_title_header = $story_name.': '.$icons[11];
 	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[1];

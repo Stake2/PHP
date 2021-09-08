@@ -69,6 +69,4 @@ echo "<script>"."\n".
 "Hide_Mobile_Buttons();"."\n".
 "</script>"."\n";
 
-print_r($story_chapter_images_folder);
-
 ?>

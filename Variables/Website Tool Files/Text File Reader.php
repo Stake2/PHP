@@ -301,10 +301,18 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 }
 
 if ($website_type == $story_website_type) {
+	if (isset($story_folder) == False) {
+		$story_folder = "The Life of Littletato";
+	}
+
 	$story_folder = $mega_stories_folder.$story_folder."/";
 	$story_info_folder = $story_folder."Story Info/";
+	$story_database_folder = $mega_stories_folder."Story Database/";
+	$story_chapter_files_folder = $story_folder."Chapters/";
 
 	Create_Folder($story_info_folder);
+	Create_Folder($story_database_folder);
+	Create_Folder($story_chapter_files_folder);
 
 	$story_comments_folder = $story_folder."Comments/";
 	$story_readers_and_reads_folder = $story_folder."Readers and Reads/";

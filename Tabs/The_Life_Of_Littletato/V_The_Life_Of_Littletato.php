@@ -3,22 +3,22 @@
 # Pequenata CSS Pack file includer
 require $css_pack_pequenata;
 
-# Folder variables
-$selected_website_url = $website_the_life_of_littletato_link;
+# Story name definer
+$text = "The Life of Littletato";
+$website_story_name = $story_names[$text];
+$english_story_name = $english_story_names[$text];
+$portuguese_story_name = $portuguese_story_names[$english_story_name];
+$general_story_name = "Littletato - Pequenata";
 
-$story_folder = $the_life_of_littletato_story_folder;
-$story_name = $the_life_of_littletato_story_name;
+# Folder variables
+$selected_website_url = $story_website_links[$english_story_name];
+
+$story_folder = $english_story_name;
 $no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
-
-# Story name definer
-$story_name_variable = Language_Item_Definer($the_life_of_littletato_english_story_name, $the_life_of_littletato_story_name);
-$english_story_name = $the_life_of_littletato_english_story_name;
-$portuguese_story_name = $the_life_of_littletato_portuguese_story_name;
-$general_story_name = "Littletato - Pequenata";
 
 # Story status
 $story_status = $status_writing;
@@ -56,10 +56,10 @@ $website_title_header = $general_story_name.': '.$icons[11];
 $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
-	$website_title = $story_name_variable;
+	$website_title = $website_story_name;
 
 	if ($website_language == $ptpt_language) {
-		$website_title = $story_name_variable." ".strtoupper($website_title_language);
+		$website_title = $website_story_name." ".strtoupper($website_title_language);
 	}
 
 	$website_title_header = $website_title.': '.$icons[11];
@@ -139,8 +139,8 @@ $mansion_of_littletato_and_friends,
 $variable_inserter_replacer_array = array(
 " ".$the_life_of_littletato_link_name,
 " ".$spaceliving_link_name,
-$spaceliving_story_name." ",
-$spaceliving_story_name."\ ",
+$story_names["SpaceLiving"]." ",
+$story_names["SpaceLiving"]."\ ",
 " ".$till_chapter_nine_text,
 $mlp_fim_wikipedia_link_text."/",
 );
