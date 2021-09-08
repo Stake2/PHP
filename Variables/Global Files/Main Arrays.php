@@ -82,4 +82,8 @@ $css_file_watch_history = 'Watch_History',
 $css_file_desert_island = 'Desert_Island',
 );
 
+$website_css_files = array(
+"The Secret of the Crystals" => "The Secret of the Crystals",
+);
+
 ?>

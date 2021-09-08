@@ -65,8 +65,6 @@ function Open_File($file, $mode = Null) {
 function Read_Lines($file, $add_none = False, $read_string = False) {
 	$file_read = Open_File($file);
 
-	echo $read_string;
-
 	if ($file_read != Null) {
 		if ($read_string == False) {
 			if ($add_none == False) {

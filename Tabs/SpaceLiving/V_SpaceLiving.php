@@ -15,7 +15,7 @@ $no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Form code for the comment and read forms
-$website_form_code = 'spaceliving';
+$website_form_code = $english_story_name;
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
