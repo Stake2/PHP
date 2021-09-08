@@ -58,6 +58,8 @@ if ($selected_language == $language_geral) {
 	$html_folder = $html_folder;
 }
 
+$html_folder = str_replace("%20", " ", $html_folder);
+
 if (file_exists($html_folder) == False) {
 	mkdir($html_folder);
 }
@@ -69,7 +71,7 @@ $update_two_html_files = False;
 if ($website_type == $story_website_type) {
 	$update_two_html_files = True;
 
-	$story_html_folder = $mega_folder_stake2_website.$portuguese_story_name;
+	$story_html_folder = $mega_folder_stake2_website.Language_Item_Definer($portuguese_story_name, $english_story_name);
 
 	if ($portuguese_story_name != "") {
 		$story_html_folder .= "/";
