@@ -29,7 +29,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_the_secret_
 
 	$website_write_story_setting = False; #Defines if website has a story writing chapter
 	$new_write_style = False; #Defines if the website uses the new writing style for chapters
-	$website_story_has_book_covers_setting = False; #Defines if website has book covers for the story
+	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
+	$story_shows_story_covers = False;
 	$story_has_reads = True; #Defines if the story website has "story_reads_array" number, file and elements
 	$story_has_dates = False; #Defines if the story has dates
 	$website_story_has_titles = True; #Defines if the story has chapter_titles
