@@ -177,8 +177,8 @@ $tom_and_jerrys_2021_soundtrack_playlist_name,
 #"Tom & Jerry 2021 - Married In The Park ",
 "Panda Eyes - Opposite Side ",
 $the_life_of_littletato_link_name." ",
-$spaceliving_story_name." ",
-$the_story_of_the_bulkan_siblings_story_name." ",
+$story_names["SpaceLiving"]." ",
+$story_names["The Story of the Bulkan Siblings"]." ",
 $chapter_twenty_six_text." ",
 );
 
