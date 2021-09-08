@@ -29,8 +29,8 @@ $story_folder = $desert_island_story_folder;
 # Form code for the comment and read forms
 $website_form_code = 'desert_island';
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
-$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
+$no_language_story_folder = $mega_stories_folder.$story_folder.'/';
+$no_language_story_folder = $mega_stories_folder.$story_folder.'/';
 
 $single_cover_folder = 'Capas';
 $cover_folder = $cdn_image_stories_desertisland.$single_cover_folder.'/';

@@ -23,7 +23,7 @@
 #$border2 = 'border-width:7px;border-color:'.$color4.';border-style:solid;'.$rounded_border_style_2.'';
 
 # Folder variables
-$year_text_files_folder = $notepad_years_folder_variable;
+$year_text_files_folder = $notepad_years_folder;
 $current_year_text_folder = $year_text_files_folder.$current_year.'/';
 
 $year_folders = array();
@@ -125,15 +125,15 @@ if (in_array($website_language, $pt_languages_array)) {
 
 #File definers
 #Friends file
-$year_friends_file = $notepad_years_folder_variable.$site2019.'/Friends List.txt';
+$year_friends_file = $notepad_years_folder.$site2019.'/Friends List.txt';
 
 #Tasks file
 if (in_array($website_language, $en_languages_array)) {
-	$year_made_tasks_file = $notepad_effort_folder_variable.'/Will to Think and Register Thought/Productive Network/Archives/To-Do Slim '.$current_year." Archive ".strtoupper($languages_array[1]).".txt";
+	$year_made_tasks_file = $notepad_effort_folder.'/Will to Think and Register Thought/Productive Network/Archives/To-Do Slim '.$current_year." Archive ".strtoupper($languages_array[1]).".txt";
 }
 
 if (in_array($website_language, $pt_languages_array)) {
-	$year_made_tasks_file = $notepad_effort_folder_variable.'/Will to Think and Register Thought/Productive Network/Archives/To-Do Slim '.$current_year." Archive ".strtoupper($languages_array[2]).".txt";
+	$year_made_tasks_file = $notepad_effort_folder.'/Will to Think and Register Thought/Productive Network/Archives/To-Do Slim '.$current_year." Archive ".strtoupper($languages_array[2]).".txt";
 }
 
 #Number counters

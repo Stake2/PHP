@@ -337,7 +337,7 @@ function show($thing, $add_br = False) {
 				}
 
 				else {
-					echo $thing."\n";
+					echo $text."\n";
 				}
 			}
 		}

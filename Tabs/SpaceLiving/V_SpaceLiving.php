@@ -9,7 +9,7 @@ $story_folder = $spaceliving_story_folder;
 # Form code for the comment and read forms
 $website_form_code = 'spaceliving';
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_folder.'/';
+$no_language_story_folder = $mega_stories_folder.$story_folder.'/';
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
@@ -58,8 +58,6 @@ require $story_details_definer;
 if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
-
-$author_name = format($person_names_painted[$izaque_sanvezzo_name_small]." {}", Language_Item_Definer("and", "e"))." ".$julia_name_painted;
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;

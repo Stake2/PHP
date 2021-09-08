@@ -5,7 +5,7 @@ $selected_website_url = $website_the_story_of_the_bulkan_siblings_link;
 
 $story_folder = $the_story_of_the_bulkan_siblings_folder;
 $story_name = $the_story_of_the_bulkan_siblings_story_name;
-$no_language_story_folder = $notepad_stories_folder_variable.$story_folder."/";
+$no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
@@ -31,7 +31,6 @@ $website_comments_number = 0;
 $website_comments_number_to_show = $website_comments_number - 1;
 $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;
-$author_name = $person_names_painted["Izaque"];
 
 $website_image = ";3";
 

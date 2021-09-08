@@ -151,7 +151,7 @@ if ($website_name == $sitethingsido) {
 	}
 	
 	#Years folder
-	$year_text_files_folder = $notepad_years_folder_variable;
+	$year_text_files_folder = $notepad_years_folder;
 	
 	#YearsNumbers.txt files
 	$yearnumbsfile2018 = $year_text_files_folder.$site2018.'/'.$site2018.' Numbers.txt';

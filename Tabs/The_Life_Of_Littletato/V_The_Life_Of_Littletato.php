@@ -8,7 +8,7 @@ $selected_website_url = $website_the_life_of_littletato_link;
 
 $story_folder = $the_life_of_littletato_story_folder;
 $story_name = $the_life_of_littletato_story_name;
-$no_language_story_folder = $notepad_stories_folder_variable.$story_folder."/";
+$no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
@@ -57,6 +57,11 @@ $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
 	$website_title = $story_name_variable;
+
+	if ($website_language == $ptpt_language) {
+		$website_title = $story_name_variable." ".strtoupper($website_title_language);
+	}
+
 	$website_title_header = $website_title.': '.$icons[11];
 	$website_link .= $website_link_language."/";
 }

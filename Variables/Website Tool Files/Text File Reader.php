@@ -301,7 +301,7 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 }
 
 if ($website_type == $story_website_type) {
-	$story_folder = $notepad_stories_folder_variable.$story_folder."/";
+	$story_folder = $mega_stories_folder.$story_folder."/";
 	$story_info_folder = $story_folder."Story Info/";
 
 	Create_Folder($story_info_folder);
@@ -336,6 +336,25 @@ if ($website_type == $story_website_type) {
 
 	$story_author = Read_Lines($story_author_file);
 	$story_author_number = Line_Number($story_author_file);
+
+	$author_name = "";
+
+	if ($story_author_number >= 2) {
+		$i = 0;
+		foreach ($story_author as $author) {
+			$author_name .= $person_names_painted[$author];
+
+			if ($i != $story_author_number - 1) {
+				$author_name .= " ".Create_Element("span", $website_style_array["second_text_color"], $and_text)." ";
+			}
+
+			$i++;
+		}
+	}
+
+	else {
+		$author_name .= $person_names_painted[$story_author[0]];
+	}
 
 	$titles_enus_folder = $story_chapter_files_folder.$full_language_enus."/".$titles_english_text."/";
 

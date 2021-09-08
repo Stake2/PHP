@@ -4,7 +4,7 @@
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 $story_folder = "Diary";
 
-$no_language_story_folder = $notepad_stories_folder_variable.$story_folder."/";
+$no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $english_story_name = "Diary";
 $portuguese_story_name = "Diário";
 

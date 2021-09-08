@@ -129,10 +129,6 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 		$new_chapter_text = "";
 	}
 
-	if (isset($author_name) == False) {
-		$author_name = $person_names_painted["Izaque"];
-	}
-
 	if ($hide_sensitive_data == True) {
 		$author_name = "Lorem ipsum";
 

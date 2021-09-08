@@ -172,7 +172,7 @@ $people_text_i_met_text_key = strtolower(str_replace(" ", "_", $people_text_i_me
 $comments_on_super_animes_key = strtolower(str_replace(" ", "_", $comments_on_super_animes_text));
 
 #Years folder
-$year_text_files_folder = $notepad_years_folder_variable;
+$year_text_files_folder = $notepad_years_folder;
 
 #YearsNumbers.txt files
 $yearnumbsfile2018 = $year_text_files_folder.$website_2018.'/'.$website_2018.' Numbers.txt';

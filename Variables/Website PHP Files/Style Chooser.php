@@ -1,8 +1,8 @@
 <?php 
 
 $website_style_variable_names_array = array(
-"website_background_color",
-"",
+"background_color",
+"second_text_color",
 );
 
 if ($alternative_website_style == false) {

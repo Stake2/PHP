@@ -6,6 +6,8 @@ $website = $website_folder;
 $selected_website_url = $main_website_url.$website_folder."/";
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 
+$dot_text = ".txt";
+
 $folder_and_website_variables_php = $global_files_folder.'Folder And Website Variables.php';
 $php_files_php = $global_files_folder.'PHP Files.php';
 
