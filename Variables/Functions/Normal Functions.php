@@ -56,11 +56,15 @@ function Word_Number($file) {
 	return $words;
 }
 
-function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False) {
+function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False, $general_item = Null) {
 	global $website_language;
 	global $language_enus;
 	global $language_ptbr;
 	global $language_ptpt;
+
+	if ($general_item != Null and $website_language == $language_geral) {
+		return $general_item;
+	}
 
 	if ($website_language == $language_enus) {
 		return $enus_item;

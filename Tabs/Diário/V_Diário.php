@@ -1,66 +1,48 @@
 <?php 
 
+# Story name definer
+$text = "Diary";
+$website_story_name = $story_names[$text];
+$english_story_name = $english_story_names[$text];
+$portuguese_story_name = $portuguese_story_names[$english_story_name];
+$general_story_name = "Diary";
+
+# Folder variables
+$selected_website_url = $story_website_links[$english_story_name];
+
+$story_folder = $english_story_name;
+$no_language_story_folder = $mega_stories_folder.$story_folder."/";
+$website_images_folder = $website_media_images_website_images.$story_folder."/";
+
 # Folder variables
 $selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
-$story_folder = "Diary";
-
-$no_language_story_folder = $mega_stories_folder.$story_folder."/";
-$english_story_name = "Diary";
-$portuguese_story_name = "Diário";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 
-# Diario name in English and Brazilian Portuguese language
-$diario_names = array(
-$english_story_name,
-$portuguese_story_name,
-);
-
 # Website has comments settings
 $sitecomments = false;
 
-# Website image vars
-if (in_array($website_language, $en_languages_array)) {
-	$website_image = 'Diary/'.$full_language_enus;
-	$story_name = $diario_names[0];
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$website_image = 'Diary/'.$full_language_ptbr;
-	$story_name = $diario_names[1];
-}
-
 $span_second_text_color = '<span class="'.$second_text_color.' '.$third_text_color.'">';
 
+$custom_website_descriptions = True;
+
 # Website descriptions
-$website_descriptions_array = array(
-'Website to show my '.$diario_names[0].' in HTML form, made by stake2.',
-'Website para mostrar o meu '.$diario_names[1].' em forma de HTML, feito por stake2.',
+$website_meta_descriptions = array(
+Null,
+"Website to show my ".$story_name." in HTML form, made by ".$multi_persons["Izaque"].".",
+"Site para mostrar o meu ".$story_name." em forma de HTML, feito por ".$multi_persons["Izaque"]."."
 );
 
-$website_html_descriptions_array = array(
-'Website to show my '.$span_second_text_color.$diario_names[0].$spanc.' in HTML form, made by '.$span_second_text_color.'stake2'.$spanc.'.',
-'Website para mostrar o meu '.$span_second_text_color.$diario_names[1].$spanc.' em forma de HTML, feito por '.$span_second_text_color.'stake2'.$spanc.'.',
-);
-
-$website_urls = array(
-$main_website_url.$english_story_name."/",
-$main_website_url.$portuguese_story_name."/",
+$website_header_descriptions = array(
+Null,
+"Website to show my ".Create_Element("span", "w3-text-white", $story_name)." in HTML form, made by ".$multi_persons_painted["Izaque"].".",
+"Site para mostrar o meu ".Create_Element("span", "w3-text-white", $story_name)." em forma de HTML, feito por ".$multi_persons_painted["Izaque"].".",
 );
 
 # Language dependent character names
-if ($website_language == $languages_array[0] or $website_language == $languages_array [1]) {
-	$story_name_variable = $diario_names[0];
-	$nodus_character_name = 'Nodus (Artificial Intelligence)';
-	$ted_character_name = 'Ted (Random guy)';
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$story_name_variable = $diario_names[1];
-	$nodus_character_name = 'Nodus (Inteligência Artificial)';
-	$ted_character_name = 'Ted (Cara aleatório)';
-}
+$nodus_character_name = "Nodus (".Language_Item_Definer("Artificial Intelligence", "Inteligência Artificial").")";
+$ted_character_name = "Ted (".Language_Item_Definer("Random Guy", "Cara Aleatório").")";
 
 # Characters array
 $characters = array(
@@ -97,7 +79,7 @@ $chapters_text = $website_form_code.'-';
 
 # Texts for English language
 if (in_array($website_language, $en_languages_array)) {
-	$diario_blocks_text = 'The '.$diario_names[0].' has ['.$bluespan.$blocks.$spanc.'] blocks written, each block is a chapter.';
+	$diario_blocks_text = 'The '.$story_name.' has ['.$bluespan.$blocks.$spanc.'] blocks written, each block is a chapter.';
 	$charactersdescs = array(
 	"\n".'<div style="margin-left:3%;">'."\n".'Me of course xD, my dialogue is shown with:<br />'."\n".
 	'[Current time]: "My dialogue"<br /><br />'."\n".
@@ -114,24 +96,11 @@ if (in_array($website_language, $en_languages_array)) {
 	'In other words:<br />'."\n".
 	'23:42 19/04/2020: ~His dialogue'."\n".$div_close."\n",
 	);
-
-	$send_form_text = 'Send';
-	$commenttxt = 'Comment';
-	$commenttxt2 = "Comment";
-	$commenttxt3 = "Commented";
-	$commenttxt4 = 'in the';
-	$commenttxt5 = 'on';
-	$commentdesc1 = "Say what you think about the story";
-	$commentdesc2 = "Say what you think about the chapter";
-	$form_name = "Name";
-	$form_text = 'Form';
-	$writetxt = 'Write';
-	$writedesc = "Write the Chapter";
 }
 
 #Texts for Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
-	$diario_blocks_text = 'O '.$diario_names[1].' tem ['.$bluespan.$blocks.$spanc.'] blocks escritos, cada block é um capítulo.';
+	$diario_blocks_text = 'O '.$story_name.' tem ['.$bluespan.$blocks.$spanc.'] blocks escritos, cada block é um capítulo.';
 	$charactersdescs = array(
 	"\n".'<div style="margin-left:3%;">'."\n".'Eu, é claro kkkkk, meu diálogo é mostrado com:<br />."\n"'.
 	'[Hora atual]: "Meu diálogo"<br /><br />'."\n".
@@ -148,21 +117,6 @@ if (in_array($website_language, $pt_languages_array)) {
 	'Em outras palavras:<br />'."\n".
 	'23:42 19/04/2020: ~O diálogo dele'."\n".$div_close."\n",
 	);
-
-	$name_text = 'Nome';
-	$person_name_text_two = 'Seu';
-	$send_form_text = 'Enviar';
-	$commenttxt = 'Comentário';
-	$commenttxt2 = "Comentar";
-	$commenttxt3 = "Comentado";
-	$commenttxt4 = 'no';
-	$commenttxt5 = 'em';
-	$commentdesc1 = "Comente o que achou da história";
-	$commentdesc2 = "Comente o que achou do capítulo";
-	$form_name = "Nome";
-	$form_text = 'Formulário';
-	$writetxt = "Escrever";
-	$writedesc = "Escreva o capítulo";
 }
 
 # Story name and characters text array
@@ -178,8 +132,6 @@ $div_close."\n";
 
 $use_variable_inserter = False;
 
-#Buttons definer
-#Buttons names
 $tab_texts = array(
 $tab_names[0].': '.$icons[21].' '.$span_second_text_color.' ['.$new_text.' '.ucwords($chapter_text).' '.$published_blocks.']'.$spanc,
 $tab_names[1].': '.$icons[1],
@@ -193,55 +145,21 @@ if ($website_has_stories_tab_setting == True) {
 # Tab Generator.php includer
 require $website_tabs_generator;
 
-# Website name, title, main_website_url and description setter
-if ($website_language == $language_geral) {
-	$website_language = $language_enus;
-	$website_name = $diario_names[0].' '.$hyphen_separated_website_language;
+# Website name, title, URL and description setter, by language
+$website_name = $selected_website;
+$website_title = $general_story_name;
+$website_title_header = $general_story_name.': '.$icons[11];
+$website_link = $selected_website_url;
 
-	$selected_website_url = $main_website_url.strtolower($diario_names[0]).'/';
-
-	$website_title = $diario_names[0];
-	$website_title_header = $diario_names[0].': '.$icons[11];
-	$website_link = $website_urls[0];
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
-
-	$website_language = $language_geral;
-}
-
-if ($website_language == $language_enus) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $diario_names[0];
-
-	$selected_website_url = $main_website_url.strtolower($diario_names[0]).'/';
-
-	$website_title = $diario_names[0].' '.$hyphen_separated_website_language;
-	$website_title_header = $diario_names[0].': '.$icons[11];
-	$website_link = $website_urls[0];
-	$website_meta_description = $website_descriptions_array[0];
-	$website_header_description = $website_html_descriptions_array[0];
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_name = $diario_names[1].' '.$hyphen_separated_website_language;
-
-	$selected_website_url = $main_website_url.$english_story_name.'/';
+if ($website_language != $language_geral) {
+	$website_title = $website_story_name;
 
 	if ($website_language == $ptpt_language) {
-		$website_title = $diario_names[1].' '.strtoupper($hyphen_separated_website_language);
-	}
-
-	else {
-		$website_title = $diario_names[1];
+		$website_title = $website_story_name." ".strtoupper($website_title_language);
 	}
 
 	$website_title_header = $website_title.': '.$icons[11];
-	$website_link = $website_urls[1];
-	$website_meta_description = $website_descriptions_array[1];
-	$website_header_description = $website_html_descriptions_array[1];
+	$website_link .= $website_link_language."/";
 }
 
 # Website Style.php File Includer

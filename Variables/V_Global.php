@@ -41,7 +41,7 @@ if ($website_is_prototype_setting == False and $website_uses_custom_layout_setti
 	require $story_variables_php;
 
 	# Websites Tab Attributes.php includer
-	require $websites_tab_attributes;
+	require $websites_tab_arrays;
 
 	# Story variables PHP file includer if the website is a story website
 	require $story_variables_php;

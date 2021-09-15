@@ -1,5 +1,9 @@
 <?php 
 
+foreach ($websites_array as $website) {
+	$website_links[$website] = $main_website_url.str_replace("_", " ", $website)."/";
+}
+
 $siteicons = array(
 '📘',
 '🦄',
@@ -13,7 +17,7 @@ $siteicons = array(
 
 $sitecodes = array(
 'my_little_pony'.' '.$siteicons[1],
-'watch'.' '.$siteicons[2],
+'Watch History',
 'music'.' '.$siteicons[5],
 'games'.' '.$siteicons[6],
 'foobar_albums'.' '.$siteicons[5],
@@ -51,7 +55,7 @@ $sitelinks = array(
 'https://printsofcomputer.netlify.app', #POCB Link
 $main_website_url."Diary/",
 $main_website_url.$sitecodes[0].'/',
-$website_watch_history_link = $main_website_url.$sitecodes[1].'/',
+$website_watch_history_link = $main_website_url."Watch History/",
 $main_website_url.$sitecodes[2].'/',
 $main_website_url.$sitecodes[3].'/',
 $main_website_url.$sitecodes[4].'/',
@@ -94,7 +98,6 @@ $story_namenames2 = array(
 $sitename_pequenata = $story_names["The Life of Littletato"].' '.$siteicons[0],
 $sitename_spaceliving = $story_names["SpaceLiving"].' '.$siteicons[0],
 $sitename_bulkan = $story_names["The Story of the Bulkan Siblings"].' '.$siteicons[0],
-#$sitename_desertisland = $story_names["Desert Island"],
 );
 
 if (in_array($website_language, $en_languages_array)) {
@@ -133,7 +136,7 @@ $websites_names_array = array(
 'Prints Of Computer Blocks',
 $sitename_diario,
 'My Little Pony'.' '.$siteicons[1],
-'Watch History'.' '.$siteicons[2],
+'Watch History',
 $sitename_music,
 $sitename_games,
 $sitename_foobar_albums,
@@ -177,7 +180,6 @@ str_replace(' '.$siteicons[0], "", $sitename_stories),
 str_replace(' '.$siteicons[0], "", $sitename_pequenata),
 str_replace(' '.$siteicons[0], "", $sitename_spaceliving),
 str_replace(' '.$siteicons[0], "", $sitename_bulkan),
-#$sitename_desertisland,
 $sitename_mental_frameworks,
 $sitename_website_template,
 'Stake2',
@@ -189,7 +191,6 @@ $story_namelinks = array(
 $website_the_life_of_littletato_link,
 $website_spaceliving_link,
 $website_the_story_of_the_bulkan_siblings_link,
-#$website_desert_island_link,
 );
 
 $websites_number = 23;
@@ -214,24 +215,6 @@ while ($i <= $websites_number) {
 
 	$i++;
 }
-
-# Stories Websites Buttons generator
-$i = 0;
-$storiessitenumb = $story_name_websites_number;
-while ($i <= $storiessitenumb) {
-	$story_name_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$story_namenames2[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$story_namelinks[$i]."');".'"'."><".$h2_element.">".$story_namenames2[$i]."</".$h2_element."></button>";
-
-	$i++;
-}
-
-$i = 0;
-$storiessitenumb = $story_name_websites_number;
-while ($i <= $storiessitenumb) {
-	$story_name_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$story_namenames2[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$story_namelinks[$i]."');".'"'."><".$h4_element.">".$story_namenames2[$i]."</".$h4_element."></button>";
-
-	$i++;
-}
-
 
 #Year Sites Buttons generator
 $i = 0;

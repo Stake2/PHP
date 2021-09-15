@@ -1,9 +1,9 @@
 <?php
 
 # Include Websites Tabs Attributes.php
-require $websites_tab_attributes;
+require $websites_tab_arrays;
 
-if ($website == $website_diario) {
+if ($website_name == $website_diario) {
 	$websites_tab_name_text = 'w3-text-white';
 	$websites_tab_border = $border_1px_solid_grey_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;

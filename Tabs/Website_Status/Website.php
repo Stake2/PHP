@@ -9,8 +9,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_website_sta
 	$current_year_backup = $current_year;
 
 	#Website title and name definer
-	$website = ucwords($website_website_status);
-	$website_name = $website_website_status;
+	$website = $selected_website;
+	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
 	$website_uses_tab_body_generator = True; #Defines if the website uses the CityBody generator

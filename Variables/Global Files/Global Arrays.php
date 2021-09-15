@@ -38,7 +38,7 @@ foreach ($websites as $website) {
 		$current_variable_year = 2018;
 
 		$year_number = 0;
-		while ($current_variable_year <= $current_year) {
+		while ($current_variable_year <= $current_year - 1) {
 			array_push($website_titles_array, (string)$current_variable_year);
 			array_push($website_types_array, $selected_website_type);
 

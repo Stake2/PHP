@@ -82,7 +82,7 @@ if (file_exists($watchedtypefile2019) == True) {
 	}
 }
 
-require $websites_tab_attributes;
+require $websites_tab_arrays;
 
 $prodbtnsnumb = 5;
 $unprodbtnsnumb = 4;

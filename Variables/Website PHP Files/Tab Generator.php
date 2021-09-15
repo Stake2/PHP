@@ -79,7 +79,7 @@ else {
 	# Array of button codes
 	$i = 0;
 	while ($i <= $website_tab_number) {
-		$citycodes[$i] = $website."-".strtolower($tab_names[$i]);
+		$citycodes[$i] = $website_name."-".strtolower($tab_names[$i]);
 
 		$i++;
 	}

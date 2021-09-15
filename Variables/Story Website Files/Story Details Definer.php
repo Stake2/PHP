@@ -29,9 +29,18 @@ $website_image_link = $website_image;
 
 $story_synopsis = Language_Item_Definer($story_synopsis_english, $story_synopsis_portuguese);
 
-$website_meta_description = format(Language_Item_Definer("Website about my story, {}, made by Stake2, Funkysnipa Cat, Izaque.", "Site sobre a minha história, {}, feito por Stake2, Funkysnipa Cat, Izaque."), $website_story_name);
+if (isset($custom_website_descriptions) == True) {
+	$website_meta_description = $website_meta_descriptions[$language_number];
+	$website_header_description = $website_header_descriptions[$language_number];
+}
 
-$website_header_description = format($synopsis_text.': <i class="fas fa-scroll"></i> "{}'.'"<br />', $story_synopsis);
+if (isset($custom_website_descriptions) == False) {
+	$website_meta_description = format(Language_Item_Definer("Website about my story, {}, made by Stake2, Funkysnipa Cat, Izaque.", "Site sobre a minha história, {}, feito por Stake2, Funkysnipa Cat, Izaque."), $website_story_name);
+
+	$website_header_description = format($synopsis_text.': <i class="fas fa-scroll"></i> "{}'.'"<br />', $story_synopsis);
+}
+
+$website_link = $story_website_links[$english_story_name].Language_Item_Definer_Per_Language("en-us/", "pt-br/", "pt-pt/", $general_item = "");
 
 # Website name in English and Brazilian Portuguese language
 $websites_names_array = array(

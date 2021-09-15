@@ -198,7 +198,7 @@ function Create_Element($element, $class, $text, $custom_parameters = Null) {
 function Create_Database_Table($table_name, $columns_array) {
 	global $database_connection;
 
-	$sql = "CREATE TABLE ".$table_name." (";
+	$sql = "CREATE TABLE IF NOT EXISTS ".$table_name." (";
 
 	$sql .= "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
 
@@ -230,12 +230,13 @@ function Insert_Into_Database_Table($table_name, $columns, $values) {
 
 	$sql .= ")";
 
+	if ($database_connection->query($sql) === TRUE) {
+		echo "New record created successfully";
+	}
 
-if ($database_connection->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $database_connection->error;
-}
+	else {
+		echo "Error: " . $sql . "<br>" . $database_connection->error;
+	}
 
 	$database_connection -> query($sql);
 }

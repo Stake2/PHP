@@ -1,10 +1,6 @@
 <?php 
 
-#$colortext = 'w3-text-white';
-#$colorsubtext = 'w3-text-orange';
-#$colortext2 = 'w3-text-green';
 $bordercolor = 'w3-black';
-#$colortext3 = 'w3-text-yellow';
 
 $border_1px_solid_css_class = "border_1px";
 $border_1px_solid_with_color_template = "border_1px_solid_";
@@ -98,8 +94,6 @@ $background_colors_array,
 $text_colors_array,
 );
 
-#$website_style_file = $current_website_folder."Website Style.php";
-
 $create_border_on_hover_css_class = "create_border_on_hover";
 
 $default_background_color = $background_black_css_class;
@@ -115,12 +109,7 @@ $website_border_color = $default_border_color;
 
 $w3_text_format = "w3-text-{}";
 
-$w3_text_colors = array(
-#"white" => $w3_text_white = format($w3_text_format, "white"),
-#"orange" => $w3_text_orange = format($w3_text_format, "orange"),
-#"purple" => $w3_text_purple = format($w3_text_format, "purple"),
-#"pink" => $w3_text_pink = format($w3_text_format, "pink"),
-);
+$w3_text_colors = array();
 
 array_push($colors_array, "orange");
 array_push($colors_array, "purple");

@@ -2,8 +2,8 @@
 
 # Website variables
 $selected_website_url = $website_watch_history_link;
-$selected_website_folder = $php_folder_tabs.ucwords($website).'/';
-$no_language_website_title = ucwords(str_replace("_", " ", $website));
+$selected_website_folder = $php_folder_tabs.ucwords($selected_website).'/';
+$no_language_website_title = ucwords(str_replace("_", " ", $selected_website));
 
 # Comment links
 $watched_movie_comment_links = array(

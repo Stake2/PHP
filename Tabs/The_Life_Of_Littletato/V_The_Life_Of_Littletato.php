@@ -20,9 +20,6 @@ $website_images_folder = $website_media_images_website_images.$story_folder."/";
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 
-# Story status
-$story_status = $status_writing;
-
 # Form code for the comment and read forms
 $website_form_code = strtolower(str_replace(" ", "-", $english_story_name));
 
@@ -53,7 +50,6 @@ if ($website_story_has_book_covers_setting == True) {
 $website_name = $selected_website;
 $website_title = $general_story_name;
 $website_title_header = $general_story_name.': '.$icons[11];
-$website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
 	$website_title = $website_story_name;
@@ -63,7 +59,6 @@ if ($website_language != $language_geral) {
 	}
 
 	$website_title_header = $website_title.': '.$icons[11];
-	$website_link .= $website_link_language."/";
 }
 
 # Buttons and tabs definer
@@ -71,13 +66,6 @@ if ($website_writing_pack_setting == True) {
 	$tab_names[0] = str_replace('Read', 'Write', $tab_names[0]);
 	$tab_names[0] = str_replace('Ler', 'Escrever', $tab_names[0]);
 }
-
-# Button names
-#$tab_texts = array(
-#$tab_names[0].": ".$icons_array["open book"],
-#$tab_names[1].": ".$icons_array["reader"]." ❤️",
-#$tab_names[2].": ".$icons_array["book"],
-#);
 
 $tab_titles_prototype = array(
 $icons_array["open book"],
