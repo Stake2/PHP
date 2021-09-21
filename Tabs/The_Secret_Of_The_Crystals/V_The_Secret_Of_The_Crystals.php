@@ -20,9 +20,6 @@ $website_form_code = $english_story_name;
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 
-# Story status
-$story_status = $story_statuses["Writing"];
-
 # Website numbers
 $crossover = 9;
 $comments_number = 3;

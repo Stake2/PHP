@@ -60,15 +60,8 @@ if ($website_name == $website_desert_island) {
 	$websites_tab_number_text_color = 'w3-text-blue';
 	$websites_tab_number_hover_color = $text_hover_white_css_class;
 	$websites_tab_div_color = $background_yellow_sand_css_class;
+	$websites_tab_name_text = "w3-text-black";
 }
-
-#if ($website_name != $website_watch_history and $website_name != $website_the_life_of_littletato and $website_name != $website_the_story_of_the_bulkan_siblings and $website_name != $website_things_i_do and $website != $website_diario and $website_name == $website_spaceliving and $selected_website == $website_desert_island) {
-#	$websites_tab_border = $border_color;
-#	$websites_tab_name_text = $first_text_color;
-#	$websites_tab_number_text_color = $first_text_color;
-#	$websites_tab_number_hover_color = $text_hover_white_css_class;
-#	$websites_tab_div_color = 'w3-black';
-#}
 
 echo '<a name="'.$websites_tab_code.'"></a>'."\n".'<br />'."\n";
 echo '<div id="'.$websites_tab_code.'" class="city" style="display:none;'.$rounded_border_style_2.'">'."\n";

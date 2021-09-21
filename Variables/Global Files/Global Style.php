@@ -114,6 +114,11 @@ $w3_text_colors = array();
 array_push($colors_array, "orange");
 array_push($colors_array, "purple");
 array_push($colors_array, "pink");
+array_push($colors_array, "text_green_water");
+
+$w3_text_colors_dict = array();
+
+$w3_text_colors_dict["text_green_water"] = "text_green_water";
 
 $css_class_arrays_length = count($css_class_arrays) - 1;
 

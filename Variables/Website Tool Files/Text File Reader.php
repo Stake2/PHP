@@ -334,7 +334,6 @@ if ($website_type == $story_website_type) {
 	Create_File($story_synopsis_portuguese_file);
 	Create_File($story_readers_file);
 	Create_File($story_chapter_status_file);
-	Create_File($chapter_number_file);
 	Create_File($story_author_file);
 
 	# Last Posted Chapter file
@@ -402,7 +401,7 @@ if ($website_type == $story_website_type) {
 
 	$readers = Read_Lines($story_readers_file);
 
-	if ($website_name == $website_the_story_of_the_bulkan_siblings or $website == $website_the_story_of_the_bulkan_siblings) {
+	if (Line_Number($chapter_number_file) != 0) {
 		$chapters = Read_Lines($chapter_number_file)[0];
 	}
 
