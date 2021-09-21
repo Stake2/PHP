@@ -42,78 +42,6 @@ if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-/*
-#Website name, title, main_website_url and description setter
-if ($website_language == $language_geral) {
-	$website_language = $language_enus;
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-	$website_language = $language_geral;
-
-	$website_name = $enus_title.' '.$hyphen_separated_website_language;
-	$website_title = $enus_title.' '.ucwords($website_language);
-	$website_title_header = $enus_title.': '.$icons[11];
-	$website_link = $selected_website_url;
-
-	$website_language = $language_geral;
-}
-
-if ($website_language == $language_enus) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-
-	$website_name = $enus_title;
-	$website_title = $enus_title;
-	$website_title_header = $enus_title.': '.$icons[11];
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$hyphen_separated_website_language = strtoupper($website_language);
-	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
-
-	if ($website_language == $ptpt_language) {
-		$website_title = $websites_names_array[1].' '.strtoupper($hyphen_separated_website_language);
-	}
-
-	else {
-		$website_title = $websites_names_array[1];
-	}
-
-	$website_name = $selected_website;
-	$website_title_header = $story_name.': '.$icons[11];
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
-}
-
-# Button names
-$tab_texts = array(
-$tab_names[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
-$tab_names[1].': '.$icons[20].' '.' ❤️ '.' 😊',
-$tab_names[2].': '.$icons[12],
-$tab_names[3].': '.$icons[10],
-$tab_names[4].': '.$icons[11],
-$icons[13],
-);
-
-# Buttons and tabs definer
-# Tab chapter_titles definer
-$tab_titles = array(
-$tab_names[0].': '.$icons[21].' '.$cyanspan.'['.$new_text.' '.$chapters.']'.$spanc,
-$tab_names[1].': '.$icons[20].' '.' ❤️ '.' 😊',
-$tab_names[2].': '.$icons[12],
-$tab_names[3].': '.$icons[10],
-$tab_names[4].': '.$yellowspan.$stories_number.$spanc.' '.$icons[11],
-);
-
-# Button names definer
-$i = 0;
-foreach ($tab_titles as $tabname) {
-	$tab_texts[$i] = $tabname;
-
-	$i++;
-}
-*/
-
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
 $website_title = $general_story_name;
@@ -122,7 +50,7 @@ $website_title_header = $general_story_name.': '.$icons[11];
 if ($website_language != $language_geral) {
 	$website_title = $website_story_name;
 
-	if ($website_language == $ptpt_language) {
+	if ($website_language != $ptbr_language) {
 		$website_title = $website_story_name." ".strtoupper($website_title_language);
 	}
 
