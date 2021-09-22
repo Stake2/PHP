@@ -322,7 +322,7 @@ if ($chapter_number_1 != $chapters) {
 $to_comment_button_text = $to_comment_text." ".$icons_array["comment"];
 
 # Computer Comment button
-if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
+if ($story_has_chapter_comments == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
 	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="comment_button_'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$to_comment_button_text.'</b></h3></button>'."\n";
 	echo $div_close."\n";
@@ -339,7 +339,7 @@ if ($story_has_reads == True) {
 }
 
 # Mobile Comment button
-if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
+if ($story_has_chapter_comments == True) {
 	echo "\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";

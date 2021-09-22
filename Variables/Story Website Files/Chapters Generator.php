@@ -141,12 +141,12 @@ while ($chapter_number_1 <= $chapters) {
 }
 
 if ($story_has_reads == True) {
-	#Read-modal Tab generator PHP file
+	# Read-modal Tab generator PHP file
 	require $read_modal_generator_php;
 }
 
-if ($website_has_comments_tab == True and $story_has_chapter_comments == True) {
-	#Comment-modal Tab generator PHP file
+if ($story_has_chapter_comments == True) {
+	# Comment-modal Tab generator PHP file
 	require $comment_modal_generator_php;
 }
 

@@ -12,7 +12,7 @@ $chapter_number_1 = 1;
 $capnum12 = 1;
 $chapter_number_4 = 0;
 $capnum42 = 0;
-#Comment-modal Tab generation
+# Comment-modal Tab generation
 while ($chapter_number_1 <= $chapters) {
 	$i2 = $i + 1;
 	$i3 = $i + 2;
@@ -20,7 +20,7 @@ while ($chapter_number_1 <= $chapters) {
 
 	echo "\n";
 
-	#Computer comment-modal Tab div id
+	# Computer comment-modal Tab div id
 	echo '<a name="comment-modal-'.$a.'"></a>'."\n";
 	echo '<div id="comment-modal-'.$a.'" class="modal '.$computer_variable.'" style="display:none;'.$rounded_border_style_2.'">'."\n";
 	echo $div_zoom_animation."\n";
@@ -28,7 +28,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<div class="'.$computer_variable.'">'."\n";
 
     # Close comment-modal button computer
-	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="closecommentmodal'.$a.'" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
+	echo '<button class="w3-btn '.$first_button_style.' '.$computer_variable.' modal_close_button" id="close_comment_modal_button_'.$a.'" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     # Computer Comment-modal form
 	echo $div_zoom_animation.'<'.$h2_element.' class="'.$first_text_color.'"><b>'.$comment_on_chapter_text.':<br />'.$chapter_number_1.' - '.$chapter_titles[$chapter_number_4].' '.$icons[12].'</b></'.$h2_element.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
@@ -71,7 +71,7 @@ while ($chapter_number_1 <= $chapters) {
 	echo '<div class="'.$mobile_variable.'">'."\n";
 
     # Close comment-modal button mobile
-	echo '<button class="w3-btn '.$first_button_style.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' modal_close_button" id="closecommentmodal'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
+	echo '<button class="w3-btn '.$first_button_style.' w3-text-black '.$cssbtn1.' '.$mobile_variable.' modal_close_button" id="close_comment_modal_button_'.$a2.'m" '.$roundedborderstyle.'>&times;</button><br /><br /><br />'."\n";
 
     # Mobile Comment-modal form
 	echo '<form name="'.$website_form_code.'-comment" method="POST" data-netlify="True" '.$roundedborderstyle.'>'."\n";
@@ -112,7 +112,7 @@ var comment_modal_'.$a.' = document.getElementById("comment-modal-'.$a.'");
 
 var comment_button_'.$a.' = document.getElementById("comment_button_'.$a.'");
 
-var close_comment_modal_button_'.$a.' = document.getElementById("closecommentmodal'.$a.'");
+var close_comment_modal_button_'.$a.' = document.getElementById("close_comment_modal_button_'.$a.'");
 
 comment_button_'.$a.'.onclick = function() {
 	comment_modal_'.$a.'.style.display = "block";
@@ -137,7 +137,7 @@ var comment_modal_'.$a2.'m = document.getElementById("comment-modal-'.$a2.'m");
 
 var comment_button_'.$a2.'m = document.getElementById("comment_button_'.$a2.'m");
 
-var close_comment_modal_button_'.$a2.'m = document.getElementById("closecommentmodal'.$a2.'m");
+var close_comment_modal_button_'.$a2.'m = document.getElementById("close_comment_modal_button_'.$a2.'m");
 
 comment_button_'.$a2.'m.onclick = function() {
 	comment_modal_'.$a2.'m.style.display = "block";

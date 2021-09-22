@@ -30,14 +30,14 @@ $custom_website_descriptions = True;
 # Website descriptions
 $website_meta_descriptions = array(
 Null,
-"Website to show my ".$story_name." in HTML form, made by ".$multi_persons["Izaque"].".",
-"Site para mostrar o meu ".$story_name." em forma de HTML, feito por ".$multi_persons["Izaque"]."."
+"Website to show my ".$website_story_name." in HTML form, made by ".$multi_persons["Izaque"].".",
+"Site para mostrar o meu ".$website_story_name." em forma de HTML, feito por ".$multi_persons["Izaque"]."."
 );
 
 $website_header_descriptions = array(
 Null,
-"Website to show my ".Create_Element("span", "w3-text-white", $story_name)." in HTML form, made by ".$multi_persons_painted["Izaque"].".",
-"Site para mostrar o meu ".Create_Element("span", "w3-text-white", $story_name)." em forma de HTML, feito por ".$multi_persons_painted["Izaque"].".",
+"Website to show my ".Create_Element("span", "w3-text-white", $website_story_name)." in HTML form, made by ".$multi_persons_painted["Izaque"].".",
+"Site para mostrar o meu ".Create_Element("span", "w3-text-white", $website_story_name)." em forma de HTML, feito por ".$multi_persons_painted["Izaque"].".",
 );
 
 # Language dependent character names

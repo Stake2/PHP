@@ -401,7 +401,7 @@ if ($website_type == $story_website_type) {
 
 	$readers = Read_Lines($story_readers_file);
 
-	if (Line_Number($chapter_number_file) != 0) {
+	if (file_exists($chapter_number_file) != False) {
 		$chapters = Read_Lines($chapter_number_file)[0];
 	}
 
