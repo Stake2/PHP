@@ -46,9 +46,6 @@ else {
 # Re-require of the StoryVars.php file to set the story name
 require $story_variables_php;
 
-$image_format = "png";
-$website_image = ";3";
-
 # Story Details Definer PHP file includer
 require $story_details_definer;
 
@@ -65,6 +62,11 @@ $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
 	$website_title = str_replace(" Geral", "", $website_title);
+
+	if ($website_language == $ptpt_language) {
+		$website_title .= " ".$website_title_language;
+	}
+
 	$website_title_header = str_replace(" Geral".': '.$icons[11], "", $website_title_header).': '.$icons[11];
 	$website_link .= $website_link_language."/";
 }

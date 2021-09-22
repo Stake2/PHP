@@ -52,6 +52,11 @@ $website_link = str_replace(" ", "%20", $selected_website_url);
 
 if ($website_language != $language_geral) {
 	$website_title = $website_story_name;
+
+	if ($website_language == $ptpt_language) {
+		$website_title .= " ".$website_title_language;
+	}
+
 	$website_title_header = $website_title.': '.$icons[11];
 	$website_link .= $website_link_language."/";
 }
@@ -72,9 +77,6 @@ $source_bulkan_reference_1_chapter_1,
 $bulkan_reference_1_chapter_3,
 $a_name_bulkan_reference_1_chapter_3,
 );
-
-# Website Style.php File Includer
-require $selected_website_style_file;
 
 # Tab Generator.php includer
 require $website_tabs_generator;

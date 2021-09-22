@@ -55,7 +55,7 @@ if ($website_language != $language_geral) {
 	$website_title = $website_story_name;
 
 	if ($website_language == $ptpt_language) {
-		$website_title = $website_story_name." ".strtoupper($website_title_language);
+		$website_title = $website_story_name." ".$website_title_language;
 	}
 
 	$website_title_header = $website_title.': '.$icons[11];

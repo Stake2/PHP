@@ -5,7 +5,7 @@ $website_style_variable_names_array = array(
 "second_text_color",
 );
 
-if ($alternative_website_style == false) {
+if ($alternative_website_style == False) {
 	require $website_style_file;
 }
 
