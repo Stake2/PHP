@@ -361,7 +361,7 @@ if ($story_uses_status == True) {
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".
 		'<br />'.$top_and_bottom_chapter_text."\n".
-		'<b>'.$span_variable.'['.$new_text.'!]'.$spanc.'</b>'."\n".
+		$new_chapter_span."\n".
 		'<br /></span>'."\n".
 		$div_close."\n".
 		$div_close."\n";
