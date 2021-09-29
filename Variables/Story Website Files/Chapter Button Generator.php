@@ -1,13 +1,5 @@
 <?php 
 
-if ($selected_website != $website_desert_island) {
-	$span_variable = $yellowspan;
-}
-
-if ($selected_website == $website_desert_island) {
-	$span_variable = $cyanspan;
-}
-
 if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
 	$hide_notification_attribute = "Hide_Computer_Notification();Hide_Mobile_Notification();";
 }
@@ -15,6 +7,8 @@ if ($website_has_notifications == True and $website_deactivate_notification_sett
 else {
 	$hide_notification_attribute = "";
 }
+
+$new_chapter_span = Create_Element("span", $third_text_color, '['.$new_text.'!]');
 
 $chapter_number_1 = 1;
 $chapter_number_2 = 1;
@@ -73,7 +67,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 			
-			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$new_text.'!]'.$spanc."</button></a> "."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$new_chapter_span."</button></a> "."\n";
 
 			echo $chapter_button;
 
@@ -97,7 +91,7 @@ while ($chapter_number_1 <= $chapters) {
 				$chapter_text_variable = $chapter_number_1;
 			}
 
-			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$span_variable.'['.$new_text.'!]'.$spanc.'</button></a> '."\n";
+			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$new_chapter_span.'</button></a> '."\n";
 
 			echo $chapter_button;
 

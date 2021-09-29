@@ -12,7 +12,7 @@ class Website_Style extends Website_Style_Abstract_Class {
 
 	public function set_style_file($website_folder) {
 
-		$this -> website_style_file = $website_folder."Website Style.php";
+		$this -> website_style_file = $website_folder."Style.php";
 
 	}
 

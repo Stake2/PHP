@@ -1,10 +1,7 @@
 <?php
 
 # V_Global.php $website_folder, website and FontAwesome link variables
-$website_folder = strtolower($website);
-$website = $website_folder;
-$selected_website_url = $main_website_url.$website_folder."/";
-$selected_website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
+$selected_website_url = $website_links[$website_title];
 
 $dot_text = ".txt";
 
@@ -48,15 +45,15 @@ if ($website_is_prototype_setting == False and $website_uses_custom_layout_setti
 }
 
 # VYears.php file loader for YearsSites
-if (in_array($website_name, $years_array)) {
+if (in_array($website_title, $year_websites)) {
 	require $vyears_php;
 }
 
 # Websites array
 $i = 0;
-foreach ($website_names_array as $value) {
-	if ($website_name == $value) {
-		require $website_variables_files[$i];
+foreach ($website_titles as $value) {
+	if ($website_title == $value) {
+		require $website_variables_files[$value];
 	}
 
 	$i++;
@@ -106,10 +103,6 @@ if ($website_is_for_other_person_setting == False) {
 <meta name="twitter:creator" content="@The_Snakes90" />';
 }
 
-if ($website_name == $website_website_status) {
-	$website_title = $website_titles_array[$selected_website_number];
-}
-
 $website_head = '
 <title>'.$website_title.'</title>
 <meta property="og:type" content="website" />
@@ -134,7 +127,7 @@ $website_head = '
 "\n"."\n".$website_javascript_links.
 $include_custom_website_head_content;
 
-if (in_array($website_name, $years_array)) {
+if (in_array($website_title, $year_websites)) {
 	$website_meta_description = $website_header_description;
 }
 

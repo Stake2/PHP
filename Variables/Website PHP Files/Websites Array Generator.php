@@ -1,98 +1,71 @@
 <?php 
 
-# Websites array
 $i = 0;
-foreach ($websites_array as $value) {
-	$value = strtolower($value);
-	$value = str_replace("á", "a", $value);
-
-    ${"website_$value"} = $value;
-
-	$website_names_array[$i] = ${"website_$value"};
+foreach ($website_titles as $value) {
+	$website_keys[$value] = strtolower(str_replace(" ", "_", $value));
 
 	$i++;
 }
 
-# Website website_titles_array array
 $i = 0;
-foreach ($website_titles_array as $value) {
-	$resource_variable = strtolower($website_names_array[$i]);
+foreach ($website_titles as $value) {
+	$folder = $php_folder_tabs.$value."/";
 
-    ${"website_name_$resource_variable"} = $value;
-
-	$website_titles_array[$i] = ${"website_name_$resource_variable"};
-
-	$i++;
-}
-
-# Array of the paths of the website folders in the local drive
-$i = 0;
-foreach ($website_names_array as $value) {
-	$folder_to_use = $websites_array[$i];
-
-	if ($value == "diario") {
-		$folder_to_use = "Diário";
-	}
-
-	${"website_folder_$value"} = $php_folder_tabs.$folder_to_use."/";
-
-	$website_folders[$i] = ${"website_folder_$value"};
+	$website_folders[$value] = $folder;
 
 	$i++;
 }
 
 # Checks if the folder of the website exists, if it does not, it creates the folder
-foreach ($website_folders as $folder) {
-	if (!file_exists($folder)) {
-		mkdir($folder);
+foreach ($website_folders as $local_website_folder) {
+	if (file_exists($local_website_folder) == False) {
+		mkdir($local_website_folder);
 	}
 }
 
 $website_style_files = array();
 
-# V_[Website].php Files array
 $i = 0;
-foreach ($websites_array as $value) {
-	$website_folder = $php_folder_tabs.ucwords($value);
+foreach ($website_titles as $value) {
+	$website_folder = $website_folders[$value];
 
-	$variables_file = $website_folder."/"."V_".$value.".php";
-	$website_style_file = $website_folder."/"."Website Style.php";
+	$variables_file = $website_folder."Variables.php";
+	$website_style_file = $website_folder."Style.php";
+	$website_name_file = $website_folder."Name.php";
 
-	if (file_exists($variables_file)) {
-		$website_variables_files[$i] = $variables_file;
-	}
+	$website_variables_files[$value] = $variables_file;
+	$website_style_files[$value] = $website_style_file;
+	$website_name_files[$value] = $website_name_file;
 
-	else {
+	if (file_exists($variables_file) == False) {
 		fopen($variables_file, "w", "UTF-8");
 	}
 
-	if (file_exists($website_style_file)) {
-		$website_style_files[$i] = $website_style_file;
-	}
-
-	else {
+	if (file_exists($website_style_file) == False) {
 		fopen($website_style_file, "w", "UTF-8");
 	}
+
+	if (file_exists($website_name_file) == False) {
+		fopen($website_name_file, "w", "UTF-8");	
+	}
+
+	file_put_contents($website_name_file, "<?php"."\n\n"."\$local_website_name = \"".$value."\";"."\n\n"."?>");
 
 	$i++;
 }
 
 # Website.php Files array
 $i = 0;
-foreach ($websites_array as $value) {
-	$website_file = $php_folder_tabs.ucwords($value)."/Website.php";
+foreach ($website_titles as $value) {
+	$website_file = $website_folders[$value]."Website.php";
 
-	if (file_exists($website_file)) {
-		$website_files[$i] = $website_file;
-	}
-
-	else {
+	if (file_exists($website_file) == False) {
 		fopen($website_file, "w", "UTF-8");
 	}
 
+	$website_files[$value] = $website_file;
+
 	$i++;
 }
-
-$year_arrays_php = $website_folder_years."Year Arrays.php";
 
 ?>

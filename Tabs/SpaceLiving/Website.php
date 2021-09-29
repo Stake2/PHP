@@ -1,12 +1,13 @@
 <?php 
 
-# SpaceLiving Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving) == True) {
-	$selected_website = $website_spaceliving;
+require $local_website_folder."Name.php";
 
-	# Website title and name definer
-	$website = ucwords($selected_website);
-	$website_name = $selected_website;
+if (strpos ($host_text, $website_selector_parameters[0]."=".$local_website_name) == True) {
+	$selected_website = $website_titles[$local_website_name];
+
+	# Website title definer
+	$website_name = $website_titles[$selected_website];
+
 	$choosed_website_css_file = $css_file_spaceliving;
 
 	# Website settings definer
@@ -43,17 +44,15 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_spaceliving
 	require $setting_parameters_file;
 
 	# Website Tabs array
-	$tabs = array('Read', 'Readers', 'Stories');
+	$tabs = array("Read", "Readers", "Other stories");
 
-	# Website Tabnames array
+	# Website Tab Names array
 	if (in_array($website_language, $en_languages_array)) {
-		#$tab_names = array('Read story', 'Readers', 'Comment', 'Write', 'Stories', 'Chapters', 'Comments');
-		$tab_names = array('Read story', 'Readers', 'Other stories');
+		$tab_names = array("Read story", "Readers", $other_stories_text);
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		#$tab_names = array('Ler história', 'Leitores', 'Comentar', 'Escrever', 'Histórias', 'Capítulos', 'Comentários');
-		$tab_names = array('Ler história', 'Leitores', 'Outras histórias');
+		$tab_names = array("Ler história", "Leitores", $other_stories_text);
 	}
 
 	# Number of tabs

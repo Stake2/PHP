@@ -63,8 +63,8 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 	.$div_close."\n";	
 }
 
-if ($website_type == $normal_website_type and $website_deactivate_header_setting == False or in_array($website_name, $years_array) and $website_deactivate_header_setting == False and $website_uses_custom_layout_setting == False) {
-	if ($website_name == $website_diario) {
+if ($website_type == $normal_website_type and $website_deactivate_header_setting == False or in_array($website_title, $year_websites) and $website_deactivate_header_setting == False and $website_uses_custom_layout_setting == False) {
+	if ($website_title == $website_titles["Diário"]) {
 		$diario_blocks_text_on_header = $diario_blocks_text.'<br />'."\n";
 		$things_of_diario_one = '<'.$h2_element.' class="'.$first_text_color.' '.$computer_variable.'">'.$diario_blocks_text_on_header.'</'.$h2_element.'>
 		';

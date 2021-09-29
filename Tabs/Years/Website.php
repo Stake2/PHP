@@ -1,8 +1,9 @@
 <?php 
 
-# Text Maker Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$website_years) == True) {
-	$selected_website = $website_years;
+require $local_website_folder."Name.php";
+
+if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local_website_name]) == True) {
+	$selected_website = $website_titles[$local_website_name];
 
 	#Website title and name definer
 	$website = ucwords($selected_website);

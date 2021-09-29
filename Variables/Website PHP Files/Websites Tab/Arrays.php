@@ -1,9 +1,12 @@
 <?php 
 
-foreach ($websites_array as $website) {
-	$website_links[$website] = $main_website_url.str_replace("_", " ", $website)."/";
+foreach ($website_titles as $value) {
+	$local_website_link = $website_links[$value];
+
+	$website_link_buttons[$value] = "<button class=\"w3-btn ".$first_button_style." ".$computer_variable."\" title=\"".$value."\" ".$roundedborderstyle." onclick=\"window.open('".$local_website_link."');\"><".$h2_element.">".$value."</".$h2_element."></button>";
 }
 
+/*
 $siteicons = array(
 '📘',
 '🦄',
@@ -51,7 +54,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$sitecodes[16] = "A História dos Irmãos Bulkan";
 }
 
-$sitelinks = array(
+$website_links = array(
 'https://printsofcomputer.netlify.app', #POCB Link
 $main_website_url."Diary/",
 $main_website_url.$sitecodes[0].'/',
@@ -195,7 +198,7 @@ $website_the_story_of_the_bulkan_siblings_link,
 
 $websites_number = 23;
 $story_name_websites_number = $stories_number;
-$websites_number_text = count($sitelinks);
+$websites_number_text = count($website_links);
 
 $websites_buttons_style = $first_button_style;
 
@@ -203,7 +206,7 @@ $websites_buttons_style = $first_button_style;
 $i = 0;
 $websites_number = $websites_number;
 while ($i <= $websites_number) {
-	$websites_buttons_array[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h2_element.">".$websites_names_array[$i]."</".$h2_element."></button>";
+	$websites_buttons_array[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$website_links[$i]."');".'"'."><".$h2_element.">".$websites_names_array[$i]."</".$h2_element."></button>";
 
 	$i++;
 }
@@ -211,7 +214,7 @@ while ($i <= $websites_number) {
 $i = 0;
 $websites_number = $websites_number;
 while ($i <= $websites_number) {
-	$websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$i]."');".'"'."><".$h4_element.">".$websites_names_array[$i]."</".$h4_element."></button>";
+	$websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$websites_names_array[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$website_links[$i]."');".'"'."><".$h4_element.">".$websites_names_array[$i]."</".$h4_element."></button>";
 
 	$i++;
 }
@@ -220,7 +223,7 @@ while ($i <= $websites_number) {
 $i = 0;
 $z = 11;
 while ($i <= $years_number) {
-	$year_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$h2_element.">".$yearnames[$i].": ".$icons[3]."</".$h2_element."></button>";
+	$year_websites_buttons[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$computer_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$website_links[$z]."');".'"'."><".$h2_element.">".$yearnames[$i].": ".$icons[3]."</".$h2_element."></button>";
 
 	$z++;
 	$i++;
@@ -229,10 +232,11 @@ while ($i <= $years_number) {
 $i = 0;
 $z = 11;
 while ($i <= $years_number) {
-	$year_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$sitelinks[$z]."');".'"'."><".$h4_element.">".$yearnames[$i].": ".$icons[3]."</".$h4_element."></button>";
+	$year_websites_buttons_mobile[$i] = '<button class="w3-btn '.$websites_buttons_style.' '.$mobile_variable.'" title="'.$yearnames[$i].'" '.$roundedborderstyle.' onclick='.'"window.open('."'".$website_links[$z]."');".'"'."><".$h4_element.">".$yearnames[$i].": ".$icons[3]."</".$h4_element."></button>";
 
 	$z++;
 	$i++;
 }
+*/
 
 ?>

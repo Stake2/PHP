@@ -3,7 +3,7 @@
 # Include Websites Tabs Attributes.php
 require $websites_tab_arrays;
 
-if ($website_name == $website_diario) {
+if ($website_title == $website_titles["Diário"]) {
 	$websites_tab_name_text = 'w3-text-white';
 	$websites_tab_border = $border_1px_solid_grey_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;
@@ -12,7 +12,7 @@ if ($website_name == $website_diario) {
 	$websites_tab_border_color = $border_color_grey_css_class;
 }
 
-if ($website_name == $website_watch_history) {
+if ($website_title == $website_titles["Watch History"]) {
 	$websites_tab_border = $header_full_border;
 	$websites_tab_name_text = $first_text_color;
 	$websites_tab_number_text_color = $second_text_color;
@@ -39,7 +39,7 @@ if ($website_name == $website_the_story_of_the_bulkan_siblings) {
 	$websites_tab_border_color = $first_border_color;
 }
 
-if ($website_name == $website_things_i_do) {
+if ($website_title == $website_titles["Things I Do"]) {
 	$websites_tab_border = $border_1px_solid_black_css_class;
 	$websites_tab_number_text_color = $text_blue_css_class;
 	$websites_tab_number_hover_color = $text_hover_white_css_class;

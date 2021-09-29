@@ -1,7 +1,7 @@
 <?php 
 
 /*
-$website_comments_file = $selected_website_folder."Comments.txt";
+$website_comments_file = $website_folder."Comments.txt";
 
 if (file_exists($website_comments_file) == False) {
 	Create_File($website_comments_file);
@@ -16,7 +16,7 @@ if ($website_uses_universal_file_reader == True) {
 		$i++;
 	}
 
-	#File text reader that makes an array of the text files
+	# File text reader that makes an array of the text files
 	$i = 0;
 	foreach ($filesarray as $file) {
 		if (file_exists($file) == True) {
@@ -50,7 +50,7 @@ if ($website_uses_universal_file_reader == True) {
 	}
 }
 
-if ($website_name == $website_diario) {
+if ($website_title == $website_titles["Diário"]) {
 	$diario_numbers_text_file = $used_folder."Diário Numbers.txt";
 
 	if (file_exists($diario_numbers_text_file) == True) {
@@ -61,7 +61,7 @@ if ($website_name == $website_diario) {
 	}
 }
 
-if (in_array($website_name, $years_array)) {
+if (in_array($website_title, $year_websites) == True) {
 	$current_year_summary_text_file = $year_folders[$current_year].$year_summary_text." ".$current_year.".txt";
 	$current_year_summary_year_stuff_file = $year_folders[$current_year]."Year Stuff.txt";
 
@@ -84,7 +84,7 @@ if (in_array($website_name, $years_array)) {
 	}
 }
 
-if ($website_name == $website_watch_history or in_array($website_name, $years_array)) {
+if ($website_title == $website_titles["Watch History"] or in_array($website_title, $year_websites)) {
 	$watch_history_variables_php = $website_folder_watch_history."Watch History Variables.php";
 	require $watch_history_variables_php;
 
@@ -159,9 +159,9 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 
 	$current_variable_year = 2018;
 	while ($current_variable_year <= $current_year_backup) {
-		$current_year = $current_variable_year;
+		$local_current_year = $current_variable_year;
 
-		$current_year_watched_folder_to_use = format($watch_history_watched_folder_string, $current_year);
+		$current_year_watched_folder_to_use = format($watch_history_watched_folder_string, $local_current_year);
 		$current_year_per_media_type_watched_folder = $current_year_watched_folder_to_use."Per Media Type/";
 		$current_year_per_media_type_watched_files_folder = $current_year_per_media_type_watched_folder."Files/";
 		$current_year_per_media_type_watched_folders_folder = $current_year_per_media_type_watched_folder."Folders/";
@@ -275,9 +275,9 @@ if ($website_name == $website_watch_history or in_array($website_name, $years_ar
 	$every_year_watched_number_array = array();
 
 	$current_variable_year = 2018;
-	$current_year = $current_year;
+	$local_current_year = $current_year;
 
-	while ($current_variable_year <= $current_year) {
+	while ($current_variable_year <= $local_current_year) {
 		$every_year_watched_number_array[$current_variable_year] = ${"watched_number_".$current_variable_year} = ${"watched_episodes_".$current_variable_year."_line_number"};
 
 		$current_variable_year++;
@@ -352,7 +352,7 @@ if ($website_type == $story_website_type) {
 			$author_name .= $person_names_painted[$author];
 
 			if ($i != $story_author_number - 1) {
-				$author_name .= " ".Create_Element("span", $website_style_array["second_text_color"], $and_text)." ";
+				$author_name .= "<br>".Create_Element("span", $website_style_array["second_text_color"], $and_text)." ";
 			}
 
 			$i++;
@@ -410,23 +410,23 @@ if ($website_type == $story_website_type) {
 
 # Webiste Changelog files and text definer
 if ($website_has_changelog_setting == True) {
-	if ($website_name == $website_watch_history) {
+	if ($website_title == $website_titles["Watch History"]) {
 		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $selected_website_folder."Changelog ".$language_enus.".php";
+			$website_changelog_file = $website_folder."Changelog ".$language_enus.".php";
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $selected_website_folder."Changelog ".$language_ptbr.".php";
+			$website_changelog_file = $website_folder."Changelog ".$language_ptbr.".php";
 		}
 	}
 
 	else {
 		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $selected_website_folder."Changelog ".$language_enus.".txt";
+			$website_changelog_file = $website_folder."Changelog ".$language_enus.".txt";
 		}
 
 		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $selected_website_folder."Changelog ".$language_ptbr.".txt";
+			$website_changelog_file = $website_folder."Changelog ".$language_ptbr.".txt";
 		}
 	}
 

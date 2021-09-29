@@ -52,7 +52,7 @@ echo '<a name="a2018"></a>'."\n";
 echo '<'.$h2_element.'><p></p><br /><b>'.'2018: '.'</b><br /><br /><p></p></'.$h2_element.'>'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$current_year = 2018;
+$local_current_year = 2018;
 $thingsidofake = True;
 $make2018medias = True;
 $make2019medias = false;
@@ -79,7 +79,7 @@ echo '<a name="a2019"></a>'."\n";
 echo '<'.$h2_element.'><p></p><br /><b>'.'2019: '.'</b><br /><br /><p></p></'.$h2_element.'>'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$current_year = 2019;
+$local_current_year = 2019;
 $thingsidofake = True;
 $make2018medias = false;
 $make2019medias = True;
@@ -109,7 +109,7 @@ echo '<div style="text-align:left;">'."\n";
 
 #Goes here
 $thingsidofake = True;
-$current_year = strftime("%Y");
+$local_current_year = strftime("%Y");
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 $mobileversion = false;
@@ -169,7 +169,7 @@ echo '<a name="2018m"></a>'."\n";
 echo '<b>2018</b><br />'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$current_year = 2018;
+$local_current_year = 2018;
 $thingsidofake = True;
 $make2018medias = True;
 $make2019medias = false;
@@ -194,7 +194,7 @@ echo '<a name="2019m"></a>'."\n";
 echo '<b>2019</b><br />'."\n";
 echo '<hr class="'.$sitehr3.'" style="border-width:3px;border-color:'.$color.';border-style:solid;" />'."\n";
 
-$current_year = 2019;
+$local_current_year = 2019;
 $thingsidofake = True;
 $make2018medias = false;
 $make2019medias = True;
@@ -225,7 +225,7 @@ echo $margin."\n";
 echo '<div style="text-align:left;">'."\n";
 
 $thingsidofake = True;
-$current_year = strftime("%Y");
+$local_current_year = strftime("%Y");
 $sitename2 = $website_name;
 $website_name = $sitewatch;
 $mobileversion = True;

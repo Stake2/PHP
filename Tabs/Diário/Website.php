@@ -1,11 +1,13 @@
 <?php 
 
+require $local_website_folder."Name.php";
+
 # Diário Website setter
-if (strpos ($host_text, $website_selector_parameters[0]."=".$website_diario) == True) {
-	$selected_website = $website_diario;
+if (strpos ($host_text, $website_selector_parameters[0]."=".$local_website_name) == True) {
+	$selected_website = $website_titles[$local_website_name];
 
 	#Website title and name definer
-	$website = $selected_website;
+	#$website = $selected_website;
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
@@ -46,7 +48,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_diario) == 
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array("Ler o Diário", "Personagens");
+		$tab_names = array("Ler o ".$value, "Personagens");
 
 		if ($website_has_stories_tab_setting == True) {
 			array_push($tab_names, "Histórias");

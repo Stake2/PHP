@@ -1,7 +1,7 @@
 <?php 
 
 #Watch History and YearWebsites year variables
-if ($website_name == $website_watch_history or in_array($website_name, $years_array)) {
+if ($website_name == $website_titles["Watch History"] or in_array($website_title, $year_websites)) {
 	$current_yearanterior = $current_year - 1;
 	$current_years = array(
 	"2018", 

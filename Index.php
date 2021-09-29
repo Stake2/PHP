@@ -67,7 +67,7 @@ require $connect_php;
 require $website_arrays_generator_php;
 
 # Year Arrays PHP file loader
-require $year_arrays_php;
+#require $year_arrays_php;
 
 # Default Setting Values file require
 require $default_setting_values_php;
@@ -87,12 +87,13 @@ require $global_texts_php;
 # Website selector file require
 require $website_selector_file;
 
-$website_title = $website_titles_array[$selected_website_number];
-$website_title_key = str_replace(" ", "_", strtolower($website_title));
-$website_type = $website_types_array[$selected_website_number];
+$website_title = $website_titles[$selected_website_title];
+$website_title_key = $website_title;
+$website_type = $website_types[$selected_website_title];
+$website_folder = $website_folders[$website_title];
 
-if ($website_name == $website_watch_history) {
-	$watch_history_variables_php = $website_folder_watch_history."Watch History Variables.php";
+if ($website_title == $website_titles["Watch History"]) {
+	$watch_history_variables_php = $website_folder."Watch History Variables.php";
 	require $watch_history_variables_php;
 }
 
@@ -164,7 +165,7 @@ if ($return == True) {
 	$website .= '</body>
 	</html>';
 
-	$html_folder = $selected_website_folder.$website_title_language."/";
+	$html_folder = $website_folder.$website_title_language."/";
 	$html_index_file = $html_folder."Index.html";
 
 	if (file_exists($html_folder) == False) {

@@ -16,7 +16,7 @@ if ($website_is_prototype_setting == False and $website_uses_custom_layout_setti
 	echo $animationstylecss."\n"."\n";
 }
 
-if ($website_name == $website_things_i_do) {
+if ($website_title == $website_titles["Things I Do"]) {
 	echo '
 <style>
 a:link {color: blue!important;}
@@ -39,16 +39,14 @@ if ($website_uses_custom_layout_setting == False) {
 }
 
 if ($website_type == $story_website_type) {
-	echo "\n".'<script>
-Chapter_Number = 1;
-var Last_Chapter = '.$chapters.';
-</script>';
-}
+	echo "\n".'<script>"."\n".
+	Chapter_Number = 1;"."\n".
+	"var Last_Chapter = '.$chapters.';"."\n".
+	"</script>';
 
-if ($website == $website_diario or $website_type == $story_website_type) {
-	echo '<script>
-	Get_Title();
-	</script>'."\n";
+	echo "<script>"."\n".
+	"Get_Title();"."\n".
+	"</script>"."\n";
 }
 
 # Website notification script link includer if setting is True

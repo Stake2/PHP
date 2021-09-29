@@ -5,59 +5,55 @@ $verbose = False;
 $normal_website_type = "Normal Website Type";
 $story_website_type = "Story Website Type";
 
-$website_titles_array = array();
-$website_types_array = array();
-
 $websites_text_file = $website_php_files_folder."Websites.txt";
 
-$websites = Read_Lines($websites_text_file);
+$websites = Add_Years_To_Array(Read_Lines($websites_text_file), $mode = "dict", $custom_value = "{}, N");
 
 $websites_number = 0;
 
-foreach ($websites as $website) {
-	$split = explode(", ", $website);
-	$selected_website_name = $split[0];
-	$selected_website_type = $split[1];
+foreach ($websites as $local_website_name) {
+	$split = explode(", ", $local_website_name);
 
-	if ($selected_website_type == "N") {
-		$selected_website_type = $normal_website_type;
+	$local_website_name = (string)$split[0];
+	$local_website_type = $split[1];
+
+	$key = (string)$local_website_name;
+
+	$local_website_link = $main_website_url;
+
+	if (preg_match("/[0-9][0-9][0-9][0-9]/i", $local_website_name) == True) {
+		$local_website_link .= "Years/";
 	}
 
-	if ($selected_website_type == "S") {
-		$selected_website_type = $story_website_type;
+	$local_website_link .= $local_website_name."/";
+
+	if ($local_website_type == "N") {
+		$local_website_type = $normal_website_type;
+	}
+
+	if ($local_website_type == "S") {
+		$local_website_type = $story_website_type;
 	}
 
 	if ($verbose == True) {
-		echo $selected_website_name."<br />"."\n";
+		echo $local_website_name."<br />"."\n";
 	}
 
-	if ($selected_website_name == "Years") {
-		array_push($website_titles_array, $selected_website_name);
-		array_push($website_types_array, $selected_website_type);
-
-		$current_variable_year = 2018;
-
-		$year_number = 0;
-		while ($current_variable_year <= $current_year - 1) {
-			array_push($website_titles_array, (string)$current_variable_year);
-			array_push($website_types_array, $selected_website_type);
-
-			$current_variable_year++;
-			$year_number++;
-		}
-	}
-
-	else {
-		array_push($website_titles_array, $selected_website_name);
-		array_push($website_types_array, $selected_website_type);
-	}
+	$website_titles[$key] = $local_website_name;
+	$website_types[$key] = $local_website_type;
+	$website_links[$key] = $local_website_link;
 
 	$websites_number++;
 }
 
+$year_websites = array();
+
+$year_websites = Add_Years_To_Array($year_websites, $mode = "dict");
+
+/*
 $websites_array = array();
 
-foreach ($website_titles_array as $website_title_selector) {
+foreach ($website_titles as $website_title_selector) {
 	$website_title_selector = ucwords($website_title_selector);
 	$website_title_selector = str_replace(" ", "_", $website_title_selector);
 	$website_title_selector = str_replace(",", "", $website_title_selector);
@@ -84,5 +80,6 @@ while ($current_variable_year <= $current_year) {
 }
 
 $year_code_numbes_array_keys = array_keys($year_code_numbes_array);
+*/
 
 ?>

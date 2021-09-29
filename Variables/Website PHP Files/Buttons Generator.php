@@ -8,38 +8,20 @@ $open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-cente
 
 $tabnamestxt = $tab_names;
 
-if ($website_name == $website_diario) {
+$local_website_tab_number = $website_tab_number;
+
+if ($website_title == $website_titles["Diário"]) {
 	require $websites_tab_button_maker;
-	$tabnumb2 = $website_tab_number;
+	$local_website_tab_number = $website_tab_number;
 }
 
-if ($website_name == $website_watch_history) {
-	$tabnumb2 = $website_tab_number - 3;
+if ($website_title == $website_titles["Watch History"]) {
+	$local_website_tab_number = $website_tab_number - 3;
 	$tabnamestxt = $tab_titles_without_html;
 }
 
-if ($website_name == $website_2018) {
-	$tabnumb2 = $website_tab_number;
-}
-
-if ($website_name == $website_2019) {
-	$tabnumb2 = $website_tab_number - 5;
-}
-
-if ($website_name == $website_the_life_of_littletato) {
-	$tabnumb2 = $website_tab_number - 1;
-}
-
-if ($website_name == $website_spaceliving) {
-	$tabnumb2 = $website_tab_number;
-}
-
-if ($website_name == $website_the_story_of_the_bulkan_siblings) {
-	$tabnumb2 = $website_tab_number;
-}
-
-if (isset($tabnumb2) == False) {
-	$tabnumb2 = $website_tab_number;
+if ($website_title == $website_titles["2019"]) {
+	$local_website_tab_number = $website_tab_number_less;
 }
 
 $i = 0;
@@ -72,7 +54,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 	}
 
 	while ($i <= $website_tab_number) {
-		if ($i == $website_tab_number and $website_name == $website_diario) {
+		if ($i == $website_tab_number and $website_title == $website_titles["Diário"]) {
 			$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
@@ -159,7 +141,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 
 		$i2 = $i + 1;
 	
-		if ($i == $website_tab_number and $website_name == $website_diario) {
+		if ($i == $website_tab_number and $website_title == $website_titles["Diário"]) {
 			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
@@ -216,7 +198,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 	$mobile_buttons_bar .= $close_mobile_div;
 }
 
-if ($website_name == $website_watch_history) {
+if ($website_title == $website_titles["Watch History"]) {
 	$archived_media_buttons_array = array();
 
 	$current_variable_year = 2018;

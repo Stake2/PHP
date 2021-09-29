@@ -38,7 +38,7 @@ while ($current_variable_year <= $current_year) {
 
 $website_folder = strtolower($years_folder_variable);
 $selected_website_url = $main_website_url.$website_folder.'/'.$current_year.'/';
-$selected_website_folder = $php_folder_tabs.$current_year.'/';
+$website_folder = $php_folder_tabs.$current_year.'/';
 $years_number = 3;
 
 #VYears PHP files

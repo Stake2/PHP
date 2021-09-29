@@ -5,8 +5,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_watch_histo
 	$selected_website = $website_watch_history;
 
 	#Year definer
-	$current_year = strftime("%Y");
-	$current_year_backup = $current_year;
+	$local_current_year = strftime("%Y");
+	$current_year_backup = $local_current_year;
 
 	$previous_year = "2019";
 	$previous_previous_year = "2018";
@@ -34,11 +34,11 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_watch_histo
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array('Watched Media in '.$current_year, 'Media Being Watched', 'Movies', 'Archived Media');
+		$tab_names = array('Watched Media in '.$local_current_year, 'Media Being Watched', 'Movies', 'Archived Media');
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array('Mídias Assistidas em '.$current_year, 'Mídias Sendo Assitidas', 'Filmes', 'Mídias Arquivadas');
+		$tab_names = array('Mídias Assistidas em '.$local_current_year, 'Mídias Sendo Assitidas', 'Filmes', 'Mídias Arquivadas');
 	}
 
 	#Number of tabs

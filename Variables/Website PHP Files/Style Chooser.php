@@ -10,7 +10,7 @@ if ($alternative_website_style == False) {
 }
 
 if ($alternative_website_style == True) {
-	$alternative_website_style_file = $alternative_website_style_folder."Website Style.php";
+	$alternative_website_style_file = $alternative_website_style_folder."Style.php";
 
 	require $alternative_website_style_file;
 }

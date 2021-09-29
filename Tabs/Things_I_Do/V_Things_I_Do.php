@@ -49,7 +49,7 @@ require $watch_texts_php;
 #Folder variables
 $selected_website_url = $main_website_url.$siteurlcodes[0].'/';
 $siteurlgeral2 = $main_website_url.$siteurlcodes[1].'/';
-$selected_website_folder = $website_folder_things_i_do;
+$website_folder = $website_folder_things_i_do;
 $imageswebfolder = $local_cdn_image_drawings;
 $drawingswebfolder = $cdn_image_drawings;
 
@@ -127,7 +127,7 @@ $website_html_descriptions_array = array(
 );
 
 #ThindsIDo Texts.php file includer
-require $selected_website_folder.'ThingsIDo Texts.php';
+require $website_folder.'ThingsIDo Texts.php';
 
 #Buttons definer
 

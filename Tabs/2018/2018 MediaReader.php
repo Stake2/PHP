@@ -42,7 +42,7 @@ echo '<div style="text-align:left;">'."\n";
 
 #Number resetter for Watch History website
 if ($website_name == $sitewatch) {
-	$watched_number = $every_year_watched_number_array[$current_year];
+	$watched_number = $every_year_watched_number_array[$local_current_year];
 
 	#Medias numbers for 2018 Medias
 	$watched_movies_number = 4; 

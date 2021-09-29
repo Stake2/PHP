@@ -1,6 +1,7 @@
 <?php 
 
-#Year texts
+# Years PHP Files
+$year_variables_file = $website_folder_years."Year Variables.php";
 
 #Author text
 $author = 'Izaque Sanvezzo (hm182002) (stake2, Funkysnipa Cat)';
@@ -8,14 +9,12 @@ $author = 'Izaque Sanvezzo (hm182002) (stake2, Funkysnipa Cat)';
 #Story variables for English language
 if (in_array($website_language, $en_languages_array)) {
 	$bulkan = 'The Story of the Bulkan Siblings';
-	$luiza = 'The Visit of Luiza';
 	$pequenata = 'The Life of Littletato';
 }
 
 #Story variables for Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
 	$bulkan = 'A História dos irmãos Bulkan';
-	$luiza = 'A Visita de Luiza';
 	$pequenata = 'A Vida de Pequenata';
 }
 
