@@ -87,14 +87,16 @@ require $global_texts_php;
 # Website selector file require
 require $website_selector_file;
 
+$media_variables_php = $website_folders["Watch History"]."Media Variables.php";
+
 $website_title = $website_titles[$selected_website_title];
+$website_title_backup = $website_title;
 $website_title_key = $website_title;
 $website_type = $website_types[$selected_website_title];
 $website_folder = $website_folders[$website_title];
 
-if ($website_title == $website_titles["Watch History"]) {
-	$watch_history_variables_php = $website_folder."Watch History Variables.php";
-	require $watch_history_variables_php;
+if ($website_title_backup == $website_titles["Watch History"]) {
+	require $media_variables_php;
 }
 
 $v_global_php = $php_folder_variables.'V_Global.php';

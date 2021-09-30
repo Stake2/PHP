@@ -2,13 +2,13 @@
 
 require $local_website_folder."Name.php";
 
-if (strpos ($host_text, $website_selector_parameters[0].'='.$local_website_name) == True) {
+if (strpos ($host_text, $website_selector_parameters[0].'='.$website_keys[$local_website_name]) == True) {
 	$selected_website = $local_website_name;
 
 	# Website title definer
 	$website_name = $website_titles[$selected_website];
 
-	$choosed_website_css_file = $website_css_files["The Secret of the Crystals"];
+	$choosed_website_css_file = $website_css_files[$local_website_name];
 
 	# Website settings definer
 	$website_settings["show new chapter text"] = False;

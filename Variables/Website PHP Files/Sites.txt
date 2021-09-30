@@ -1,23 +1,20 @@
-Stake2, N
-Prints of Computer Blocks, N
-Diário, S
-My Little Pony, N
-Watch History, N
-Música, N
-Jogos, N
-Álbuns do Foobar (Foobar_Albums), N
-Terraria Talk, N
-Tarefas, N
-Coisas Que Eu Faço, N
-Frameworks Mentais, N
-Modelo de Site, N
-New World, N
-Histórias, S
-Multiverso Izaque, S
-A Vida de Pequenata, S
-O Segredo dos Cristais, S
-SpaceLiving, S
-A História dos Irmãos Bulkan, S
-Ilha Deserta, S
-Status Dos Sites, N
-Years, N
+Stake2: Stake2
+Prints of Computer Blocks: Prints of Computer Blocks
+Diary: Diário
+My Little Pony: My Little Pony
+Watch History: Watch History
+Music: Música
+Games: Jogos
+Foobar Albums: Álbuns do Foobar (Foobar Albums)
+Tasks: Tarefas
+Things I Do: Coisas Que Eu Faço
+New World: New World
+Izaque Multiverse: Multiverso Izaque
+Stories: Histórias
+The Life of Littletato: A Vida de Pequenata
+The Secret of the Crystals: O Segredo dos Cristais
+SpaceLiving: SpaceLiving
+The Story of the Bulkan Siblings: A História dos Irmãos Bulkan
+Desert Island: Ilha Deserta
+Website Status: Status Dos Sites
+Years: Anos

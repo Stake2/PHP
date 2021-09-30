@@ -6,6 +6,7 @@ $normal_website_type = "Normal Website Type";
 $story_website_type = "Story Website Type";
 
 $websites_text_file = $website_php_files_folder."Websites.txt";
+$websites_portuguese_text_file = $website_php_files_folder."Sites.txt";
 
 $websites = Add_Years_To_Array(Read_Lines($websites_text_file), $mode = "dict", $custom_value = "{}, N");
 

@@ -50,7 +50,7 @@ if ($website_uses_universal_file_reader == True) {
 	}
 }
 
-if ($website_title == $website_titles["Diário"]) {
+if ($website_title == $website_titles["Diary"]) {
 	$diario_numbers_text_file = $used_folder."Diário Numbers.txt";
 
 	if (file_exists($diario_numbers_text_file) == True) {
@@ -84,9 +84,8 @@ if (in_array($website_title, $year_websites) == True) {
 	}
 }
 
-if ($website_title == $website_titles["Watch History"] or in_array($website_title, $year_websites)) {
-	$watch_history_variables_php = $website_folder_watch_history."Watch History Variables.php";
-	require $watch_history_variables_php;
+if ($website_title_backup == $website_titles["Watch History"] or in_array($website_title, $year_websites)) {
+	require $media_variables_php;
 
 	if (in_array($website_language, $en_languages_array)) {
 		$language_split_number = 0;
@@ -176,10 +175,10 @@ if ($website_title == $website_titles["Watch History"] or in_array($website_titl
 
 		$current_year_watched_episodes_line_number = Line_Number($current_year_watched_episodes_file);
 		$current_year_watched_number = $current_year_watched_episodes_line_number - 1;
-		${"watched_episodes_".$current_year."_line_number"} = $current_year_watched_episodes_line_number;
+		${"watched_episodes_".$local_current_year."_line_number"} = $current_year_watched_episodes_line_number;
 
 		$current_year_watched_episodes_text = Read_Lines($current_year_watched_episodes_file);
-		${"year_".$current_year."_watched_episodes_text"} = $current_year_watched_episodes_text;
+		${"year_".$local_current_year."_watched_episodes_text"} = $current_year_watched_episodes_text;
 
 		$current_year_watched_media_type_text = Read_Lines($current_year_watched_media_types_file);
 
@@ -196,10 +195,10 @@ if ($website_title == $website_titles["Watch History"] or in_array($website_titl
 		}
 
 		$current_year_watched_media_type_text = $new_current_year_watched_media_type_text;
-		${"year_".$current_year."_watched_media_type_text"} = $current_year_watched_media_type_text;
+		${"year_".$local_current_year."_watched_media_type_text"} = $current_year_watched_media_type_text;
 
 		$current_year_watched_time_text = Read_Lines($current_year_watched_times_file);
-		${"year_".$current_year."_watched_time_text"} = $current_year_watched_time_text;
+		${"year_".$local_current_year."_watched_time_text"} = $current_year_watched_time_text;
 
 		$text = "/Number.txt";
 
@@ -218,7 +217,7 @@ if ($website_title == $website_titles["Watch History"] or in_array($website_titl
 		$watched_videos_number = (int)Read_Lines($per_media_type_files_folders[$mixed_media_type_names_plural_dict["Videos"]])[0];
 
 		# Media numbers array
-		${"watched_media_numbers_".$current_year} = array(
+		${"watched_media_numbers_".$local_current_year} = array(
 		0 => $watched_animes_number, #Animes
 		1 => $watched_cartoons_number, #Cartoons
 		2 => $watched_series_number, #Series
@@ -261,7 +260,7 @@ if ($website_title == $website_titles["Watch History"] or in_array($website_titl
 	$media_type_video_line = "0", #Videos
 	);
 
-	$watched_media_numbers_current_year = ${"watched_media_numbers_".$current_year};
+	$watched_media_numbers_current_year = ${"watched_media_numbers_".$local_current_year};
 
 	$media_type_text_file_lines_arrays = array();
 
@@ -297,7 +296,7 @@ if ($website_title == $website_titles["Watch History"] or in_array($website_titl
 
 	$media_type_text_file_lines_array = $media_type_text_file_lines_arrays[$current_year];
 
-	$selected_media_type_array = $year_code_numbes_array[$current_year];
+	#$selected_media_type_array = $year_code_numbes_array[$current_year];
 }
 
 if ($website_type == $story_website_type) {
@@ -410,7 +409,7 @@ if ($website_type == $story_website_type) {
 
 # Webiste Changelog files and text definer
 if ($website_has_changelog_setting == True) {
-	if ($website_title == $website_titles["Watch History"]) {
+	if ($website_title_backup == $website_titles["Watch History"]) {
 		if (in_array($website_language, $en_languages_array)) {
 			$website_changelog_file = $website_folder."Changelog ".$language_enus.".php";
 		}

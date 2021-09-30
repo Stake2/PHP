@@ -12,7 +12,7 @@ if ($website_title == $website_titles["Diário"]) {
 	$websites_tab_border_color = $border_color_grey_css_class;
 }
 
-if ($website_title == $website_titles["Watch History"]) {
+if ($website_title_backup == $website_titles["Watch History"]) {
 	$websites_tab_border = $header_full_border;
 	$websites_tab_name_text = $first_text_color;
 	$websites_tab_number_text_color = $second_text_color;

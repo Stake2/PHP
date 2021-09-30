@@ -1,19 +1,16 @@
 Stake2, N
 Prints of Computer Blocks, N
-Diário, S
+Diary, S
 My Little Pony, N
 Watch History, N
 Music, N
 Games, N
 Foobar Albums, N
-Terraria Talk, N
 Tasks, N
 Things I Do, N
-Mental Frameworks, N
-Website Template, N
 New World, N
-Stories, S
 Izaque Multiverse, S
+Stories, S
 The Life of Littletato, S
 The Secret of the Crystals, S
 SpaceLiving, S

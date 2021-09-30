@@ -1,8 +1,19 @@
 <?php 
 
+$portuguese_websites = Make_Setting_Dictionary(Add_Years_To_Array(Read_Lines($websites_portuguese_text_file), $mode = "dict", $custom_value = "{}: {}"), ": ");
+
 $i = 0;
 foreach ($website_titles as $value) {
-	$website_keys[$value] = strtolower(str_replace(" ", "_", $value));
+	$local_portuguese_website_name = $portuguese_websites[$value];
+
+	$website_titles_portuguese[$key] = $local_portuguese_website_name;
+
+	$i++;
+}
+
+$i = 0;
+foreach ($website_titles as $value) {
+	$website_keys[$value] = str_replace(" ", "_", strtolower($value));
 
 	$i++;
 }
@@ -47,9 +58,8 @@ foreach ($website_titles as $value) {
 
 	if (file_exists($website_name_file) == False) {
 		fopen($website_name_file, "w", "UTF-8");	
+		file_put_contents($website_name_file, "<?php"."\n\n"."\$local_website_name = \"".$value."\";"."\n\n"."?>");
 	}
-
-	file_put_contents($website_name_file, "<?php"."\n\n"."\$local_website_name = \"".$value."\";"."\n\n"."?>");
 
 	$i++;
 }

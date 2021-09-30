@@ -15,7 +15,9 @@ foreach ($mixed_media_type_names_plural_dict as $media_type) {
 
 		$c = 0;
 		while ($c <= count($watched_medias) - 1) {
-			$media_details_file = $media_info_folder_media_type_folder.$watched_medias[$c]."/"."Media Details.txt";
+			$watched_media = Remove_Non_File_Characters($watched_medias[$c]);
+
+			$media_details_file = $media_info_folder_media_type_folder.$watched_media."/"."Media Details.txt";
 			$media_details = Make_Setting_Dictionary(Read_Lines($media_details_file));
 
 			if (isset($media_details["Current Episode"]) == True) {

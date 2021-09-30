@@ -269,4 +269,43 @@ function Add_Years_To_Array($array, $mode = "push", $custom_value = Null) {
 	return $array;
 }
 
+function Make_Setting_Dictionary($text_array, $setting_splitter = Null) {
+	if ($setting_splitter == Null) {
+		$setting_splitter = ": ";
+	}
+
+	$settings_dictionary = array();
+
+	foreach ($text_array as $setting) {
+		$split = explode($setting_splitter, $setting);
+		$setting = $split[0];
+		$value = $split[1];
+
+		$settings_dictionary[$setting] = $value;
+	}
+
+	return $settings_dictionary;
+}
+
+function Remove_Non_File_Characters($file) {
+	$replace_list = array(
+	":",
+	"?",
+	"\"",
+	"\\",
+	"|",
+	"*",
+	"<",
+	">",
+	);
+
+	foreach ($replace_list as $text) {
+		if (strpos($file, $text) == True) {
+			$file = str_replace($text, "", $file);
+		}
+	}
+
+	return $file;
+}
+
 ?>

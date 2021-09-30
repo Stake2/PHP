@@ -3,7 +3,7 @@
 require $local_website_folder."Name.php";
 
 # Diário Website setter
-if (strpos ($host_text, $website_selector_parameters[0]."=".$local_website_name) == True) {
+if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local_website_name]) == True) {
 	$selected_website = $website_titles[$local_website_name];
 
 	#Website title and name definer
@@ -38,27 +38,24 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$local_website_name)
 		array_push($tabs, "Stories");
 	}
 
-	#Website Tabnames array
-	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array("Read the Diary", "Characters");
+	$tab_names = Language_Item_Definer(array("Read the ".$local_website_name, "Characters"), $tab_names = array("Ler o Diário", "Personagens"));
 
+	if (in_array($website_language, $en_languages_array)) {
 		if ($website_has_stories_tab_setting == True) {
 			array_push($tab_names, "Stories");
 		}
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array("Ler o ".$value, "Personagens");
-
 		if ($website_has_stories_tab_setting == True) {
 			array_push($tab_names, "Histórias");
 		}
 	}
 
-	#Number of tabs
+	# Number of tabs
 	$website_tab_number = count($tabs) - 1;
 
-	#Includer of the array of the GenericTabs files
+	# Includer of the array of the GenericTabs files
 	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;

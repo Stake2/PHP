@@ -55,7 +55,7 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-if ($website_title == $website_titles["Watch History"]) {
+if ($website_title_backup == $website_titles["Watch History"]) {
 	# Citycodes array generator
 	$i = 0;
 	while ($i <= $website_tab_number) {
@@ -139,7 +139,7 @@ if ($website_uses_tab_body_generator == False) {
 	}
 }
 
-if ($website_title == $website_titles["Watch History"]) {
+if ($website_title_backup == $website_titles["Watch History"]) {
 	# Include the buttons loader PHP file
 	require $website_buttons_generator_php;
 
@@ -150,7 +150,7 @@ if ($website_title == $website_titles["Watch History"]) {
 	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[2].$mobile_buttons[3];
 }
 
-if ($website_title == $website_titles["Things I Do"]) {
+if ($website_title_backup == $website_titles["Things I Do"]) {
 	# Include the buttons loader PHP file
 	require $website_buttons_generator_php;
 }

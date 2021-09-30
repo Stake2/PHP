@@ -1,11 +1,11 @@
 <?php 
 
 # Story name definer
-$text = "Diary";
-$website_story_name = $story_names[$text];
-$english_story_name = $english_story_names[$text];
+$local_story_name = "Diary";
+$website_story_name = $story_names[$local_story_name];
+$english_story_name = $english_story_names[$local_story_name];
 $portuguese_story_name = $portuguese_story_names[$english_story_name];
-$general_story_name = "Diary";
+$general_story_name = $local_story_name;
 
 # Folder variables
 $selected_website_url = $story_website_links[$english_story_name];
@@ -13,9 +13,6 @@ $selected_website_url = $story_website_links[$english_story_name];
 $story_folder = $english_story_name;
 $no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
-
-# Folder variables
-$website_folder = ${"website_folder_".$website_names_array[$selected_website_number]};
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;

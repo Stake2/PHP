@@ -12,7 +12,7 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-if ($website_title == $website_titles["Watch History"]) {
+if ($website_title_backup == $website_titles["Watch History"]) {
 	$current_variable_year = 2018;
 	$local_current_year = $current_year;
 
@@ -30,7 +30,7 @@ if ($website_type == $story_website_type) {
 	require $chapter_generator_global_variable;
 }
 
-if ($website_title != $website_titles["Diário"]) {
+if ($website_title != $website_titles["Diary"]) {
 	/*
 	if ($website_deactivate_website_buttons_setting == False and $website_deactivate_websites_tab_setting == False) {
 		echo "<br /><br /><br /><br /><br /><br /><br /><br /><br />"."\n";

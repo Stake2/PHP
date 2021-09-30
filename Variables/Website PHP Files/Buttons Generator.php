@@ -10,13 +10,13 @@ $tabnamestxt = $tab_names;
 
 $local_website_tab_number = $website_tab_number;
 
-if ($website_title == $website_titles["Diário"]) {
+if ($website_title == $website_titles["Diary"]) {
 	require $websites_tab_button_maker;
 	$local_website_tab_number = $website_tab_number;
 }
 
-if ($website_title == $website_titles["Watch History"]) {
-	$local_website_tab_number = $website_tab_number - 3;
+if ($website_title_backup == $website_titles["Watch History"]) {
+	$local_website_tab_number = $website_tab_number_less;
 	$tabnamestxt = $tab_titles_without_html;
 }
 
@@ -54,7 +54,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 	}
 
 	while ($i <= $website_tab_number) {
-		if ($i == $website_tab_number and $website_title == $website_titles["Diário"]) {
+		if ($i == $website_tab_number and $website_title == $website_titles["Diary"]) {
 			$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
@@ -141,7 +141,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 
 		$i2 = $i + 1;
 	
-		if ($i == $website_tab_number and $website_title == $website_titles["Diário"]) {
+		if ($i == $website_tab_number and $website_title == $website_titles["Diary"]) {
 			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
 
 			$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
@@ -198,7 +198,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 	$mobile_buttons_bar .= $close_mobile_div;
 }
 
-if ($website_title == $website_titles["Watch History"]) {
+if ($website_title_backup == $website_titles["Watch History"]) {
 	$archived_media_buttons_array = array();
 
 	$current_variable_year = 2018;

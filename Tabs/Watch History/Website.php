@@ -44,6 +44,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 
 	#Number of tabs
 	$website_tab_number = count($tab_names) - 1;
+	$website_tab_number_less = $website_tab_number - 1;
 
 	#Includer of the array of the GenericTabs files
 	require $generic_tabs_generator_file;

@@ -1,16 +1,14 @@
 <?php 
 
 # Watch PHP files
-$mediaarraygenerator = $website_folder_watch_history."MediaArrayGenerator.php";
-$mediastyler = $website_folder_watch_history."MediaStyler.php";
-$current_year_watched_media_generator = $website_folder_watch_history."Current Year Watched Media Generator.php";
-$watch_texts_php = $website_folder_watch_history."Watch Texts.php";
-$archived_media_machine_php = $website_folder_watch_history."Archived Media Machine.php";
+$mediaarraygenerator = $website_folders["Watch History"]."MediaArrayGenerator.php";
+$mediastyler = $website_folders["Watch History"]."MediaStyler.php";
+$current_year_watched_media_generator = $website_folders["Watch History"]."Current Year Watched Media Generator.php";
+$watch_texts_php = $website_folders["Watch History"]."Watch Texts.php";
+$archived_media_machine_php = $website_folders["Watch History"]."Archived Media Machine.php";
 
 # Website variables
-$selected_website_url = $website_watch_history_link;
-$website_folder = $php_folder_tabs.ucwords($selected_website).'/';
-$no_language_website_title = ucwords(str_replace("_", " ", $selected_website));
+$no_language_website_title = $website_title;
 
 # Comment links
 $watched_movie_comment_links = array(
@@ -33,9 +31,8 @@ $watched_movie_comments = array(
 );
 
 # Website image link and image size
-$website_image_file_name = $no_language_website_title;
 $image_format = "png";
-$website_image = $website_media_images_website_icons.$website_image_file_name.".".$image_format;
+$website_image = $website_media_images_website_icons.$website_title.".".$image_format;
 
 $website_image_link = $website_image;
 $website_image_size_computer = 31;
