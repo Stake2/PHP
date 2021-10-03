@@ -117,7 +117,15 @@ if ($website_has_notifications == True) {
 	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
 }
 
+$sharks_maelstrom_ep_link = Make_Link("https://soundcloud.com/sharkstunes/sets/maelstrom-ep-rushdown-release", Language_Item_Definer("link here", "link aqui"), $text_white_css_class, $new_tab = True);
+
+$sharks_coral = Make_Link("https://soundcloud.com/rushdownrecs/sharks-coral?in=sharkstunes/sets/maelstrom-ep-rushdown-release", "Coral", $text_white_css_class, $new_tab = True);
+
 $variable_inserter_array = array(
+$sharks_maelstrom_ep_link,
+$sharks_coral,
+$lapis_lazuli_steven_universe,
+$ted_humanoid_the_secreft_of_the_crystals_image,
 );
 
 ?>

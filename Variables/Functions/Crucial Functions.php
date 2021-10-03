@@ -312,4 +312,13 @@ function Remove_Non_File_Characters($file) {
 	return $file;
 }
 
+function Make_Website_Button($link, $name, $classes) {
+	global $roundedborderstyle;
+	global $h2_element;
+
+	$website_button = "<button class=\"w3-btn ".$classes."\" title=\"".$name."\" ".$roundedborderstyle." onclick=\"window.open('".$link."');\"><".$h2_element.">".$name."</".$h2_element."></button>";
+
+	return $website_button;
+}
+
 ?>

@@ -1,7 +1,5 @@
 <?php 
 
-$portuguese_websites = Make_Setting_Dictionary(Add_Years_To_Array(Read_Lines($websites_portuguese_text_file), $mode = "dict", $custom_value = "{}: {}"), ": ");
-
 $i = 0;
 foreach ($website_titles as $value) {
 	$local_portuguese_website_name = $portuguese_websites[$value];
