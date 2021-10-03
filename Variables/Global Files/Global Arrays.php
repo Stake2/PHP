@@ -7,16 +7,73 @@ $story_website_type = "Story Website Type";
 
 $websites_text_file = $website_php_files_folder."Websites.txt";
 $websites_portuguese_text_file = $website_php_files_folder."Sites.txt";
+$website_types_text_file = $website_php_files_folder."Website Types.txt";
 
-$websites = Add_Years_To_Array(Read_Lines($websites_text_file), $mode = "dict", $custom_value = "{}, N");
+$websites = Read_Lines($websites_text_file);
+
+$website_types_text = Read_Lines($website_types_text_file);
+
+# -----
+
+array_push($websites, "Stories");
+array_push($website_types_text, "S");
+
+array_push($websites, "New World");
+array_push($website_types_text, "S");
+
+array_push($websites, "Izaque Multiverse");
+array_push($website_types_text, "S");
+
+$story_names_file = $mega_folder."Stories/Story Database/Names.txt";
+
+$story_names = Read_Lines($story_names_file);
+
+$new_story_names = array();
+
+foreach ($story_names as $local_story_name) {
+	$local_story_name = explode(", ", $local_story_name)[0];
+
+	array_push($new_story_names, $local_story_name);
+}
+
+$story_names = $new_story_names;
+
+$array = array(
+"To Be Invincible",
+"Crystals & Virtual",
+"My Little Pony - Rise to Equestria",
+"My Little Pony - The Visit of Izaque",
+);
+
+foreach ($story_names as $local_story_name) {
+	$i = 0;
+	while ($i <= count($array) - 1) {
+		if (($key = array_search($array[$i], $story_names)) !== False) {
+			unset($story_names[$key]);
+		}
+
+		$i++;
+	}
+}
+
+foreach ($story_names as $local_story_name) {
+	array_push($websites, $local_story_name);
+	array_push($website_types_text, "S");
+}
+
+# -----
+
+array_push($websites, "Years");
+array_push($website_types_text, "N");
+
+$websites = Add_Years_To_Array($websites, $mode = "push");
+
+$website_types_text = Add_Years_To_Array($website_types_text, $mode = "push", $custom_value_read = "N");
 
 $websites_number = 0;
 
 foreach ($websites as $local_website_name) {
-	$split = explode(", ", $local_website_name);
-
-	$local_website_name = (string)$split[0];
-	$local_website_type = $split[1];
+	$local_website_type = $website_types_text[$websites_number];
 
 	$key = (string)$local_website_name;
 

@@ -241,7 +241,7 @@ function Insert_Into_Database_Table($table_name, $columns, $values) {
 	$database_connection -> query($sql);
 }
 
-function Add_Years_To_Array($array, $mode = "push", $custom_value = Null) {
+function Add_Years_To_Array($array, $mode = "push", $custom_value = Null, $custom_value_read = Null) {
 	global $current_year;
 
 	$current_variable_year = 2018;
@@ -252,6 +252,10 @@ function Add_Years_To_Array($array, $mode = "push", $custom_value = Null) {
 
 		if ($custom_value != Null) {
 			$value = format($custom_value, $value);
+		}
+
+		if ($custom_value_read != Null) {
+			$value = $custom_value_read;
 		}
 
 		if ($mode == "push") {
@@ -288,7 +292,7 @@ function Make_Setting_Dictionary($text_array, $setting_splitter = Null) {
 }
 
 function Remove_Non_File_Characters($file) {
-	$replace_list = array(
+	$replace_list = [
 	":",
 	"?",
 	"\"",
@@ -297,7 +301,7 @@ function Remove_Non_File_Characters($file) {
 	"*",
 	"<",
 	">",
-	);
+	];
 
 	foreach ($replace_list as $text) {
 		if (strpos($file, $text) == True) {
