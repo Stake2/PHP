@@ -11,7 +11,11 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	#Website settings
+	$website_settings["tab_body_generator"] = True;
+	$website_settings[$uses_custom_buttons_bar_text] = True;
+	$website_settings["show_new_chapter_text"] = False;
+
+	# Website settings
 	$sitesbuttonintab = True; #Defines if website has the Sites Button on the top bar
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab
 	$website_has_comments = True; #Defines if the website has comments
@@ -19,7 +23,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_shows_comments = False; #Defines if website shows the comments on the Comments Tab
 
 	$story_has_dates = False; #Defines if the story has dates
-	$website_story_has_titles = False; #Defines if the story has chapter_titles
+	$website_story_has_titles = True; #Defines if the story has chapter_titles
 	$story_uses_status = False; #Defines if the story uses the story statuses
 	$story_has_chapter_comments = False; #Defines if the story has comments on the chapter
 	$story_website_contains_reads = False; #Defines if the story has story_reads_array on it
@@ -32,22 +36,20 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	require $setting_parameters_file;
 
 	#Website Tabs array
-	$tabs = array("Blocks", "Characters");
+	$tabs = array("Blocks", "Readers", "Characters");
 
 	if ($website_has_stories_tab_setting == True) {
 		array_push($tabs, "Stories");
 	}
 
-	$tab_names = Language_Item_Definer(array("Read the ".$local_website_name, "Characters"), $tab_names = array("Ler o Diário", "Personagens"));
+	$tab_names = Language_Item_Definer(array("Read the ".$local_website_name, "Readers", "Characters"), $tab_names = array("Ler o Diário", "Leitores", "Personagens"));
 
-	if (in_array($website_language, $en_languages_array)) {
-		if ($website_has_stories_tab_setting == True) {
+	if ($website_has_stories_tab_setting == True) {
+		if (in_array($website_language, $en_languages_array)) {
 			array_push($tab_names, "Stories");
 		}
-	}
 
-	if (in_array($website_language, $pt_languages_array)) {
-		if ($website_has_stories_tab_setting == True) {
+		if (in_array($website_language, $pt_languages_array)) {
 			array_push($tab_names, "Histórias");
 		}
 	}

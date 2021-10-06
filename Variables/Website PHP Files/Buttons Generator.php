@@ -60,7 +60,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 			$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 			if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-				$computer_buttons_bar .= $button;
+				#$computer_buttons_bar .= $button;
 			}
 
 			$computer_buttons[$i] = $button;
@@ -75,7 +75,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					$computer_buttons_bar .= $button;
+					#$computer_buttons_bar .= $button;
 				}
 
 				$computer_buttons[$i] = $button;
@@ -89,7 +89,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					$computer_buttons_bar .= $button;
+					#$computer_buttons_bar .= $button;
 				}
 
 				$computer_buttons[$i] = $button;
@@ -101,19 +101,11 @@ if ($website_deactivate_top_buttons_setting == False) {
 		$i++;
 	}
 
-	if ($website_settings[$uses_custom_buttons_bar_text] == True) {
-		foreach ($website_custom_button_bar_numbers as $button_number) {
-			$computer_buttons_bar .= $computer_buttons[$button_number];
-		}
-	}
-
 	$hide_computer_buttons_element = $hide_computer_buttons_bar.
 	$div_close."\n"."\n".
 	'<!-- "Show Computer Buttons" button bar -->'."\n".
 	'<div id="show_computer_button_bar" class="w3-bar" style="position:fixed;float:right;">'."\n".
 	$show_computer_buttons_bar.$div_close;
-
-	$computer_buttons_bar .= $hide_computer_buttons_element."\n";
 
 	#######################################
 
@@ -147,7 +139,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 			$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
 			if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-				$mobile_buttons_bar .= $button;
+				#$mobile_buttons_bar .= $button;
 			}
 
 			$mobile_buttons[$i] = $button;
@@ -162,7 +154,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
 				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					$mobile_buttons_bar .= $button;
+					#$mobile_buttons_bar .= $button;
 				}
 
 				$mobile_buttons[$i] = $button;
@@ -174,7 +166,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
 				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					$mobile_buttons_bar .= $button;
+					#$mobile_buttons_bar .= $button;
 				}
 
 				$mobile_buttons[$i] = $button;
@@ -186,16 +178,10 @@ if ($website_deactivate_top_buttons_setting == False) {
 		$i++;
 	}
 
-	if ($website_settings[$uses_custom_buttons_bar_text] == True) {
-		foreach ($website_custom_button_bar_numbers as $button_number) {
-			$mobile_buttons_bar .= $mobile_buttons[$button_number];
-		}
-	}
-
 	$close_mobile_div = "\n".$div_close."\n"."\n".
 	$mobile_div.$open_mobile_buttons_sidebar.$div_close;
 
-	$mobile_buttons_bar .= $close_mobile_div;
+	#$mobile_buttons_bar .= $close_mobile_div;
 }
 
 if ($website_title_backup == $website_titles["Watch History"]) {
@@ -255,6 +241,43 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 		$archived_media_mobile_buttons .= $button."<br />";
 	}
 }
+
+if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+	if (isset($readers) == True and $readers[0] == "No Readers - Sem Leitores") {
+		unset($computer_buttons[1]);
+		$computer_buttons = array_values($computer_buttons);
+
+		unset($mobile_buttons[1]);
+		$mobile_buttons = array_values($mobile_buttons);
+	}
+}
+
+if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+	foreach ($computer_buttons as $button) {
+		$computer_buttons_bar .= $button;
+	}
+}
+
+else {
+	foreach ($website_custom_button_bar_numbers as $button_number) {
+		$computer_buttons_bar .= $computer_buttons[$button_number];
+	}
+}
+
+if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+	foreach ($mobile_buttons as $button) {
+		$mobile_buttons_bar .= $button;
+	}
+}
+
+if ($website_settings[$uses_custom_buttons_bar_text] == True) {
+	foreach ($website_custom_button_bar_numbers as $button_number) {
+		$mobile_buttons_bar .= $mobile_buttons[$button_number];
+	}
+}
+
+$computer_buttons_bar .= $hide_computer_buttons_element."\n";
+$mobile_buttons_bar .= $close_mobile_div;
 
 $website_buttons = $computer_buttons_bar."\n".$mobile_buttons_bar;
 

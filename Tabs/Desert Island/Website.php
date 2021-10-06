@@ -10,13 +10,14 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_desert_island;
 
+	$website_settings["tab_body_generator"] = True;
+
 	$website_has_notifications = False; #Defines if website has notifications on
 	$website_has_comments = True; #Defines the website has comments
 	$website_has_stories_tab_setting = True; #Defines if website has a Stories Tab
 	$website_has_changelog_setting = False; #Defines if website has a changelog tab and file to be read
 	$website_hides_notification_on_clicking_on_read_tab_setting = False; #Defines if website hides the notification when you click on the "Read story" button
 	$story_website_uses_chapter_opener = True; #Defines if website uses the Chapter Opener script
-    $website_uses_tab_body_generator = True; #Defines if the website uses the CityBody generator
 	$site_uses_new_comment_and_read_displayer = True;
 
 	$website_write_story_setting = False; #Defines if website has a story writing chapter

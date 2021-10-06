@@ -291,7 +291,7 @@ function Make_Setting_Dictionary($text_array, $setting_splitter = Null) {
 	return $settings_dictionary;
 }
 
-function Remove_Non_File_Characters($file) {
+function Remove_Non_File_Characters($file, $text_to_add = array()) {
 	$replace_list = [
 	":",
 	"?",
@@ -303,6 +303,10 @@ function Remove_Non_File_Characters($file) {
 	">",
 	];
 
+	foreach ($text_to_add as $text) {
+		array_push($replace_list, $text);
+	}
+
 	foreach ($replace_list as $text) {
 		if (strpos($file, $text) == True) {
 			$file = str_replace($text, "", $file);
@@ -310,6 +314,10 @@ function Remove_Non_File_Characters($file) {
 	}
 
 	return $file;
+}
+
+function Replace_Text($text, $to_replace, $to_add = "") {
+	return str_replace($to_replace, $to_add, $text);
 }
 
 function Make_Website_Button($link, $name, $classes) {

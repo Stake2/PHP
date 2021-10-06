@@ -2,7 +2,8 @@
 
 $website_settings = array(
 "uses_custom_buttons_bar" => False,
-"show new chapter text" => True,
+"show_new_chapter_text" => True,
+"tab_body_generator" => False,
 );
 
 $uses_custom_buttons_bar_text = "uses_custom_buttons_bar";
@@ -65,7 +66,6 @@ $website_story_has_titles = False;
 $story_has_dates = False;
 $story_uses_status = False;
 $story_has_chapter_comments = False;
-$website_uses_tab_body_generator = False;
 $website_uses_universal_file_reader = False;
 $website_has_comments_tab_setting = False;
 $site_uses_new_comment_and_read_displayer = False;

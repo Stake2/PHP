@@ -19,7 +19,8 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	}
 
 	# Website settings definer
-	$website_settings["show new chapter text"] = True;
+	$website_settings["tab_body_generator"] = True;
+	$website_settings["show_new_chapter_text"] = True;
 
 	$website_has_notifications = True; #Defines if website has notifications on
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
@@ -31,7 +32,6 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_show_chapter_text_on_write_form_setting = False; #Defines if website shows the chapter text on the writing chapter form
 	$website_hides_notification_on_clicking_on_read_tab_setting = False; #Defines if website hides the notification when you click on the "Read story" button
 	$story_website_uses_chapter_opener = True; #Defines if the website uses the Open Chapter Script
-	$website_uses_tab_body_generator = True;
 	$site_uses_new_comment_and_read_displayer = True;
 	$use_variable_inserter = True;
 

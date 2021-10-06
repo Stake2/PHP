@@ -117,13 +117,13 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 		$new_chapter_text = "";
 	}
 
-	if ($website_settings["show new chapter text"] == True) {
+	if ($website_settings["show_new_chapter_text"] == True) {
 		if ($story_status == $story_status_texts[1] or $story_status == $story_status_texts[2]) {
 			$new_chapter_text = '<span class="'.$third_text_color.'">'." [".$new_text."!]".$spanc;
 		}
 	}
 
-	if ($website_settings["show new chapter text"] == False) {
+	if ($website_settings["show_new_chapter_text"] == False) {
 		$new_chapter_text = "";
 	}
 
@@ -162,7 +162,7 @@ if ($website_type == $story_website_type and $website_uses_custom_layout_setting
 	Define_Text_By_Number($story_author_number, $author_text, $authors_text).": ".'<span class="'.$second_text_color.'">'.$author_name."<br />".'</span>'."\n".
 	Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text).': <span class="'.$second_text_color.'">'.$chapters." ".$icons_array["open book"].$new_chapter_text.'</span><br />'."\n";
 
-	if ($readers_number != 0) {
+	if ($readers_number != 0 and $readers[0] != "No Readers - Sem Leitores") {
 		$website_header_wrapper .= Define_Text_By_Number($readers_number, $reader_text, $readers_text).': <span class="'.$second_text_color.'">'.$readers_number.' '.$icons_array["reader"].'</span><br />'."\n";
 	}
 

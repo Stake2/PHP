@@ -14,7 +14,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	$website_uses_tab_body_generator = True; #Defines if the website uses the CityBody generator
+	$website_settings["tab_body_generator"] = True;
 	$website_is_not_centered_setting = True;
 
 	#Website settings setter file includer

@@ -56,11 +56,8 @@ require $text_file_reader_file_php;
 # Re-require of the VStories.php file to set the story name
 require $story_variables_php;
 
-# Story Details Definer PHP file includer
-require $story_details_definer;
-
 #Website numbers
-$blocks = 118;
+$blocks_number = 118;
 $published_blocks = $diario_blocks_number[0];
 $chapters = $published_blocks;
 
@@ -68,15 +65,12 @@ $comments_number = 0;
 $comments_number_text = $comments_number + 1;
 $number_of_chapter_comments = 0;
 
-# Re require of the VStories.php file to set the story name
-require $story_variables_php;
-
 $website_form_code = $website_name;
-$chapters_text = $website_form_code.'-';
+$chapters_text = $english_story_name."-";
 
 # Texts for English language
 if (in_array($website_language, $en_languages_array)) {
-	$diario_blocks_text = 'The '.$story_name.' has ['.$bluespan.$blocks.$spanc.'] blocks written, each block is a chapter.';
+	$diary_blocks_explaining_text = "<br />The ".Create_Element("span", "w3-text-white", $website_story_name)." has ".Create_Element("span", "w3-text-white", $blocks_number)." Blocks written, each Block is a chapter.";
 	$charactersdescs = array(
 	"\n".'<div style="margin-left:3%;">'."\n".'Me of course xD, my dialogue is shown with:<br />'."\n".
 	'[Current time]: "My dialogue"<br /><br />'."\n".
@@ -97,9 +91,9 @@ if (in_array($website_language, $en_languages_array)) {
 
 #Texts for Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
-	$diario_blocks_text = 'O '.$story_name.' tem ['.$bluespan.$blocks.$spanc.'] blocks escritos, cada block é um capítulo.';
+	$diary_blocks_explaining_text = "<br />O ".Create_Element("span", "w3-text-white", $website_story_name)." tem ".Create_Element("span", "w3-text-white", $blocks_number)." Blocks escritos, cada Block é um capítulo.";
 	$charactersdescs = array(
-	"\n".'<div style="margin-left:3%;">'."\n".'Eu, é claro kkkkk, meu diálogo é mostrado com:<br />."\n"'.
+	"\n".'<div style="margin-left:3%;">'."\n".'Eu, é claro kkkkk, meu diálogo é mostrado com:<br />'."\n".
 	'[Hora atual]: "Meu diálogo"<br /><br />'."\n".
 	'Em outras palavras:<br />'."\n".
 	'23:42 19/04/2020: "Meu diálogo"'."\n".$div_close."\n",
@@ -116,8 +110,11 @@ if (in_array($website_language, $pt_languages_array)) {
 	);
 }
 
+# Story Details Definer PHP file includer
+require $story_details_definer;
+
 # Story name and characters text array
-$characterstext = $margin."\n".
+$diary_character_descriptions = $margin."\n".
 $margin."\n".
 '<div style="border-width:0px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'."\n".
 "\n".'<div style="border-width:3px;border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle4.'">'."\n".$characters[0]."\n".$margin.$charactersdescs[0].$div_close."\n".'<br />'."\n".$div_close."\n"."\n".'<br /><br />'."\n".
@@ -129,18 +126,38 @@ $div_close."\n";
 
 $use_variable_inserter = False;
 
-$tab_texts = array(
-$tab_names[0].': '.$icons[21].' '.$span_second_text_color.' ['.$new_text.' '.ucwords($chapter_text).' '.$published_blocks.']'.$spanc,
-$tab_names[1].': '.$icons[1],
-$tab_names[2].': '.$icons[12],
+# Buttons and tabs definer
+# Tab chapter_titles definer
+$tab_titles_prototype = array(
+$icons[21]." ".$span_second_text_color,
+$icons[20].' ❤️',
+$icons[1],
+$icons[12],
 );
 
-if ($website_has_stories_tab_setting == True) {
-	array_push($tab_texts, array_reverse($tab_names)[0].': '.$icons[11]);
+if ($website_settings["show_new_chapter_text"] == True)  {
+	$tab_titles_prototype[0] = $tab_titles_prototype[0]." [".$new_text." ".ucwords($chapter_text)." ".$published_blocks."]".$spanc;
 }
 
-# Tab Generator.php includer
-require $website_tabs_generator;
+$tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
+
+$custom_tab_names = $tab_names;
+$custom_tab_names[0] = "";
+
+$custom_tab_titles_array = array(
+$chapter_in_language.": ".$website_language_icon,
+": ".Create_Element("span", $w3_text_colors["white"]." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
+": ".$icons[1],
+": ".Create_Element("span", $w3_text_colors["white"], $stories_number)." ".$icons[11],
+);
+
+$custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
+
+$use_custom_tab_titles_array = True;
+
+$tab_texts = array();
+
+Make_Button_Names();
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
@@ -159,7 +176,16 @@ if ($website_language != $language_geral) {
 	$website_link .= $website_link_language."/";
 }
 
+$website_custom_button_bar_numbers = array(
+0,
+2,
+3,
+);
+
 # Website Style.php File Includer
 require $website_style_file;
+
+# Tab Generator.php includer
+require $website_tabs_generator;
 
 ?>

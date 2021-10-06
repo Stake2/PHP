@@ -1,9 +1,5 @@
 <?php 
 
-echo $div_text_align_left;
-echo $whitespan;
-echo $characterstext;
-echo $spanc;
-echo $div_close;
+Show_Story_Readers($first_text_color, $third_text_color, $second_text_color);
 
 ?>

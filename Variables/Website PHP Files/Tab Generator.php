@@ -101,15 +101,13 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
+$hide_tabs_text = "";
+
 if ($website_hide_tabs_setting == True) {
 	$hide_tabs_text = 'style="display:none;"';
 }
 
-if ($website_hide_tabs_setting != True) {
-	$hide_tabs_text = "";
-}
-
-if ($website_uses_tab_body_generator == False) {
+if ($website_settings["tab_body_generator"] == False) {
 	# Array of the city body files
 	$i = 0;
 	$i2 = $i + 1;
@@ -182,7 +180,7 @@ if ($website_has_stories_tab_setting == True) {
 	require $story_variables_php;
 }
 
-if ($website_uses_tab_body_generator == True) {
+if ($website_settings["tab_body_generator"] == True) {
 	require $tab_bodies_generator_php_variable;
 }
 
