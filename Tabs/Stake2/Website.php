@@ -12,7 +12,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$choosed_website_css_file = $css_file_pocb;
 
 	$website_settings["tab_body_generator"] = True;
-	$website_settings["custom_website_image_border"] = True;
+	$website_settings["no_border_in_website_image"] = True;
 
 	#Website settings setter file includer
 	require $setting_parameters_file;

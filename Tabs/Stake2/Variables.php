@@ -3,8 +3,6 @@
 # Website Style.php File Includer
 require $website_style_file;
 
-$custom_website_image_border = "border-radius: 250px;";
-
 # Buttons and tabs definer
 # Tab chapter_titles definer
 $tab_titles_prototype = array(

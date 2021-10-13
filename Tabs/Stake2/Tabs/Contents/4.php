@@ -30,6 +30,10 @@ $i = 0;
 foreach ($social_networks as $social_network) {
 	$link = $social_network_links[$social_network];
 
+	if ($social_network == "Whatsapp") {
+		$link = substr($link, 0, -13);
+	}
+
 	if ($social_network == "Wattpad" or $social_network == "Github" or $social_network == "SoundCloud" or $social_network == "Steam" or $social_network == "MyAnimeList") {
 		echo "\n"."<div class=\"".$first_border_color."\" style=\"margin-left:".$margin_number."%;margin-right:".$margin_number."%;\">"."\n";
 		echo '<div class="'.$first_border_color.'" style="border-width:3px;border-style:solid;'.$roundedborderstyle4.'">'."<p></p>"."\n";
@@ -47,7 +51,5 @@ foreach ($social_networks as $social_network) {
 
 	$i++;
 }
-
-Show_Text($social_networks_file);
 
 ?>
