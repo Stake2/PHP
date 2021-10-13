@@ -1,5 +1,25 @@
 <?php 
 
+$tabs_folder = $website_folder."Tabs/";
+$tab_contents_folder = $tabs_folder."Contents/";
+
+Create_Folder($tabs_folder);
+Create_Folder($tab_contents_folder);
+
+# Array of button names
+$i = 1;
+while ($i <= $website_tab_number + 1) {
+	$contents_file = $tab_contents_folder."$i.php";
+
+	if (file_exists($contents_file) == False) {
+		Create_File($contents_file);
+
+		Write_To_File($contents_file, "<?php "."\n\n\n\n"."?>");
+	}
+
+	$i++;
+}
+
 # Array of button names
 $i = 0;
 while ($i <= $website_tab_number) {

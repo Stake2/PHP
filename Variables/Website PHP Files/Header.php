@@ -29,8 +29,14 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 		$website_title_header = 'Espaço reservado para o Título: [Ícone]';
 	}
 
-	$main_website_image_computer = '<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="'.$colortext.' '.$computer_variable.'" style="'.$border2.''.$rounded_border_style_2.'" />';
-	$main_website_image_mobile = '<img src="'.$website_image_link.'" width="'.$website_image_size_mobile.'%" class="'.$colortext.' '.$mobile_variable.'" style="'.$border2.''.$rounded_border_style_2.'" />';
+	$rounded_border_style_to_use = $rounded_border_style_2;
+
+	if ($website_settings["custom_website_image_border"] == True) {
+		$rounded_border_style_to_use = $custom_website_image_border;
+	}
+
+	$main_website_image_computer = '<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="'.$colortext.' '.$computer_variable.'" style="'.$border2.''.$rounded_border_style_to_use.'" />';
+	$main_website_image_mobile = '<img src="'.$website_image_link.'" width="'.$website_image_size_mobile.'%" class="'.$colortext.' '.$mobile_variable.'" style="'.$border2.''.$rounded_border_style_to_use.'" />';
 
 	if ($website_deactivate_image_link_setting == False) {
 		$website_image_button_computer = '<div class="'.$computer_variable.'">'."\n".

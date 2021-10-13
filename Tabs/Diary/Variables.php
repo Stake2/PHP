@@ -43,13 +43,10 @@ $ted_character_name = "Ted (".Language_Item_Definer("Random Guy", "Cara Aleatór
 
 # Characters array
 $characters = array(
-$margin_3_h1."\n".$orangespan.'Izaque (stake2):'.$spanc."\n".'</b>'.$h1c."\n",
+$margin_3_h1."\n".$orangespan.'Izaque (Stake2, Funkysnipa Cat):'.$spanc."\n".'</b>'.$h1c."\n",
 $margin_3_h1."\n".$bluespan.$nodus_character_name.':'.$spanc."\n".'</b>'.$h1c."\n",
 $margin_3_h1."\n".$cyanspan.$ted_character_name.':'.$spanc."\n".'</b>'.$h1c."\n",
 );
-
-# Text File Reader.php file includer
-$used_folder = $diario_folder;
 
 require $text_file_reader_file_php;
 
@@ -57,9 +54,8 @@ require $text_file_reader_file_php;
 require $story_variables_php;
 
 #Website numbers
-$blocks_number = 118;
-$published_blocks = $diario_blocks_number[0];
-$chapters = $published_blocks;
+$blocks_number = 119;
+#$chapters = $diary_number;
 
 $comments_number = 0;
 $comments_number_text = $comments_number + 1;
@@ -68,45 +64,48 @@ $number_of_chapter_comments = 0;
 $website_form_code = $website_name;
 $chapters_text = $english_story_name."-";
 
-# Texts for English language
+$time = "13:15 13/10/2021";
+$in_other_words_text = Language_Item_Definer("In other words", "Em outras palavras");
+
+# Texts for the English language
 if (in_array($website_language, $en_languages_array)) {
 	$diary_blocks_explaining_text = "<br />The ".Create_Element("span", "w3-text-white", $website_story_name)." has ".Create_Element("span", "w3-text-white", $blocks_number)." Blocks written, each Block is a chapter.";
 	$charactersdescs = array(
 	"\n".'<div style="margin-left:3%;">'."\n".'Me of course xD, my dialogue is shown with:<br />'."\n".
-	'[Current time]: "My dialogue"<br /><br />'."\n".
-	'In other words:<br />'."\n".
-	'23:42 19/04/2020: "My dialogue"<br />'."\n".$div_close."\n",
+	'[Current time]:<br />"My dialogue"<br /><br />'."\n".
+	$in_other_words_text.':<br />'."\n".
+	$time.':<br />"My dialogue"<br />'."\n".$div_close."\n",
 
 	"\n".'<div style="margin-left:3%;">'."\n".'My friend "from the future", he is an Artificial Intelligence, and a robot if you will, his dialogue is shown with:<br />'."\n".
-	'[Current time]: //His dialogue<br /><br />'."\n".
-	'In other words:<br />'."\n".
-	'23:42 19/04/2020: //His dialogue<br />'."\n".$div_close."\n",
+	'[Current time]:<br />//His dialogue<br /><br />'."\n".
+	$in_other_words_text.':<br />'."\n".
+	$time.':<br />//His dialogue<br />'."\n".$div_close."\n",
 
 	"\n".'<div style="margin-left:3%;">'."\n".'A random guy that appears sometimes, his dialogue is shown with:<br />'."\n".
-	'[Current time]: ~His dialogue<br /><br />'."\n".
-	'In other words:<br />'."\n".
-	'23:42 19/04/2020: ~His dialogue'."\n".$div_close."\n",
+	'[Current time]:<br />~His dialogue<br /><br />'."\n".
+	$in_other_words_text.':<br />'."\n".
+	$time.':<br />~His dialogue'."\n".$div_close."\n",
 	);
 }
 
-#Texts for Brazilian Portuguese language
+# Texts for the Brazilian Portuguese language
 if (in_array($website_language, $pt_languages_array)) {
 	$diary_blocks_explaining_text = "<br />O ".Create_Element("span", "w3-text-white", $website_story_name)." tem ".Create_Element("span", "w3-text-white", $blocks_number)." Blocks escritos, cada Block é um capítulo.";
 	$charactersdescs = array(
 	"\n".'<div style="margin-left:3%;">'."\n".'Eu, é claro kkkkk, meu diálogo é mostrado com:<br />'."\n".
-	'[Hora atual]: "Meu diálogo"<br /><br />'."\n".
+	'[Hora atual]:<br />"Meu diálogo"<br /><br />'."\n".
 	'Em outras palavras:<br />'."\n".
-	'23:42 19/04/2020: "Meu diálogo"'."\n".$div_close."\n",
+	$time.':<br />"Meu diálogo"'."\n".$div_close."\n",
 
 	"\n".'<div style="margin-left:3%;">'."\n".'Meu amigo "do futuro", ele é uma Inteligência Artificial, e um robô se você quiser, seu diálogo é mostrado com:<br />'."\n".
-	'[Hora atual]: //O diálogo dele<br /><br />'."\n".
+	'[Hora atual]:<br />//O diálogo dele<br /><br />'."\n".
 	'Em outras palavras:<br />'."\n".
-	'23:42 19/04/2020: //O diálogo dele'."\n".$div_close."\n",
+	$time.':<br />//O diálogo dele'."\n".$div_close."\n",
 
 	"\n".'<div style="margin-left:3%;">'."\n".'Um cara aleatório que aparece às vezes, seu diálogo é mostrado com ele:<br />'."\n".
-	'[Hora atual]: ~O diálogo dele<br /><br />'."\n".
+	'[Hora atual]:<br />~O diálogo dele<br /><br />'."\n".
 	'Em outras palavras:<br />'."\n".
-	'23:42 19/04/2020: ~O diálogo dele'."\n".$div_close."\n",
+	$time.':<br />~O diálogo dele'."\n".$div_close."\n",
 	);
 }
 
@@ -130,7 +129,7 @@ $use_variable_inserter = False;
 # Tab chapter_titles definer
 $tab_titles_prototype = array(
 $icons[21]." ".$span_second_text_color,
-$icons[20].' ❤️',
+#$icons[20].' ❤️',
 $icons[1],
 $icons[12],
 );
@@ -146,7 +145,7 @@ $custom_tab_names[0] = "";
 
 $custom_tab_titles_array = array(
 $chapter_in_language.": ".$website_language_icon,
-": ".Create_Element("span", $w3_text_colors["white"]." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
+#": ".Create_Element("span", $w3_text_colors["white"]." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
 ": ".$icons[1],
 ": ".Create_Element("span", $w3_text_colors["white"], $stories_number)." ".$icons[11],
 );
@@ -178,8 +177,8 @@ if ($website_language != $language_geral) {
 
 $website_custom_button_bar_numbers = array(
 0,
+1,
 2,
-3,
 );
 
 # Website Style.php File Includer

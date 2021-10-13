@@ -125,7 +125,7 @@ $variable_inserter_array = array(
 $sharks_maelstrom_ep_link,
 $sharks_coral,
 $lapis_lazuli_steven_universe,
-$ted_humanoid_the_secreft_of_the_crystals_image,
+$ted_humanoid_the_secret_of_the_crystals_image,
 );
 
 ?>

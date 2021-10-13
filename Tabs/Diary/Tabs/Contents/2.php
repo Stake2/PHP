@@ -1,5 +1,11 @@
 <?php 
 
-Show_Story_Readers($first_text_color, $third_text_color, $second_text_color);
+echo $div_text_align_left;
+echo $whitespan;
+
+echo Create_Element("div", $zoom_animation_class, $diary_character_descriptions);
+
+echo $spanc;
+echo $div_close;
 
 ?>

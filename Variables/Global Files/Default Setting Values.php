@@ -4,6 +4,7 @@ $website_settings = array(
 "uses_custom_buttons_bar" => False,
 "show_new_chapter_text" => True,
 "tab_body_generator" => False,
+"custom_website_image_border" => False,
 );
 
 $uses_custom_buttons_bar_text = "uses_custom_buttons_bar";

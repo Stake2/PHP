@@ -135,8 +135,8 @@ require $watch_texts_php;
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
-$website_title = ucwords($website_title);
-$website_title_header = ucwords($website_title).": ".$icons[5]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$mediastxt."]".$spanc;
+$website_title = $website_title;
+$website_title_header = $website_title.": ".$icons[5]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$mediastxt."]".$spanc;
 $website_link = $selected_website_url;
 $website_meta_description = $website_descriptions_array[$language_number];
 $website_header_description = $website_html_descriptions_array[$language_number];
@@ -194,7 +194,7 @@ $website_custom_button_bar_numbers = array(
 2,
 );
 
-#Tab Generator.php includer
+# Tab Generator.php includer
 require $website_tabs_generator;
 
 ?>

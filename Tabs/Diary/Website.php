@@ -36,13 +36,13 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	require $setting_parameters_file;
 
 	#Website Tabs array
-	$tabs = array("Blocks", "Readers", "Characters");
+	$tabs = array("Chapters", "Characters");
 
 	if ($website_has_stories_tab_setting == True) {
 		array_push($tabs, "Stories");
 	}
 
-	$tab_names = Language_Item_Definer(array("Read the ".$local_website_name, "Readers", "Characters"), $tab_names = array("Ler o Diário", "Leitores", "Personagens"));
+	$tab_names = Language_Item_Definer(array("Read the ".$local_website_name, "Characters"), array("Ler o Diário", "Personagens"));
 
 	if ($website_has_stories_tab_setting == True) {
 		if (in_array($website_language, $en_languages_array)) {

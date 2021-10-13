@@ -1,7 +1,13 @@
 <?php 
 
+$rounded_border_style_to_use = $rounded_border_style_2;
+
+if ($website_settings["custom_website_image_border"] == True) {
+	$rounded_border_style_to_use = $custom_website_image_border;
+}
+
 $main_website_image_computer = "<center>"."\n".
-'<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="w3-center '.$border_3px_solid_css_class." ".$first_border_color.' '.$computer_variable.' w3-center" style="'.$rounded_border_style_2.'" />'."\n".
+'<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="w3-center '.$border_3px_solid_css_class." ".$first_border_color.' '.$computer_variable.' w3-center" style="'.$rounded_border_style_to_use.'" />'."\n".
 "</center>"."\n";
 
 $main_website_image_mobile = "<center>"."\n".

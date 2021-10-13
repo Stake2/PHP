@@ -56,6 +56,10 @@ function Word_Number($file) {
 	return $words;
 }
 
+function Write_To_File($file, $text) {
+	file_put_contents($file, $text);
+}
+
 function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False, $general_item = Null) {
 	global $website_language;
 	global $language_enus;

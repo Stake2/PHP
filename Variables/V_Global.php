@@ -97,10 +97,11 @@ if ($website_is_for_other_person_setting == True) {
 }
 
 if ($website_is_for_other_person_setting == False) {
+	$handle = "Stake2__";
 	$twitter_info = "\n".'<meta name="twitter:card" content="summary" />
-<meta name="twitter:website" value="@The_Snakes90" />
-<meta name="twitter:site" value="@The_Snakes90" />
-<meta name="twitter:creator" content="@The_Snakes90" />';
+<meta name="twitter:website" value="@'.$handle.'" />
+<meta name="twitter:site" value="@'.$handle.'" />
+<meta name="twitter:creator" content="@'.$handle.'" />';
 }
 
 $website_head = '

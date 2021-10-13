@@ -50,17 +50,6 @@ if ($website_uses_universal_file_reader == True) {
 	}
 }
 
-if ($website_title == $website_titles["Diary"]) {
-	$diario_numbers_text_file = $used_folder."Diário Numbers.txt";
-
-	if (file_exists($diario_numbers_text_file) == True) {
-		$diario_numbers_fp = fopen($diario_numbers_text_file, "r", "UTF-8");
-		if ($diario_numbers_fp) {
-			$diario_blocks_number = explode("\n", fread($diario_numbers_fp, filesize($diario_numbers_text_file)));
-		}
-	}
-}
-
 if (in_array($website_title, $year_websites) == True) {
 	$current_year_summary_text_file = $year_folders[$current_year].$year_summary_text." ".$current_year.".txt";
 	$current_year_summary_year_stuff_file = $year_folders[$current_year]."Year Stuff.txt";
