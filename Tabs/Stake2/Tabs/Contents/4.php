@@ -34,13 +34,19 @@ foreach ($social_networks as $social_network) {
 		$link = substr($link, 0, -13);
 	}
 
+	$icon = "";
+
+	if (array_key_exists($social_network, $icons_array) == True) {
+		$icon = " ".$icons_array[$social_network];
+	}
+
 	if ($social_network == "Wattpad" or $social_network == "Github" or $social_network == "SoundCloud" or $social_network == "Steam" or $social_network == "MyAnimeList") {
 		echo "\n"."<div class=\"".$first_border_color."\" style=\"margin-left:".$margin_number."%;margin-right:".$margin_number."%;\">"."\n";
 		echo '<div class="'.$first_border_color.'" style="border-width:3px;border-style:solid;'.$roundedborderstyle4.'">'."<p></p>"."\n";
 		echo Create_Element("b", "", $social_network_separators[$social_network].": ")."<br />"."<p></p>"."\n";
 	}
 
-	echo Make_Website_Button($link, $social_network, $first_button_style)."<br />"."\n";
+	echo Make_Website_Button($link, $social_network, $first_button_style, $icon)." "."<br />"."\n";
 
 	if ($social_network == "YouTube" or $social_network == "Twitter" or $social_network == "Spotify" or $social_network == "Osu!" or $social_network == "Kitsu Io") {
 		echo "<p></p>"."\n";

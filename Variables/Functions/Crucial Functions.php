@@ -320,11 +320,11 @@ function Replace_Text($text, $to_replace, $to_add = "") {
 	return str_replace($to_replace, $to_add, $text);
 }
 
-function Make_Website_Button($link, $name, $classes) {
+function Make_Website_Button($link, $name, $classes, $add_to_button_name = Null) {
 	global $roundedborderstyle;
 	global $h2_element;
 
-	$website_button = "<button class=\"w3-btn ".$classes."\" title=\"".$name."\" ".$roundedborderstyle." onclick=\"window.open('".$link."');\"><".$h2_element.">".$name."</".$h2_element."></button>";
+	$website_button = "<button class=\"w3-btn ".$classes."\" title=\"".$name."\" ".$roundedborderstyle." onclick=\"window.open('".$link."');\"><".$h2_element.">".$name.$add_to_button_name."</".$h2_element."></button>";
 
 	return $website_button;
 }
