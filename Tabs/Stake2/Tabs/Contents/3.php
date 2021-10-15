@@ -29,6 +29,21 @@ echo "<div style=\"text-align:left;\">"."\n";
 echo $text;
 echo $div_close."\n";
 
+echo "<hr class=\"".$first_border_color."\" style=\"border-width:1px;border-style:solid;\" />";
+
+echo "<p></p>"."\n";
+echo Create_Element("b", "", Language_Item_Definer("Festive pictures", "Fotos festivas").": ")."<br />"."\n";
+echo "<p></p>"."\n";
+
+$image_number = 7;
+while ($i <= $image_number) {
+	$image = Make_Image($website_images_folder.$digital_identity."/".$i.".png", "text-align: left;", "20%");
+
+	echo $image;
+
+	$i++;
+}
+
 echo $div_close."\n";
 
 ?>

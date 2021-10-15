@@ -4,7 +4,9 @@ $digital_identity = "Stake2";
 
 echo $div_zoom_animation."\n";
 
-echo Make_Image($website_images_folder.$digital_identity."/".$digital_identity.".png", "", "30%");
+$digital_identity_image = $website_image;
+
+echo Make_Image($digital_identity_image, "", "30%");
 
 echo "<hr class=\"".$first_border_color."\" style=\"border-width:1px;border-style:solid;\" />";
 
