@@ -2,7 +2,7 @@
 
 $digital_identity = "Stake2";
 
-echo Make_Image($website_media_images_website_icons.$digital_identity.".png", "", "30%");
+echo Make_Image($website_media_images_website_images."Stake2/".$digital_identity.".png", "", "30%");
 
 $text_file = $notepad_izaque_about_me_folder.$digital_identity.".txt";
 
