@@ -26,6 +26,8 @@ $social_network_separators = array(
 
 $margin_number = "10";
 
+echo $div_zoom_animation."\n";
+
 $i = 0;
 foreach ($social_networks as $social_network) {
 	$link = $social_network_links[$social_network];
@@ -57,5 +59,7 @@ foreach ($social_networks as $social_network) {
 
 	$i++;
 }
+
+echo $div_close."\n";
 
 ?>

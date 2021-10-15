@@ -23,9 +23,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_watch_history_show_to_watch_only_setting = True; #If website shows only the Ready To Watch medias or not
 	$website_watch_history_new_watched_style_setting = True; #If website uses the new Watched Media displaying style or not
 
-	$website_settings = array(
-	"uses_custom_buttons_bar" => True,
-	);
+	$website_settings["uses_custom_buttons_bar"] = True;
 
 	#Website settings setter file includer
 	require $setting_parameters_file;
