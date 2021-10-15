@@ -3,6 +3,8 @@
 # Website Style.php File Includer
 require $website_style_file;
 
+$website_images_folder = $website_media_images_website_images.$website_title."/";
+
 # Buttons and tabs definer
 # Tab chapter_titles definer
 $tab_titles_prototype = array(

@@ -97,7 +97,11 @@ function Define_Text_By_Number($number, $singular_text, $plural_text) {
 	}
 }
 
-function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = null) {
+function Make_Image($image_link, $image_style, $image_width) {
+	return '<img src="'.$image_link.'" width="'.$image_width.'" style="'.$image_style.'" />';
+}
+
+function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = null, $custom_image_style = Null) {
 	global $computer_div;
 	global $mobile_div;
 	global $div_close;
@@ -111,13 +115,19 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 		$image_style = $chapter_image_style;
 	}
 
+	elseif ($custom_image_style != Null) {
+		$image_style = $custom_image_style;
+	}
+
 	if ($computer_width == null) {
 		$computer_width = "35";
 	}
 
-	$image = "<br />".$computer_div."\n".$a_href.'<img src="'.$image_link.'" width="'.$computer_width.'%" '.$image_style.' />'."</a>"."\n".$div_close."\n";
+	$image = "<br />".$computer_div."\n".$a_href.Make_Image($image_link, $image_style, $computer_width."%")."</a>"."\n".$div_close."\n";
 
-	$image .= $mobile_div."\n".$a_href.'<img src="'.$image_link.'" width="100%" '.$image_style.' />'."</a>"."\n".$div_close;
+	$image_width = "100%";
+
+	$image .= $mobile_div."\n".$a_href.Make_Image($image_link, $image_style, $image_width."%")."</a>"."\n".$div_close;
 
 	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
 
