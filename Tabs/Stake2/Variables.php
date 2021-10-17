@@ -57,7 +57,7 @@ Null,
 "Website to show who I am in the Internet, created by me, ".Create_Element("span", $text_orange_css_class, "Izaque")."."."<br />".
 "I am my two Digital Identities, ".Create_Element("span", $text_orange_css_class, "Stake2").", and ".Create_Element("span", $text_orange_css_class, "Funkysnipa Cat")."<br />".
 $names_text.": Izaque, Stake2, Funkysnipa Cat, The Cold Lake Appears.",
-"Site para mostrar quem sou eu na Internet, Criado por mim, ".Create_Element("span", $text_orange_css_class, "Izaque")."."."<br />".
+"Site para mostrar quem sou eu na Internet, criado por mim, ".Create_Element("span", $text_orange_css_class, "Izaque")."."."<br />".
 "Eu sou minhas duas Identidades Digitais, ".Create_Element("span", $text_orange_css_class, "Stake2").", e ".Create_Element("span", $text_orange_css_class, "Funkysnipa Cat")."."."<br />".
 $names_text.": Izaque, Stake2, Funkysnipa Cat, The Cold Lake Appears.",
 );
@@ -65,7 +65,7 @@ $names_text.": Izaque, Stake2, Funkysnipa Cat, The Cold Lake Appears.",
 $website_descriptions_array = array(
 Null,
 "Website to show who I am in the Internet, created by me, Izaque.\nI am my two Digital Identities, Stake2, and Funkysnipa Cat.\n".$names_text.": Izaque, Stake2, Funkysnipa Cat, The Cold Lake Appears.",
-"Site para mostrar quem sou eu na Internet, Criado por mim, Izaque.\nEu sou minhas duas Identidades Digitais, Stake2, e Funkysnipa Cat.\n".$names_text.": Izaque, Stake2, Funkysnipa Cat, The Cold Lake Appears.",
+"Site para mostrar quem sou eu na Internet, criado por mim, Izaque.\nEu sou minhas duas Identidades Digitais, Stake2, e Funkysnipa Cat.\n".$names_text.": Izaque, Stake2, Funkysnipa Cat, The Cold Lake Appears.",
 );
 
 # Website name, title, URL and description setter, by language
