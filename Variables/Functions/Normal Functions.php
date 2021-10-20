@@ -101,7 +101,7 @@ function Make_Image($image_link, $image_style, $image_width) {
 	return '<img src="'.$image_link.'" width="'.$image_width.'" style="'.$image_style.'" />';
 }
 
-function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = null, $custom_image_style = Null) {
+function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = Null, $custom_image_style = Null, $has_space = True) {
 	global $computer_div;
 	global $mobile_div;
 	global $div_close;
@@ -119,7 +119,7 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 		$image_style = $custom_image_style;
 	}
 
-	if ($computer_width == null) {
+	if ($computer_width == Null) {
 		$computer_width = "35";
 	}
 
@@ -129,7 +129,17 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 
 	$image .= $mobile_div."\n".$a_href.Make_Image($image_link, $image_style, $image_width."%")."</a>"."\n".$div_close;
 
-	$image = $image.$computer_div."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />".$div_close."<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+	$image = $image.$computer_div;
+
+	if ($has_space == True) {
+		$image .= "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+	}
+
+	$image .= $div_close;
+
+	if ($has_space == True) {
+		$image .= "<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />";
+	}
 
 	return $image;
 }

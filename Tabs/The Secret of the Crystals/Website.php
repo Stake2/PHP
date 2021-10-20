@@ -2,7 +2,7 @@
 
 require $local_website_folder."Name.php";
 
-if (strpos ($host_text, $website_selector_parameters[0].'='.$website_keys[$local_website_name]) == True) {
+if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local_website_name]) == True) {
 	$selected_website = $local_website_name;
 
 	# Website title definer
@@ -45,15 +45,15 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_keys[$local
 	require $setting_parameters_file;
 
 	# Website Tabs array
-	$tabs = array('Read', 'Readers', 'Stories');
+	$tabs = array("Read", "Readers", "Stories");
 
 	# Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array('Read story', 'Readers', 'Other stories');
+		$tab_names = array("Read story", "Readers", "Other stories");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array('Ler história', 'Leitores', 'Outras histórias');
+		$tab_names = array("Ler história", "Leitores", "Outras histórias");
 	}
 
 	# Number of tabs
