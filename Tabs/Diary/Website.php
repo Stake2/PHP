@@ -7,9 +7,11 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$selected_website = $website_titles[$local_website_name];
 
 	#Website title and name definer
-	#$website = $selected_website;
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
+
+	#Website settings setter file includer
+	require $setting_parameters_file;
 
 	$website_settings["tab_body_generator"] = True;
 	$website_settings[$uses_custom_buttons_bar_text] = True;
@@ -31,9 +33,6 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
 	$website_shows_chapter_covers = True;
 	$story_shows_story_covers = False;
-
-	#Website settings setter file includer
-	require $setting_parameters_file;
 
 	#Website Tabs array
 	$tabs = array("Chapters", "Characters");

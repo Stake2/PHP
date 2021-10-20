@@ -43,8 +43,8 @@ $span_second_text_color = '<span class="'.$second_text_color.' '.$third_text_col
 #Website descriptions
 $website_descriptions_array = array(
 Null,
-'Website to show Animes, Cartoons, Series, Movies, and Videos that I watched, and medias that I will watch, made by Stake2.', 
-'Site para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti, e mídias que eu vou assistir, feito por Stake2.',
+"Website to show Animes, Cartoons, Series, Movies, and Videos that I watched, and medias that I will watch, made by Stake2.", 
+"Site para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti, e mídias que eu vou assistir, feito por Stake2.",
 );
 
 $text = "Website to show {}, {}, {}, {}, and {} that I watched.<br />And {} that I will watch, made by ".Create_Element("span", $text_orange_css_class, "Stake2").".";
@@ -93,21 +93,21 @@ $replacer_two,
 
 #Media links for the Links tab
 $media_links_array = array(
-'https://www.baixarseriesmp4.com/baixar-the-walking-dead-6a-temporada-dublado-e-legendado-mega/', 
-'https://www.baixarseriesmp4.org/baixar-the-walking-dead-7a-temporada-dublado-e-legendado/', 
-'https://www.baixarseriesmp4.org/baixar-the-walking-dead-8a-temporada-dublado-e-legendado/', 
-'https://www.baixarseriesmp4.org/baixar-the-walking-dead-9a-temporada-mp4-dublado-e-legendado/',
-'https://pt.wikipedia.org/wiki/Lista_de_epis%C3%B3dios_de_The_Walking_Dead', 
-'https://diario.netlify.app/cdn/sites/twdlist.htm', 
-'https://mlp.fandom.com/pt/wiki/A_Amizade_é_Mágica_mídia_de_animação', 
-'https://diario.netlify.app/cdn/sites/mlplist.htm',
-'http://www.itunesmaxhd.com/2015/08/ben-10-forca-alienigena-s01-completa.html',
-'http://www.itunesmaxhd.com/2015/08/ben-10-forca-alienigenas02.html',
-'http://www.itunesmaxhd.com/2016/03/ben-10-alien-force-3-temporada-completa.html',
-'https://www.youtube.com/user/ElectronicDesireGE/videos/',
-'https://www.superanimes.website/anime/sword-art-online-alicization/',
-'https://www.superanimes.website/anime/bang-dream-2/',
-'https://bandori.fandom.com/wiki/BanG_Dream!_2nd_Season/',
+"https://www.baixarseriesmp4.com/baixar-the-walking-dead-6a-temporada-dublado-e-legendado-mega/", 
+"https://www.baixarseriesmp4.org/baixar-the-walking-dead-7a-temporada-dublado-e-legendado/", 
+"https://www.baixarseriesmp4.org/baixar-the-walking-dead-8a-temporada-dublado-e-legendado/", 
+"https://www.baixarseriesmp4.org/baixar-the-walking-dead-9a-temporada-mp4-dublado-e-legendado/",
+"https://pt.wikipedia.org/wiki/Lista_de_epis%C3%B3dios_de_The_Walking_Dead", 
+"https://diario.netlify.app/cdn/sites/twdlist.htm", 
+"https://mlp.fandom.com/pt/wiki/A_Amizade_é_Mágica_mídia_de_animação", 
+"https://diario.netlify.app/cdn/sites/mlplist.htm",
+"http://www.itunesmaxhd.com/2015/08/ben-10-forca-alienigena-s01-completa.html",
+"http://www.itunesmaxhd.com/2015/08/ben-10-forca-alienigenas02.html",
+"http://www.itunesmaxhd.com/2016/03/ben-10-alien-force-3-temporada-completa.html",
+"https://www.youtube.com/user/ElectronicDesireGE/videos/",
+"https://www.superanimes.website/anime/sword-art-online-alicization/",
+"https://www.superanimes.website/anime/bang-dream-2/",
+"https://bandori.fandom.com/wiki/BanG_Dream!_2nd_Season/",
 );
 
 # Image links for the Links tab
@@ -125,10 +125,7 @@ $media_links_number = count($media_image_links_array);
 # Text File Reader.php file includer
 require $text_file_reader_file_php;
 
-$mobileversion = '';
-
-# YearNumbers.txt reader for showing the Archived Medias from 2018 and 2019 in Watch History tab: "Archived Media > 2018" and "2019"
-require $year_variables_file;
+$mobileversion = "";
 
 #Watch History website texts file includer
 require $watch_texts_php;
@@ -136,7 +133,7 @@ require $watch_texts_php;
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
 $website_title = $website_title;
-$website_title_header = $website_title.": ".$icons[5]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$mediastxt."]".$spanc;
+$website_title_header = $website_title.": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$mediastxt."]".$spanc;
 $website_link = $selected_website_url;
 $website_meta_description = $website_descriptions_array[$language_number];
 $website_header_description = $website_html_descriptions_array[$language_number];
@@ -153,7 +150,7 @@ $current_variable_year = 2018;
 $archived_medias_number = 0;
 
 while ($current_variable_year <= $local_current_year - 1) {
-	array_push($tab_titles_without_html, $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']');
+	array_push($tab_titles_without_html, $archived_media_text." ".$current_variable_year.": [".${"watched_number_".$current_variable_year}."]");
 
     $current_variable_year++;
 	$archived_medias_number++;
@@ -161,10 +158,10 @@ while ($current_variable_year <= $local_current_year - 1) {
 
 #Tabtexts array
 $tab_texts = array(
-$tab_names[0].' ['.$current_year_watched_number_text.']'.': '.$icons[5],
-$tab_names[1].' ['.$watching_medias_number.']'.': '.$icons[6],
-$tab_names[2].' ['.$watched_movies_number.']'.': '.$icons[19],
-$tab_names[3].' ['.$archived_medias_number.']'.': '.$icons[8],
+$tab_names[0]." [".$current_year_watched_number_text."]".": ".$icons_array["eye"],
+$tab_names[1]." [".$watching_medias_number."]".": ".$icons[6],
+$tab_names[2]." [".$watched_movies_number."]".": ".$icons[19],
+$tab_names[3]." [".$archived_medias_number."]".": ".$icons[8],
 );
 
 $archived_media_texts = array();
@@ -172,17 +169,17 @@ $archived_media_texts = array();
 $current_variable_year = 2018;
 
 while ($current_variable_year <= $local_current_year - 1) {
-	array_push($archived_media_texts, $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']'.': '.$icons[8]);
+	array_push($archived_media_texts, $archived_media_text." ".$current_variable_year.": [".${"watched_number_".$current_variable_year}."]".": ".$icons[8]);
 
     $current_variable_year++;
 }
 
 #Tabtexts array
 $tab_titles_without_html = array(
-$tab_names[0].' ['.$current_year_watched_number_text.']',
-$tab_names[1].' ['.$watching_medias_number.']',
-$tab_names[2].' ['.$watched_movies_number.']',
-$tab_names[3].' ['.$archived_medias_number.']',
+$tab_names[0]." [".$current_year_watched_number_text."]",
+$tab_names[1]." [".$watching_medias_number."]",
+$tab_names[2]." [".$watched_movies_number."]",
+$tab_names[3]." [".$archived_medias_number."]",
 );
 
 # Website Style.php File Includer

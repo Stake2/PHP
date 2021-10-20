@@ -48,6 +48,7 @@ $margin_3_h1."\n".$bluespan.$nodus_character_name.':'.$spanc."\n".'</b>'.$h1c."\
 $margin_3_h1."\n".$cyanspan.$ted_character_name.':'.$spanc."\n".'</b>'.$h1c."\n",
 );
 
+# Text File Reader PHP File Includer
 require $text_file_reader_file_php;
 
 # Re-require of the VStories.php file to set the story name
@@ -55,7 +56,6 @@ require $story_variables_php;
 
 #Website numbers
 $blocks_number = 119;
-#$chapters = $diary_number;
 
 $comments_number = 0;
 $comments_number_text = $comments_number + 1;

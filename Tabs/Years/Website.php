@@ -14,15 +14,15 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	require $setting_parameters_file;
 
 	#Website Tabs array
-	$tabs = array('Output');
+	$tabs = array("Output");
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array('Output');
+		$tab_names = array("Output");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array('Resultado');
+		$tab_names = array("Resultado");
 	}
 
 	#Number of tabs

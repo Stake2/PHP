@@ -1,231 +1,81 @@
 <?php 
 
-# Folder variables
-$selected_website_url = $main_website_url.$website_folder.'/';
-$website_folder = $php_folder_tabs.ucwords($selected_website).'/';
-$website_style_file = $website_folder.'Website Style.php';
+# Story name definer
+$local_website_name = "2020";
 
-$yeartabcode = array(
-$year_websites_links[0],
-$year_websites_links[1],
-$year_websites_links[2],
+$selected_website_url = $website_links[$local_website_name];
+$website_folder = $website_folders[$local_website_name];
+
+$citytxts = "";
+$tab_texts = array();
+
+$image_format = "png";
+$website_image = $website_media_images_website_icons.$website_title.".".$image_format;
+
+$website_image_link = $website_image;
+
+# Text File Reader PHP File Includer
+#require $text_file_reader_file_php;
+
+$website_descriptions_array = array(
+Null,
+"Website to show how my $local_website_name was, and what I did in it, made by Stake2", 
+"Site para mostrar como meu $local_website_name foi, e o que eu fiz nele, feito por Stake2",
 );
 
-$yeartabtxt = array(
-$years_array[0],
-$years_array[1],
-$years_array[2],
+$website_html_descriptions_array = array(
+Null,
+str_replace($local_website_name, Create_Element("span", $text_blue_css_class, $local_website_name), str_replace("Stake2", Create_Element("span", $text_orange_css_class, "Stake2"), $website_descriptions_array[1])),
+str_replace($local_website_name, Create_Element("span", $text_blue_css_class, $local_website_name), str_replace("Stake2", Create_Element("span", $text_orange_css_class, "Stake2"), $website_descriptions_array[2])),
 );
 
-$text_to_find = "/, /i";
-$find_array = preg_split($text_to_find, $year_stuff_file_text);
+# Website name, title, URL and description setter, by language
+$website_name = $selected_website;
+$website_title = Language_Item_Definer("My", "Meu")." ".$website_title;
+$website_title_header = $website_title.": ".$icons_array["calendar"];
+$website_link = $selected_website_url;
+$website_meta_description = $website_descriptions_array[$language_number].".";
+$website_header_description = $website_html_descriptions_array[$language_number].".";
 
-$has_stuff_array = array(
-$new_stories_text_key => $has_new_stories = $find_array[0],
-$story_progress_text_key => $has_story_progress = $find_array[1],
-$new_websites_text_key => $has_new_websites = $find_array[2],
+if ($website_language != $language_geral) {
+	$website_title .= " ".$website_title_language;
+	$website_title_header = $website_title_header;
+	$website_link .= $website_link_language."/";
+}
+
+$tab_titles_prototype = array(
+$icons_array["calendar"],
+"asd",
+"asd",
+"asd",
+"asd",
 );
 
-$has_stuff_string_array = array(
-$new_stories_text_key,
-$story_progress_text_key,
-$new_websites_text_key,
+$tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
+
+$custom_tab_names = $tab_names;
+$custom_tab_names[0] = $tab_titles[0];
+
+$custom_tab_titles_array = array(
+"",
+": ".$icons_array["calendar"],
+": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
+": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
+": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
 );
 
-$has_stuff_array_keys = array_keys($has_stuff_array);
+$custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 
-$i = 0;
-foreach ($has_stuff_array as $stuff) {
-	if ($stuff == "True") {
-		${"$has_stuff_array_keys[$i]"."_switch"} = True;
-		$has_stuff_array[$has_stuff_string_array[$i]] = ${"$has_stuff_array_keys[$i]"."_switch"} = True;
-	}
+$use_custom_tab_titles_array = True;
 
-	if ($stuff == "False") {
-		${"$has_stuff_array_keys[$i]"."_switch"} = False;
-		$has_stuff_array[$has_stuff_string_array[$i]] = ${"$has_stuff_array_keys[$i]"."_switch"} = False;
-	}
+$tab_texts = array();
 
-	$i++;
-}
-
-$creation_date = str_replace(["Creation date: ", "Data de criação: "], "", $year_summary_file_text[1]);
-
-$edit_date = str_replace(["Edit date: ", "Data de edição: "], "", $year_summary_file_text[2]);
-
-if (in_array($website_language, $en_languages_array)) {
-	$text_to_find = "/Things made in [0-9][0-9][0-9][0-9]: /i";
-	$things_made_in_current_year = preg_split($text_to_find, $year_summary_file_text[6]);
-
-	$text_to_find = "/along with comments and people met/i";
-	$things_made_in_current_year = preg_split($text_to_find, $things_made_in_current_year[1]);
-	$things_made_in_current_year = $things_made_in_current_year[0];
-
-	$text_to_find = "/ \(/i";
-	$things_made_in_current_year = preg_split($text_to_find, $things_made_in_current_year);
-	$things_made_in_current_year = str_replace(["\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "<br />"], "", $things_made_in_current_year);
-
-	$things_made_in_current_year_expanded = (int)str_replace(["\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "<br />", "(", ")", " along with comments and people met"], "", $year_summary_file_text[7]);
-
-	$things_made_in_current_year = (int)str_replace(["\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "<br />"], "", $things_made_in_current_year[0]);
-
-	$i = 0;
-	while ($i <= count($year_summary_file_text) - 1) {
-		if (strpos($year_summary_file_text[$i], "omments on the Super Animes website") == True) {
-			$number = $i;
-		}
-
-		$i++;
-	}
-
-	$text_to_find = "/Comments on the Super Animes website: /i";
-	$comments_on_superanimes = preg_split($text_to_find, $year_summary_file_text[$number]);
-
-	$text_to_find = "/[0-9][0-9][0-9] \(/i";
-	$comments_on_superanimes_last_comment = preg_split($text_to_find, $comments_on_superanimes[1]);
-
-	$text_to_find = "/#/i";
-	$comments_on_superanimes_last_comment = str_replace(")", "", preg_split($text_to_find, $comments_on_superanimes_last_comment[1])[1]);
-
-	$text_to_find = "/ \([^()]+\)/i";
-	$comments_on_superanimes_number = preg_split($text_to_find, $comments_on_superanimes[1])[0];
-}
-
-if (in_array($website_language, $pt_languages_array)) {
-	$text_to_find = "/Coisas feitas em [0-9][0-9][0-9][0-9]: /i";
-	$things_made_in_current_year = preg_split($text_to_find, $year_summary_file_text[6]);
-
-	$text_to_find = "/junto com comentários e pessoas conhecidas/i";
-	$things_made_in_current_year = preg_split($text_to_find, $things_made_in_current_year[1]);
-	$things_made_in_current_year = $things_made_in_current_year[0];
-
-	$text_to_find = "/ \(/i";
-	$things_made_in_current_year = str_replace(["\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "<br />"], "", $things_made_in_current_year);
-
-	$things_made_in_current_year_expanded = (int)str_replace(["\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "<br />", "(", ")", " junto com comentários e pessoas conhecidas"], "", $year_summary_file_text[7]);
-
-	$things_made_in_current_year = (int)str_replace(["\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "<br />"], "", $things_made_in_current_year[0]);
-
-	$i = 0;
-	while ($i <= count($year_summary_file_text) - 1) {
-		if (strpos($year_summary_file_text[$i], "omentários no website Super Animes") == True) {
-			$number = $i;
-		}
-
-		$i++;
-	}
-
-	$text_to_find = "/Comentários no website Super Animes: /i";
-	$comments_on_superanimes = preg_split($text_to_find, $year_summary_file_text[$number]);
-
-	$text_to_find = "/[0-9][0-9][0-9] \(/i";
-	$comments_on_superanimes_last_comment = preg_split($text_to_find, $comments_on_superanimes[1]);
-
-	$text_to_find = "/#/i";
-	$comments_on_superanimes_last_comment = str_replace(")", "", preg_split($text_to_find, $comments_on_superanimes_last_comment[1])[1]);
-
-	$text_to_find = "/ \([^()]+\)/i";
-	$comments_on_superanimes_number = preg_split($text_to_find, $comments_on_superanimes[1])[0];
-}
-
-$thingsnumb = $things_made_in_current_year;
-
-$i = 9;
-$productive_things_number = (int)str_replace(["Productive things: ", "Coisas produtivas: "], "", $year_summary_file_text[$i]);
-$i++;
-
-$watched_things_number = (int)str_replace(["Watched things: ", "Coisas assistidas: "], "", $year_summary_file_text[$i]);
-$i++;
-
-if ($new_stories_switch == True) {
-	$new_stories_number = (int)str_replace(["New stories: ", "Novas histórias: "], "", $year_summary_file_text[$i]);
-	$i++;
-}
-
-if ($story_progress_switch == True) {
-	$story_progress_number = (int)str_replace(["Story progress: ", "Progresso das histórias: "], "", $year_summary_file_text[$i]);
-	$i++;
-}
-
-if ($new_websites_switch == True) {
-	$new_websites_number = (int)str_replace(["New websites: ", "Novos sites: "], "", $year_summary_file_text[$i]);
-	$i++;
-}
-
-$people_that_i_met_number = (int)str_replace(["People that I have met: ", "Pessoas que conheci: "], "", $year_summary_file_text[$i]);
-$i++;
-
-$year_creation_and_edit_dates = array(
-$creation_date,
-$edit_date,
-);
-
-$year_numbers = array(
-$things_made_in_current_year_text_key => $things_made_in_current_year,
-$productive_things_key => $productive_things_number,
-$watched_things_text_key => $watched_things_number,
-);
-
-if ($new_stories_switch == True) {
-	$year_numbers[$new_stories_text_key] = $new_stories_number;
-}
-
-if ($story_progress_switch == True) {
-	$year_numbers[$story_progress_text_key] = $story_progress_number;
-}
-
-if ($new_websites_switch == True) {
-	$year_numbers[$new_websites_text_key] = $new_websites_number;
-}
-
-$year_numbers[$people_text_i_met_text_key] = $people_that_i_met_number;
-$year_numbers[$comments_on_super_animes_key] = $comments_on_superanimes_number;
-
-$year_numbers_keys = array_keys($year_numbers);
-
-$year_number_texts = array(
-$things_made_in_current_year_text_key => $things_made_in_current_year_text,
-$productive_things_key => $productive_things_text,
-$watched_things_text_key => $watched_things_text,
-);
-
-if ($new_stories_switch == True) {
-	$year_number_texts[$new_stories_text_key] = $new_stories_text;
-}
-
-if ($story_progress_switch == True) {
-	$year_number_texts[$story_progress_text_key] = $story_progress_text;
-}
-
-if ($new_websites_switch == True) {
-	$year_number_texts[$new_websites_text_key] = $new_websites_text;
-}
-
-$year_number_texts[$people_text_i_met_text_key] = $people_text_i_met_text;
-$year_number_texts[$comments_on_super_animes_key] = $comments_on_super_animes_text;
-
-$tab_texts = array(
-$read_text.': '.$siteicon,
-$tab_names[1].': '.$icons[0],
-$tab_names[2].': '.$icons[1],
-$tab_names[3].': '.$icons[2],
-$tab_names[4].': '.$icons[3],
-);
-
-#Previous year button
-$last_year_button_computer = '<button class="w3-btn '.$first_button_style.'" onclick="window.open('."'".$main_website_url."years/".$current_yearanterior."/'".')"><'.$h2_element.'>'.$current_yearanterior.': <i class="fas fa-globe-americas"></i></'.$h2_element.'></button>';
-
-#Mobile previous year button
-$last_year_button_mobile = '<button class="w3-btn '.$first_button_style.'" onclick="window.open('."'".$main_website_url."years/".$current_yearanterior."/'".')"><'.$h4_element.'>'.$current_yearanterior.': <i class="fas fa-globe-americas"></i></'.$h4_element.'></button>';
+Make_Button_Names();
 
 # Website Style.php File Includer
-$website_image = $local_current_year;
-$website_image = $cdnimg.$website_image.".png";
-$website_image_link = $website_image;
-$website_style_file = $sitefolder_2020.'Website Style.php';
 require $website_style_file;
 
-#TabGenerator.php includer
+# Tab Generator.php File Includer
 require $website_tabs_generator;
 
 ?>

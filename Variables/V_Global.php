@@ -44,11 +44,6 @@ if ($website_is_prototype_setting == False and $website_uses_custom_layout_setti
 	require $story_variables_php;
 }
 
-# VYears.php file loader for YearsSites
-if (in_array($website_title, $year_websites)) {
-	require $vyears_php;
-}
-
 # Websites array
 $i = 0;
 foreach ($website_titles as $value) {

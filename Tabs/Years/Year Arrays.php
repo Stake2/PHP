@@ -11,7 +11,7 @@ while ($current_variable_year <= $current_year - 1) {
 	$local_website_link = $main_website_url."Years/".$local_website_title."/";
 
 	array_push($years_array, $local_website_title);
-	array_push($year_websites_links, $local_website_link);
+	$year_websites_links[(string)$current_variable_year] = $local_website_link;
 
     $current_variable_year++;
 	$i++;

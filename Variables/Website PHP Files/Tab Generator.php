@@ -26,16 +26,8 @@ while ($i <= $website_tab_number) {
 	$text_size = "h2";
 
 	if (isset($tab_texts[$i])) {
-		$citytxts[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
+		$website_tab_titles_computer[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
 	}
-
-	$i++;
-}
-
-# Array of tab texts
-$i = 0;
-while ($i <= $website_tab_number) {
-	$website_tab_titles_computer[$i] = $citytxts[$i];
 
 	$i++;
 }
@@ -51,7 +43,7 @@ if ($website_title == $website_titles["Things I Do"]) {
 			$text_size = "h4";	
 		}
 
-		$citytxts[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
+		$website_tab_titles_mobile[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
 		$i++;
 	}
 }
@@ -61,18 +53,11 @@ else {
 	$i = 0;
 	while ($i <= $website_tab_number) {
 		$text_size = "h4";
-		$citytxts[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
+
+		$website_tab_titles_mobile[$i] = "<".$text_size.">".$tab_texts[$i]."</".$text_size.">";
 	
 		$i++;
 	}
-}
-
-# Array of mobile tab texts
-$i = 0;
-while ($i <= $website_tab_number) {
-	$website_tab_titles_mobile[$i] = $citytxts[$i];
-
-	$i++;
 }
 
 if ($website_title_backup == $website_titles["Watch History"]) {
@@ -84,7 +69,7 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 		}
 	
 		if ($i >= 3) {
-			$citycodes[$i] = "watched-".strtolower($tab_names[$i]);
+			$citycodes[$i] = "watched_".strtolower($tab_names[$i]);
 		}
 		
 		if ($i == 7) {

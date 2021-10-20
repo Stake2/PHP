@@ -316,6 +316,8 @@ $icons_array = array(
 #"Osu!" => '<i class="icon-Osu"></i>',
 #"MyAnimeList" => '<i class="icon-MyAnimeList"></i>',
 #"Kitsu Io" => '<i class="icon-Kitsu"></i>',
+"calendar" => '<i class="far fa-calendar-alt"></i>',
+"eye" => '<i class="fas fa-eye"></i>',
 );
 
 $color = $background_brown_css_class;

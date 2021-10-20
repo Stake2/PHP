@@ -20,7 +20,7 @@ $tab_background_color = $background_black_css_class,
 $additional_background_color = $background_grey_css_class,
 
 $first_text_color = $text_grey_css_class,
-$second_text_color = 'w3-text-white',
+$second_text_color = "w3-text-white",
 $third_text_color = $text_hover_yellow_css_class,
 $tab_text_color = $first_text_color,
 
