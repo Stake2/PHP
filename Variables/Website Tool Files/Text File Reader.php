@@ -51,30 +51,73 @@ if ($website_uses_universal_file_reader == True) {
 }
 
 if (in_array($website_title, $year_websites) == True) {
-	$current_year_summary_text_file = $year_folders[$current_year].$year_summary_text." ".$current_year.".txt";
-	$current_year_summary_year_stuff_file = $year_folders[$current_year]."Year Stuff.txt";
+	$current_year_data_folder = $year_folders[$local_current_year]."Data/";
+	Create_Folder($current_year_data_folder);
 
-	$file = $current_year_summary_text_file;
-	if (file_exists($file) == True) {
-		$read_file = fopen($file, "r", "UTF-8");
-		if ($read_file) {
-			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
-			$year_summary_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $replaceable_array);
-		}
+	$data_file_names = array(
+	"Created In", # Date
+	"Edited In", # Date
+	Language_Item_Definer("Productive Things", "Coisas Produtivas"), # Tasks.py writes into this file the full list of tasks done for the current year
+	"Watched Things", # Watch_History.py writes into this file the full list of Watched Things for the current year
+	"Media Comments", # Watch_History.py writes into this file the full list of Media Comments for the current year
+	"Story Progress", # Text
+	);
+
+	foreach ($data_file_names as $file_name) {
+		$data_files[$file_name] = $current_year_data_folder.$file_name.".txt";
+		Create_File($data_files[$file_name]);
+
+		$data_texts[$file_name] = Read_Lines($data_files[$file_name]);
 	}
 
-	$file = $current_year_summary_year_stuff_file;
-	if (file_exists($file) == True) {
-		$read_file = fopen($file, "r", "UTF-8");
-		if ($read_file) {
-			$replaceable_array = explode("\n", fread($read_file, filesize($file)));
-			$year_stuff_file_text = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $replaceable_array)[0];
-		}
+	$outer_data_file_names = array(
+	"New Stories", # Gets the new stories from the current year from the "Year Folders" folder inside the "Story Database" folder
+	"Websites", # Gets the list of new websites by the Tasks folder
+	"People", # Gets the total friends number from the "Number - Número.txt" file on the root of the "Social Networks" text folder
+	);
+
+	foreach ($outer_data_file_names as $file_name) {
+		array_push($data_file_names, $file_name);
 	}
+
+	$folder = $notepad_productive_done_folder.$local_current_year."/";
+	Create_Folder($folder);
+
+	$outer_data_files = array(
+	"New Stories" => $story_database_year_folders.$local_current_year."/"."Names.txt",
+	"Websites" => $folder."Task Names ".Language_Item_Definer($full_language_enus, $full_language_ptbr).".txt",
+	"People" => $notepad_social_networks_years_friends_numbers_folder.$local_current_year."/"."Friends Number - Número de Amigos.txt",
+	);
+
+	foreach ($outer_data_file_names as $file_name) {
+		$data_file = $outer_data_files[$file_name];
+		Create_File($data_file);
+
+		$data_files[$file_name] = $data_file;
+		Create_File($data_files[$file_name]);
+
+		$data_texts[$file_name] = Read_Lines($data_files[$file_name]);
+	}
+
+	$data_file_names_translated = array(
+	"Created In" => "Criado em", # Date
+	"Edited In" => "Editado em", # Date
+	Language_Item_Definer("Productive Things", "Coisas Produtivas") => Language_Item_Definer("Productive Things", "Coisas Produtivas"), # Tasks.py writes into this file the full list of tasks done for the current year
+	"Watched Things" => "Coisas assistidas", # Watch_History.py writes into this file the full list of Watched Things for the current year
+	"Media Comments" => "Comentários de Mídia", # Watch_History.py writes into this file the full list of Media Comments for the current year
+	"Story Progress" => "Progresso das Histórias",
+	"New Stories" => "Novas Histórias",
+	"Websites" => "Sites",
+	"People" => "Pessoas",
+	);
 }
 
-if ($website_title_backup == $website_titles["Watch History"] or in_array($website_title, $year_websites)) {
+if ($website_title_backup == $website_titles["Watch History"] or in_array($website_title, $year_websites) == True) {
 	require $media_variables_php;
+
+	if (in_array($website_title, $year_websites)) {
+		$current_year_backup = $current_year;
+	}
 
 	if (in_array($website_language, $en_languages_array)) {
 		$language_split_number = 0;

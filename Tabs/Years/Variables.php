@@ -1,19 +1,5 @@
 <?php
 
-# Folder variables
-$year_text_files_folder = $notepad_years_folder;
-$current_year_text_folder = $year_text_files_folder.$current_year.'/';
-
-$year_folders = array();
-
-$current_variable_year = 2018;
-
-while ($current_variable_year <= $current_year - 1) {
-	$year_folders[$current_variable_year] = $year_text_files_folder.$current_variable_year.'/';
-
-    $current_variable_year++;
-}
-
 $selected_website_url = $main_website_url.$website_folder.'/'.$current_year.'/';
 $website_folder = $php_folder_tabs.$current_year.'/';
 

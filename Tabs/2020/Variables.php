@@ -2,12 +2,10 @@
 
 # Story name definer
 $local_website_name = "2020";
+$local_current_year = (int)$local_website_name;
 
 $selected_website_url = $website_links[$local_website_name];
 $website_folder = $website_folders[$local_website_name];
-
-$citytxts = "";
-$tab_texts = array();
 
 $image_format = "png";
 $website_image = $website_media_images_website_icons.$website_title.".".$image_format;
@@ -15,7 +13,7 @@ $website_image = $website_media_images_website_icons.$website_title.".".$image_f
 $website_image_link = $website_image;
 
 # Text File Reader PHP File Includer
-#require $text_file_reader_file_php;
+require $text_file_reader_file_php;
 
 $website_descriptions_array = array(
 Null,
@@ -43,26 +41,28 @@ if ($website_language != $language_geral) {
 	$website_link .= $website_link_language."/";
 }
 
-$tab_titles_prototype = array(
-$icons_array["calendar"],
-"asd",
-"asd",
-"asd",
-"asd",
-);
+$i = 0;
+foreach ($tab_names as $tab_title) {
+	$tab_titles_prototype[$i] = "";
+
+	$i++;
+}
+
+$tab_titles_prototype[0] = $icons_array["calendar"];
 
 $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
 
 $custom_tab_names = $tab_names;
 $custom_tab_names[0] = $tab_titles[0];
 
-$custom_tab_titles_array = array(
-"",
-": ".$icons_array["calendar"],
-": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
-": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
-": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
-);
+$custom_tab_titles_array = array();
+
+$i = 0;
+foreach ($tab_titles as $tab_title) {
+	$custom_tab_titles_array[$i] = "";
+
+	$i++;
+}
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 

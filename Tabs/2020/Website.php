@@ -14,16 +14,16 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["tab_body_generator"] = True;
 
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array("Things");
+		$tab_names = array("Summary");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array("adasd");
+		$tab_names = array("Sumário");
 	}
 
 	$website_tab_number = count($tab_names) - 1;
 
-	#Includer of the array of the GenericTabs files
+	# Includer of the array of the Generic Tabs files
 	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
