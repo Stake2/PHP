@@ -1,6 +1,5 @@
 <?php 
 
-# Story name definer
 $local_website_name = "2020";
 $local_current_year = (int)$local_website_name;
 
@@ -48,12 +47,16 @@ foreach ($tab_names as $tab_title) {
 	$i++;
 }
 
-$tab_titles_prototype[0] = $icons_array["calendar"];
+$tab_titles_prototype[0] = $icons_array["clipboard"];
+$tab_titles_prototype[1] = $icons_array["eye"];
+$tab_titles_prototype[2] = $icons_array["calendar"];
 
 $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
 
 $custom_tab_names = $tab_names;
 $custom_tab_names[0] = $tab_titles[0];
+$custom_tab_names[1] = str_replace($icons_array["eye"], "", $tab_titles[1]).Line_Number($data_files["Watched Things"]);
+$custom_tab_names[2] = $tab_titles[2];
 
 $custom_tab_titles_array = array();
 

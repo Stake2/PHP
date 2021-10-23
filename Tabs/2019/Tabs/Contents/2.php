@@ -12,10 +12,12 @@ $website_watch_history_new_watched_style_setting = True;
 
 $mobile_version = False;
 
-echo "<div style=\"text-align:left;\">"."\n";
+echo $div_zoom_animation."\n";
+echo '<div style="text-align:left;">'."\n";
 
 require $website_folders["Watch History"]."Current Year Watched Media Generator.php";
 
+echo $div_close."\n";
 echo $div_close."\n";
 
 ?>

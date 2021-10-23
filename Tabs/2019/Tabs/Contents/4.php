@@ -1,5 +1,7 @@
 <?php 
 
+echo $div_zoom_animation."\n";
+
 $current_variable_year = 2018;
 $local_current_year = $current_year - 1;
 
@@ -18,5 +20,7 @@ while ($current_variable_year <= $local_current_year) {
 
 	$current_variable_year++;
 }
+
+echo $div_close."\n";
 
 ?>

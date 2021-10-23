@@ -14,11 +14,11 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["tab_body_generator"] = True;
 
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array("Summary");
+		$tab_names = array("Summary", "Watched Things", "Years");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array("Sumário");
+		$tab_names = array("Sumário", "Coisas Assistidas", "Anos");
 	}
 
 	$website_tab_number = count($tab_names) - 1;

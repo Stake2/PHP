@@ -298,7 +298,9 @@ $icons_array = array(
 "comment" => '<i class="fas fa-comments"></i>',
 "book" => '<i class="fas fa-book"></i>',
 "open book" => '<i class="fas fa-book-open"></i>',
+"clipboard" => '<i class="far fa-clipboard"></i>',
 "user circle" => '<i class="fas fa-user-circle"></i>',
+"user friends" => '<i class="fas fa-user-friends"></i>',
 "globe" => '<i class="fas fa-globe"></i>',
 #"Wattpad" => '<i class="icon-Wattpad"></i>',
 "DeviantArt" => '<i class="fab fa-deviantart"></i>',
@@ -318,6 +320,8 @@ $icons_array = array(
 #"Kitsu Io" => '<i class="icon-Kitsu"></i>',
 "calendar" => '<i class="far fa-calendar-alt"></i>',
 "eye" => '<i class="fas fa-eye"></i>',
+"images" => '<i class="fas fa-images"></i>',
+"tasks" => '<i class="fas fa-tasks"></i>',
 );
 
 $color = $background_brown_css_class;

@@ -72,13 +72,33 @@ foreach ($data_file_names as $file_name) {
 
 	$add_br = False;
 
+	$showed_text = False;
+
 	$file_name_title = Create_Element("b", "", $file_name.": ")."\n";
 
 	if ($add_br == True) {
 		$file_name_title .= "<br />";
 	}
 
-	echo $file_name_title;
+	if (in_array($file_name, $number_in_first_line_files) == False) {
+		if (Line_Number($file) != 1) {
+			echo $file_name_title;
+			$showed_text = True;
+		}
+	}
+
+	elseif (in_array($file_name, $number_in_first_line_files) == True and $showed_text == False) {
+		if ((int)Read_Lines($file)[0] != 0) {
+			echo $file_name_title;
+			$showed_text = True;
+		}
+	}
+
+	elseif ($showed_text == False) {
+		echo "\n"."<br />";
+		echo $file_name_title."aaaaa";
+		$showed_text = True;
+	}
 
 	if (in_array($file_name, $files_to_show_number) == False) {
 		$i = 1;
@@ -93,8 +113,11 @@ foreach ($data_file_names as $file_name) {
 				}
 			}
 
-			elseif ($file_name == Language_Item_Definer("People", "Pessoas")) {
-				Show($text." ".Define_Text_By_Number((int)Read_Lines($file)[0], Language_Item_Definer("person", "pessoa"), Language_Item_Definer("people", "pessoas")), $add_br);
+			elseif ($file_name == Language_Item_Definer("Known People", "Pessoas Conhecidas")) {
+				#$number = (int)Read_Lines($file)[0];
+				$number = 94;
+
+				Show($text." ".Define_Text_By_Number($number, Language_Item_Definer("person", "pessoa"), Language_Item_Definer("people", "pessoas")), $add_br);
 			}
 
 			elseif ($file_name == Language_Item_Definer("Story Progress", "Progresso das Histórias")) {
@@ -152,11 +175,21 @@ foreach ($data_file_names as $file_name) {
 
 	else {
 		if (in_array($file_name, $number_in_first_line_files) == False) {
-			Show(Line_Number($file), $add_br);
+			if (Line_Number($file) != 1) {
+				Show(Line_Number($file), $add_br);
+			}
 		}
 
 		elseif (in_array($file_name, $number_in_first_line_files) == True) {
-			Show(Read_Lines($file)[0], $add_br = $add_br);
+			$number = (int)Read_Lines($file)[0];
+
+			if ($file_name == Language_Item_Definer("Known People", "Pessoas Conhecidas")) {
+				$number = 94;
+			}
+
+			if ($number != 0) {
+				Show($number, $add_br = $add_br);
+			}
 
 			if ($file_name == Language_Item_Definer("Media Comments", "Comentários de Mídia")) {
 				echo "\n"."<br />";
@@ -164,7 +197,9 @@ foreach ($data_file_names as $file_name) {
 		}
 	}
 
-	echo "\n"."<br />";
+	if ($showed_text == True) {
+		echo "\n"."<br />";
+	}
 }
 
 echo $div_close."\n";

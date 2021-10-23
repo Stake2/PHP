@@ -22,6 +22,18 @@ if ($mobile_version == False) {
 	$mobileaname = '';
 }
 
+if (isset($run_as_module) == True) {
+	if ($run_as_module == True) {
+		$local_current_year = $module_current_year;
+		$current_year_watched_episodes_text = ${"year_".$local_current_year."_watched_episodes_text"};
+		$current_year_watched_media_type_text = ${"year_".$local_current_year."_watched_media_type_text"};
+		$current_year_watched_time_text = ${"year_".$local_current_year."_watched_time_text"};
+		$current_year_watched_number = ${"watched_episodes_".$local_current_year."_line_number"} - 1;
+		$media_type_text_file_lines_array = ${"media_type_text_file_lines_array_".$local_current_year};
+		$watched_media_numbers_current_year = ${"watched_media_numbers_".$local_current_year};
+	}
+}
+
 # Used per media type reader
 
 $i = 0;
