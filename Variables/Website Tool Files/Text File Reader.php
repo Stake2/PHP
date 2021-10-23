@@ -60,11 +60,21 @@ if (in_array($website_title, $year_websites) == True) {
 	Language_Item_Definer("Productive Things", "Coisas Produtivas"), # Tasks.py writes into this file the full list of tasks done for the current year
 	"Watched Things", # Watch_History.py writes into this file the full list of Watched Things for the current year
 	"Media Comments", # Watch_History.py writes into this file the full list of Media Comments for the current year
-	"Story Progress", # Text
 	);
 
 	foreach ($data_file_names as $file_name) {
-		$data_files[$file_name] = $current_year_data_folder.$file_name.".txt";
+		if ($file_name != "Watched Things" and $file_name != "Media Comments") {
+			$data_files[$file_name] = $current_year_data_folder.$file_name.".txt";
+		}
+
+		elseif ($file_name == "Watched Things") {
+			$data_files[$file_name] = format($watch_history_watched_folder_string, $local_current_year)."Episodes.txt";
+		}
+
+		elseif ($file_name == "Media Comments") {
+			$data_files[$file_name] = $comment_writer_year_comment_numbers_folder.(string)$local_current_year."/"."Number.txt";
+		}
+
 		Create_File($data_files[$file_name]);
 
 		$data_texts[$file_name] = Read_Lines($data_files[$file_name]);
@@ -73,21 +83,55 @@ if (in_array($website_title, $year_websites) == True) {
 	$outer_data_file_names = array(
 	"New Stories", # Gets the new stories from the current year from the "Year Folders" folder inside the "Story Database" folder
 	"Websites", # Gets the list of new websites by the Tasks folder
-	"People", # Gets the total friends number from the "Number - Número.txt" file on the root of the "Social Networks" text folder
+	"People", # Gets the total number of people known in the current year from the "Number - Número.txt" file on the "Years Friends Numbers" text folder on the root of the "Social Networks" text folder
 	);
 
-	foreach ($outer_data_file_names as $file_name) {
-		array_push($data_file_names, $file_name);
+	if ($local_current_year == 2020) {
+		array_splice($outer_data_file_names, 1, 1, "Websites");
 	}
 
-	$folder = $notepad_productive_done_folder.$local_current_year."/";
-	Create_Folder($folder);
+	else {
+		array_splice($outer_data_file_names, 1, 1, "PHP");
+		array_splice($outer_data_file_names, 1, 1, "Python");
+	}
+
+	Show($outer_data_file_names, $add_br = True);
+
+	array_push($data_file_names, "New Stories");
+
+	array_push($data_file_names, "Story Progress");
+	$data_files["Story Progress"] = $current_year_data_folder."Story Progress.txt"; # Text
+	$data_texts["Story Progress"] = Read_Lines($data_files["Story Progress"]);
+
+	foreach ($outer_data_file_names as $file_name) {
+		if ($file_name != "New Stories") {
+			array_push($data_file_names, $file_name);
+		}
+	}
 
 	$outer_data_files = array(
-	"New Stories" => $story_database_year_folders.$local_current_year."/"."Names.txt",
-	"Websites" => $folder."Task Names ".Language_Item_Definer($full_language_enus, $full_language_ptbr).".txt",
-	"People" => $notepad_social_networks_years_friends_numbers_folder.$local_current_year."/"."Friends Number - Número de Amigos.txt",
+	"New Stories" => $story_database_year_folders.$local_current_year."/Names.txt",
+	"People" => $notepad_social_networks_years_friends_numbers_folder.$local_current_year."/Number - Número.txt",
 	);
+
+	if ($local_current_year == 2020) {
+		$folder = $notepad_productive_done_folder.$local_current_year."/Task Database/Websites/";
+		Create_Folder($folder);
+
+		$outer_data_files["Websites"] = $folder.Language_Item_Definer($full_language_enus, $full_language_ptbr).".txt";
+	}
+
+	else {
+		$folder = $notepad_productive_done_folder.$local_current_year."/Task Info/PHP/";
+		Create_Folder($folder);
+
+		$outer_data_files["PHP"] = $folder.Language_Item_Definer($full_language_enus, $full_language_ptbr).".txt";
+
+		$folder = $notepad_productive_done_folder.$local_current_year."/Task Info/Python/";
+		Create_Folder($folder);
+
+		$outer_data_files["Python"] = $folder.Language_Item_Definer($full_language_enus, $full_language_ptbr).".txt";
+	}
 
 	foreach ($outer_data_file_names as $file_name) {
 		$data_file = $outer_data_files[$file_name];
@@ -107,8 +151,33 @@ if (in_array($website_title, $year_websites) == True) {
 	"Media Comments" => "Comentários de Mídia", # Watch_History.py writes into this file the full list of Media Comments for the current year
 	"Story Progress" => "Progresso das Histórias",
 	"New Stories" => "Novas Histórias",
-	"Websites" => "Sites",
 	"People" => "Pessoas",
+	);
+
+	if ($local_current_year == 2020) {
+		$data_file_names_translated["Websites"] = "Sites";
+	}
+
+	else {
+		$data_file_names_translated["PHP"] = "PHP";
+		$data_file_names_translated["Python"] = "Python";
+	}
+
+	$files_to_show_number = array(
+	Language_Item_Definer("Watched Things", $data_file_names_translated["Watched Things"]),
+	Language_Item_Definer("Productive Things", "Coisas Produtivas"),
+	Language_Item_Definer("Media Comments", $data_file_names_translated["Media Comments"]),
+	Language_Item_Definer("People", $data_file_names_translated["People"]),
+	);
+
+	$number_in_first_line_files = array(
+	Language_Item_Definer("People", $data_file_names_translated["People"]),
+	Language_Item_Definer("Media Comments", $data_file_names_translated["Media Comments"]),
+	);
+
+	$countable_files = array(
+	Language_Item_Definer("Websites", $data_file_names_translated["Websites"]),
+	Language_Item_Definer("New Stories", $data_file_names_translated["New Stories"]),
 	);
 }
 

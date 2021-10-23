@@ -331,54 +331,112 @@ function Make_Tab_Titles($custom_tab_titles_array = Null) {
 }
 
 function show($thing, $add_br = False) {
+	$separator = Null;
+	$add_number = "";
+	$position = "";
+	$separator = (($separator == Null) ? $separator = "": $separator = $separator);
+
 	if (is_array($thing) == True) {
+		$i = 0;
+		$c = 1;
 		foreach ($thing as $text) {
 			if (is_array($text) == True) {
+				$i = 0;
 				foreach ($text as $text_value) {
 					if (is_array($text_value) == True) {
 						foreach ($text_value as $text_value_value) {
+							$text_to_show = $text_value_value;
+
+							if ($add_number == True) {
+								if ($position == "left") {
+									$text_to_show = (string)$i.$separator.$text_to_show;
+								}
+
+								if ($position == "right") {
+									$text_to_show = $text_to_show.$separator.(string)$i;
+								}
+							}
+
 							if ($add_br == True) {
-								echo $text_value_value."<br />"."\n";
+								$text_to_show .= "<br />"."\n";
 							}
 
 							else {
-								echo $text_value_value."\n";
+								$text_to_show .= "\n";
 							}
 						}
+
+						echo $text_to_show;
 					}
 
 					if (is_array($text_value) == False) {
+						$text_to_show = $text_value_value;
+
+						if ($position == "left") {
+							$text_to_show = (string)$i.$separator.$text_to_show;
+						}
+
+						if ($position == "right") {
+							$text_to_show = $text_to_show.$separator.(string)$i;
+						}
+
 						if ($add_br == True) {
-							echo $text_value."<br />"."\n";
+							$text_to_show .= "<br />"."\n";
 						}
 
 						else {
-							echo $text_value."\n";
+							$text_to_show .= "\n";
 						}
+
+						echo $text_to_show;
 					}
+
+					$i++;
 				}
 			}
 
 			if (is_array($text) == False) {
-				if ($add_br == True) {
-					echo $text."<br />"."\n";
+				$text_to_show = $text;
+
+				if ($add_number == True) {
+					if ($position == "left") {
+						$text_to_show = (string)$c.$separator.$text_to_show;
+					}
+
+					if ($position == "right") {
+						$text_to_show = $text_to_show.$separator.(string)$c;
+					}
 				}
 
-				else {
-					echo $text."\n";
+				if ($add_br == True) {
+					$text_to_show .= "<br />"."\n";
 				}
+
+				if ($add_br == False) {
+					$text_to_show .= "\n";
+				}
+
+				echo $text_to_show;
+
+				$c++;
 			}
 		}
+
+		$i++;
 	}
 
 	if (is_array($thing) == False) {
+		$text_to_show = $thing;
+
 		if ($add_br == True) {
-			echo $thing."<br />"."\n";
+			$text_to_show .= "<br />"."\n";
 		}
 
 		else {
-			echo $thing."\n";
+			$text_to_show .= "\n";
 		}
+
+		echo $text_to_show;
 	}
 }
 
