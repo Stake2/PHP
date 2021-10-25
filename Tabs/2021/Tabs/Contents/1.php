@@ -38,22 +38,34 @@ foreach ($array as $item) {
 $total_things_done_on_current_year = 0;
 
 foreach ($data_file_names as $file_name) {
+	$file_name_backup = $file_name;
 	$file = $data_files[$file_name];
 	$file_name = Language_Item_Definer($file_name, $data_file_names_translated[$file_name]);
 
-	if ($file_name != Language_Item_Definer("Media Comments", "Comentários de Mídia") and $file_name != Language_Item_Definer("People Known", "Pessoas Conhecidas")) {
+	if ($file_name_backup != "Media Comments" and $file_name_backup != "Known People") {
 		if (in_array($file_name, $number_in_first_line_files) == False) {
-			$number = (int)Line_Number($file);
+			if ($file_name_backup == "Story Progress") {
+				$number = 0;
+
+				foreach (Read_Lines($file) as $text) {
+					$explode = explode(", ", $text);
+
+					$chapter_number = $explode[1];
+
+					$number += (int)$chapter_number;
+				}
+			}
+
+			else {
+				$number = (int)Line_Number($file);
+			}
+
 			$total_things_done_on_current_year += $number;
 		}
 
 		elseif (in_array($file_name, $number_in_first_line_files) == True) {
 			$number = (int)Read_Lines($file)[0];
 			$total_things_done_on_current_year += $number;
-
-			if ($file_name == Language_Item_Definer("Media Comments", "Comentários de Mídia")) {
-				echo "\n"."<br />";
-			}
 		}
 	}
 }
