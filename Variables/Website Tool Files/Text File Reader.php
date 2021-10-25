@@ -162,6 +162,104 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 	array_splice($data_texts, 2, 1, "\n---\n");
 }
 
+if (in_array($website_title, $year_websites) == True and $website_title_backup == "2021") {
+	$current_year_data_folder = $year_folders[$local_current_year]."Data/";
+	Create_Folder($current_year_data_folder);
+
+	$data_file_names = array(
+	"Created In", # Date
+	"Edited In", # Date
+	Language_Item_Definer("Productive Things", "Coisas Produtivas"), # Tasks.py writes into this file the full list of tasks done for the current year
+	"Watched Things", # Watch_History.py writes into this file the full list of Watched Things for the current year
+	"Media Comments", # Watch_History.py writes into this file the full list of Media Comments for the current year
+	);
+
+	foreach ($data_file_names as $file_name) {
+		if ($file_name != "Watched Things" and $file_name != "Media Comments" and $file_name != Language_Item_Definer("Productive Things", "Coisas Produtivas")) {
+			$data_files[$file_name] = $current_year_data_folder.$file_name.".txt";
+		}
+
+		elseif ($file_name == "Watched Things") {
+			$data_files[$file_name] = format($watch_history_watched_folder_string, $local_current_year)."Episodes.txt";
+		}
+
+		elseif ($file_name == "Media Comments") {
+			$data_files[$file_name] = $comment_writer_year_comment_numbers_folder.(string)$local_current_year."/"."Number.txt";
+		}
+
+		elseif ($file_name == Language_Item_Definer("Productive Things", "Coisas Produtivas")) {
+			$data_files[$file_name] = $notepad_productive_done_folder.$local_current_year."/Task Names English.txt";
+		}
+
+		Create_File($data_files[$file_name]);
+
+		if (Line_Number($file_name) + 1 != 0) {
+			$data_texts[$file_name] = Read_Lines($data_files[$file_name]);
+		}
+	}
+
+	$outer_data_file_names = array(
+	"Python",
+	"Known People", # Gets the total number of people known in the current year from the "Number - Número.txt" file on the "Years Friends Numbers" text folder on the root of the "Social Networks" text folder
+	);
+
+	array_push($data_file_names, "Story Progress");
+	$data_files["Story Progress"] = $current_year_data_folder."Story Progress.txt"; # Text
+	Create_File($data_files["Story Progress"]);
+	$data_texts["Story Progress"] = Read_Lines($data_files["Story Progress"]);
+
+	foreach ($outer_data_file_names as $file_name) {
+		if ($file_name != "New Stories") {
+			array_push($data_file_names, $file_name);
+		}
+	}
+
+	$outer_data_files = array(
+	"Python" => $notepad_productive_done_folder.$local_current_year."/Task Info/Python/".Language_Item_Definer($full_language_enus, $full_language_ptbr).".txt",
+	"Known People" => $notepad_social_networks_years_friends_numbers_folder.$local_current_year."/Number - Número.txt",
+	);
+
+	foreach ($outer_data_file_names as $file_name) {
+		$data_file = $outer_data_files[$file_name];
+		Create_File($data_file);
+
+		$data_files[$file_name] = $data_file;
+		Create_File($data_files[$file_name]);
+
+		if (Line_Number($file_name) > 1) {
+			$data_texts[$file_name] = Read_Lines($data_files[$file_name]);
+		}
+	}
+
+	$data_file_names_translated = array(
+	"Created In" => "Criado Em", # Date
+	"Edited In" => "Editado Em", # Date
+	Language_Item_Definer("Productive Things", "Coisas Produtivas") => Language_Item_Definer("Productive Things", "Coisas Produtivas"), # Tasks.py writes into this file the full list of tasks done for the current year
+	"Watched Things" => "Coisas Assistidas", # Watch_History.py writes into this file the full list of Watched Things for the current year
+	"Media Comments" => "Comentários de Mídia", # Watch_History.py writes into this file the full list of Media Comments for the current year
+	"Story Progress" => "Progresso das Histórias",
+	"Known People" => "Pessoas Conhecidas",
+	"Python" => "Python",
+	);
+
+	$files_to_show_number = array(
+	Language_Item_Definer("Watched Things", $data_file_names_translated["Watched Things"]),
+	Language_Item_Definer("Productive Things", "Coisas Produtivas"),
+	Language_Item_Definer("Media Comments", $data_file_names_translated["Media Comments"]),
+	Language_Item_Definer("Known People", $data_file_names_translated["Known People"]),
+	);
+
+	$number_in_first_line_files = array(
+	Language_Item_Definer("Known People", $data_file_names_translated["Known People"]),
+	Language_Item_Definer("Media Comments", $data_file_names_translated["Media Comments"]),
+	);
+
+	$countable_files = array();
+
+	array_splice($data_texts, 2, 1, "\n---\n");
+}
+
+
 if ($website_title_backup == $website_titles["Watch History"] or in_array($website_title, $year_websites) == True) {
 	require $media_variables_php;
 

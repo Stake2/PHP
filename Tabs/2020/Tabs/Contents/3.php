@@ -1,7 +1,11 @@
 <?php 
 
 $current_variable_year = 2018;
-$local_current_year = $current_year - 1;
+$local_current_year = $current_year;
+
+if ($php_settings["allow_current_year"] == False) {
+	$local_current_year = $current_year - 1;	
+}
 
 while ($current_variable_year <= $local_current_year) {
 	if ((int)$local_website_name != $current_variable_year) {

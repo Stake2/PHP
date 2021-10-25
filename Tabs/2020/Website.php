@@ -8,7 +8,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	#Website settings setter file includer
+	# Website settings setter file includer
 	require $setting_parameters_file;
 
 	$website_settings["tab_body_generator"] = True;

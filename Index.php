@@ -55,6 +55,8 @@ require $crucial_functions_file_php;
 $website_subdomain_name = Read_Lines($subdomain_file)[0];
 $main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
 
+$php_settings["allow_current_year"] = True;
+
 # Main Arrays PHP file loader
 require $main_arrays_php;
 

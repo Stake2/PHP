@@ -16,14 +16,14 @@ require $text_file_reader_file_php;
 
 $website_descriptions_array = array(
 Null,
-"Website to show how my $local_website_name was, and what I did in it, made by Stake2", 
-"Site para mostrar como meu $local_website_name foi, e o que eu fiz nele, feito por Stake2",
+"Website to show how my $local_website_name was, and what I did in it, made by ".$person_names_array["Izaque"], 
+"Site para mostrar como meu $local_website_name foi, e o que eu fiz nele, feito por ".$person_names_array["Izaque"],
 );
 
 $website_html_descriptions_array = array(
 Null,
-str_replace($local_website_name, Create_Element("span", $text_blue_css_class, $local_website_name), str_replace("Stake2", Create_Element("span", $text_orange_css_class, "Stake2"), $website_descriptions_array[1])),
-str_replace($local_website_name, Create_Element("span", $text_blue_css_class, $local_website_name), str_replace("Stake2", Create_Element("span", $text_orange_css_class, "Stake2"), $website_descriptions_array[2])),
+str_replace($local_website_name, Create_Element("span", $text_blue_css_class, $local_website_name), str_replace($person_names_array["Izaque"], $person_names_painted["Izaque"], $website_descriptions_array[1])),
+str_replace($local_website_name, Create_Element("span", $text_blue_css_class, $local_website_name), str_replace($person_names_array["Izaque"], $person_names_painted["Izaque"], $website_descriptions_array[2])),
 );
 
 # Website name, title, URL and description setter, by language

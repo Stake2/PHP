@@ -167,36 +167,4 @@ $year_websites = array();
 
 $year_websites = Add_Years_To_Array($year_websites, $mode = "dict");
 
-/*
-$websites_array = array();
-
-foreach ($website_titles as $website_title_selector) {
-	$website_title_selector = ucwords($website_title_selector);
-	$website_title_selector = str_replace(" ", "_", $website_title_selector);
-	$website_title_selector = str_replace(",", "", $website_title_selector);
-	$website_title_selector = str_replace(".", "", $website_title_selector);
-	$website_title_selector = ucwords($website_title_selector);
-
-	if ($verbose == True) {
-		echo $website_title_selector."<br />"."\n";
-	}
-
-	array_push($websites_array, $website_title_selector);
-}
-
-$year_code_numbes_array = array();
-
-$current_variable_year = 2018;
-
-$i = 0;
-while ($current_variable_year <= $current_year) {
-	$year_code_numbes_array[$current_variable_year] = $i;
-
-    $current_variable_year++;
-	$i++;
-}
-
-$year_code_numbes_array_keys = array_keys($year_code_numbes_array);
-*/
-
 ?>

@@ -241,13 +241,24 @@ function Insert_Into_Database_Table($table_name, $columns, $values) {
 	$database_connection -> query($sql);
 }
 
-function Add_Years_To_Array($array, $mode = "push", $custom_value = Null, $custom_value_read = Null) {
+function Add_Years_To_Array($array, $mode = "push", $custom_value = Null, $custom_value_read = Null, $less_one = True) {
 	global $current_year;
+	global $php_settings;
 
 	$current_variable_year = 2018;
 
+	$local_current_year = $current_year;
+
+	if ($php_settings["allow_current_year"] == True) {
+		$local_current_year = $local_current_year;
+	}
+
+	elseif ($less_one == True) {
+		$local_current_year = $local_current_year - 1;
+	}
+
 	$year_number = 0;
-	while ($current_variable_year <= $current_year - 1) {
+	while ($current_variable_year <= $local_current_year) {
 		$value = (string)$current_variable_year;
 
 		if ($custom_value != Null) {

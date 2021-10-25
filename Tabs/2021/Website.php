@@ -1,30 +1,29 @@
 <?php 
 
-#2020 Website setter
-if (strpos ($host_text, $website_selector_parameters[0].'='.$website_2021) == True) {
-	$selected_website = $website_2021;
+require $local_website_folder."Name.php";
 
-	$website = $selected_website;
-	$local_current_year = $website;
+if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local_website_name]) == True) {
+	$selected_website = $website_titles[$local_website_name];
+
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	#Website settings setter file includer
+	# Website settings setter file includer
 	require $setting_parameters_file;
 
-	$tabs = array($local_current_year, 'Media', 'Tasks', 'Years');
+	$website_settings["tab_body_generator"] = True;
 
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array($local_current_year, 'Media', 'Tasks', 'Years');
+		$tab_names = array("Summary", "Watched Things", "Years");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array($local_current_year, 'Mídia', 'Tarefas', 'Anos');
+		$tab_names = array("Sumário", "Coisas Assistidas", "Anos");
 	}
 
 	$website_tab_number = count($tab_names) - 1;
 
-	#Includer of the array of the GenericTabs files
+	# Includer of the array of the Generic Tabs files
 	require $generic_tabs_generator_file;
 
 	$found_selected_website = True;
