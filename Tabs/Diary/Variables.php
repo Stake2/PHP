@@ -128,7 +128,7 @@ $use_variable_inserter = False;
 # Buttons and tabs definer
 # Tab chapter_titles definer
 $tab_titles_prototype = array(
-$icons[21]." ".$span_second_text_color,
+$icons_array["open book"],
 #$icons[20].' ❤️',
 $icons[1],
 $icons[12],

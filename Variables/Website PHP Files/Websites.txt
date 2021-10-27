@@ -1,6 +1,7 @@
 Stake2
 Prints of Computer Blocks
 Diary
+Diary Slim
 My Little Pony
 Watch History
 Music

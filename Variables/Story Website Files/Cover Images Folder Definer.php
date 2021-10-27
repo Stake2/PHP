@@ -9,12 +9,26 @@ $cover_folder = $website_media_images_story_covers.$story_folder."/";
 
 $story_chapter_files_folder = $no_language_story_folder.'Chapters/';
 
+if ($website_settings["has_custom_story_folder"] == True) {
+	$story_chapter_files_folder = $local_chapters_folder;
+}
+
 Create_Folder($story_chapter_files_folder);
 
 $story_chapter_files_folder_language = $story_chapter_files_folder."English/";
+
+if ($website_settings["has_custom_story_folder"] == True) {
+	$story_chapter_files_folder_language = $local_chapters_folder;
+}
+
 Create_Folder($story_chapter_files_folder_language);
 
 $story_chapter_files_folder_language = $story_chapter_files_folder."Português Brasileiro/";
+
+if ($website_settings["has_custom_story_folder"] == True) {
+	$story_chapter_files_folder_language = $local_chapters_folder;
+}
+
 Create_Folder($story_chapter_files_folder_language);
 
 $full_language = $full_languages_array[$language_number];
@@ -22,7 +36,11 @@ $full_language = $full_languages_array[$language_number];
 if ($website_language == $geral_language) {
 	$website_language = $enus_language;
 
-	$story_chapter_files_folder_language = $story_chapter_files_folder.$full_language.'/';
+	$story_chapter_files_folder_language = $story_chapter_files_folder;
+
+	if ($website_settings["has_custom_story_folder"] == False) {
+		$story_chapter_files_folder_language .= $full_language.'/';
+	}
 
 	if ($website_story_has_book_covers_setting == True) {
 		$story_book_cover_folder = $cover_folder.$full_language.'/'.$story_book_cover_folder.'/';
@@ -34,12 +52,10 @@ if ($website_language == $geral_language) {
 }
 
 else {
-	if (in_array($website_language, $en_languages_array)) {
-		$story_chapter_files_folder_language = $story_chapter_files_folder.$full_language.'/';
-	}
+	$story_chapter_files_folder_language = $story_chapter_files_folder;
 
-	if (in_array($website_language, $pt_languages_array)) {
-		$story_chapter_files_folder_language = $story_chapter_files_folder.$full_language.'/';
+	if ($website_settings["has_custom_story_folder"] == False) {
+		$story_chapter_files_folder_language .= $full_language.'/';
 	}
 
 	if ($website_story_has_book_covers_setting == True) {

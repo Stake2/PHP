@@ -450,4 +450,21 @@ function Show_True_Or_False($value) {
 	}
 }
 
+function For_Each_Replace($search_items, $replace_items, $string) {
+	$i = 0;
+	foreach ($replace_items as $item) {
+		$item_to_use = $item;
+
+		if (strpos($item_to_use, "{}")) {
+			$item_to_use = format(str_replace("search_item", "", $item_to_use), $search_items[$i]);
+		}
+
+		$string = str_replace($search_items[$i], $item_to_use, $string);
+
+		$i++;
+	}
+
+	return $string;
+}
+
 ?>

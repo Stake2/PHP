@@ -6,6 +6,7 @@ $website_settings = array(
 "tab_body_generator" => False,
 "custom_website_image_border" => False,
 "no_border_in_website_image" => False,
+"has_custom_story_folder" => False,
 );
 
 $uses_custom_buttons_bar_text = "uses_custom_buttons_bar";

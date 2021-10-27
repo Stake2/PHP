@@ -20,7 +20,13 @@ require $comment_generator;
 # Defines the top and bottom texts
 if ($website_write_story_setting == True and $story_name_website_chapter_to_write == $chapter_number_1) {
 	if ($website_story_has_titles == True) {
-		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_writing_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."</b>"."\n\n";
+		$local_chapter_titles = array_values($chapter_titles);
+
+		if (strpos($local_chapter_titles[$chapter_number_4], "/") == True) {
+			$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[0];
+		}
+
+		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_writing_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$local_chapter_titles[$chapter_number_4]."</b>"."\n\n";
 	}
 
 	else {
@@ -30,7 +36,13 @@ if ($website_write_story_setting == True and $story_name_website_chapter_to_writ
 
 else {
 	if ($website_story_has_titles == True) {
-		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_reading_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$chapter_titles[$chapter_number_4]."</b>"."\n\n";
+		$local_chapter_titles = array_values($chapter_titles);
+
+		if (strpos($local_chapter_titles[$chapter_number_4], "/") == True) {
+			$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[0];
+		}
+
+		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_reading_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$local_chapter_titles[$chapter_number_4]."</b>"."\n\n";
 	}
 
 	else {

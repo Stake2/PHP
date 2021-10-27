@@ -51,7 +51,7 @@ if ($website_uses_universal_file_reader == True) {
 }
 
 if (in_array($website_title, $year_websites) == True and $website_title_backup == "2019" or in_array($website_title, $year_websites) == True and $website_title_backup == "2020") {
-	$current_year_data_folder = $year_folders[$local_current_year]."Data/";
+	$current_year_data_folder = $year_folders[$local_current_year]."/Data/";
 	Create_Folder($current_year_data_folder);
 
 	if ($local_current_year == 2019) {
@@ -258,7 +258,6 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 
 	array_splice($data_texts, 2, 1, "\n---\n");
 }
-
 
 if ($website_title_backup == $website_titles["Watch History"] or in_array($website_title, $year_websites) == True) {
 	require $media_variables_php;
@@ -487,7 +486,12 @@ if ($website_type == $story_website_type) {
 	$story_folder = $mega_stories_folder.$story_folder."/";
 	$story_info_folder = $story_folder."Story Info/";
 	$story_database_folder = $mega_stories_folder."Story Database/";
+
 	$story_chapter_files_folder = $story_folder."Chapters/";
+
+	if ($website_settings["has_custom_story_folder"] == True) {
+		$story_chapter_files_folder = $local_chapters_folder;
+	}
 
 	Create_Folder($story_info_folder);
 	Create_Folder($story_database_folder);
@@ -514,6 +518,10 @@ if ($website_type == $story_website_type) {
 	Create_File($story_readers_file);
 	Create_File($story_chapter_status_file);
 	Create_File($story_author_file);
+
+	if ($website_settings["has_custom_story_folder"] == True) {
+		$story_folder = $no_language_story_folder;
+	}
 
 	# Last Posted Chapter file
 	$last_posted_chapter = explode(" - ", array_reverse(Read_Lines($story_chapter_status_file))[0])[0];
@@ -544,20 +552,44 @@ if ($website_type == $story_website_type) {
 
 	$titles_enus_folder = $story_chapter_files_folder.$full_language_enus."/".$titles_english_text."/";
 
-	Create_Folder($titles_enus_folder);
+	if ($website_settings["has_custom_story_folder"] == True) {
+		$titles_enus_folder = $chapter_titles_folder;
+	}
+
+	else {
+		Create_Folder($titles_enus_folder);
+	}
 
 	$titles_enus_file = $titles_enus_folder.$titles_english_text.".txt";
 
-	Create_File($titles_enus_file);
+	if ($website_settings["has_custom_story_folder"] == True) {
+		$titles_enus_file = $chapter_titles_enus_file;
+	}
+
+	else {
+		Create_File($titles_enus_file);
+	}
 
 	# Language-dependent text files
 	$story_titles_folder = $story_chapter_files_folder.$full_language."/".$titles_text."/";
 
-	Create_Folder($story_titles_folder);
+	if ($website_settings["has_custom_story_folder"] == True) {
+		$story_titles_folder = $chapter_titles_folder;
+	}
+
+	else {
+		Create_Folder($story_titles_folder);
+	}
 
 	$titles_file = $story_titles_folder.$titles_text.".txt";
 
-	Create_File($titles_file);
+	if ($website_settings["has_custom_story_folder"] == True) {
+		$titles_file = $chapter_titles_file;
+	}
+
+	else {
+		Create_File($titles_file);
+	}
 
 	$chapters = Line_Number($titles_file);
 
@@ -575,6 +607,30 @@ if ($website_type == $story_website_type) {
 	$story_synopsis_portuguese = Read_String($story_synopsis_portuguese_file);
 
 	$chapter_titles = Read_Lines($titles_file);
+
+	if ($website_settings["has_custom_story_folder"] == True) {
+		$i = 0;
+		foreach ($titles_files as $local_titles_file) {
+			$titles_file_texts[] = Read_Lines($local_titles_file);
+
+			$i++;
+		}
+
+		$i = 0;
+		foreach ($chapter_titles as $text) {
+			$text_to_add = "";
+
+			foreach ($titles_file_texts as $titles_file_text) {
+				$text_to_add .= $titles_file_text[$i];
+			}
+
+			$chapter_titles[$i] = $text_to_add.$text;
+
+			#echo $chapter_titles[$i]."<br />";
+
+			$i++;
+		}
+	}
 
 	$chapter_titles_enus = Read_Lines($titles_enus_file);
 
