@@ -11,7 +11,7 @@ if ($write_new_chapter == True and $chapter_number_1 == $chapters + 1) {
 }
 
 # Chapter date displayer
-if ($website_name != $website_the_story_of_the_bulkan_siblings and $story_has_dates == True) {
+if ($website_name != $website_titles["The Story of the Bulkan Siblings"] and $story_has_dates == True) {
 	$chapter_written_dates = Read_Lines($chapter_dates_file);
 
 	echo "<br />";

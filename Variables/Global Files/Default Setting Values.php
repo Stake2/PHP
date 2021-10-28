@@ -7,6 +7,7 @@ $website_settings = array(
 "custom_website_image_border" => False,
 "no_border_in_website_image" => False,
 "has_custom_story_folder" => False,
+"replace_story_text" => False,
 );
 
 $uses_custom_buttons_bar_text = "uses_custom_buttons_bar";

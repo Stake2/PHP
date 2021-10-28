@@ -28,6 +28,42 @@ $website_images_folder = $website_media_images_website_images.$story_folder."/";
 $website_image = $website_story_name;
 $image_format = "png";
 
+$story_texts_to_replace = array(
+"Paranavaí",
+"Morumbi",
+"Terra Rica",
+"Maringá",
+"Parqueingá",
+"Cambé",
+"Nova Esperança",
+"Leonardo",
+"irmã Gabrielle",
+"irmã Gabi",
+" Aline",
+"Aline",
+"Michel",
+" Cristiano",
+" Patrícia",
+);
+
+$story_texts_to_add = array(
+"[Minha cidade]",
+"[Bairro da minha cidade]",
+"[Cidade onde a maioria dos meus parentes moram]",
+"[Cidade onde minha segunda irmã e o namorado dela moram]",
+"[Parque na cidade onde minha segunda irmã e o namorado dela moram]",
+"[Cidade onde meu irmão e minha cunhada moram]",
+"[Cidade onde meu irmão e minha cunhada moravam]",
+"[Namorado da minha segunda irmã]",
+"segunda irmã",
+"segunda irmã",
+"[Minha primeira irmã]",
+"[Minha primeira irmã]",
+"[Namorado da minha primeira irmã]",
+" mais velho",
+"",
+);
+
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 

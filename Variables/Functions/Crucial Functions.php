@@ -26,13 +26,24 @@ function format($text, $parameters) {
 
 function Remove_Text_From_String($item, $text_to_replace = Null) {
 	global $line_replace_array;
+	global $custom_replace_values;
 
 	if ($text_to_replace == Null) {
 		$text_to_replace = $line_replace_array;
 	}
 
+	$local_text_to_add = "";
+
+	if (isset($custom_replace_values) == True and is_array($text_to_replace) == True) {
+		foreach ($text_to_replace as $text) {
+			if (isset($custom_replace_values[(string)$text])) {
+				$local_text_to_add = $custom_replace_values[(string)$text];
+			}
+		}
+	}
+
 	if (is_string($item) or is_array($item)) {
-		return str_replace($text_to_replace, "", $item);
+		return str_replace($text_to_replace, $local_text_to_add, $item);
 	}
 }
 

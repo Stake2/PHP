@@ -33,6 +33,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
 	$website_shows_chapter_covers = True;
 	$story_shows_story_covers = False;
+	$story_website_uses_chapter_opener = True;
 
 	#Website Tabs array
 	$tabs = array("Chapters", "Characters");

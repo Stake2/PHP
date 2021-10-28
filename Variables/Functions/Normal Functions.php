@@ -1,10 +1,28 @@
 <?php
 
+function For_Each_Replace($search_items, $replace_items, $string) {
+	$i = 0;
+	foreach ($replace_items as $item) {
+		$item_to_use = $item;
+
+		if (strpos($item_to_use, "{}")) {
+			$item_to_use = format(str_replace("search_item", "", $item_to_use), $search_items[$i]);
+		}
+
+		$string = str_replace($search_items[$i], $item_to_use, $string);
+
+		$i++;
+	}
+
+	return $string;
+}
+
 function Show_Text($file, $style_format = Null) {
 	global $variable_inserter_array;
 	global $use_variable_inserter;
-	global $website_name;
-	global $website_the_story_of_the_bulkan_siblings;
+	global $website_settings;
+	global $story_texts_to_replace;
+	global $story_texts_to_add;
 
 	$file_read = Open_File($file);
 
@@ -15,6 +33,10 @@ function Show_Text($file, $style_format = Null) {
 
 			if ($style_format != Null) {
 				$text_line = format($style_format, $text_line);
+			}
+
+			if ($website_settings["replace_story_text"] == True and isset($story_texts_to_replace) == True and isset($story_texts_to_add) == True) {
+				$text_line = For_Each_Replace($story_texts_to_replace, $story_texts_to_add, $text_line);
 			}
 
 			if ($use_variable_inserter == True) {
@@ -448,23 +470,6 @@ function Show_True_Or_False($value) {
 	if ($value == False) {
 		Show("False");
 	}
-}
-
-function For_Each_Replace($search_items, $replace_items, $string) {
-	$i = 0;
-	foreach ($replace_items as $item) {
-		$item_to_use = $item;
-
-		if (strpos($item_to_use, "{}")) {
-			$item_to_use = format(str_replace("search_item", "", $item_to_use), $search_items[$i]);
-		}
-
-		$string = str_replace($search_items[$i], $item_to_use, $string);
-
-		$i++;
-	}
-
-	return $string;
 }
 
 ?>
