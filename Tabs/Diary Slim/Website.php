@@ -31,7 +31,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$story_has_chapter_comments = False; #Defines if the story has comments on the chapter
 	$story_website_contains_reads = False; #Defines if the story has story_reads_array on it
 	$story_website_contains_comments = False; #Defines if the story has comments on it
-	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
+	$website_story_has_book_covers_setting = False; #Defines if website has book covers for the story
 	$website_shows_chapter_covers = True;
 	$story_shows_story_covers = False;
 

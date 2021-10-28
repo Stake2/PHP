@@ -25,6 +25,9 @@ $chapter_titles_folder."All File Month Folders.txt",
 
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
+$website_image = $website_story_name;
+$image_format = "png";
+
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
 require $cover_images_folder_definer_php_variable;
 
