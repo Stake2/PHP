@@ -2,15 +2,19 @@
 
 echo 'var chapter_text = "'.$chapter_div_text.'";'."\n"."\n";
 
-echo 'function Open_Chapter(chapter_title, chapter_number) {'."\n";
-echo '	var new_chapter_text = chapter_text + chapter_number;'."\n";
+echo "function Open_Chapter(chapter_title, chapter_number) {"."\n";
+echo "	var new_chapter_text = chapter_text + chapter_number;"."\n";
 echo '	openCity(new_chapter_text);'."\n";
 echo '	document.getElementById(new_chapter_text).scrollIntoView();'."\n";
 echo '	Chapter_Number = chapter_number;'."\n";
 echo '	Define_Chapter(Chapter_Number);'."\n";
 echo '	Add_To_Website_Title(chapter_title, "notification");'."\n";
-echo '	Hide_Computer_Notification();'."\n";
-echo '	Hide_Mobile_Notification();'."\n";
+
+if ($website_has_notifications == True) {
+	echo '	Hide_Computer_Notification();'."\n";
+	echo '	Hide_Mobile_Notification();'."\n";
+}
+
 echo '}'."\n";
 
 echo '
@@ -73,6 +77,42 @@ echo "}"."\n".
 'console.log("Open Chapter Script was loaded.");'."\n";
 
 echo "\n";
-echo 'Check_Chapter_Number_On_Link();'."\n";
+echo "Check_Chapter_Number_On_Link();"."\n";
+echo "\n";
+echo "var local_website_url = String(window.location);"."\n";
+echo "\n";
+echo 'var last_chapter_texts = [
+"Last_Chapter",
+"Last Chapter",
+"last_chapter",
+"last chapter",
+
+"Último_Capítulo",
+"Último Capítulo",
+"último_capítulo",
+"último capítulo",
+
+"%C3%9Altimo_Capítulo",
+"%C3%9Altimo Capítulo",
+"%C3%BAltimo_cap%C3%ADtulo",
+"%C3%BAltimo cap%C3%ADtulo",
+"%C3%9Altimo%20Cap%C3%ADtulo",
+"%C3%9Altimo Cap%C3%ADtulo",
+
+"Ultimo_Capítulo",
+"Ultimo Capítulo",
+"ultimo_capítulo",
+"ultimo capítulo",
+];
+
+var parameter_text = local_website_url.split("&")[local_website_url.split("&").length - 1];
+var parameter_text_replaced = parameter_text.replace("[", "").replace("]", "").replace("(", "").replace(")", "").replace("%20", " ");
+
+console.log("Parameter Text: " + parameter_text);
+console.log("Replaced Parameter Text: " + parameter_text_replaced);
+
+if (last_chapter_texts.indexOf(parameter_text_replaced) != -1) {
+	Open_Chapter(Last_Chapter_Title, Last_Chapter);
+}'."\n";
 
 ?>

@@ -19,8 +19,8 @@ $chapter_titles_file = $chapter_titles_folder."All File Names.txt";
 $chapter_titles_enus_file = $chapter_titles_file;
 
 $titles_files = array(
-$chapter_titles_folder."All File Year Folders.txt",
-$chapter_titles_folder."All File Month Folders.txt",
+$chapter_titles_folder."All Year Folders.txt",
+$chapter_titles_folder."All Month Folders.txt",
 );
 
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
@@ -37,10 +37,6 @@ $story_texts_to_replace = array(
 "Cambé",
 "Nova Esperança",
 "Leonardo",
-"irmã Gabrielle",
-"irmã Gabi",
-" Aline",
-"Aline",
 "Michel",
 " Cristiano",
 " Patrícia",
@@ -55,10 +51,6 @@ $story_texts_to_add = array(
 "[Cidade onde meu irmão e minha cunhada moram]",
 "[Cidade onde meu irmão e minha cunhada moravam]",
 "[Namorado da minha segunda irmã]",
-"segunda irmã",
-"segunda irmã",
-"[Minha primeira irmã]",
-"[Minha primeira irmã]",
 "[Namorado da minha primeira irmã]",
 " mais velho",
 "",

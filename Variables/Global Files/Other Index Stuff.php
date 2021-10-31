@@ -39,10 +39,21 @@ if ($website_uses_custom_layout_setting == False) {
 }
 
 if ($website_type == $story_website_type) {
-	echo "\n".'<script>"."\n".
-	Chapter_Number = 1;"."\n".
-	"var Last_Chapter = '.$chapters.';"."\n".
-	"</script>';
+	$text_to_show = "\n"."<script>"."\n".
+	"Chapter_Number = 1;"."\n".
+	"var Last_Chapter = ".$chapters.";"."\n";
+
+	if ($website_story_has_titles == True) {
+		$text_to_show .= "var Last_Chapter_Title = \"".$chapters." - ".$chapter_titles[($chapters - 1)]."\";"."\n";
+	}
+
+	else {
+		$text_to_show .= "var Last_Chapter_Title = \"".$chapters."\";"."\n";
+	}
+
+	$text_to_show .= "</script>";
+
+	echo $text_to_show;
 
 	echo "<script>"."\n".
 	"Get_Title();"."\n".
