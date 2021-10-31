@@ -5,6 +5,12 @@ echo '<div style="text-align:left;">'."\n";
 
 $use_variable_inserter = False;
 
+$year_summary_text = "";
+
+$year_summary_text .= Language_Item_Definer("Author", "Autor").": ".$person_names_array["Izaque"]."\n";
+$year_summary_text .= Language_Item_Definer("Created In", $data_file_names_translated["Created In"]).": ".$data_texts["Created In"][0]."\n";
+$year_summary_text .= Language_Item_Definer("Edited In", $data_file_names_translated["Edited In"]).": ".$data_texts["Edited In"][0]."\n";
+
 echo Create_Element("b", "", Language_Item_Definer("Author", "Autor").": ").$person_names_array["Izaque"]."\n"."<br />";
 echo Create_Element("b", "", Language_Item_Definer("Created In", $data_file_names_translated["Created In"]).": ").$data_texts["Created In"][0]."\n"."<br />";
 echo Create_Element("b", "", Language_Item_Definer("Edited In", $data_file_names_translated["Edited In"]).": ").$data_texts["Edited In"][0]."\n"."<br />";
@@ -54,6 +60,8 @@ foreach ($data_file_names as $file_name) {
 
 					$number += (int)$chapter_number;
 				}
+
+				$global_chapter_number = $number;
 			}
 
 			else {
@@ -70,10 +78,14 @@ foreach ($data_file_names as $file_name) {
 	}
 }
 
+$year_summary_text .= "\n-----\n\n";
+
 echo "\n"."<br />";
 echo Create_Element("b", "", "-----")."\n";
 echo "\n"."<br />";
 echo "\n"."<br />";
+
+$year_summary_text .= Language_Item_Definer("Things Done In", "Coisas Feitas Em")." ".$local_website_name.": ".$total_things_done_on_current_year."\n";
 
 echo Create_Element("b", "", Language_Item_Definer("Things Done In", "Coisas Feitas Em")." ".$local_website_name.": ").$total_things_done_on_current_year."\n";
 echo "\n"."<br />";
@@ -86,27 +98,44 @@ foreach ($data_file_names as $file_name) {
 
 	$file_name_title = Create_Element("b", "", $file_name.": ")."\n";
 
+	$year_summary_text .= $file_name.": ";
+
 	if ($add_br == True) {
 		$file_name_title .= "<br />";
+		$year_summary_text .= "\n";
 	}
 
 	echo $file_name_title;
 
 	if (in_array($file_name, $files_to_show_number) == False) {
 		$i = 1;
+
 		foreach (Read_Lines($file) as $text) {
 			if ($file_name == Language_Item_Definer("New Stories", "Novas Histórias")) {
 				echo "\n"."<br />";
 
+				$year_summary_text .= "\n";
+
 				Show((string)$i." - ".explode(", ", $text)[Language_Item_Definer(0, 1)], $add_br);
+
+				$year_summary_text .= (string)$i." - ".explode(", ", $text)[Language_Item_Definer(0, 1)];
+
+				if ($add_br == True) {
+					$year_summary_text .= "\n";
+				}
 
 				if ($text == array_reverse(Read_Lines($file))[0]) {
 					echo "\n"."<br />";
+					$year_summary_text .= "\n";
 				}
 			}
 
 			elseif ($file_name == Language_Item_Definer("People", "Pessoas")) {
-				Show($text." ".Define_Text_By_Number((int)Read_Lines($file)[0], Language_Item_Definer("person", "pessoa"), Language_Item_Definer("people", "pessoas")), $add_br);
+				$text_to_show = $text." ".Define_Text_By_Number((int)Read_Lines($file)[0], Language_Item_Definer("person", "pessoa"), Language_Item_Definer("people", "pessoas"));
+
+				Show($text_to_show, $add_br);
+
+				$year_summary_text .= $text_to_show;
 			}
 
 			elseif ($file_name == Language_Item_Definer("Story Progress", "Progresso das Histórias")) {
@@ -129,27 +158,42 @@ foreach ($data_file_names as $file_name) {
 				echo "\n"."<br />";
 				Show($text, $add_br);
 
+				$year_summary_text .= "\n".$text;
+
+				if ($add_br == True) {
+					$year_summary_text .= "\n";
+				}
+
 				if ($text_backup == array_reverse(Read_Lines($file))[0]) {
 					echo "\n"."<br />";
+					$year_summary_text .= "\n";
 				}
 			}
 
 			else {
 				if (count(Read_Lines($file)) <= 1) {
 					Show($text, $add_br);
+
+					$year_summary_text .= $text;
 				}
 
 				else {
 					if ($text == Read_Lines($file)[0]) {
 						echo "\n"."<br />";
+
+						$year_summary_text .= "\n";
 					}
 
 					if (in_array($file_name, $countable_files)) {
 						Show((string)$i." - ".$text, $add_br = True);
+
+						$year_summary_text .= (string)$i." - ".$text."\n";
 					}
 
 					else {
 						Show($text, $add_br = True);
+
+						$year_summary_text .= $text."\n";
 					}
 
 					if ($text == array_reverse(Read_Lines($file))[0]) {
@@ -165,15 +209,32 @@ foreach ($data_file_names as $file_name) {
 	else {
 		if (in_array($file_name, $number_in_first_line_files) == False) {
 			Show(Line_Number($file), $add_br);
+
+			$year_summary_text .= Line_Number($file);
+
+			if ($add_br == True) {
+				$year_summary_text .= "\n";
+			}
 		}
 
 		elseif (in_array($file_name, $number_in_first_line_files) == True) {
 			Show(Read_Lines($file)[0], $add_br = $add_br);
 
+			$year_summary_text .= Read_Lines($file)[0];
+
+			if ($add_br == True) {
+				$year_summary_text .= "\n";
+			}
+
 			if ($file_name == Language_Item_Definer("Media Comments", "Comentários de Mídia")) {
 				echo "\n"."<br />";
+				$year_summary_text .= "\n";
 			}
 		}
+	}
+
+	if ($file_name != array_reverse($data_file_names)[0]) {
+		$year_summary_text .= "\n";
 	}
 
 	echo "\n"."<br />";

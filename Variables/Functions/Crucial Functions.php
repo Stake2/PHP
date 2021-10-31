@@ -150,10 +150,14 @@ function Read_String($file) {
 	}
 }
 
-function Language_Item_Definer($english_variable, $portuguese_variable) {
+function Language_Item_Definer($english_variable, $portuguese_variable, $custom_language = Null) {
 	global $website_language;
 	global $en_languages_array;
 	global $pt_languages_array;
+
+	if ($custom_language != Null) {
+		$website_language = $custom_language;
+	}
 
 	if (in_array($website_language, $en_languages_array)) {
 		$variable = $english_variable;

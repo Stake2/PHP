@@ -235,6 +235,7 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 	"Created In" => "Criado Em", # Date
 	"Edited In" => "Editado Em", # Date
 	Language_Item_Definer("Productive Things", "Coisas Produtivas") => Language_Item_Definer("Productive Things", "Coisas Produtivas"), # Tasks.py writes into this file the full list of tasks done for the current year
+	"Productive Things" => "Coisas Produtivas",
 	"Watched Things" => "Coisas Assistidas", # Watch_History.py writes into this file the full list of Watched Things for the current year
 	"Media Comments" => "Comentários de Mídia", # Watch_History.py writes into this file the full list of Media Comments for the current year
 	"Story Progress" => "Progresso das Histórias",

@@ -183,4 +183,14 @@ if ($return == True) {
 	}
 }
 
+if (in_array($website_title_backup, $year_websites) == True and $website_language != $language_geral and $website_language != $language_ptpt) {
+	$year_summary_file = $year_language_folders[$full_language][$website_title_backup].Language_Item_Definer("Summary", "Sumário").".txt";
+
+	if ($website_title_backup == "2020" and $website_language == $language_ptbr) {
+		$year_summary_text = substr_replace($year_summary_text, "", -1);
+	}
+
+	Write_To_File($year_summary_file, $year_summary_text);
+}
+
 ?>
