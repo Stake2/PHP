@@ -96,7 +96,9 @@ if ($website_is_for_other_person_setting == False) {
 	$twitter_info = "\n".'<meta name="twitter:card" content="summary" />
 <meta name="twitter:website" value="@'.$handle.'" />
 <meta name="twitter:site" value="@'.$handle.'" />
-<meta name="twitter:creator" content="@'.$handle.'" />';
+<meta name="twitter:creator" content="@'.$handle.'" />
+<meta content="summary_large_image" name="twitter:card" />
+<meta content="'.$website_link.'" name="twitter:url" />';
 }
 
 $website_head = '
@@ -113,7 +115,8 @@ $website_head = '
 <link rel="canonical" href="'.$website_link.'" />
 <link rel="icon" type="image/'.$image_format.'" href="'.$website_image.'" />
 <link rel="image_src" type="image/'.$image_format.'" href="'.$website_image.'" />
-<meta name="description" content="'.$website_meta_description.'" />'
+<meta name="description" content="'.$website_meta_description.'" />
+<meta content="#916f3b" name="theme-color" />'
 .$twitter_info.'
 <meta name="revised" content="'."Stake2's Enterprise TM".', '.$data.'" />
 <meta name="author" content="Stake2" />

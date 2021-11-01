@@ -106,7 +106,7 @@ echo 'var last_chapter_texts = [
 ];
 
 var parameter_text = local_website_url.split("?")[local_website_url.split("?").length - 1];
-var parameter_text_replaced = parameter_text.replace("[", "").replace("]", "").replace("(", "").replace(")", "").replace("%20", " ");
+var parameter_text_replaced = parameter_text.replace("[", "").replace("]", "").replace("(", "").replace(")", "").replace("%20", " ").replace("#", " ");
 
 console.log("Parameter Text: " + parameter_text);
 console.log("Replaced Parameter Text: " + parameter_text_replaced);
