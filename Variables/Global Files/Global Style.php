@@ -34,6 +34,8 @@ $colors_array = array(
 "dark-brown",
 "pink",
 "dark-pink",
+"purple",
+"light-purple",
 );
 
 $border_1px_solid_array = array();
@@ -71,11 +73,16 @@ $css_class_arrays_length = count($css_class_arrays) - 1;
 
 $i = 0;
 while ($i <= $css_class_arrays_length) {
+	$color_text_parameter = substr_replace($css_class_arrays_selector_text[$i], "", -1);
+	${"css_class_$color_text_parameter"} = array();
+
 	foreach ($colors_array as $color) {
 		$replaced_color = str_replace("-", "_", $color);
-		$color_text = $css_class_arrays_selector_text[$i].$replaced_color."_css_class";
+		$color_text = $css_class_arrays_selector_text[$i].$replaced_color."_css_class";		
 
 		${"$color_text"} = $css_class_arrays_selector_text[$i].$replaced_color;
+
+		${"css_$color_text_parameter"."s"}[$replaced_color] = $css_class_arrays_selector_text[$i].$replaced_color;
 
 		array_push(${"$css_class_arrays[$i]"}, ${"$color_text"});
 	}
@@ -114,6 +121,9 @@ $w3_text_colors = array();
 array_push($colors_array, "orange");
 array_push($colors_array, "purple");
 array_push($colors_array, "pink");
+array_push($colors_array, "yellow");
+array_push($colors_array, "blue");
+array_push($colors_array, "white");
 array_push($colors_array, "text_green_water");
 
 $w3_text_colors_dict = array();
@@ -322,6 +332,7 @@ $icons_array = array(
 "eye" => '<i class="fas fa-eye"></i>',
 "images" => '<i class="fas fa-images"></i>',
 "tasks" => '<i class="fas fa-tasks"></i>',
+"heart" => '<i class="fas fa-heart"></i>',
 );
 
 $color = $background_brown_css_class;

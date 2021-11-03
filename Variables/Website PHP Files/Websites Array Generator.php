@@ -11,14 +11,14 @@ foreach ($website_titles as $value) {
 
 $i = 0;
 foreach ($website_titles as $value) {
-	$website_keys[$value] = str_replace(" ", "_", strtolower($value));
+	$website_keys[$value] = Remove_Non_File_Characters(str_replace(" ", "_", strtolower($value)));
 
 	$i++;
 }
 
 $i = 0;
 foreach ($website_titles as $value) {
-	$folder = $php_folder_tabs.$value."/";
+	$folder = $php_folder_tabs.Remove_Non_File_Characters($value)."/";
 
 	$website_folders[$value] = $folder;
 

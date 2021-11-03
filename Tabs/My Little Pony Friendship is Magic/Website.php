@@ -12,13 +12,15 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	# Website settings setter file includer
 	require $setting_parameters_file;
 
+	$website_settings["tab_body_generator"] = True;
+
 	# Website Tab names array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array("Read text");
+		$tab_names = array("Read thankful text");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array("Ler texto");
+		$tab_names = array("Ler texto de agradecimento");
 	}
 
 	#Number of tabs

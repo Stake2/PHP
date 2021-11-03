@@ -13,26 +13,29 @@ $website_background_color = $website_style_variables_array[$i];
 
 */
 
-$website_style_variables_array = array(
-$background_color = $background_purple_css_class,
-$header_background_color = $background_black_css_class,
-$tab_background_color = $background_black_css_class,
-$additional_background_color = $background_blue_css_class,
+$border_color = $border_color_purple_css_class;
+$main_color = "purple";
 
-$first_text_color = $text_blue_css_class,
+$website_style_variables_array = array(
+$background_color = $css_backgrounds[$main_color],
+$header_background_color = $css_backgrounds["black"],
+$tab_background_color = $css_backgrounds["black"],
+$additional_background_color = $css_backgrounds[$main_color],
+
+$first_text_color = $css_texts[$main_color],
 $second_text_color = 'w3-text-yellow',
 $third_text_color = 'w3-text-white',
 $tab_text_color = $first_text_color,
 
-$first_border_color = $border_color_blue_css_class,
-$second_border_color = $border_color_blue_css_class,
+$first_border_color = $border_color,
+$second_border_color = $border_color,
 $third_border_color = $border_color_black_css_class,
-$tab_border_color = $border_color_blue_css_class,
+$tab_border_color = $border_color,
 $websites_tab_border_color = $border_color_black_css_class,
 
 $first_button_color = $additional_background_color,
 $second_button_color = $background_color,
-$click_button_color = $background_yellow_css_class,
+$click_button_color = $background_pink_css_class,
 
 $border_color = $default_border_color,
 $border_size = $default_border_color,
@@ -54,8 +57,8 @@ $computer_image_size = "31",
 $mobile_image_size = "55",
 
 $form_color_border = $border_4px_solid_black_css_class,
-$form_color_foreground = $background_brown_css_class,
-$form_color_background = $background_darker_brown_css_class,
+$form_color_foreground = $css_backgrounds[$main_color],
+$form_color_background = $css_backgrounds[$main_color],
 $form_color_text = $text_black_css_class,
 $full_form_send_button_style = $border_3px_solid_black_css_class." ".$form_color_background." ".$form_color_text,
 $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color_text,

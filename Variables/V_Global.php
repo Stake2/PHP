@@ -102,10 +102,10 @@ if ($website_is_for_other_person_setting == False) {
 }
 
 $website_head = '
-<title>'.$website_title.'</title>
+<title>'.$website_title_text.'</title>
 <meta property="og:type" content="website" />
-<meta property="og:title" content="'.$website_title.'" />
-<meta property="og:site_name" content="'.$website_title.'" />
+<meta property="og:title" content="'.$website_title_text.'" />
+<meta property="og:site_name" content="'.$website_title_text.'" />
 <meta property="og:url" content="'.$website_link.'" />
 <meta property="og:image" content="'.$website_image.'" />
 <meta property="og:description" content="'.$website_meta_description.'" />

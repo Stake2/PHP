@@ -11,7 +11,7 @@ $website_types_text_file = $website_php_files_folder."Website Types.txt";
 
 $websites = Read_Lines($websites_text_file);
 
-$portuguese_websites = Make_Setting_Dictionary(Read_Lines($websites_portuguese_text_file), ": ");
+$portuguese_websites = Make_Setting_Dictionary(Read_Lines($websites_portuguese_text_file), "=");
 
 $website_types_text = Read_Lines($website_types_text_file);
 
@@ -139,7 +139,7 @@ foreach ($websites as $local_website_name) {
 		$local_website_link .= "Years/";
 	}
 
-	$local_website_link .= $local_website_name."/";
+	$local_website_link .= Remove_Non_File_Characters($local_website_name)."/";
 
 	if ($local_website_type == "N") {
 		$local_website_type = $normal_website_type;

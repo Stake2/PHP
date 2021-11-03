@@ -7,4 +7,6 @@ foreach ($website_titles as $value) {
 	$website_link_buttons[$value] = Make_Website_Button($local_website_link, $local_website_title, $first_button_style);
 }
 
+unset($website_link_buttons[$website_title_backup]);
+
 ?>

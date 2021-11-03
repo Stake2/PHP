@@ -27,10 +27,8 @@ echo '<hr class="'.$computer_variable.' '.$websites_tab_border.'" />'."\n";
 echo $div_zoom_animation."\n";
 echo '<'.$h4_element.' class="'.$websites_tab_div_color.'" style="'.$rounded_border_style_2.'">'."\n";
 
-foreach ($website_titles as $value) {
-	$local_website_link_button = $website_link_buttons[$value];
-
-	echo $local_website_link_button;
+foreach ($website_link_buttons as $website_link_button) {
+	echo $website_link_button;
 	echo "<br />"."\n";
 }
 
@@ -57,10 +55,8 @@ echo '<hr class="'.$mobile_variable.' '.$websites_tab_border.'" />'."\n";
 echo $div_zoom_animation."\n";
 echo '<'.$h4_element.' class="'.$websites_tab_div_color.'" style="'.$rounded_border_style_2.'">'."\n";
 
-foreach ($website_titles as $value) {
-	$local_website_link_button = $website_link_buttons[$value];
-
-	echo $local_website_link_button;
+foreach ($website_link_buttons as $website_link_button) {
+	echo $website_link_button;
 	echo "<br />"."\n";
 }
 
