@@ -1,5 +1,7 @@
 <?php 
 
+$website_images_folder = $website_media_images_website_images.$website_title."/";
+
 # Website image link and image size
 $image_format = "png";
 $website_image = $website_media_images_website_icons.Remove_Non_File_Characters($website_title).".".$image_format;
@@ -70,8 +72,12 @@ $website_meta_description = $website_descriptions_array[$language_number];
 $website_header_description = $website_header_descriptions[$language_number];
 
 if ($website_language != $language_geral) {
-	$website_title_text .= " ".$website_title_language;
-	$website_title_header = str_replace(': '.$icons[11], "", $website_title_header);
+	$website_title_header = $my_little_pony_name_colored.": ".$icons_array["open book"]." ".$icons_array["heart"];
+
+	if ($website_language == $ptpt_language) {
+		$website_title_text .= " ".$website_title_language;
+	}
+
 	$website_link .= $website_link_language."/";
 }
 
@@ -107,6 +113,13 @@ foreach ($full_languages_array_no_null as $language) {
 }
 
 $thankful_text_file = $website_folder.Language_Item_Definer("Thankful Text", "Texto de Agradecimento").".txt";
+
+$custom_css_style = "body {
+	background-image: url(\"".$website_images_folder."Mane Six Color Gradient.png"."\");
+	background-position: center;
+	/* background-repeat: no-repeat; */
+	background-size: cover; /*
+}";
 
 # Website Style.php File Includer
 require $website_style_file;

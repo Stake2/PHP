@@ -78,4 +78,8 @@ echo "<script>"."\n".
 "Hide_Mobile_Buttons();"."\n".
 "</script>"."\n";
 
+if (isset($website_settings["custom_css_style"]) and $website_settings["custom_css_style"] == True) {
+	echo Create_Element("style", "", $custom_css_style);
+}
+
 ?>

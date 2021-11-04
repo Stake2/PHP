@@ -86,20 +86,20 @@ Language_Item_Definer("Diary", "Diário"),
 );
 
 $replace_items = array(
-Create_Element("span", $w3_text_colors["white"], $multi_persons["Izaque"]),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["white"], "{}search_item"),
-Create_Element("span", $w3_text_colors["blue"], "{}search_item"),
-Create_Element("span", $w3_text_colors["brown"], "{}search_item"),
-Create_Element("span", $w3_text_colors["blue"], "{}search_item"),
-Create_Element("span", $w3_text_colors["blue"], "{}search_item"),
-Create_Element("span", $w3_text_colors["blue"], "{}search_item"),
+Create_Element("span", $css_texts["white"], $multi_persons["Izaque"]),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
+Create_Element("span", $css_texts["blue"], "{}search_item"),
+Create_Element("span", $css_texts["brown"], "{}search_item"),
+Create_Element("span", $css_texts["blue"], "{}search_item"),
+Create_Element("span", $css_texts["blue"], "{}search_item"),
+Create_Element("span", $css_texts["blue"], "{}search_item"),
 );
 
 $website_header_description = For_Each_Replace($search_items, $replace_items, $website_header_description);
@@ -138,19 +138,16 @@ $tab_texts = array();
 Make_Button_Names();
 
 # Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title = $general_story_name;
 $website_title_header = $general_story_name.': '.$icons[11];
 $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
-	$website_title = $website_story_name;
+	$website_title_header = $website_title_text.': '.$icons[11];
 
 	if ($website_language == $ptpt_language) {
-		$website_title = $website_story_name." ".strtoupper($website_title_language);
+		$website_title_text .= " ".$website_title_language;
 	}
 
-	$website_title_header = $website_title.': '.$icons[11];
 	$website_link .= $website_link_language."/";
 }
 
