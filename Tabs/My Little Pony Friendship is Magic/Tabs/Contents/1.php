@@ -1,6 +1,6 @@
 <?php 
 
-$thankful_text = Read_Lines($thankful_text_file);
+$thankful_text = Stringfy_Array(Read_Lines($thankful_text_file), $add_br = True);
 
 $search_items = array(
 "Izaque Sanvezzo, Stake2, Funkysnipa Cat",
@@ -24,6 +24,7 @@ Language_Item_Definer("Brazilian My Little Pony Wikia/Fandom", "Wikia/Fandom My 
 "2013",
 "2019",
 Language_Item_Definer("11/03/2021", "03/11/2021"),
+$my_little_pony_name_text,
 );
 
 $replace_items = array(
@@ -48,10 +49,13 @@ Create_Element("span", $css_texts["white"], "{}search_item"),
 Create_Element("span", $css_texts["white"], "{}search_item"),
 Create_Element("span", $css_texts["white"], "{}search_item"),
 Create_Element("span", $css_texts["white"], "{}search_item"),
+$my_little_pony_name_colored
 );
 
-$thankful_text = For_Each_Replace($search_items, $replace_items, $thankful_text);
+$text = For_Each_Replace($search_items, $replace_items, $thankful_text);
 
-echo Stringfy_Array($thankful_text, $add_br = True);
+$thankful_text = $text;
+
+echo Create_Element("div", "", $thankful_text, "style=\"text-align: left;\"");
 
 ?>
