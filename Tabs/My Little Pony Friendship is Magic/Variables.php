@@ -1,6 +1,6 @@
 <?php 
 
-$website_images_folder = $website_media_images_website_images.$website_title."/";
+$website_images_folder = $website_media_images_website_images.Remove_Non_File_Characters($website_title)."/";
 
 # Website image link and image size
 $image_format = "png";
@@ -117,8 +117,8 @@ $thankful_text_file = $website_folder.Language_Item_Definer("Thankful Text", "Te
 $custom_css_style = "body {
 	background-image: url(\"".$website_images_folder."Mane Six Color Gradient.png"."\");
 	background-position: center;
-	/* background-repeat: no-repeat; */
-	background-size: cover; /*
+	background-repeat: no-repeat;
+	background-size: auto; /*
 }";
 
 # Website Style.php File Includer
