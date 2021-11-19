@@ -18,7 +18,7 @@ foreach ($website_titles as $value) {
 
 $i = 0;
 foreach ($website_titles as $value) {
-	$folder = $php_folder_tabs.Remove_Non_File_Characters($value)."/";
+	$folder = $php_folder_websites.Remove_Non_File_Characters($value)."/";
 
 	$website_folders[$value] = $folder;
 

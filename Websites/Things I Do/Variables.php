@@ -53,8 +53,8 @@ $website_folder = $website_folder_things_i_do;
 $imageswebfolder = $local_cdn_image_drawings;
 $drawingswebfolder = $cdn_image_drawings;
 
-$watched_media_reader_2018 = $php_folder_tabs.ucwords($website_2018).'/'.$website_2018.' MediaReader'.'.php';
-$watched_media_reader_2019 = $php_folder_tabs.ucwords($website_2019).'/'.$website_2019.' MediaReader'.'.php';
+$watched_media_reader_2018 = $php_folder_websites.ucwords($website_2018).'/'.$website_2018.' MediaReader'.'.php';
+$watched_media_reader_2019 = $php_folder_websites.ucwords($website_2019).'/'.$website_2019.' MediaReader'.'.php';
 
 if (in_array($website_language, $en_languages_array)) {
 	$watched_media_type_2018 = $notepad_years_folder.$website_2018.'/Watched VideoTypes '.$languages_array[1].'.txt';
@@ -65,7 +65,7 @@ if (in_array($website_language, $pt_languages_array)) {
 }
 
 $watchedtypefile2019 = $notepad_years_folder.$website_2019.'/Watched VideoTypes.txt';
-$year_maker_file_php_2_test = $php_folder_tabs.ucwords($sitetextmaker).'/YearMaker2.php';
+$year_maker_file_php_2_test = $php_folder_websites.ucwords($sitetextmaker).'/YearMaker2.php';
 $year_maker_file_php_2_test = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", $year_maker_file_php_2_test);
 
 if (file_exists($watched_media_type_2018) == True) {

@@ -1,30 +1,30 @@
 <?php
 
 $hard_drive_letter = "C";
-$mega_folder = $hard_drive_letter.':/Mega/';
+$mega_folder = $hard_drive_letter.":/Mega/";
 
 if (!file_exists($mega_folder)) {
 	$hard_drive_letter = "D";
-	$mega_folder = $hard_drive_letter.':/Mega/';
+	$mega_folder = $hard_drive_letter.":/Mega/";
 }
 
-$mega_folder_stake2_website = $mega_folder.'Stake2 Website/';
-$main_php_folder = $mega_folder.'PHP/';
+$mega_folder_stake2_website = $mega_folder."Stake2 Website/";
+$main_php_folder = $mega_folder."PHP/";
 
-$php_folder_tabs = 'Tabs';
-$variables_folder_variable = 'Variables';
-$global_variable = 'Global';
+$php_folder_websites = "Websites";
+$variables_folder_variable = "Variables";
+$global_variable = "Global";
 
-$php_folder_variables = $main_php_folder.$variables_folder_variable.'/';
-$global_files_folder = $php_folder_variables.$global_variable.' Files/';
+$php_folder_variables = $main_php_folder.$variables_folder_variable."/";
+$global_files_folder = $php_folder_variables.$global_variable." Files/";
 $global_files_folder = $global_files_folder;
-$main_arrays_php = $global_files_folder.'Main Arrays.php';
+$main_arrays_php = $global_files_folder."Main Arrays.php";
 
 $index_php = $main_php_folder."Index.php";
 
 require $main_arrays_php;
 
-$host_text_selector = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$host_text_selector = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 $selected_language_parameter = "selected_language";
 $selected_website_parameter = "selected_website";

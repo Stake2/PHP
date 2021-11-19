@@ -1,7 +1,7 @@
 <?php
 
 $selected_website_url = $main_website_url.$website_folder.'/'.$current_year.'/';
-$website_folder = $php_folder_tabs.$current_year.'/';
+$website_folder = $php_folder_websites.$current_year.'/';
 
 # Website image link and image size
 $website_image = $current_year;

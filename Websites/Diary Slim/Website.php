@@ -16,8 +16,8 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["tab_body_generator"] = True;
 	$website_settings[$uses_custom_buttons_bar_text] = True;
 	$website_settings["show_new_chapter_text"] = False;
-	$website_settings["has_custom_story_folder"] = True;
 	$website_settings["replace_story_text"] = True;
+	$website_settings["has_custom_story_folder"] = True;
 
 	# Website settings
 	$sitesbuttonintab = True; #Defines if website has the Sites Button on the top bar
@@ -32,8 +32,8 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$story_has_chapter_comments = False; #Defines if the story has comments on the chapter
 	$story_website_contains_reads = False; #Defines if the story has story_reads_array on it
 	$story_website_contains_comments = False; #Defines if the story has comments on it
-	$website_story_has_book_covers_setting = False; #Defines if website has book covers for the story
-	$website_shows_chapter_covers = True;
+	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
+	$website_shows_chapter_covers = False;
 	$story_shows_story_covers = False;
 	$story_website_uses_chapter_opener = True;
 

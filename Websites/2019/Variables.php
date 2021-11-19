@@ -86,7 +86,7 @@ require $website_tabs_generator;
 /*
 # Folder variables
 $selected_website_url = $main_website_url.$website_folder.'/';
-$website_folder = $php_folder_tabs.ucwords($selected_website).'/';
+$website_folder = $php_folder_websites.ucwords($selected_website).'/';
 
 $thingsnumb = 524;
 $watched_number_ = $watched_episodes_2019_line_number;

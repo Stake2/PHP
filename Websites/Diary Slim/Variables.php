@@ -23,11 +23,6 @@ $chapter_titles_folder."All Year Folders.txt",
 $chapter_titles_folder."All Month Folders.txt",
 );
 
-$website_images_folder = $website_media_images_website_images.$story_folder."/";
-
-$website_image = $website_story_name;
-$image_format = "png";
-
 $story_texts_to_replace = array(
 "Paranavaí",
 "Morumbi",

@@ -11,13 +11,13 @@ $phpfile = True;
 
 #Website variables
 $main_website_url = "https://diario.netlify.app";
-$php_folder_tabs = 'Tabs';
+$php_folder_websites = 'Tabs';
 $variables_folder_variable = 'Variables';
 $years_folder_variable = 'Years';
 $global_variable = 'Global';
 $generic_variable = 'Generic';
 $main_php_folder = "C:/Mega/Diario/PHP/";
-$sitephpfoldergeraltabs = $main_php_folder.$global_variable.'/'.$php_folder_tabs.'/';
+$sitephpfoldergeraltabs = $main_php_folder.$global_variable.'/'.$php_folder_websites.'/';
 $sitephpfoldergeralvars = $main_php_folder.$global_variable.'/'.$variables_folder_variable.'/';
 $setting_parameters_file = $sitephpfoldergeralvars.'Settings Params'.'.php';
 
@@ -59,8 +59,8 @@ $languages_array = array(
 
 #Folder variables
 $sitetabsgeralvarsfolder = $main_php_folder.$global_variable.'/'.$variables_folder_variable.'/';
-$generic_tabs_folder = $main_php_folder.$global_variable."/".$php_folder_tabs."/".$generic_variable.$php_folder_tabs."/";
-$global_tabs_folder = $main_php_folder.$global_variable."/".$php_folder_tabs."/".$global_variable.$php_folder_tabs."/";
+$generic_tabs_folder = $main_php_folder.$global_variable."/".$php_folder_websites."/".$generic_variable.$php_folder_websites."/";
+$global_tabs_folder = $main_php_folder.$global_variable."/".$php_folder_websites."/".$global_variable.$php_folder_websites."/";
 
 #Array of website names
 $websites_array = array(

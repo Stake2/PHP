@@ -4,7 +4,7 @@ $line_replace_array = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF"
 
 # Get the localhost link
 if (isset($host_text) == False) {
-	$host_text = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$host_text = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	$return = False;
 }
 
@@ -22,28 +22,28 @@ $data = date("d/m/Y");
 $https_text = "https://";
 $netlify_url = "netlify.app";
 $hard_drive_letter = "C";
-$mega_folder = $hard_drive_letter.':/Mega/';
-$medias_local_folder = $hard_drive_letter.':/Midias/';
+$mega_folder = $hard_drive_letter.":/Mega/";
+$medias_local_folder = $hard_drive_letter.":/Midias/";
 
 if (file_exists($mega_folder) == False) {
 	$hard_drive_letter = "D";
-	$mega_folder = $hard_drive_letter.':/Mega/';
-	$medias_local_folder = $hard_drive_letter.':/Midias/';
+	$mega_folder = $hard_drive_letter.":/Mega/";
+	$medias_local_folder = $hard_drive_letter.":/Midias/";
 }
 
-$mega_folder_stake2_website = $mega_folder.'Stake2 Website/';
-$subdomain_file = $mega_folder_stake2_website.'Subdomain.txt';
-$main_php_folder = $mega_folder.'PHP/';
+$mega_folder_stake2_website = $mega_folder."Stake2 Website/";
+$subdomain_file = $mega_folder_stake2_website."Subdomain.txt";
+$main_php_folder = $mega_folder."PHP/";
 
-$php_folder_tabs = $main_php_folder."Tabs/";
+$php_folder_websites = $main_php_folder."Websites/";
 $php_folder_variables = $main_php_folder."Variables/";
 
 $global_files_folder = $php_folder_variables."Global Files/";
 $database_folder = $php_folder_variables."Database/";
 
 $main_php_folders_and_files = $global_files_folder."Main PHP Folders And Files.php";
-$global_texts_php = $global_files_folder.'Global Texts.php';
-$global_style_file_php = $global_files_folder.'Global Style.php';
+$global_texts_php = $global_files_folder."Global Texts.php";
+$global_style_file_php = $global_files_folder."Global Style.php";
 $connect_php = $database_folder."Connect.php";
 
 # "Main PHP Folders" PHP File Loader
