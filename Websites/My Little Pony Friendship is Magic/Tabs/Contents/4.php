@@ -4,7 +4,7 @@ $pictures_array = array(
 $website_images_logo_folder."Original.png",
 $website_images_logo_folder."New Logo.png",
 $website_images_logo_folder."New FIM Logo.png",
-$mane_six_images_folder."Original Picture.png",
+$mane_six_images_folder."Original Picture.jpg",
 $mane_six_images_folder."Color Gradient.png",
 $mane_six_images_folder."Double Color Gradient.png",
 $mane_six_images_folder."Group Hug 1.png",

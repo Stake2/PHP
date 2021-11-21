@@ -21,6 +21,14 @@ Language_Item_Definer("Discord", "Discórdia"),
 "Trixie Lulamoon",
 );
 
+$princesses = array(
+"Celestia",
+"Luna",
+"Cadance",
+"Ember",
+"Skystar",
+);
+
 $character_colors = array(
 "text_purple",
 "text_pink",
@@ -48,12 +56,14 @@ $i = 0;
 foreach ($characters as $character) {
 	$character_image_file_name = $character;
 
-	if (strpos($character, Language_Item_Definer("Princess", "Princesa")) == True) {
-		$character_image_file_name = str_replace(Language_Item_Definer("Princess", "Princesa"), "Princess", $character_image_file_name);
+	if (strpos($character, Language_Item_Definer("Discord", "Discórdia"))) {
+		$character_image_file_name = "Discord";
 	}
 
-	if (strpos($character, Language_Item_Definer("Discord", "Discórdia")) == True) {
-		$character_image_file_name = "Discord";
+	else if (strpos($character, " ")) {
+		if (in_array(explode(" ", $character)[1], $princesses) === True) {
+			$character_image_file_name = "Princess ".explode(" ", $character)[1];
+		}
 	}
 
 	$character_image = $website_images_characters_folder.$character_image_file_name.".png";
@@ -71,7 +81,7 @@ foreach ($characters as $character) {
 	echo '<div class="'.$character_color.'" style="border-width:3px;border-style:solid;'.$roundedborderstyle4.'">'."<p></p>"."\n";
 
 	Show(Create_Element("b", $character_color, $character_fandom_link), $add_br = True);
-	Show(Make_Image($character_image, "border-width:3px;border-style:solid;".$roundedborderstyle4, "50"));
+	Show(Make_Linked_Image($character_image, False, "55", "border-width:3px;border-style:solid;".$roundedborderstyle4, False));
 
 	echo "<p></p>"."\n".$div_close."\n".$div_close."\n"."<br />"."\n";
 
