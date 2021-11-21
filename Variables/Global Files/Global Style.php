@@ -309,6 +309,7 @@ $icons_array = array(
 "book" => '<i class="fas fa-book"></i>',
 "open book" => '<i class="fas fa-book-open"></i>',
 "clipboard" => '<i class="far fa-clipboard"></i>',
+"user" => '<i class="fas fa-user"></i>',
 "user circle" => '<i class="fas fa-user-circle"></i>',
 "user friends" => '<i class="fas fa-user-friends"></i>',
 "globe" => '<i class="fas fa-globe"></i>',

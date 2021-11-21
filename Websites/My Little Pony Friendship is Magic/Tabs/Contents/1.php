@@ -54,7 +54,7 @@ $my_little_pony_name_colored
 
 $text = For_Each_Replace($search_items, $replace_items, $thankful_text);
 
-$thankful_text = $text;
+$thankful_text = Make_Links_In_Text($text, $css_texts["white"]);
 
 echo Create_Element("div", "", $thankful_text, "style=\"text-align: left;\"");
 

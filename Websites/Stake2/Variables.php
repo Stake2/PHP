@@ -14,7 +14,7 @@ $icons_array["user circle"],
 $icons_array["globe"],
 );
 
-$tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
+$tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(" ", "left"));
 
 $custom_tab_names = $tab_names;
 

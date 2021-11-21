@@ -1,12 +1,17 @@
 <?php 
 
 $website_images_folder = $website_media_images_website_images.Remove_Non_File_Characters($website_title)."/";
+$website_images_characters_folder = $website_images_folder."Characters/";
+$website_images_logo_folder = $website_images_folder."Logos/";
+$mane_six_images_folder = $website_images_folder."Mane Six/";
 
 # Website image link and image size
 $image_format = "png";
 $website_image = $website_media_images_website_icons.Remove_Non_File_Characters($website_title).".".$image_format;
 
 $website_image_link = $website_image;
+
+$mlp_fim_fandom_link = "https://mlp.fandom.com/".Language_Item_Definer("", "pt/")."wiki/";
 
 $my_little_pony_name_text = "My Little Pony: ".Language_Item_Definer("Friendship is Magic", "A Amizade é Mágica");
 
@@ -83,16 +88,30 @@ if ($website_language != $language_geral) {
 
 $tab_titles_prototype = array(
 $icons_array["open book"]." ".$icons_array["heart"],
+$icons_array["user"],
+$icons_array["user friends"]." ".$icons_array["heart"],
+$icons_array["images"],
 );
 
 $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
 
 $custom_tab_names = $tab_names;
 $custom_tab_names[0] = "";
+$custom_tab_names[1] = "";
+
+$i = 0;
+while ($i <= count($custom_tab_names) - 1) {
+	$custom_tab_names[$i] = "";
+
+	$i++;
+}
 
 $custom_tab_titles_array = array(
-$tab_titles[0],
 );
+
+foreach ($tab_titles as $tab_title) {
+	array_push($custom_tab_titles_array, $tab_title);
+}
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 
@@ -108,16 +127,16 @@ $full_language_ptbr => "Texto de Agradecimento",
 );
 
 foreach ($full_languages_array_no_null as $language) {
-	$thankful_text_file = $website_folder.$thankful_text_file_names[$language].".txt";
+	$thankful_text_file = $mlp_fim_feeling_texts_folder.$thankful_text_file_names[$language].".txt";
 	Create_File($thankful_text_file);
 }
 
-$thankful_text_file = $website_folder.Language_Item_Definer("Thankful Text", "Texto de Agradecimento").".txt";
+$thankful_text_file = $mlp_fim_feeling_texts_folder.Language_Item_Definer("Thankful Text", "Texto de Agradecimento").".txt";
 
 $custom_css_style = "body {
-	background-image: url(\"".$website_images_folder."Mane Six Color Gradient.png"."\");
+	background-image: url(\"".$mane_six_images_folder."Color Gradient.png"."\");
 	background-position: center;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	background-size: auto; /*
 }";
 

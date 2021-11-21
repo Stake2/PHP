@@ -192,6 +192,33 @@ function Make_Link($link, $link_text = Null, $link_color = Null, $new_tab = Fals
 	return $link_element;
 }
 
+function Make_Links_In_Text($text, $link_color = "") {
+	// The Regular Expression filter
+	$pattern = "/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/";
+
+	// Check if there is a url in the text
+	if (preg_match_all($pattern, $text, $url)) {
+		// Loop through all matches
+		foreach ($url[0] as $new_link) {
+			if (strstr($new_link, ":") === False){
+				$link = 'http://'.$new_link;
+			}
+
+			else {
+				$link = $new_link;
+			}
+
+			// Create Search and Replace strings
+			$search = $new_link;
+			$replace = '<a href="'.$link.'" class="'.$link_color.'" title="'.$new_link.'" target="_blank">'.$link."</a>";
+			$text = str_replace($search, $replace, $text);
+		}
+	}
+
+	// Return result
+	return $text;
+}
+
 function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	global $story_readers_number_file;
 	global $computer_variable;
