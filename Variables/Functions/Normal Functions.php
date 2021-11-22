@@ -123,13 +123,19 @@ function Make_Image($image_link, $image_style, $image_width) {
 	return '<img src="'.$image_link.'" width="'.$image_width.'" style="'.$image_style.'" />';
 }
 
-function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = Null, $custom_image_style = Null, $has_space = True) {
+function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = Null, $custom_image_style = Null, $has_space = True, $custom_link = Null) {
 	global $computer_div;
 	global $mobile_div;
 	global $div_close;
 	global $chapter_image_style;
 
-	$a_href = '<a href="'.$image_link.'" target="_blank">';
+	$image_link_text = $image_link;
+
+	if ($custom_link != Null) {
+		$image_link_text = $custom_link;
+	}
+
+	$a_href = '<a href="'.$image_link_text.'" target="_blank">';
 
 	$image_style = 'align="left"';
 
