@@ -4,6 +4,7 @@ $website_images_folder = $website_media_images_website_images.Remove_Non_File_Ch
 $website_images_characters_folder = $website_images_folder."Characters/";
 $website_images_logo_folder = $website_images_folder."Logos/";
 $mane_six_images_folder = $website_images_folder."Mane Six/";
+$website_audio_folder = $website_media_website_audio.Remove_Non_File_Characters($website_title)."/";
 
 # Website image link and image size
 $image_format = "png";
@@ -13,15 +14,22 @@ $website_image_link = $website_image;
 
 $mlp_fim_fandom_link = "https://mlp.fandom.com/".Language_Item_Definer("", "pt/")."wiki/";
 
-$my_little_pony_name_text = "My Little Pony: ".Language_Item_Definer("Friendship is Magic", "A Amizade é Mágica");
+$my_little_pony_fim_name_text = "My Little Pony: ".Language_Item_Definer("Friendship Is Magic", "A Amizade É Mágica");
+
+$selected_website_url = $main_website_url.Remove_Non_File_Characters($my_little_pony_fim_name_text)."/";
+
+$my_little_pony_english_name_text = "My Little Pony: Friendship Is Magic";
 
 $search_items = array(
 "My L",
 "ittle",
 "Pony",
 Language_Item_Definer("Friendshi", "A Amizad"),
-Language_Item_Definer("p is M", "e é M"),
+"Friendshi",
+Language_Item_Definer("p Is M", "e É M"),
+"p Is M",
 Language_Item_Definer("agic", "ágica"),
+"agic",
 );
 
 $replace_items = array(
@@ -29,17 +37,21 @@ Create_Element("span", $css_texts["light_purple"], "{}search_item"),
 Create_Element("span", $css_texts["yellow"], "{}search_item"),
 Create_Element("span", $css_texts["pink"], "{}search_item"),
 Create_Element("span", $css_texts["blue"], "{}search_item"),
+Create_Element("span", $css_texts["blue"], "{}search_item"),
 Create_Element("span", $css_texts["orange"], "{}search_item"),
+Create_Element("span", $css_texts["orange"], "{}search_item"),
+Create_Element("span", $css_texts["white"], "{}search_item"),
 Create_Element("span", $css_texts["white"], "{}search_item"),
 );
 
-$my_little_pony_name_colored = For_Each_Replace($search_items, $replace_items, $my_little_pony_name_text);
+$my_little_pony_name_colored = For_Each_Replace($search_items, $replace_items, $my_little_pony_fim_name_text);
+$my_little_pony_english_name_colored = For_Each_Replace($search_items, $replace_items, $my_little_pony_english_name_text);
 
 #Website descriptions
 $website_descriptions_array = array(
 Null,
-"A website to thank and honor the cartoon ".$my_little_pony_name_text.".For being so awesome, beautiful, and making me happy, I love this cartoon, made by Stake2.", 
-"Um site para agradecer e honrar o desenho ".$my_little_pony_name_text.".Por ser tão incrível, lindo, e me fazer feliz, amo esse desenho, feito por Stake2.",
+"A website to thank and honor the cartoon ".$my_little_pony_fim_name_text.".For being so awesome, beautiful, and making me happy, I love this cartoon, made by Stake2.", 
+"Um site para agradecer e honrar o desenho ".$my_little_pony_fim_name_text.".Por ser tão incrível, lindo, e me fazer feliz, amo esse desenho, feito por Stake2.",
 );
 
 $website_header_descriptions = array(
@@ -52,7 +64,7 @@ $search_items = array(
 "Por",
 "My",
 Language_Item_Definer("Magic", "Mágica"),
-$my_little_pony_name_text,
+$my_little_pony_fim_name_text,
 );
 
 $replace_items = array(
@@ -90,7 +102,9 @@ $tab_titles_prototype = array(
 $icons_array["open book"]." ".$icons_array["heart"],
 $icons_array["user"],
 $icons_array["user friends"]." ".$icons_array["heart"],
+$icons_array["book"],
 $icons_array["images"],
+$icons_array["video"],
 );
 
 $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
@@ -139,6 +153,35 @@ $custom_css_style = "body {
 	background-repeat: repeat-y;
 	background-size: auto; /*
 }";
+
+$computer_iframe = '<iframe width="800" height="355" src="https://www.youtube-nocookie.com/embed/{}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+$mobile_iframe = '<iframe width="500" height="400" src="https://www.youtube-nocookie.com/embed/{}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+$videos = array(
+Create_Element("div", $computer_variable, format($computer_iframe, "rShiDT-Pp_A")),
+Create_Element("div", $computer_variable, format($computer_iframe, Language_Item_Definer("RB2TwFjvxeM", "W72uPRh6w9M"))),
+Create_Element("div", $mobile_variable, format($mobile_iframe, "rShiDT-Pp_A")),
+Create_Element("div", $mobile_variable, format($mobile_iframe, Language_Item_Definer("RB2TwFjvxeM", "W72uPRh6w9M"))),
+);
+
+$tab_number = "6";
+
+$video_elements = "";
+
+foreach ($videos as $video) {
+	$video_elements .= $video."<br />";
+}
+
+$jquery = "
+<script language=\"javascript\">
+$(document).ready(function () {
+	$('#computer_button_".$tab_number."').click(function(){
+		if ($('#mlp_fim_videos').is(':empty')) {
+			$('#mlp_fim_videos').html('".$video_elements."');
+		}
+	});
+});
+</script>";
 
 # Website Style.php File Includer
 require $website_style_file;

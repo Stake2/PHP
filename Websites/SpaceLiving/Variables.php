@@ -1,9 +1,9 @@
 <?php 
 
 # Story name definer
-$text = "SpaceLiving";
-$website_story_name = $story_names[$text];
-$english_story_name = $english_story_names[$text];
+$local_website_name = "SpaceLiving";
+$website_story_name = $story_names[$local_website_name];
+$english_story_name = $english_story_names[$local_website_name];
 $portuguese_story_name = $portuguese_story_names[$english_story_name];
 $general_story_name = $english_story_name;
 
@@ -69,12 +69,6 @@ if ($website_language != $language_geral) {
 	$website_title .= " ".$website_title_language;
 	$website_title_header = str_replace(': '.$icons[11], "", $website_title_header)." ".$full_language.': '.$icons[11];
 	$website_link .= $website_link_language."/";
-}
-
-# Buttons and tabs definer
-if ($website_writing_pack_setting == True) {
-	$tab_names[0] = str_replace('Read', 'Write', $tab_names[0]);
-	$tab_names[0] = str_replace('Ler', 'Escrever', $tab_names[0]);
 }
 
 # Buttons and tabs definer

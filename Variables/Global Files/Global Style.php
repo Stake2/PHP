@@ -178,7 +178,7 @@ $computer_div = $computer_div;
 $tab_style = 'city '.$computer_variable;
 $tab_style_mobile = 'city '.$mobile_variable;
 
-$chapter_image_style = 'style="float:left;border-width:3px;border-color:black;border-style:solid;"';
+$chapter_image_style = 'border-width:3px;border-color:black;border-style:solid;border-radius:32px;';
 
 $h2_element = 'h2';
 $h3_element = 'h3';
@@ -332,6 +332,7 @@ $icons_array = array(
 "calendar" => '<i class="far fa-calendar-alt"></i>',
 "eye" => '<i class="fas fa-eye"></i>',
 "images" => '<i class="fas fa-images"></i>',
+"video" => '<i class="fas fa-video"></i>',
 "tasks" => '<i class="fas fa-tasks"></i>',
 "heart" => '<i class="fas fa-heart"></i>',
 );

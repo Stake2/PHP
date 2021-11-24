@@ -82,4 +82,8 @@ if (isset($website_settings["custom_css_style"]) and $website_settings["custom_c
 	echo Create_Element("style", "", $custom_css_style);
 }
 
+if ($website_title == $website_titles["My Little Pony: Friendship Is Magic"]) {
+	Show($jquery, $add_br = True);
+}
+
 ?>

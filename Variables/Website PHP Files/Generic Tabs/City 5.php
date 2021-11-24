@@ -5,7 +5,9 @@
 <?php echo $margin."\n"; ?>
 <?php
 
+echo "<div id=\"computer_tab_content_5\">"."\n";
 echo $content_of_tabs[4];
+echo $div_close."\n";
 
 ?>
 <?php echo $div_close."\n"; ?>
@@ -19,7 +21,9 @@ echo $content_of_tabs[4];
 <?php echo $margin."\n"; ?>
 <?php
 
+echo "<div id=\"computer_tab_content_5\">"."\n";
 echo $content_of_tabs[4];
+echo $div_close."\n";
 
 ?>
 <?php echo $div_close."\n"; ?>

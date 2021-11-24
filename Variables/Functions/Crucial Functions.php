@@ -346,11 +346,17 @@ function Replace_Text($text, $to_replace, $to_add = "") {
 	return str_replace($to_replace, $to_add, $text);
 }
 
-function Make_Website_Button($link, $name, $classes, $add_to_button_name = Null) {
+function Make_Website_Button($link, $name, $classes, $add_to_button_name = Null, $add_to_button_title = Null, $new_tab = True) {
 	global $roundedborderstyle;
 	global $h2_element;
 
-	$website_button = "<button class=\"w3-btn ".$classes."\" title=\"".$name."\" ".$roundedborderstyle." onclick=\"window.open('".$link."');\"><".$h2_element.">".$name.$add_to_button_name."</".$h2_element."></button>";
+	$onclick = "onclick=\"window.open('".$link."');\"";
+
+	if ($new_tab == False) {
+		$onclick = "onclick=\"function() {return false;}\"";
+	}
+
+	$website_button = "<button class=\"w3-btn ".$classes."\" title=\"".$name.$add_to_button_title."\" ".$roundedborderstyle." ".$onclick."><".$h2_element.">".$name.$add_to_button_name."</".$h2_element."></button>";
 
 	return $website_button;
 }
