@@ -216,8 +216,8 @@ if ($has_next_chapter_button == false) {
 	$local_button_style = 'float: right;'.$rounded_border_style_2;
 }
 
-echo '<a href="#'.$citycodes[0].'">'.
-'<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" style="'.$local_button_style.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button>'.
+echo '<a href="#'.$tab_codes[0].'">'.
+'<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" style="'.$local_button_style.'" onclick="openCity('."'".$tab_codes[0]."')".'"><h3>'.$icons[16].'</h3></button>'.
 '</a>'."\n";
 
 echo '<a href="#'.$website_tab_codes_mobile[0].'">'.

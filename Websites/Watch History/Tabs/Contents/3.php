@@ -6,31 +6,31 @@ if ($thingsidofake == True) {
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == True) {
-		$margindivstyle = '<div>';
-		$mobileaname = 'm';
+	if ($mobile_version == True) {
+		$margin_div_style = '<div>';
+		$mobile_a_name = 'Mobile';
 	}
 
-	if ($mobileversion == false) {
-		$margindivstyle = '<div style="margin-left:30px;">';
-		$mobileaname = '';
+	if ($mobile_version == False) {
+		$margin_div_style = '<div style="margin-left:30px;">';
+		$mobile_a_name = '';
 	}
 }
 
-if ($thingsidofake == null) {
+if ($thingsidofake == Null) {
 	$spanstyle = $whitespan;
 	$hover_text_color = $text_hover_white_css_class;
 	$number_text_color = $first_text_color;
 	$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobileversion == True) {
-		$margindivstyle = '<div>';
-		$mobileaname = 'm';
+	if ($mobile_version == True) {
+		$margin_div_style = '<div>';
+		$mobile_a_name = 'm';
 	}
 
-	if ($mobileversion == null) {
-		$margindivstyle = '<div style="margin-left:30px;">';
-		$mobileaname = '';
+	if ($mobile_version == Null) {
+		$margin_div_style = '<div style="margin-left:30px;">';
+		$mobile_a_name = '';
 	}
 }
 

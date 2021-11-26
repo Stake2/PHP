@@ -98,19 +98,6 @@ $tab_texts = array();
 
 Make_Button_Names();
 
-# Website Style.php File Includer
-require $website_style_file;
-
-# Tab Generator.php includer
-require $website_tabs_generator;
-
-# Website notification variables if the website notification setting is True
-if ($website_has_notifications == True) {
-	# Revised chapter title
-	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
-	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
-}
-
 $gods_warrior_still_got_something_name = Language_Item_Definer("'Still Got Something' from God's Warrior", "'Still Got Something' do God's Warrior");
 
 $songs = array(
@@ -175,25 +162,5 @@ $story_names["SpaceLiving"]." ",
 $story_names["The Story of the Bulkan Siblings"]." ",
 $chapter_twenty_six_text." ",
 );
-
-/*
-$variable_inserter_array = array(
-$gods_warrior_still_got_something_link,
-$website_the_life_of_littletato_linked,
-$website_the_story_of_the_bulkan_siblings_linked,
-$human_littletato_image,
-$lisa_image,
-$spaceliving_the_life_of_littletato_chapter_crossover_link,
-);
-
-$variable_inserter_replacer_array = array(
-$gods_warrior_still_got_something_name,
-$the_life_of_littletato_link_name,
-$the_story_of_the_bulkan_siblings_link_name,
-"$"."human_littletato_image;",
-"$"."lisa_image",
-$crossover_previous_chapter_text_with_link_the_life_of_littletato,
-);
-*/
 
 ?>

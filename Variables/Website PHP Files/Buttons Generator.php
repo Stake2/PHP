@@ -20,10 +20,6 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 	$tabnamestxt = $tab_titles_without_html;
 }
 
-#if ($website_title == $website_titles["2019"]) {
-#	$local_website_tab_number = $website_tab_number_less;
-#}
-
 $i = 0;
 $total_buttons_created = 0;
 
@@ -195,7 +191,7 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 
 		$text = $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']';
 		$html = $archived_media_text.' '.$current_variable_year.' ['.${"watched_number_".$current_variable_year}.']: '.$icons[8];
-		$code = "Watched_".strtolower($archived_text)."_".strtolower($current_variable_year).'_Computer';
+		$code = "Watched_".$archived_text."_".$current_variable_year.'_Computer';
 
 		$archived_media_buttons_array[$i] = '<span title="'.$text.'" alt="'.$text.'">'."\n".'<a href="#'.$code.'"><button id="watched_archived_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$code."')".';'.$script.'">'.'<'.$h2_element.'>'.$html.'</'.$h2_element.'>'.'</button></a>'."\n".$spanc."\n"."\n";
 
@@ -226,7 +222,7 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 
 		$text = $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']';
 		$html = $archived_media_text.' '.$current_variable_year.' ['.${"watched_number_".$current_variable_year}.']: '.$icons[8];
-		$code = "Watched_".strtolower($archived_text)."_".strtolower($current_variable_year).'_Mobile';
+		$code = "Watched_".$archived_text."_".$current_variable_year.'_Mobile';
 
 		$archived_media_mobile_buttons_array[$i] = '<span title="'.$text.'" alt="'.$text.'">'."\n".'<a href="#'.$code.'"><button id="watched_archived_mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$code."')".';'.$script.'">'.'<'.$h4_element.'>'.$html.'</'.$h4_element.'>'.'</button></a>'."\n".$spanc."\n"."\n";
 

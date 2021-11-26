@@ -43,9 +43,6 @@ $siteurlcodes = array(
 #Story Variables php file includer
 require $story_variables_php;
 
-#Watch History website texts file includer
-require $watch_texts_php;
-
 #Folder variables
 $selected_website_url = $main_website_url.$siteurlcodes[0].'/';
 $siteurlgeral2 = $main_website_url.$siteurlcodes[1].'/';

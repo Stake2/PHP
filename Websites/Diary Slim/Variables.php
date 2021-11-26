@@ -151,10 +151,4 @@ $website_custom_button_bar_numbers = array(
 1,
 );
 
-# Website Style.php File Includer
-require $website_style_file;
-
-# Tab Generator.php includer
-require $website_tabs_generator;
-
 ?>

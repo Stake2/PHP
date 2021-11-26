@@ -88,7 +88,4 @@ $tab_texts = array();
 
 Make_Button_Names();
 
-# Tab Generator.php includer
-require $website_tabs_generator;
-
 ?>

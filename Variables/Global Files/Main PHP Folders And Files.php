@@ -4,7 +4,6 @@ $functions_folder = $php_folder_variables."Functions/";
 $website_styling_folder = $php_folder_variables."Website Styling/";
 $generators_folder = $php_folder_variables."Generators/";
 $website_php_files_folder = $php_folder_variables."Website PHP Files/";
-$generic_tabs_folder = $website_php_files_folder."Generic Tabs/";
 $website_tool_files_folder = $php_folder_variables."Website Tool Files/";
 $website_classes_folder = $website_php_files_folder.'Website Classes/';
 $css_packs_php_folder = $php_folder_variables.'CSS Packs/';
@@ -44,7 +43,6 @@ $website_notifications_php = $website_php_files_folder.'Notifications.php';
 $website_buttons_generator_php = $website_php_files_folder."Buttons Generator.php";
 $website_tabs_generator = $website_php_files_folder."Tab Generator.php";
 $website_tabs_loader = $website_php_files_folder."Tab Loader.php";
-$generic_tabs_generator_file = $website_php_files_folder.'Generic Tabs Generator.php';
 $tab_bodies_generator_php = $website_php_files_folder."Tab Bodies Generator.php";
 
 ?>

@@ -29,25 +29,20 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	require $setting_parameters_file;
 
 	#Website Tabs array
-	$tabs = array('Watched', 'Media being watched', 'Movies', 'Archived');
+	$tabs = array("Watched", "Media being watched", "Movies", "Archived");
 
 	#Website Tabnames array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array('Watched Media in '.$local_current_year, 'Media Being Watched', 'Movies', 'Archived Media');
+		$tab_names = array("Watched Media in ".$local_current_year, "Media Being Watched", "Movies", "Archived Media");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array('Mídias Assistidas em '.$local_current_year, 'Mídias Sendo Assitidas', 'Filmes', 'Mídias Arquivadas');
+		$tab_names = array("Mídias Assistidas em ".$local_current_year, "Mídias Sendo Assitidas", "Filmes", "Mídias Arquivadas");
 	}
 
 	#Number of tabs
 	$website_tab_number = count($tab_names) - 1;
-	$website_tab_number_less = $website_tab_number - 1;
-
-	# Includer of the array of the Generic Tabs files
-	require $generic_tabs_generator_file;
-
-	$found_selected_website = True;
+	$website_tab_number_less = $website_tab_number - 1;	$found_selected_website = True;
 }
 
 ?>

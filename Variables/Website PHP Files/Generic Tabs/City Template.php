@@ -5,7 +5,7 @@
 <?php echo $margin."\n"; ?>
 <?php 
 
-$mobileversion = False;
+$mobile_version = False;
 require $tab_content;
 
 ?>
@@ -20,7 +20,7 @@ require $tab_content;
 <?php echo $margin."\n"; ?>
 <?php 
 
-$mobileversion = True;
+$mobile_version = True;
 require $tab_content_mobile;
 
 ?>

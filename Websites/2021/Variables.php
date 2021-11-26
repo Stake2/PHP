@@ -75,10 +75,4 @@ $tab_texts = array();
 
 Make_Button_Names();
 
-# Website Style.php File Includer
-require $website_style_file;
-
-# Tab Generator.php File Includer
-require $website_tabs_generator;
-
 ?>

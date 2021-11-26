@@ -92,21 +92,6 @@ $tab_texts = array();
 
 Make_Button_Names();
 
-# Website Style.php File Includer
-require $website_style_file;
-
-# Tab Generator.php File Includer
-require $website_tabs_generator;
-
-$read_story_button = $computer_buttons_bar[0];
-
-# Website notification variables if the website notification setting is True
-if ($website_has_notifications == True) {
-	# Revised chapter title
-	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
-	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
-}
-
 $website_the_life_of_littletato_linked = $website_links[$local_website_name];
 $website_spaceliving_linked = $website_links["SpaceLiving"];
 $website_spaceliving_linked_alternate = $website_links["SpaceLiving"];
@@ -123,7 +108,6 @@ $lisa_image,
 $the_life_of_littletato_spaceliving_chapter_crossover_link,
 $spaceliving_lonelyship_pixel_art_story_cover,
 $spaceliving_lonelyship_pixel_art_front_signboards,
-$read_story_button,
 $my_little_pony_fim_wikipedia_link,
 $mansion_of_littletato_and_friends,
 );

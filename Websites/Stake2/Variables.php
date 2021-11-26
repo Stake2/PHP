@@ -81,10 +81,4 @@ if ($website_language != $language_geral) {
 	$website_link .= $website_link_language."/";
 }
 
-# Text File Reader.php file includer
-require $text_file_reader_file_php;
-
-# Tab Generator.php includer
-require $website_tabs_generator;
-
 ?>

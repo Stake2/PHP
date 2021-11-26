@@ -1,5 +1,9 @@
 <?php 
 
+if (isset($return_string) == False) {
+	$return_string = False;
+}
+
 if ($thingsidofake == True) {
 	$spanstyle = $blackspan;
 	$hover_text_color = $text_hover_white_css_class;
@@ -13,13 +17,13 @@ if ($thingsidofake == null) {
 }
 
 if ($mobile_version == True) {
-	$margindivstyle = '<div>';
-	$mobileaname = '_Mobile';
+	$margin_div_style = '<div>';
+	$mobile_a_name = '_Mobile';
 }
 
 if ($mobile_version == False) {
-	$margindivstyle = '<div style="margin-left:30px;">';
-	$mobileaname = '';
+	$margin_div_style = '<div style="margin-left:30px;">';
+	$mobile_a_name = '';
 }
 
 if (isset($run_as_module) == True) {
@@ -111,33 +115,71 @@ $hasseries = True;
 $hasmovie = True;
 $hasvideo = True;
 
+$full_string = "";
+
 if ($website_watch_history_new_watched_style_setting == True) {
 	$i = 0;
 	if ($hasanimemedia == True) {
-		echo '<a href="#'.$media_types_plural[$animes_code_number].'_'.$local_current_year.$mobileaname.'">'.$mediatitles[$animes_code_number].'</a>'."\n";
+		$string = '<a href="#'.$media_types_plural[$animes_code_number].'_'.$local_current_year.$mobile_a_name.'">'.$mediatitles[$animes_code_number].'</a>'."\n";
+
+		if ($return_string == False) {
+			echo $string;
+		}
+
+		$full_string .= $string;
 	}
 
 	$i++;
 	if ($hascartoonmedia == True) {
-		echo '<a href="#'.$media_types_plural[$cartoons_code_number].'_'.$local_current_year.$mobileaname.'">'.$mediatitles[$cartoons_code_number].'</a>'."\n";
+		$string = '<a href="#'.$media_types_plural[$cartoons_code_number].'_'.$local_current_year.$mobile_a_name.'">'.$mediatitles[$cartoons_code_number].'</a>'."\n";
+
+		if ($return_string == False) {
+			echo $string;
+		}
+
+		$full_string .= $string;
 	}
 
 	$i++;
 	if ($hasseriesmedia == True) {
-		echo '<a href="#'.$media_types_plural[$series_code_number].'_'.$local_current_year.$mobileaname.'">'.$mediatitles[$series_code_number].'</a>'."\n";
+		$string = '<a href="#'.$media_types_plural[$series_code_number].'_'.$local_current_year.$mobile_a_name.'">'.$mediatitles[$series_code_number].'</a>'."\n";
+
+		if ($return_string == False) {
+			echo $string;
+		}
+
+		$full_string .= $string;
 	}
 
 	$i++;
 	if ($hasmoviemedia == True) {
-		echo '<a href="#'.$media_types_plural[$movies_code_number].'_'.$local_current_year.$mobileaname.'">'.$mediatitles[$movies_code_number].'</a>'."\n";
+		$string = '<a href="#'.$media_types_plural[$movies_code_number].'_'.$local_current_year.$mobile_a_name.'">'.$mediatitles[$movies_code_number].'</a>'."\n";
+
+		if ($return_string == False) {
+			echo $string;
+		}
+
+		$full_string .= $string;
 	}
 
 	$i++;
 	if ($hasvideomedia == True) {
-		echo '<a href="#'.$media_types_plural[$videos_code_number].'_'.$local_current_year.$mobileaname.'">'.$mediatitles[$videos_code_number].'</a>'."\n";
+		$string = '<a href="#'.$media_types_plural[$videos_code_number].'_'.$local_current_year.$mobile_a_name.'">'.$mediatitles[$videos_code_number].'</a>'."\n";
+
+		if ($return_string == False) {
+			echo $string;
+		}
+
+		$full_string .= $string;
 	}
 
-	echo '<br />'."\n";
+	$string = '<br />'."\n";
+
+	if ($return_string == False) {
+		echo $string;
+	}
+
+	$full_string .= $string;
 }
 
 $empty_watched_time_text = " ";
@@ -184,27 +226,57 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$animes_code_number] == True and $done_media_array[$animes_code_number] == False) {
 				if ($media_type == $media_types_plural[$animes_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$animes_code_number]) {
-						echo '<a name="'.$media_types_plural[$animes_code_number].'_'.$local_current_year.$mobileaname.'"></a>'."\n";
-						echo $mediatitles[$animes_code_number];
+						$string = '<a name="'.$media_types_plural[$animes_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
+						$mediatitles[$animes_code_number];
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
-					echo $margindivstyle."\n";
+					$string = $margin_div_style."\n";
+
+					if ($return_string == False) {
+						echo $string;
+					}
+
+					$full_string .= $string;
 
 					if ($local_current_year != $current_year_backup) {
 						if ($current_year_watched_time_text[$i] != $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
 						}
 
 						if ($current_year_watched_time_text[$i] == $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
 						}
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					else {
-						echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+						$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
-					echo $div_close."\n";
+					$string = $div_close."\n";
+
+					if ($return_string == False) {
+						echo $string;
+					}
+
+					$full_string .= $string;
 
 					$number++;
 					$c++;
@@ -214,24 +286,48 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$cartoons_code_number] == True and $done_media_array[$cartoons_code_number] == False and $done_media_array[$animes_code_number] == True) {
 				if ($media_type == $media_types_plural[$cartoons_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$cartoons_code_number]) {
-						echo '<a name="'.$media_types_plural[$cartoons_code_number].'_'.$local_current_year.$mobileaname.'"></a>'."\n";
-						echo $mediatitles[$cartoons_code_number];
+						$string = '<a name="'.$media_types_plural[$cartoons_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
+						$mediatitles[$cartoons_code_number];
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
-					echo $margindivstyle."\n";
+					$string = $margin_div_style."\n";
+
+					if ($return_string == False) {
+						echo $string;
+					}
+
+					$full_string .= $string;
 
 					if ($local_current_year != $current_year_backup) {
 						if ($current_year_watched_time_text[$i] != $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
 						}
 
 						if ($current_year_watched_time_text[$i] == $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
 						}
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					else {
-						echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+						$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					echo $div_close."\n";
@@ -244,24 +340,48 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$series_code_number] == True and $done_media_array[$series_code_number] == False and $done_media_array[$animes_code_number] == True and $done_media_array[$cartoons_code_number] == True) {
 				if ($media_type == $media_types_plural[$series_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$series_code_number]) {
-						echo '<a name="'.$media_types_plural[$series_code_number].'_'.$local_current_year.$mobileaname.'"></a>'."\n";
-						echo $mediatitles[$series_code_number];
+						$string = '<a name="'.$media_types_plural[$series_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
+						$mediatitles[$series_code_number];
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
-					echo $margindivstyle."\n";
+					$string = $margin_div_style."\n";
+
+					if ($return_string == False) {
+						echo $string;
+					}
+
+					$full_string .= $string;
 
 					if ($local_current_year != $current_year_backup) {
 						if ($current_year_watched_time_text[$i] != $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
 						}
 
 						if ($current_year_watched_time_text[$i] == $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
 						}
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					else {
-						echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+						$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					echo $div_close."\n";
@@ -274,24 +394,48 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$movies_code_number] == True and $done_media_array[$movies_code_number] == False and $done_media_array[$series_code_number] == True and $done_media_array[$cartoons_code_number] == True and $done_media_array[$animes_code_number] == True and $done_media_array[$videos_code_number] == False) {
 				if ($media_type == $media_types_plural[$movies_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$movies_code_number]) {
-						echo '<a name="'.$media_types_plural[$movies_code_number].'_'.$local_current_year.$mobileaname.'"></a>'."\n";
-						echo $mediatitles[$movies_code_number];
+						$string = '<a name="'.$media_types_plural[$movies_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
+						$mediatitles[$movies_code_number];
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
-					echo $margindivstyle."\n";
+					$string = $margin_div_style."\n";
+
+					if ($return_string == False) {
+						echo $string;
+					}
+
+					$full_string .= $string;
 
 					if ($local_current_year != $current_year_backup) {
 						if ($current_year_watched_time_text[$i] != $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
 						}
 
 						if ($current_year_watched_time_text[$i] == $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
 						}
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					else {
-						echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+						$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					echo $div_close."\n";
@@ -304,24 +448,48 @@ while ($overall_number <= 4) {
 			if ($has_media_array[$videos_code_number] == True and $done_media_array[$videos_code_number] == False and $done_media_array[$movies_code_number] == True and $done_media_array[$series_code_number] == True and $done_media_array[$cartoons_code_number] == True and $done_media_array[$animes_code_number] == True) {
 				if ($media_type == $media_types_plural[$videos_code_number]) {
 					if ($i == $media_type_text_file_lines_array[$videos_code_number]) {
-						echo '<a name="'.$media_types_plural[$videos_code_number].'_'.$local_current_year.$mobileaname.'"></a>'."\n";
-						echo $mediatitles[$videos_code_number];
+						$string = '<a name="'.$media_types_plural[$videos_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
+						$mediatitles[$videos_code_number];
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
-					echo $margindivstyle."\n";
+					$string = $margin_div_style."\n";
+
+					if ($return_string == False) {
+						echo $string;
+					}
+
+					$full_string .= $string;
 
 					if ($local_current_year != $current_year_backup) {
 						if ($current_year_watched_time_text[$i] != $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
 						}
 
 						if ($current_year_watched_time_text[$i] == $empty_watched_time_text) {
-							echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
+							$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$unknown_watched_time_text.')</span></span><br />'.$div_close."\n";
 						}
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					else {
-						echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+						$string = '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$number.' - </span>'.$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
+
+						if ($return_string == False) {
+							echo $string;
+						}
+
+						$full_string .= $string;
 					}
 
 					echo $div_close."\n";
@@ -333,14 +501,20 @@ while ($overall_number <= 4) {
 		}
 
 		else {
-			#Old style of showing Watched Medias
+			# Old style of showing Watched Medias
 			echo '<div class="'.$zoom_animation_class.'">'.'<span class="'.$hover_text_color.'">'.$spanstyle.$i2." - (".$current_year_watched_media_type_text[$i].") - </span>".$current_year_watched_episodes_text[$i].$spanstyle.' - ('.$current_year_watched_time_text[$i].')</span></span><br />'.$div_close."\n";
 		}
 
 		$i++;
 	}
 
-	echo "<br />"."\n";
+	$string = '<br />'."\n";
+
+	if ($return_string == False) {
+		echo $string;
+	}
+
+	$full_string .= $string;
 
 	if ($overall_number == 0) {
 		$done_media_array[$animes_code_number] = True;

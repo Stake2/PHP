@@ -54,6 +54,19 @@ foreach ($website_titles as $value) {
 	$i++;
 }
 
+# Website Style.php File Includer
+require $website_style_file;
+
+# Tab Generator.php includer
+require $website_tabs_generator;
+
+if ($website_type == $story_website_type and $website_has_notifications == True) {
+	# Website notification variables if the website notification setting is True
+	# Revised chapter title
+	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
+	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
+}
+
 # Website Image Maker.php file loader
 if ($website_uses_custom_layout_setting == False) {
 	require $website_image_maker;

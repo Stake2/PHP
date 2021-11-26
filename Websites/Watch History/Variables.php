@@ -4,7 +4,6 @@
 $mediaarraygenerator = $website_folders["Watch History"]."MediaArrayGenerator.php";
 $mediastyler = $website_folders["Watch History"]."MediaStyler.php";
 $current_year_watched_media_generator = $website_folders["Watch History"]."Current Year Watched Media Generator.php";
-$watch_texts_php = $website_folders["Watch History"]."Watch Texts.php";
 $archived_media_machine_php = $website_folders["Watch History"]."Archived Media Machine.php";
 
 # Website variables
@@ -125,15 +124,10 @@ $media_links_number = count($media_image_links_array);
 # Text File Reader.php file includer
 require $text_file_reader_file_php;
 
-$mobileversion = "";
-
-#Watch History website texts file includer
-require $watch_texts_php;
-
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
 $website_title = $website_title;
-$website_title_header = $website_title.": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$mediastxt."]".$spanc;
+$website_title_header = $website_title.": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
 $website_link = $selected_website_url;
 $website_meta_description = $website_descriptions_array[$language_number];
 $website_header_description = $website_html_descriptions_array[$language_number];
@@ -182,16 +176,10 @@ $tab_names[2]." [".$watched_movies_number."]",
 $tab_names[3]." [".$archived_medias_number."]",
 );
 
-# Website Style.php File Includer
-require $website_style_file;
-
 $website_custom_button_bar_numbers = array(
 0,
 1,
 2,
 );
-
-# Tab Generator.php includer
-require $website_tabs_generator;
 
 ?>

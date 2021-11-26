@@ -57,9 +57,6 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	# Number of tabs
 	$website_tab_number = count($tabs) - 1;
 
-	# Includer of the array of the GenericTabs files
-	require $generic_tabs_generator_file;
-
 	$found_selected_website = True;
 }
 

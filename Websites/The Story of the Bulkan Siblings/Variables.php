@@ -1,9 +1,9 @@
 <?php 
 
 # Story name definer
-$text = "The Story of the Bulkan Siblings";
-$website_story_name = $story_names[$text];
-$english_story_name = $english_story_names[$text];
+$local_website_name = "The Story of the Bulkan Siblings";
+$website_story_name = $story_names[$local_website_name];
+$english_story_name = $english_story_names[$local_website_name];
 $portuguese_story_name = $portuguese_story_names[$english_story_name];
 $general_story_name = $english_story_name." Geral";
 
@@ -77,8 +77,5 @@ $source_bulkan_reference_1_chapter_1,
 $bulkan_reference_1_chapter_3,
 $a_name_bulkan_reference_1_chapter_3,
 );
-
-# Tab Generator.php includer
-require $website_tabs_generator;
 
 ?>

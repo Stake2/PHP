@@ -7,7 +7,7 @@ echo '<a href="#'.$website_tab_codes_computer[$i].'" style="float:left;"><button
 
 echo '<a href="#'.$website_tab_codes_computer[$i2].'" style="float:right;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
 
-echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$first_button_style.'" style="float:left;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
+echo '<a href="#'.$tab_codes[0].'"><button class="w3-btn '.$first_button_style.'" style="float:left;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$tab_codes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 echo $div_close."\n";
 
 echo $mobile_div;
@@ -15,7 +15,7 @@ echo '<a href="#'.$website_tab_codes_mobile[$i].'" style="float:left;"><button c
 
 echo '<a href="#'.$website_tab_codes_mobile[$i2].'" style="float:right;"><button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i2]."')".'">'.$icons[29].'</button></a>'."\n";
 
-echo '<a href="#'.$citycodes[0].'"><button class="w3-btn '.$first_button_style.'" style="float:left;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$citycodes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
+echo '<a href="#'.$tab_codes[0].'"><button class="w3-btn '.$first_button_style.'" style="float:left;margin-left:15px;'.$rounded_border_style_2.'" onclick="openCity('."'".$tab_codes[0]."')".'"><h3>'.$icons[16].'</h3></button></a>'."\n";
 echo $div_close."\n";
 
 echo '<br /><br />';

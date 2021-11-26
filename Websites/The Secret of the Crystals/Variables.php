@@ -104,19 +104,6 @@ $tab_texts = array();
 
 Make_Button_Names();
 
-# Website Style.php File Includer
-require $website_style_file;
-
-# Tab Generator.php includer
-require $website_tabs_generator;
-
-# Website notification variables if the website notification setting is True
-if ($website_has_notifications == True) {
-	# Revised chapter title
-	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
-	$reviewed_chapter_button_mobile = $chapter_buttons[$revised_chapter];
-}
-
 $sharks_maelstrom_ep_link = Make_Link("https://soundcloud.com/sharkstunes/sets/maelstrom-ep-rushdown-release", Language_Item_Definer("link here", "link aqui"), $text_white_css_class, $new_tab = True);
 
 $sharks_maelstrom_ep_youtube_link = Make_Link("https://www.youtube.com/watch?v=B1wglf-7EkU", Language_Item_Definer("YouTube link", "Link do YouTube"), $text_white_css_class, $new_tab = True);
