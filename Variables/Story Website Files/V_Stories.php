@@ -152,7 +152,7 @@ $story_text_text = Language_Item_Definer($story_text." ".$text_text, $text_text.
 $stories_text = $story_text."s";
 
 $chapter_title_text = Language_Item_Definer("Chapter", "Capítulo");
-$chapter_text = strtolower($chapter_title_text);
+$chapter_text = mb_strtolower($chapter_title_text);
 $chapters_text = $chapter_title_text."s";
 $chapter_tab_text = $chapter_text."-text";
 $chapter_in_language = $chapters_text." ".$in_text." ".$full_language;
@@ -161,7 +161,7 @@ $author_text = Language_Item_Definer("Author of the story", "Autor da história"
 $authors_text = Language_Item_Definer("Authors of the story", "Autores da história");
 $story_creation_date_text = Language_Item_Definer("Story creation date", "Data de criação da história");
 $chapter_written_in_text = $chapter_title_text." ".Language_Item_Definer("written in", "escrito em");
-$your_name_text = Language_Item_Definer("Your", "Seu")." ".strtolower($name_text);
+$your_name_text = Language_Item_Definer("Your", "Seu")." ".mb_strtolower($name_text);
 $synopsis_text = Language_Item_Definer("Synopsis", "Sinopse");
 
 $english = array(
@@ -213,13 +213,13 @@ $website_comments_english_folder_text = $comments_english_folder_text."Website/"
 $english = array(
 "Write",
 "Write the Chapter",
-substr("Reading", 0, -8)." ".strtolower("Writing").": ".ucwords($story_name),
+substr("Reading", 0, -8)." ".mb_strtolower("Writing").": ".ucwords($story_name),
 );
 
 $write_texts_array = array(
 "Escrever",
 "Escreva o capítulo",
-substr("Lendo", 0, -6)." ".strtolower("Escrevendo").": ".ucwords($story_name),
+substr("Lendo", 0, -6)." ".mb_strtolower("Escrevendo").": ".ucwords($story_name),
 );
 
 $write_texts_array = Language_Item_Definer($english, $brazilian_portuguese);

@@ -61,7 +61,7 @@ if (isset($_GET['delete'])) {
       $add_category = $_POST['add_category'];
       $add_category = trim($_POST['add_category']);
       $add_category = space_or_dash(' ', $add_category); // Convert space to dash
-      $add_category = strtolower($add_category);
+      $add_category = mb_strtolower($add_category);
       
       $add_category = BASE_PATH . $add_category;
       if (!file_exists($add_category)) {

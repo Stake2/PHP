@@ -48,7 +48,7 @@ $english_watched_episodes_text = "Episodes";
 $english_watched_times_text = "Times";
 $english_watched_media_types_text = "Media Types";
 
-$read_text_lower = strtolower($read_text);
+$read_text_lower = mb_strtolower($read_text);
 
 $person_names = array(
 "Izaque",

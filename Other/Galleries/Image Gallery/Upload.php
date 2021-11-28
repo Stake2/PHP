@@ -13,7 +13,7 @@
 		$target_file = $target_dir.basename($_FILES["file"]["name"]);
 
 		// Select file type
-		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+		$imageFileType = mb_strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 		// Valid file extensions
 		$extensions_array = array("jpg","jpeg","png","gif");

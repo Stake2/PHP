@@ -120,7 +120,7 @@ $zzcxx = 3;
 $book_cover_number = 1;
 $a = 1;
 
-echo '<div id="'.strtolower($chapters_text).'-div">'."\n";
+echo '<div id="'.mb_strtolower($chapters_text).'-div">'."\n";
 
 # Chapter reader/writer/displayer, it generates the tabs for the chapters to be read by the user
 while ($chapter_number_1 <= $chapters) {

@@ -37,7 +37,7 @@
 			fclose($file);
 
 			foreach ($file as $file) {
-				$file_extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+				$file_extension = mb_strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
 				if(in_array($file_extension, $extensions_array) and !is_dir($folder.$file.'/')){
 					array_push($images, $file);

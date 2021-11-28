@@ -56,7 +56,7 @@ if ($local_comment_number > 1 and $comment_dates != Null) {
 
 		# Chapter text and title
 		if ($show_chapter_on_comment == True) {
-			$comment .= "<b>".$commented_on_text." ".strtolower($chapter_title_text).": "."</b>".$chapter_titles[$chapter_number_3].'<br />'."\n";
+			$comment .= "<b>".$commented_on_text." ".mb_strtolower($chapter_title_text).": "."</b>".$chapter_titles[$chapter_number_3].'<br />'."\n";
 		}
 
 		$comment .= '<hr class="'.$third_full_border.'" />'.$current_chapter_comment_text."\n".'<br /><br /><br /><br /><br />'."\n";

@@ -11,7 +11,7 @@ foreach ($website_titles as $value) {
 
 $i = 0;
 foreach ($website_titles as $value) {
-	$website_keys[$value] = Remove_Non_File_Characters(str_replace(" ", "_", strtolower($value)));
+	$website_keys[$value] = Remove_Non_File_Characters(str_replace(" ", "_", mb_strtolower($value)));
 
 	$i++;
 }

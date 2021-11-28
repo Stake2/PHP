@@ -194,7 +194,7 @@ if ($website_language == $languages_array[1]) {
 
 	$website_title = $websites_names_array[0];
 	$website_title_header = $websites_names_array[0].': '.$icons[4].' '.$icons[22];
-	$website_link = $selected_website_url.strtolower($hyphen_separated_website_language).'/';
+	$website_link = $selected_website_url.mb_strtolower($hyphen_separated_website_language).'/';
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
 }

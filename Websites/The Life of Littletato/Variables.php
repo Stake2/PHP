@@ -21,7 +21,7 @@ $website_images_folder = $website_media_images_website_images.$story_folder."/";
 require $cover_images_folder_definer_php_variable;
 
 # Form code for the comment and read forms
-$website_form_code = strtolower(str_replace(" ", "-", $english_story_name));
+$website_form_code = mb_strtolower(str_replace(" ", "-", $english_story_name));
 
 # Website numbers
 $crossover_chapter_number = 26;
