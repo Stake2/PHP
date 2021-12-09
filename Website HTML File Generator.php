@@ -119,10 +119,10 @@ if ($update_two_html_files == True) {
 	Update_HTML_File($second_html_folder, $second_html_index_file);
 }
 
-$local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$website_title;
+$local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$website_title_text;
 $website_link = "";
 $website_image = "";
-$website_meta_description = Language_Item_Definer("Generator of HTML files for the selected website", "Gerador de arquivos HTMl para o site selecionado").": ".$website_title;
+$website_meta_description = Language_Item_Definer("Generator of HTML files for the selected website", "Gerador de arquivos HTMl para o site selecionado").": ".$website_title_text;
 $image_format = "png";
 $data = date("d/m/Y");
 
@@ -154,14 +154,14 @@ echo $website_head;
 echo "<center>"."\n";
 
 echo "\n"."<h1>"."\n".
-$website_title."<br />"."\n"
+$website_title_text."<br />"."\n"
 ."</h1>"."\n";
 
 $show_text = Language_Item_Definer("This is the name of the website", "Esse é o nome do site");
 
 echo "\n"."<h2>"."\n".
 $show_text.": <br />"."\n".
-$website_title."\n"
+$website_title_text."\n"
 ."</h2>"."\n"."\n";
 
 $show_text = Language_Item_Definer("This is the folder where the selected website is", "Essa é a pasta onde o site selecionado está");

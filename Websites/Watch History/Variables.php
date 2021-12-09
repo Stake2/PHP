@@ -124,20 +124,6 @@ $media_links_number = count($media_image_links_array);
 # Text File Reader.php file includer
 require $text_file_reader_file_php;
 
-# Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title = $website_title;
-$website_title_header = $website_title.": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
-$website_link = $selected_website_url;
-$website_meta_description = $website_descriptions_array[$language_number];
-$website_header_description = $website_html_descriptions_array[$language_number];
-
-if ($website_language != $language_geral) {
-	$website_title .= " ".$website_title_language;
-	$website_title_header = str_replace(': '.$icons[11], "", $website_title_header);
-	$website_link .= $website_link_language."/";
-}
-
 $tab_titles_without_html = array();
 
 $current_variable_year = 2018;
@@ -181,5 +167,19 @@ $website_custom_button_bar_numbers = array(
 1,
 2,
 );
+
+# Website name, title, URL and description setter, by language
+$website_title_header = $website_title_text.": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
+$website_link = $selected_website_url;
+$website_meta_description = $website_descriptions_array[$language_number];
+$website_header_description = $website_html_descriptions_array[$language_number];
+
+if ($website_language != $language_geral) {
+	$website_title_header = $website_title_text." ".$full_languages_dict[$website_language].": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
+
+	$website_title_text .= " ".$website_title_language;
+
+	$website_link .= $website_link_language."/";
+}
 
 ?>

@@ -85,6 +85,12 @@ $full_language_ptbr => "ptbr",
 $full_language_ptpt => "ptpt",
 );
 
+$full_languages_dict = array(
+"enus" => $full_languages_array[1],
+"ptbr" => $full_languages_array[2],
+"ptpt" => "Português Europeu",
+);
+
 # CSS file variables
 $website_css_files_array = array(
 $css_file_pocb = "POCB",

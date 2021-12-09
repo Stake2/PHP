@@ -46,21 +46,6 @@ if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
 }
 
-# Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title = $general_story_name;
-$website_title_header = $general_story_name.': '.$icons[11];
-
-if ($website_language != $language_geral) {
-	$website_title = $website_story_name;
-
-	if ($website_language == $ptpt_language) {
-		$website_title = $website_story_name." ".$website_title_language;
-	}
-
-	$website_title_header = $website_title.': '.$icons[11];
-}
-
 # Buttons and tabs definer
 if ($website_writing_pack_setting == True) {
 	$tab_names[0] = str_replace('Read', 'Write', $tab_names[0]);
@@ -120,5 +105,19 @@ $story_names["SpaceLiving"]."\ ",
 " ".$till_chapter_nine_text,
 $mlp_fim_wikipedia_link_text."/",
 );
+
+# Website name, title, URL and description setter, by language
+$website_title_text = $general_story_name;
+$website_title_header = $general_story_name.": ".$icons[11];
+
+if ($website_language != $language_geral) {
+	$website_title_text = $website_story_name;
+
+	if ($website_language == $ptpt_language) {
+		$website_title_text .= " ".$website_title_language;
+	}
+
+	$website_title_header = $website_title_text.": ".$icons[11];
+}
 
 ?>

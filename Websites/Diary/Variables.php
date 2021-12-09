@@ -5,7 +5,7 @@ $local_story_name = "Diary";
 $website_story_name = $story_names[$local_story_name];
 $english_story_name = $english_story_names[$local_story_name];
 $portuguese_story_name = $portuguese_story_names[$english_story_name];
-$general_story_name = $local_story_name;
+$general_story_name = $local_story_name." General";
 
 # Folder variables
 $selected_website_url = $story_website_links[$english_story_name];
@@ -145,7 +145,6 @@ $custom_tab_names[0] = "";
 
 $custom_tab_titles_array = array(
 $chapter_in_language.": ".$website_language_icon,
-#": ".Create_Element("span", $w3_text_colors["white"]." ".$text_hover_white_css_class, $readers_number)." ".$icons[20]."<br />".$thanks_everyone_text,
 ": ".$icons[1],
 ": ".Create_Element("span", $w3_text_colors["white"], $stories_number)." ".$icons[11],
 );
@@ -159,19 +158,19 @@ $tab_texts = array();
 Make_Button_Names();
 
 # Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title = $general_story_name;
+$website_title_text = $general_story_name;
 $website_title_header = $general_story_name.': '.$icons[11];
 $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
-	$website_title = $website_story_name;
+	$website_title_text = $website_story_name;
+
+	$website_title_header = $website_title_text." ".$full_languages_dict[$website_language].': '.$icons[11];
 
 	if ($website_language == $ptpt_language) {
-		$website_title = $website_story_name." ".strtoupper($website_title_language);
+		$website_title_text = $website_story_name." ".strtoupper($website_title_language);
 	}
 
-	$website_title_header = $website_title.': '.$icons[11];
 	$website_link .= $website_link_language."/";
 }
 

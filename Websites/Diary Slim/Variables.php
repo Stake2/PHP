@@ -135,9 +135,12 @@ Make_Button_Names();
 # Website name, title, URL and description setter, by language
 $website_title_header = $general_story_name.': '.$icons[11];
 $website_link = $selected_website_url;
+$website_title_text = $general_story_name;
 
 if ($website_language != $language_geral) {
-	$website_title_header = $website_title_text.': '.$icons[11];
+	$website_title_text = $website_story_name;
+
+	$website_title_header = $website_title_text." ".$full_languages_dict[$website_language].': '.$icons[11];
 
 	if ($website_language == $ptpt_language) {
 		$website_title_text .= " ".$website_title_language;
