@@ -108,10 +108,13 @@ echo 'var last_chapter_texts = [
 var parameter_text = local_website_url.split("?")[local_website_url.split("?").length - 1];
 var parameter_text_replaced = parameter_text.replace("[", "").replace("]", "").replace("(", "").replace(")", "").replace("%20", " ").replace("#", " ");
 
+parameter_text_replaced = parameter_text_replaced.split("&")[parameter_text_replaced.split("&").length - 1];
+
 console.log("Parameter Text: " + parameter_text);
 console.log("Replaced Parameter Text: " + parameter_text_replaced);
 
 if (last_chapter_texts.indexOf(parameter_text_replaced) != -1) {
+	console.log("Website URL includes last chapter text.");
 	Open_Chapter(Last_Chapter_Title, Last_Chapter);
 }'."\n";
 
