@@ -50,6 +50,10 @@ $website = ob_get_clean();
 
 $html_folder = $mega_folder_stake2_website.str_replace($main_website_url, "", $selected_website_url);
 
+if (file_exists($html_folder) == False) {
+	mkdir($html_folder);
+}
+
 if ($selected_language != $language_geral) {
 	$html_folder = $html_folder.$website_title_language."/";
 }

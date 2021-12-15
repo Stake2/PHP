@@ -44,6 +44,10 @@ $my_little_pony_folder = $mega_folder."My Little Pony/";
 $my_little_pony_friendship_is_magic_folder = $my_little_pony_folder."Friendship is Magic/";
 $mlp_fim_texts_folder = $my_little_pony_friendship_is_magic_folder."Texts - Textos/";
 $mlp_fim_feeling_texts_folder = $mlp_fim_texts_folder."Feeling Texts - Textos de Sentimentos/";
+$mlp_fim_english_texts_folder = $mlp_fim_texts_folder."English/";
+$mlp_fim_portuguese_texts_folder = $mlp_fim_texts_folder."Português Brasileiro/";
+$mlp_fim_language_texts_folder = Language_Item_Definer($mlp_fim_english_texts_folder, $mlp_fim_portuguese_texts_folder);
+$mlp_fim_episode_list_folder = $mlp_fim_language_texts_folder.Language_Item_Definer("Episode List", "Lista de Episódios")."/";
 
 # Notepad folder variables
 $notepad_folder = $mega_folder."Bloco De Notas/";

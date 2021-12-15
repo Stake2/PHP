@@ -17,11 +17,11 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 
 	# Website Tab names array
 	if (in_array($website_language, $en_languages_array)) {
-		$tab_names = array("Read Thankful Text", "Characters", "My friends", "Stories", "Pictures", "Videos");
+		$tab_names = array("Read Thankful Text", "Characters", "My friends", "Stories", "Pictures", "Videos", "Episodes list");
 	}
 
 	if (in_array($website_language, $pt_languages_array)) {
-		$tab_names = array("Ler Texto de Agradecimento", "Personagens", "Meus amigos", "Histórias", "Fotos", "Vídeos");
+		$tab_names = array("Ler Texto de Agradecimento", "Personagens", "Meus amigos", "Histórias", "Fotos", "Vídeos", "Lista de episódios");
 	}
 
 	#Number of tabs

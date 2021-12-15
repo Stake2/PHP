@@ -10,8 +10,9 @@ $tabnamestxt = $tab_names;
 
 $local_website_tab_number = $website_tab_number;
 
-if ($website_title == $website_titles["Diary"]) {
-	require $websites_tab_button_maker;
+require $websites_tab_button_maker;
+
+if ($website_title == $website_titles["Diary"]) {require $websites_tab_button_maker;
 	$local_website_tab_number = $website_tab_number;
 }
 
@@ -53,7 +54,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 		if ($i == $website_tab_number and $website_title == $website_titles["Diary"]) {
 			$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
-			$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
+			$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 			if ($website_settings[$uses_custom_buttons_bar_text] == False) {
 				#$computer_buttons_bar .= $button;
@@ -68,7 +69,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 			if ($i == 0 and $website_has_notifications == True and $website_hides_notification_on_clicking_on_read_tab_setting == True) {
 				$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
-				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
+				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
 					#$computer_buttons_bar .= $button;
@@ -82,7 +83,7 @@ if ($website_deactivate_top_buttons_setting == False) {
 			else {
 				$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
 
-				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
+				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
 				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
 					#$computer_buttons_bar .= $button;
@@ -180,6 +181,9 @@ if ($website_deactivate_top_buttons_setting == False) {
 	#$mobile_buttons_bar .= $close_mobile_div;
 }
 
+$computer_buttons[] = $websites_tab_button_computer;
+$mobile_buttons[] = $websites_tab_button_mobile;
+
 if ($website_title_backup == $website_titles["Watch History"]) {
 	$archived_media_buttons_array = array();
 
@@ -266,7 +270,7 @@ if ($website_settings[$uses_custom_buttons_bar_text] == False) {
 	}
 }
 
-if ($website_settings[$uses_custom_buttons_bar_text] == True) {
+else {
 	foreach ($website_custom_button_bar_numbers as $button_number) {
 		$mobile_buttons_bar .= $mobile_buttons[$button_number];
 	}

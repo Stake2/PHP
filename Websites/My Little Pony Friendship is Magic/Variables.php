@@ -79,25 +79,6 @@ $my_little_pony_name_colored,
 $website_header_descriptions[1] = For_Each_Replace($search_items, $replace_items, $website_descriptions_array[1]);
 $website_header_descriptions[2] = For_Each_Replace($search_items, $replace_items, $website_descriptions_array[2]);
 
-# Text File Reader.php file includer
-require $text_file_reader_file_php;
-
-# Website name, title, URL and description setter, by language
-$website_title_header = $my_little_pony_name_colored;
-$website_link = $selected_website_url;
-$website_meta_description = $website_descriptions_array[$language_number];
-$website_header_description = $website_header_descriptions[$language_number];
-
-if ($website_language != $language_geral) {
-	$website_title_header = $my_little_pony_name_colored.": ".$icons_array["open book"]." ".$icons_array["heart"];
-
-	if ($website_language == $ptpt_language) {
-		$website_title_text .= " ".$website_title_language;
-	}
-
-	$website_link .= $website_link_language."/";
-}
-
 $tab_titles_prototype = array(
 $icons_array["open book"]." ".$icons_array["heart"],
 $icons_array["user"],
@@ -105,6 +86,7 @@ $icons_array["user friends"]." ".$icons_array["heart"],
 $icons_array["book"],
 $icons_array["images"],
 $icons_array["video"],
+$icons_array["file"],
 );
 
 $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "right", $additinonal_value = array(": ", "left"));
@@ -182,5 +164,28 @@ $(document).ready(function () {
 	});
 });
 </script>";
+
+# Text File Reader.php file includer
+require $text_file_reader_file_php;
+
+# Website name, title, URL and description setter, by language
+$website_title_header = $my_little_pony_name_colored;
+$website_title_text_backup = $website_title_text;
+$website_title_text = $website_title_text." General";
+$website_link = $selected_website_url;
+$website_meta_description = $website_descriptions_array[$language_number];
+$website_header_description = $website_header_descriptions[$language_number];
+
+if ($website_language != $language_geral) {
+	$website_title_text = $website_title_text_backup;
+
+	$website_title_header = $my_little_pony_name_colored.": ".$icons_array["open book"]." ".$icons_array["heart"];
+
+	if ($website_language == $ptpt_language) {
+		$website_title_text .= " ".$website_title_language;
+	}
+
+	$website_link .= $website_link_language."/";
+}
 
 ?>

@@ -142,6 +142,8 @@ $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "ri
 
 $custom_tab_names = $tab_names;
 $custom_tab_names[0] = "";
+$custom_tab_names[1] = "";
+$custom_tab_names[2] = "";
 
 $custom_tab_titles_array = array(
 $chapter_in_language.": ".$website_language_icon,
@@ -178,6 +180,7 @@ $website_custom_button_bar_numbers = array(
 0,
 1,
 2,
+3,
 );
 
 ?>
