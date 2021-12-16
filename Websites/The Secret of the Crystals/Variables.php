@@ -31,6 +31,8 @@ $number_of_chapter_comments = $comments_number_text;
 # Text File Reader PHP file includer
 require $text_file_reader_file_php;
 
+$chapters = $revised_chapter;
+
 #$comments_number = $story_comments_check_number - 1;
 $readed_number = 5;
 
@@ -52,23 +54,6 @@ require $story_details_definer;
 # Reads the book cover image directory if the website has book covers
 if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
-}
-
-# Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title = $website_story_name." Geral";
-$website_title_header = $website_story_name." Geral".': '.$icons[11];
-$website_link = $selected_website_url;
-
-if ($website_language != $language_geral) {
-	$website_title = str_replace(" Geral", "", $website_title);
-
-	if ($website_language == $ptpt_language) {
-		$website_title .= " ".$website_title_language;
-	}
-
-	$website_title_header = str_replace(" Geral".': '.$icons[11], "", $website_title_header).': '.$icons[11];
-	$website_link .= $website_link_language."/";
 }
 
 # Buttons and tabs definer
@@ -117,5 +102,23 @@ $sharks_coral,
 $lapis_lazuli_steven_universe,
 $ted_humanoid_the_secret_of_the_crystals_image,
 );
+
+# Website name, title, URL and description setter, by language
+$website_name = $selected_website;
+$local_website_title_text = $website_title_text;
+$website_title_text = $website_story_name." General";
+$website_title_header = $website_story_name." General".': '.$icons[11];
+$website_link = $selected_website_url;
+
+if ($website_language != $language_geral) {
+	$website_title_text = $local_website_title_text;
+
+	if ($website_language == $ptpt_language) {
+		$website_title_text .= " ".$website_title_language;
+	}
+
+	$website_title_header = str_replace(" Geral".': '.$icons[11], "", $website_title_header).': '.$icons[11];
+	$website_link .= $website_link_language."/";
+}
 
 ?>
