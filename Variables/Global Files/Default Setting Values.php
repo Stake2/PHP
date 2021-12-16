@@ -72,7 +72,7 @@ $story_uses_status = False;
 $story_has_chapter_comments = False;
 $website_uses_universal_file_reader = False;
 $website_has_comments_tab_setting = False;
-$site_uses_new_comment_and_read_displayer = False;
+$site_uses_new_comment_and_read_displayer = True;
 
 $site_haves_additional_website_content = False;
 $website_is_prototype_setting = False;

@@ -112,6 +112,8 @@ if (in_array($website_language, $pt_languages_array)) {
 # Story Details Definer PHP file includer
 require $story_details_definer;
 
+$readed_number = 31;
+
 # Story name and characters text array
 $diary_character_descriptions = $margin."\n".
 $margin."\n".
@@ -142,8 +144,6 @@ $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "ri
 
 $custom_tab_names = $tab_names;
 $custom_tab_names[0] = "";
-$custom_tab_names[1] = "";
-$custom_tab_names[2] = "";
 
 $custom_tab_titles_array = array(
 $chapter_in_language.": ".$website_language_icon,

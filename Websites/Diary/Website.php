@@ -18,8 +18,8 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["show_new_chapter_text"] = False;
 
 	# Website settings
-	$sitesbuttonintab = True; #Defines if website has the Sites Button on the top bar
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab
+	$story_has_reads = True;
 	$website_has_comments = True; #Defines if the website has comments
 	$website_has_stories_tab_setting = True;
 	$website_shows_comments = False; #Defines if website shows the comments on the Comments Tab
@@ -27,9 +27,9 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$story_has_dates = False; #Defines if the story has dates
 	$website_story_has_titles = True; #Defines if the story has chapter_titles
 	$story_uses_status = False; #Defines if the story uses the story statuses
-	$story_has_chapter_comments = False; #Defines if the story has comments on the chapter
-	$story_website_contains_reads = False; #Defines if the story has story_reads_array on it
-	$story_website_contains_comments = False; #Defines if the story has comments on it
+	$story_has_chapter_comments = True; #Defines if the story has comments on the chapter
+	$story_website_contains_reads = True; #Defines if the story has story_reads_array on it
+	$story_website_contains_comments = True; #Defines if the story has comments on it
 	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
 	$website_shows_chapter_covers = True;
 	$story_shows_story_covers = False;

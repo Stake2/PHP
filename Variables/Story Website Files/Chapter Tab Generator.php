@@ -23,7 +23,7 @@ if ($website_write_story_setting == True and $story_name_website_chapter_to_writ
 		$local_chapter_titles = array_values($chapter_titles);
 
 		if (strpos($local_chapter_titles[$chapter_number_4], "/") == True) {
-			$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[0];
+			#$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[1];
 		}
 
 		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_writing_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$local_chapter_titles[$chapter_number_4]."</b>"."\n\n";
@@ -39,7 +39,7 @@ else {
 		$local_chapter_titles = array_values($chapter_titles);
 
 		if (strpos($local_chapter_titles[$chapter_number_4], "/") == True) {
-			$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[0];
+			#$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[0];
 		}
 
 		$top_and_bottom_chapter_text = "\n\n"."<b>".$you_are_reading_story_text."<br />"."\n".$chapter_text_name.": ".$chapter_number_1." - ".$local_chapter_titles[$chapter_number_4]."</b>"."\n\n";
@@ -193,13 +193,11 @@ if ($new_write_style == True) {
 
 	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">Read_Content_'.$chapter_number_1.'</span>'.
 	'<button id="'.$write_button_text.'-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
-
 	'<button id="write-button-'.$chapter_number_1.'" title="Edit Story Chapter Button" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="Write_Chapter(Write_Content_'.$chapter_number_1.');"><h3><i class="fas fa-pen"></i></h3></button>'.
 	"\n"."\n";
 
 	$show_story_chapter_text_button = '<span id="show_story_chapter_text_button_number_'.$chapter_number_1.'" style="display:none;">Read_Content_'.$chapter_number_1.'</span>'.
 	'<button id="write-button-'.$chapter_number_1.'" class="w3-btn '.$second_button_style.'" style="'.$local_button_style.'" onclick="Replace_Chapter_Write_Content_With_Read_Content(Read_Content_'.$chapter_number_1.');"><h3><i class="fas fa-book"></i></h3></button>'.
-
 	"\n"."\n";
 
 	# Edit story button displayer
@@ -341,6 +339,9 @@ if ($story_has_reads == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
 	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$i_read_it_button_text.'</b></h3></button>'."\n";
 	echo $div_close."\n";
+}
+
+if ($story_has_chapter_comments == True and $story_has_reads == True) {
 	echo $big_space_mobile_and_computer;
 }
 

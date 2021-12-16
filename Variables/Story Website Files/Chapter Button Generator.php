@@ -18,7 +18,7 @@ $chapter_number_3 = 1;
 $chapter_number_4 = 0;
 while ($chapter_number_1 <= $chapters) {
 	if (strpos($local_chapter_titles[$chapter_number_4], "/") == True) {
-		$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[0];
+		#$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[1];
 	}
 
 	if ($website_story_has_book_covers_setting == True and $story_shows_story_covers == True) {

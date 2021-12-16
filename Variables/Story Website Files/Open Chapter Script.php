@@ -9,6 +9,7 @@ echo '	document.getElementById(new_chapter_text).scrollIntoView();'."\n";
 echo '	Chapter_Number = chapter_number;'."\n";
 echo '	Define_Chapter(Chapter_Number);'."\n";
 echo '	Add_To_Website_Title(chapter_title, "notification");'."\n";
+echo '	Hide_Computer_Buttons();'."\n";
 
 if ($website_has_notifications == True) {
 	echo '	Hide_Computer_Notification();'."\n";
