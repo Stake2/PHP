@@ -97,6 +97,7 @@ $website_title_key = $website_title;
 $website_type = $website_types[$selected_website_title];
 $website_folder = $website_folders[$website_title];
 $website_title_text = Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]);
+$website_title_text_backup = $website_title_text;
 
 if ($website_title_backup == $website_titles["Watch History"]) {
 	require $media_variables_php;

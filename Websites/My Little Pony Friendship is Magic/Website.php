@@ -14,6 +14,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 
 	$website_settings["tab_body_generator"] = True;
 	$website_settings["custom_css_style"] = True;
+	$website_settings["has_two_website_titles"] = True;
 
 	# Website Tab names array
 	if (in_array($website_language, $en_languages_array)) {

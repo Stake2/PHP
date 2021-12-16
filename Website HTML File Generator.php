@@ -48,18 +48,18 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
-$html_folder = $mega_folder_stake2_website.str_replace($main_website_url, "", $selected_website_url);
+$root_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($website_title_text_backup)."/";
 
-if (file_exists($html_folder) == False) {
-	mkdir($html_folder);
+if (file_exists($root_html_folder) == False) {
+	mkdir($root_html_folder);
 }
 
 if ($selected_language != $language_geral) {
-	$html_folder = $html_folder.$website_title_language."/";
+	$html_folder = $root_html_folder."/".$website_title_language."/";
 }
 
-if ($selected_language == $language_geral) {
-	$html_folder = $html_folder;
+else {
+	$html_folder = $root_html_folder;
 }
 
 $html_folder = str_replace("%20", " ", $html_folder);
@@ -72,13 +72,19 @@ $html_index_file = $html_folder."Index.html";
 
 $update_two_html_files = False;
 
-if ($website_type == $story_website_type) {
+if ($website_type == $story_website_type or $website_settings["has_two_website_titles"] == True) {
 	$update_two_html_files = True;
 
-	$story_html_folder = $mega_folder_stake2_website.Language_Item_Definer($portuguese_story_name, $english_story_name);
+	if ($website_type == $story_website_type) {
+		$story_html_folder = $mega_folder_stake2_website.Language_Item_Definer($portuguese_story_name, $english_story_name);
 
-	if ($portuguese_story_name != "") {
-		$story_html_folder .= "/";
+		if ($portuguese_story_name != "") {
+			$story_html_folder .= "/";
+		}
+	}
+
+	else {
+		$story_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters(Language_Item_Definer($website_portuguese_titles[$selected_website_title], $website_titles[$selected_website_title]))."/";
 	}
 
 	if (file_exists($story_html_folder) == False) {
