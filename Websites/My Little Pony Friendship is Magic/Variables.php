@@ -132,7 +132,7 @@ $thankful_text_file = $mlp_fim_feeling_texts_folder.Language_Item_Definer("Thank
 $custom_css_style = "body {
 	background-image: url(\"".$mane_six_images_folder."Color Gradient.png"."\");
 	background-position: center;
-	background-repeat: repeat-y;
+	background-repeat: repeat-y repeat-x;
 	background-size: auto; /*
 }";
 
