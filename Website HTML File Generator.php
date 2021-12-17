@@ -55,7 +55,7 @@ if (file_exists($root_html_folder) == False) {
 }
 
 if ($selected_language != $language_geral) {
-	$html_folder = $root_html_folder."/".$website_title_language."/";
+	$html_folder = $root_html_folder.$website_title_language."/";
 }
 
 else {

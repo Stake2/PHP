@@ -14,7 +14,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["tab_body_generator"] = True;
 	$website_settings["show_new_chapter_text"] = False;
 
-	$website_has_notifications = False; #Defines if website has notifications on
+	$website_has_notifications = True; #Defines if website has notifications on
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
 	$website_has_comments_tab_setting = False; #Defines if website has a Comments Tab variable
 	$website_has_comments = True; #Defines the website has comments
