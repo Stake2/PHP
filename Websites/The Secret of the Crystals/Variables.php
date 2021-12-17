@@ -107,7 +107,7 @@ $ted_humanoid_the_secret_of_the_crystals_image,
 $website_name = $selected_website;
 $local_website_title_text = $website_title_text;
 $website_title_text = $website_story_name." General";
-$website_title_header = $website_story_name." General".': '.$icons[11];
+$website_title_header = $website_title_text.": ".$icons[11];
 $website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
@@ -117,7 +117,7 @@ if ($website_language != $language_geral) {
 		$website_title_text .= " ".$website_title_language;
 	}
 
-	$website_title_header = str_replace(" Geral".': '.$icons[11], "", $website_title_header).': '.$icons[11];
+	$website_title_header = $website_title_text.": ".$icons[11];
 	$website_link .= $website_link_language."/";
 }
 
