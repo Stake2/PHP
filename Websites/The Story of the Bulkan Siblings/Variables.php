@@ -33,6 +33,8 @@ $readed_number = 1;
 # Text File Reader.php file includer
 require $text_file_reader_file_php;
 
+$chapters = $revised_chapter;
+
 # Re-require of the VStories.php file to set the story name
 require $story_variables_php;
 
@@ -42,23 +44,6 @@ require $story_details_definer;
 # Reads the book cover image directory if the website has book covers
 if ($website_story_has_book_covers_setting == True) {
 	require $cover_images_generator_php_variable;
-}
-
-# Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title = $general_story_name;
-$website_title_header = $general_story_name.': '.$icons[11];
-$website_link = str_replace(" ", "%20", $selected_website_url);
-
-if ($website_language != $language_geral) {
-	$website_title = $website_story_name;
-
-	if ($website_language == $ptpt_language) {
-		$website_title .= " ".$website_title_language;
-	}
-
-	$website_title_header = $website_title.': '.$icons[11];
-	$website_link .= $website_link_language."/";
 }
 
 # Button names
@@ -77,5 +62,19 @@ $source_bulkan_reference_1_chapter_1,
 $bulkan_reference_1_chapter_3,
 $a_name_bulkan_reference_1_chapter_3,
 );
+
+# Website name, title, URL and description setter, by language
+$website_title_text = $general_story_name;
+$website_title_header = $general_story_name.": ".$icons[11];
+
+if ($website_language != $language_geral) {
+	$website_title_text = $website_story_name;
+
+	if ($website_language == $ptpt_language) {
+		$website_title_text .= " ".$website_title_language;
+	}
+
+	$website_title_header = $website_title_text.": ".$icons[11];
+}
 
 ?>
