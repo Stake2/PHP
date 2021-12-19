@@ -13,6 +13,7 @@ $website_settings = array(
 
 $uses_custom_buttons_bar_text = "uses_custom_buttons_bar";
 
+$website_hides_notification_on_clicking_on_read_tab_setting = True;
 $hide_sensitive_data = False;
 
 $use_custom_tab_titles_array = False;

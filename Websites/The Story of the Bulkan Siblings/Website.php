@@ -16,7 +16,8 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	require $selected_website_style_file;
 
 	# Website settings
-	$website_has_notifications = False; #Defines if website has notifications on
+	$website_has_notifications = True; #Defines if website has notifications on
+	$website_hides_notification_on_clicking_on_read_tab_setting = True;
 	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
 	$website_has_comments = True; #Defines the website has comments
 	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab
