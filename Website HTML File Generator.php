@@ -181,6 +181,15 @@ $show_text.": <br />"."\n".
 Make_Link("file:///".$html_folder, $html_folder, $target = "_blank")."\n"
 ."</h2>"."\n"."\n";
 
+if ($update_two_html_files == True) {
+	$show_text = Language_Item_Definer("This is the folder where the selected website with another title is", "Essa é a pasta onde o site selecionado com outro título está");
+
+	echo "<h2>"."\n".
+	$show_text.": <br />"."\n".
+	Make_Link("file:///".$second_html_folder, $second_html_folder, $target = "_blank")."\n"
+	."</h2>"."\n"."\n";
+}
+
 $show_text = Language_Item_Definer("This is the path to the website HTML file", "Esse é o caminho para o arquivo HTML do site");
 
 echo format("<h2>"."\n".

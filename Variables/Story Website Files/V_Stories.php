@@ -233,7 +233,7 @@ if (isset($story_name)) {
 $write_new_chapter_tab_text = Language_Item_Definer("write-new-chapter", "escrever-novo-capítulo");
 $write_button_text = Language_Item_Definer("write-button", "botão-de-escrever");
 
-$website_notification_text = Language_Item_Definer("New revised chapter", "Novo capítulo revisado");
+$website_notification_text = Language_Item_Definer("New posted chapter", "Novo capítulo postado");
 
 # Status text definer, that sets the status text with [] around it
 $story_status_text = "[".ucfirst($story_status)."]";
