@@ -160,25 +160,13 @@ if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array
 	$website_type = $website_types_array[1];
 
 	#"Website has stories" setting definer
-	$website_has_stories_tab_setting = True;
+	$story_website_settings["show_chapter_covers"] = True;
 }
 
 #Years website type definer
 if (in_array($host_text, $years_array)) {
 	$sub_website_type = 'Years';
 }
-
-$sitesbuttonintab = false;
-$website_has_notifications = false;
-$website_has_stories_tab_setting = false;
-$website_shows_comments = false;
-$website_has_changelog_setting = false;
-$website_write_story_setting = false;
-$website_chapter_to_write_setting = false;
-$roundedbuttonson = True;
-$thingsidofake = false;
-$watchmedias2018 = false;
-$watchmedias2019 = false;
 
 #"Things I do" Website definer
 if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == True) {
@@ -225,7 +213,7 @@ require $sitetabsgeralvarsfolder."VGlobal.php";
 echo $website_header;
 
 #Website notification file includer if setting is True
-if ($website_has_notifications == True) {
+if ($website_settings["notifications"] == True) {
 	echo $notification_script;
 	echo '<script>
 function Hide_Notification() {

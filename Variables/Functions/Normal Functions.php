@@ -19,8 +19,8 @@ function For_Each_Replace($search_items, $replace_items, $string) {
 
 function Show_Text($file, $style_format = Null) {
 	global $variable_inserter_array;
-	global $use_variable_inserter;
 	global $website_settings;
+	global $story_website_settings;
 	global $story_texts_to_replace;
 	global $story_texts_to_add;
 
@@ -35,11 +35,11 @@ function Show_Text($file, $style_format = Null) {
 				$text_line = format($style_format, $text_line);
 			}
 
-			if ($website_settings["replace_story_text"] == True and isset($story_texts_to_replace) == True and isset($story_texts_to_add) == True) {
+			if ($story_website_settings["replace_story_text"] == True and isset($story_texts_to_replace) == True and isset($story_texts_to_add) == True) {
 				$text_line = For_Each_Replace($story_texts_to_replace, $story_texts_to_add, $text_line);
 			}
 
-			if ($use_variable_inserter == True) {
+			if ($website_settings["variable_inserter"] == True) {
 				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
 				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
 			}
@@ -234,7 +234,6 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	global $h4_element;
 	global $text_hover_white_css_class;
 	global $zoom_animation_class;
-	global $span_element;
 
 	$classes = array(
 	$text_hover_white_css_class,
@@ -249,7 +248,7 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 
 		$reader_name = $readers[$i];
 
-		$reader_number_text = Create_Element($span_element, $number_text_color, $i2);
+		$reader_number_text = Create_Element("span", $number_text_color, $i2);
 		$reader_name_text = Create_Element($h2_element, $classes, $reader_number_text." - ".$reader_name);
 
 		echo $reader_name_text."\n";
@@ -267,7 +266,7 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 
 		$reader_name = $readers[$i];
 
-		$reader_number_text = Create_Element($span_element, $number_text_color, $i2);
+		$reader_number_text = Create_Element("span", $number_text_color, $i2);
 		$reader_name_text = Create_Element($h2_element, $classes, $reader_number_text." - ".$reader_name);
 
 		echo $reader_name_text."\n";

@@ -10,9 +10,6 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	#Website settings setter file includer
-	require $setting_parameters_file;
-
 	$tabs = array($local_current_year, 'Media', 'Tasks', 'Years');
 
 	if (in_array($website_language, $en_languages_array)) {

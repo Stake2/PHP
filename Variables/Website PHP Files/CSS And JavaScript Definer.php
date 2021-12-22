@@ -1,16 +1,5 @@
 <?php 
 
-# CSS Pack generator by class
-/*
-
-Make a CSS Pack Generator class that sets all the style variables using an array that the specific website contains
-The styles array of the website contains all the styles used for that website
-
-Make a variable in the Website.php file that is called $css_pack that contains the style array of the website
-Make the website style arrays inside each folder of each website, called "CSS Pack.php"
-
-*/
-
 $css_links = array(
 "https://www.w3schools.com/lib/w3.css",
 $website_css_styler_css_folder."W3",
@@ -35,7 +24,7 @@ if ($website_type == $story_website_type) {
 	array_push($javascript_links, $website_story_websites_javascript_folder."Write Chapter");
 }
 
-if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_settings["custom_layout"] == False) {
 	$css_links = array(
 	"https://www.w3schools.com/lib/w3",
 	$website_css_styler_css_folder."W3",
@@ -45,7 +34,7 @@ if ($website_is_prototype_setting == False and $website_uses_custom_layout_setti
 	);
 }
 
-if ($website_has_notifications == True) {
+if ($website_settings["notifications"] == True) {
 	$text = "Notifications";
 
 	array_push($css_links, $website_css_styler_css_folder.$text);

@@ -1,9 +1,7 @@
 <?php 
 
 # Watch PHP files
-$mediaarraygenerator = $website_folders["Watch History"]."MediaArrayGenerator.php";
-$mediastyler = $website_folders["Watch History"]."MediaStyler.php";
-$current_year_watched_media_generator = $website_folders["Watch History"]."Current Year Watched Media Generator.php";
+$watched_media_generator = $website_folders["Watch History"]."Watched Media Generator.php";
 $archived_media_machine_php = $website_folders["Watch History"]."Archived Media Machine.php";
 
 # Website variables
@@ -166,6 +164,7 @@ $website_custom_button_bar_numbers = array(
 0,
 1,
 2,
+4,
 );
 
 # Website name, title, URL and description setter, by language

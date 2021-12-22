@@ -49,7 +49,7 @@ $watched_media_numbers_current_year = ${"watched_media_numbers_".$local_current_
 $fixing = False;
 
 if ($fixing == False) {
-	require $current_year_watched_media_generator;
+	require $watched_media_generator;
 	$archived_media_string .= $full_string;
 }
 
@@ -77,7 +77,7 @@ $mobile_version = True;
 $archived_media_string .= $mobile_div;
 
 if ($fixing == False) {
-	require $current_year_watched_media_generator;
+	require $watched_media_generator;
 }
 
 else {

@@ -1,37 +1,18 @@
 <?php 
 
-if ($thingsidofake == True) {
-	$spanstyle = $blackspan;
-	$hover_text_color = $text_hover_white_css_class;
-	$number_text_color = $first_text_color;
-	$number_text_color_span = '<span class="'.$number_text_color.'">';
+$spanstyle = $whitespan;
+$hover_text_color = $text_hover_white_css_class;
+$number_text_color = $first_text_color;
+$number_text_color_span = '<span class="'.$number_text_color.'">';
 
-	if ($mobile_version == True) {
-		$margin_div_style = '<div>';
-		$mobile_a_name = 'Mobile';
-	}
-
-	if ($mobile_version == False) {
-		$margin_div_style = '<div style="margin-left:30px;">';
-		$mobile_a_name = '';
-	}
+if ($mobile_version == True) {
+	$margin_div_style = '<div>';
+	$mobile_a_name = 'm';
 }
 
-if ($thingsidofake == Null) {
-	$spanstyle = $whitespan;
-	$hover_text_color = $text_hover_white_css_class;
-	$number_text_color = $first_text_color;
-	$number_text_color_span = '<span class="'.$number_text_color.'">';
-
-	if ($mobile_version == True) {
-		$margin_div_style = '<div>';
-		$mobile_a_name = 'm';
-	}
-
-	if ($mobile_version == Null) {
-		$margin_div_style = '<div style="margin-left:30px;">';
-		$mobile_a_name = '';
-	}
+if ($mobile_version == Null) {
+	$margin_div_style = '<div style="margin-left:30px;">';
+	$mobile_a_name = '';
 }
 
 echo '<'.$h4_element.' class="'.$number_text_color.'" style="text-align:left;">'."\n";

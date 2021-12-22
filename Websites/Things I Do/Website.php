@@ -14,10 +14,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_keys[$local
 	$showembeds = false; #If website shows Youtube embeds
 	$showembeds2 = false; #If website shows Youtube embeds 2
 	$showplaylistembed = false; #If website shows Youtube playlist embeds
-	$website_has_stories_tab_setting = True; #If website has a Stories Tab
-
-	#Website settings setter file includer
-	require $setting_parameters_file;
+	$story_website_settings["show_chapter_covers"] = True; #If website has a Stories Tab
 
 	#Website Tabs array
 	$tabs = array('Productive Things', 'Not Productive Things');
@@ -32,7 +29,7 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_keys[$local
 	}
 
 	# Number of tabs
-	$website_tab_number = count($tabs) - 1;
+	$website_tab_number = count($tab_names) - 1;
 
 	$found_selected_website = True;
 }

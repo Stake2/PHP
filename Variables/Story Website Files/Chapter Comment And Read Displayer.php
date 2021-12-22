@@ -1,88 +1,45 @@
-<?php
+<?php 
 
-#Readings and Comments displayer on chapters
-if ($website_name == $website_the_life_of_littletato and $story_has_chapter_comments == True) {
-	if ($chapter_number_1 == 1) {
-		echo $comment_header."\n";
+# Comments displayer
+if (isset($chapter_comments_array[$chapter_number_1]) and is_array($chapter_comments_array[$chapter_number_1]) == True and $chapter_comments_array[$chapter_number_1] != Null) {
+	echo format($comment_header, $chapter_comment_numbers_array[$chapter_number_1])."\n";
 
-		echo $story_chapter_comments_array[1]."\n";
+	$number = 1;
+	$array_number = count($chapter_comments_array[$chapter_number_1]);
+	while ($number <= $array_number) {
+		echo $chapter_comments_array[$chapter_number_1][$number]."\n";
 
-		echo $div_close."\n";
+		$number++;
 	}
 
-	if ($chapter_number_1 == 2) {
-		echo $comment_header."\n";
+	echo $div_close."\n";
+}
 
-		echo $story_chapter_comments_array[(4 + $zw)]."\n";
-		echo $story_chapter_comments_array[(1 + $zw)]."\n";
+else if (isset($chapter_comments_array[$chapter_number_1]) and $chapter_comments_array[$chapter_number_1] != Null) {
+	echo format($comment_header, $chapter_comment_numbers_array[$chapter_number_1])."\n";
 
-		echo $div_close."\n";
-	}
+	echo $chapter_comments_array[$chapter_number_1]."\n";
 
-	if ($chapter_number_1 == 3) {
-		echo $comment_header."\n";
+	echo $div_close."\n";
+}
 
-		echo $story_chapter_comments_array[(2 + $zw)]."\n";
-		echo $story_chapter_comments_array[(5 + $zw)]."\n";
+# Readings and Reads displayer
+if (isset($reads_array[$chapter_number_1]) and is_array($reads_array[$chapter_number_1]) == True and $reads_array[$chapter_number_1] != Null) {
+	echo format($readings_header, $chapter_read_numbers_array[$chapter_number_1])."\n";
 
-		echo $div_close."\n";
-	}
+	$number = 1;
+	$array_number = count($reads_array[$chapter_number_1]);
+	while ($number <= $array_number) {
+		echo $reads_array[$chapter_number_1][$number]."\n";
 
-
-	if ($chapter_number_1 == 7) {
-		echo $comment_header."\n";
-
-		echo $story_chapter_comments_array[0]."\n";
-
-		echo $div_close."\n";
-	}
-
-	if ($chapter_number_1 == 8) {
-		echo $comment_header."\n";
-
-		echo $story_chapter_comments_array[(3 + $zw)]."\n";
-
-		echo $div_close."\n";
-	}
-
-	if ($chapter_number_1 == 1) {
-		echo $readings_header."\n";
-	}
-
-	if ($chapter_number_1 > 1 and $chapter_number_1 < 11) {
-		echo $readings_header."\n";
-
-		echo $story_reads_array[$h]."\n";
-	}
-
-	if ($chapter_number_1 == 2) {
-		echo $story_reads_array[2]."\n";
-	}
-
-	if ($chapter_number_1 == 1) {
-		echo $story_reads_array[($h - ($mzz + $za))]."\n";
-		echo $story_reads_array[($h - ($mzz + $zw))]."\n";
+		$number++;
 	}
 }
 
-if ($website_name == $website_the_story_of_the_bulkan_siblings and $story_has_chapter_comments == True) {
-	if ($chapter_number_1 == 1) {
-		echo $comment_header."\n";
+else if (isset($reads_array[$chapter_number_1]) and $reads_array[$chapter_number_1] != Null) {
+	echo format($readings_header, $chapter_read_numbers_array[$chapter_number_1])."\n";
 
-		echo $story_chapter_comments_array[0]."\n";
-		echo $story_chapter_comments_array[1]."\n";
-
-		echo $div_close."\n";
-	}
-}
-
-if ($website_name == $website_the_story_of_the_bulkan_siblings and $story_website_contains_reads == True) {
-	if ($chapter_number_1 == 1) {
-		echo $readings_header."\n";
-
-		echo $story_reads_array[0]."\n";
-		echo $story_reads_array[1]."\n";
-	}
+	echo $reads_array[$chapter_number_1]."\n";
 }
 
 ?>

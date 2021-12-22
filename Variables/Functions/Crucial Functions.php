@@ -47,6 +47,10 @@ function Remove_Text_From_String($item, $text_to_replace = Null) {
 	}
 }
 
+function text_contains($find, $text) {
+	return strpos($text, $find);
+}
+
 function Create_File($file) {
 	if (file_exists($file) == False) {
 		$file = fopen($file, "w");

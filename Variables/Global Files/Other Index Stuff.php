@@ -1,29 +1,13 @@
 <?php 
 
-if ($website_has_notifications == True) {
-	echo '<script>'."\n";
-	echo 'Change_Title();'."\n";
-	echo '</script>';
+if ($website_settings["notifications"] == True) {
+	echo "\n"."<script>"."\n";
+	echo "Change_Title();"."\n";
+	echo "</script>"."\n";
 }
 
-if ($site_haves_additional_website_content == True) {
-	if (isset($additional_website_content)) {
-		echo $additional_website_content;
-	}
-}
-
-if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_settings["custom_layout"] == False) {
 	echo $animationstylecss."\n"."\n";
-}
-
-if ($website_title == $website_titles["Things I Do"]) {
-	echo '
-<style>
-a:link {color: blue!important;}
-a:visited {color: blue!important;}
-a:hover {color: blue!important;}
-a:active {color: blue!important;} 
-</style>';
 }
 
 echo "\n"."\n".'<script>
@@ -32,7 +16,7 @@ function getElementByXpath(path) {
 }
 </script>';
 
-if ($website_uses_custom_layout_setting == False) {
+if ($website_settings["custom_layout"] == False) {
 	echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.$div_close."\n";
 	echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.$div_close."\n";
 	echo '<div style="display:none;" id="button_number">'.$website_tab_number.$div_close."\n";
@@ -61,12 +45,12 @@ if ($website_type == $story_website_type) {
 }
 
 # Website notification script link includer if setting is True
-if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
+if ($website_settings["notifications"] == True and $website_deactivate_notification_setting == False) {
 	echo format($javascript_link_string, array($notifications_javascript_link));
 }
 
 # Chapter Opener Script includer if the setting is True
-if ($story_website_uses_chapter_opener == True) {
+if ($website_type == $story_website_type and $story_website_settings["chapter_opener"] == True) {
 	echo "\n";
 	echo '<script>'."\n";
 	require $open_chapter_script_php;

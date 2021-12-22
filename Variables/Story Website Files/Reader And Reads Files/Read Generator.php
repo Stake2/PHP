@@ -44,7 +44,7 @@ if ($reads_number > 1 and $read_dates != Null) {
 		$read_date = date("H:i d/m/Y", strtotime($read_dates[$current_chapter_read_number]));
 		$reader = $chapter_readers[$current_chapter_read_number];
 
-		if ($hide_sensitive_data == True) {
+		if ($website_settings["hide_sensitive_data"] == True) {
 			$reader = "Lorem Ipsum";
 		}
 

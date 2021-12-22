@@ -10,11 +10,10 @@ $websites_tab_number_hover_color = $text_hover_white_css_class;
 $websites_tab_div_color = 'w3-black';
 $websites_tab_border_color = $first_border_color;
 
-echo '<a name="'.$websites_tab_code.'"></a>'."\n".'<br />'."\n";
+echo '<a name="'.$websites_tab_code.'"></a>'."\n";
 echo '<div id="'.$websites_tab_code.'" class="city" style="display:none;'.$rounded_border_style_2.'">'."\n";
 echo $big_space."\n";
 echo '<div class="'.$computer_variable.'" '.$roundedborderstyle.'>'."\n";
-#echo $h42."\n";
 
 echo '<'.$h4_element.' class="'.$websites_tab_border_color.' '.$websites_tab_div_color.' '.$border_3px_solid_css_class." ".$websites_tab_border_color.'" style="margin:10%;'.$rounded_border_style_2.'">';
 

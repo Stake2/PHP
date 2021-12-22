@@ -9,9 +9,6 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_name = $selected_website;
 	$choosed_website_css_file = Remove_Non_File_Characters($local_website_name);
 
-	# Website settings setter file includer
-	require $setting_parameters_file;
-
 	$website_settings["tab_body_generator"] = True;
 	$website_settings["custom_css_style"] = True;
 	$website_settings["has_two_website_titles"] = True;

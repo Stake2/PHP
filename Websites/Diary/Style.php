@@ -45,7 +45,7 @@ $tab_full_border = $tab_border_color." ".$border_4px_solid_css_class,
 $alternative_tab_full_border = $tab_border_color." ".$border_1px_solid_css_class,
 
 $full_tab_style = $tab_background_color." ".$tab_text_color." ".$tab_full_border,
-$alternative_full_tab_style = $background_color." ".$default_text_color,
+$alternative_full_tab_style = $additional_background_color." a ".$default_text_color,
 
 $first_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,
 $second_button_style = $default_text_color." ".$first_button_color." ".$second_full_border." ".$default_background_hover_color,

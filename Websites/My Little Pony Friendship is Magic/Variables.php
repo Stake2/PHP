@@ -111,7 +111,7 @@ foreach ($tab_titles as $tab_title) {
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 
-$use_custom_tab_titles_array = True;
+$website_settings["use_custom_tab_titles"] = True;
 
 $tab_texts = array();
 

@@ -1,16 +1,6 @@
 <?php 
 
-if ($website_new_design_setting == False and $website_not_so_much_space_setting == False) {
-	$computer_space = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br />'.$div_close."\n";
-}
-
-else if ($website_not_so_much_space_setting == False) {
-	$computer_space = '<div class="'.$computer_variable.'"><br /><br /><br />'.$div_close;
-}
-
-else if ($website_not_so_much_space_setting == True) {
-	$computer_space = '';
-}
+$computer_space = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><br /><br /><br /><br />'.$div_close."\n";
 
 $header_hr = '<hr class="'.$header_full_border.'" style="margin-left:3%;margin-right:3%;" />'."\n";
 
@@ -69,7 +59,7 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 	.$div_close."\n";	
 }
 
-if ($website_type == $normal_website_type and $website_deactivate_header_setting == False or in_array($website_title, $year_websites) and $website_deactivate_header_setting == False and $website_uses_custom_layout_setting == False) {
+if ($website_type == $normal_website_type and $website_deactivate_header_setting == False or in_array($website_title, $year_websites) and $website_deactivate_header_setting == False and $website_settings["custom_layout"] == False) {
 	$diario_blocks_text_on_header = "";
 	$things_of_diario_one = "";
 	$things_of_diario_two = "";
@@ -118,22 +108,22 @@ if ($website_type == $normal_website_type and $website_deactivate_header_setting
 }
 
 # Story website header generator
-if ($website_type == $story_website_type and $website_uses_custom_layout_setting == False) {
+if ($website_type == $story_website_type and $website_settings["custom_layout"] == False) {
 	if ($story_status != $story_status_texts[1] or $story_status != $story_status_texts[2]) {
 		$new_chapter_text = "";
 	}
 
-	if ($website_settings["show_new_chapter_text"] == True) {
+	if ($story_website_settings["show_new_chapter_text"] == True) {
 		if ($story_status == $story_status_texts[1] or $story_status == $story_status_texts[2]) {
 			$new_chapter_text = '<span class="'.$third_text_color.'">'." [".$new_text."!]".$spanc;
 		}
 	}
 
-	if ($website_settings["show_new_chapter_text"] == False) {
+	if ($story_website_settings["show_new_chapter_text"] == False) {
 		$new_chapter_text = "";
 	}
 
-	if ($hide_sensitive_data == True) {
+	if ($website_settings["hide_sensitive_data"] == True) {
 		$author_name = "Lorem ipsum";
 
 		$website_header_description = $synopsis_text.": \""."Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."."\"";
@@ -213,54 +203,28 @@ function Add_To_Website_Title(text_to_add, source = null) {
 }
 </script>';
 
-if ($website_has_notifications == True and $website_deactivate_notification_setting != True) {
-	$website_notification = $website_notification;
+$website_notification = "";
+
+if ($website_settings["notifications"] == True) {
+	$website_notification = "\n".$website_notification;
 }
 
-else {
-	$website_notification = '';
-}
-
-if ($website_new_design_setting == True) {
-	$website_wrapper_show = $website_header_wrapper;
-}
-
-if ($website_deactivate_header_setting == True) {
-	$website_wrapper_show = '';
-}
-
-if ($website_deactivate_header_setting == False) {
-	$website_wrapper_show = $website_header_wrapper;
-}
-
-if ($website_deactivate_all_setting == True) {
-	$center = null;
-}
-
-if ($website_deactivate_all_setting == False and $website_is_not_centered_setting == False) {
-	$center = '<center>';
-}
-
-if ($website_is_not_centered_setting == True) {
-	$center = '';
-}
-
-if ($website_uses_custom_layout_setting == False) {
+if ($website_settings["custom_layout"] == False) {
 	$website_header = '<head>'.
 $website_head.
 '</head>
 <body onLoad="Define_Colors_And_Styles();">
-'.$center."\n"."\n".
+<center>'."\n"."\n".
 $website_buttons."\n".
 
 $change_website_title_script."\n".
 
-$website_wrapper_show."\n".
+$website_header_wrapper.
 
 $website_notification."\n";
 }
 
-if ($website_uses_custom_layout_setting == True) {
+if ($website_settings["custom_layout"] == True) {
 	$website_header = '<head>'.$website_head."\n".
 "</head>"."\n".
 "<body>"."\n"."\n".

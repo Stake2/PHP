@@ -3,7 +3,7 @@
 echo $div_zoom_animation."\n";
 echo '<div style="text-align:left;">'."\n";
 
-$use_variable_inserter = False;
+$website_settings["variable_inserter"] = False;
 
 $year_summary_text = "";
 

@@ -65,7 +65,7 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 	$i = 0;
 	while ($i <= $website_tab_number) {
 		if ($i < 3) {
-			$tab_codes[$i] = $website."_".$tab_names[$i];
+			$tab_codes[$i] = $website_title."_".$tab_names[$i];
 		}
 	
 		if ($i >= 3) {
@@ -175,13 +175,8 @@ if ($website_title == $website_titles["Things I Do"]) {
 	require $website_buttons_generator_php;
 }
 
-# Comments Tab includer if the setting is True
-if ($website_has_comments_tab == True or $story_name_has_write_form == True) {
-	require $website_forms_php;
-}
-
 # Stories Tab includer if the setting is True
-if ($website_has_stories_tab_setting == True) {
+if ($website_settings["has_stories_tab"] == True) {
 	require $story_variables_php;
 }
 
@@ -257,11 +252,7 @@ if ($website_hide_tabs_setting == True) {
 
 $big_space = '<div class="mobileHide"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
 
-if ($website_not_so_much_space_setting == True) {
-	$big_space = "";
-}
-
-$tab_template = "<a id=\"{}\" name=\"{}\"></a>
+$tab_template = "<a id=\"{}_id\" name=\"{}\"></a>
 <div id=\"{}\" class=\"".$tab_style."\" ".$hide_tabs_text.">".
     $big_space."\n".
     Create_Element("h2", $computer_variable." ".$full_tab_style, Create_Element("div", "", "<div id=\"computer_tab_content_{}\">"."\n"."{}"."\n"."</div>"."\n", "style=\"margin:3%;\""), "style=\"margin:10%;border-radius: 50px;\"")."\n"."

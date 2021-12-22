@@ -4,7 +4,6 @@ $left_english_text = "left";
 $right_english_text = "right";
 
 $watched_string = "Watched";
-$to_watch_string = "To_Watch";
 
 $other_stories_text = Language_Item_Definer("Other stories", "Outras histórias");
 

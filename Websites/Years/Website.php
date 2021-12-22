@@ -10,9 +10,6 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_name = $selected_website;
 	$choosed_website_css_file = $css_file_pocb;
 
-	#Website settings setter file includer
-	require $setting_parameters_file;
-
 	#Website Tabs array
 	$tabs = array("Output");
 
@@ -26,7 +23,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	}
 
 	#Number of tabs
-	$website_tab_number = count($tabs) - 1;
+	$website_tab_number = count($tab_names) - 1;
 
 	#Includer of the array of the GenericTabs files
 	require $generic_tabs_generator_file;	$found_selected_website = True;

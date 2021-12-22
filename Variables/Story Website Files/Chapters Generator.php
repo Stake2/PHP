@@ -24,14 +24,14 @@ while ($array_index <= $chapters) {
 	if ($website_story_has_titles == True) {
 		$chapter_title = $new_chapter_file_title_number.' - '.Replace_Text($chapter_titles[$array_index_less_one], "/", "-");
 
-		if ($website_settings["has_custom_story_folder"] == True) {
+		if ($story_website_settings["has_custom_story_folder"] == True) {
 			$chapter_title = $chapter_titles[$array_index_less_one];
 		}
 
 		$normal_chapters[$array_index] = $story_chapter_files_folder_language.$chapter_title.'.txt';
 		$normal_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$array_index]);
 
-		if (file_exists($normal_chapters[$array_index]) == False and $website_settings["has_custom_story_folder"] == False) {
+		if (file_exists($normal_chapters[$array_index]) == False and $story_website_settings["has_custom_story_folder"] == False) {
 			Create_File($normal_chapters[$array_index]);
 		}
 	}
@@ -51,14 +51,6 @@ while ($array_index <= $chapters) {
 $array_index = 1;
 $chapter_file_title_number = 1;
 
-if (strpos($host_text, $website_translate_story_setting.'=true')) {
-	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($enus_language).'/';
-}
-
-if (strpos($host_text, $website_translate_story_setting.'=false') or strpos($host_text, $website_translate_story_setting.'='.'false') == false) {
-	$main_story_folder_3 = $story_chapter_files_folder.strtoupper($website_language).'/';
-}
-
 while ($array_index <= $chapters) {
 	$array_index_less_one = $array_index - 1;
 
@@ -66,14 +58,12 @@ while ($array_index <= $chapters) {
 
 	$new_chapter_file_title_number = Add_Leading_Zeros($chapter_file_title_number);
 
+	$english_chapters[$array_index] = $main_story_folder_4.$new_chapter_file_title_number.'.txt';
+	$english_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$array_index]);
+
 	if ($website_story_has_titles == True) {
 		$english_chapters[$array_index] = $main_story_folder_4.$new_chapter_file_title_number.' - '.Replace_Text($chapter_titles[$array_index_less_one], "/", "-").'.txt';
 		$english_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $english_chapters[$array_index]);
-	}
-
-	else {
-		$english_chapters[$array_index] = $main_story_folder_4.$new_chapter_file_title_number.'.txt';
-		$english_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$array_index]);
 	}
 
 	$array_index++;
@@ -83,7 +73,7 @@ while ($array_index <= $chapters) {
 #Chapter date file reader, it generates the capdate array which contains the date that the chapter was written
 $array_index = 0;
 $chapter_dates_file = $story_info_folder.'Chapter Written Dates.txt';
-if ($story_has_dates == True) {
+if ($story_website_settings["has_dates"] == True) {
 	Create_File($chapter_dates_file);
 
 	$chapter_dates = Read_Lines($chapter_dates_file);
@@ -91,7 +81,7 @@ if ($story_has_dates == True) {
 	while ($array_index <= $chapters) {
 		$array_index_less_one = $array_index - 1;
 
-		$chapter_dates[$array_index] = str_replace(array("\r\n", "\r", "\n"), "<br />", $chapter_dates[$array_index]);
+		$chapter_dates[$array_index] = Remove_Text_From_String($chapter_dates[$array_index]);
 
 		$array_index++;
 	}
@@ -102,7 +92,7 @@ $chapter_file_title_number = 1;
 
 echo "\n";
 
-if ($story_has_reads == True and $story_website_contains_reads == True) {
+if ($story_website_settings["has_reads"] == True) {
 	require $read_generator;
 
 	$h = $readed_number;
@@ -124,36 +114,17 @@ echo '<div id="'.mb_strtolower($chapters_text).'-div">'."\n";
 
 # Chapter reader/writer/displayer, it generates the tabs for the chapters to be read by the user
 while ($chapter_number_1 <= $chapters) {
-	require $chapter_tab_generator_php_variable;
+	require $chapter_tab_generator_php;
 }
 
-if ($write_new_chapter == True) {
-	require $chapter_tab_generator_php_variable;
-}
+echo "</div>"."\n";
 
-$write_chapter_55 = False;
-
-if ($write_chapter_55 == True) {
-	$chapter_number_1 = 55;
-	$chapter_number_4 = 54;
-
-	require $chapter_tab_generator_php_variable;
-}
-
-echo '</div>'."\n";
-
-while ($chapter_number_1 <= $chapters) {
-	$test_script = '';
-
-	echo $test_script;
-}
-
-if ($story_has_reads == True) {
+if ($story_website_settings["has_reads"] == True) {
 	# Read-modal Tab generator PHP file
 	require $read_modal_generator_php;
 }
 
-if ($story_has_chapter_comments == True) {
+if ($story_website_settings["chapter_comments"] == True) {
 	# Comment-modal Tab generator PHP file
 	require $comment_modal_generator_php;
 }

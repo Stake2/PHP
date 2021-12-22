@@ -17,9 +17,6 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["tab_body_generator"] = True;
 	$website_is_not_centered_setting = True;
 
-	#Website settings setter file includer
-	require $setting_parameters_file;
-
 	#Website Tabs array
 	$tabs = array('Website Status');
 

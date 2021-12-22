@@ -1,55 +1,5 @@
 <?php 
 
-/*
-$website_comments_file = $website_folder."Comments.txt";
-
-if (file_exists($website_comments_file) == False) {
-	Create_File($website_comments_file);
-}
-*/
-
-if ($website_uses_universal_file_reader == True) {
-	$i = 0;
-	foreach ($filenamesarray as $file) {
-		$filesarray[$i] = $file;
-
-		$i++;
-	}
-
-	# File text reader that makes an array of the text files
-	$i = 0;
-	foreach ($filesarray as $file) {
-		if (file_exists($file) == True) {
-			$file_read = fopen($file, "r", "UTF-8"); 
-			if ($file_read) {
-				${"$filetextarraynames[$i]"} = explode("\n", fread($file_read, filesize($file)));
-				${"$filetextarraynames[$i]"} = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^"), "", ${"$filetextarraynames[$i]"});
-
-				$filetexts[$i] = ${"$filetextarraynames[$i]"};
-			}
-		}
-
-		$i++;
-	}
-
-	#File line number counter
-	$i = 0;
-	foreach ($filesarray as $file) {
-		if (file_exists($file) == True) {
-			${"$filenumberarraynames[$i]"} = 0;
-			$handle = fopen($file, "r");
-			while (!feof ($handle)){
-				$line = fgets ($handle);
-				${"$filenumberarraynames[$i]"}++;
-			}
-
-			$filenumbers[$i] = ${"$filenumberarraynames[$i]"};
-		}
-
-		$i++;
-	}
-}
-
 if (in_array($website_title, $year_websites) == True and $website_title_backup == "2019" or in_array($website_title, $year_websites) == True and $website_title_backup == "2020") {
 	$current_year_data_folder = $year_folders[$local_current_year]."/Data/";
 	Create_Folder($current_year_data_folder);
@@ -475,8 +425,6 @@ if ($website_title_backup == $website_titles["Watch History"] or in_array($websi
 	}
 
 	$media_type_text_file_lines_array = $media_type_text_file_lines_arrays[$current_year];
-
-	#$selected_media_type_array = $year_code_numbes_array[$current_year];
 }
 
 if ($website_type == $story_website_type) {
@@ -490,7 +438,7 @@ if ($website_type == $story_website_type) {
 
 	$story_chapter_files_folder = $story_folder."Chapters/";
 
-	if ($website_settings["has_custom_story_folder"] == True) {
+	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$story_chapter_files_folder = $local_chapters_folder;
 	}
 
@@ -520,7 +468,7 @@ if ($website_type == $story_website_type) {
 	Create_File($story_chapter_status_file);
 	Create_File($story_author_file);
 
-	if ($website_settings["has_custom_story_folder"] == True) {
+	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$story_folder = $no_language_story_folder;
 	}
 
@@ -553,7 +501,7 @@ if ($website_type == $story_website_type) {
 
 	$titles_enus_folder = $story_chapter_files_folder.$full_language_enus."/".$titles_english_text."/";
 
-	if ($website_settings["has_custom_story_folder"] == True) {
+	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$titles_enus_folder = $chapter_titles_folder;
 	}
 
@@ -563,7 +511,7 @@ if ($website_type == $story_website_type) {
 
 	$titles_enus_file = $titles_enus_folder.$titles_english_text.".txt";
 
-	if ($website_settings["has_custom_story_folder"] == True) {
+	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$titles_enus_file = $chapter_titles_enus_file;
 	}
 
@@ -574,7 +522,7 @@ if ($website_type == $story_website_type) {
 	# Language-dependent text files
 	$story_titles_folder = $story_chapter_files_folder.$full_language."/".$titles_text."/";
 
-	if ($website_settings["has_custom_story_folder"] == True) {
+	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$story_titles_folder = $chapter_titles_folder;
 	}
 
@@ -584,7 +532,7 @@ if ($website_type == $story_website_type) {
 
 	$titles_file = $story_titles_folder.$titles_text.".txt";
 
-	if ($website_settings["has_custom_story_folder"] == True) {
+	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$titles_file = $chapter_titles_file;
 	}
 
@@ -609,7 +557,7 @@ if ($website_type == $story_website_type) {
 
 	$chapter_titles = Read_Lines($titles_file);
 
-	if ($website_settings["has_custom_story_folder"] == True) {
+	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$i = 0;
 		foreach ($titles_files as $local_titles_file) {
 			$titles_file_texts[] = Read_Lines($local_titles_file);
@@ -627,8 +575,6 @@ if ($website_type == $story_website_type) {
 
 			$chapter_titles[$i] = $text_to_add.$text;
 
-			#echo $chapter_titles[$i]."<br />";
-
 			$i++;
 		}
 	}
@@ -642,35 +588,6 @@ if ($website_type == $story_website_type) {
 	}
 
 	$chapter_number = Line_Number($titles_file);
-}
-
-# Webiste Changelog files and text definer
-if ($website_has_changelog_setting == True) {
-	if ($website_title_backup == $website_titles["Watch History"]) {
-		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $website_folder."Changelog ".$language_enus.".php";
-		}
-
-		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $website_folder."Changelog ".$language_ptbr.".php";
-		}
-	}
-
-	else {
-		if (in_array($website_language, $en_languages_array)) {
-			$website_changelog_file = $website_folder."Changelog ".$language_enus.".txt";
-		}
-
-		if (in_array($website_language, $pt_languages_array)) {
-			$website_changelog_file = $website_folder."Changelog ".$language_ptbr.".txt";
-		}
-	}
-
-	if (file_exists($website_changelog_file) == True) {
-		$website_changelog_length = Line_Number($website_changelog_file) - 1;
-
-		$website_changelog = Read_Lines($website_changelog_file);
-	}
 }
 
 ?>

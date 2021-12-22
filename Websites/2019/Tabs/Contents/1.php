@@ -3,7 +3,7 @@
 echo $div_zoom_animation."\n";
 echo '<div style="text-align:left;">'."\n";
 
-$use_variable_inserter = False;
+$website_settings["variable_inserter"] = False;
 
 echo Create_Element("b", "", Language_Item_Definer("Author", "Autor").": ").$person_names_array["Izaque"]."\n"."<br />";
 echo Create_Element("b", "", Language_Item_Definer("Created In", $data_file_names_translated["Created In"]).": ").$data_texts["Created In"][0]."\n"."<br />";

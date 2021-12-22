@@ -52,7 +52,7 @@ $story_texts_to_add = array(
 );
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-require $cover_images_folder_definer_php_variable;
+require $cover_images_folder_definer_php;
 
 # Text File Reader PHP File Includer
 require $text_file_reader_file_php;
@@ -101,7 +101,7 @@ $website_header_description = For_Each_Replace($search_items, $replace_items, $w
 
 $website_form_code = $website_name;
 
-$use_variable_inserter = False;
+$website_settings["variable_inserter"] = False;
 
 # Buttons and tabs definer
 # Tab chapter_titles definer
@@ -110,7 +110,7 @@ $icons_array["open book"],
 $icons[12],
 );
 
-if ($website_settings["show_new_chapter_text"] == True)  {
+if ($story_website_settings["show_new_chapter_text"] == True)  {
 	$tab_titles_prototype[0] = $tab_titles_prototype[0]." [".$new_text." ".ucwords($chapter_text)." ".$published_blocks."]".$spanc;
 }
 
@@ -126,11 +126,19 @@ $chapter_in_language.": ".$website_language_icon,
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 
-$use_custom_tab_titles_array = True;
+$website_settings["use_custom_tab_titles"] = True;
 
 $tab_texts = array();
 
 Make_Button_Names();
+
+$website_custom_button_bar_numbers = array(
+0,
+1,
+2,
+);
+
+$readed_number = 0;
 
 # Website name, title, URL and description setter, by language
 $website_title_header = $general_story_name.': '.$icons[11];
@@ -148,10 +156,5 @@ if ($website_language != $language_geral) {
 
 	$website_link .= $website_link_language."/";
 }
-
-$website_custom_button_bar_numbers = array(
-0,
-1,
-);
 
 ?>

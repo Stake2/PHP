@@ -4,17 +4,9 @@ if (isset($return_string) == False) {
 	$return_string = False;
 }
 
-if ($thingsidofake == True) {
-	$spanstyle = $blackspan;
-	$hover_text_color = $text_hover_white_css_class;
-	$number_text_color = $first_text_color;
-}
-
-if ($thingsidofake == null) {
-	$spanstyle = $whitespan;
-	$hover_text_color = $text_hover_white_css_class;
-	$number_text_color = $first_text_color;
-}
+$spanstyle = $whitespan;
+$hover_text_color = $text_hover_white_css_class;
+$number_text_color = $first_text_color;
 
 if ($mobile_version == True) {
 	$margin_div_style = '<div>';

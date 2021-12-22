@@ -14,26 +14,21 @@ require $folder_and_website_variables_php;
 # "PHP Files.php" file loader
 require $php_files_php;
 
-# Watch History and YearWebsites year variables
-require $watch_and_yearwebsites_variables_php;
-
 # CSS definers for specific websites
 $website_css_file = $choosed_website_css_file;
 
 # Website CSS and Javascript definer
 require $website_css_and_javascript_definer_php;
 
-require $elements_file;
-
 # Global Normal Functions PHP File Loader
 require $normal_functions_file_php;
 
 # Website Style Chooser.php file loader
-if ($website_uses_custom_layout_setting == False) {
+if ($website_settings["custom_layout"] == False) {
 	require $website_style_chooser_file;
 }
 
-if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
+if ($website_settings["custom_layout"] == False) {
 	# Story variables PHP file includer if the website is a story website
 	require $story_variables_php;
 
@@ -60,7 +55,7 @@ require $website_style_file;
 # Tab Generator.php includer
 require $website_tabs_generator;
 
-if ($website_type == $story_website_type and $website_has_notifications == True) {
+if ($website_type == $story_website_type and $website_settings["notifications"] == True) {
 	# Website notification variables if the website notification setting is True
 	# Revised chapter title
 	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
@@ -68,7 +63,7 @@ if ($website_type == $story_website_type and $website_has_notifications == True)
 }
 
 # Website Image Maker.php file loader
-if ($website_uses_custom_layout_setting == False) {
+if ($website_settings["custom_layout"] == False) {
 	require $website_image_maker;
 
 	# Website Classes.php file loader
@@ -76,43 +71,31 @@ if ($website_uses_custom_layout_setting == False) {
 }
 
 # Website notifications includer if the website has notifications activated
-if ($website_has_notifications == True) {
+if ($website_settings["notifications"] == True) {
 	require $website_notifications_php;
 }
 
-if ($website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
+if ($website_is_prototype_setting == False and $website_settings["custom_layout"] == False) {
 	require $websites_tab_button_maker;
 }
 
-if (isset($custom_website_head_content)) {
+$include_custom_website_head_content = "";
+
+if (isset($custom_website_head_content) == True) {
 	$include_custom_website_head_content = "\n".$custom_website_head_content;
 }
 
-else {
-	$include_custom_website_head_content = '';
-}
-
-if ($deactivate_js == False and isset($website_js_files) == True) {
-	$website_js_files = $website_js_files;
-}
-
-else {
+if ($deactivate_js == True) {
 	$website_js_files = "";
 }
 
-if ($website_is_for_other_person_setting == True) {
-	$twitter_info = '';
-}
-
-if ($website_is_for_other_person_setting == False) {
-	$handle = "Stake2__";
-	$twitter_info = "\n".'<meta name="twitter:card" content="summary" />
+$handle = "Stake2__";
+$twitter_info = "\n".'<meta name="twitter:card" content="summary" />
 <meta name="twitter:website" value="@'.$handle.'" />
 <meta name="twitter:site" value="@'.$handle.'" />
 <meta name="twitter:creator" content="@'.$handle.'" />
 <meta content="summary_large_image" name="twitter:card" />
 <meta content="'.$website_link.'" name="twitter:url" />';
-}
 
 $website_head = '
 <title>'.$website_title_text.'</title>

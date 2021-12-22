@@ -16,24 +16,20 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	require $selected_website_style_file;
 
 	# Website settings
-	$website_has_notifications = True; #Defines if website has notifications on
-	$website_hides_notification_on_clicking_on_read_tab_setting = True;
-	$website_has_comments_tab = True; #Defines if website has a Comments Tab variable
-	$website_has_comments = True; #Defines the website has comments
-	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab
-	$website_has_stories_tab_setting = True; #Defines if website has a Stories Tab
-	$website_story_has_book_covers_setting = True; #Defines if website has book covers for the story
-	$story_shows_story_covers = True;
-	$story_has_reads = True; #Defines if the story website has "story_reads_array" number, file and elements
-	$story_has_chapter_comments = True; #Defines if the story has comments on the chapter
-	$story_has_dates = False; #Defines if the story has dates
+	$website_settings["notifications"] = True;
+	$website_settings["has_stories_tab"] = True;
+	$website_settings["variable_inserter"] = True;
+
+	$story_website_settings["chapter_opener"] = True;
+	$story_website_settings["show_chapter_covers"] = True;
+
+	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab	
+	$story_website_settings["has_reads"] = True;
+	$story_website_settings["has_dates"] = False; #Defines if the story has dates
 	$website_story_has_titles = True; #Defines if the story has chapter_titles
-	$story_uses_status = True; #Defines if the story uses the story statuses
+	$story_website_settings["use_status"] = True; #Defines if the story uses the story statuses
 	$story_website_contains_reads = True; #Defines if the story has story_reads_array on it
 	$story_website_contains_comments = True; #Defines if the story has comments on it
-	$story_website_uses_chapter_opener = True; #Defines if the website uses the Open Chapter Script
-	$site_uses_new_comment_and_read_displayer = True;
-	$use_variable_inserter = True;
 
 	# Website Tabs array
 	$tabs = array("Read", "Readers", "Stories");
@@ -48,7 +44,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	}
 
 	# Number of tabs
-	$website_tab_number = count($tabs) - 1;
+	$website_tab_number = count($tab_names) - 1;
 
 	$found_selected_website = True;
 }

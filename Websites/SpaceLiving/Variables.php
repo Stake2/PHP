@@ -18,7 +18,7 @@ $website_images_folder = $website_media_images_website_images.$story_folder."/";
 $website_form_code = $english_story_name;
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-require $cover_images_folder_definer_php_variable;
+require $cover_images_folder_definer_php;
 
 # Story status
 $story_status = $status[2];
@@ -55,8 +55,8 @@ $image_format = "gif";
 require $story_details_definer;
 
 # Reads the book cover image directory if the website has book covers
-if ($website_story_has_book_covers_setting == True) {
-	require $cover_images_generator_php_variable;
+if ($story_website_settings["show_chapter_covers"] == True) {
+	require $cover_images_generator_php;
 }
 
 # Website name, title, URL and description setter, by language
@@ -92,7 +92,7 @@ $chapter_in_language.": ".$website_language_icon,
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 
-$use_custom_tab_titles_array = True;
+$website_settings["use_custom_tab_titles"] = True;
 
 $tab_texts = array();
 

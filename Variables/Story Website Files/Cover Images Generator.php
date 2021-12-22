@@ -5,13 +5,7 @@ $cover_number = $revised_chapter;
 while ($i <= $cover_number) {
 	$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$i." - ".$chapter_titles[$i - 1]."');";
 
-	if ($new_write_style == True) {
-		$on_click_script = 'openCity('."'".$chapter_div_text.$i."'".');DefineChapter('.$i.');'.$chapter_number_and_text;
-	}
-
-	else if ($new_write_style == false) {
-		$on_click_script = 'openCity('."'".$chapter_div_text.$i."'".');'.$chapter_number_and_text;
-	}
+	$on_click_script = 'openCity('."'".$chapter_div_text.$i."'".');'.$chapter_number_and_text;
 
 	if ($i <= 9) {
 		$number_text = "0".(string)$i;

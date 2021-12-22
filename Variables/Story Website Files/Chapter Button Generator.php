@@ -2,7 +2,7 @@
 
 $hide_notification_attribute = "";
 
-if ($website_has_notifications == True and $website_deactivate_notification_setting == False) {
+if ($website_settings["notifications"] == True and $website_deactivate_notification_setting == False) {
 	$hide_notification_attribute = "Hide_Computer_Notification();Hide_Computer_Buttons();Hide_Mobile_Notification();";
 }
 
@@ -14,12 +14,9 @@ $chapter_number_1 = 1;
 $chapter_number_2 = 1;
 $chapter_number_3 = 1;
 $chapter_number_4 = 0;
-while ($chapter_number_1 <= $chapters) {
-	if (strpos($local_chapter_titles[$chapter_number_4], "/") == True) {
-		#$local_chapter_titles[$chapter_number_4] = array_reverse(explode("/", $local_chapter_titles[$chapter_number_4]))[1];
-	}
 
-	if ($website_story_has_book_covers_setting == True and $story_shows_story_covers == True) {
+while ($chapter_number_1 <= $chapters) {
+	if ($story_website_settings["show_chapter_covers"] == True) {
 		if (isset($chapter_cover_images_computer[$chapter_number_1]) and isset($chapter_cover_images_mobile[$chapter_number_1])) {
 			$cover_image_button = '<center>'."\n".'<a id="story_chapter_image_number_'.$chapter_number_1.'" href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$local_chapter_titles[$chapter_number_4].'">'.$chapter_cover_images_computer[$chapter_number_1]."\n".'</a>'.
 			"\n"."\n".
@@ -37,7 +34,7 @@ while ($chapter_number_1 <= $chapters) {
 		$cover_image_button = '';
 	}
 
-	if ($chapter_number_1 == $chapters and $website_settings["show_new_chapter_text"] == True) {
+	if ($chapter_number_1 == $chapters and $story_website_settings["show_new_chapter_text"] == True) {
 		if ($website_story_has_titles == True) {
 			$current_chapter_text = $chapter_number_1." - ".str_replace("'", "", $local_chapter_titles[$chapter_number_4]);
 		}
@@ -52,7 +49,7 @@ while ($chapter_number_1 <= $chapters) {
 
 		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
 
-		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_has_notifications == True) {
+		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_settings["notifications"] == True) {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {
@@ -124,7 +121,7 @@ while ($chapter_number_1 <= $chapters) {
 
 		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
 
-		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_has_notifications == True) {
+		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_settings["notifications"] == True) {
 			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
 
 			if ($website_story_has_titles == True) {

@@ -56,10 +56,11 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 
 # Chapters Generator.php includer for Pequenata website
 if ($website_type == $story_website_type) {
-	require $chapter_generator_global_variable;
+	require $chapters_generator_php;
 }
 
 if ($website_deactivate_websites_tab_setting == False) {
+	echo "\n";
 	require $websites_tab_generator;
 }
 

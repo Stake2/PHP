@@ -15,7 +15,7 @@ $no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-require $cover_images_folder_definer_php_variable;
+require $cover_images_folder_definer_php;
 
 # Form code for the comment and read forms
 $website_form_code = $english_story_name;
@@ -38,8 +38,8 @@ $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;
 
 # Reads the book cover image directory if the website has book covers
-if ($website_story_has_book_covers_setting == True) {
-	require $cover_images_generator_php_variable;
+if ($story_website_settings["show_chapter_covers"] == True) {
+	require $cover_images_generator_php;
 }
 
 # Website name, title, URL and description setter, by language
@@ -55,12 +55,6 @@ if ($website_language != $language_geral) {
 	}
 
 	$website_title_header = $website_title.': '.$icons[11];
-}
-
-# Buttons and tabs definer
-if ($website_writing_pack_setting == True) {
-	$tab_names[0] = str_replace('Read', 'Write', $tab_names[0]);
-	$tab_names[0] = str_replace('Ler', 'Escrever', $tab_names[0]);
 }
 
 $tab_titles_prototype = array(
@@ -82,7 +76,7 @@ $chapter_in_language.": ".$website_language_icon,
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 
-$use_custom_tab_titles_array = True;
+$website_settings["use_custom_tab_titles"] = True;
 
 $tab_texts = array();
 

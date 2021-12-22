@@ -40,60 +40,20 @@ if ($website_deactivate_top_buttons_setting == False) {
 	$computer_buttons_bar .= $comment_computer_buttons_bar;
 	$computer_buttons_bar .= $computer_buttons_bar_element;
 
-	$sitebtnecho = True;
+	$hide_notification_attribute = "";
 
-	if ($website_has_notifications == True) {
-		$hide_notification_attribute = 'Hide_Computer_Notification();Hide_Mobile_Notification();';
-	}
-
-	else {
-		$hide_notification_attribute = '';
+	if ($website_settings["notifications"] == True) {
+		$hide_notification_attribute = "Hide_Computer_Notification();Hide_Mobile_Notification();";
 	}
 
 	while ($i <= $website_tab_number) {
-		if ($i == $website_tab_number and $website_title == $website_titles["Diary"]) {
-			$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
+		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_computer[$i]."');Define_Button('computer_button_".($i + 1)."');Change_Button_Color();";
 
-			$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
+		$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$scripts.'" title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
 
-			if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-				#$computer_buttons_bar .= $button;
-			}
+		$computer_buttons[$i] = $button;
 
-			$computer_buttons[$i] = $button;
-
-			$total_buttons_created++;
-		}
-
-		else {
-			if ($i == 0 and $website_has_notifications == True and $website_hides_notification_on_clicking_on_read_tab_setting == True) {
-				$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
-
-				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
-
-				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					#$computer_buttons_bar .= $button;
-				}
-
-				$computer_buttons[$i] = $button;
-
-				$total_buttons_created++;
-			}
-
-			else {
-				$script = 'Define_Button('."'".'computer_button_'.($i + 1)."'".');Change_Button_Color();';
-
-				$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="Hide_Computer_Buttons();openCity('."'".$website_tab_codes_computer[$i]."')".';'.$script.'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
-
-				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					#$computer_buttons_bar .= $button;
-				}
-
-				$computer_buttons[$i] = $button;
-
-				$total_buttons_created++;
-			}
-		}
+		$total_buttons_created++;
 
 		$i++;
 	}
@@ -126,51 +86,13 @@ if ($website_deactivate_top_buttons_setting == False) {
 	
 	$i = 0;
 	while ($i <= $website_tab_number) {
-		$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
+		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_mobile[$i]."');Define_Button('computer_button_".($i + 1)."');Change_Button_Color();";
 
-		$i2 = $i + 1;
-	
-		if ($i == $website_tab_number and $website_title == $website_titles["Diary"]) {
-			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
+		$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();" title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$scripts.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
-			$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
+		$mobile_buttons[$i] = $button;
 
-			if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-				#$mobile_buttons_bar .= $button;
-			}
-
-			$mobile_buttons[$i] = $button;
-
-			$total_buttons_created++;
-		}
-	
-		else {
-			$script = 'Define_Button('."'".'mobile_button_'.($i + 1)."'".');Change_Button_Color();';
-
-			if ($i == 0 and $website_has_notifications == True and $website_hides_notification_on_clicking_on_read_tab_setting == True) {
-				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$hide_notification_attribute.'openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
-
-				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					#$mobile_buttons_bar .= $button;
-				}
-
-				$mobile_buttons[$i] = $button;
-
-				$total_buttons_created++;
-			}
-	
-			else {
-				$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="openCity('."'".$website_tab_codes_mobile[$i]."')".';'.$script.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
-
-				if ($website_settings[$uses_custom_buttons_bar_text] == False) {
-					#$mobile_buttons_bar .= $button;
-				}
-
-				$mobile_buttons[$i] = $button;
-
-				$total_buttons_created++;
-			}
-		}
+		$total_buttons_created++;
 
 		$i++;
 	}
@@ -185,6 +107,12 @@ $computer_buttons[] = $websites_tab_button_computer;
 $mobile_buttons[] = $websites_tab_button_mobile;
 
 if ($website_title_backup == $website_titles["Watch History"]) {
+	########################################################
+
+	#      Computer Archived Media buttons generation      #
+
+	########################################################
+
 	$archived_media_buttons_array = array();
 
 	$current_variable_year = 2018;
@@ -210,11 +138,11 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 		$archived_media_buttons .= $button."<br />";
 	}
 
-	#######################################
+	######################################################
 
-	#      Mobile buttons generation      #
+	#      Mobile Archived Media buttons generation      #
 
-	#######################################
+	######################################################
 
 	$archived_media_mobile_buttons_array = array();
 
@@ -242,7 +170,7 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 	}
 }
 
-if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+if ($website_settings["use_custom_buttons_bar"] == False) {
 	if (isset($readers) == True and $readers[0] == "No Readers - Sem Leitores") {
 		unset($computer_buttons[1]);
 		$computer_buttons = array_values($computer_buttons);
@@ -252,7 +180,7 @@ if ($website_settings[$uses_custom_buttons_bar_text] == False) {
 	}
 }
 
-if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+if ($website_settings["use_custom_buttons_bar"] == False) {
 	foreach ($computer_buttons as $button) {
 		$computer_buttons_bar .= $button;
 	}
@@ -264,7 +192,7 @@ else {
 	}
 }
 
-if ($website_settings[$uses_custom_buttons_bar_text] == False) {
+if ($website_settings["use_custom_buttons_bar"] == False) {
 	foreach ($mobile_buttons as $button) {
 		$mobile_buttons_bar .= $button;
 	}

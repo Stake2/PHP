@@ -4,7 +4,7 @@ $website_comments_folder = $story_folder.$website_comments_english_folder_text;
 $story_chapter_comments_folder = $story_folder.$chapter_comments_english_folder_text;
 
 # Defines the website image if the website has book covers or not
-if ($website_story_has_book_covers_setting == True) {
+if ($story_website_settings["show_chapter_covers"] == True) {
 	$story_book_cover_filename = 'Book Cover';
 
 	if (isset($image_format) == False) {
@@ -21,7 +21,7 @@ else {
 		$image_format = "jpg";
 	}
 
-	$website_image = $website_media_images_website_icons.$website_image.".".$image_format;
+	$website_image = $website_media_images_website_icons.$website_name.".".$image_format;
 
 	$website_image_size_computer = 30;
 	$website_image_size_mobile = 77;

@@ -123,7 +123,7 @@ if ($return == False) {
 	# Website Header displayer
 	echo $website_header;
 
-	if ($website_deactivate_tabs_setting == False and $website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
+	if ($website_deactivate_tabs_setting == False and $website_settings["custom_layout"] == False) {
 		# "Tabs loader" file loader
 		require $website_tabs_loader;
 	}
@@ -134,7 +134,7 @@ if ($return == False) {
 Define_Colors_And_Styles();
 </script>"."\n\n";
 
-	if ($website_uses_custom_layout_setting == False) {
+	if ($website_settings["custom_layout"] == False) {
 		echo '</center>'."\n";
 	}
 
@@ -149,7 +149,7 @@ if ($return == True) {
 	# Website Header displayer
 	$website .= $website_header;
 
-	if ($website_deactivate_tabs_setting == False and $website_is_prototype_setting == False and $website_uses_custom_layout_setting == False) {
+	if ($website_deactivate_tabs_setting == False and $website_settings["custom_layout"] == False) {
 		#"Tabs loader" file loader
 		ob_start();
 		require $website_tabs_loader;
@@ -164,7 +164,7 @@ if ($return == True) {
 	Define_Colors_And_Styles();
 	</script>"."\n\n";
 
-	if ($website_uses_custom_layout_setting == False and $website_is_not_centered_setting == False) {
+	if ($website_settings["custom_layout"] == False and $website_is_not_centered_setting == False) {
 		$website .= '</center>'."\n";
 	}
 

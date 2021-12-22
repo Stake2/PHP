@@ -15,6 +15,9 @@ foreach ($website_titles as $value) {
 			$selected_website_title = $value;
 			$website_style_file = $local_website_style_file;
 
+			# Number of tabs
+			$website_tab_number = count($tab_names) - 1;
+
 			$found_selected_website = False;
 		}
 

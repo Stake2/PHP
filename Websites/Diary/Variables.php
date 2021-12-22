@@ -15,7 +15,7 @@ $no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
 
 # Defines the folder for the chapter text files that are going to be read and the cover folder on the CDN
-require $cover_images_folder_definer_php_variable;
+require $cover_images_folder_definer_php;
 
 # Website has comments settings
 $sitecomments = false;
@@ -125,7 +125,7 @@ $div_close."\n".
 $div_close."\n".
 $div_close."\n";
 
-$use_variable_inserter = False;
+$website_settings["variable_inserter"] = False;
 
 # Buttons and tabs definer
 # Tab chapter_titles definer
@@ -136,7 +136,7 @@ $icons[1],
 $icons[12],
 );
 
-if ($website_settings["show_new_chapter_text"] == True)  {
+if ($story_website_settings["show_new_chapter_text"] == True)  {
 	$tab_titles_prototype[0] = $tab_titles_prototype[0]." [".$new_text." ".ucwords($chapter_text)." ".$published_blocks."]".$spanc;
 }
 
@@ -153,7 +153,7 @@ $chapter_in_language.": ".$website_language_icon,
 
 $custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
 
-$use_custom_tab_titles_array = True;
+$website_settings["use_custom_tab_titles"] = True;
 
 $tab_texts = array();
 

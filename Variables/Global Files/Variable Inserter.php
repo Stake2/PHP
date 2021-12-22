@@ -34,14 +34,14 @@ function Variable_Inserter($array, $text_line) {
 	global $verbose;
 	global $has_variable;
 	global $variable_inserter_replacer_array;
-	global $use_text_as_replacer;
+	global $website_settings;
 	global $website_language_text;
 
 	$backup_text_line = $text_line;
 
 	$has_variable = False;
 
-	if ($use_text_as_replacer == True) {
+	if ($website_settings["use_text_as_replacer"] == True) {
 		$i = 0;
 		foreach ($variable_inserter_replacer_array as $text) {
 			$variable = $array[$i];
@@ -85,7 +85,7 @@ function Variable_Inserter($array, $text_line) {
 		
 	}
 
-	if ($use_text_as_replacer == False) {
+	if ($website_settings["use_text_as_replacer"] == False) {
 		$i = 0;
 		foreach ($array as $variable) {
 			$variable_name = Variable_Name($variable);	

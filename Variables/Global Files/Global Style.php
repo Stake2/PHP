@@ -234,24 +234,14 @@ $websites_tab_global_number_color = "w3-text-blue";
 
 $margin_3_h1 = '<h1 style="margin-left:3%;">'.'<b>';
 
-if ($roundedbuttonson == True) {
-	$roundedborderstyle = 'style="border-radius: 50px;"';
-	$rounded_border_style_2 = 'border-radius: 50px;';
-	$roundedborderstyle3 = 'border-radius: 32px;';
-	$roundedborderstyle4 = 'border-radius: 25px;';
-	$roundedborderstyle7 = 'border-radius: 20px;';
-	$roundedborderstyle5 = 'border-radius: 250px;';
-	$roundborderstyle6 = 'border-radius: 31px;';
-	$roundeddiv = '<div style="border-radius: 50px;">';
-}
-
-else {
-	$roundedborderstyle = '';
-	$rounded_border_style_2 = '';
-	$roundedborderstyle3 = '';
-	$roundedborderstyle4 = '';
-	$roundeddiv = '';
-}
+$roundedborderstyle = 'style="border-radius: 50px;"';
+$rounded_border_style_2 = 'border-radius: 50px;';
+$roundedborderstyle3 = 'border-radius: 32px;';
+$roundedborderstyle4 = 'border-radius: 25px;';
+$roundedborderstyle7 = 'border-radius: 20px;';
+$roundedborderstyle5 = 'border-radius: 250px;';
+$roundborderstyle6 = 'border-radius: 31px;';
+$roundeddiv = '<div style="border-radius: 50px;">';
 
 $margin_style_10percent_rounded_border = $margin_style_10percent.$rounded_border_style_2;
 
