@@ -9,8 +9,7 @@ $files = array(
 
 $phpfile = True;
 
-#Website variables
-$main_website_url = "https://diario.netlify.app";
+# Website variables
 $php_folder_websites = 'Tabs';
 $variables_folder_variable = 'Variables';
 $years_folder_variable = 'Years';
