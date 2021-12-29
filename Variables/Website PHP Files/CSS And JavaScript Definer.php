@@ -24,7 +24,7 @@ if ($website_type == $story_website_type) {
 	array_push($javascript_links, $website_story_websites_javascript_folder."Write Chapter");
 }
 
-if ($website_is_prototype_setting == False and $website_settings["custom_layout"] == False) {
+if ($website_function_settings["is_prototype"] == False and $website_settings["custom_layout"] == False) {
 	$css_links = array(
 	"https://www.w3schools.com/lib/w3",
 	$website_css_styler_css_folder."W3",
@@ -72,10 +72,12 @@ foreach ($javascript_links as $link) {
 		$string_to_use = $javascript_link_string_with_crossorigin;
 	}
 
-	$website_javascript_links .= format($string_to_use, array($link));
+	if ($website_function_settings["js"] == True) {
+		$website_javascript_links .= format($string_to_use, array($link));
 
-	if ($link != array_reverse($javascript_links)[0]) {
-		$website_javascript_links .= "\n";
+		if ($link != array_reverse($javascript_links)[0]) {
+			$website_javascript_links .= "\n";
+		}
 	}
 }
 

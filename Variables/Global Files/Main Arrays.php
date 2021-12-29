@@ -8,18 +8,6 @@ $website_selector_parameters = array(
 
 $website_language_parameter = $website_selector_parameters[1];
 
-# Queries for parameters of settings
-$setting_parameters = array(
-"website_comment_tab_setting",
-"website_show_comments_setting",
-"website_has_stories_setting",
-"website_story_has_book_covers_setting",
-"website_deactivate_top_buttons_setting",
-"website_deactivate_tabs_setting",
-"website_deactivate_all_setting",
-"website_deactivate_header_setting",
-);
-
 # Queries for website languages
 $languages_array = array(
 "geral",

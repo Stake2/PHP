@@ -6,7 +6,7 @@ if ($website_settings["notifications"] == True) {
 	echo "</script>"."\n";
 }
 
-if ($website_is_prototype_setting == False and $website_settings["custom_layout"] == False) {
+if ($website_function_settings["is_prototype"] == False and $website_settings["custom_layout"] == False) {
 	echo $animationstylecss."\n"."\n";
 }
 
@@ -45,7 +45,7 @@ if ($website_type == $story_website_type) {
 }
 
 # Website notification script link includer if setting is True
-if ($website_settings["notifications"] == True and $website_deactivate_notification_setting == False) {
+if ($website_settings["notifications"] == True) {
 	echo format($javascript_link_string, array($notifications_javascript_link));
 }
 

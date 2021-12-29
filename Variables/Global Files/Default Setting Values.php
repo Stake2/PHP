@@ -53,19 +53,24 @@ foreach (array_keys($story_website_settings) as $key) {
 	}
 }
 
-$website_deactivate_all_setting = False;
-$website_deactivate_top_buttons_setting = False;
-$website_deactivate_tabs_setting = False;
-$website_deactivate_notification_setting = False;
-$website_deactivate_header_setting = False;
-$website_deactivate_website_buttons_setting = False;
-$website_deactivate_websites_tab_setting = False;
-$website_deactivate_image_link_setting = False;
-$website_is_not_centered_setting = False;
-$website_hide_tabs_setting = True;
-$website_is_prototype_setting = False;
-$deactivate_js = False;
+$website_function_settings = array(
+"all" => False,
+"website_buttons" => True,
+"tabs" => True,
+"hide_tabs" => True,
+"header" => True,
+"image_link_button" => True,
+"websites_tab" => True,
+"is_prototype" => False,
+"js" => True,
+);
 
-$website_uses_universal_file_reader = False;
+if (text_contains("all=true", $host_text) == True or text_contains("all=True", $host_text) == True) {
+	foreach (array_keys($story_website_settings) as $setting) {
+		if ($setting != "all") {
+			$website_function_settings[$setting] = False;
+		}
+	}
+}
 
 ?>

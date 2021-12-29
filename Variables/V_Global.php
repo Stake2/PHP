@@ -75,7 +75,7 @@ if ($website_settings["notifications"] == True) {
 	require $website_notifications_php;
 }
 
-if ($website_is_prototype_setting == False and $website_settings["custom_layout"] == False) {
+if ($website_function_settings["is_prototype"] == False and $website_settings["custom_layout"] == False) {
 	require $websites_tab_button_maker;
 }
 
@@ -85,7 +85,7 @@ if (isset($custom_website_head_content) == True) {
 	$include_custom_website_head_content = "\n".$custom_website_head_content;
 }
 
-if ($deactivate_js == True) {
+if ($website_function_settings["js"] == True) {
 	$website_js_files = "";
 }
 

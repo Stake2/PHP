@@ -15,7 +15,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$choosed_website_css_file = $css_file_pocb;
 
 	$website_settings["tab_body_generator"] = True;
-	$website_is_not_centered_setting = True;
+	$website_function_settings["center_website"] = True;
 
 	#Website Tabs array
 	$tabs = array('Website Status');

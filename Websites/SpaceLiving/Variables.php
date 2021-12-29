@@ -37,15 +37,6 @@ require $text_file_reader_file_php;
 #$comments_number = $story_comments_check_number - 1;
 $readed_number = 5;
 
-# The chapter that I want to write
-if ($website_chapter_to_write_setting == False) {
-	$story_name_website_chapter_to_write = "";
-}
-
-else {
-	$story_name_website_chapter_to_write = (int)$website_chapter_to_write_setting;
-}
-
 # Re-require of the StoryVars.php file to set the story name
 require $story_variables_php;
 
@@ -57,18 +48,6 @@ require $story_details_definer;
 # Reads the book cover image directory if the website has book covers
 if ($story_website_settings["show_chapter_covers"] == True) {
 	require $cover_images_generator_php;
-}
-
-# Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title = $website_story_name;
-$website_title_header = $website_story_name.': '.$icons[11];
-$website_link = $selected_website_url;
-
-if ($website_language != $language_geral) {
-	$website_title .= " ".$website_title_language;
-	$website_title_header = str_replace(': '.$icons[11], "", $website_title_header)." ".$full_language.': '.$icons[11];
-	$website_link .= $website_link_language."/";
 }
 
 # Buttons and tabs definer
@@ -162,5 +141,15 @@ $story_names["SpaceLiving"]." ",
 $story_names["The Story of the Bulkan Siblings"]." ",
 $chapter_twenty_six_text." ",
 );
+
+# Website name, title, URL and description setter, by language
+$website_title_text = $general_story_name;
+$website_title_header = $general_story_name.": ".$icons[11];
+
+if ($website_language != $language_geral) {
+	$website_title_text = $website_story_name." ".$website_title_language;
+
+	$website_title_header = $website_title_text.": ".$icons[11];
+}
 
 ?>

@@ -2,7 +2,7 @@
 
 $hide_notification_attribute = "";
 
-if ($website_settings["notifications"] == True and $website_deactivate_notification_setting == False) {
+if ($website_settings["notifications"] == True) {
 	$hide_notification_attribute = "Hide_Computer_Notification();Hide_Computer_Buttons();Hide_Mobile_Notification();";
 }
 
@@ -111,7 +111,7 @@ while ($chapter_number_1 <= $chapters) {
 
 		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
 
-		if ($website_deactivate_notification_setting == True or !isset($hide_notification_attribute)) {
+		if ($website_settings["notifications"] == True) {
 			$hide_notification_attribute = '';
 		}
 

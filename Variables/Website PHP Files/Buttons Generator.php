@@ -24,7 +24,7 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 $i = 0;
 $total_buttons_created = 0;
 
-if ($website_deactivate_top_buttons_setting == False) {
+if ($website_function_settings["website_buttons"] == True) {
 	#######################################
 
 	# Computer buttons bar generation     #

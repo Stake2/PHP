@@ -108,7 +108,7 @@ while ($i <= $website_tab_number) {
 
 $hide_tabs_text = "";
 
-if ($website_hide_tabs_setting == True) {
+if ($website_function_settings["hide_tabs"] == True) {
 	$hide_tabs_text = 'style="display:none;"';
 }
 
@@ -246,7 +246,7 @@ if ($website_title != $website_titles["Things I Do"] and $website_title != $webs
 
 $hide_tabs_text = "";
 
-if ($website_hide_tabs_setting == True) {
+if ($website_function_settings["hide_tabs"] == True) {
 	$hide_tabs_text = 'style="display:none;"';
 }
 

@@ -25,22 +25,7 @@ $website_selector_parameters = array(
 'website', 
 'type', 
 'website_language', 
-'website_watch_history_show_to_watch_only_setting',
 'subsite',
-);
-
-#URL settings parameters
-$setting_parameters = array(
-'website_notification_setting',
-'website_comment_tab_setting',
-'website_show_comments_setting',
-'website_has_stories_setting',
-'website_has_change_log_tab_setting',
-'website_write_story_setting',
-'website_show_write_form_text_setting',
-'writestorytext',
-'translate',
-'website_chapter_to_write_setting',
 );
 
 #URL Website website_types_array
@@ -70,7 +55,6 @@ $websites_array = array(
 'music',
 'games',
 'fb',
-'tt',
 'tasks',
 'years',
 '2018',
@@ -81,12 +65,7 @@ $websites_array = array(
 'pequenata',
 'spaceliving',
 'bulkan',
-'ls',
-'luiza',
-'mf',
-'wt',
 'stake2',
-'textmaker',
 'thingsido',
 );
 

@@ -55,7 +55,7 @@ require $crucial_functions_file_php;
 $website_subdomain_name = Read_Lines($subdomain_file)[0];
 $main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
 
-$php_settings["allow_current_year"] = True;
+$php_settings["allow_current_year"] = False;
 
 # Main Arrays PHP file loader
 require $main_arrays_php;
@@ -123,7 +123,7 @@ if ($return == False) {
 	# Website Header displayer
 	echo $website_header;
 
-	if ($website_deactivate_tabs_setting == False and $website_settings["custom_layout"] == False) {
+	if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
 		# "Tabs loader" file loader
 		require $website_tabs_loader;
 	}
@@ -149,8 +149,8 @@ if ($return == True) {
 	# Website Header displayer
 	$website .= $website_header;
 
-	if ($website_deactivate_tabs_setting == False and $website_settings["custom_layout"] == False) {
-		#"Tabs loader" file loader
+	if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
+		# "Tabs Loader" file loader
 		ob_start();
 		require $website_tabs_loader;
 		$website .= ob_get_clean();
@@ -164,7 +164,7 @@ if ($return == True) {
 	Define_Colors_And_Styles();
 	</script>"."\n\n";
 
-	if ($website_settings["custom_layout"] == False and $website_is_not_centered_setting == False) {
+	if ($website_settings["custom_layout"] == False and $website_function_settings["center_website"] == False) {
 		$website .= '</center>'."\n";
 	}
 

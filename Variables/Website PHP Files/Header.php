@@ -5,7 +5,7 @@ $computer_space = '<div class="'.$computer_variable.'"><br /><br /><br /><br /><
 $header_hr = '<hr class="'.$header_full_border.'" style="margin-left:3%;margin-right:3%;" />'."\n";
 
 # Blank website generator using templates
-if (!isset($website_title_header) and !isset($website_meta_description) and $website_deactivate_header_setting == False) {
+if (!isset($website_title_header) and !isset($website_meta_description) and $website_function_settings["header"] == True) {
 	$website_image = $cdnimg.'Template.png';
 	$website_image_link = $website_image;
 	$website_image_size_computer = 33;
@@ -28,7 +28,10 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 	$main_website_image_computer = '<img src="'.$website_image_link.'" width="'.$website_image_size_computer.'%" class="'.$colortext.' '.$computer_variable.'" style="'.$border2.''.$rounded_border_style_to_use.'" />';
 	$main_website_image_mobile = '<img src="'.$website_image_link.'" width="'.$website_image_size_mobile.'%" class="'.$colortext.' '.$mobile_variable.'" style="'.$border2.''.$rounded_border_style_to_use.'" />';
 
-	if ($website_deactivate_image_link_setting == False) {
+	$website_image_button_computer = "";
+	$website_image_button_mobile = "";
+
+	if ($website_function_settings["image_link_button"] == True) {
 		$website_image_button_computer = '<div class="'.$computer_variable.'">'."\n".
 		'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
 		'<'.$h4_element.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
@@ -59,7 +62,7 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 	.$div_close."\n";	
 }
 
-if ($website_type == $normal_website_type and $website_deactivate_header_setting == False or in_array($website_title, $year_websites) and $website_deactivate_header_setting == False and $website_settings["custom_layout"] == False) {
+if ($website_type == $normal_website_type and $website_function_settings["header"] == True and $website_settings["custom_layout"] == False) {
 	$diario_blocks_text_on_header = "";
 	$things_of_diario_one = "";
 	$things_of_diario_two = "";

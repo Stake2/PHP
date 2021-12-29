@@ -59,7 +59,7 @@ if ($website_type == $story_website_type) {
 	require $chapters_generator_php;
 }
 
-if ($website_deactivate_websites_tab_setting == False) {
+if ($website_function_settings["websites_tab"] == True) {
 	echo "\n";
 	require $websites_tab_generator;
 }
