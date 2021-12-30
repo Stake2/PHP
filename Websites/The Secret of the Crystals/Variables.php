@@ -36,15 +36,6 @@ $chapters = $revised_chapter;
 #$comments_number = $story_comments_check_number - 1;
 $readed_number = 5;
 
-# The chapter that I want to write
-if ($website_chapter_to_write_setting == False) {
-	$story_name_website_chapter_to_write = "";
-}
-
-else {
-	$story_name_website_chapter_to_write = (int)$website_chapter_to_write_setting;
-}
-
 # Re-require of the StoryVars.php file to set the story name
 require $story_variables_php;
 
