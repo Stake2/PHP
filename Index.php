@@ -8,8 +8,6 @@ if (isset($host_text) == False) {
 	$return = False;
 }
 
-$variable = "";
-
 if (isset($host_text) == True) {
 	$return = False;
 }
@@ -38,24 +36,30 @@ $main_php_folder = $mega_folder."PHP/";
 $php_folder_websites = $main_php_folder."Websites/";
 $php_folder_variables = $main_php_folder."Variables/";
 
+$folders_and_files_folder = $php_folder_variables."Folders and Files/";
 $global_files_folder = $php_folder_variables."Global Files/";
 $database_folder = $php_folder_variables."Database/";
 
-$main_php_folders_and_files = $global_files_folder."Main PHP Folders And Files.php";
+$website_selector_file = $php_folder_variables."Website Selector.php";
+$main_folders_and_files = $folders_and_files_folder."Main Folders And Files.php";
+
 $global_texts_php = $global_files_folder."Global Texts.php";
 $global_style_file_php = $global_files_folder."Global Style.php";
+
 $connect_php = $database_folder."Connect.php";
 
+$website_subdomain_name = explode("\n", fread(fopen($subdomain_file, "r", "UTF-8"), filesize($subdomain_file)))[0];
+$main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
+
 # "Main PHP Folders" PHP File Loader
-require $main_php_folders_and_files;
+require $main_folders_and_files;
 
 # Crucial Functions PHP File Loader
 require $crucial_functions_file_php;
 
-$website_subdomain_name = Read_Lines($subdomain_file)[0];
-$main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
-
-$php_settings["allow_current_year"] = False;
+$php_settings = array(
+"allow_current_year" => False,
+);
 
 # Main Arrays PHP file loader
 require $main_arrays_php;
@@ -63,22 +67,20 @@ require $main_arrays_php;
 # Global Arrays PHP file loader
 require $global_arrays_php;
 
+# Connect to Database
 require $connect_php;
 
 # Websites Array Generator PHP file loader
 require $website_arrays_generator_php;
 
-# Year Arrays PHP file loader
-#require $year_arrays_php;
-
 # Default Setting Values file require
-require $default_setting_values_php;
+require $website_settings_checker;
 
 # Website Language Definer file require
 require $website_language_definer_php;
 
 # Variable Inserter PHP file loader
-require $variable_inserter_php;
+require $website_variable_inserter_php;
 
 # Global CSS variables loader
 require $global_style_file_php;
@@ -128,7 +130,7 @@ if ($return == False) {
 		require $website_tabs_loader;
 	}
 
-	require $other_index_stuff_php;
+	require $website_extra_website_things;
 
 	echo "<script>
 Define_Colors_And_Styles();
@@ -157,7 +159,7 @@ if ($return == True) {
 	}
 
 	ob_start();
-	require $other_index_stuff_php;
+	require $website_extra_website_things;
 	$website .= ob_get_clean();
 
 	$website .= "<script>

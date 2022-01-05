@@ -138,7 +138,7 @@ if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array
 	$website_type = $website_types_array[1];
 
 	#"Website has stories" setting definer
-	$story_website_settings["show_chapter_covers"] = True;
+	$story_website_settings["has_story_covers"] = True;
 }
 
 #Years website type definer
@@ -153,8 +153,8 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$sitethingsido) == T
 	$website = $sitethingsido;
 
 	#Website settings
-	$showembeds = True; #If website shows Youtube embeds
-	$showembeds2 = false; #If website shows Youtube embeds
+	$showembeds = True;
+	$showembeds2 = false;
 
 	#Website Tabs array
 	$tabs = array('Productive Things', 'Not Productive Things');

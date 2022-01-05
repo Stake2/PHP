@@ -9,7 +9,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	#$website = $website_titles[$selected_website];
 	$website_name = $website_titles[$selected_website];
 
-	$choosed_website_css_file = $css_file_pequenata;
+	$choosed_website_css_file = $selected_website;
 
 	# Website settings
 	$website_settings["tab_body_generator"] = True;
@@ -20,13 +20,13 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$story_website_settings["show_new_chapter_text"] = True;
 	$story_website_settings["chapter_opener"] = True;
 
-	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab
+	$website_shows_comments = True;
 	$story_website_settings["has_reads"] = True;
-	$story_website_settings["has_dates"] = True; #Defines if the story has dates
-	$website_story_has_titles = True; #Defines if the story has chapter_titles
-	$story_website_settings["use_status"] = True; #Defines if the story uses the story statuses
-	$story_website_contains_reads = True; #Defines if the story has story_reads_array on it
-	$story_website_contains_comments = True; #Defines if the story has comments on it
+	$story_website_settings["has_dates"] = True;
+	$story_website_settings["has_titles"] = True;
+	$story_website_settings["use_status"] = True;
+	$story_website_contains_reads = True;
+	$story_website_contains_comments = True;
 
 	# Website Tabs array
 	$tabs = array("Read", "Readers", "Other stories");

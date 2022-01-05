@@ -8,13 +8,13 @@ if (strpos ($host_text, $website_selector_parameters[0].'='.$website_keys[$local
 	# Website title definer
 	$website_name = $website_titles[$selected_website];
 
-	$choosed_website_css_file = $css_file_pocb;
+	$choosed_website_css_file = "POCB";
 
 	#Website settings
-	$showembeds = false; #If website shows Youtube embeds
-	$showembeds2 = false; #If website shows Youtube embeds 2
-	$showplaylistembed = false; #If website shows Youtube playlist embeds
-	$story_website_settings["show_chapter_covers"] = True; #If website has a Stories Tab
+	$showembeds = false;
+	$showembeds2 = false;
+	$showplaylistembed = false;
+	$story_website_settings["has_story_covers"] = True;
 
 	#Website Tabs array
 	$tabs = array('Productive Things', 'Not Productive Things');

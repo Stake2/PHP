@@ -8,7 +8,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website = $selected_website;
 	$local_current_year = $website;
 	$website_name = $selected_website;
-	$choosed_website_css_file = $css_file_pocb;
+	$choosed_website_css_file = "POCB";
 
 	$tabs = array($local_current_year, 'Media', 'Tasks', 'Years');
 

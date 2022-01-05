@@ -6,7 +6,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$selected_website = $website_titles[$local_website_name];
 
 	$website_name = $selected_website;
-	$choosed_website_css_file = $css_file_pocb;
+	$choosed_website_css_file = "POCB";
 
 	$website_settings["tab_body_generator"] = True;
 

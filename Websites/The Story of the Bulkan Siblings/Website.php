@@ -21,15 +21,15 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["variable_inserter"] = True;
 
 	$story_website_settings["chapter_opener"] = True;
-	$story_website_settings["show_chapter_covers"] = True;
+	$story_website_settings["has_story_covers"] = True;
 
-	$website_shows_comments = True; #Defines if website shows the comments on the Comments Tab	
+	$website_shows_comments = True;
 	$story_website_settings["has_reads"] = True;
-	$story_website_settings["has_dates"] = False; #Defines if the story has dates
-	$website_story_has_titles = True; #Defines if the story has chapter_titles
-	$story_website_settings["use_status"] = True; #Defines if the story uses the story statuses
-	$story_website_contains_reads = True; #Defines if the story has story_reads_array on it
-	$story_website_contains_comments = True; #Defines if the story has comments on it
+	$story_website_settings["has_dates"] = False;
+	$story_website_settings["has_titles"] = True;
+	$story_website_settings["use_status"] = True;
+	$story_website_contains_reads = True;
+	$story_website_contains_comments = True;
 
 	# Website Tabs array
 	$tabs = array("Read", "Readers", "Stories");

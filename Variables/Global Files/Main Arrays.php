@@ -65,13 +65,4 @@ $full_languages_dict = array(
 "ptpt" => "Português Europeu",
 );
 
-# CSS file variables
-$website_css_files_array = array(
-$css_file_pocb = "POCB",
-$css_file_pequenata = "Littletato",
-$css_file_spaceliving = "SpaceLiving",
-$css_file_watch_history = "Watch_History",
-$css_file_desert_island = "Desert_Island",
-);
-
 ?>

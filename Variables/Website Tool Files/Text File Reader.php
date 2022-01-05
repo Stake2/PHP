@@ -47,7 +47,7 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 	array_push($data_file_names, "New Stories");
 
 	array_push($data_file_names, "Story Progress");
-	$data_files["Story Progress"] = $current_year_data_folder."Story Progress.txt"; # Text
+	$data_files["Story Progress"] = $current_year_data_folder."Story Progress.txt";
 	Create_File($data_files["Story Progress"]);
 	$data_texts["Story Progress"] = Read_Lines($data_files["Story Progress"]);
 
@@ -154,7 +154,7 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 	);
 
 	array_push($data_file_names, "Story Progress");
-	$data_files["Story Progress"] = $current_year_data_folder."Story Progress.txt"; # Text
+	$data_files["Story Progress"] = $current_year_data_folder."Story Progress.txt";
 	Create_File($data_files["Story Progress"]);
 	$data_texts["Story Progress"] = Read_Lines($data_files["Story Progress"]);
 

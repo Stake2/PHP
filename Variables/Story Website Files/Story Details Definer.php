@@ -4,7 +4,7 @@ $website_comments_folder = $story_folder.$website_comments_english_folder_text;
 $story_chapter_comments_folder = $story_folder.$chapter_comments_english_folder_text;
 
 # Defines the website image if the website has book covers or not
-if ($story_website_settings["show_chapter_covers"] == True) {
+if ($story_website_settings["has_story_covers"] == True) {
 	$story_book_cover_filename = 'Book Cover';
 
 	if (isset($image_format) == False) {

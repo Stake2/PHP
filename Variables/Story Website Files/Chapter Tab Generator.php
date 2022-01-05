@@ -12,7 +12,7 @@ require $read_generator;
 require $comment_generator;
 
 # Defines the top and bottom texts
-if ($website_story_has_titles == True) {
+if ($story_website_settings["has_titles"] == True) {
 	$local_chapter_titles = array_values($chapter_titles);
 
 	if (strpos($local_chapter_titles[$chapter_number_4], "/") == True) {
@@ -79,11 +79,11 @@ echo '<h5 class="'.$alternative_full_tab_style.'" style="'.$hstyle.'text-align:l
 
 # Top Previous chapter button
 if ($chapter_number_1 != 1) {
-	if ($website_story_has_titles == True) {
+	if ($story_website_settings["has_titles"] == True) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3." - ".str_replace("'", "", $chapter_titles[$chapter_number_3 - 1]);
 	}
 
-	if ($website_story_has_titles == False) {
+	if ($story_website_settings["has_titles"] == False) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3;
 	}
 
@@ -102,11 +102,11 @@ else {
 
 # Top Next chapter button
 if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
-	if ($website_story_has_titles == True) {
+	if ($story_website_settings["has_titles"] == True) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1)." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
 	}
 
-	if ($website_story_has_titles == False) {
+	if ($story_website_settings["has_titles"] == False) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1);
 	}
 
@@ -145,7 +145,7 @@ echo '<br /><br /><br /><br />'."\n";
 echo $div_zoom_animation."\n";
 
 # Story cover shower if story has the website_story_has_book_covers_setting setting as True
-if ($story_website_settings["show_chapter_covers"] == True) {
+if ($story_website_settings["has_story_covers"] == True) {
 	echo "<center>"."\n";
 
 	if (isset($chapter_cover_images_computer[$book_cover_number]) and isset($chapter_cover_images_mobile[$book_cover_number])) {
@@ -163,11 +163,11 @@ require $chapter_text_displayer_php;
 
 # Bottom Previous chapter button
 if ($chapter_number_1 != 1) {
-	if ($website_story_has_titles == True) {
+	if ($story_website_settings["has_titles"] == True) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3." - ".str_replace("'", "", $chapter_titles[$chapter_number_3 - 1]);
 	}
 
-	if ($website_story_has_titles == False) {
+	if ($story_website_settings["has_titles"] == False) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".$chapter_number_3;
 	}
 
@@ -182,11 +182,11 @@ if ($chapter_number_1 != 1) {
 
 # Bottom Next chapter button
 if ($chapter_number_1 != $chapters) {
-	if ($website_story_has_titles == True) {
+	if ($story_website_settings["has_titles"] == True) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1)." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
 	}
 
-	if ($website_story_has_titles == False) {
+	if ($story_website_settings["has_titles"] == False) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1);
 	}
 

@@ -29,7 +29,7 @@ foreach (array_keys($website_settings) as $key) {
 
 $story_website_settings = array(
 "show_new_chapter_text" => True,
-"show_chapter_covers" => True,
+"has_story_covers" => True,
 "has_custom_story_folder" => False,
 "replace_story_text" => False,
 "chapter_opener" => True,

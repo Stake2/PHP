@@ -11,13 +11,13 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 
 	#Website title and name definer
 	$website_name = $selected_website;
-	$choosed_website_css_file = $css_file_watch_history;
+	$choosed_website_css_file = $selected_website;
 
 	# Website settings
 	$website_settings["use_custom_buttons_bar"] = True;
 
-	$website_watch_history_show_to_watch_only_setting = True; #If website shows only the Ready To Watch medias or not
-	$website_watch_history_new_watched_style_setting = True; #If website uses the new Watched Media displaying style or not
+	$website_watch_history_show_to_watch_only_setting = True;
+	$website_watch_history_new_watched_style_setting = True;
 
 	# Website tab names array
 	if (in_array($website_language, $en_languages_array)) {

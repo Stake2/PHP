@@ -5,9 +5,9 @@ $verbose = False;
 $normal_website_type = "Normal Website Type";
 $story_website_type = "Story Website Type";
 
-$websites_text_file = $website_php_files_folder."Websites.txt";
-$websites_portuguese_text_file = $website_php_files_folder."Sites.txt";
-$website_types_text_file = $website_php_files_folder."Website Types.txt";
+$websites_text_file = $websites_list_folder."Websites.txt";
+$websites_portuguese_text_file = $websites_list_folder."Sites.txt";
+$website_types_text_file = $websites_list_folder."Website Types.txt";
 
 $websites = Read_Lines($websites_text_file);
 

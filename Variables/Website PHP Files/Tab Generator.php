@@ -181,7 +181,7 @@ if ($website_settings["has_stories_tab"] == True) {
 }
 
 if ($website_settings["tab_body_generator"] == True) {
-	require $tab_bodies_generator_php_variable;
+	require $website_tab_bodies_generator;
 }
 
 $first_number = 0;

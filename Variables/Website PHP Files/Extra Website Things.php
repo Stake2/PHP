@@ -27,7 +27,7 @@ if ($website_type == $story_website_type) {
 	"Chapter_Number = 1;"."\n".
 	"var Last_Chapter = ".$chapters.";"."\n";
 
-	if ($website_story_has_titles == True) {
+	if ($story_website_settings["has_titles"] == True) {
 		$text_to_show .= "var Last_Chapter_Title = \"".$chapters." - ".$chapter_titles[($chapters - 1)]."\";"."\n";
 	}
 

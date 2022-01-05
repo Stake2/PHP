@@ -12,7 +12,7 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	#Website title and name definer
 	$website = $selected_website;
 	$website_name = $selected_website;
-	$choosed_website_css_file = $css_file_pocb;
+	$choosed_website_css_file = "POCB";
 
 	$website_settings["tab_body_generator"] = True;
 	$website_function_settings["center_website"] = True;

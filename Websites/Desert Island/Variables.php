@@ -38,7 +38,7 @@ $number_of_chapter_comments = $comments_number_text - $website_comments_number;
 $readed_number = 1;
 
 # Reads the book cover image directory if the website has book covers
-if ($story_website_settings["show_chapter_covers"] == True) {
+if ($story_website_settings["has_story_covers"] == True) {
 	require $cover_images_generator_php;
 }
 

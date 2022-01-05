@@ -1,7 +1,7 @@
 <?php 
 
 # Comment form
-echo '<'.$h4_element.'>'."\n".'<b>'."\n";
+echo "<".$h4_element.">"."\n".'<b>'."\n";
 echo $div_zoom_animation."\n";
 echo $website_comment_form;
 echo "\n".'</b>'."\n".'</'.$h4_element.'>'."\n";

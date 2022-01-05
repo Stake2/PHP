@@ -1,18 +1,23 @@
 <?php
 
-# V_Global.php $website_folder, website and FontAwesome link variables
+# V_Global.php website URL definer
 $selected_website_url = $website_links[$website_title];
 
 $dot_text = ".txt";
 
-$folder_and_website_variables_php = $global_files_folder.'Folder And Website Variables.php';
-$php_files_php = $global_files_folder.'PHP Files.php';
+$mlp_fim_language_texts_folder = Language_Item_Definer($mlp_fim_english_texts_folder, $mlp_fim_portuguese_texts_folder);
+$mlp_fim_episode_list_folder = $mlp_fim_language_texts_folder.Language_Item_Definer("Episode List", "Lista de Episódios")."/";
 
-# Folder And Website Variables PHP file loader
-require $folder_and_website_variables_php;
+$year_folders = array();
 
-# "PHP Files.php" file loader
-require $php_files_php;
+$year_folders = Add_Years_To_Array($year_folders, $mode = "dict", $custom_value = $notepad_years_folder."{}"."/");
+
+$year_language_folders = array();
+
+foreach ($full_languages_array_no_null as $local_language) {
+	$year_language_folders[$local_language] = array();
+	$year_language_folders[$local_language] = Add_Years_To_Array($year_language_folders[$local_language], $mode = "dict", $custom_value = $notepad_years_folder."{}"."/".$local_language."/");
+}
 
 # CSS definers for specific websites
 $website_css_file = $choosed_website_css_file;

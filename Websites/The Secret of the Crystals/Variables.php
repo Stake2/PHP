@@ -43,7 +43,7 @@ require $story_variables_php;
 require $story_details_definer;
 
 # Reads the book cover image directory if the website has book covers
-if ($story_website_settings["show_chapter_covers"] == True) {
+if ($story_website_settings["has_story_covers"] == True) {
 	require $cover_images_generator_php;
 }
 
