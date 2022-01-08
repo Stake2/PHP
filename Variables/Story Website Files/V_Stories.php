@@ -282,8 +282,7 @@ if (isset($story_website_links["SpaceLiving"])) {
 	$the_life_of_littletato_spaceliving_chapter_crossover_link = '<div class="w3-animate-zoom"'.
 	' onclick="window.open('."'".$chapter_link."'".');">'.
 	"<center>"."\n".
-	'<h3 class="w3-btn '.$background_blue_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;">'."<span ".$span_style.">"."<br />".$crossover_next_chapter_text.": ".
-	$story_website_links["SpaceLiving"].$crossover_chapter."/"."<br /><br />"."</span></h3>"."\n".
+	'<h3 class="w3-btn '.$background_blue_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;">'."<span ".$span_style.">"."<br />".$crossover_next_chapter_text_with_link_spaceliving."<br /><br />"."</span></h3>"."\n".
 	"</center></div>";
 }
 

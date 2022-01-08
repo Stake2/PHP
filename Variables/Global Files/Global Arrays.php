@@ -153,13 +153,10 @@ foreach ($websites as $local_website_name) {
 		echo $local_website_name."<br />"."\n";
 	}
 
-	$local_website_link_element = Create_Element("a", "", $local_website_name, "href=\"$local_website_link\" style=\"color:white!important;\"");
-
 	$website_titles[$key] = $local_website_name;
 	$website_portuguese_titles[$key] = $local_website_portuguese_name;
 	$website_types[$key] = $local_website_type;
 	$website_links[$key] = $local_website_link;
-	$website_link_elements[$key] = $local_website_link_element;
 
 	$websites_number++;
 }

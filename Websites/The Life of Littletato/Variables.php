@@ -68,10 +68,6 @@ $tab_texts = array();
 
 Make_Button_Names();
 
-$website_the_life_of_littletato_linked = $website_links[$local_website_name];
-$website_spaceliving_linked = $website_links["SpaceLiving"];
-$website_spaceliving_linked_alternate = $website_links["SpaceLiving"];
-
 $variable_inserter_array = array(
 $website_the_life_of_littletato_linked,
 $website_spaceliving_linked,

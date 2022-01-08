@@ -25,4 +25,26 @@ foreach ($website_titles as $value) {
 	}
 }
 
+$local_websites_number = 0;
+
+foreach ($websites as $local_website_name) {
+	$local_website_portuguese_name = $portuguese_websites[$local_website_name];
+
+	$key = (string)$local_website_name;
+
+	$local_website_link = $main_website_url;
+
+	if (preg_match("/[0-9][0-9][0-9][0-9]/i", $local_website_name) == True) {
+		$local_website_link .= "Years/";
+	}
+
+	$local_website_link .= Remove_Non_File_Characters($local_website_name)."/";
+
+	$local_website_link_element = Create_Element("a", "", Language_Item_Definer($local_website_name, $local_website_portuguese_name), "href=\"$local_website_link\" style=\"color:white!important;\"");
+
+	$website_link_elements[$key] = $local_website_link_element;
+
+	$local_websites_number++;
+}
+
 ?>
