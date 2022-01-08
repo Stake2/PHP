@@ -41,7 +41,10 @@ function Show_Text($file, $style_format = Null) {
 
 			if ($website_settings["variable_inserter"] == True) {
 				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
-				$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+
+				if ($website_settings["variable_inserter_double"] == True) {
+					$text_line = Variable_Inserter($variable_inserter_array, $text_line);
+				}
 			}
 
 			echo $text_line."\n".'<br />';

@@ -15,15 +15,15 @@ if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local
 	$website_settings["notifications"] = True;
 	$website_settings["has_stories_tab"] = True;
 	$website_settings["variable_inserter"] = True;
+	$website_settings["variable_inserter_double"] = False;
 
 	$story_website_settings["show_new_chapter_text"] = False;
 	$story_website_settings["chapter_opener"] = True;
-
-	$website_shows_comments = True;
 	$story_website_settings["has_reads"] = True;
 	$story_website_settings["has_dates"] = False;
 	$story_website_settings["has_titles"] = True;
 	$story_website_settings["use_status"] = True;
+
 	$story_website_contains_reads = True;
 	$story_website_contains_comments = True;
 

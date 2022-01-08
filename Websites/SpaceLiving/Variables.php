@@ -94,8 +94,16 @@ $panda_eyes_opposite_side = Make_Link("https://www.youtube.com/watch?v=e0nay70Sa
 
 $tom_and_jerrys_2021_soundtrack_playlist_name = Language_Item_Definer("the soundtrack of the Tom & Jerry movie from 2021", "a trilha sonora do filme Tom e Jerry de 2021");
 $tom_and_jerrys_2021_soundtrack_playlist = Make_Link("https://www.youtube.com/playlist?list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa", $tom_and_jerrys_2021_soundtrack_playlist_name, $text_white_css_class, $new_tab = True);
-$tom_and_jerry_2021_married_in_the_park = Make_Link("https://www.youtube.com/watch?v=cAlTw8szj6Q&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=42", "Tom & Jerry 2021 - Married In The Park", $text_white_css_class, $new_tab = True);
-$tom_and_jerry_2021_the_weddings_off = Make_Link("https://www.youtube.com/watch?v=SCxnA10GOMA&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=40", "Tom & Jerry 2021 - The Wedding's Off", $text_white_css_class, $new_tab = True);
+
+$link = "https://www.youtube.com/watch?v=cAlTw8szj6Q&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=42";
+$link = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cAlTw8szj6Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br />';
+
+$tom_and_jerry_2021_married_in_the_park = $link;#Make_Link($link, "Tom & Jerry 2021 - Married In The Park", $text_white_css_class, $new_tab = True);
+
+$link = "https://www.youtube.com/watch?v=SCxnA10GOMA&list=PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa&index=40";
+$link = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SCxnA10GOMA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br />';
+
+$tom_and_jerry_2021_the_weddings_off = $link;#Make_Link($link, "Tom & Jerry 2021 - The Wedding's Off", $text_white_css_class, $new_tab = True);
 
 $among_us_trap_remix_by_leonz_link_name = Language_Item_Definer("Among Us Drip Theme Song Original (Among Us Trap Remix / Amogus Meme Music) by Leonz", "Tema musical original drip do Among Us (Remix de Trap do Among Us / Música de Meme do Amogus) por Leonz");
 $among_us_trap_remix_by_leonz = Make_Link("https://www.youtube.com/watch?v=grd-K33tOSM", $among_us_trap_remix_by_leonz_link_name, $text_white_css_class, $new_tab = True);
@@ -113,7 +121,6 @@ $among_us_trap_remix_by_leonz,
 $website_the_life_of_littletato_linked,
 $website_the_story_of_the_bulkan_siblings_linked,
 $website_spaceliving_linked,
-$website_spaceliving_linked_alternate,
 $human_littletato_image,
 $lisa_image,
 $spaceliving_the_life_of_littletato_chapter_crossover_link,

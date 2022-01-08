@@ -275,7 +275,7 @@ if ($website_type == $story_website_type) {
 if (isset($story_website_links["SpaceLiving"])) {
 	$crossover_chapter = 10;
 	$chapter_link = $story_website_links["SpaceLiving"].$website_language_text."?no-redirect=true&amp;(".$crossover_chapter.")";
-	$crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_text.": ".$chapter_link;
+	$crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_text.": "."\"".$website_titles["SpaceLiving"]." ".$crossover_chapter." - ".Language_Item_Definer("SpaceTato", "SpaceNata")."\"";;
 
 	$span_style = 'style="margin-left:50px;margin-right:50px;"';
 
@@ -290,12 +290,12 @@ if (isset($story_website_links["SpaceLiving"])) {
 if (isset($story_website_links["The Life of Littletato"])) {
 	$crossover_chapter = 26;
 	$chapter_link = $story_website_links["The Life of Littletato"].$website_language_text."?no-redirect=true&amp;(".$crossover_chapter.")";
-	$crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_preivous_chapter_text.": ".$chapter_link;
+	$crossover_previous_chapter_text_with_link_the_life_of_littletato = $crossover_preivous_chapter_text.": "."\"".$website_titles["The Life of Littletato"]." ".$crossover_chapter." - ".Language_Item_Definer("LittleLiving?", "PequeLiving?")."\"";
 
 	$spaceliving_the_life_of_littletato_chapter_crossover_link = '<div class="w3-animate-zoom"'.
 	' onclick="window.open('."'".$chapter_link."'".');">'.
 	"<center>"."\n".
-	'<h3 class="w3-btn '.$background_brown_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;">'."<span ".$span_style.">"."<br />".$crossover_preivous_chapter_text.": ".$story_website_links["The Life of Littletato"].$crossover_chapter."/"."<br /><br />"."</span></h3>"."\n".
+	'<h3 class="w3-btn '.$background_brown_css_class." ".$text_black_css_class.' shake_side_to_side_animation" style="border-width:3px;border-color:black;border-style:solid;border-radius:50px;">'."<span ".$span_style.">"."<br />".$crossover_previous_chapter_text_with_link_the_life_of_littletato."<br /><br />"."</span></h3>"."\n".
 	"</center></div>";
 }
 
@@ -507,9 +507,9 @@ $link = $story_chapter_images_folder[$website_titles["The Secret of the Crystals
 
 $ted_humanoid_the_secret_of_the_crystals_image = Make_Linked_Image($link, $is_chapter_image = True, $computer_width = "50", Null, $has_space = False);
 
-$website_spaceliving_linked = $website_links[$local_website_name];
-$website_spaceliving_linked_alternate = $website_links[$local_website_name];
-$website_the_life_of_littletato_linked = $website_links["The Life of Littletato"];
-$website_the_story_of_the_bulkan_siblings_linked = $website_links["The Story of the Bulkan Siblings"];
+$website_spaceliving_linked = $website_link_elements["SpaceLiving"];
+$website_spaceliving_linked_alternate = $website_link_elements["SpaceLiving"];
+$website_the_life_of_littletato_linked = $website_link_elements["The Life of Littletato"];
+$website_the_story_of_the_bulkan_siblings_linked = $website_link_elements["The Story of the Bulkan Siblings"];
 
 ?>

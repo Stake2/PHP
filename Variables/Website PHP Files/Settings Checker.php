@@ -6,6 +6,7 @@ $website_settings = array(
 "has_two_website_titles" => False,
 "has_stories_tab" => False,
 "variable_inserter" => False,
+"variable_inserter_double" => True,
 "use_text_as_replacer" => False,
 "custom_layout" => False,
 "custom_website_image_border" => False,
