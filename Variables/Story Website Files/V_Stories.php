@@ -275,7 +275,7 @@ if ($website_type == $story_website_type) {
 if (isset($story_website_links["SpaceLiving"])) {
 	$crossover_chapter = 10;
 	$chapter_link = $story_website_links["SpaceLiving"].$website_language_text."?no-redirect=true&amp;(".$crossover_chapter.")";
-	$crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_text.": "."\"".$website_titles["SpaceLiving"]." ".$crossover_chapter." - ".Language_Item_Definer("SpaceTato", "SpaceNata")."\"";;
+	$crossover_next_chapter_text_with_link_spaceliving = $crossover_next_chapter_text.": "."\"".$website_titles["SpaceLiving"]." ".$crossover_chapter." - ".Language_Item_Definer("SpaceTato?", "SpaceNata?")."\"";;
 
 	$span_style = 'style="margin-left:50px;margin-right:50px;"';
 
