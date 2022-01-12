@@ -434,6 +434,7 @@ if ($website_type == $story_website_type) {
 
 	$story_folder = $mega_stories_folder.$story_folder."/";
 	$story_info_folder = $story_folder."Story Info/";
+	$story_writing_folder = $story_info_folder."Writing - Escrita/";
 	$story_database_folder = $mega_stories_folder."Story Database/";
 
 	$story_chapter_files_folder = $story_folder."Chapters/";
@@ -457,16 +458,16 @@ if ($website_type == $story_website_type) {
 	$story_synopsis_english_file = $story_info_folder."Synopsis.txt";
 	$story_synopsis_portuguese_file = $story_info_folder."Sinopse.txt";
 	$story_readers_file = $story_readers_and_reads_folder."Readers.txt";
-	$story_chapter_status_file = $story_info_folder."Chapter Status.txt";
 	$chapter_number_file = $story_info_folder."Chapter Number.txt"; 
 	$story_author_file = $story_info_folder."Author.txt";
+	$story_chapter_status_file = $story_writing_folder."Chapter Status.txt";
 
 	Create_File($story_creation_date_file);
 	Create_File($story_synopsis_english_file);
 	Create_File($story_synopsis_portuguese_file);
 	Create_File($story_readers_file);
-	Create_File($story_chapter_status_file);
 	Create_File($story_author_file);
+	Create_File($story_chapter_status_file);
 
 	if ($story_website_settings["has_custom_story_folder"] == True) {
 		$story_folder = $no_language_story_folder;

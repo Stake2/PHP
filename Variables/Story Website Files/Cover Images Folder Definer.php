@@ -6,7 +6,7 @@ $story_chapter_cover_folder = $cover_type.'/Chapter';
 $story_book_cover_folder = $cover_type.'/Story';
 
 $cover_folder = $website_media_images_story_covers.$story_folder."/";
-$local_cover_folder = $mega_stories_folder.$story_folder."/";
+$local_cover_folder = $mega_stories_folder.$story_folder."/Covers/";
 
 $story_chapter_files_folder = $no_language_story_folder.'Chapters/';
 

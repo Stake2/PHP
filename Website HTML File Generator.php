@@ -48,6 +48,18 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
+if ($selected_language != $language_geral) {
+	if (explode(" ", $website_title_text)[0] == "SpaceLiving") {
+		$website_title_text_backup = "New_World/SpaceLiving";
+	}
+}
+
+else {
+	if ($website_title_text == "SpaceLiving") {
+		$website_title_text_backup = "New_World/SpaceLiving";
+	}
+}
+
 $root_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($website_title_text_backup)."/";
 
 if (file_exists($root_html_folder) == False) {
@@ -76,7 +88,21 @@ if ($website_type == $story_website_type or $website_settings["has_two_website_t
 	$update_two_html_files = True;
 
 	if ($website_type == $story_website_type) {
-		$story_html_folder = $mega_folder_stake2_website.Language_Item_Definer($portuguese_story_name, $english_story_name);
+		$story_html_folder = $mega_folder_stake2_website;
+
+		if ($selected_language != $language_geral) {
+			if (explode(" ", $website_title_text)[0] == "SpaceLiving") {
+				$story_html_folder .= "New_World/";
+			}
+		}
+
+		else {
+			if ($website_title_text == "SpaceLiving") {
+				$story_html_folder .= "New_World/";
+			}
+		}
+
+		$story_html_folder .= Language_Item_Definer($portuguese_story_name, $english_story_name);
 
 		if ($portuguese_story_name != "") {
 			$story_html_folder .= "/";
