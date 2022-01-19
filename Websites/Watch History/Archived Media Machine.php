@@ -6,13 +6,13 @@ $number_text_color = $first_text_color;
 $number_text_color_span = '<span class="'.$number_text_color.'">';
 
 if ($mobile_version == True) {
-	$margin_div_style = '<div>';
-	$mobile_a_name = 'm';
+	$margin_div_style = "<div>";
+	$mobile_a_name = "m";
 }
 
 if ($mobile_version == False) {
 	$margin_div_style = '<div style="margin-left:30px;">';
-	$mobile_a_name = '';
+	$mobile_a_name = "";
 }
 
 $tab_header = '<span class="'.$first_text_color.'">'.
@@ -39,12 +39,12 @@ $archived_media_string .= '<'.$h4_element.' class="'.$number_text_color.'" style
 $mobile_version = False;
 $archived_media_string .= $computer_div;
 
-$current_year_watched_number = ${"watched_episodes_".$local_current_year."_line_number"} - 1;
-$current_year_watched_episodes_text = ${"year_".$local_current_year."_watched_episodes_text"};
-$current_year_watched_time_text = ${"year_".$local_current_year."_watched_time_text"};
-$current_year_watched_media_type_text =  ${"year_".$local_current_year."_watched_media_type_text"};
-$media_type_text_file_lines_array = $media_type_text_file_lines_arrays[$local_current_year];
-$watched_media_numbers_current_year = ${"watched_media_numbers_".$local_current_year};
+$current_year_watched_number = ${"watched_episodes_".$module_current_year."_line_number"} - 1;
+$current_year_watched_episodes_text = ${"year_".$module_current_year."_watched_episodes_text"};
+$current_year_watched_time_text = ${"year_".$module_current_year."_watched_time_text"};
+$current_year_watched_media_type_text =  ${"year_".$module_current_year."_watched_media_type_text"};
+$media_type_text_file_lines_array = $media_type_text_file_lines_arrays[$module_current_year];
+$watched_media_numbers_current_year = ${"watched_media_numbers_".$module_current_year};
 
 $fixing = False;
 
@@ -76,30 +76,8 @@ $mobile_version = True;
 
 $archived_media_string .= $mobile_div;
 
-if ($fixing == False) {
-	require $watched_media_generator;
-}
-
-else {
-	$archived_media_string .= "<center>"."\n";
-
-	if (in_array($website_language, $en_languages_array)) {
-		$archived_media_string .= '<'.$h2_element.' class="'.$first_text_color.' mobileHide"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$h2_element.'>'."\n";
-		$archived_media_string .= '<'.$h4_element.' class="'.$first_text_color.' mobileShow"><b>The Archived Media of '.$selected_year.' are being fixed.</b></'.$h4_element.'>'."\n";
-	}
-
-	if (in_array($website_language, $pt_languages_array)) {
-		$archived_media_string .= '<'.$h2_element.' class="'.$first_text_color.' mobileHide"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$h2_element.'>'."\n";
-		$archived_media_string .= '<'.$h4_element.' class="'.$first_text_color.' mobileShow"><b>As Mídias Arquivadas de '.$selected_year.' estão sendo consertadas.</b></'.$h4_element.'>'."\n";
-	}
-
-	$archived_media_string .= "</center>"."\n";
-}
-
 $archived_media_string .= $div_close;
 
 $archived_media_string .= '</'.$h4_element.'>'."\n";
-
-$local_current_year = $current_year_backup;
 
 ?>

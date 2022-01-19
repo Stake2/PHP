@@ -80,11 +80,19 @@ function Open_File($file, $mode = Null) {
 function Read_Lines($file, $add_none = False, $read_string = False) {
 	$file_read = Open_File($file);
 
+	#echo $file."<br />";
+
 	if ($file_read != Null) {
 		if ($read_string == False) {
 			if ($add_none == False) {
-				$array = explode("\n", fread($file_read, filesize($file)));
-				$array = Remove_Text_From_String($array);
+				if (filesize($file) != 0) {
+					$array = explode("\n", fread($file_read, filesize($file)));
+					$array = Remove_Text_From_String($array);
+				}
+
+				else {
+					$array = [];
+				}
 			}
 
 			if ($add_none == True) {
