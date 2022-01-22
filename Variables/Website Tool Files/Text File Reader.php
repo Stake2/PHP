@@ -211,7 +211,7 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 }
 
 if ($website_title_backup == $website_titles["Watch History"] or in_array($website_title, $year_websites) == True) {
-	require $media_variables_php;
+	require $website_folders["Watch History"]."Media Variables.php";
 
 	$current_year_backup = $current_year;
 
@@ -391,7 +391,7 @@ if ($website_title_backup == $website_titles["Watch History"] or in_array($websi
 	$media_type_text_file_lines_array_2022 = array(
 	$media_type_anime_line = "0", # Animes
 	$media_type_cartoons_line = "0", # Cartoons
-	$media_type_series_line = "0", # Series
+	$media_type_series_line = 8, # Series
 	$media_type_movies_line = 6, # Movies
 	$media_type_video_line = "0", # Videos
 	);

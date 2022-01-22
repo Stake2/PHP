@@ -1,5 +1,95 @@
 <?php 
 
+class SQL extends PDO {
+	private $conn;
+
+	public function __construct($database = "website_info_database") {
+		$this -> conn = new PDO("mysql:host=localhost;dbname=$database", "root", "");
+	}
+
+	private function setParams($statement, $parameters = array()) {
+		foreach ($parameters as $key => $value) {
+			$this -> setParam($statement, $key, $value);
+		}
+	}
+
+	private function setParam($statement, $key, $value) {
+		$statement -> bindParam($key, $value);
+	}
+
+	public function query($raw_query, $params = array()) {
+		$stmt = $this -> conn -> prepare($raw_query);
+
+		$this -> setParams($stmt, $params);
+
+		$stmt -> execute();
+
+		return $stmt;
+	}
+
+	public function select($raw_query, $params = array()):array {
+		$stmt = $this -> query($raw_query, $params);
+
+		return $results = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function select_all($table_name) {
+		$table_name = str_replace(" ", "_", $table_name);
+
+		return $results = $this -> select("SELECT * FROM $table_name");
+	}
+}
+
+function Create_Database_Table($table_name, $columns_array) {
+	global $database_connection;
+
+	$sql = "CREATE TABLE IF NOT EXISTS ".str_replace(" ", "_", $table_name)." (";
+
+	$sql .= "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
+
+	foreach ($columns_array as $column) {
+		$sql .= $column."\n";
+
+		if ($column != array_reverse($columns_array)[0]) {
+			$sql .= ", ";
+		}
+	}
+
+	$sql .= ")";
+
+	$database_connection -> query($sql);
+}
+
+function Insert_Into_Database_Table($table_name, $columns, $values) {
+	global $database_connection;
+
+	$sql = "INSERT INTO ".str_replace(" ", "_", $table_name)." (";
+	
+	foreach ($columns as $column) {
+		$sql .= $column;
+
+		if ($column != array_reverse($columns)[0]) {
+			$sql .= ", ";
+		}
+	}
+
+	$sql .= ")";
+
+	$sql .= " VALUES(";
+
+	foreach ($values as $value) {
+		$sql .= "'".$value."'";
+
+		if ($value != array_reverse($values)[0]) {
+			$sql .= ", ";
+		}
+	}
+
+	$sql .= ")";
+
+	$database_connection -> query($sql);
+}
+
 function format($text, $parameters) {
 	$parameters = (array)$parameters;
 
@@ -220,52 +310,6 @@ function Create_Element($element, $class, $text, $custom_parameters = Null) {
 	);
 
 	return format($element_prototype, $parameters);
-}
-
-function Create_Database_Table($table_name, $columns_array) {
-	global $database_connection;
-
-	$sql = "CREATE TABLE IF NOT EXISTS ".$table_name." (";
-
-	$sql .= "id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,";
-
-	foreach ($columns_array as $column) {
-		$sql .= $column."\n";
-	}
-
-	$sql .= ")";
-
-	$database_connection -> query($sql);
-}
-
-function Insert_Into_Database_Table($table_name, $columns, $values) {
-	global $database_connection;
-
-	$sql = "INSERT INTO ".$table_name." (";
-	
-	foreach ($columns_array as $column) {
-		$sql .= $column;
-	}
-
-	$sql .= ")";
-
-	$sql .= "VALUES (";
-
-	foreach ($values as $value) {
-		$sql .= "'".$value."', ";
-	}
-
-	$sql .= ")";
-
-	if ($database_connection->query($sql) === TRUE) {
-		echo "New record created successfully";
-	}
-
-	else {
-		echo "Error: " . $sql . "<br>" . $database_connection->error;
-	}
-
-	$database_connection -> query($sql);
 }
 
 function Add_Years_To_Array($array, $mode = "push", $custom_value = Null, $custom_value_read = Null, $less_one = True) {

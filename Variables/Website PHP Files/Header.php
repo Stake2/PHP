@@ -81,13 +81,13 @@ if ($website_type == $normal_website_type and $website_function_settings["header
 	$div_zoom_animation."\n".
 	"<!-- Website computer title -->"."\n".
 	'<'.$h2_element.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
-	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
 	'</'.$h2_element.'>'."\n".
 	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile title -->"."\n".
 	'<'.$h4_element.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
-	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
 	'</'.$h4_element.'>'."\n".
 	$div_close."\n"."\n".
 	$header_hr."\n"."\n".
@@ -137,13 +137,13 @@ if ($website_type == $story_website_type and $website_settings["custom_layout"] 
 
 	$website_header_wrapper .= "\n"."<!-- Website computer title -->"."\n".
 	'<'.$h2_element.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
-	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
 	'</'.$h2_element.'>'."\n".
 	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile title -->"."\n".
 	'<'.$h4_element.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
-	'<p><br /><b>'.$website_header_title.'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
 	'</'.$h4_element.'>'."\n".
 	$div_close."\n"."\n".
 	$header_hr."\n"."\n";

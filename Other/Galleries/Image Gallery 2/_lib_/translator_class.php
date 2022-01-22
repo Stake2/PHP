@@ -86,6 +86,7 @@ class translator {
             $reformed_translation_arr = array();
             // Returns the entire translation from its source
             $loaded_translation_arr = json_decode($translation_data, true);
+
           foreach ($loaded_translation_arr as $key => $val) {
             $reformed_translation_arr["{$val["string"]}"] = $val["translation"];
           }

@@ -228,6 +228,20 @@ function Make_Links_In_Text($text, $link_color = "") {
 	return $text;
 }
 
+function Linkfy($link, $link_color_parameter = Null) {
+	$pattern = "/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/";
+
+	$link_color = " class=\"".$link_color_parameter."\"";
+
+	if ($link_color_parameter == Null) {
+		$link_color = "";
+	}
+
+	preg_match_all($pattern, $link, $url);
+
+	return '<a href="'.$url[0][0].'"'.$link_color.' title="'.$url[0][0].'" target="_blank">'.$url[0][0]."</a>";
+}
+
 function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	global $story_readers_number_file;
 	global $computer_variable;

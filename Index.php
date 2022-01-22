@@ -91,9 +91,8 @@ require $global_texts_php;
 # Website selector file require
 require $website_selector_file;
 
-$media_variables_php = $website_folders["Watch History"]."Media Variables.php";
-
 $website_title = $website_titles[$selected_website_title];
+$website_portuguese_title = $website_portuguese_titles[$selected_website_title];
 $website_title_backup = $website_title;
 $website_title_key = $website_title;
 $website_type = $website_types[$selected_website_title];
@@ -101,23 +100,42 @@ $website_folder = $website_folders[$website_title];
 $website_title_text = Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]);
 $website_title_text_backup = $website_title_text;
 
-if ($website_title_backup == $website_titles["Watch History"]) {
-	require $media_variables_php;
-}
-
 $v_global_php = $php_folder_variables.'V_Global.php';
 
 $columns = array(
-"website_name VARCHAR(50) NOT NULL,",
-"website_description VARCHAR(50) NOT NULL,",
-"website_header_description VARCHAR(50) NOT NULL,",
-"website_image VARCHAR(50) NOT NULL",
+"english_title VARCHAR(60) NOT NULL",
+"portuguese_title VARCHAR(60) NOT NULL",
+"meta_description VARCHAR(1000) NOT NULL",
+"header_description VARCHAR(1000) NOT NULL",
+"image_link VARCHAR(256) NOT NULL",
 );
 
 Create_Database_Table($website_title_key, $columns);
 
-# VGlobal.php variables file require
+# V_Global.php variables file require
 require $v_global_php;
+
+# Gets results from SQL Database
+$sql = new SQL();
+$columns = $sql -> select_all(str_replace(" ", "_", $website_name));
+
+# Adds the website info to the DB if there is no column there
+if (count($columns) != 1) {
+	$columns = array("english_title", "portuguese_title", "meta_description", "header_description", "image_link");
+	$values = array($website_name, $website_portuguese_title, $website_description, $website_header_description, $website_image);
+	Insert_Into_Database_Table($website_title_key, $columns, $values);
+}
+
+/*
+
+PHP:
+
+
+Fixed the "Insert_Into_Database_Table" function and added it to "Index.php" to add website info
+Now it adds the website info to the website table in the "website_info_database", the table receives the name of the website but with spaces replaced by underlines
+Created an array called "website_info_dict" to store the website info as keys, to be more organized
+
+*/
 
 if ($return == False) {
 	echo "<!DOCTYPE html>"."\n";
