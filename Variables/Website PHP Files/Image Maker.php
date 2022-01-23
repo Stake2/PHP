@@ -40,4 +40,6 @@ if ($website_function_settings["image_link_button"] == True) {
 $website_images_variable = "\n".$main_website_image_computer."\n".$website_image_button_computer."\n".
 $main_website_image_mobile."\n".$website_image_button_mobile."\n";
 
+$website_info["image_link"] = $website_image_link;
+
 ?>

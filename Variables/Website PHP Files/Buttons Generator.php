@@ -12,11 +12,11 @@ $local_website_tab_number = $website_tab_number;
 
 require $websites_tab_button_maker;
 
-if ($website_title == $website_titles["Diary"]) {require $websites_tab_button_maker;
+if ($website_info["english_title"] == $website_titles["Diary"]) {require $websites_tab_button_maker;
 	$local_website_tab_number = $website_tab_number;
 }
 
-if ($website_title_backup == $website_titles["Watch History"]) {
+if ($website_info["english_title"] == $website_titles["Watch History"]) {
 	$local_website_tab_number = $website_tab_number_less;
 	$tabnamestxt = $tab_titles_without_html;
 }
@@ -106,7 +106,7 @@ if ($website_function_settings["website_buttons"] == True) {
 $computer_buttons[] = $websites_tab_button_computer;
 $mobile_buttons[] = $websites_tab_button_mobile;
 
-if ($website_title_backup == $website_titles["Watch History"]) {
+if ($website_info["english_title"] == $website_titles["Watch History"]) {
 	########################################################
 
 	#      Computer Archived Media buttons generation      #

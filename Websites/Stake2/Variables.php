@@ -3,7 +3,7 @@
 # Website Style.php File Includer
 require $website_style_file;
 
-$website_images_folder = $website_media_images_website_images.$website_title."/";
+$website_images_folder = $website_media_images_website_images.$website_info["english_title"]."/";
 
 # Buttons and tabs definer
 # Tab chapter_titles definer
@@ -44,7 +44,7 @@ Make_Button_Names();
 
 # Website image link and image size
 $image_format = "png";
-$website_image = $website_media_images_website_icons.$website_title.".".$image_format;
+$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$image_format;
 
 $website_image_link = $website_image;
 $website_image_size_computer = 31;
@@ -70,15 +70,14 @@ Null,
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
-$website_title = $website_title.", Funkysnipa Cat";
-$website_title_header = $website_title.": ".$icons_array["user circle"];
-$website_link = $selected_website_url;
+$website_title_text = $website_info["english_title"].", Funkysnipa Cat";
+$website_title_header = $website_info["english_title"].": ".$icons_array["user circle"];
 $website_meta_description = $website_descriptions_array[$language_number];
 $website_header_description = $website_html_descriptions_array[$language_number];
 
 if ($website_language != $language_geral) {
-	$website_title .= " ".$website_title_language;
-	$website_link .= $website_link_language."/";
+	$website_title_text .= " ".$website_title_language;
+	$website_info["link"] .= $website_link_language."/";
 }
 
 ?>

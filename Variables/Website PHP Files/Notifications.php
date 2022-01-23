@@ -1,12 +1,10 @@
 <?php 
 
-if ($website_title == $website_titles["The Story of the Bulkan Siblings"]) {
-	$div_style_for_notification = $border_3px_solid_black_css_class." ".$background_color;
-	$button_style_for_notification = $first_button_style;
-}
+$div_style_for_notification =  $border_3px_solid_black_css_class." ".$background_color;
+$button_style_for_notification = $first_button_style;
 
-else {
-	$div_style_for_notification =  $border_3px_solid_black_css_class." ".$background_color;
+if ($website_info["english_title"] == $website_titles["The Story of the Bulkan Siblings"]) {
+	$div_style_for_notification = $border_3px_solid_black_css_class." ".$background_color;
 	$button_style_for_notification = $first_button_style;
 }
 

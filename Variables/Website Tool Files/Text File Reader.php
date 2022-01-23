@@ -1,6 +1,6 @@
 <?php 
 
-if (in_array($website_title, $year_websites) == True and $website_title_backup == "2019" or in_array($website_title, $year_websites) == True and $website_title_backup == "2020") {
+if (in_array($website_info["english_title"], $year_websites) == True and $website_info["english_title"] == "2019" or in_array($website_info["english_title"], $year_websites) == True and $website_info["english_title"] == "2020") {
 	$current_year_data_folder = $year_folders[$local_current_year]."/Data/";
 	Create_Folder($current_year_data_folder);
 
@@ -112,7 +112,7 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 	array_splice($data_texts, 2, 1, "\n---\n");
 }
 
-if (in_array($website_title, $year_websites) == True and $website_title_backup == "2021") {
+if (in_array($website_info["english_title"], $year_websites) == True and $website_info["english_title"] == "2021") {
 	$current_year_data_folder = $year_folders[$local_current_year]."Data/";
 	Create_Folder($current_year_data_folder);
 
@@ -210,8 +210,8 @@ if (in_array($website_title, $year_websites) == True and $website_title_backup =
 	array_splice($data_texts, 2, 1, "\n---\n");
 }
 
-if ($website_title_backup == $website_titles["Watch History"] or in_array($website_title, $year_websites) == True) {
-	require $website_folders["Watch History"]."Media Variables.php";
+if ($website_info["english_title"] == $website_titles["Watch History"] or in_array($website_info["english_title"], $year_websites) == True) {
+	require $website_php_folders["Watch History"]."Media Variables.php";
 
 	$current_year_backup = $current_year;
 
@@ -433,7 +433,7 @@ if ($website_title_backup == $website_titles["Watch History"] or in_array($websi
 	$media_type_text_file_lines_array = $media_type_text_file_lines_arrays[$current_year];
 }
 
-if ($website_type == $story_website_type) {
+if ($website_info["type"] == $story_website_type) {
 	if (isset($story_folder) == False) {
 		$story_folder = "The Life of Littletato";
 	}

@@ -62,12 +62,12 @@ if (!isset($website_title_header) and !isset($website_meta_description) and $web
 	.$div_close."\n";	
 }
 
-if ($website_type == $normal_website_type and $website_function_settings["header"] == True and $website_settings["custom_layout"] == False) {
+if ($website_info["type"] == $normal_website_type and $website_function_settings["header"] == True and $website_settings["custom_layout"] == False) {
 	$diario_blocks_text_on_header = "";
 	$things_of_diario_one = "";
 	$things_of_diario_two = "";
 
-	if ($website_title == $website_titles["Diary"]) {
+	if ($website_info["english_title"] == $website_titles["Diary"]) {
 		$diario_blocks_text_on_header = $diario_blocks_text.'<br />'."\n";
 		$things_of_diario_one = '<'.$h2_element.' class="'.$first_text_color.' '.$computer_variable.'">'.$diario_blocks_text_on_header.'</'.$h2_element.'>
 		';
@@ -81,13 +81,13 @@ if ($website_type == $normal_website_type and $website_function_settings["header
 	$div_zoom_animation."\n".
 	"<!-- Website computer title -->"."\n".
 	'<'.$h2_element.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
-	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info["language_title"].'</b><br /><br /><p>'."\n".
 	'</'.$h2_element.'>'."\n".
 	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile title -->"."\n".
 	'<'.$h4_element.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
-	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info["language_title"].'</b><br /><br /><p>'."\n".
 	'</'.$h4_element.'>'."\n".
 	$div_close."\n"."\n".
 	$header_hr."\n"."\n".
@@ -111,7 +111,7 @@ if ($website_type == $normal_website_type and $website_function_settings["header
 }
 
 # Story website header generator
-if ($website_type == $story_website_type and $website_settings["custom_layout"] == False) {
+if ($website_info["type"] == $story_website_type and $website_settings["custom_layout"] == False) {
 	if ($story_status != $story_status_texts[1] or $story_status != $story_status_texts[2]) {
 		$new_chapter_text = "";
 	}
@@ -137,13 +137,13 @@ if ($website_type == $story_website_type and $website_settings["custom_layout"] 
 
 	$website_header_wrapper .= "\n"."<!-- Website computer title -->"."\n".
 	'<'.$h2_element.' class="w3-center '.$first_text_color.' '.$zoom_animation_class.' '.$computer_variable.'">'."\n".
-	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info["language_title"].'</b><br /><br /><p>'."\n".
 	'</'.$h2_element.'>'."\n".
 	$div_close."\n"."\n".
 	$div_zoom_animation."\n".
 	"<!-- Website mobile title -->"."\n".
 	'<'.$h4_element.' class="'.$first_text_color.' '.$zoom_animation_class.' '.$mobile_variable.'">'."\n".
-	'<p><br /><b>'.$website_info_dict["title"].'</b><br /><br /><p>'."\n".
+	'<p><br /><b>'.$website_info["language_title"].'</b><br /><br /><p>'."\n".
 	'</'.$h4_element.'>'."\n".
 	$div_close."\n"."\n".
 	$header_hr."\n"."\n";

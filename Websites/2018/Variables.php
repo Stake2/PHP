@@ -1,6 +1,6 @@
 <?php 
 
-$website_folder = "Years";
+$website_info["php_folder"] = "Years";
 
 $pastebinlinks = array(
 '<a href="https://pastebin.com/LKWyzY20">https://pastebin.com/LKWyzY20</a>',

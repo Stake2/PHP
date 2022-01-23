@@ -48,6 +48,8 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
+$website_title_text_backup = $website_info["english_title"];
+
 if ($selected_language != $language_geral) {
 	if (explode(" ", $website_title_text)[0] == "SpaceLiving") {
 		$website_title_text_backup = "New_World/SpaceLiving";
@@ -84,10 +86,10 @@ $html_index_file = $html_folder."Index.html";
 
 $update_two_html_files = False;
 
-if ($website_type == $story_website_type or $website_settings["has_two_website_titles"] == True) {
+if ($website_info["type"] == $story_website_type or $website_settings["has_two_website_titles"] == True) {
 	$update_two_html_files = True;
 
-	if ($website_type == $story_website_type) {
+	if ($website_info["type"] == $story_website_type) {
 		$story_html_folder = $mega_folder_stake2_website;
 
 		if ($selected_language != $language_geral) {

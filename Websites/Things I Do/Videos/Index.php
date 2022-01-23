@@ -129,13 +129,13 @@ if (strpos ($host_text, $website_selector_parameters[2].'='.$languages_array[2])
 #Normal website type definer
 if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[0]) == True) {
 	#Website Type definer
-	$website_type = $website_types_array[0];
+	$website_info["type"] = $website_types_array[0];
 }
 
 #Story website type definer
 if (strpos ($host_text, $website_selector_parameters[1].'='.$website_types_array[1]) == True) {
 	#Website Type definer
-	$website_type = $website_types_array[1];
+	$website_info["type"] = $website_types_array[1];
 
 	#"Website has stories" setting definer
 	$story_website_settings["has_story_covers"] = True;

@@ -12,7 +12,7 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-if ($website_title_backup == $website_titles["Watch History"]) {
+if ($website_info["english_title"] == $website_titles["Watch History"]) {
 	$current_variable_year = 2018;
 	$local_current_year = $current_year;
 
@@ -56,7 +56,7 @@ if ($website_title_backup == $website_titles["Watch History"]) {
 }
 
 # Chapters Generator.php includer for Pequenata website
-if ($website_type == $story_website_type) {
+if ($website_info["type"] == $story_website_type) {
 	require $chapters_generator_php;
 }
 

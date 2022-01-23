@@ -31,7 +31,7 @@ $second_array = array(
 
 $i = 0;
 foreach ($first_array as $value) {
-	array_push($websites, $value);
+	$websites[] = $value;
 	$portuguese_websites[$value] = $second_array[$i];
 
 	$i++;
@@ -47,7 +47,7 @@ foreach ($first_array as $value) {
 	array_push($website_types_text, $value);
 }
 
-$story_names_file = $mega_folder."Stories/Story Database/Names.txt";
+$story_names_file = $mega_stories_folder."Story Database/Names.txt";
 
 $story_names = Read_Lines($story_names_file);
 
@@ -106,9 +106,10 @@ $portuguese_story_names = array_values($portuguese_story_names);
 
 $i = 0;
 foreach ($story_names as $local_story_name) {
-	array_push($websites, $local_story_name);
+	$websites[] = $local_story_name;
 	$portuguese_websites[$local_story_name] = $portuguese_story_names[$i];
-	array_push($website_types_text, "S");
+
+	$website_types_text[] = "S";
 
 	$i++;
 }
@@ -134,12 +135,15 @@ foreach ($websites as $local_website_name) {
 	$key = (string)$local_website_name;
 
 	$local_website_link = $main_website_url;
+	$local_website_folder_path = "";
 
 	if (preg_match("/[0-9][0-9][0-9][0-9]/i", $local_website_name) == True) {
 		$local_website_link .= "Years/";
+		$local_website_folder_path .= "Years/";
 	}
 
 	$local_website_link .= Remove_Non_File_Characters($local_website_name)."/";
+	$local_website_folder_path .= Remove_Non_File_Characters($local_website_name)."/";
 
 	if ($local_website_type == "N") {
 		$local_website_type = $normal_website_type;
@@ -157,6 +161,7 @@ foreach ($websites as $local_website_name) {
 	$website_portuguese_titles[$key] = $local_website_portuguese_name;
 	$website_types[$key] = $local_website_type;
 	$website_links[$key] = $local_website_link;
+	$website_folders[$key] = $mega_folder_stake2_website.$local_website_folder_path;
 
 	$websites_number++;
 }

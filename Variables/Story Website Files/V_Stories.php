@@ -253,7 +253,7 @@ $chapter_twenty_six_text = Language_Item_Definer("chapter number twenty-six", "c
 $chapter_div_text = $chapter_text."-";
 $chapter_tab_div_text = $chapter_tab_text."-";
 
-if ($website_type == $story_website_type) {
+if ($website_info["type"] == $story_website_type) {
 	# Story status definer
 	if ($story_status == $status[0]) {
 		$story_status = $story_status_texts[0];
@@ -339,7 +339,7 @@ if (isset($story_website_links["SpaceLiving"])) {
 	}
 }
 
-if ($website_type == $story_website_type) {
+if ($website_info["type"] == $story_website_type) {
 	$middle_text = "<b>".$comments_text." ({}):</b> ".$icons[12];
 
 	$comment_header = $computer_div."<br />".$div_close.

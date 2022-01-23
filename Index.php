@@ -1,5 +1,9 @@
 <?php
 
+$php_settings = array(
+"allow_current_year" => False,
+);
+
 $line_replace_array = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
 
 # Get the localhost link
@@ -40,6 +44,7 @@ $folders_and_files_folder = $php_folder_variables."Folders and Files/";
 $global_files_folder = $php_folder_variables."Global Files/";
 $database_folder = $php_folder_variables."Database/";
 
+$v_global_php = $php_folder_variables."V_Global.php";
 $website_selector_file = $php_folder_variables."Website Selector.php";
 $main_folders_and_files = $folders_and_files_folder."Main Folders And Files.php";
 
@@ -56,10 +61,6 @@ require $main_folders_and_files;
 
 # Crucial Functions PHP File Loader
 require $crucial_functions_file_php;
-
-$php_settings = array(
-"allow_current_year" => False,
-);
 
 # Main Arrays PHP file loader
 require $main_arrays_php;
@@ -91,51 +92,8 @@ require $global_texts_php;
 # Website selector file require
 require $website_selector_file;
 
-$website_title = $website_titles[$selected_website_title];
-$website_portuguese_title = $website_portuguese_titles[$selected_website_title];
-$website_title_backup = $website_title;
-$website_title_key = $website_title;
-$website_type = $website_types[$selected_website_title];
-$website_folder = $website_folders[$website_title];
-$website_title_text = Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]);
-$website_title_text_backup = $website_title_text;
-
-$v_global_php = $php_folder_variables.'V_Global.php';
-
-$columns = array(
-"english_title VARCHAR(60) NOT NULL",
-"portuguese_title VARCHAR(60) NOT NULL",
-"meta_description VARCHAR(1000) NOT NULL",
-"header_description VARCHAR(1000) NOT NULL",
-"image_link VARCHAR(256) NOT NULL",
-);
-
-Create_Database_Table($website_title_key, $columns);
-
 # V_Global.php variables file require
 require $v_global_php;
-
-# Gets results from SQL Database
-$sql = new SQL();
-$columns = $sql -> select_all(str_replace(" ", "_", $website_name));
-
-# Adds the website info to the DB if there is no column there
-if (count($columns) != 1) {
-	$columns = array("english_title", "portuguese_title", "meta_description", "header_description", "image_link");
-	$values = array($website_name, $website_portuguese_title, $website_description, $website_header_description, $website_image);
-	Insert_Into_Database_Table($website_title_key, $columns, $values);
-}
-
-/*
-
-PHP:
-
-
-Fixed the "Insert_Into_Database_Table" function and added it to "Index.php" to add website info
-Now it adds the website info to the website table in the "website_info_database", the table receives the name of the website but with spaces replaced by underlines
-Created an array called "website_info_dict" to store the website info as keys, to be more organized
-
-*/
 
 if ($return == False) {
 	echo "<!DOCTYPE html>"."\n";
@@ -191,7 +149,7 @@ if ($return == True) {
 	$website .= '</body>
 	</html>';
 
-	$html_folder = $website_folder.$website_title_language."/";
+	$html_folder = $website_info["php_folder"].$website_title_language."/";
 	$html_index_file = $html_folder."Index.html";
 
 	if (file_exists($html_folder) == False) {
@@ -205,10 +163,10 @@ if ($return == True) {
 	}
 }
 
-if (in_array($website_title_backup, $year_websites) == True and $website_language != $language_geral and $website_language != $language_ptpt) {
-	$year_summary_file = $year_language_folders[$full_language][$website_title_backup].Language_Item_Definer("Summary", "Sumário").".txt";
+if (in_array($website_info["english_title"], $year_websites) == True and $website_language != $language_geral and $website_language != $language_ptpt) {
+	$year_summary_file = $year_language_folders[$full_language][$website_info["english_title"]].Language_Item_Definer("Summary", "Sumário").".txt";
 
-	if ($website_title_backup == "2020" and $website_language == $language_ptbr) {
+	if ($website_info["english_title"] == "2020" and $website_language == $language_ptbr) {
 		$year_summary_text = substr_replace($year_summary_text, "", -1);
 	}
 

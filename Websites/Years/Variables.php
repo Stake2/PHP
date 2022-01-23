@@ -1,7 +1,7 @@
 <?php
 
-$selected_website_url = $main_website_url.$website_folder.'/'.$current_year.'/';
-$website_folder = $php_folder_websites.$current_year.'/';
+$selected_website_url = $main_website_url.$website_info["php_folder"].'/'.$current_year.'/';
+$website_info["php_folder"] = $php_folder_websites.$current_year.'/';
 
 # Website image link and image size
 $website_image = $current_year;
@@ -25,9 +25,8 @@ if ($website_language == $languages_array[0]) {
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
 	$website_name = $website;
-	$website_title = $current_year;
+	$website_title_text = $current_year;
 	$website_title_header = $current_year.': '.$icons[3];
-	$website_link = $selected_website_url;
 	$website_meta_description = $website_descriptions_array[0];
 	$website_header_description = $website_html_descriptions_array[0];
 }
@@ -37,11 +36,11 @@ if ($website_language == $languages_array[1]) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$website_name = $website_folder;
+	$website_name = $website_info["php_folder"];
 	$website_name = $current_year;
-	$website_title = $current_year." ".$hyphen_separated_website_language;
+	$website_title_text = $current_year." ".$hyphen_separated_website_language;
 	$website_title_header = $current_year.': '.$icons[3];
-	$website_link = $selected_website_url.mb_strtolower($hyphen_separated_website_language)."/";
+	$website_info["link"] .= $website_info["language"]."/";
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[0];
 }
@@ -51,11 +50,10 @@ if (in_array($website_language, $pt_languages_array)) {
 	$hyphen_separated_website_language = strtoupper($website_language);
 	$hyphen_separated_website_language = substr_replace($hyphen_separated_website_language, '-', 2, 0);
 
-	$website_name = $website_folder;
 	$website_name = $current_year;
-	$website_title = $current_year." ".$hyphen_separated_website_language;
+	$website_title_text = $current_year." ".$hyphen_separated_website_language;
 	$website_title_header = $current_year.': '.$icons[3];
-	$website_link = $selected_website_url.mb_strtolower($hyphen_separated_website_language)."/";
+	$website_info["link"] .= $website_info["language"]."/";
 	$website_meta_description = $website_descriptions_array[2];
 	$website_header_description = $website_html_descriptions_array[1];
 }

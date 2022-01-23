@@ -38,7 +38,7 @@ $i = 0;
 while ($i < $chapters) {
 	$i2 = $i + 1;
 
-	if ($website_title_backup != $website_titles["Diary Slim"]) {
+	if ($website_info["english_title"] != $website_titles["Diary Slim"]) {
 		echo '
 	var first_check_'.$i2.' = second_website_url.includes(read_chapter_text + chapter_number);
 	var second_check_'.$i2.' = second_website_url.includes(read_chapter_text + "['.$i2.']");
@@ -59,11 +59,11 @@ $i = 0;
 while ($i < $chapters) {
 	$i2 = $i + 1;
 
-	if ($website_title_backup != $website_titles["Diary Slim"]) {
+	if ($website_info["english_title"] != $website_titles["Diary Slim"]) {
 		echo '	if (first_check_'.$i2.' === true || second_check_'.$i2.' === true || third_check_'.$i2.' === true || fourth_check_'.$i2.' === true || fifth_check_'.$i2.' === true || sixth_check_'.$i2.' == true) {'."\n";
 	}
 
-	if ($website_title_backup == $website_titles["Diary Slim"]) {
+	if ($website_info["english_title"] == $website_titles["Diary Slim"]) {
 		echo '	if (sixth_check_'.$i2.' == true) {'."\n";
 	}
 

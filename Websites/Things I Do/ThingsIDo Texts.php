@@ -2,7 +2,7 @@
 
 #Array of tab links
 $tablinks = array(
-$selected_website_url.'/'.'videos'.'/',
+$website_info["link"].'/'.'videos'.'/',
 $main_website_url.'/'.'videos'.'/',
 $main_website_url.'/'.'videos'.'/',
 );

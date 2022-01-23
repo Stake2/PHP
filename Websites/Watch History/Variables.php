@@ -1,11 +1,11 @@
 <?php 
 
 # Watch PHP files
-$watched_media_generator = $website_folders["Watch History"]."Watched Media Generator.php";
-$archived_media_machine_php = $website_folders["Watch History"]."Archived Media Machine.php";
+$watched_media_generator = $website_php_folders["Watch History"]."Watched Media Generator.php";
+$archived_media_machine_php = $website_php_folders["Watch History"]."Archived Media Machine.php";
 
 # Website variables
-$no_language_website_title = $website_title;
+$no_language_website_title = $website_info["english_title"];
 
 # Comment links
 $watched_movie_comment_links = array(
@@ -29,7 +29,7 @@ $watched_movie_comments = array(
 
 # Website image link and image size
 $image_format = "png";
-$website_image = $website_media_images_website_icons.$website_title.".".$image_format;
+$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$image_format;
 
 $website_image_link = $website_image;
 $website_image_size_computer = 31;
@@ -167,7 +167,6 @@ $website_custom_button_bar_numbers = array(
 
 # Website name, title, URL and description setter, by language
 $website_title_header = $website_title_text.": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
-$website_link = $selected_website_url;
 $website_meta_description = $website_descriptions_array[$language_number];
 $website_header_description = $website_html_descriptions_array[$language_number];
 
@@ -176,7 +175,7 @@ if ($website_language != $language_geral) {
 
 	$website_title_text .= " ".$website_title_language;
 
-	$website_link .= $website_link_language."/";
+	$website_info["link"] .= $website_info["language"]."/";
 }
 
 ?>

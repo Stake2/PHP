@@ -8,8 +8,6 @@ $portuguese_story_name = $portuguese_story_names[$english_story_name];
 $general_story_name = $english_story_name;
 
 # Folder variables
-$selected_website_url = $story_website_links[$english_story_name];
-
 $story_folder = $english_story_name;
 $no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
@@ -93,7 +91,6 @@ $website_name = $selected_website;
 $local_website_title_text = $website_title_text;
 $website_title_text = $website_story_name." General";
 $website_title_header = $website_title_text.": ".$icons[11];
-$website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
 	$website_title_text = $local_website_title_text;
@@ -103,7 +100,8 @@ if ($website_language != $language_geral) {
 	}
 
 	$website_title_header = $website_title_text.": ".$icons[11];
-	$website_link .= $website_link_language."/";
+
+	$website_info["link"] .= $website_info["language"]."/";
 }
 
 ?>

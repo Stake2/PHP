@@ -19,7 +19,7 @@ $javascript_folder."Change Button Color",
 $javascript_folder."Hide Chapter Button Images",
 );
 
-if ($website_type == $story_website_type) {
+if ($website_info["type"] == $story_website_type) {
 	array_push($javascript_links, $website_story_websites_javascript_folder."Open Chapter By Keys");
 	array_push($javascript_links, $website_story_websites_javascript_folder."Write Chapter");
 }

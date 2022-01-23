@@ -1,7 +1,15 @@
 <?php
 
-# V_Global.php website URL definer
-$selected_website_url = $website_links[$website_title];
+$website_info = array(
+"language_title" => Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]),
+"english_title" => $website_titles[$selected_website_title],
+"portuguese_title" => $website_portuguese_titles[$selected_website_title],
+"language" => $website_link_language,
+"type" => $website_types[$selected_website_title],
+"link" => $website_links[$selected_website_title],
+"php_folder" => $website_php_folders[$website_titles[$selected_website_title]],
+"website_folder" => $website_folders[$website_titles[$selected_website_title]],
+);
 
 $dot_text = ".txt";
 
@@ -47,12 +55,15 @@ if ($website_settings["custom_layout"] == False) {
 # Websites array
 $i = 0;
 foreach ($website_titles as $value) {
-	if ($website_title == $value) {
+	if ($website_info["english_title"] == $value) {
 		require $website_variables_files[$value];
 	}
 
 	$i++;
 }
+
+$website_info["meta_description"] = $website_meta_description;
+$website_info["header_description"] = $website_header_description;
 
 # Website Style.php File Includer
 require $website_style_file;
@@ -60,7 +71,7 @@ require $website_style_file;
 # Tab Generator.php includer
 require $website_tabs_generator;
 
-if ($website_type == $story_website_type and $website_settings["notifications"] == True) {
+if ($website_info["type"] == $story_website_type and $website_settings["notifications"] == True) {
 	# Website notification variables if the website notification setting is True
 	# Revised chapter title
 	$reviewed_chapter_code = $chapter_buttons[$revised_chapter];
@@ -70,9 +81,6 @@ if ($website_type == $story_website_type and $website_settings["notifications"] 
 # Website Image Maker.php file loader
 if ($website_settings["custom_layout"] == False) {
 	require $website_image_maker;
-
-	# Website Classes.php file loader
-	require $website_classes_php;
 }
 
 # Website notifications includer if the website has notifications activated
@@ -100,20 +108,20 @@ $twitter_info = "\n".'<meta name="twitter:card" content="summary" />
 <meta name="twitter:site" value="@'.$handle.'" />
 <meta name="twitter:creator" content="@'.$handle.'" />
 <meta content="summary_large_image" name="twitter:card" />
-<meta content="'.$website_link.'" name="twitter:url" />';
+<meta content="'.$website_info["link"].'" name="twitter:url" />';
 
 $website_head = '
 <title>'.$website_title_text.'</title>
 <meta property="og:type" content="website" />
 <meta property="og:title" content="'.$website_title_text.'" />
 <meta property="og:site_name" content="'.$website_title_text.'" />
-<meta property="og:url" content="'.$website_link.'" />
+<meta property="og:url" content="'.$website_info["link"].'" />
 <meta property="og:image" content="'.$website_image.'" />
 <meta property="og:description" content="'.$website_meta_description.'" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:locale:alternate" content="pt_BR" />
 <meta property="og:locale:alternate" content="pt_PT" />
-<link rel="canonical" href="'.$website_link.'" />
+<link rel="canonical" href="'.$website_info["link"].'" />
 <link rel="icon" type="image/'.$image_format.'" href="'.$website_image.'" />
 <link rel="image_src" type="image/'.$image_format.'" href="'.$website_image.'" />
 <meta name="description" content="'.$website_meta_description.'" />
@@ -127,10 +135,49 @@ $website_head = '
 "\n"."\n".$website_javascript_links.
 $include_custom_website_head_content;
 
-if (in_array($website_title, $year_websites)) {
+if (in_array($website_info["english_title"], $year_websites)) {
 	$website_meta_description = $website_header_description;
 }
 
 require $website_header_php;
+
+# Add website info to database
+$columns = array(
+"language_title VARCHAR(60) NOT NULL",
+"english_title VARCHAR(60) NOT NULL",
+"portuguese_title VARCHAR(60) NOT NULL",
+"language VARCHAR(60) NOT NULL",
+"type VARCHAR(60) NOT NULL",
+"link VARCHAR(256) NOT NULL",
+"php_folder VARCHAR(500) NOT NULL",
+"website_folder VARCHAR(500) NOT NULL",
+"meta_description VARCHAR(1000) NOT NULL",
+"header_description VARCHAR(1000) NOT NULL",
+"image_link VARCHAR(256) NOT NULL",
+);
+
+Create_Database_Table($website_info["english_title"], $columns);
+
+# Gets results from SQL Database
+$sql = new SQL();
+$columns = $sql -> select("SELECT * FROM ".strtolower(str_replace(" ", "_", $website_info["english_title"]))." WHERE language = '".$website_info["language"]."';");
+
+# Adds the website info to the DB if there is no column there
+if (count($columns) == 0) {
+	$columns = array("language_title", "english_title", "portuguese_title", "language", "type", "link", "php_folder", "website_folder", "meta_description", "header_description", "image_link");
+	$values = array();
+
+	foreach ($columns as $column) {
+		if ($column != "php_folder" and $column != "website_folder") {
+			array_push($values, $website_info[$column]);
+		}
+
+		if ($column == "php_folder" or $column == "website_folder") {
+			array_push($values, $website_info[$column].$website_info["language"]."/");
+		}
+	}
+
+	Insert_Into_Database_Table($website_info["english_title"], $columns, $values);
+}
 
 ?>

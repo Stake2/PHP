@@ -22,7 +22,7 @@ if ($website_settings["custom_layout"] == False) {
 	echo '<div style="display:none;" id="button_number">'.$website_tab_number.$div_close."\n";
 }
 
-if ($website_type == $story_website_type) {
+if ($website_info["type"] == $story_website_type) {
 	$text_to_show = "\n"."<script>"."\n".
 	"Chapter_Number = 1;"."\n".
 	"var Last_Chapter = ".$chapters.";"."\n";
@@ -50,7 +50,7 @@ if ($website_settings["notifications"] == True) {
 }
 
 # Chapter Opener Script includer if the setting is True
-if ($website_type == $story_website_type and $story_website_settings["chapter_opener"] == True) {
+if ($website_info["type"] == $story_website_type and $story_website_settings["chapter_opener"] == True) {
 	echo "\n";
 	echo '<script>'."\n";
 	require $open_chapter_script_php;
@@ -66,7 +66,7 @@ if (isset($website_settings["custom_css_style"]) and $website_settings["custom_c
 	echo Create_Element("style", "", $custom_css_style);
 }
 
-if ($website_title == $website_titles["My Little Pony: Friendship Is Magic"]) {
+if ($website_info["english_title"] == $website_titles["My Little Pony: Friendship Is Magic"]) {
 	Show($jquery, $add_br = True);
 }
 

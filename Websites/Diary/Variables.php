@@ -8,8 +8,6 @@ $portuguese_story_name = $portuguese_story_names[$english_story_name];
 $general_story_name = $local_story_name." General";
 
 # Folder variables
-$selected_website_url = $story_website_links[$english_story_name];
-
 $story_folder = $english_story_name;
 $no_language_story_folder = $mega_stories_folder.$story_folder."/";
 $website_images_folder = $website_media_images_website_images.$story_folder."/";
@@ -162,7 +160,6 @@ Make_Button_Names();
 # Website name, title, URL and description setter, by language
 $website_title_text = $general_story_name;
 $website_title_header = $general_story_name.': '.$icons[11];
-$website_link = $selected_website_url;
 
 if ($website_language != $language_geral) {
 	$website_title_text = $website_story_name;
@@ -173,7 +170,7 @@ if ($website_language != $language_geral) {
 		$website_title_text = $website_story_name." ".strtoupper($website_title_language);
 	}
 
-	$website_link .= $website_link_language."/";
+	$website_info["link"] .= $website_link_language."/";
 }
 
 $website_custom_button_bar_numbers = array(

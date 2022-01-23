@@ -1,22 +1,20 @@
 <?php 
 
-$website_images_folder = $website_media_images_website_images.Remove_Non_File_Characters($website_title)."/";
+$website_images_folder = $website_media_images_website_images.Remove_Non_File_Characters($website_info["english_title"])."/";
 $website_images_characters_folder = $website_images_folder."Characters/";
 $website_images_logo_folder = $website_images_folder."Logos/";
 $mane_six_images_folder = $website_images_folder."Mane Six/";
-$website_audio_folder = $website_media_website_audio.Remove_Non_File_Characters($website_title)."/";
+$website_audio_folder = $website_media_website_audio.Remove_Non_File_Characters($website_info["english_title"])."/";
 
 # Website image link and image size
 $image_format = "png";
-$website_image = $website_media_images_website_icons.Remove_Non_File_Characters($website_title).".".$image_format;
+$website_image = $website_media_images_website_icons.Remove_Non_File_Characters($website_info["english_title"]).".".$image_format;
 
 $website_image_link = $website_image;
 
 $mlp_fim_fandom_link = "https://mlp.fandom.com/".Language_Item_Definer("", "pt/")."wiki/";
 
 $my_little_pony_fim_name_text = "My Little Pony: ".Language_Item_Definer("Friendship Is Magic", "A Amizade É Mágica");
-
-$selected_website_url = $main_website_url.Remove_Non_File_Characters($my_little_pony_fim_name_text)."/";
 
 $my_little_pony_english_name_text = "My Little Pony: Friendship Is Magic";
 
@@ -172,7 +170,6 @@ require $text_file_reader_file_php;
 $website_title_header = $my_little_pony_name_colored;
 $local_website_title_text_backup = $website_title_text;
 $website_title_text = $website_title_text." General";
-$website_link = $selected_website_url;
 $website_meta_description = $website_descriptions_array[$language_number];
 $website_header_description = $website_header_descriptions[$language_number];
 
@@ -185,7 +182,7 @@ if ($website_language != $language_geral) {
 		$website_title_text .= " ".$website_title_language;
 	}
 
-	$website_link .= $website_link_language."/";
+	$website_info["link"] .= $website_link_language."/";
 }
 
 ?>

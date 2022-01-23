@@ -108,7 +108,6 @@ $read_modal_generator_php = $story_read_and_reads_files_folder."Modal Generator.
 $comment_generator = $story_comments_files_folder."Comment Generator.php";
 $comment_modal_generator_php = $story_comments_files_folder."Modal Generator.php";
 
-
 # Functions PHP Files
 $crucial_functions_file_php = $functions_folder."Crucial Functions.php";
 $normal_functions_file_php = $functions_folder."Normal Functions.php";
@@ -125,7 +124,6 @@ $website_style_chooser_file = $website_php_files_folder."Style Chooser.php";
 $website_style_variables_foreach = $website_php_files_folder."Style Variables Foreach.php";
 $website_settings_checker = $website_php_files_folder."Settings Checker.php";
 $website_variable_inserter_php = $website_php_files_folder."Variable Inserter.php";
-$website_classes_php = $website_php_files_folder."Classes.php";
 $website_info_interface_and_abstract_class = $website_classes_folder."Website Info Interface and Abstract Class.php";
 $website_style_interface_and_abstract_class = $website_classes_folder."Website Style Interface and Abstract Class.php";
 $website_header_php = $website_php_files_folder."Header.php";

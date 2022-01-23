@@ -57,7 +57,7 @@ $form_color_border = $border_4px_solid_black_css_class,
 $form_color_foreground = $header_background_color,
 $form_color_background = $background_color,
 $form_color_text = $text_black_css_class,
-$full_form_send_button_style = $border_3px_solid_black_css_class." ".$form_color_background." ".$form_color_text,
+$full_form_send_button_style = $border_3px_solid_black_css_class." ".$form_color_background." ".$form_color_text." ".$default_background_hover_color." ".$default_background_hover_color,
 $full_form_style = $form_color_border." ".$form_color_foreground." ".$form_color_text,
 );
 

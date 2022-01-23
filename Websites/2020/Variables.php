@@ -1,13 +1,13 @@
 <?php 
 
-$local_website_name = $website_title_backup;
+$local_website_name = $website_info["english_title"];
 $local_current_year = (int)$local_website_name;
 
 $selected_website_url = $website_links[$local_website_name];
-$website_folder = $website_folders[$local_website_name];
+$website_info["php_folder"] = $website_php_folders[$local_website_name];
 
 $image_format = "png";
-$website_image = $website_media_images_website_icons.$website_title.".".$image_format;
+$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$image_format;
 
 $website_image_link = $website_image;
 
@@ -28,16 +28,15 @@ str_replace($local_website_name, Create_Element("span", $text_blue_css_class, $l
 
 # Website name, title, URL and description setter, by language
 $website_name = $selected_website;
-$website_title = Language_Item_Definer("My", "Meu")." ".$website_title;
-$website_title_header = $website_title.": ".$icons_array["calendar"];
-$website_link = $selected_website_url;
+$website_info["english_title"] = Language_Item_Definer("My", "Meu")." ".$website_info["english_title"];
+$website_title_header = $website_info["english_title"].": ".$icons_array["calendar"];
 $website_meta_description = $website_descriptions_array[$language_number].".";
 $website_header_description = $website_html_descriptions_array[$language_number].".";
 
 if ($website_language != $language_geral) {
-	$website_title .= " ".$website_title_language;
+	$website_info["english_title"] .= " ".$website_title_language;
 	$website_title_header = $website_title_header;
-	$website_link .= $website_link_language."/";
+	$website_info["link"] .= $website_info["language"]."/";
 }
 
 $i = 0;

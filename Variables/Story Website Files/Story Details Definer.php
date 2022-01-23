@@ -35,7 +35,7 @@ if (isset($custom_website_descriptions) == True) {
 	$website_meta_description = $website_meta_descriptions[$language_number];
 	$website_header_description = $website_header_descriptions[$language_number];
 
-	if ($website_title == $website_titles["Diary"] and isset($diary_blocks_explaining_text) == True) {
+	if ($website_info["english_title"] == $website_titles["Diary"] and isset($diary_blocks_explaining_text) == True) {
 		$website_header_description .= $diary_blocks_explaining_text;
 	}
 }
@@ -45,7 +45,7 @@ if (isset($custom_website_descriptions) == False) {
 
 	$website_header_description = format($synopsis_text.': <i class="fas fa-scroll"></i> "{}'.'"<br />', $story_synopsis);
 
-	if ($website_title == $website_titles["Diary"] and isset($diary_blocks_explaining_text) == True) {
+	if ($website_info["english_title"] == $website_titles["Diary"] and isset($diary_blocks_explaining_text) == True) {
 		$website_header_description .= $diary_blocks_explaining_text;
 	}
 }
