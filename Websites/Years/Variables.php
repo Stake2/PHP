@@ -40,7 +40,7 @@ if ($website_language == $languages_array[1]) {
 	$website_name = $current_year;
 	$website_title_text = $current_year." ".$hyphen_separated_website_language;
 	$website_title_header = $current_year.': '.$icons[3];
-	$website_info["link"] .= $website_info["language"]."/";
+	$website_info["link"] .= $website_info["language_hyphen"]."/";
 	$website_meta_description = $website_descriptions_array[1];
 	$website_header_description = $website_html_descriptions_array[0];
 }
@@ -53,7 +53,7 @@ if (in_array($website_language, $pt_languages_array)) {
 	$website_name = $current_year;
 	$website_title_text = $current_year." ".$hyphen_separated_website_language;
 	$website_title_header = $current_year.': '.$icons[3];
-	$website_info["link"] .= $website_info["language"]."/";
+	$website_info["link"] .= $website_info["language_hyphen"]."/";
 	$website_meta_description = $website_descriptions_array[2];
 	$website_header_description = $website_html_descriptions_array[1];
 }

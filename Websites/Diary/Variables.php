@@ -1,11 +1,7 @@
 <?php 
 
 # Story name definer
-$local_story_name = "Diary";
-$website_story_name = $story_names[$local_story_name];
-$english_story_name = $english_story_names[$local_story_name];
-$portuguese_story_name = $portuguese_story_names[$english_story_name];
-$general_story_name = $local_story_name." General";
+$general_story_name = $website_info["english_title"]." General";
 
 # Folder variables
 $story_folder = $english_story_name;

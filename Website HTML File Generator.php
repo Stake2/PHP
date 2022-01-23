@@ -48,21 +48,21 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
-$website_title_text_backup = $website_info["english_title"];
+$local_website_title = $website_info["language_title"];
 
 if ($selected_language != $language_geral) {
 	if (explode(" ", $website_title_text)[0] == "SpaceLiving") {
-		$website_title_text_backup = "New_World/SpaceLiving";
+		$local_website_title = "New_World/SpaceLiving";
 	}
 }
 
 else {
 	if ($website_title_text == "SpaceLiving") {
-		$website_title_text_backup = "New_World/SpaceLiving";
+		$local_website_title = "New_World/SpaceLiving";
 	}
 }
 
-$root_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($website_title_text_backup)."/";
+$root_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($local_website_title)."/";
 
 if (file_exists($root_html_folder) == False) {
 	mkdir($root_html_folder);
@@ -86,7 +86,7 @@ $html_index_file = $html_folder."Index.html";
 
 $update_two_html_files = False;
 
-if ($website_info["type"] == $story_website_type or $website_settings["has_two_website_titles"] == True) {
+if ($website_settings["has_two_website_titles"] == True) {
 	$update_two_html_files = True;
 
 	if ($website_info["type"] == $story_website_type) {
@@ -112,19 +112,17 @@ if ($website_info["type"] == $story_website_type or $website_settings["has_two_w
 	}
 
 	else {
-		$story_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters(Language_Item_Definer($website_portuguese_titles[$selected_website_title], $website_titles[$selected_website_title]))."/";
+		$story_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($website_info["language_title"])."/";
 	}
 
 	if (file_exists($story_html_folder) == False) {
 		mkdir($story_html_folder);
 	}
 
-	if ($selected_language != $language_geral) {
-		$second_html_folder = $story_html_folder.$website_title_language."/";
-	}
+	$second_html_folder = $story_html_folder;
 
-	if ($selected_language == $language_geral) {
-		$second_html_folder = $story_html_folder;
+	if ($selected_language != $language_geral) {
+		$second_html_folder .= $website_title_language."/";
 	}
 
 	$second_html_index_file = $second_html_folder."Index.html";

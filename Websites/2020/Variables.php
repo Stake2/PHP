@@ -36,7 +36,7 @@ $website_header_description = $website_html_descriptions_array[$language_number]
 if ($website_language != $language_geral) {
 	$website_info["english_title"] .= " ".$website_title_language;
 	$website_title_header = $website_title_header;
-	$website_info["link"] .= $website_info["language"]."/";
+	$website_info["link"] .= $website_info["language_hyphen"]."/";
 }
 
 $i = 0;

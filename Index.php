@@ -56,6 +56,8 @@ $connect_php = $database_folder."Connect.php";
 $website_subdomain_name = explode("\n", fread(fopen($subdomain_file, "r", "UTF-8"), filesize($subdomain_file)))[0];
 $main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
 
+$website_info = array();
+
 # "Main PHP Folders" PHP File Loader
 require $main_folders_and_files;
 

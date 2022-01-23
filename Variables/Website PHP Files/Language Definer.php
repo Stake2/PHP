@@ -1,20 +1,10 @@
 <?php 
 
 # Website Language definer
-if (strpos ($host_text, $website_language_parameter.'='.$language_geral) == True) {
-    $website_language = $language_geral;
-}
-
-if (strpos ($host_text, $website_language_parameter.'='.$language_enus) == True) {
-    $website_language = $language_enus;
-}
-
-if (strpos ($host_text, $website_language_parameter.'='.$language_ptbr) == True) {
-    $website_language = $language_ptbr;
-}
-
-if (strpos ($host_text, $website_language_parameter.'='.$language_ptpt) == True) {
-    $website_language = $language_ptpt;
+foreach ($languages_array as $local_language) {
+	if (strpos ($host_text, $website_language_parameter.'='.$local_language) == True) {
+		$website_language = $local_language;
+	}
 }
 
 if (in_array($website_language, $en_languages_array)) {
@@ -25,9 +15,11 @@ if (in_array($website_language, $pt_languages_array)) {
 	$language_number = 2;
 }
 
+
+
 $full_language = $full_languages_array[$language_number];
 
-$website_title_language = substr_replace(strtoupper($website_language), '-', 2, 0);
+$website_title_language = substr_replace(strtoupper($website_language), "-", 2, 0);
 $website_link_language = mb_strtolower($website_title_language);
 
 ?>

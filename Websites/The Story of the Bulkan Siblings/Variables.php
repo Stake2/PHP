@@ -74,7 +74,7 @@ if ($website_language != $language_geral) {
 
 	$website_title_header = $website_title_text.": ".$icons[11];
 
-	$website_info["link"] .= $website_info["language"]."/";
+	$website_info["link"] .= $website_info["language_hyphen"]."/";
 }
 
 ?>

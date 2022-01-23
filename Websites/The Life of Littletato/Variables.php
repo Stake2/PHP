@@ -1,10 +1,6 @@
 <?php 
 
 # Story name definer
-$local_website_name = "The Life of Littletato";
-$website_story_name = $story_names[$local_website_name];
-$english_story_name = $english_story_names[$local_website_name];
-$portuguese_story_name = $portuguese_story_names[$english_story_name];
 $general_story_name = "Littletato - Pequenata";
 
 # Folder variables
@@ -104,7 +100,7 @@ if ($website_language != $language_geral) {
 
 	$website_title_header = $website_title_text.": ".$icons[11];
 
-	$website_info["link"] .= $website_info["language"]."/";
+	$website_info["link"] .= $website_info["language_hyphen"]."/";
 }
 
 ?>

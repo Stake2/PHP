@@ -1,15 +1,13 @@
 <?php
 
-$website_info = array(
-"language_title" => Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]),
-"english_title" => $website_titles[$selected_website_title],
-"portuguese_title" => $website_portuguese_titles[$selected_website_title],
-"language" => $website_link_language,
-"type" => $website_types[$selected_website_title],
-"link" => $website_links[$selected_website_title],
-"php_folder" => $website_php_folders[$website_titles[$selected_website_title]],
-"website_folder" => $website_folders[$website_titles[$selected_website_title]],
-);
+$website_info["language_title"] = Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]);
+$website_info["english_title"] = $website_titles[$selected_website_title];
+$website_info["portuguese_title"] = $website_portuguese_titles[$selected_website_title];
+$website_info["language_hyphen"] = $website_link_language;
+$website_info["type"] = $website_types[$selected_website_title];
+$website_info["link"] = $website_links[$selected_website_title];
+$website_info["php_folder"] = $website_php_folders[$website_titles[$selected_website_title]];
+$website_info["website_folder"] = $website_folders[$website_titles[$selected_website_title]];
 
 $dot_text = ".txt";
 
@@ -50,6 +48,12 @@ if ($website_settings["custom_layout"] == False) {
 
 	# Story variables PHP file includer if the website is a story website
 	require $story_variables_php;
+}
+
+if ($website_info["type"] == $story_website_type) {
+	$website_story_name = $story_names[$website_info["english_title"]];
+	$english_story_name = $english_story_names[$website_info["english_title"]];
+	$portuguese_story_name = $portuguese_story_names[$website_info["english_title"]];
 }
 
 # Websites array
@@ -142,7 +146,7 @@ if (in_array($website_info["english_title"], $year_websites)) {
 require $website_header_php;
 
 # Add website info to database
-$columns = array(
+$columns = array(	
 "language_title VARCHAR(60) NOT NULL",
 "english_title VARCHAR(60) NOT NULL",
 "portuguese_title VARCHAR(60) NOT NULL",
@@ -160,7 +164,7 @@ Create_Database_Table($website_info["english_title"], $columns);
 
 # Gets results from SQL Database
 $sql = new SQL();
-$columns = $sql -> select("SELECT * FROM ".strtolower(str_replace(" ", "_", $website_info["english_title"]))." WHERE language = '".$website_info["language"]."';");
+$columns = $sql -> select("SELECT * FROM ".strtolower(str_replace(" ", "_", $website_info["english_title"]))." WHERE language = '".$website_info["language_hyphen"]."';");
 
 # Adds the website info to the DB if there is no column there
 if (count($columns) == 0) {
@@ -173,7 +177,7 @@ if (count($columns) == 0) {
 		}
 
 		if ($column == "php_folder" or $column == "website_folder") {
-			array_push($values, $website_info[$column].$website_info["language"]."/");
+			array_push($values, $website_info[$column].$website_info["language_hyphen"]."/");
 		}
 	}
 
