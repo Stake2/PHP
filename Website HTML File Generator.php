@@ -48,7 +48,17 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
-$local_website_title = $website_info["language_title"];
+if (isset($website_info["website_folder_name"]) == True) {
+	$local_website_title = $website_info["website_folder_name"];
+}
+
+if (isset($website_info["website_folder_name"]) == False) {
+	$local_website_title = $website_info["language_title"];
+}
+
+if ($website_info["english_title"] == "Watch History") {
+	$local_website_title = $website_info["english_title"];
+}
 
 if ($selected_language != $language_geral) {
 	if (explode(" ", $website_info["english_title"])[0] == "SpaceLiving") {
@@ -57,7 +67,7 @@ if ($selected_language != $language_geral) {
 }
 
 else {
-	if ($website_title_text == "SpaceLiving") {
+	if ($website_info["english_title"] == "SpaceLiving") {
 		$local_website_title = "New_World/SpaceLiving";
 	}
 }

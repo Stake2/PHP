@@ -40,21 +40,6 @@ if ($story_website_settings["has_story_covers"] == True) {
 	require $cover_images_generator_php;
 }
 
-# Website name, title, URL and description setter, by language
-$website_name = $selected_website;
-$website_title_text = $general_story_name;
-$website_title_header = $general_story_name.': '.$icons[11];
-
-if ($website_language != $language_geral) {
-	$website_title_text = $website_story_name;
-
-	if ($website_language != $ptbr_language) {
-		$website_title_text = $website_story_name." ".strtoupper($website_title_language);
-	}
-
-	$website_title_header = $website_title_text.': '.$icons[11];
-}
-
 $tab_titles_prototype = array(
 $icons_array["open book"],
 $icons_array["reader"]." ❤️",
@@ -79,5 +64,23 @@ $website_settings["use_custom_tab_titles"] = True;
 $tab_texts = array();
 
 Make_Button_Names();
+
+# Website name, title, URL and description setter, by language
+$website_info["language_title"] = $general_story_name;
+$website_info["website_folder_name"] = $website_info["english_title"];
+$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons[11];
+
+if ($website_language != $language_geral) {
+	$website_info["language_title"] = $website_story_name;
+	$website_info["website_folder_name"] = $website_story_name;
+
+	if ($website_language == $ptpt_language) {
+		$website_info["language_title"] .= " ".$website_title_language;
+	}
+
+	$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons[11];
+
+	$website_info["link"] .= $website_info["language_hyphen"]."/";
+}
 
 ?>

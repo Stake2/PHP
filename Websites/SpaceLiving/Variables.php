@@ -138,8 +138,6 @@ $gods_warrior_still_got_something_name." ",
 "Skybreak & Mizu - Aurora ",
 "Panda Eyes - Take My Hand Ft. Azuria Sky (Z∆NE Remix)",
 $tom_and_jerrys_2021_soundtrack_playlist_name,
-#"Tom & Jerry 2021 - Married In The Park ",
-#"Tom & Jerry 2021 - Married In The Park ",
 "Panda Eyes - Opposite Side ",
 $the_life_of_littletato_link_name." ",
 $story_names["SpaceLiving"]." ",
@@ -148,13 +146,19 @@ $chapter_twenty_six_text." ",
 );
 
 # Website name, title, URL and description setter, by language
-$website_title_text = $general_story_name;
-$website_title_header = $general_story_name.": ".$icons[11];
+$website_info["language_title"] = $general_story_name;
+$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons[11];
 
 if ($website_language != $language_geral) {
-	$website_title_text = $website_story_name." ".$website_title_language;
+	$website_info["language_title"] = $website_story_name;
 
-	$website_title_header = $website_title_text.": ".$icons[11];
+	if ($website_language == $ptpt_language) {
+		$website_info["language_title"] .= " ".$website_title_language;
+	}
+
+	$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons[11];
+
+	$website_info["link"] .= $website_info["language_hyphen"]."/";
 }
 
 ?>

@@ -171,6 +171,7 @@ $website_info["header_description"] = $website_html_descriptions_array[$language
 
 if ($website_info["language"] != $language_geral) {
 	$website_info["language_title"] = $website_info["language_title"]." ".strtoupper($website_info["language_hyphen"]);
+
 	$website_info["language_title_with_icon_header"] = $website_info["english_title"]." ".$full_languages_dict[$website_language];
 	$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
 
