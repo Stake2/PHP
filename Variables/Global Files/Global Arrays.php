@@ -142,7 +142,7 @@ foreach ($websites as $local_website_name) {
 		$local_website_folder_path .= "Years/";
 	}
 
-	$local_website_link .= Remove_Non_File_Characters($local_website_name)."/";
+	$local_website_link .= Remove_Non_File_Characters(Language_Item_Definer($local_website_name, $local_website_portuguese_name))."/";
 	$local_website_folder_path .= Remove_Non_File_Characters($local_website_name)."/";
 
 	if ($local_website_type == "N") {

@@ -51,7 +51,7 @@ $website = ob_get_clean();
 $local_website_title = $website_info["language_title"];
 
 if ($selected_language != $language_geral) {
-	if (explode(" ", $website_title_text)[0] == "SpaceLiving") {
+	if (explode(" ", $website_info["english_title"])[0] == "SpaceLiving") {
 		$local_website_title = "New_World/SpaceLiving";
 	}
 }
@@ -93,13 +93,13 @@ if ($website_settings["has_two_website_titles"] == True) {
 		$story_html_folder = $mega_folder_stake2_website;
 
 		if ($selected_language != $language_geral) {
-			if (explode(" ", $website_title_text)[0] == "SpaceLiving") {
+			if (explode(" ", $website_info["english_title"])[0] == "SpaceLiving") {
 				$story_html_folder .= "New_World/";
 			}
 		}
 
 		else {
-			if ($website_title_text == "SpaceLiving") {
+			if ($website_info["english_title"] == "SpaceLiving") {
 				$story_html_folder .= "New_World/";
 			}
 		}
@@ -155,11 +155,11 @@ if ($update_two_html_files == True) {
 	Update_HTML_File($second_html_folder, $second_html_index_file);
 }
 
-$local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$website_title_text;
+$local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$website_info["english_title"];
 $website_link = "";
 $website_image = "";
-$website_meta_description = Language_Item_Definer("Generator of HTML files for the selected website", "Gerador de arquivos HTMl para o site selecionado").": ".$website_title_text;
-$image_format = "png";
+$website_meta_description = Language_Item_Definer("Generator of HTML files for the selected website", "Gerador de arquivos HTMl para o site selecionado").": ".$website_info["english_title"];
+$website_info["image_format"] = "png";
 $data = date("d/m/Y");
 
 $website_head = '<!DOCTYPE html>
@@ -175,8 +175,8 @@ $website_head = '<!DOCTYPE html>
 <meta property="og:locale:alternate" content="pt_BR" />
 <meta property="og:locale:alternate" content="pt_PT" />
 <link rel="canonical" href="'.$website_link.'" />
-<link rel="icon" type="image/'.$image_format.'" href="'.$website_image.'" />
-<link rel="image_src" type="image/'.$image_format.'" href="'.$website_image.'" />
+<link rel="icon" type="image/'.$website_info["image_format"].'" href="'.$website_image.'" />
+<link rel="image_src" type="image/'.$website_info["image_format"].'" href="'.$website_image.'" />
 <meta name="description" content="'.$website_meta_description.'" />
 <meta name="revised" content="'."Stake's Enterprise TM".', '.$data.'" />
 <meta name="author" content="Stake Ferreira" />
@@ -190,14 +190,14 @@ echo $website_head;
 echo "<center>"."\n";
 
 echo "\n"."<h1>"."\n".
-$website_title_text."<br />"."\n"
+$website_info["language_title"]."<br />"."\n"
 ."</h1>"."\n";
 
 $show_text = Language_Item_Definer("This is the name of the website", "Esse é o nome do site");
 
 echo "\n"."<h2>"."\n".
 $show_text.": <br />"."\n".
-$website_title_text."\n"
+$website_info["language_title"]."\n"
 ."</h2>"."\n"."\n";
 
 $show_text = Language_Item_Definer("This is the folder where the selected website is", "Essa é a pasta onde o site selecionado está");

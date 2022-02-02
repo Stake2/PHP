@@ -63,7 +63,7 @@ $website_function_settings = array(
 "image_link_button" => True,
 "websites_tab" => True,
 "is_prototype" => False,
-"js" => True,
+"javascript" => True,
 );
 
 if (text_contains("all=true", $host_text) == True or text_contains("all=True", $host_text) == True) {

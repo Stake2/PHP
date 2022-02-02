@@ -88,17 +88,17 @@ $mlp_fim_wikipedia_link_text."/",
 );
 
 # Website name, title, URL and description setter, by language
-$website_title_text = $general_story_name;
-$website_title_header = $general_story_name.": ".$icons[11];
+$website_info["language_title"] = $general_story_name;
+$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons[11];
 
 if ($website_language != $language_geral) {
-	$website_title_text = $website_story_name;
+	$website_info["language_title"] = $website_story_name;
 
 	if ($website_language == $ptpt_language) {
-		$website_title_text .= " ".$website_title_language;
+		$website_info["language_title"] .= " ".$website_title_language;
 	}
 
-	$website_title_header = $website_title_text.": ".$icons[11];
+	$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons[11];
 
 	$website_info["link"] .= $website_info["language_hyphen"]."/";
 }

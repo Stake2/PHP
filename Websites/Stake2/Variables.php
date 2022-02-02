@@ -43,8 +43,8 @@ $tab_texts = array();
 Make_Button_Names();
 
 # Website image link and image size
-$image_format = "png";
-$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$image_format;
+$website_info["image_format"] = "png";
+$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$website_info["image_format"];
 
 $website_image_link = $website_image;
 $website_image_size_computer = 31;

@@ -4,9 +4,6 @@
 $watched_media_generator = $website_php_folders["Watch History"]."Watched Media Generator.php";
 $archived_media_machine_php = $website_php_folders["Watch History"]."Archived Media Machine.php";
 
-# Website variables
-$no_language_website_title = $website_info["english_title"];
-
 # Comment links
 $watched_movie_comment_links = array(
 $cdn_text_movie_comments.'Hoje, Sexta (Vingadores Guerra Infinita).txt', 
@@ -28,14 +25,14 @@ $watched_movie_comments = array(
 );
 
 # Website image link and image size
-$image_format = "png";
-$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$image_format;
+$website_info["image_format"] = "png";
+$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$website_info["image_format"];
 
 $website_image_link = $website_image;
 $website_image_size_computer = 31;
 $website_image_size_mobile = 52;
 
-$span_second_text_color = '<span class="'.$second_text_color.' '.$third_text_color.'">';
+$span_second_text_color = '<span class="'.$second_text_color.'">';
 
 #Website descriptions
 $website_descriptions_array = array(
@@ -166,14 +163,16 @@ $website_custom_button_bar_numbers = array(
 );
 
 # Website name, title, URL and description setter, by language
-$website_title_header = $website_title_text.": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
-$website_meta_description = $website_descriptions_array[$language_number];
-$website_header_description = $website_html_descriptions_array[$language_number];
+$website_info["language_title"] = $website_info["english_title"];
+$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
 
-if ($website_language != $language_geral) {
-	$website_title_header = $website_title_text." ".$full_languages_dict[$website_language].": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
+$website_info["meta_description"] = $website_descriptions_array[$language_number];
+$website_info["header_description"] = $website_html_descriptions_array[$language_number];
 
-	$website_title_text .= " ".$website_title_language;
+if ($website_info["language"] != $language_geral) {
+	$website_info["language_title"] = $website_info["language_title"]." ".strtoupper($website_info["language_hyphen"]);
+	$website_info["language_title_with_icon_header"] = $website_info["english_title"]." ".$full_languages_dict[$website_language];
+	$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
 
 	$website_info["link"] .= $website_info["language_hyphen"]."/";
 }

@@ -7,8 +7,8 @@ $mane_six_images_folder = $website_images_folder."Mane Six/";
 $website_audio_folder = $website_media_website_audio.Remove_Non_File_Characters($website_info["english_title"])."/";
 
 # Website image link and image size
-$image_format = "png";
-$website_image = $website_media_images_website_icons.Remove_Non_File_Characters($website_info["english_title"]).".".$image_format;
+$website_info["image_format"] = "png";
+$website_image = $website_media_images_website_icons.Remove_Non_File_Characters($website_info["english_title"]).".".$website_info["image_format"];
 
 $website_image_link = $website_image;
 

@@ -83,8 +83,10 @@ $functions_folder = $php_folder_variables."Functions/";
 $website_php_files_folder = $php_folder_variables."Website PHP Files/";
 $websites_list_folder = $website_php_files_folder."Websites List/";
 $website_tool_files_folder = $php_folder_variables."Website Tool Files/";
-$website_classes_folder = $website_php_files_folder."Website Classes/";
 $websites_tab_folder = $website_php_files_folder."Websites Tab/";
+$raintpl_folder = $php_folder_variables."RainTPL/";
+$raintpl_class_folder = $raintpl_folder."Classes/";
+$raintpl_loader = $raintpl_folder."Loader.php";
 
 # Story Website Files
 $story_website_files_folder = $php_folder_variables."Story Website Files/";
@@ -124,9 +126,6 @@ $website_style_chooser_file = $website_php_files_folder."Style Chooser.php";
 $website_style_variables_foreach = $website_php_files_folder."Style Variables Foreach.php";
 $website_settings_checker = $website_php_files_folder."Settings Checker.php";
 $website_variable_inserter_php = $website_php_files_folder."Variable Inserter.php";
-$website_info_interface_and_abstract_class = $website_classes_folder."Website Info Interface and Abstract Class.php";
-$website_style_interface_and_abstract_class = $website_classes_folder."Website Style Interface and Abstract Class.php";
-$website_header_php = $website_php_files_folder."Header.php";
 $website_css_and_javascript_definer_php = $website_php_files_folder."CSS And JavaScript Definer.php";
 $website_image_maker = $website_php_files_folder."Image Maker.php";
 $website_notifications_php = $website_php_files_folder."Notifications.php";

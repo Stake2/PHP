@@ -1,6 +1,7 @@
 <?php
 
 $website_info["language_title"] = Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]);
+$website_info["language_title_with_icon"] = Language_Item_Definer($website_titles[$selected_website_title], $website_portuguese_titles[$selected_website_title]);
 $website_info["english_title"] = $website_titles[$selected_website_title];
 $website_info["portuguese_title"] = $website_portuguese_titles[$selected_website_title];
 $website_info["language_hyphen"] = $website_link_language;
@@ -8,6 +9,7 @@ $website_info["type"] = $website_types[$selected_website_title];
 $website_info["link"] = $website_links[$selected_website_title];
 $website_info["php_folder"] = $website_php_folders[$website_titles[$selected_website_title]];
 $website_info["website_folder"] = $website_folders[$website_titles[$selected_website_title]];
+$website_info["author"] = $website_author;
 
 $dot_text = ".txt";
 
@@ -66,11 +68,70 @@ foreach ($website_titles as $value) {
 	$i++;
 }
 
-$website_info["meta_description"] = $website_meta_description;
-$website_info["header_description"] = $website_header_description;
-
 # Website Style.php File Includer
 require $website_style_file;
+
+$website_info["second_text_color_span"] = '<span class="'.$second_text_color.'">{}</span>';
+
+if ($website_info["type"] == $story_website_type) {
+	$story_info["author_text"] = Define_Text_By_Number($story_author_number, $author_text, $authors_text);
+	$story_info["chapter_text"] = Define_Text_By_Number($chapters, ucwords($chapter_text), $chapters_text);
+	$story_info["readers_text"] = Define_Text_By_Number($readers_number, $reader_text, $readers_text);
+}
+
+if ($story_status != $story_status_texts[1] or $story_status != $story_status_texts[2]) {
+	$new_chapter_text = "";
+}
+
+if ($story_website_settings["show_new_chapter_text"] == True) {
+	if ($story_status == $story_status_texts[1] or $story_status == $story_status_texts[2]) {
+		$new_chapter_text = '<span class="'.$third_text_color.'">'." [".$new_text."!]".$spanc;
+	}
+}
+
+if ($story_website_settings["show_new_chapter_text"] == False) {
+	$new_chapter_text = "";
+}
+
+$website_notification = "";
+
+if ($website_settings["notifications"] == True) {
+	$website_notification = "\n".$website_notification;
+}
+
+$change_website_title_script = '<script>
+var old_website_title, current_website_title;
+
+function Get_Title() {
+	old_website_title = document.title;
+	current_website_title = document.title;
+}
+
+function Change_Title() {
+	document.title = "(1) " + document.title;
+	current_website_title = document.title;
+}
+
+function Reset_Title(mode, source = null) {
+	if (mode == "chapter") {
+		document.title = current_website_title;
+
+		if (source == "notification") {
+			document.title = document.title.replace("(1) ", "");
+		}
+	}
+
+	if (mode == "notification") {
+		document.title = document.title.replace("(1) ", "");
+		current_website_title = document.title;
+	}
+}
+
+function Add_To_Website_Title(text_to_add, source = null) {
+	Reset_Title("chapter", source);
+	document.title = document.title + " " + text_to_add;
+}
+</script>';
 
 # Tab Generator.php includer
 require $website_tabs_generator;
@@ -102,55 +163,23 @@ if (isset($custom_website_head_content) == True) {
 	$include_custom_website_head_content = "\n".$custom_website_head_content;
 }
 
-if ($website_function_settings["js"] == True) {
+if ($website_function_settings["javascript"] == True) {
 	$website_js_files = "";
 }
 
-$handle = "Stake2__";
-$twitter_info = "\n".'<meta name="twitter:card" content="summary" />
-<meta name="twitter:website" value="@'.$handle.'" />
-<meta name="twitter:site" value="@'.$handle.'" />
-<meta name="twitter:creator" content="@'.$handle.'" />
-<meta content="summary_large_image" name="twitter:card" />
-<meta content="'.$website_info["link"].'" name="twitter:url" />';
-
-$website_head = '
-<title>'.$website_title_text.'</title>
-<meta property="og:type" content="website" />
-<meta property="og:title" content="'.$website_title_text.'" />
-<meta property="og:site_name" content="'.$website_title_text.'" />
-<meta property="og:url" content="'.$website_info["link"].'" />
-<meta property="og:image" content="'.$website_image.'" />
-<meta property="og:description" content="'.$website_meta_description.'" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:locale:alternate" content="pt_BR" />
-<meta property="og:locale:alternate" content="pt_PT" />
-<link rel="canonical" href="'.$website_info["link"].'" />
-<link rel="icon" type="image/'.$image_format.'" href="'.$website_image.'" />
-<link rel="image_src" type="image/'.$image_format.'" href="'.$website_image.'" />
-<meta name="description" content="'.$website_meta_description.'" />
-<meta content="#916f3b" name="theme-color" />'
-.$twitter_info.'
-<meta name="revised" content="'."Stake2's Enterprise TM".', '.$data.'" />
-<meta name="author" content="Stake2" />
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
-<meta charset="UTF-8" />'.
-"\n"."\n".$website_css_links.
-"\n"."\n".$website_javascript_links.
-$include_custom_website_head_content;
-
 if (in_array($website_info["english_title"], $year_websites)) {
-	$website_meta_description = $website_header_description;
+	$website_info["meta_description"] = $website_info["header_description"];
 }
 
-require $website_header_php;
+$header_hr = '<hr class="'.$header_full_border.'" style="margin-left:3%;margin-right:3%;" />';
 
 # Add website info to database
 $columns = array(	
-"language_title VARCHAR(60) NOT NULL",
-"english_title VARCHAR(60) NOT NULL",
-"portuguese_title VARCHAR(60) NOT NULL",
-"language VARCHAR(60) NOT NULL",
+"language_title VARCHAR(70) NOT NULL",
+"language_title_with_icon VARCHAR(70) NOT NULL",
+"english_title VARCHAR(70) NOT NULL",
+"portuguese_title VARCHAR(70) NOT NULL",
+"language VARCHAR(10) NOT NULL",
 "type VARCHAR(60) NOT NULL",
 "link VARCHAR(256) NOT NULL",
 "php_folder VARCHAR(500) NOT NULL",
@@ -168,7 +197,7 @@ $columns = $sql -> select("SELECT * FROM ".strtolower(str_replace(" ", "_", $web
 
 # Adds the website info to the DB if there is no column there
 if (count($columns) == 0) {
-	$columns = array("language_title", "english_title", "portuguese_title", "language", "type", "link", "php_folder", "website_folder", "meta_description", "header_description", "image_link");
+	$columns = array("language_title", "language_title_with_icon", "english_title", "portuguese_title", "language_hyphen", "type", "link", "php_folder", "website_folder", "meta_description", "header_description", "image_link");
 	$values = array();
 
 	foreach ($columns as $column) {

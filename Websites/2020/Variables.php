@@ -6,8 +6,8 @@ $local_current_year = (int)$local_website_name;
 $selected_website_url = $website_links[$local_website_name];
 $website_info["php_folder"] = $website_php_folders[$local_website_name];
 
-$image_format = "png";
-$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$image_format;
+$website_info["image_format"] = "png";
+$website_image = $website_media_images_website_icons.$website_info["english_title"].".".$website_info["image_format"];
 
 $website_image_link = $website_image;
 

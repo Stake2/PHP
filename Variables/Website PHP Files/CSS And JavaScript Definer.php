@@ -41,20 +41,22 @@ if ($website_settings["notifications"] == True) {
 }
 
 # Website CSS links string creator
-$website_css_links = "<!-- CSS files -->"."\n";
+$website_css_links = "";
 
 $css_link_string = '<link rel="stylesheet" type="text/css" href="{}.css" />';
 
 foreach ($css_links as $link) {
-	$website_css_links .= format($css_link_string, array($link));
+	$website_css_links .= "\t".format($css_link_string, array($link));
 
 	if ($link != array_reverse($css_links)[0]) {
 		$website_css_links .= "\n";
 	}
 }
 
+$website_css_links .= "\n";
+
 # Website JavaScript links string creator
-$website_javascript_links = "<!-- JavaScript files -->"."\n";
+$website_javascript_links = "";
 
 $javascript_link_string = '<script src="{}.js"></script>';
 
@@ -72,13 +74,15 @@ foreach ($javascript_links as $link) {
 		$string_to_use = $javascript_link_string_with_crossorigin;
 	}
 
-	if ($website_function_settings["js"] == True) {
-		$website_javascript_links .= format($string_to_use, array($link));
+	if ($website_function_settings["javascript"] == True) {
+		$website_javascript_links .= "\t".format($string_to_use, array($link));
 
 		if ($link != array_reverse($javascript_links)[0]) {
 			$website_javascript_links .= "\n";
 		}
 	}
 }
+
+$website_javascript_links .= "\n";
 
 ?>

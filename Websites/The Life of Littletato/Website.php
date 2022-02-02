@@ -2,6 +2,7 @@
 
 require $local_website_folder."Name.php";
 
+#if (in_array($local_website_name, $get) or in_array($website_keys[$local_website_name], $get)) {
 if (strpos ($host_text, $website_selector_parameters[0]."=".$website_keys[$local_website_name]) == True) {
 	$selected_website = $website_titles[$local_website_name];
 

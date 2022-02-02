@@ -16,9 +16,16 @@ if (isset($host_text) == True) {
 	$return = False;
 }
 
+if (isset($_GET["website_settings"])) {
+	$get = explode(",", str_replace(array("[", "]"), "", $_GET["website_settings"]));
+}
+
 $current_year = strftime("%Y");
 date_default_timezone_set("America/Sao_Paulo");
 $data = date("d/m/Y");
+
+$website_author = "Stake2";
+$twitter_author = $website_author."_";
 
 # Website variables
 $https_text = "https://";
@@ -67,6 +74,9 @@ require $crucial_functions_file_php;
 # Main Arrays PHP file loader
 require $main_arrays_php;
 
+# Website Language Definer file require
+require $website_language_definer_php;
+
 # Global Arrays PHP file loader
 require $global_arrays_php;
 
@@ -78,9 +88,6 @@ require $website_arrays_generator_php;
 
 # Default Setting Values file require
 require $website_settings_checker;
-
-# Website Language Definer file require
-require $website_language_definer_php;
 
 # Variable Inserter PHP file loader
 require $website_variable_inserter_php;
@@ -97,15 +104,26 @@ require $website_selector_file;
 # V_Global.php variables file require
 require $v_global_php;
 
-if ($return == False) {
-	echo "<!DOCTYPE html>"."\n";
+# RainTPL Loader.php require
+require $raintpl_loader;
 
-	# Website Header displayer
-	echo $website_header;
+if ($return == False) {
+	// draw the template
+	$tpl->draw("Head");
+
+	echo "\n";
+
+	$tpl->draw("Body");
+
+	$tpl->draw("Header Descriptions/".$website_info["type"]);
+
+	echo "\n"."\n";
 
 	if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
 		# "Tabs loader" file loader
+		echo "<!-- Start of website tabs -->"."\n";
 		require $website_tabs_loader;
+		echo "<!-- End of website tabs -->"."\n";
 	}
 
 	require $website_extra_website_things;
@@ -123,17 +141,25 @@ Define_Colors_And_Styles();
 }
 
 if ($return == True) {
-	$website = "";
-	$website .= "<!DOCTYPE html>"."\n";
+	$website = $tpl->draw("Head");
 
-	# Website Header displayer
-	$website .= $website_header;
+	$website .= "\n";
+
+	$website .= $tpl->draw("Body");
+
+	$website .= $tpl->draw("Header Descriptions/".$website_info["type"]);
+
+	$website .= "\n"."\n";
 
 	if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
 		# "Tabs Loader" file loader
+		$website .= "<!-- Start of website tabs -->"."\n";
+
 		ob_start();
 		require $website_tabs_loader;
 		$website .= ob_get_clean();
+
+		$website .= "<!-- End of website tabs -->"."\n";
 	}
 
 	ob_start();
@@ -151,7 +177,7 @@ if ($return == True) {
 	$website .= '</body>
 	</html>';
 
-	$html_folder = $website_info["php_folder"].$website_title_language."/";
+	$html_folder = $website_info["php_folder"].$website_info["title_language"]."/";
 	$html_index_file = $html_folder."Index.html";
 
 	if (file_exists($html_folder) == False) {
@@ -159,7 +185,7 @@ if ($return == True) {
 	}
 
 	if (file_exists($html_index_file) == True) {
-		$file_open = fopen($html_index_file, 'w');
+		$file_open = fopen($html_index_file, "w");
 		fwrite($file_open, $website);
 		fclose($file_open);
 	}
