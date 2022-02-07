@@ -91,7 +91,7 @@ Create_Element("span", $css_texts["blue"], "{}search_item"),
 Create_Element("span", $css_texts["blue"], "{}search_item"),
 );
 
-$website_header_description = For_Each_Replace($search_items, $replace_items, $website_header_description);
+$website_info["header_description"] = For_Each_Replace($search_items, $replace_items, $website_info["header_description"]);
 
 $website_form_code = $website_name;
 

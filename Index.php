@@ -117,6 +117,9 @@ if ($return == False) {
 
 	$tpl->draw("Header Descriptions/".$website_info["type"]);
 
+	echo $div_close."\n";
+	echo "<!-- End of header -->";
+
 	echo "\n"."\n";
 
 	if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
@@ -148,6 +151,9 @@ if ($return == True) {
 	$website .= $tpl->draw("Body");
 
 	$website .= $tpl->draw("Header Descriptions/".$website_info["type"]);
+
+	$website .= $div_close."\n";
+	$website .= "<!-- End of header -->";
 
 	$website .= "\n"."\n";
 

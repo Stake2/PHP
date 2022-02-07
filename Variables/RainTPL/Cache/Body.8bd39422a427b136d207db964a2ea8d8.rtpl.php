@@ -8,6 +8,8 @@
 <?php echo $change_website_title_script; ?>
 
 <!-- Website header -->
+<div class="<?php echo $computer_variable; ?>"><br /><br /><br /><br /><br /><br /><br /><br /></div>
+<div class="<?php echo $header_background_color; ?> <?php echo $first_border_color; ?> border_4px" style="<?php echo $header_margin; ?>">
 <?php echo $zoom_animation; ?>
 
 <!-- Website computer title -->
@@ -26,6 +28,7 @@
 
 <!-- Website Images -->
 <div class="w3-center">
-<?php echo $website_images_variable; ?></div>
+<?php echo $website_images_variable; ?>
+</div>
 
-<?php echo $header_hr; ?>\n
+<?php echo $header_hr; ?>

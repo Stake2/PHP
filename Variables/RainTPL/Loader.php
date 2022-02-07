@@ -42,23 +42,33 @@ $tpl->assign("include_custom_website_head_content", $include_custom_website_head
 $tpl->assign("h2", $h2_element);
 $tpl->assign("computer_variable", $computer_variable);
 $tpl->assign("first_text_color", $first_text_color);
+$tpl->assign("first_border_color", $first_border_color);
+$tpl->assign("header_background_color", $header_background_color);
 $tpl->assign("zoom_animation_class", $zoom_animation_class);
 $tpl->assign("header_hr", $header_hr);
-$tpl->assign("h4", $h2_element);
+$tpl->assign("h4", $h4_element);
 $tpl->assign("mobile_variable", $mobile_variable);
 $tpl->assign("zoom_animation", $div_zoom_animation);
 $tpl->assign("margincss1", $margincss1);
+$tpl->assign("header_margin", $margincss3.$rounded_border_style_2);
 $tpl->assign("website_buttons", $website_buttons);
 $tpl->assign("website_notification", $website_notification);
-$tpl->assign("change_website_title_script", $change_website_title_script);
+$tpl->assign("change_website_title_script", $change_website_title_script."\n");
 
 if ($website_info["type"] == $story_website_type) {
 	$tpl->assign("author_text", $story_info["author_text"]);
 	$tpl->assign("author", $author_name);
 	$tpl->assign("chapter_text", $story_info["chapter_text"]);
 	$tpl->assign("chapters", format($website_info["second_text_color_span"], $chapters." ".$icons_array["open book"].$new_chapter_text));
-	$tpl->assign("readers_text", $story_info["readers_text"]);
-	$tpl->assign("readers", format($website_info["second_text_color_span"], $readers_number.' '.$icons_array["reader"]));
+
+	if (isset($readers) == True and $readers != []) {
+		$tpl->assign("readers", $readers_text.": ".format($website_info["second_text_color_span"], $readers_number.' '.$icons_array["reader"])."<br />");
+	}
+
+	else {
+		$tpl->assign("readers", "");
+	}
+	
 	$tpl->assign("creation_date_text", $story_creation_date_text);
 	$tpl->assign("creation_date", format($website_info["second_text_color_span"], $story_creation_date));
 	$tpl->assign("status", format($website_info["second_text_color_span"], $story_status_text));

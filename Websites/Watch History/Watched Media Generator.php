@@ -165,7 +165,10 @@ while ($overall_number <= 4) {
 				$current_year_watched_episodes_text[$i] = str_replace("Second", "Segunda", $current_year_watched_episodes_text[$i]);
 				$current_year_watched_episodes_text[$i] = str_replace("Third", "Terceira", $current_year_watched_episodes_text[$i]);
 				$current_year_watched_episodes_text[$i] = str_replace("S0", "T0", $current_year_watched_episodes_text[$i]);
-				$current_year_watched_episodes_text[$i] = str_replace("Squid Game", "Round 6 (Squid Game)", $current_year_watched_episodes_text[$i]);
+
+				if (strstr($current_year_watched_episodes_text[$i], "Round 6 (Squid Game)") == False) {
+					$current_year_watched_episodes_text[$i] = str_replace("Squid Game", "Round 6 (Squid Game)", $current_year_watched_episodes_text[$i]);
+				}
 			}
 
 			$text_to_find = "/(".$rewatched_text_enus." ".$a."x - ".$rewatched_text_ptbr." ".$a."x)/i";
