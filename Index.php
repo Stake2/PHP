@@ -58,7 +58,7 @@ $main_folders_and_files = $folders_and_files_folder."Main Folders And Files.php"
 $global_texts_php = $global_files_folder."Global Texts.php";
 $global_style_file_php = $global_files_folder."Global Style.php";
 
-$connect_php = $database_folder."Connect.php";
+$sql_php = $database_folder."SQL.php";
 
 $website_subdomain_name = explode("\n", fread(fopen($subdomain_file, "r", "UTF-8"), filesize($subdomain_file)))[0];
 $main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
@@ -81,7 +81,7 @@ require $website_language_definer_php;
 require $global_arrays_php;
 
 # Connect to Database
-require $connect_php;
+require $sql_php;
 
 # Websites Array Generator PHP file loader
 require $website_arrays_generator_php;
