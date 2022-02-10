@@ -12,7 +12,8 @@ $local_website_tab_number = $website_tab_number;
 
 require $websites_tab_button_maker;
 
-if ($website_info["english_title"] == $website_titles["Diary"]) {require $websites_tab_button_maker;
+if ($website_info["english_title"] == $website_titles["Diary"]) {
+	require $websites_tab_button_maker;
 	$local_website_tab_number = $website_tab_number;
 }
 
@@ -99,8 +100,6 @@ if ($website_function_settings["website_buttons"] == True) {
 
 	$close_mobile_div = "\n".$div_close."\n"."\n".
 	$mobile_div.$open_mobile_buttons_sidebar.$div_close;
-
-	#$mobile_buttons_bar .= $close_mobile_div;
 }
 
 $computer_buttons[] = $websites_tab_button_computer;

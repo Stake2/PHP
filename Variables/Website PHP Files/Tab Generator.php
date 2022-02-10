@@ -117,8 +117,6 @@ if ($website_settings["tab_body_generator"] == False) {
 	$i = 0;
 	$i2 = $i + 1;
 
-	#$citybodyfiles_array[$i] = $website_info["php_folder"].'CityBody'.$i2.'.php';
-
 	if (file_exists($website_info["php_folder"]."CityBody".$i2.".php")) {
 		while ($i <= $website_tab_number) {
 			$i2 = $i + 1;
