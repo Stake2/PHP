@@ -3,6 +3,12 @@ The PHP files for the Stake2 Website https://thestake2.netlify.app/<br>
 HTML files in here [Stake2 Website](https://github.com/Stake2/stake2-website)<br>
 Made by me, [Stake2](https://github.com/Stake2)
 
+Using [MIT License](https://github.com/Stake2/stake2-php/blob/main/LICENSE)<br>
+
+Read [Code of Conduct](https://github.com/Stake2/stake2-php/blob/main/CODE_OF_CONDUCT.md)<br>
+
+[How to Contribute](https://github.com/Stake2/stake2-php/blob/main/CONTRIBUTING.md)<br>
+
 The websites are loaded from the files inside the [Websites](https://github.com/Stake2/stake2-php/tree/master/Websites) folder.<br>
 The user types the URL of the website like this:<br>
 http://localhost:8080/?no-redirect=true&website_language=ptbr&website=website_name_here<br>
