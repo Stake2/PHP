@@ -86,28 +86,28 @@ function Write_To_File($file, $text) {
 }
 
 function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False, $general_item = Null) {
-	global $website_language;
+	global $website_info;
 	global $language_enus;
 	global $language_ptbr;
 	global $language_ptpt;
 
-	if ($general_item != Null and $website_language == $language_geral) {
+	if ($general_item != Null and $website_info["language"] == $language_geral) {
 		return $general_item;
 	}
 
-	if ($website_language == $language_enus) {
+	if ($website_info["language"] == $language_enus) {
 		return $enus_item;
 	}
 
-	if ($website_language == $language_ptbr) {
+	if ($website_info["language"] == $language_ptbr) {
 		return $ptbr_item;
 	}
 
-	if ($website_language == $language_ptpt and $same_from_ptbr == False) {
+	if ($website_info["language"] == $language_ptpt and $same_from_ptbr == False) {
 		return $ptpt_item;
 	}
 
-	if ($website_language == $language_ptpt and $same_from_ptbr == True) {
+	if ($website_info["language"] == $language_ptpt and $same_from_ptbr == True) {
 		return $ptbr_item;
 	}
 }

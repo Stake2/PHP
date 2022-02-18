@@ -128,11 +128,11 @@ if ($website_settings["tab_body_generator"] == False) {
 	}
 
 	else {
-		if (in_array($website_language, $en_languages_array)) {
+		if (in_array($website_info["language"], $en_languages_array)) {
 			$city_body_place_holder = "Placeholder for the Body of the Tab: [Icon]";
 		}
 
-		if (in_array($website_language, $pt_languages_array)) {
+		if (in_array($website_info["language"], $pt_languages_array)) {
 			$city_body_place_holder = "Espaço reservado para o Corpo da Aba: [Ícone]";
 		}
 

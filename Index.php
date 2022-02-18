@@ -10,6 +10,10 @@ if (isset($_GET["website_settings"])) {
 	$get = explode(",", str_replace(array("[", "]"), "", $_GET["website_settings"]));
 }
 
+if (isset($return) == False) {
+	$return = False;
+}
+
 $current_year = strftime("%Y");
 date_default_timezone_set("America/Sao_Paulo");
 $data = date("d/m/Y");
@@ -133,64 +137,50 @@ Define_Colors_And_Styles();
 </html>';
 }
 
-if ($return == True) {
-	$website = $tpl->draw("Head");
+$full_website = $tpl->draw("Head", True);
 
-	$website .= "\n";
+$full_website .= "\n";
 
-	$website .= $tpl->draw("Body");
+$full_website .= $tpl->draw("Body", True);
 
-	$website .= $tpl->draw("Header Descriptions/".$website_info["type"]);
+$full_website .= $tpl->draw("Header Descriptions/".$website_info["type"], True);
 
-	$website .= $div_close."\n";
-	$website .= "<!-- End of header -->";
+$full_website .= $div_close."\n";
+$full_website .= "<!-- End of header -->";
 
-	$website .= "\n"."\n";
+$full_website .= "\n"."\n";
 
-	if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
-		# "Tabs Loader" file loader
-		$website .= "<!-- Start of website tabs -->"."\n";
+if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
+	# "Tabs Loader" file loader
 
-		ob_start();
-		require $website_tabs_loader;
-		$website .= ob_get_clean();
-
-		$website .= "<!-- End of website tabs -->"."\n";
-	}
+	$full_website .= "<!-- Start of website tabs -->"."\n";
 
 	ob_start();
-	require $website_extra_website_things;
-	$website .= ob_get_clean();
+	require $website_tabs_loader;
+	$full_website .= ob_get_clean();
 
-	$website .= "<script>
-	Define_Colors_And_Styles();
-	</script>"."\n\n";
-
-	if ($website_settings["custom_layout"] == False and $website_function_settings["center_website"] == False) {
-		$website .= '</center>'."\n";
-	}
-
-	$website .= '</body>
-	</html>';
-
-	$html_folder = $website_info["php_folder"].$website_info["title_language"]."/";
-	$html_index_file = $html_folder."Index.html";
-
-	if (file_exists($html_folder) == False) {
-		mkdir($html_folder);
-	}
-
-	if (file_exists($html_index_file) == True) {
-		$file_open = fopen($html_index_file, "w");
-		fwrite($file_open, $website);
-		fclose($file_open);
-	}
+	$full_website .= "<!-- End of website tabs -->"."\n";
 }
 
-if (in_array($website_info["english_title"], $year_websites) == True and $website_language != $language_geral and $website_language != $language_ptpt) {
+ob_start();
+require $website_extra_website_things;
+$full_website .= ob_get_clean();
+
+$full_website .= "<script>
+Define_Colors_And_Styles();
+</script>"."\n\n";
+
+if ($website_settings["custom_layout"] == False) {
+	$full_website .= '</center>'."\n";
+}
+
+$full_website .= '</body>
+</html>';
+
+if (in_array($website_info["english_title"], $year_websites) == True and $website_info["language"] != $language_geral and $website_info["language"] != $language_ptpt) {
 	$year_summary_file = $year_language_folders[$full_language][$website_info["english_title"]].Language_Item_Definer("Summary", "Sumário").".txt";
 
-	if ($website_info["english_title"] == "2020" and $website_language == $language_ptbr) {
+	if ($website_info["english_title"] == "2020" and $website_info["language"] == $language_ptbr) {
 		$year_summary_text = substr_replace($year_summary_text, "", -1);
 	}
 
