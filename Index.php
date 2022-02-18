@@ -6,16 +6,6 @@ $php_settings = array(
 
 $line_replace_array = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
 
-# Get the localhost link
-if (isset($host_text) == False) {
-	$host_text = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http")."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-	$return = False;
-}
-
-if (isset($host_text) == True) {
-	$return = False;
-}
-
 if (isset($_GET["website_settings"])) {
 	$get = explode(",", str_replace(array("[", "]"), "", $_GET["website_settings"]));
 }

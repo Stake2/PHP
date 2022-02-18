@@ -211,19 +211,23 @@ function Read_String($file) {
 }
 
 function Language_Item_Definer($english_variable, $portuguese_variable, $custom_language = Null) {
-	global $website_language;
+	global $website_info;
 	global $en_languages_array;
 	global $pt_languages_array;
+	global $english_words;
+	global $portuguese_words;
+
+	$local_website_language = $website_info["language"];
 
 	if ($custom_language != Null) {
-		$website_language = $custom_language;
+		$local_website_language = $custom_language;
 	}
 
-	if (in_array($website_language, $en_languages_array)) {
+	if (in_array($local_website_language, $en_languages_array) or in_array($local_website_language, $english_words)) {
 		$variable = $english_variable;
 	}
 
-	if (in_array($website_language, $pt_languages_array)) {
+	if (in_array($local_website_language, $pt_languages_array) or in_array($local_website_language, $portuguese_words)) {
 		$variable = $portuguese_variable;
 	}
 

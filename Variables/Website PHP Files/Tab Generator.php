@@ -84,7 +84,7 @@ else {
 	# Array of button codes
 	$i = 0;
 	while ($i <= $website_tab_number) {
-		$tab_codes[$i] = Remove_Non_File_Characters($website_name)."_".$tab_names[$i];
+		$tab_codes[$i] = Remove_Non_File_Characters($website_info["english_title"])."_".$tab_names[$i];
 
 		$i++;
 	}

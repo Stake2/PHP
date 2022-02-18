@@ -31,11 +31,9 @@ foreach ($website_titles as $value) {
 
 	$variables_file = $website_info["php_folder"]."Variables.php";
 	$website_style_file = $website_info["php_folder"]."Style.php";
-	$website_name_file = $website_info["php_folder"]."Name.php";
 
 	$website_variables_files[$value] = $variables_file;
 	$website_style_files[$value] = $website_style_file;
-	$website_name_files[$value] = $website_name_file;
 
 	if (file_exists($variables_file) == False) {
 		fopen($variables_file, "w", "UTF-8");
@@ -43,11 +41,6 @@ foreach ($website_titles as $value) {
 
 	if (file_exists($website_style_file) == False) {
 		fopen($website_style_file, "w", "UTF-8");
-	}
-
-	if (file_exists($website_name_file) == False) {
-		fopen($website_name_file, "w", "UTF-8");	
-		file_put_contents($website_name_file, "<?php"."\n\n"."\$local_website_name = \"".$value."\";"."\n\n"."?>");
 	}
 
 	$i++;
@@ -60,6 +53,7 @@ foreach ($website_titles as $value) {
 
 	if (file_exists($website_file) == False) {
 		fopen($website_file, "w", "UTF-8");
+		file_put_contents($website_file, "<?php \n\n\n?>");
 	}
 
 	$website_files[$value] = $website_file;

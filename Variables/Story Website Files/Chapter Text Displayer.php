@@ -7,7 +7,7 @@ $chapter_word_count = Word_Number($chapter_file);
 Show_Text($chapter_file);
 
 # Chapter date displayer
-if ($website_name != $website_titles["The Story of the Bulkan Siblings"] and $story_website_settings["has_dates"] == True) {
+if ($website_info["english_title"] != $website_titles["The Story of the Bulkan Siblings"] and $story_website_settings["has_dates"] == True) {
 	$chapter_written_dates = Read_Lines($chapter_dates_file);
 
 	echo "<br />";
