@@ -6,8 +6,6 @@ $show_computer_buttons_bar = '<button id="show_computer_buttons" class="w3-cente
 
 $open_mobile_buttons_sidebar = '<button id="show_mobile_buttons" class="w3-center w3-btn '.$first_button_style.' '.$mobile_variable.'" style="float:left;position:fixed;'.$rounded_border_style_2.'" onclick="Show_Mobile_Buttons();"><h2>'.$icons[16].'</h2></button>'."\n";
 
-$tabnamestxt = $tab_names;
-
 $local_website_tab_number = $website_tab_number;
 
 require $websites_tab_button_maker;
@@ -18,8 +16,7 @@ if ($website_info["english_title"] == $website_titles["Diary"]) {
 }
 
 if ($website_info["english_title"] == $website_titles["Watch History"]) {
-	$local_website_tab_number = $website_tab_number_less;
-	$tabnamestxt = $tab_titles_without_html;
+	$local_website_tab_number = $website_tab_number - 1;
 }
 
 $i = 0;
