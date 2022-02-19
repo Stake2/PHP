@@ -1,12 +1,12 @@
 <?php 
 
 # Website Language definer
-$array = array_merge($english_words, $en_languages_array, $portuguese_words, $pt_languages_array);
+$array = array_merge($english_words, $en_languages_array, $portuguese_words, $pt_languages_array, $other_languages);
 $english_array = array_merge($english_words, $en_languages_array);
 $portuguese_array = array_merge($portuguese_words, $pt_languages_array);
 
 foreach ($array as $local_language) {
-	$parameter_language = $_GET["language"];
+	$parameter_language = $http_method["language"];
 
 	if (in_array($parameter_language, $array)) {
 		if (in_array($parameter_language, $en_languages_array) == False and in_array($parameter_language, $pt_languages_array) == False) {

@@ -1,5 +1,50 @@
 <?php 
 
+require_once($raintpl_class_folder."autoload.php");
+
+use RainTPL\Classes\Tpl;
+
+class Make_TPL {
+	private $tpl;
+	private $options = [];
+	private $defaults = [
+		"head" => True,
+		"data" => [],
+	];
+
+	public function __construct($options = array(), $tpl_dir = "") {
+		$this -> options = array_merge($this -> defaults, $options);
+
+		$config = array(
+			"tpl_dir"       => "Variables/RainTPL/Template/".$tpl_dir,
+			"cache_dir"     => "Variables/RainTPL/Cache/",
+			"auto_escape"   => False,
+			"debug"         => True,
+		);
+
+		Tpl::configure($config);
+
+		$this -> tpl = new Tpl();
+
+		$this -> setData($this -> options["data"]);
+
+		if ($this -> options["head"] === True) {
+			$this -> setTpl("head");
+		}
+	}
+
+	private function setData($data = array()) {
+		foreach ($data as $key => $value) { 
+			$this -> tpl -> assign($key, $value);
+		}
+	}
+
+	public function setTpl($name, $data = array(), $returnHTML = False) {
+		$this -> setData($data);
+		return $this -> tpl -> draw($name, $returnHTML);
+	}
+}
+
 function Create_Database_Table($table_name, $columns_array) {
 	global $database_connection;
 
@@ -75,8 +120,9 @@ function format($text, $parameters) {
 }
 
 function Remove_Text_From_String($item, $text_to_replace = Null) {
-	global $line_replace_array;
 	global $custom_replace_values;
+
+	$line_replace_array = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
 
 	if ($text_to_replace == Null) {
 		$text_to_replace = $line_replace_array;

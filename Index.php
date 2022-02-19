@@ -1,13 +1,39 @@
 <?php
 
+session_start();
+
 $php_settings = array(
-"allow_current_year" => False,
+	"allow_current_year" => False,
 );
 
-$line_replace_array = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
+$website_request = False;
+$set_session = False;
 
-if (isset($_GET["website_settings"])) {
-	$get = explode(",", str_replace(array("[", "]"), "", $_GET["website_settings"]));
+if ($_POST == [] and isset($_SESSION["POST"]) == True) {
+	$_POST = $_SESSION["POST"];
+	$set_session = True;
+}
+
+if ($_POST != []) {
+	$_SESSION["POST"] = $_POST;
+
+	$php_settings["method"] = $_POST;
+
+	$website_request = True;
+}
+
+if ($_POST == [] and $_GET != []) {
+	$_SESSION["GET"] = $_GET;
+
+	$php_settings["method"] = $_GET;
+
+	$website_request = True;
+}
+
+$http_method = $php_settings["method"];
+
+if (isset($_POST["website_settings"])) {
+	$custom_website_settings = $_POST["website_settings"];
 }
 
 if (isset($return) == False) {
@@ -21,41 +47,20 @@ $data = date("d/m/Y");
 $website_author = "Stake2";
 $twitter_author = $website_author."_";
 
-# Website variables
-$https_text = "https://";
-$netlify_url = "netlify.app";
 $hard_drive_letter = "C";
-$mega_folder = $hard_drive_letter.":/Mega/";
-$medias_local_folder = $hard_drive_letter.":/Midias/";
 
-if (file_exists($mega_folder) == False) {
+if (file_exists($hard_drive_letter.":/Mega/") == False) {
 	$hard_drive_letter = "D";
-	$mega_folder = $hard_drive_letter.":/Mega/";
-	$medias_local_folder = $hard_drive_letter.":/Midias/";
 }
 
-$mega_folder_stake2_website = $mega_folder."Stake2 Website/";
-$subdomain_file = $mega_folder_stake2_website."Subdomain.txt";
-$main_php_folder = $mega_folder."PHP/";
+$index_variables_php_file = $hard_drive_letter.":/Mega/PHP/Variables/Index Variables.php";
 
-$php_folder_websites = $main_php_folder."Websites/";
-$php_folder_variables = $main_php_folder."Variables/";
-
-$folders_and_files_folder = $php_folder_variables."Folders and Files/";
-$global_files_folder = $php_folder_variables."Global Files/";
-$database_folder = $php_folder_variables."Database/";
-
-$v_global_php = $php_folder_variables."V_Global.php";
-$website_selector_file = $php_folder_variables."Website Selector.php";
-$main_folders_and_files = $folders_and_files_folder."Main Folders And Files.php";
+require $index_variables_php_file;
 
 $global_texts_php = $global_files_folder."Global Texts.php";
 $global_style_file_php = $global_files_folder."Global Style.php";
 
 $sql_php = $database_folder."SQL.php";
-
-$website_subdomain_name = explode("\n", fread(fopen($subdomain_file, "r", "UTF-8"), filesize($subdomain_file)))[0];
-$main_website_url = $https_text.$website_subdomain_name.".".$netlify_url."/";
 
 $website_info = array();
 
@@ -64,6 +69,59 @@ require $main_folders_and_files;
 
 # Crucial Functions PHP File Loader
 require $crucial_functions_file_php;
+
+if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
+	$slim_php = $raintpl_folder."Slim.php";
+
+	require_once $slim_php;
+
+	$app->get("/", function() {
+		$a = "";
+	});
+
+	$app->post("/", function() {
+		$a = "";
+	});
+
+	$app->get("/Website%20HTML%20File%20Generator.php", function() {
+		$a = "";
+	});
+
+	$app->get("/Select_Website", function() {
+		header("Location: /Select_Website.php");
+		exit;
+	});
+
+	$app->post("/Select", function() {
+		$form = '<form name="select_website" action="{}" method="post">
+			<select name="website" id="Websites" value="{}">
+			</select>
+			<label for="Languages"><h3>Language:</h3></label>
+				<select name="language" id="Languages" value="{}">
+				</select>
+			<button type="submit">Submit</button>
+		</form>
+		
+		<script>
+		document.forms["select_website"].submit();
+		</script>
+		';
+
+		if ($_POST["mode"] == "Code") {
+			$website = "Index.php";
+		}
+
+		if ($_POST["mode"] == "Generate") {
+			$website = "Website HTML File Generator.php";
+		}
+
+		$form = format($form, array($website, $_POST["website"], $_POST["language"]));
+
+		echo $form;
+	});
+
+	$app->run();
+}
 
 # Main Arrays PHP file loader
 require $main_arrays_php;
@@ -101,41 +159,48 @@ require $v_global_php;
 # RainTPL Loader.php require
 require $raintpl_loader;
 
-if ($return == False) {
-	// draw the template
-	$tpl->draw("Head");
+// draw the template
+$tpl->draw("Head");
 
-	echo "\n";
+echo "\n";
 
-	$tpl->draw("Body");
+$tpl->draw("Body");
 
-	$tpl->draw("Header Descriptions/".$website_info["type"]);
+$tpl->draw("Header Descriptions/".$website_info["type"]);
 
-	echo $div_close."\n";
-	echo "<!-- End of header -->";
+echo $div_close."\n";
+echo "<!-- End of header -->";
 
-	echo "\n"."\n";
+echo "\n"."\n";
 
-	if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
-		# "Tabs loader" file loader
-		echo "<!-- Start of website tabs -->"."\n";
-		require $website_tabs_loader;
-		echo "<!-- End of website tabs -->"."\n";
-	}
+echo "<br />"."<br />"."\n";
 
-	require $website_extra_website_things;
+# Select Website Form.php require
+require $select_website_form;
 
-	echo "<script>
+if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
+	echo Make_Form();
+}
+
+if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
+	# "Tabs loader" file loader
+	echo "<!-- Start of website tabs -->"."\n";
+	require $website_tabs_loader;
+	echo "<!-- End of website tabs -->"."\n";
+}
+
+require $website_extra_website_things;
+
+echo "<script>
 Define_Colors_And_Styles();
 </script>"."\n\n";
 
-	if ($website_settings["custom_layout"] == False) {
-		echo '</center>'."\n";
-	}
-
-	echo '</body>
-</html>';
+if ($website_settings["custom_layout"] == False) {
+	echo '</center>'."\n";
 }
+
+echo '</body>
+</html>';
 
 $full_website = $tpl->draw("Head", True);
 

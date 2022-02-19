@@ -1,0 +1,2 @@
+http://localhost:8080/?website={}&language={}
+http://localhost:8080/Website HTML File Generator.php?website={}&language={}
