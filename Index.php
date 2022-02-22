@@ -14,6 +14,10 @@ if ($_POST == [] and isset($_SESSION["POST"]) == True) {
 	$set_session = True;
 }
 
+if ($_POST == [] and isset($_SESSION["POST"]) == False) {
+	$php_settings["method"] = $_POST;
+}
+
 if ($_POST != []) {
 	$_SESSION["POST"] = $_POST;
 
@@ -87,7 +91,7 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 		$a = "";
 	});
 
-	$app->get("/Select_Website", function() {
+	$app->get("/Select%20Website", function() {
 		header("Location: /Select_Website.php");
 		exit;
 	});
