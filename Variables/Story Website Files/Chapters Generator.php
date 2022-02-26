@@ -92,6 +92,10 @@ $chapter_file_title_number = 1;
 
 echo "\n";
 
+if (isset($readed_number) == False) {
+	$readed_number = 0;
+}
+
 if ($story_website_settings["has_reads"] == True) {
 	require $read_generator;
 
