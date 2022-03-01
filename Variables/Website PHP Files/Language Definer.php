@@ -13,7 +13,7 @@ foreach ($array as $local_language) {
 			$website_info["language"] = $languages_by_word[ucwords($parameter_language)];
 		}
 
-		else {
+		if (in_array($parameter_language, $en_languages_array) == True or in_array($parameter_language, $pt_languages_array) == True) {
 			$website_info["language"] = $parameter_language;
 		}
 	}

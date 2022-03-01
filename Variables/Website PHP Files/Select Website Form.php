@@ -1,6 +1,7 @@
 <?php 
 
 function Make_Form($mode = "") {
+	global $php_settings;
 	global $full_tab_style;
 	global $first_button_style;
 	global $first_full_border;
@@ -92,7 +93,7 @@ function Make_Form($mode = "") {
 		}
 
 		else if (isset($_POST) == True) {
-			$form = format($form, array($_POST["website"], $websites, $_POST["language"], $languages));
+			$form = format($form, array($php_settings["method"]["website"], $websites, $php_settings["method"]["language"], $languages));
 		}
 
 		return $form;
