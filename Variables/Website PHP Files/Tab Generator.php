@@ -106,12 +106,6 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-$hide_tabs_text = "";
-
-if ($website_function_settings["hide_tabs"] == True) {
-	$hide_tabs_text = 'style="display:none;"';
-}
-
 if ($website_settings["tab_body_generator"] == False) {
 	# Array of the city body files
 	$i = 0;
@@ -237,7 +231,7 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-if ($website_info["english_title"] != $website_titles["Things I Do"] and $website_info["english_title"] != $website_titles["Watch History"]) {
+if ($website_info["english_title"] != $website_titles["Things I Do"] and $website_info["english_title"] != $website_titles["Watch History"] and $website_function_settings["website_buttons"] == True) {
 	# Require the Computer Buttons Bar Loader PHP file
 	require $website_buttons_generator_php;
 }
@@ -249,17 +243,6 @@ if ($website_function_settings["hide_tabs"] == True) {
 }
 
 $big_space = '<div class="mobileHide"><br /><br /><br /><br /><br /><br /><br /><br /></div>';
-
-$tab_template = "<a id=\"{}_id\" name=\"{}\"></a>
-<div id=\"{}\" class=\"".$tab_style."\" ".$hide_tabs_text.">".
-    $big_space."\n".
-    Create_Element("h2", $computer_variable." ".$full_tab_style, Create_Element("div", "", "<div id=\"computer_tab_content_{}\">"."\n"."{}"."\n"."</div>"."\n", "style=\"margin:3%;\""), "style=\"margin:10%;border-radius: 50px;\"")."\n"."
-</div>\n\n
-<a id=\"{}\" name=\"{}\"></a>
-<div id=\"{}\" class=\"".$tab_style_mobile."\" ".$hide_tabs_text.">".
-    $big_space."\n".
-    Create_Element("h4", $mobile_variable.' '.$full_tab_style, Create_Element("div", "", "<div id=\"mobile_tab_content_{}\">"."\n"."{}"."\n"."</div>"."\n", "style=\"margin:3%;\""), "style=\"margin:10%;border-radius: 50px;\"")."\n"."
-</div>\n\n";
 
 $div_close."\n"."\n";
 

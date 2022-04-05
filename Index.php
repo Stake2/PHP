@@ -182,7 +182,7 @@ echo "<br />"."<br />"."\n";
 # Select Website Form.php require
 require $select_website_form;
 
-if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
+if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False and $website_function_settings["select_website_form"] == True) {
 	echo Make_Form();
 }
 

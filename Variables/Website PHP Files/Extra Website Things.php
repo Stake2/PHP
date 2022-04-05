@@ -70,4 +70,8 @@ if ($website_info["english_title"] == $website_titles["My Little Pony: Friendshi
 	Show($jquery, $add_br = True);
 }
 
+if (file_exists($website_info["php_folder"]."Website Content.php")) {
+	require $website_info["php_folder"]."Website Content.php";
+}
+
 ?>

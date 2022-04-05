@@ -175,28 +175,38 @@ function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_wid
 	return $image;
 }
 
-function Make_Link($link, $link_text = Null, $link_color = Null, $new_tab = False) {
-	if ($link_color == Null) {
+function Make_Link($link, $link_text = Null, $link_color_parameter = Null, $new_tab = False, $new_window = False) {
+	if ($link_color_parameter == Null) {
 		$link_color = format('class="{}"', "w3-text-white");
 	}
 
-	if ($link_color != Null) {
-		$link_color = format('class="{}"', $link_color);
+	if ($link_color_parameter != Null) {
+		$link_color = format('class="{}"', $link_color_parameter);
 	}
 
 	if ($link_text == Null) {
 		$link_text = $link;
 	}
 
+	$target = "_self";
+	$onclick = "";
+
 	if ($new_tab == True) {
 		$target = "_blank";
 	}
 
-	if ($new_tab == False) {
-		$target = "_self";
+	if ($new_window == True) {
+		$target = "";
+		$onclick = " onclick=\"window.open('".$link."', '_blank', 'height=' + screen.height + ',width=' + screen.width + ', resizable=yes, scrollbars=yes, toolbar=yes, menubar=yes, location=yes')\" style=\"cursor: pointer;text-decoration: underline;\"";
+		$link = "";
+		$href = "";
 	}
 
-	$link_element = '<a '.$link_color.' href="'.$link.'" target="'.$target.'">'.$link_text.'</a>';
+	if ($new_window == False) {
+		$href = ' href="'.$link.'"';
+	}
+
+	$link_element = '<a '.$link_color.''.$href.' target="'.$target.'"'.$onclick.'>'.$link_text.'</a>';
 
 	return $link_element;
 }

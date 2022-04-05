@@ -3,7 +3,7 @@
 $hide_notification_attribute = "";
 
 if ($website_settings["notifications"] == True) {
-	$hide_notification_attribute = "Hide_Computer_Notification();Hide_Computer_Buttons();Hide_Mobile_Notification();";
+	$hide_notification_attribute = "Hide_Computer_Buttons();Hide_Computer_Notification();Hide_Mobile_Notification();";
 }
 
 $new_chapter_span = Create_Element("span", $third_text_color, '['.$new_text.'!]');
@@ -110,14 +110,6 @@ while ($chapter_number_1 <= $chapters) {
 		$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text).": ".$current_chapter_text."', 'notification');";
 
 		$on_click_script = 'openCity('."'".$chapter_div_text.$chapter_number_1."'".');Define_Chapter('.$chapter_number_1.');';
-
-		if ($website_settings["notifications"] == True) {
-			$hide_notification_attribute = '';
-		}
-
-		else if (isset($hide_notification_attribute)) {
-			$hide_notification_attribute = $hide_notification_attribute;
-		}
 
 		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
 
