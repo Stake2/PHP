@@ -10,6 +10,7 @@ echo "	Chapter_Number = chapter_number;"."\n";
 echo "	Define_Chapter(Chapter_Number);"."\n";
 echo "	Add_To_Website_Title(chapter_title, \"notification\");"."\n";
 echo "	Hide_Computer_Buttons();"."\n";
+echo "	console.log(\"Opened chapter number \" + chapter_number);"."\n";
 
 if ($website_settings["notifications"] == True) {
 	echo "	Hide_Computer_Notification();"."\n";
@@ -40,7 +41,7 @@ while ($i < $chapters) {
 
 	if ($website_info["english_title"] != $website_titles["Diary Slim"]) {
 		echo '
-	var first_check_'.$i2.' = second_website_url.includes(read_chapter_text + chapter_number);
+	var first_check_'.$i2.' = second_website_url.includes(read_chapter_text + '.$i2.');
 	var second_check_'.$i2.' = second_website_url.includes(read_chapter_text + "['.$i2.']");
 	var third_check_'.$i2.' = second_website_url.includes(read_chapter_text + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
 	var fourth_check_'.$i2.' = second_website_url.includes(read_chapter_text + "%22'.$i2.'%22");
@@ -79,7 +80,7 @@ while ($i < $chapters) {
 	$i++;
 }
 
-echo "}"."\n".
+echo "}"."\n"."\n".
 'console.log("Open Chapter Script was loaded.");'."\n";
 
 echo "\n";
