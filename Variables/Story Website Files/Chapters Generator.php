@@ -16,7 +16,7 @@ $chapter_date_number = 1;
 $array_index = 1;
 $chapter_file_title_number = 1;
 
-while ($array_index <= $chapters) {
+while ($array_index <= $story_info["chapter_number"]) {
 	$array_index_less_one = $array_index - 1;
 
 	$new_chapter_file_title_number = Add_Leading_Zeros($chapter_file_title_number);
@@ -51,7 +51,7 @@ while ($array_index <= $chapters) {
 $array_index = 1;
 $chapter_file_title_number = 1;
 
-while ($array_index <= $chapters) {
+while ($array_index <= $story_info["chapter_number"]) {
 	$array_index_less_one = $array_index - 1;
 
 	$main_story_folder_4 = $story_chapter_files_folder.strtoupper($enus_language).'/';
@@ -78,7 +78,7 @@ if ($story_website_settings["has_dates"] == True) {
 
 	$chapter_dates = Read_Lines($chapter_dates_file);
 
-	while ($array_index <= $chapters) {
+	while ($array_index <= $story_info["chapter_number"]) {
 		$array_index_less_one = $array_index - 1;
 
 		$chapter_dates[$array_index] = Remove_Text_From_String($chapter_dates[$array_index]);
@@ -117,7 +117,7 @@ $a = 1;
 echo '<div id="'.mb_strtolower($chapters_text).'-div">'."\n";
 
 # Chapter reader/writer/displayer, it generates the tabs for the chapters to be read by the user
-while ($chapter_number_1 <= $chapters) {
+while ($chapter_number_1 <= $story_info["chapter_number"]) {
 	require $chapter_tab_generator_php;
 }
 

@@ -29,14 +29,14 @@ if ($website_function_settings["image_link_button"] == True) {
 	$website_image_button_computer = "<!-- Computer website image link button -->"."\n".
 	'<div class="'.$computer_variable.' w3-center">'."\n".
 	'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
-	'<'.$h4_element.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
+	'<'.$h4_element.'>'.ucfirst($website_open_image_in_new_tab_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
 	'</button>'."\n".
 	$div_close."\n";
 
 	$website_image_button_mobile = "<!-- Mobile website image link button -->"."\n".
 	'<div class="'.$mobile_variable.' w3-center">'."\n".
 	'<button class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="window.open('."'".$website_image_link."'".')">'."\n".
-	'<'.$h4_element.'>'.ucfirst($website_image_link_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
+	'<'.$h4_element.'>'.ucfirst($website_open_image_in_new_tab_text).': '.$icons[2].'</'.$h4_element.'>'."\n".
 	'</button>'."\n".
 	$div_close."\n";
 }

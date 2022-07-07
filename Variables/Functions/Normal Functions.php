@@ -256,7 +256,7 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	global $story_readers_number_file;
 	global $computer_variable;
 	global $mobile_variable;
-	global $readers;
+	global $story_info;
 	global $h2_element;
 	global $h4_element;
 	global $text_hover_white_css_class;
@@ -273,7 +273,7 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	while ($i <= $story_readers_number_file) {
 		$i2 = $i + 1;
 
-		$reader_name = $readers[$i];
+		$reader_name = $story_info["readers"][$i];
 
 		$reader_number_text = Create_Element("span", $number_text_color, $i2);
 		$reader_name_text = Create_Element($h2_element, $classes, $reader_number_text." - ".$reader_name);
@@ -291,7 +291,7 @@ function Show_Story_Readers($text_color, $number_text_color, $hover_color) {
 	while ($i <= $story_readers_number_file) {
 		$i2 = $i + 1;
 
-		$reader_name = $readers[$i];
+		$reader_name = $story_info["readers"][$i];
 
 		$reader_number_text = Create_Element("span", $number_text_color, $i2);
 		$reader_name_text = Create_Element($h2_element, $classes, $reader_number_text." - ".$reader_name);

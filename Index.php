@@ -36,10 +36,6 @@ if ($_POST == [] and $_GET != []) {
 
 $http_method = $php_settings["method"];
 
-if (isset($_POST["website_settings"])) {
-	$custom_website_settings = $_POST["website_settings"];
-}
-
 if (isset($return) == False) {
 	$return = False;
 }
@@ -97,18 +93,21 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 	});
 
 	$app->post("/Select", function() {
-		$form = '<form name="select_website" action="{}" method="post">
-			<select name="website" id="Websites" value="{}">
-			</select>
-			<label for="Languages"><h3>Language:</h3></label>
-				<select name="language" id="Languages" value="{}">
-				</select>
-			<button type="submit">Submit</button>
-		</form>
-		
-		<script>
-		document.forms["select_website"].submit();
-		</script>
+		$form = '<form name="select_website" action="{}" method="post" style="display: none;">
+	<label for="Websites"><h3>Websites:</h3></label>
+	<select name="website" id="Websites" value="{}">
+	</select>
+	<label for="Languages"><h3>Language:</h3></label>
+	<select name="language" id="Languages" value="{}">
+	</select>
+	<select name="website_settings" value="{}">
+	<select name="story_website_settings" value="{}">
+	<button type="submit">Submit</button>
+</form>
+
+<script>
+	document.forms["select_website"].submit();
+</script>
 		';
 
 		if ($_POST["mode"] == "Code") {
@@ -116,10 +115,11 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 		}
 
 		if ($_POST["mode"] == "Generate") {
+			$_POST["website_setting"] = "nothing";
 			$website = "Website HTML File Generator.php";
 		}
 
-		$form = format($form, array($website, $_POST["website"], $_POST["language"]));
+		$form = format($form, array($website, $_POST["website"], $_POST["language"], $_POST["website_setting"], $_POST["story_website_setting"]));
 
 		echo $form;
 	});
@@ -156,6 +156,13 @@ require $global_texts_php;
 
 # Website selector file require
 require $website_selector_file;
+
+# Check website setting and story website setting on $_POST
+Check_Website_Setting();
+
+if (strpos($_SERVER["REQUEST_URI"], "Index.php") == True and $website_settings["notifications"] == True) {
+	$website_settings["notifications"] = False;
+}
 
 # V_Global.php variables file require
 require $v_global_php;

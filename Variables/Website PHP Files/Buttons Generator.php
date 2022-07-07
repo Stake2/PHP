@@ -167,7 +167,7 @@ if ($website_info["english_title"] == $website_titles["Watch History"]) {
 }
 
 if ($website_settings["use_custom_buttons_bar"] == False) {
-	if (isset($readers) == True and $readers[0] == "No Readers - Sem Leitores") {
+	if (isset($story_info["readers"]) == True and $story_info["readers"][0] == "No Readers - Sem Leitores") {
 		unset($computer_buttons[1]);
 		$computer_buttons = array_values($computer_buttons);
 

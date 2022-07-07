@@ -25,23 +25,23 @@ if ($website_settings["custom_layout"] == False) {
 if ($website_info["type"] == $story_website_type) {
 	$text_to_show = "\n"."<script>"."\n".
 	"Chapter_Number = 1;"."\n".
-	"var Last_Chapter = ".$chapters.";"."\n";
+	"var Last_Chapter = ".$story_info["chapter_number"].";"."\n";
 
 	if ($story_website_settings["has_titles"] == True) {
-		$text_to_show .= "var Last_Chapter_Title = \"".$chapters." - ".$chapter_titles[($chapters - 1)]."\";"."\n";
+		$text_to_show .= "var Last_Chapter_Title = \"".$story_info["chapter_number"]." - ".$chapter_titles[($story_info["chapter_number"] - 1)]."\";"."\n";
 	}
 
 	else {
-		$text_to_show .= "var Last_Chapter_Title = \"".$chapters."\";"."\n";
+		$text_to_show .= "var Last_Chapter_Title = \"".$story_info["chapter_number"]."\";"."\n";
 	}
 
 	$text_to_show .= "</script>";
 
 	echo $text_to_show;
 
-	echo "<script>"."\n".
-	"Get_Title();"."\n".
-	"</script>"."\n";
+	echo '<script>
+	Get_Title();
+</script>'."\n";
 }
 
 # Website notification script link includer if setting is True

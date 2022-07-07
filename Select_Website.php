@@ -95,6 +95,8 @@ require $select_website_form;
 $_SESSION["POST"] = array(
 	"website" => Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata"),
 	"language" => "ptbr",
+	"website_setting" => "notifications",
+	"story_website_setting" => "nothing"
 );
 
 unset($_POST);
@@ -179,12 +181,6 @@ require_once $slim_php;
 
 $app->get("/Select_Website", function() {
 	header("Location: /Select_Website.php");
-	exit;
-});
-
-$app->post("/Select", function() {
-	var_dump($_POST);
-	header("Location: /Select.php");
 	exit;
 });
 

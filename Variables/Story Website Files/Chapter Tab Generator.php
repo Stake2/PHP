@@ -38,7 +38,7 @@ $new_chapter_span = Create_Element("span", $third_text_color, '<b>['.$new_text.'
 
 # "You're Reading [Story]" top text displayer
 if ($story_website_settings["use_status"] == True) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3] and $story_website_settings["show_new_chapter_text"] == True) {
+	if ($chapter_number_1 == $story_info["chapter_number"] and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3] and $story_website_settings["show_new_chapter_text"] == True) {
 		echo '<div class="'.$computer_variable.'">'.'<'.$h2_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$new_chapter_span.'<br />'.$div_close.'</'.$h2_element.'>'.$div_close."\n";
 
 		echo '<div class="'.$mobile_variable.'">'.'<'.$h4_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$new_chapter_span.$div_close.'</'.$h4_element.'>'.$div_close."\n";
@@ -56,7 +56,7 @@ if ($story_website_settings["use_status"] == True) {
 }
 
 else {
-	if ($chapter_number_1 == $chapters and $story_website_settings["show_new_chapter_text"] == True) {
+	if ($chapter_number_1 == $story_info["chapter_number"] and $story_website_settings["show_new_chapter_text"] == True) {
 		echo '<div class="'.$computer_variable.'">'.'<'.$h2_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$new_chapter_span.'<br />'.$div_close.'</'.$h2_element.'>'.$div_close."\n";
 
 		echo '<div class="'.$mobile_variable.'">'.'<'.$h4_element.' class="'.$alternative_full_tab_style.'" style="'.$roundedborderstyle5.'">'.$div_zoom_animation.'<br />'.$top_and_bottom_chapter_text.$new_chapter_span.$div_close.'</'.$h4_element.'>'.$div_close."\n";
@@ -101,7 +101,7 @@ else {
 }
 
 # Top Next chapter button
-if ($chapter_number_1 != $chapters and $chapter_number_1 != $chapters + 1) {
+if ($chapter_number_1 != $story_info["chapter_number"] and $chapter_number_1 != $story_info["chapter_number"] + 1) {
 	if ($story_website_settings["has_titles"] == True) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1)." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
 	}
@@ -181,7 +181,7 @@ if ($chapter_number_1 != 1) {
 }
 
 # Bottom Next chapter button
-if ($chapter_number_1 != $chapters) {
+if ($chapter_number_1 != $story_info["chapter_number"]) {
 	if ($story_website_settings["has_titles"] == True) {
 		$chapter_number_and_text = " - ".ucwords($chapter_text). ": ".($chapter_number_4 + 1)." - ".str_replace("'", "", $chapter_titles[$chapter_number_4]);
 	}
@@ -213,7 +213,7 @@ $i_read_it_button_text = $i_read_it_text." ".$icons_array["reader"];
 # Computer "I Read it" button
 if ($story_website_settings["has_reads"] == True) {
 	echo '<div class="'.$computer_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="readbtn'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$i_read_it_button_text.'</b></h3></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$computer_variable.'" id="read_button_'.$a.'" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><h3><b>'.$i_read_it_button_text.'</b></h3></button>'."\n";
 	echo $div_close."\n";
 }
 
@@ -226,7 +226,7 @@ if ($story_website_settings["chapter_comments"] == True) {
 	echo "\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$h4_element.'><b>'.$to_comment_button_text.')</b></'.$h4_element.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'_mobile" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$h4_element.'><b>'.$to_comment_button_text.')</b></'.$h4_element.'></button>'."\n";
 	echo '<br /><br />'."\n";
 	echo $div_close."\n";
 }
@@ -234,7 +234,7 @@ if ($story_website_settings["chapter_comments"] == True) {
 # Mobile "I Read it" button
 if ($story_website_settings["has_reads"] == True) {
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="readbtn'.$a.'m" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'modal-read-'.$a."m')".'"><'.$h4_element.'><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></'.$h4_element.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="read_button_'.$a.'_mobile" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'read-modal-'.$a."m')".'"><'.$h4_element.'><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></'.$h4_element.'></button>'."\n";
 	echo $div_close."\n";
 	echo '<br /><div class="'.$mobile_variable.'"><br /><br />'."\n".'</div>'."\n";
 }
@@ -245,7 +245,7 @@ if ($story_website_settings["has_reads"] == False) {
 
 # "You're Reading [Story]" bottom text
 if ($story_website_settings["use_status"] == True) {
-	if ($chapter_number_1 == $chapters and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3] and $story_website_settings["show_new_chapter_text"] == True) {
+	if ($chapter_number_1 == $story_info["chapter_number"] and $story_status != $story_status_texts[0] and $story_status != $story_status_texts[3] and $story_website_settings["show_new_chapter_text"] == True) {
 		echo '<div style="text-align:center;">'."\n".
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".
@@ -272,7 +272,7 @@ if ($story_website_settings["use_status"] == True) {
 }
 
 else {
-	if ($chapter_number_1 == $chapters and $story_website_settings["show_new_chapter_text"] == True) {
+	if ($chapter_number_1 == $story_info["chapter_number"] and $story_website_settings["show_new_chapter_text"] == True) {
 		echo '<div style="text-align:center;">'."\n".
 		$div_zoom_animation."\n".
 		'<span class="'.$alternative_full_tab_style.'">'."\n".

@@ -36,7 +36,7 @@ function Check_Chapter_Number_On_Link() {'."\n".
 	var chapter_number = '.$i2.';'."\n";
 
 $i = 0;
-while ($i < $chapters) {
+while ($i < $story_info["chapter_number"]) {
 	$i2 = $i + 1;
 
 	if ($website_info["english_title"] != $website_titles["Diary Slim"]) {
@@ -57,7 +57,7 @@ while ($i < $chapters) {
 echo "\n"."\n";
 
 $i = 0;
-while ($i < $chapters) {
+while ($i < $story_info["chapter_number"]) {
 	$i2 = $i + 1;
 
 	if ($website_info["english_title"] != $website_titles["Diary Slim"]) {
@@ -73,7 +73,7 @@ while ($i < $chapters) {
 	echo '		Open_Chapter(chapter_title, current_chapter_number);'."\n";
 	echo '	}'."\n";
 
-	if ($i != $chapters) {
+	if ($i != $story_info["chapter_number"]) {
 		echo "\n";
 	}
 

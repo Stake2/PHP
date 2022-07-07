@@ -2,6 +2,7 @@
 
 $i = 1;
 $cover_number = $revised_chapter;
+
 while ($i <= $cover_number) {
 	$chapter_number_and_text = "Add_To_Website_Title('"." - ".ucwords($chapter_text). ": ".$i." - ".$chapter_titles[$i - 1]."');";
 
