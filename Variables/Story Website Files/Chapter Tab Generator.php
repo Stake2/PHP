@@ -226,7 +226,7 @@ if ($story_website_settings["chapter_comments"] == True) {
 	echo "\n";
 	echo '<div class="'.$mobile_variable.'"><br /><br />'."\n".$div_close."\n";
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'_mobile" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$h4_element.'><b>'.$to_comment_button_text.')</b></'.$h4_element.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="comment_button_'.$a.'_mobile" style="margin-left:15px;float:right;'.$rounded_border_style_2.'"><'.$h4_element.'><b>'.$to_comment_button_text.'</b></'.$h4_element.'></button>'."\n";
 	echo '<br /><br />'."\n";
 	echo $div_close."\n";
 }
@@ -234,7 +234,7 @@ if ($story_website_settings["chapter_comments"] == True) {
 # Mobile "I Read it" button
 if ($story_website_settings["has_reads"] == True) {
 	echo '<div class="'.$mobile_variable.'">'."\n";
-	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="read_button_'.$a.'_mobile" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'read-modal-'.$a."m')".'"><'.$h4_element.'><b>'.$i_read_it_text.' ('.$readed_number.' '.$icons[20].')</b></'.$h4_element.'></button>'."\n";
+	echo '<button class="w3-btn '.$second_button_style.' '.$mobile_variable.'" id="read_button_'.$a.'_mobile" style="margin-left:15px;float:right;'.$rounded_border_style_2.'" onclick="openCity('."'".'read-modal-'.$a."_mobile')".'"><'.$h4_element.'><b>'.$i_read_it_button_text.'</b></'.$h4_element.'></button>'."\n";
 	echo $div_close."\n";
 	echo '<br /><div class="'.$mobile_variable.'"><br /><br />'."\n".'</div>'."\n";
 }
@@ -309,7 +309,7 @@ else {
 
 echo '</h5>'."\n";
 
-if ($story_website_settings["chapter_comments"] == True and $story_website_contains_comments == True) {
+if ($story_website_settings["chapter_comments"] == True) {
 	require $chapter_comment_and_read_displayer_php;
 }
 
