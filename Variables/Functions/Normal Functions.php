@@ -69,14 +69,9 @@ function Line_Number($file) {
 function Word_Number($file) {
 	$file_read = Open_File($file);
 
-	$lines = Read_Lines($file);
-	$lines_text = "";
+	$lines = Read_Lines($file, False, True);
 
-	foreach ($lines as $line) {
-		$lines_text .= $line;
-	}
-
-	$words = number_format(str_word_count($lines_text));
+	$words = number_format(str_word_count($lines));
 
 	return $words;
 }
@@ -325,11 +320,15 @@ function Remove_Leading_Zeros($number) {
 function Stringfy_Array($array, $add_br = False) {
 	$string_array = "";
 
-	foreach ($array as $text) {
-		$string_array .= $text;
+	foreach ($array as $line) {
+		$string_array .= $line;
 
 		if ($add_br == True) {
-			$string_array .= "<br />"."\n";
+			$string_array .= "<br />";
+		}
+
+		if ($line != array_reverse($array)[0]) {
+			$string_array .= "\n";
 		}
 	}
 

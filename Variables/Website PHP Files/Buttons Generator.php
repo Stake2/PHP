@@ -56,11 +56,12 @@ if ($website_function_settings["website_buttons"] == True) {
 		$i++;
 	}
 
-	$hide_computer_buttons_element = $hide_computer_buttons_bar.
+	$hide_computer_buttons_element = $hide_computer_buttons_bar."\n".
 	$div_close."\n"."\n".
 	'<!-- "Show Computer Buttons" button bar -->'."\n".
 	'<div id="show_computer_button_bar" class="w3-bar" style="position:fixed;float:right;">'."\n".
-	$show_computer_buttons_bar.$div_close;
+	$show_computer_buttons_bar."\n".
+	$div_close."\n";
 
 	#######################################
 

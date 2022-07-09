@@ -31,30 +31,31 @@ else {
 # Comment Style definer
 $comment_style = $additional_background_color." ".$text_black_css_class." ".$border_3px_solid_black_css_class;
 
-if ($local_comment_number > 1 and $comment_dates != Null) {
+$datetime = new DateTime();
+
+if ($local_comment_number != Null) {
 	$comment_number = 1;
 
 	while ($comment_number <= $local_comment_number) {
-		$comment_date = date("H:i d/m/Y", strtotime($comment_dates[$comment_number]));
+		$datetime -> setTimestamp(strtotime($comment_dates[$comment_number]));
+		$comment_date = $datetime -> format($website_info["date_format"]);
+
 		$commenter = $commenters[$comment_number];
 		$current_comment = $comments[$comment_number];
 
-		$comment = '<'.$h4_element.' class="'.$comment_style.'" style="text-align:left;'.$rounded_border_style_2.'">'."\n";
-
-		$comment .= '<div style="margin-left:5%;margin-right:5%;">'."\n".'<br />'."\n";
-		
-		$comment .= '<b>'.$comment_number.' - '.$commenter."</b><br />";
-
-		$comment .= "<b>".$commented_on_text.": "."</b>".$comment_date."\n".'<br />';
-
-		# Chapter text and title
-		if ($show_chapter_on_comment == True) {
-			$comment .= substr($chapters_text, 0, -1).':</b> '.$chapter_titles[$chapter_number_3].'<br />'."<b>"."\n";
+		if ($local_comment_number == 1) {
+			$commenter_text = $commenter;
 		}
 
-		$comment .= '<hr class="'.$third_full_border.'" />'.$current_comment."\n".'<br /><br /><br /><br /><br />'."\n";
+		if ($local_comment_number > 1) {
+			$commenter_text = $comment_number." - ".$commenter;
+		}
 
-		$comment .= $div_close."\n".'</'.$h4_element.'>'."\n"."<br />"."\n"."\n";
+		$comment_data = array($commenter_text, $commented_in_text, $comment_date);
+
+		array_push($comment_data, $current_comment);
+
+		$comment = format($comment_card_template, $comment_data);
 
 		$website_comments_array[$comment_number] = $comment;
 

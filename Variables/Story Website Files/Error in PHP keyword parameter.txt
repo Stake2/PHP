@@ -1,5 +1,0 @@
-```$lapis_lazuli_steven_universe = Make_Linked_Image($link, $is_chapter_image = False, $computer_width = "40", $has_space = False);
-
-function Make_Linked_Image($image_link, $is_chapter_image = False, $computer_width = Null, $custom_image_style = Null, $has_space = True) {```
-
-The value of the ``$custom_image_style`` keyword parameter is being the value of ``$has_space = False`` even if I typed the equal sign there

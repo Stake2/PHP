@@ -210,7 +210,6 @@ function Read_Lines($file, $add_none = False, $read_string = False) {
 			$string = "";
 
 			foreach ($array as $line) {
-				echo $line;
 				if ($line != array_reverse($array)[0]) {
 					$string .= $line."<br />"."\n";
 				}
@@ -229,7 +228,7 @@ function Read_Lines($file, $add_none = False, $read_string = False) {
 	}
 }
 
-function Read_String($file) {
+function Read_String($file, $add_br = True) {
 	$file_read = Open_File($file);
 
 	if ($file_read != Null) {
@@ -239,7 +238,7 @@ function Read_String($file) {
 		$string = "";
 
 		foreach ($array as $line) {
-			if ($line != array_reverse($array)[0]) {
+			if ($line != array_reverse($array)[0] and $add_br == True) {
 				$string .= $line."<br />"."\n";
 			}
 

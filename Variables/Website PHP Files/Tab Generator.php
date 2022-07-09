@@ -136,7 +136,7 @@ if ($website_settings["tab_body_generator"] == False) {
 
 if ($website_info["english_title"] == $website_titles["Watch History"]) {
 	# Include the buttons loader PHP file
-	require $website_buttons_generator_php;
+	require $buttons_generator;
 
 	# Every Watched Button Computer
 	$every_watched_button_computer = $computer_buttons[0].$computer_buttons[2].$computer_buttons[3];
@@ -147,7 +147,7 @@ if ($website_info["english_title"] == $website_titles["Watch History"]) {
 
 if ($website_info["english_title"] == $website_titles["Things I Do"]) {
 	# Include the buttons loader PHP file
-	require $website_buttons_generator_php;
+	require $buttons_generator;
 }
 
 #City body files includer
@@ -164,7 +164,7 @@ while ($i <= $website_tab_number) {
 
 if ($website_info["english_title"] == $website_titles["Things I Do"]) {
 	# Include the buttons loader PHP file
-	require $website_buttons_generator_php;
+	require $buttons_generator;
 }
 
 # Stories Tab includer if the setting is True
@@ -233,7 +233,7 @@ while ($i <= $website_tab_number) {
 
 if ($website_info["english_title"] != $website_titles["Things I Do"] and $website_info["english_title"] != $website_titles["Watch History"] and $website_function_settings["website_buttons"] == True) {
 	# Require the Computer Buttons Bar Loader PHP file
-	require $website_buttons_generator_php;
+	require $buttons_generator;
 }
 
 $hide_tabs_text = "";

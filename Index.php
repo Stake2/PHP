@@ -41,8 +41,6 @@ if (isset($return) == False) {
 }
 
 $current_year = strftime("%Y");
-date_default_timezone_set("America/Sao_Paulo");
-$data = date("d/m/Y");
 
 $website_author = "Stake2";
 $twitter_author = $website_author."_";
@@ -76,15 +74,15 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 	require_once $slim_php;
 
 	$app->get("/", function() {
-		$a = "";
+		$useless_variable = "";
 	});
 
 	$app->post("/", function() {
-		$a = "";
+		$useless_variable = "";
 	});
 
 	$app->get("/Website%20HTML%20File%20Generator.php", function() {
-		$a = "";
+		$useless_variable = "";
 	});
 
 	$app->get("/Select%20Website", function() {
@@ -166,6 +164,18 @@ if (strpos($_SERVER["REQUEST_URI"], "Index.php") == True and $website_settings["
 
 # V_Global.php variables file require
 require $v_global_php;
+
+Write_To_File($websites_list_folder."Mixed Websites.txt", Stringfy_Array($mixed_websites));
+
+Write_To_File($websites_list_folder."English Websites.txt", Stringfy_Array($websites));
+Write_To_File($websites_list_text_files_local."English Websites.txt", Stringfy_Array($keyed_english_websites));
+
+Write_To_File($websites_list_folder."Portuguese Websites.txt", Stringfy_Array(array_values($website_portuguese_titles)));
+
+Write_To_File($websites_list_folder."Portuguese Websites Keyed.txt", Stringfy_Array($keyed_portuguese_websites));
+Write_To_File($websites_list_text_files_local."Portuguese Websites Keyed.txt", Stringfy_Array($keyed_portuguese_websites));
+
+Write_To_File($websites_list_folder."English Websites Keyed.txt", Stringfy_Array($keyed_english_websites));
 
 # RainTPL Loader.php require
 require $raintpl_loader;
