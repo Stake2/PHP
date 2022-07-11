@@ -204,7 +204,7 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False and $website_func
 	echo Make_Form();
 }
 
-if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False) {
+if ($website_function_settings["tabs"] == True and $website_settings["custom_layout"] == False and $website_info["language"] != $language_geral) {
 	# "Tabs loader" file loader
 	echo "<!-- Start of website tabs -->"."\n";
 	require $website_tabs_loader;
@@ -213,12 +213,10 @@ if ($website_function_settings["tabs"] == True and $website_settings["custom_lay
 
 require $website_extra_website_things;
 
-echo "<script>
-Define_Colors_And_Styles();
-</script>"."\n\n";
-
-if ($website_settings["custom_layout"] == False) {
-	echo '</center>'."\n";
+if ($website_info["language"] != $language_geral) {
+	echo "<script>"."\n".
+	"Define_Colors_And_Styles();"."\n".
+	"</script>"."\n\n";
 }
 
 echo '</body>
@@ -253,9 +251,11 @@ ob_start();
 require $website_extra_website_things;
 $full_website .= ob_get_clean();
 
-$full_website .= "<script>
-Define_Colors_And_Styles();
-</script>"."\n\n";
+if ($website_info["language"] != $language_geral) {
+	$full_website .= "<script>"."\n".
+	"Define_Colors_And_Styles();"."\n".
+	"</script>"."\n\n";
+}
 
 if ($website_settings["custom_layout"] == False) {
 	$full_website .= '</center>'."\n";
@@ -264,7 +264,7 @@ if ($website_settings["custom_layout"] == False) {
 $full_website .= '</body>
 </html>';
 
-if (in_array($website_info["english_title"], $year_websites) == True and $website_info["language"] != $language_geral and $website_info["language"] != $language_ptpt) {
+if (in_array($website_info["english_title"], $year_websites) == True) {
 	$year_summary_file = $year_language_folders[$full_language][$website_info["english_title"]].Language_Item_Definer("Summary", "Sumário").".txt";
 
 	if ($website_info["english_title"] == "2020" and $website_info["language"] == $language_ptbr) {

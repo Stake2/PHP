@@ -8,8 +8,6 @@ $chapter_number_4a = 0;
 $chapter_number_7 = 0;
 $chapter_date_number = 1;
 
-#$readings_array = array(Null);
-
 # Chapter file text link array generator, it generates the array to access the text files of the chapters
 $array_index = 1;
 $chapter_file_title_number = 1;

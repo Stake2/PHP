@@ -134,7 +134,7 @@ if ($website_settings["tab_body_generator"] == False) {
 	}
 }
 
-if ($website_info["english_title"] == $website_titles["Watch History"]) {
+if ($website_info["english_title"] == $website_titles["Watch History"] and $website_info["language"] != $language_geral) {
 	# Include the buttons loader PHP file
 	require $buttons_generator;
 
@@ -145,7 +145,7 @@ if ($website_info["english_title"] == $website_titles["Watch History"]) {
 	$every_watched_button_mobile = $mobile_buttons[0].$mobile_buttons[2].$mobile_buttons[3];
 }
 
-if ($website_info["english_title"] == $website_titles["Things I Do"]) {
+if ($website_info["english_title"] == $website_titles["Things I Do"] and $website_info["language"] != $language_geral) {
 	# Include the buttons loader PHP file
 	require $buttons_generator;
 }
@@ -153,7 +153,7 @@ if ($website_info["english_title"] == $website_titles["Things I Do"]) {
 #City body files includer
 $i = 0;
 while ($i <= $website_tab_number) {
-	if (isset($city_body_files[$i])) {
+	if (isset($city_body_files[$i]) and $website_info["language"] != $language_geral) {
 		if (file_exists($city_body_files[$i])) {
 			require $city_body_files[$i];
 		}
@@ -162,7 +162,7 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-if ($website_info["english_title"] == $website_titles["Things I Do"]) {
+if ($website_info["english_title"] == $website_titles["Things I Do"] and $website_info["language"] != $language_geral) {
 	# Include the buttons loader PHP file
 	require $buttons_generator;
 }
@@ -172,7 +172,7 @@ if ($website_settings["has_stories_tab"] == True) {
 	require $story_variables_php;
 }
 
-if ($website_settings["tab_body_generator"] == True) {
+if ($website_settings["tab_body_generator"] == True and $website_info["language"] != $language_geral) {
 	require $website_tab_bodies_generator;
 }
 
@@ -180,7 +180,7 @@ $first_number = 0;
 $second_number = 1;
 
 # "Tab Contents" array generator
-while ($first_number <= $website_tab_number + 1) {
+while ($first_number <= $website_tab_number + 1 and $website_info["language"] != $language_geral) {
 	$tab_contents_file = $website_info["php_folder"]."Tabs/Contents/".$second_number.'.php';
 
 	if (file_exists($tab_contents_file) == True) {
@@ -208,7 +208,7 @@ $i = 0;
 while ($i <= $website_tab_number) {
 	$i2 = $i + 1;
 
-	if (isset($tab_bodies[$i])) {
+	if (isset($tab_bodies[$i]) and $website_info["language"] != $language_geral) {
 		if (isset($tab_html_titles)) {
 			$content_of_tabs[$i] = $tab_html_titles[$i].$tab_bodies[$i].$tab_contents[$i];
 		}
@@ -219,11 +219,11 @@ while ($i <= $website_tab_number) {
 	}
 
 	else {
-		if (isset($tab_html_titles)) {
+		if (isset($tab_html_titles) and $website_info["language"] != $language_geral) {
 			$content_of_tabs[$i] = $tab_html_titles[$i].$tab_contents[$i];
 		}
 
-		if (!isset($tab_html_titles)) {
+		if (!isset($tab_html_titles) and $website_info["language"] != $language_geral) {
 			$content_of_tabs[$i] = $tab_contents[$i];
 		}
 	}
@@ -231,7 +231,7 @@ while ($i <= $website_tab_number) {
 	$i++;
 }
 
-if ($website_info["english_title"] != $website_titles["Things I Do"] and $website_info["english_title"] != $website_titles["Watch History"] and $website_function_settings["website_buttons"] == True) {
+if ($website_info["english_title"] != $website_titles["Things I Do"] and $website_info["english_title"] != $website_titles["Watch History"] and $website_function_settings["website_buttons"] == True and $website_info["language"] != $language_geral) {
 	# Require the Computer Buttons Bar Loader PHP file
 	require $buttons_generator;
 }
@@ -248,7 +248,7 @@ $div_close."\n"."\n";
 
 # Array of the Generic Tabs PHP Files
 $i = 0;
-while ($i <= $website_tab_number) {
+while ($i <= $website_tab_number and $website_info["language"] != $language_geral) {
 	$i2 = $i + 1;
 
 	$array_to_format = array(

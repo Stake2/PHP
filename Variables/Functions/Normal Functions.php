@@ -80,30 +80,21 @@ function Write_To_File($file, $text) {
 	file_put_contents($file, $text);
 }
 
-function Language_Item_Definer_Per_Language($enus_item, $ptbr_item, $ptpt_item, $same_from_ptbr = False, $general_item = Null) {
+function Language_Item_Definer_Per_Language($en_item, $pt_item, $general_item = Null) {
 	global $website_info;
 	global $language_enus;
 	global $language_ptbr;
-	global $language_ptpt;
 
 	if ($general_item != Null and $website_info["language"] == $language_geral) {
 		return $general_item;
 	}
 
 	if ($website_info["language"] == $language_enus) {
-		return $enus_item;
+		return $en_item;
 	}
 
 	if ($website_info["language"] == $language_ptbr) {
-		return $ptbr_item;
-	}
-
-	if ($website_info["language"] == $language_ptpt and $same_from_ptbr == False) {
-		return $ptpt_item;
-	}
-
-	if ($website_info["language"] == $language_ptpt and $same_from_ptbr == True) {
-		return $ptbr_item;
+		return $pt_item;
 	}
 }
 
@@ -335,11 +326,11 @@ function Stringfy_Array($array, $add_br = False) {
 	return $string_array;
 }
 
-function Mix_Arrays($first_array, $second_array, $left_or_right = Null, $additional_value = False) {
+function Mix_Arrays($the_first_array, $the_the_second_array, $left_or_right = Null, $additional_value = False) {
 	global $left_english_text;
 	global $right_english_text;
 
-	$length = count($first_array) - 1;
+	$length = count($the_first_array) - 1;
 
 	if ($additional_value != False) {
 		$additional_value_direction = $additional_value[1];
@@ -348,8 +339,8 @@ function Mix_Arrays($first_array, $second_array, $left_or_right = Null, $additio
 
 	$i = 0;
 	while ($i <= $length) {
-		$first_value = $first_array[$i];
-		$second_value = $second_array[$i];
+		$first_value = $the_first_array[$i];
+		$second_value = $the_the_second_array[$i];
 
 		if ($additional_value != False) {
 			if ($additional_value_direction == $left_english_text) {
@@ -362,19 +353,19 @@ function Mix_Arrays($first_array, $second_array, $left_or_right = Null, $additio
 		}
 
 		if ($left_or_right == $left_english_text) {
-			$value = $second_value.$first_value;
+			$local_value = $second_value.$first_value;
 		}
 
 		if ($left_or_right == $right_english_text) {
-			$value = $first_value.$second_value;
+			$local_value = $first_value.$second_value;
 		}
 
-		$first_array[$i] = $value;
+		$the_first_array[$i] = $local_value;
 
 		$i++;
 	}
 
-	return $first_array;
+	return $the_first_array;
 }
 
 function Make_Button_Names() {

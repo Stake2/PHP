@@ -41,16 +41,12 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
-if (isset($website_info["equal_website_title"]) or $website_settings["new_language_style"] == True) {
-	$local_website_title = $website_info["english_title"];
-}
-
 if (isset($website_info["website_folder_name"]) == True) {
 	$local_website_title = $website_info["website_folder_name"];
 }
 
-else {
-	$local_website_title = $website_info["language_title"];
+if (isset($website_info["website_folder_name"]) == False) {
+	$local_website_title = $website_info["english_title"];
 }
 
 $root_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($local_website_title)."/";
@@ -79,38 +75,6 @@ if (file_exists($html_folder) == False) {
 
 $html_index_file = $html_folder."Index.html";
 
-$update_two_html_files = False;
-
-if ($website_settings["has_two_website_titles"] == True and $website_settings["new_language_style"] == False) {
-	$update_two_html_files = True;
-
-	if ($website_info["type"] == $story_website_type) {
-		$story_html_folder = $mega_folder_stake2_website;
-
-		$story_html_folder .= Language_Item_Definer($portuguese_story_name, $english_story_name);
-
-		if ($portuguese_story_name != "") {
-			$story_html_folder .= "/";
-		}
-	}
-
-	else {
-		$story_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($website_info["language_title"])."/";
-	}
-
-	if (file_exists($story_html_folder) == False) {
-		mkdir($story_html_folder);
-	}
-
-	$second_html_folder = $story_html_folder;
-
-	if ($website_info["language"] != $language_geral) {
-		$second_html_folder .= $website_info["title_language"]."/";
-	}
-
-	$second_html_index_file = $second_html_folder."Index.html";
-}
-
 function Update_HTML_File($folder, $file) {
 	global $website;
 	global $file_exists;
@@ -133,10 +97,6 @@ function Update_HTML_File($folder, $file) {
 }
 
 Update_HTML_File($html_folder, $html_index_file);
-
-if ($update_two_html_files == True) {
-	Update_HTML_File($second_html_folder, $second_html_index_file);
-}
 
 $local_website_title_backup = $website_info["language_title"];
 $local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$local_website_title_backup;
@@ -190,15 +150,6 @@ echo "<h2>"."\n".
 $show_text.": <br />"."\n".
 Make_Link("file:///".$html_folder, $html_folder, $target = "_blank")."\n"
 ."</h2>"."\n"."\n";
-
-if ($update_two_html_files == True) {
-	$show_text = Language_Item_Definer("This is the folder where the selected website with another title is", "Essa é a pasta onde o site selecionado com outro título está");
-
-	echo "<h2>"."\n".
-	$show_text.": <br />"."\n".
-	Make_Link("file:///".$second_html_folder, $second_html_folder, $target = "_blank")."\n"
-	."</h2>"."\n"."\n";
-}
 
 $show_text = Language_Item_Definer("This is the path to the website HTML file", "Esse é o caminho para o arquivo HTML do site");
 
