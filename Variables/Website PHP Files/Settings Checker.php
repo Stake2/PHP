@@ -15,6 +15,7 @@ $website_setting_names = array(
 "tab_body_generator",
 "no_border_in_website_image",
 "hide_sensitive_data",
+"new_language_style",
 );
 
 $portuguese = array(
@@ -32,6 +33,7 @@ $portuguese = array(
 "gerador_de_corpo_de_abas",
 "sem_borda_na_imagem_do_site",
 "esconder_dados_sensíveis",
+"novo_estilo_de_idioma",
 );
 
 $values = array(
@@ -42,6 +44,7 @@ False,
 False,
 False,
 True,
+False,
 False,
 False,
 False,

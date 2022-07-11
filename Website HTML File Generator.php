@@ -41,16 +41,16 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
+if (isset($website_info["equal_website_title"]) or $website_settings["new_language_style"] == True) {
+	$local_website_title = $website_info["english_title"];
+}
+
 if (isset($website_info["website_folder_name"]) == True) {
 	$local_website_title = $website_info["website_folder_name"];
 }
 
-if (isset($website_info["website_folder_name"]) == False) {
+else {
 	$local_website_title = $website_info["language_title"];
-}
-
-if (isset($website_info["equal_website_title"])) {
-	$local_website_title = $website_info["english_title"];
 }
 
 $root_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($local_website_title)."/";
@@ -81,7 +81,7 @@ $html_index_file = $html_folder."Index.html";
 
 $update_two_html_files = False;
 
-if ($website_settings["has_two_website_titles"] == True) {
+if ($website_settings["has_two_website_titles"] == True and $website_settings["new_language_style"] == False) {
 	$update_two_html_files = True;
 
 	if ($website_info["type"] == $story_website_type) {
