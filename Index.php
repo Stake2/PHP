@@ -168,14 +168,15 @@ require $v_global_php;
 Write_To_File($websites_list_folder."Mixed Websites.txt", Stringfy_Array($mixed_websites));
 
 Write_To_File($websites_list_folder."English Websites.txt", Stringfy_Array($websites));
-Write_To_File($websites_list_text_files_local."English Websites.txt", Stringfy_Array($keyed_english_websites));
+Write_To_File($websites_list_folder."English Websites Array.txt", "[".Stringfy_Array($array_english_websites)."]");
+Write_To_File($websites_list_text_files_local."English Websites Array.txt", "[".Stringfy_Array($array_english_websites)."]");
 
 Write_To_File($websites_list_folder."Portuguese Websites.txt", Stringfy_Array(array_values($website_portuguese_titles)));
 
-Write_To_File($websites_list_folder."Portuguese Websites Keyed.txt", Stringfy_Array($keyed_portuguese_websites));
-Write_To_File($websites_list_text_files_local."Portuguese Websites Keyed.txt", Stringfy_Array($keyed_portuguese_websites));
+Write_To_File($websites_list_folder."Portuguese Websites Keyed.txt", "{".Stringfy_Array($keyed_portuguese_websites)."}");
+Write_To_File($websites_list_text_files_local."Portuguese Websites Keyed.txt", "{".Stringfy_Array($keyed_portuguese_websites)."}");
 
-Write_To_File($websites_list_folder."English Websites Keyed.txt", Stringfy_Array($keyed_english_websites));
+Write_To_File($websites_list_folder."English Websites Keyed.txt", "{".Stringfy_Array($keyed_english_websites)."}");
 
 # RainTPL Loader.php require
 require $raintpl_loader;
