@@ -246,7 +246,7 @@ $big_space = '<div class="mobileHide"><br /><br /><br /><br /><br /><br /><br />
 
 $div_close."\n"."\n";
 
-# Array of the Generic Tabs PHP Files
+# Array of the Tabs PHP Files
 $i = 0;
 while ($i <= $website_tab_number and $website_info["language"] != $language_geral) {
 	$i2 = $i + 1;

@@ -181,7 +181,7 @@ Write_To_File($websites_list_folder."English Websites Keyed.txt", "{".Stringfy_A
 # RainTPL Loader.php require
 require $raintpl_loader;
 
-// draw the template
+// Draw the template
 $tpl->draw("Head");
 
 echo "\n";

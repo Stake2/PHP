@@ -33,6 +33,7 @@ function Make_Form($mode = "") {
 	</select>
 	<br />
 
+	<div class="spoiler_content" style="display: none;">
 	<h3 class="w3-center"><b>'.Language_Item_Definer("Website setting", "Configuração de site").':</b></h3>
 	<select name="website_setting" id="Website_Setting" value="{}" class="w3-input w3-center '.$first_button_style.'" style="border-radius: 50px;">
 {}
@@ -43,6 +44,8 @@ function Make_Form($mode = "") {
 	<select name="story_website_setting" id="Story_Website_Setting" value="{}" class="w3-input w3-center '.$first_button_style.'" style="border-radius: 50px;">
 {}
 	</select>
+	<br />
+	</div>
 	<br />
 	';
 
@@ -64,7 +67,7 @@ function Make_Form($mode = "") {
 		}
 
 		$form .= '
-	<center><button type="submit" class="'.$first_button_style.'">'.Language_Item_Definer("Submit", "Enviar").'</button></center>
+	<center><button type="submit" class="'.$first_button_style.'" style="border-radius: 50px;"><b style="font-style: bold;font-size: 20px;">'.Language_Item_Definer("Submit", "Enviar").'</b></button></center>
 	<br />
 </form>';
 
@@ -74,7 +77,7 @@ function Make_Form($mode = "") {
 			$string = "\t\t".format('<option value="{}">{}</option>', array($local_website, $local_website));
 
 			if ($local_website == $website_info["english_title"]) {
-				$string = str_replace("\">", '" selected="True">', $string);
+				$string = str_replace('">', '" selected="True">', $string);
 			}
 
 			$websites .= $string;

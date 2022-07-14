@@ -103,64 +103,6 @@ unset($_POST);
 
 $form = Make_Form("Select");
 
-/*
-$form = '<form name="select_website" action="/Select" method="post">
-		<select name="website" id="Websites">
-{}
-		</select>
-	<br />
-	<br />
-	<label for="Languages"><h3>'.Language_Item_Definer("Language", "Idioma").':</h3></label>
-		<select name="language" id="Languages">
-{}
-		</select>
-	<br />
-	<br />
-	<input type="radio" id="Code" name="mode" value="Code" checked="True">
-		<label for="Code">Code</label><br>
-
-	<input type="radio" id="Generate" name="mode" value="Generate">
-		<label for="Generate">Generate</label><br>
-	<br />
-	<button type="submit">'.Language_Item_Definer("Submit", "Enviar").'</button>
-</form>
-';
-
-$websites = "";
-
-foreach (array_values($website_titles) as $local_website) {
-	$string = "\t\t\t".format('<option value="{}">{}</option>', array($local_website, $local_website));
-
-	if ($local_website == "The Life of Littletato") {
-		$string = str_replace("\">", '" selected="True">', $string);
-	}
-
-	$websites .= $string;
-
-	if ($local_website != array_reverse(array_values($website_titles))[0]) {
-		$websites .= "\n";
-	}
-}
-
-$languages = "";
-
-foreach ($beautiful_languages as $local_language) {
-	$string = "\t\t\t".format('<option value="{}">{}</option>', array($local_language, $local_language));
-
-	if ($local_language == "English") {
-		$string = str_replace("\">", '" selected="True">', $string);
-	}
-
-	$languages .= $string;
-
-	if ($local_language != array_reverse(array_values($beautiful_languages))[0]) {
-		$languages .= "\n";
-	}
-}
-
-$form = format($form, array($websites, $languages));
-*/
-
 $data = array(
 	"data" => format("<h1>"."\n".
 		"<b>{}:</b> <br />"."\n".
@@ -170,6 +112,111 @@ $data = array(
 );
 
 $tpl -> setTpl("Body", $data);
+
+echo "\n".'<style>
+.fade-animation {
+	-webkit-animation: fading 1s infinite;
+	animation: fading 1s infinite;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes fading {
+	0% {opacity:1}
+	100% {opacity:0}
+}
+
+@keyframes fading {
+	0% {opacity:1}
+	100% {opacity:0}
+}
+</style>
+
+<script>
+var button;
+
+function Style_Element(element) {
+  element.style.backgroundColor = "#808080";
+  element.style.color = "black";
+}
+
+option_elements = document.getElementsByTagName("option");
+option_elements_array = Array.from(option_elements);
+option_elements_array.forEach(Style_Element);
+
+function insertAfter(new_node, reference_node) {
+    reference_node.parentNode.insertBefore(new_node, reference_node.nextSibling);
+}
+
+function Language_Item_Definer(item_english, item_portuguese) {
+  var user_language = navigator.website_language || navigator.userLanguage || navigator.language;
+
+	if (user_language.includes("en")) {
+		return item_english;
+	}
+
+	if (user_language.includes("pt")) {
+		return item_portuguese;
+	}
+}
+
+var configuration_inputs_text = " " + Language_Item_Definer("configuration inputs", "entradas de configuração");
+var hide_text = Language_Item_Definer("Hide", "Esconder") + configuration_inputs_text;
+var show_text = Language_Item_Definer("Show", "Mostrar") + configuration_inputs_text;
+
+function Add_Button(element) {
+	var br = document.createElement("br");
+
+	button = document.createElement("button");
+	button.classList = "text_black background_grey border_color_black border_3px background_hover_white";
+	button.style.borderRadius = "50px";
+	button.type = "button";
+	button.innerHTML = "<b>" + show_text + "</b>";
+	button.onclick = function() {
+		Show_Configuration();
+	};
+
+	insertAfter(button, element);
+	insertAfter(br, button);
+}
+
+function Hide_Element(element) {
+	element.classList = "spoiler_content fade-animation";
+	setTimeout(function() {
+		element.style.display = "none";
+	}, 800);
+
+	button.onclick = function() {
+		Show_Element(element);
+	};
+
+	button.innerHTML = "<b>" + hide_text + "</b>";
+}
+
+function Show_Element(element) {
+	element.style.display = "block";
+	element.classList = "spoiler_content w3-animate-zoom";
+
+	button.onclick = function() {
+		Hide_Configuration();
+	};
+
+	button.innerHTML = "<b>" + hide_text + "</b>";
+}
+
+function Show_Configuration() {
+	spoiler_divs_array.forEach(Show_Element);
+}
+
+function Hide_Configuration() {
+	spoiler_divs_array.forEach(Hide_Element);
+}
+
+var spoiler_divs = document.getElementsByClassName("spoiler_content");
+
+spoiler_divs_array = Array.from(spoiler_divs);
+spoiler_divs_array.forEach(Add_Button);
+</script>'."\n";
 
 echo "\n".
 "</body>
