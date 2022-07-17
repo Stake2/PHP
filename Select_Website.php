@@ -104,11 +104,12 @@ unset($_POST);
 $form = Make_Form("Select");
 
 $data = array(
-	"data" => format("<h1>"."\n".
+	"data" => format('<h1 class="text_grey">'."\n".
 		"<b>{}:</b> <br />"."\n".
 		"</h1>", array($website_info["language_title"])),
 
 	"form" => $form,
+	"body_color" => "background_black",
 );
 
 $tpl -> setTpl("Body", $data);

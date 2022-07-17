@@ -65,6 +65,13 @@ $website_info = array();
 # "Main PHP Folders" PHP File Loader
 require $main_folders_and_files;
 
+if ($php_settings["method"] == array()) {
+	$website_info["language"] = "portuguese";
+}
+
+# Main Arrays PHP file loader
+require $main_arrays_php;
+
 # Crucial Functions PHP File Loader
 require $crucial_functions_file_php;
 
@@ -74,7 +81,25 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 	require_once $slim_php;
 
 	$app->get("/", function() {
-		$useless_variable = "";
+		if (isset($http_method) == False) {
+			$route = "Select Website";
+			$link = "http://php.stake2.site:8080/Select_Website.php";
+			echo "<!DOCTYPE HTML>"."\n";
+			echo "<head>"."\n";
+			echo "<title>Index.php</title>";
+			echo '<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/lib/w3.css" />'."\n";
+			echo '<link rel="stylesheet" type="text/css" href="https://thestake2.netlify.app/CSS/Styler CSS/Main_CSS.css" />'."\n";
+			echo '<link rel="stylesheet" type="text/css" href="https://thestake2.netlify.app/CSS/Styler CSS/Colors.css" />'."\n";
+			echo "</head>"."\n";
+			echo '<body style="background-color:black">'."\n";
+			echo "<center>"."\n";
+			echo '<h1 class="text_grey"><b>'.format(Language_Item_Definer('No website or language was selected.<br />Please use the route "{}" to select a website', 'Nenhum site ou idioma foi selecionado.<br />Por favor utilize a rota "{}" para selecionar um site'), $route).":"."</b></h1>"."\n";
+			echo Create_Element("h2", "", Create_Element("a", "text_grey background_black", $link, 'href="'.$link.'"'))."\n";
+			echo "</center>"."\n";
+			echo "</body>"."\n";
+			echo "</html>";
+			exit();
+		}
 	});
 
 	$app->post("/", function() {
@@ -124,9 +149,6 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 
 	$app->run();
 }
-
-# Main Arrays PHP file loader
-require $main_arrays_php;
 
 # Website Language Definer file require
 require $website_language_definer_php;
