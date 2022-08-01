@@ -32,27 +32,23 @@ $chapter_number_3 = 1;
 $chapter_number_4 = 0;
 
 while ($chapter_number_1 <= $story_info["chapter_number"]) {
+	$cover_image_button = "";
+
 	if ($story_website_settings["has_story_covers"] == True) {
+		$cover_image_button = "";
+
 		if (isset($chapter_cover_images_computer[$chapter_number_1]) and isset($chapter_cover_images_mobile[$chapter_number_1]) and $story_website_settings["show_story_covers_on_chapter_buttons_tab"] == True) {
 			$cover_image_button = '<div id="story_chapter_image_number_'.$chapter_number_1.'">'."\n".
 			'<center>'."\n".
-			'<a href="#'.$chapter_div_text.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$local_chapter_titles[$chapter_number_4].'">'.
+			'<a href="#'.$chapter_div_text.$chapter_number_1.'" title="'.$chapter_number_1." - ".$local_chapter_titles[$chapter_number_4].'">'.
 			$chapter_cover_images_computer[$chapter_number_1]."\n".
 			'</a>'.
 			"\n"."\n".
-			'<a href="#'.$chapter_div_text.$chapter_number_1.'" title="'.$chapter_number_1.' - '.$local_chapter_titles[$chapter_number_4].'">'."\n".$chapter_cover_images_mobile[$chapter_number_1]."\n".'</a>'.
+			'<a href="#'.$chapter_div_text.$chapter_number_1.'" title="'.$chapter_number_1." - ".$local_chapter_titles[$chapter_number_4].'">'."\n".$chapter_cover_images_mobile[$chapter_number_1]."\n".'</a>'.
 			'<br />'."\n"."\n".
 			'</center>'."\n".
 			$div_close."\n";
 		}
-
-		else {
-			$cover_image_button = '';
-		}
-	}
-
-	else {
-		$cover_image_button = '';
 	}
 
 	if ($chapter_number_1 == $story_info["chapter_number"] and $story_website_settings["show_new_chapter_text"] == True) {
@@ -71,10 +67,8 @@ while ($chapter_number_1 <= $story_info["chapter_number"]) {
 		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
 
 		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_settings["notifications"] == True) {
-			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
-
 			if ($story_website_settings["has_titles"] == True) {
-				$chapter_text_variable = $chapter_number_1.' - '.$local_chapter_titles[$chapter_number_4];
+				$chapter_text_variable = $chapter_number_1." - ".$local_chapter_titles[$chapter_number_4];
 			}
 
 			else {
@@ -83,22 +77,16 @@ while ($chapter_number_1 <= $story_info["chapter_number"]) {
 			
 			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$new_chapter_span."</button></a> "."\n";
 
-			echo $chapter_button;
-
-			echo $cover_image_button;
-
-			echo $div_close;
-
-			$chapter_buttons[$chapter_number_2] = $chapter_button;
+			if ($story_website_settings["has_titles"] == True and $local_chapter_titles[$chapter_number_4] != "") {
+				$chapter_buttons[$chapter_number_2] = $chapter_button;
+			}
 
 			$chapter_number_4++;
 		}
 
 		else {
-			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
-
 			if ($story_website_settings["has_titles"] == True) {
-				$chapter_text_variable = $chapter_number_1.' - '.$local_chapter_titles[$chapter_number_4];
+				$chapter_text_variable = $chapter_number_1." - ".$local_chapter_titles[$chapter_number_4];
 			}
 
 			else {
@@ -107,13 +95,9 @@ while ($chapter_number_1 <= $story_info["chapter_number"]) {
 
 			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable.' '.$new_chapter_span.'</button></a> '."\n";
 
-			echo $chapter_button;
-
-			echo $cover_image_button;
-
-			echo $div_close;
-
-			$chapter_buttons[$chapter_number_2] = $chapter_button;
+			if ($story_website_settings["has_titles"] == True and $local_chapter_titles[$chapter_number_4] != "") {
+				$chapter_buttons[$chapter_number_2] = $chapter_button;
+			}
 
 			$chapter_number_4++;
 		}
@@ -135,10 +119,8 @@ while ($chapter_number_1 <= $story_info["chapter_number"]) {
 		$scripts = 'onclick="'.$on_click_script.$chapter_number_and_text.$hide_notification_attribute.'"';
 
 		if (isset($revised_chapter) and $chapter_number_1 == $revised_chapter and $website_settings["notifications"] == True) {
-			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
-
 			if ($story_website_settings["has_titles"] == True) {
-				$chapter_text_variable = $chapter_number_1.' - '.$local_chapter_titles[$chapter_number_4];
+				$chapter_text_variable = $chapter_number_1." - ".$local_chapter_titles[$chapter_number_4];
 			}
 
 			else {
@@ -147,22 +129,16 @@ while ($chapter_number_1 <= $story_info["chapter_number"]) {
 
 			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable."</button></a> "."\n";
 
-			echo $chapter_button;
-
-			echo $cover_image_button;
-
-			echo $div_close;
-
-			$chapter_buttons[$chapter_number_2] = $chapter_button;
+			if ($story_website_settings["has_titles"] == True and $local_chapter_titles[$chapter_number_4] != "") {
+				$chapter_buttons[$chapter_number_2] = $chapter_button;
+			}
 
 			$chapter_number_4++;
 		}
 
 		else {
-			echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
-
 			if ($story_website_settings["has_titles"] == True) {
-				$chapter_text_variable = $chapter_number_1.' - '.$local_chapter_titles[$chapter_number_4];
+				$chapter_text_variable = $chapter_number_1." - ".$local_chapter_titles[$chapter_number_4];
 			}
 
 			else {
@@ -171,16 +147,22 @@ while ($chapter_number_1 <= $story_info["chapter_number"]) {
 
 			$chapter_button = '<a href="#'.$chapter_div_text.''.$chapter_number_1.'" title="'.$chapter_text_variable.'"><button class="w3-btn '.$second_button_style.'" '.$roundedborderstyle.' '.$scripts.'>'.$chapter_text_variable."</button></a> "."\n";
 
-			echo $chapter_button;
-
-			echo $cover_image_button;
-
-			echo $div_close;
-
-			$chapter_buttons[$chapter_number_2] = $chapter_button;
+			if ($story_website_settings["has_titles"] == True and $local_chapter_titles[$chapter_number_4] != "") {
+				$chapter_buttons[$chapter_number_2] = $chapter_button;
+			}
 	
 			$chapter_number_4++;
 		}
+	}
+
+	if (isset($chapter_buttons[$chapter_number_2])) {
+		echo '<div class="'.$shake_side_to_side_animation.'">'."\n";
+
+		echo $chapter_buttons[$chapter_number_2];
+
+		echo $cover_image_button;
+
+		echo $div_close;
 	}
 
 	$chapter_number_1++;

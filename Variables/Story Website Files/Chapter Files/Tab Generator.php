@@ -18,10 +18,24 @@ while ($array_index <= $story_info["chapter_number"]) {
 	$new_chapter_file_title_number = Add_Leading_Zeros($chapter_file_title_number);
 
 	if ($story_website_settings["has_titles"] == True) {
-		$chapter_title = $new_chapter_file_title_number.' - '.Replace_Text($chapter_titles[$array_index_less_one], "/", "-");
+		$chapter_title = $new_chapter_file_title_number." - ";
+
+		$chapter_title .= $chapter_titles[$array_index_less_one];
+
+		if ($story_website_settings["multiple_titles_files"] == False) {
+			$chapter_title = str_replace($chapter_titles[$array_index_less_one], Replace_Text($chapter_titles[$array_index_less_one], "/", "-"), $chapter_title);
+		}
+
+		if ($story_website_settings["multiple_titles_files"] == False) {
+			$chapter_title .= Replace_Text($chapter_titles[$array_index_less_one], "/", "-");
+		}
 
 		if ($story_website_settings["has_custom_story_folder"] == True) {
 			$chapter_title = $chapter_titles[$array_index_less_one];
+		}
+
+		if ($story_website_settings["number_chapter_file"] == True) {
+			$chapter_title = $new_chapter_file_title_number;
 		}
 
 		$normal_chapters[$array_index] = $story_chapter_files_folder_language.$chapter_title.'.txt';
@@ -33,7 +47,7 @@ while ($array_index <= $story_info["chapter_number"]) {
 	}
 
 	else {
-		$normal_chapters[$array_index] = $story_chapter_files_folder_language.$new_chapter_file_title_number.'.txt';
+		$normal_chapters[$array_index] = $story_chapter_files_folder_language.$new_chapter_file_title_number.".txt";
 		$normal_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$array_index]);
 
 		Create_File($normal_chapters[$array_index]);
@@ -50,7 +64,7 @@ $chapter_file_title_number = 1;
 while ($array_index <= $story_info["chapter_number"]) {
 	$array_index_less_one = $array_index - 1;
 
-	$main_story_folder_4 = $story_chapter_files_folder.strtoupper($enus_language).'/';
+	$main_story_folder_4 = $story_chapter_files_folder.strtoupper($en_language).'/';
 
 	$new_chapter_file_title_number = Add_Leading_Zeros($chapter_file_title_number);
 
@@ -58,7 +72,7 @@ while ($array_index <= $story_info["chapter_number"]) {
 	$english_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $normal_chapters[$array_index]);
 
 	if ($story_website_settings["has_titles"] == True) {
-		$english_chapters[$array_index] = $main_story_folder_4.$new_chapter_file_title_number.' - '.Replace_Text($chapter_titles[$array_index_less_one], "/", "-").'.txt';
+		$english_chapters[$array_index] = $main_story_folder_4.$new_chapter_file_title_number." - ".Replace_Text($chapter_titles[$array_index_less_one], "/", "-").'.txt';
 		$english_chapters[$array_index] = str_replace(array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF", "^", "?", "<br />"), "", $english_chapters[$array_index]);
 	}
 

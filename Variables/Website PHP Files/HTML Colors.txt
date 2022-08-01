@@ -20,7 +20,13 @@ darker-brown
 dark-brown
 pink
 dark-pink
+salmon
+dark-salmon
+darker-salmon
+light-salmon
 purple
+second-purple
+second-dark-purple
 light-purple
 light-cyan
 darker-light-cyan

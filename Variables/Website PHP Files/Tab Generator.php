@@ -60,12 +60,15 @@ else {
 	}
 }
 
+$local_website_title = Remove_Non_File_Characters($website_info["english_title"]);
+$local_website_title = str_replace(" ", "_", $local_website_title);
+
 if ($website_info["english_title"] == $website_titles["Watch History"]) {
 	# Tab codes array generator
 	$i = 0;
 	while ($i <= $website_tab_number) {
 		if ($i < 3) {
-			$tab_codes[$i] = $website_info["english_title"]."_".$tab_names[$i];
+			$tab_codes[$i] = $local_website_title."_".$tab_names[$i];
 		}
 	
 		if ($i >= 3) {
@@ -84,7 +87,7 @@ else {
 	# Array of button codes
 	$i = 0;
 	while ($i <= $website_tab_number) {
-		$tab_codes[$i] = Remove_Non_File_Characters($website_info["english_title"])."_".$tab_names[$i];
+		$tab_codes[$i] = $local_website_title."_".$tab_names[$i];
 
 		$i++;
 	}
@@ -93,7 +96,7 @@ else {
 # Array of city codes
 $i = 0;
 while ($i <= $website_tab_number) {
-	$website_tab_codes_computer[$i] = $tab_codes[$i];
+	$website_tab_codes_computer[$i] = $tab_codes[$i]."_Computer";
 
 	$i++;
 }

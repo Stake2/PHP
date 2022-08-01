@@ -13,8 +13,8 @@ echo "\n".
 $previous_chapter_button.
 $next_chapter_button;
 
-echo '<a href="#'.$tab_codes[0].'">'.
-'<button class="w3-btn '.$second_button_style." ".$computer_variable.'" style="'.$local_button_style.'" onclick="openCity('."'".$tab_codes[0]."')".'"><h3>'.$icons[16].'</h3></button>'.
+echo '<a href="#'.$website_tab_codes_computer[0].'">'.
+'<button class="w3-btn '.$second_button_style." ".$computer_variable.'" style="'.$local_button_style.'" onclick="openCity('."'".$website_tab_codes_computer[0]."')".'"><h3>'.$icons[16].'</h3></button>'.
 '</a>'."\n";
 
 echo '<a href="#'.$website_tab_codes_mobile[0].'">'.

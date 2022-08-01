@@ -73,6 +73,7 @@ $story_website_setting_names = array(
 "has_comments",
 "chapter_comments",
 "show_chapter_on_comment",
+"number_chapter_file",
 "has_dates",
 "use_status",
 );
@@ -91,6 +92,7 @@ $portuguese = array(
 "tem_comentários",
 "comentários_de_capítulo",
 "mostrar_capítulo_no_comentário",
+"arquivo_de_capítulo_com_número",
 "tem_datas",
 "usa_status",
 );
@@ -108,6 +110,7 @@ True,
 False,
 False,
 True,
+False,
 False,
 False,
 False,

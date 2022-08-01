@@ -25,14 +25,14 @@ foreach ($website_titles as $local_website_title) {
 			$website_style_file = $local_website_style_file;
 
 			if ($website_info["type"] == $story_website_type and isset($english) == False and isset($portuguese) == False) {
-				$a12345 = array(Language_Item_Definer("Read story", "Ler história"), Language_Item_Definer("Readers", "Leitores"), $other_stories_text);
-				$english = $a12345;
-				$portuguese = $a12345;
+				$story_website_tab_names = array(Language_Item_Definer("Read story", "Ler história"), Language_Item_Definer("Readers", "Leitores"), $other_stories_text);
+				$english = $story_website_tab_names;
+				$portuguese = $story_website_tab_names;
 			}
 
-			$tab_names = Language_Item_Definer($english, $portuguese);
-
 			require $local_website_file;
+
+			$tab_names = Language_Item_Definer($english, $portuguese);
 
 			# Number of tabs
 			$website_tab_number = count($tab_names) - 1;

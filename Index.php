@@ -289,7 +289,7 @@ $full_website .= '</body>
 if (in_array($website_info["english_title"], $year_websites) == True) {
 	$year_summary_file = $year_language_folders[$full_language][$website_info["english_title"]].Language_Item_Definer("Summary", "Sumário").".txt";
 
-	if ($website_info["english_title"] == "2020" and $website_info["language"] == $language_ptbr) {
+	if ($website_info["english_title"] == "2020" and $website_info["language"] == $language_pt) {
 		$year_summary_text = substr_replace($year_summary_text, "", -1);
 	}
 

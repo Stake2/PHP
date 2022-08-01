@@ -35,7 +35,7 @@ $website_titles[$website_title] = $website_title;
 $website_portuguese_titles[$website_title] = "Selecionar Site";
 
 $website_info = array(
-"language" => "ptbr",
+"language" => "pt",
 "english_title" => $website_titles[$website_title],
 "portuguese_title" => $website_portuguese_titles[$website_title],
 "type" => "Normal Website Type",
@@ -94,7 +94,7 @@ require $select_website_form;
 
 $_SESSION["POST"] = array(
 	"website" => Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata"),
-	"language" => "ptbr",
+	"language" => "pt",
 	"website_setting" => "notifications",
 	"story_website_setting" => "nothing"
 );

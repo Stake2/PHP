@@ -36,8 +36,8 @@ while ($i <= $cover_number) {
 		$folder = "41 - 50/";
 	}
 
-	$online_image_link = $story_chapter_covers_folder.$folder.$number_text.'.png';
-	$local_image_link = $local_story_chapter_covers_folder.$folder.$number_text.'.png';
+	$online_image_link = $story_chapter_covers_folder.$folder.$number_text.".png";
+	$local_image_link = $local_story_chapter_covers_folder.$folder.$number_text.".png";
 
 	$chapter_cover_images_computer[$i] = '<div class="'.$computer_variable.'">'.'<img class="'.$header_background_color.'" src="'.$online_image_link.'" width="60%" height="60%" style="border-color:'.$bordercolor.';border-style:solid;'.$roundedborderstyle3.'height: auto;max-width: 4000px;" onclick="'.$on_click_script.'" />'."\n".$div_close.'<br class="'.$computer_variable.'" />'."\n";
 
