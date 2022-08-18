@@ -76,6 +76,10 @@ function Word_Number($file) {
 	return $words;
 }
 
+function str_contains($contains, $string) {
+	return strpos($string, $contains);
+}
+
 function Write_To_File($file, $text) {
 	file_put_contents($file, $text);
 }

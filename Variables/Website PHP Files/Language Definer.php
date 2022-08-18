@@ -27,8 +27,7 @@ if (in_array($website_info["language"], $portuguese_array)) {
 	$language_number = 2;
 }
 
-$full_language = $full_languages_array[$language_number];
-$website_info["full_language"] = $full_language;
+$website_info["full_language"] = $full_languages_array[$language_number];
 
 $website_info["title_language"] = substr_replace(mb_strtoupper($website_info["language"]), "-", 2, 0);
 $website_info["title_language_lower"] = mb_strtolower($website_info["title_language"]);

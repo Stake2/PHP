@@ -9,27 +9,28 @@ $php_settings = array(
 $website_request = False;
 $set_session = False;
 
-if ($_POST == [] and isset($_SESSION["POST"]) == True) {
+if ($_POST == [] and isset($_SESSION["POST"]) == True and $_GET == []) {
 	$_POST = $_SESSION["POST"];
+
 	$set_session = True;
 }
 
-if ($_POST == [] and isset($_SESSION["POST"]) == False) {
+if ($_POST == [] and isset($_SESSION["POST"]) == False and $_GET == []) {
 	$php_settings["method"] = $_POST;
-}
-
-if ($_POST != []) {
-	$_SESSION["POST"] = $_POST;
-
-	$php_settings["method"] = $_POST;
-
-	$website_request = True;
 }
 
 if ($_POST == [] and $_GET != []) {
 	$_SESSION["GET"] = $_GET;
 
 	$php_settings["method"] = $_GET;
+
+	$website_request = True;
+}
+
+if ($_POST != []) {
+	$_SESSION["POST"] = $_POST;
+
+	$php_settings["method"] = $_POST;
 
 	$website_request = True;
 }
@@ -65,12 +66,15 @@ $website_info = array();
 # "Main PHP Folders" PHP File Loader
 require $main_folders_and_files;
 
-if ($php_settings["method"] == array()) {
-	$website_info["language"] = "portuguese";
-}
-
 # Main Arrays PHP file loader
 require $main_arrays_php;
+
+# Website Language Definer file require
+require $website_language_definer_php;
+
+if ($http_method == []) {
+	$website_info["language"] = "portuguese";
+}
 
 # Crucial Functions PHP File Loader
 require $crucial_functions_file_php;
@@ -81,6 +85,8 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 	require_once $slim_php;
 
 	$app->get("/", function() {
+		global $http_method;
+
 		if (isset($http_method) == False) {
 			$route = "Select Website";
 			$link = "http://php.stake2.site:8080/Select_Website.php";
@@ -150,9 +156,6 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 	$app->run();
 }
 
-# Website Language Definer file require
-require $website_language_definer_php;
-
 # Global Arrays PHP file loader
 require $global_arrays_php;
 
@@ -200,6 +203,9 @@ Write_To_File($websites_list_text_files_local."Portuguese Websites Keyed.txt", "
 
 Write_To_File($websites_list_folder."English Websites Keyed.txt", "{".Stringfy_Array($keyed_english_websites)."}");
 
+Write_To_File($websites_list_folder."Website Links.txt", "{".Stringfy_Array(array_values($website_links))."}");
+Write_To_File($websites_list_text_files_local."Website Links.txt", "{".Stringfy_Array(array_values($website_links))."}");
+
 # RainTPL Loader.php require
 require $raintpl_loader;
 
@@ -241,8 +247,8 @@ if ($website_info["language"] != $language_geral) {
 	"</script>"."\n\n";
 }
 
-echo '</body>
-</html>';
+echo "</body>
+</html>";
 
 $full_website = $tpl->draw("Head", True);
 
@@ -283,11 +289,11 @@ if ($website_settings["custom_layout"] == False) {
 	$full_website .= '</center>'."\n";
 }
 
-$full_website .= '</body>
-</html>';
+$full_website .= "</body>
+</html>";
 
 if (in_array($website_info["english_title"], $year_websites) == True) {
-	$year_summary_file = $year_language_folders[$full_language][$website_info["english_title"]].Language_Item_Definer("Summary", "Sumário").".txt";
+	$year_summary_file = $year_language_folders[$website_info["full_language"]][$website_info["english_title"]].Language_Item_Definer("Summary", "Sumário").".txt";
 
 	if ($website_info["english_title"] == "2020" and $website_info["language"] == $language_pt) {
 		$year_summary_text = substr_replace($year_summary_text, "", -1);

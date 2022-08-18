@@ -35,10 +35,10 @@ $website_titles[$website_title] = $website_title;
 $website_portuguese_titles[$website_title] = "Selecionar Site";
 
 $website_info = array(
-"language" => "pt",
-"english_title" => $website_titles[$website_title],
-"portuguese_title" => $website_portuguese_titles[$website_title],
-"type" => "Normal Website Type",
+	"language" => "pt",
+	"english_title" => $website_titles[$website_title],
+	"portuguese_title" => $website_portuguese_titles[$website_title],
+	"type" => "Normal Website Type",
 );
 
 $http_method["language"] = $website_info["language"];
@@ -70,13 +70,13 @@ require $global_arrays_php;
 require $website_arrays_generator_php;
 
 $data = array("data" => array(
-"title" => $website_info["language_title"],
-"link" => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]",
-"description" => $website_info["meta_description"],
-"website_author" => $website_author,
-"twitter_author" => $twitter_author,
-"data" => $data,
-"website_css_links" => $website_css_links,
+	"title" => $website_info["language_title"],
+	"link" => "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]",
+	"description" => $website_info["meta_description"],
+	"website_author" => $website_author,
+	"twitter_author" => $twitter_author,
+	"data" => $data,
+	"website_css_links" => $website_css_links,
 ));
 
 $tpl = new Make_TPL($data, $tpl_dir = "Select Website/");

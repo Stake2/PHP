@@ -1,22 +1,40 @@
-# Stake2-PHP
-The PHP files for the Stake2 Website https://thestake2.netlify.app/<br>
-HTML files in here [Stake2 Website](https://github.com/Stake2/stake2-website)<br>
+# Stake2 PHP
+
+![PHP 7.4.26](https://img.shields.io/badge/PHP-7.4.26-brightgreen.svg)
+[![Contributors](https://img.shields.io/github/contributors/Stake2/Websites.svg)](https://github.com/Stake2/Websites/graphs/contributors)
+
+The PHP files for my [Websites](https://thestake2.netlify.app/)<br>
+HTML files stay here [Websites Repository](https://github.com/Stake2/Websites)<br>
 Made by me, [Stake2](https://github.com/Stake2)
 
-### License
-Using [MIT License](https://github.com/Stake2/stake2-php/blob/main/LICENSE)<br>
+## License
+Using [MIT License](https://github.com/Stake2/PHP/blob/main/LICENSE)<br>
 
-### COC
-Read [Code of Conduct](https://github.com/Stake2/stake2-php/blob/main/CODE_OF_CONDUCT.md)<br>
+## COC
+Read [Code of Conduct](https://github.com/Stake2/PHP/blob/main/CODE_OF_CONDUCT.md)<br>
 
-### Contribute
-[How to Contribute](https://github.com/Stake2/stake2-php/blob/main/CONTRIBUTING.md)<br>
+## Contribute
+[How to Contribute](https://github.com/Stake2/PHP/blob/main/CONTRIBUTING.md)<br>
 
-### Loading websites
-The websites are loaded from the files inside the [Websites](https://github.com/Stake2/stake2-php/tree/master/Websites) folder.<br>
-The user types the URL of the website like this:<br>
-http://localhost:8080/?no-redirect=true&website_language=ptbr&website=website_name_here<br>
-Typing the name of the website lower cased with spaces replaced by underlines on "website" get variable, and language on "website_language" get variable.<br>
-Currently supported languages: English (enus), Brazilian Portuguese (ptbr), and European Portuguese (ptpt).<br>
-The [Index.php](https://github.com/Stake2/stake2-php/blob/master/Index.php) file gets the get variables and searches for the typed website on Websites folder.
-Then it defines the variables for it, loading is dependencies and PHP files.
+## Websites
+The websites are loaded from the files inside the [Websites](https://github.com/Stake2/PHP/tree/main/Websites/) folder.<br>
+
+## Loading websites
+1. Change the ``Document Root`` folder of your server to the folder where you cloned the repository
+2. Start your server
+3. You can open the [Select_Website.php](https://github.com/Stake2/PHP/blob/main/Select_Website.php) file on ``localhost`` to select a website using the form<br>
+Or type the localhost URL with the website and language you want to use<br>
+URL parameters:
+```
+http://localhost/?website=[website_name_here]&language=English
+website: website name
+language: language of the website
+```
+- A list of website names in English can be found in [English Websites.txt](https://github.com/Stake2/Stake2-PHP/blob/main/Variables/Website%20PHP%20Files/Websites%20List/English%20Websites.txt)
+- Currently supported languages: ``English`` and ``Portuguese``<br>
+
+## How websites are loaded
+1. The [Index.php](https://github.com/Stake2/stake2-php/blob/master/Index.php) file gets the GET variables from the URL<br>
+2. Defines the language related variables using the ``language`` from GET
+3. Searches for the ``website`` from GET on the [Websites](https://github.com/Stake2/PHP/tree/master/Websites) folder<br>
+3. Defines the variables for the website and loads its dependencies and PHP files

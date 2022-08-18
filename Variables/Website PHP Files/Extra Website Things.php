@@ -28,20 +28,20 @@ if ($website_info["type"] == $story_website_type and $website_info["language"] !
 	"var Last_Chapter = ".$story_info["chapter_number"].";"."\n";
 
 	if ($story_website_settings["has_titles"] == True) {
-		$text_to_show .= "var Last_Chapter_Title = \"".$story_info["chapter_number"]." - ".$chapter_titles[($story_info["chapter_number"] - 1)]."\";"."\n";
+		$text_to_show .= 'var Last_Chapter_Title = "'.$story_info["chapter_number"]." - ".$chapter_titles[($story_info["chapter_number"] - 1)]."\";"."\n";
 	}
 
 	else {
-		$text_to_show .= "var Last_Chapter_Title = \"".$story_info["chapter_number"]."\";"."\n";
+		$text_to_show .= 'var Last_Chapter_Title = "'.$story_info["chapter_number"].'";'."\n";
 	}
 
 	$text_to_show .= "</script>";
 
 	echo $text_to_show;
 
-	echo '<script>
+	echo "<script>
 	Get_Title();
-</script>'."\n";
+</script>"."\n";
 }
 
 # Website notification script link includer if setting is True

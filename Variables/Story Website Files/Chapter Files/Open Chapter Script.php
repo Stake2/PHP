@@ -8,9 +8,9 @@ echo "	openCity(new_chapter_text);"."\n";
 echo "	document.getElementById(new_chapter_text).scrollIntoView();"."\n";
 echo "	Chapter_Number = chapter_number;"."\n";
 echo "	Define_Chapter(Chapter_Number);"."\n";
-echo "	Add_To_Website_Title(chapter_title, \"notification\");"."\n";
+echo '	Add_To_Website_Title(chapter_title, "notification");'."\n";
 echo "	Hide_Computer_Buttons();"."\n";
-echo "	console.log(\"Opened chapter number \" + chapter_number);"."\n";
+echo '	console.log("Opened chapter number " + chapter_number);'."\n";
 
 if ($website_settings["notifications"] == True) {
 	echo "	Hide_Computer_Notification();"."\n";
@@ -20,20 +20,25 @@ if ($website_settings["notifications"] == True) {
 echo "}"."\n";
 
 echo '
-function Check_Chapter_Number_On_Link() {'."\n".
-	'	var first_website_url = window.location;'."\n".
-	'	var second_website_url = String(first_website_url);'."\n".
-	'	var user_language = navigator.language || navigator.userLanguage;'."\n".
-	'
-	if (user_language == "pt-BR" || user_language == "pt-PT") {
-		var read_chapter_text = "ler-capitulo-";
-	}
+function Check_Chapter_Number_On_Link() {
+	var website_url = String(window.location);
+	var user_language = navigator.website_language || navigator.userLanguage || navigator.language;
 
-	else {
+	var english_language = "en-US";
+	var english_languages = ["en", "en-US", "en-BZ", "en-CA", "en-IE", "en-JM", "en-NZ", "en-PH", "en-ZA", "en-TT", "en-GB", "en-ZW"]
+
+	var portuguese_language = "pt-BR" || "pt-PT";
+	var portuguese_languages = ["pt", "pt-BR", "pt-PT"];
+
+	if (english_languages.includes(user_language)) {
 		var read_chapter_text = "read-chapter-";
 	}
 
-	var chapter_number = '.$i2.';'."\n";
+	if (portuguese_languages.includes(user_language)) {
+		var read_chapter_text = "ler-capitulo-";
+	}
+
+	var chapter_number = '.$story_info["chapter_number"].';'."\n";
 
 $i = 0;
 while ($i < $story_info["chapter_number"]) {
@@ -41,15 +46,15 @@ while ($i < $story_info["chapter_number"]) {
 
 	if ($website_info["english_title"] != $website_titles["Diary Slim"]) {
 		echo '
-	var first_check_'.$i2.' = second_website_url.includes(read_chapter_text + '.$i2.');
-	var second_check_'.$i2.' = second_website_url.includes(read_chapter_text + "['.$i2.']");
-	var third_check_'.$i2.' = second_website_url.includes(read_chapter_text + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
-	var fourth_check_'.$i2.' = second_website_url.includes(read_chapter_text + "%22'.$i2.'%22");
-	var fifth_check_'.$i2.' = second_website_url.includes("('.$i2.')");';
+	var first_check_'.$i2.' = website_url.includes(read_chapter_text + '.$i2.');
+	var second_check_'.$i2.' = website_url.includes(read_chapter_text + "['.$i2.']");
+	var third_check_'.$i2.' = website_url.includes(read_chapter_text + '."'".'"'."'"." + ".$i2." + "."'".'"'."'".');
+	var fourth_check_'.$i2.' = website_url.includes(read_chapter_text + "%22'.$i2.'%22");
+	var fifth_check_'.$i2.' = website_url.includes("('.$i2.')");';
 	}
 
 	echo 
-'	var sixth_check_'.$i2.' = second_website_url.includes("['.$i2.']");';
+'	var sixth_check_'.$i2.' = website_url.includes("['.$i2.']");';
 
 	$i++;
 }
@@ -68,7 +73,7 @@ while ($i < $story_info["chapter_number"]) {
 		echo '	if (sixth_check_'.$i2.' == true) {'."\n";
 	}
 
-	echo '		var chapter_title = "'." - ".ucwords($chapter_text). ": ".$i2." - ".$chapter_titles[$i2 - 1].'";'."\n";
+	echo '		var chapter_title = " - '.$chapter_title_text.": ".$i2." - ".$chapter_titles[$i2 - 1].'";'."\n";
 	echo '		var current_chapter_number = '.$i2.';'."\n";
 	echo '		Open_Chapter(chapter_title, current_chapter_number);'."\n";
 	echo '	}'."\n";
@@ -95,21 +100,27 @@ echo 'var last_chapter_texts = [
 "last chapter",
 
 "Último_Capítulo",
-"Último Capítulo",
 "último_capítulo",
+"Último Capítulo",
 "último capítulo",
+"Último%20Capítulo",
+"último%20capítulo",
 
 "%C3%9Altimo_Capítulo",
-"%C3%9Altimo Capítulo",
 "%C3%BAltimo_cap%C3%ADtulo",
+"%C3%9Altimo Capítulo",
 "%C3%BAltimo cap%C3%ADtulo",
-"%C3%9Altimo%20Cap%C3%ADtulo",
 "%C3%9Altimo Cap%C3%ADtulo",
+"%C3%9Altimo%20Capítulo",
+"%C3%BAltimo%20cap%C3%ADtulo",
+"%C3%9Altimo%20Cap%C3%ADtulo",
 
 "Ultimo_Capítulo",
-"Ultimo Capítulo",
 "ultimo_capítulo",
+"Ultimo Capítulo",
 "ultimo capítulo",
+"Ultimo%20Capítulo",
+"ultimo%20capítulo",
 ];
 
 var parameter_text = local_website_url.split("?")[local_website_url.split("?").length - 1];
