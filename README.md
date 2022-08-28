@@ -30,11 +30,11 @@ http://localhost/?website=[website_name_here]&language=English
 website: website name
 language: language of the website
 ```
-- A list of website names in English can be found in [English Websites.txt](https://github.com/Stake2/Stake2-PHP/blob/main/Variables/Website%20PHP%20Files/Websites%20List/English%20Websites.txt)
+- A list of website names in English can be found in [English Websites.txt](https://github.com/Stake2/PHP/blob/main/Variables/Website%20PHP%20Files/Websites%20List/English%20Websites.txt)
 - Currently supported languages: ``English`` and ``Portuguese``<br>
 
 ## How websites are loaded
-1. The [Index.php](https://github.com/Stake2/stake2-php/blob/master/Index.php) file gets the GET variables from the URL<br>
+1. The [Index.php](https://github.com/Stake2/PHP/blob/master/Index.php) file gets the GET variables from the URL<br>
 2. Defines the language related variables using the ``language`` from GET
 3. Searches for the ``website`` from GET on the [Websites](https://github.com/Stake2/PHP/tree/master/Websites) folder<br>
 3. Defines the variables for the website and loads its dependencies and PHP files

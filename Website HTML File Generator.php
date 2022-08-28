@@ -8,7 +8,7 @@ if (!file_exists($mega_folder)) {
 	$mega_folder = $hard_drive_letter.":/Mega/";
 }
 
-$mega_folder_stake2_website = $mega_folder."Stake2 Website/";
+$mega_folder_stake2_website = $mega_folder."Websites/";
 $main_php_folder = $mega_folder."PHP/";
 
 $index_variables_php_file = $hard_drive_letter.":/Mega/PHP/Variables/Index Variables.php";

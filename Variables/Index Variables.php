@@ -13,7 +13,7 @@ if (file_exists($mega_folder) == False) {
 	$medias_local_folder = $hard_drive_letter.":/Midias/";
 }
 
-$mega_folder_stake2_website = $mega_folder."Stake2 Website/";
+$mega_folder_stake2_website = $mega_folder."Websites/";
 $subdomain_file = $mega_folder_stake2_website."Subdomain.txt";
 $main_php_folder = $mega_folder."PHP/";
 
