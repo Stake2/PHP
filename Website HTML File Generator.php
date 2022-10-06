@@ -41,6 +41,9 @@ require_once $index_php;
 
 $website = ob_get_clean();
 
+# Website CSS and Javascript definer
+require $website_css_and_javascript_definer_php;
+
 if (isset($website_info["website_folder_name"]) == True) {
 	$local_website_title = $website_info["website_folder_name"];
 }
@@ -126,35 +129,39 @@ $website_head = '<!DOCTYPE html>
 <meta name="author" content="Stake Ferreira" />
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
 <meta charset="UTF-8" />
-</head>
-<body>'."\n";
+</head>'.
+format($css_link_string, array("https://www.w3schools.com/lib/w3"))."\n".
+format($css_link_string, array($website_css_styler_css_folder."W3"))."\n".
+format($css_link_string, array($website_css_styler_css_folder."Colors"))."\n".
+format($css_link_string, array($website_css_styler_css_folder."Main_CSS"))."\n".
+'<body style="background-color: black;">'."\n";
 
 echo $website_head;
 
-echo "<center>"."\n";
+echo '<center>'."\n";
 
-echo "\n"."<h1>"."\n".
-$website_info["language_title"]."<br />"."\n"
+echo "\n".'<h1 class="text_grey"><b>'."\n".
+$website_info["language_title"].": <br />"."\n"
 ."</h1>"."\n";
 
-$show_text = Language_Item_Definer("This is the name of the website", "Esse é o nome do site");
+$show_text = Language_Item_Definer("This is the name of the website", "Este é o nome do site");
 
-echo "\n"."<h2>"."\n".
-$show_text.": <br />"."\n".
+echo "\n".'<h2 class="text_grey"><b>'."\n".
+$show_text.": </b><br />"."\n".
 $website_info["language_title"]."\n"
 ."</h2>"."\n"."\n";
 
-$show_text = Language_Item_Definer("This is the folder where the selected website is", "Essa é a pasta onde o site selecionado está");
+$show_text = Language_Item_Definer("This is the folder where the selected website is", "Esta é a pasta onde o site selecionado está");
 
-echo "<h2>"."\n".
-$show_text.": <br />"."\n".
+echo '<h2 class="text_grey"><b>'."\n".
+$show_text.": </b><br />"."\n".
 Make_Link("file:///".$html_folder, $html_folder, $target = "_blank")."\n"
 ."</h2>"."\n"."\n";
 
-$show_text = Language_Item_Definer("This is the path to the website HTML file", "Esse é o caminho para o arquivo HTML do site");
+$show_text = Language_Item_Definer("This is the path to the website HTML file", "Este é o caminho para o arquivo HTML do site");
 
-echo format("<h2>"."\n".
-"{}: <br />"."\n".
+echo format('<h2 class="text_grey"><b>'."\n".
+"{}: </b><br />"."\n".
 "{}"."\n"
 ."</h2>"."\n", array($show_text, Make_Link("file:///".$html_index_file, $html_index_file, $target = "_blank")))."\n";
 
@@ -168,9 +175,9 @@ if ($file_exists == False) {
 
 $show_text = Language_Item_Definer("The file of the website was {}", "O arquivo do site foi {}");
 
-echo "<h2>"."\n".
+echo '<h2 class="text_grey"><b>'."\n".
 format($show_text, $text)."."."\n"
-."</h2><br />"."\n";
+."</b></h1><br />"."\n";
 
 echo "\n"."</center>";
 
