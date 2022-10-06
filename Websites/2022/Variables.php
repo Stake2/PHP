@@ -1,8 +1,5 @@
 <?php 
 
-$summary_text = Language_Item_Definer("Summary", "Resumo");
-$this_year_i_language_text = Language_Item_Definer("This Year I", "Este Ano Eu");
-
 $first_template = "Website to show how my ".$website_info["english_title"]." was, and what I did in it.{}\n".
 "Made by {}";
 

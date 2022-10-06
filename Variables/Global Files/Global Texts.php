@@ -135,4 +135,7 @@ $portuguese = array(
 
 $media_types_plural = Language_Item_Definer($english, $portuguese);
 
+$summary_text = Language_Item_Definer("Summary", "Resumo");
+$this_year_i_language_text = Language_Item_Definer("This Year I", "Este Ano Eu");
+
 ?>

@@ -1,9 +1,18 @@
 <?php 
 
-$this_year_i_file = $year_folders[$local_current_year].$website_info["full_language"]."/".$this_year_i_language_text.".txt";
+require $website_php_folders["Watch History"]."Media Variables.php";
 
-echo '<div style="text-align: left">';
-Show(Read_Lines($this_year_i_file), $add_br = True);
-echo $div_close;
+$local_current_year = (int)$website_info["english_title"];
+$module_current_year = (int)$website_info["english_title"];
+$run_as_module = True;
+$watched_media_numbers_current_year = ${"watched_media_numbers_".$local_current_year};
+
+$mobile_version = False;
+
+echo '<div style="text-align:left;">'."\n";
+
+require $website_php_folders["Watch History"]."Watched Media Generator.php";
+
+echo $div_close."\n";
 
 ?>

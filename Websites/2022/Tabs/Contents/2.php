@@ -1,18 +1,19 @@
 <?php 
 
-require $website_php_folders["Watch History"]."Media Variables.php";
+$this_year_i_file = $year_folders[$website_info["english_title"]].$website_info["full_language"]."/".$this_year_i_language_text.".txt";
 
-$local_current_year = (int)$website_info["english_title"];
-$module_current_year = (int)$website_info["english_title"];
-$run_as_module = True;
-$watched_media_numbers_current_year = ${"watched_media_numbers_".$local_current_year};
+$summary = Read_Lines($this_year_i_file);
 
-$mobile_version = False;
+echo '<div style="text-align: left">';
 
-echo '<div style="text-align:left;">'."\n";
+if ($summary != []) {
+	Show($summary, $add_br = True);
+}
 
-require $website_php_folders["Watch History"]."Watched Media Generator.php";
+else {
+	Show(Language_Item_Definer('"This Year I" text not yet created', 'O texto "Este Ano Eu" ainda não foi criado').".");
+}
 
-echo $div_close."\n";
+echo $div_close;
 
 ?>
