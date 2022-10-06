@@ -7,12 +7,12 @@ $number_text_color_span = '<span class="'.$number_text_color.'">';
 
 if ($mobile_version == True) {
 	$margin_div_style = '<div>';
-	$mobile_a_name = 'm';
+	$mobile_a_name = "_Mobile";
 }
 
 if ($mobile_version == Null) {
 	$margin_div_style = '<div style="margin-left:30px;">';
-	$mobile_a_name = '';
+	$mobile_a_name = "";
 }
 
 echo '<'.$h4_element.' class="'.$number_text_color.'" style="text-align:left;">'."\n";

@@ -36,11 +36,11 @@ $span_second_text_color = '<span class="'.$second_text_color.'">';
 #Website descriptions
 $website_descriptions = array(
 Null,
-"Website to show Animes, Cartoons, Series, Movies, and Videos that I watched, and medias that I will watch, made by Stake2.", 
-"Site para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti, e mídias que eu vou assistir, feito por Stake2.",
+"Website to show Animes, Cartoons, Series, Movies, and Videos that I watched, and medias that I will watch, made by ".$person_names["Izaque"].".", 
+"Site para mostrar Animes, Desenhos, Séries, Filmes, e Vídeos que assisti, e mídias que eu vou assistir, feito por ".$person_names["Izaque"].".",
 );
 
-$text = "Website to show {}, {}, {}, {}, and {} that I watched.<br />And {} that I will watch, made by ".Create_Element("span", $text_orange_css_class, "Stake2").".";
+$text = "Website to show {}, {}, {}, {}, and {} that I watched.<br />And {} that I will watch, made by ".Create_Element("span", $text_orange_css_class, $person_names_painted["Izaque"]).".";
 
 $local_array = array(
 	"Animes",
@@ -59,7 +59,7 @@ foreach ($local_array as $item) {
 
 $replacer_one = format($text, $replacer_array_one);
 
-$text = "Site para mostrar {}, {}, {}, {}, e {} que assisti.<br />E {} que eu vou assistir, feito por ".Create_Element("span", $text_orange_css_class, "Stake2").".";
+$text = "Site para mostrar {}, {}, {}, {}, e {} que assisti.<br />E {} que eu vou assistir, feito por ".Create_Element("span", $text_orange_css_class, $person_names_painted["Izaque"]).".";
 
 $local_array = array(
 	"Animes",
@@ -83,35 +83,6 @@ $website_header_descriptions = array(
 	$replacer_one,
 	$replacer_two,
 );
-
-#Media links for the Links tab
-$media_links_array = array(
-	"https://www.baixarseriesmp4.com/baixar-the-walking-dead-6a-temporada-dublado-e-legendado-mega/", 
-	"https://www.baixarseriesmp4.org/baixar-the-walking-dead-7a-temporada-dublado-e-legendado/", 
-	"https://www.baixarseriesmp4.org/baixar-the-walking-dead-8a-temporada-dublado-e-legendado/", 
-	"https://www.baixarseriesmp4.org/baixar-the-walking-dead-9a-temporada-mp4-dublado-e-legendado/",
-	"https://pt.wikipedia.org/wiki/Lista_de_epis%C3%B3dios_de_The_Walking_Dead", 
-	"https://mlp.fandom.com/pt/wiki/A_Amizade_é_Mágica_mídia_de_animação", 
-	"http://www.itunesmaxhd.com/2015/08/ben-10-forca-alienigena-s01-completa.html",
-	"http://www.itunesmaxhd.com/2015/08/ben-10-forca-alienigenas02.html",
-	"http://www.itunesmaxhd.com/2016/03/ben-10-alien-force-3-temporada-completa.html",
-	"https://www.youtube.com/user/ElectronicDesireGE/videos/",
-	"https://www.superanimes.website/anime/sword-art-online-alicization/",
-	"https://www.superanimes.website/anime/bang-dream-2/",
-	"https://bandori.fandom.com/wiki/BanG_Dream!_2nd_Season/",
-);
-
-# Image links for the Links tab
-$media_image_links_array = array(
-	$cdnimg.'twd.jpg', 
-	$cdnimg.'mlp.png', 
-	$cdnimg.'ben10.jpg', 
-	$cdnimg.'alan.jpg', 
-	$cdnimg.'saoa.jpg', 
-	$cdnimg.'bg.jpg',
-);
-
-$media_links_number = count($media_image_links_array);
 
 # Text File Reader.php file includer
 require $text_file_reader_file_php;
@@ -155,13 +126,13 @@ $tab_titles_without_html = array(
 );
 
 $website_custom_button_bar_numbers = array(
-0,
-1,
-2,
-4,
+	0,
+	1,
+	2,
+	4,
 );
 
-$title_header_addon = ": ".$icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
+$title_header_addon = $icons_array["eye"]." ".'<span class="'.$second_text_color.'">'."[".$every_year_watched_number." ".$watched_media_text."]".$spanc;
 
 # Website name, title, URL and description setter, by language
 $website_info["language_title"] = $website_info["english_title"];

@@ -20,13 +20,13 @@ $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "ri
 $custom_tab_names = $tab_names;
 $custom_tab_names[0] = "";
 
-$custom_tab_titles_array = array(
+$custom_tab_titles = array(
 	$chapter_in_language.": ".$website_language_icon,
 	": ".Create_Element("span", $w3_text_colors["orange"]." ".$text_hover_white_css_class, $story_info["readers_number"])." ".$icons[20]."<br />".$thanks_everyone_text,
 	": ".Create_Element("span", $w3_text_colors["orange"], $stories_number)." ".$icons[11],
 );
 
-$custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
+$custom_tab_titles = Mix_Arrays($custom_tab_names, $custom_tab_titles, $left_or_right = "right");
 
 $tab_texts = array();
 

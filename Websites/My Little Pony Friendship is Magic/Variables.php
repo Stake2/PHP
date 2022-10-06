@@ -105,14 +105,14 @@ while ($i <= count($custom_tab_names) - 1) {
 	$i++;
 }
 
-$custom_tab_titles_array = array(
+$custom_tab_titles = array(
 );
 
 foreach ($tab_titles as $tab_title) {
-	array_push($custom_tab_titles_array, $tab_title);
+	array_push($custom_tab_titles, $tab_title);
 }
 
-$custom_tab_titles_array = Mix_Arrays($custom_tab_names, $custom_tab_titles_array, $left_or_right = "right");
+$custom_tab_titles = Mix_Arrays($custom_tab_names, $custom_tab_titles, $left_or_right = "right");
 
 $website_settings["use_custom_tab_titles"] = True;
 

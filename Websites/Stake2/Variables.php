@@ -40,18 +40,18 @@ $tab_titles = Mix_Arrays($tab_names, $tab_titles_prototype, $left_or_right = "ri
 
 $digital_identity_text = Language_Item_Definer("Digital Identity", "Identidade Digital");
 
-$custom_tab_titles_array = array(
+$custom_tab_titles = array(
 	Language_Item_Definer("Person", "Pessoa"),
 	$digital_identity_text,
 	$digital_identity_text,
 	"",
 );
 
-$custom_tab_titles_array = Mix_Arrays($custom_tab_titles_array, $tab_names, $left_or_right = "right", $additinonal_value = array(": ", "left"));
-$custom_tab_titles_array = Mix_Arrays($custom_tab_titles_array, $local_icons, $left_or_right = "right", $additinonal_value = array(" ", "left"));
+$custom_tab_titles = Mix_Arrays($custom_tab_titles, $tab_names, $left_or_right = "right", $additinonal_value = array(": ", "left"));
+$custom_tab_titles = Mix_Arrays($custom_tab_titles, $local_icons, $left_or_right = "right", $additinonal_value = array(" ", "left"));
 
-$custom_tab_titles_array[3] = str_replace(": ", "", $custom_tab_titles_array[3]);
-$custom_tab_titles_array[3] = substr_replace($custom_tab_titles_array[3], ": ", strlen($custom_tab_titles_array[3]) - strlen($icons_array["globe"]) - 1, 0);
+$custom_tab_titles[3] = str_replace(": ", "", $custom_tab_titles[3]);
+$custom_tab_titles[3] = substr_replace($custom_tab_titles[3], ": ", strlen($custom_tab_titles[3]) - strlen($icons_array["globe"]) - 1, 0);
 
 
 $tab_texts = array();

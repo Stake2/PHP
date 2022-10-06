@@ -175,7 +175,7 @@ while ($chapter_number_1 <= $story_info["chapter_number"]) {
 
 	if ($story_website_settings["use_status"] == True and $story_website_settings["show_new_chapter_text"] == True) {
 		if ($chapter_number_1 == $story_info["chapter_number"] and in_array($story_status, array($story_status_texts[0], $story_status_texts[3])) == False) {
-			$you_are_reading_chapter_text = $you_are_reading_chapter_text.$new_chapter_span;
+			$you_are_reading_chapter_text = $you_are_reading_chapter_text." ".$new_chapter_span;
 		}
 	}
 

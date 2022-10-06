@@ -109,13 +109,13 @@ $multi_persons_painted["Izaque"] = Create_Element("span", "w3-text-white", "Stak
 
 $w3_text_format = "w3-text-{}";
 
-$archived_media_text = Language_Item_Definer("Medias", "Mídias");
+$archived_media_text = Language_Item_Definer("Media", "Mídia");
 $archived_text = Language_Item_Definer("Archived", "Arquivado");
 $unknown_watched_time_text = Language_Item_Definer("Unknown Watched Time", "Horário Assistido Desconhecido");
 $watched_media_text = Language_Item_Definer("Watched Media", "Midias Assistidas");
-$rewatched_text = Language_Item_Definer("Rewatched", "Reassistido");
-$rewatched_text_en = "Rewatched";
-$rewatched_text_pt = "Reassistido";
+$rewatched_text = Language_Item_Definer("Re-Watched", "Re-Assistido");
+$rewatched_text_en = "Re-Watched";
+$rewatched_text_pt = "Re-Assistido";
 
 $english = array(
 	"Animes",
