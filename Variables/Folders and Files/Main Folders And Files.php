@@ -73,7 +73,7 @@ $my_little_pony_friendship_is_magic_folder = $my_little_pony_folder."Friendship 
 $mlp_fim_texts_folder = $my_little_pony_friendship_is_magic_folder."Texts - Textos/";
 $mlp_fim_feeling_texts_folder = $mlp_fim_texts_folder."Feeling Texts - Textos de Sentimentos/";
 $mlp_fim_english_texts_folder = $mlp_fim_texts_folder."English/";
-$mlp_fim_portuguese_texts_folder = $mlp_fim_texts_folder."Português Brasileiro/";
+$mlp_fim_portuguese_texts_folder = $mlp_fim_texts_folder."Português/";
 
 # Notepad folder variables
 $notepad_audiovisual_media_network_folder = $notepad_networks_folder.explode("/", explode("\n", fread(fopen($networks_text_file, "r", 'UTF-8'), filesize($networks_text_file)))[0])[0]."/";

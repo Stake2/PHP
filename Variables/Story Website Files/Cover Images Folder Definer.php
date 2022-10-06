@@ -23,7 +23,7 @@ if ($story_website_settings["has_custom_story_folder"] == True) {
 
 Create_Folder($story_chapter_files_folder_language);
 
-$story_chapter_files_folder_language = $story_chapter_files_folder."Português Brasileiro/";
+$story_chapter_files_folder_language = $story_chapter_files_folder."Português/";
 
 if ($story_website_settings["has_custom_story_folder"] == True) {
 	$story_chapter_files_folder_language = $local_chapters_folder;
