@@ -1,8 +1,6 @@
 <?php 
 
-$php_settings = array(
-	"allow_current_year" => False,
-);
+require "PHP Settings.php";
 
 $current_year = strftime("%Y");
 date_default_timezone_set("America/Sao_Paulo");
@@ -95,8 +93,8 @@ require $select_website_form;
 $_SESSION["POST"] = array(
 	"website" => Language_Item_Definer("The Life of Littletato", "A Vida de Pequenata"),
 	"language" => "pt",
-	"website_setting" => "notifications",
-	"story_website_setting" => "nothing"
+	"website_setting" => "",
+	"story_website_setting" => "false"
 );
 
 unset($_POST);

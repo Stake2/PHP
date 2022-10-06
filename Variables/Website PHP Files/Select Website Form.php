@@ -135,44 +135,50 @@ function Make_Form($mode = "") {
 
 		if (isset($_SESSION["POST"]) == True) {
 			$form = format(
-			$form, array($_SESSION["POST"]["website"], $websites,
-			$_SESSION["POST"]["language"], $languages,
-			$_SESSION["POST"]["website_setting"], $local_website_settings,
-			$_SESSION["POST"]["story_website_setting"], $local_story_website_settings
-			));
-
-			$form = str_replace(
-			format('<option value="{}">{}</option>', array($_SESSION["POST"]["website"], $_SESSION["POST"]["website"])),
-			format('<option value="{}" selected="True">{}</option>', array($_SESSION["POST"]["website"], $_SESSION["POST"]["website"])),
-			$form
+				$form, array($_SESSION["POST"]["website"], $websites,
+				$_SESSION["POST"]["language"], $languages,
+				$_SESSION["POST"]["website_setting"], $local_website_settings,
+				$_SESSION["POST"]["story_website_setting"], $local_story_website_settings
+				)
 			);
 
-			$setting_name = Language_Item_Definer($_SESSION["POST"]["website_setting"], $portuguese_website_setting_names[$_SESSION["POST"]["website_setting"]]);
-			$setting_name = ucfirst(str_replace("_", " ", strtolower($setting_name)));
-
 			$form = str_replace(
-			format('<option value="{}">{}</option>', array($_SESSION["POST"]["website_setting"], $setting_name)),
-			format('<option value="{}" selected="True">{}</option>', array($_SESSION["POST"]["website_setting"], $setting_name)),
-			$form
+				format('<option value="{}">{}</option>', array($_SESSION["POST"]["website"], $_SESSION["POST"]["website"])),
+				format('<option value="{}" selected="True">{}</option>', array($_SESSION["POST"]["website"], $_SESSION["POST"]["website"])),
+				$form
 			);
 
-			$setting_name = Language_Item_Definer($_SESSION["POST"]["story_website_setting"], $portuguese_story_website_setting_names[$_SESSION["POST"]["story_website_setting"]]);
-			$setting_name = ucfirst(str_replace("_", " ", strtolower($setting_name)));
+			if (isset($_SESSION["POST"]["website_setting"]) and $_SESSION["POST"]["website_setting"] != "") {
+				$setting_name = Language_Item_Definer($_SESSION["POST"]["website_setting"], $portuguese_website_setting_names[$_SESSION["POST"]["website_setting"]]);
+				$setting_name = ucfirst(str_replace("_", " ", strtolower($setting_name)));
 
-			$form = str_replace(
-			format('<option value="{}">{}</option>', array($_SESSION["POST"]["story_website_setting"], $setting_name)),
-			format('<option value="{}" selected="True">{}</option>', array($_SESSION["POST"]["story_website_setting"], $setting_name)),
-			$form
-			);
+				$form = str_replace(
+				format('<option value="{}">{}</option>', array($_SESSION["POST"]["website_setting"], $setting_name)),
+				format('<option value="{}" selected="True">{}</option>', array($_SESSION["POST"]["website_setting"], $setting_name)),
+				$form
+				);
+			}
+
+			if (isset($_SESSION["POST"]["story_website_setting"]) and $_SESSION["POST"]["story_website_setting"] != "false") {
+				$setting_name = Language_Item_Definer($_SESSION["POST"]["story_website_setting"], $portuguese_story_website_setting_names[$_SESSION["POST"]["story_website_setting"]]);
+				$setting_name = ucfirst(str_replace("_", " ", strtolower($setting_name)));
+
+				$form = str_replace(
+					format('<option value="{}">{}</option>', array($_SESSION["POST"]["story_website_setting"], $setting_name)),
+					format('<option value="{}" selected="True">{}</option>', array($_SESSION["POST"]["story_website_setting"], $setting_name)),
+					$form
+				);
+			}
 		}
 
 		else if (isset($_POST) == True) {
 			$form = format($form, array(
-			$php_settings["method"]["website"], $websites,
-			$php_settings["method"]["language"], $languages,
-			$php_settings["method"]["website_setting"], $local_website_settings,
-			$php_settings["method"]["story_website_setting"], $local_story_website_settings
-			));
+					$php_settings["method"]["website"], $websites,
+					$php_settings["method"]["language"], $languages,
+					$php_settings["method"]["website_setting"], $local_website_settings,
+					$php_settings["method"]["story_website_setting"], $local_story_website_settings
+				)
+			);
 		}
 
 		return $form;

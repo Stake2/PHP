@@ -49,6 +49,7 @@ $izaque_people_i_know_folder = $notepad_learning_izaque_folder."People that I kn
 $notepad_izaque_about_me_folder = $notepad_learning_izaque_folder."About me - Sobre mim/";
 $notepad_networks_folder = $notepad_effort_folder."Networks/";
 $media_networks_database_folder = $notepad_networks_folder."Media Networks Database/";
+$productive_network_folder = $notepad_networks_folder."Productive Network/";
 $networks_text_file = $media_networks_database_folder."Networks.txt";
 
 $diary_folder = $notepad_effort_folder."Diary/";

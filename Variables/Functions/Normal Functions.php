@@ -385,7 +385,7 @@ function Make_Button_Names() {
 	}
 }
 
-function Make_Tab_Titles($custom_tab_titles_array = Null) {
+function Make_Tab_Titles($custom_tab_titles = Null) {
 	global $tab_titles;
 	global $div_zoom_animation;
 	global $h2_element;
@@ -393,12 +393,18 @@ function Make_Tab_Titles($custom_tab_titles_array = Null) {
 	global $alternative_tab_full_border;
 	global $tab_html_titles;
 
-	if ($custom_tab_titles_array != Null) {
-		$tab_titles = $custom_tab_titles_array;
+	$local_tab_titles = $tab_titles;
+
+	if ($custom_tab_titles != Null) {
+		$local_tab_titles = $custom_tab_titles;
 	}
 
 	$i = 0;
-	foreach ($tab_titles as $value) {
+	foreach ($local_tab_titles as $value) {
+		if ($custom_tab_titles != Null and $value == "") {
+			$value = $tab_titles[$i];
+		}
+			
 		$tab_html_titles[$i] = $div_zoom_animation.'<'.$h2_element.' class="w3-center"><p></p><br /><b>'.$value.'</b><br /><br /><p></p></'.$h2_element.'>'.$div_close.'<hr class="'.$alternative_tab_full_border.'" />'."\n";
 
 		$i++;

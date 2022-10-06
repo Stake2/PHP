@@ -9,6 +9,7 @@ foreach ($website_titles as $value) {
 	$new_tab = True;
 
 	if ($value == $website_info["english_title"]) {
+		$local_website_link = "return false;";
 		$button_style = $default_text_color." ".$click_button_color." ".$second_full_border." ".$default_background_hover_color;
 		$new_tab = False;
 	}

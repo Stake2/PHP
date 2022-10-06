@@ -331,7 +331,7 @@ function Add_Years_To_Array($array, $mode = "push", $custom_value = Null, $custo
 		$local_current_year = $local_current_year;
 	}
 
-	elseif ($less_one == True) {
+	if ($php_settings["allow_current_year"] == False and $less_one == True) {
 		$local_current_year = $local_current_year - 1;
 	}
 
@@ -413,13 +413,13 @@ function Make_Website_Button($link, $name, $classes, $add_to_button_name = Null,
 	global $roundedborderstyle;
 	global $h2_element;
 
-	$onclick = "onclick=\"window.open('".$link."');\"";
+	$onclick = 'onclick="window.open('."'".$link."'".');"';
 
-	if ($new_tab == False) {
-		$onclick = "onclick=\"function() {return false;}\"";
+	if ($link == "return false;") {
+		$onclick = 'onclick="function() {return false;}"';
 	}
 
-	$website_button = "<button class=\"w3-btn ".$classes."\" title=\"".$name.$add_to_button_title."\" ".$roundedborderstyle." ".$onclick."><".$h2_element.">".$name.$add_to_button_name."</".$h2_element."></button>";
+	$website_button = '<button class="w3-btn '.$classes.'" title="'.$name.$add_to_button_title.'" '.$roundedborderstyle." ".$onclick."><".$h2_element.">".$name.$add_to_button_name."</".$h2_element."></button>";
 
 	return $website_button;
 }

@@ -76,19 +76,19 @@ while ($i <= 4) {
 }
 
 $done_media_array = array(
-False,
-False,
-False,
-False,
-False,
+	False,
+	False,
+	False,
+	False,
+	False,
 );
 
 $has_margin = array(
-False,
-False,
-False,
-False,
-False,
+	False,
+	False,
+	False,
+	False,
+	False,
 );
 
 $animes_code_number = 0;
@@ -178,12 +178,12 @@ while ($overall_number <= 4) {
 			$a++;
 		}
 
-		# New style of showing Watched Medias
+		# New style of showing Watched Media
 
 		$media_type = $current_year_watched_media_type_text[$i];
 
 		if ($has_media["Animes"] == True and $done_media_array[$animes_code_number] == False) {
-			if ($media_type == $media_types_plural[$animes_code_number]) {
+			if ($media_type == $mixed_media_type_names_plural_without_null[$animes_code_number]) {
 				if ($i == $media_type_text_file_lines_array[$animes_code_number]) {
 					$string = '<a name="'.$media_types_plural[$animes_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
 					$media_type_titles[$animes_code_number]."\n".$margin_div_style."\n";
@@ -225,7 +225,7 @@ while ($overall_number <= 4) {
 		}
 
 		if ($has_media["Cartoons"] == True and $done_media_array[$cartoons_code_number] == False and $done_media_array[$animes_code_number] == True) {
-			if ($media_type == $media_types_plural[$cartoons_code_number]) {
+			if ($media_type == $mixed_media_type_names_plural_without_null[$cartoons_code_number]) {
 				if ($i == $media_type_text_file_lines_array[$cartoons_code_number]) {
 					$string = '<a name="'.$media_types_plural[$cartoons_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
 					$media_type_titles[$cartoons_code_number]."\n".$margin_div_style."\n";
@@ -267,7 +267,7 @@ while ($overall_number <= 4) {
 		}
 
 		if ($has_media["Series"] == True and $done_media_array[$series_code_number] == False and $done_media_array[$animes_code_number] == True and $done_media_array[$cartoons_code_number] == True) {
-			if ($media_type == $media_types_plural[$series_code_number]) {
+			if ($media_type == $mixed_media_type_names_plural_without_null[$series_code_number]) {
 				if ($i == $media_type_text_file_lines_array[$series_code_number]) {
 					$string = '<a name="'.$media_types_plural[$series_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
 					$media_type_titles[$series_code_number]."\n".$margin_div_style."\n";
@@ -309,7 +309,7 @@ while ($overall_number <= 4) {
 		}
 
 		if ($has_media["Movies"] == True and $done_media_array[$movies_code_number] == False and $done_media_array[$series_code_number] == True and $done_media_array[$cartoons_code_number] == True and $done_media_array[$animes_code_number] == True and $done_media_array[$videos_code_number] == False) {
-			if ($media_type == $media_types_plural[$movies_code_number]) {
+			if ($media_type == $mixed_media_type_names_plural_without_null[$movies_code_number]) {
 				if ($i == $media_type_text_file_lines_array[$movies_code_number]) {
 					$string = '<a name="'.$media_types_plural[$movies_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
 					$media_type_titles[$movies_code_number]."\n".$margin_div_style."\n";
@@ -351,7 +351,7 @@ while ($overall_number <= 4) {
 		}
 
 		if ($has_media["Videos"] == True and $done_media_array[$videos_code_number] == False and $done_media_array[$movies_code_number] == True and $done_media_array[$series_code_number] == True and $done_media_array[$cartoons_code_number] == True and $done_media_array[$animes_code_number] == True) {
-			if ($media_type == $media_types_plural[$videos_code_number]) {
+			if ($media_type == $mixed_media_type_names_plural_without_null[$videos_code_number]) {
 				if ($i == $media_type_text_file_lines_array[$videos_code_number]) {
 					$string = '<a name="'.$media_types_plural[$videos_code_number].'_'.$local_current_year.$mobile_a_name.'"></a>'."\n".
 					$media_type_titles[$videos_code_number]."\n".$margin_div_style."\n";

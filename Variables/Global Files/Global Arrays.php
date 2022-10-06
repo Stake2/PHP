@@ -130,10 +130,8 @@ array_push($portuguese_websites, "Anos");
 array_push($website_types_text, "N");
 
 $websites = Add_Years_To_Array($websites, $mode = "push");
-
 $portuguese_websites = Add_Years_To_Array($portuguese_websites, $mode = "dict");
-
-$website_types_text = Add_Years_To_Array($website_types_text, $mode = "push", $custom_value_read = "N");
+$website_types_text = Add_Years_To_Array($website_types_text, $mode = "push", Null, $custom_value_read = "N");
 
 $websites_number = 0;
 
@@ -145,11 +143,6 @@ foreach ($websites as $local_website_name) {
 
 	$local_website_link = $main_website_url;
 	$local_website_folder_path = "";
-
-	if (preg_match("/[0-9][0-9][0-9][0-9]/i", $local_website_name) == True) {
-		$local_website_link .= "Years/";
-		$local_website_folder_path .= "Years/";
-	}
 
 	if ($local_website_name == "SpaceLiving") {
 		$local_website_link .= "New_World/";

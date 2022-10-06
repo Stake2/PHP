@@ -2,9 +2,7 @@
 
 session_start();
 
-$php_settings = array(
-	"allow_current_year" => False,
-);
+require "PHP Settings.php";
 
 $website_request = False;
 $set_session = False;
@@ -78,6 +76,9 @@ if ($http_method == []) {
 
 # Crucial Functions PHP File Loader
 require $crucial_functions_file_php;
+
+# Global Arrays PHP file loader
+require $global_arrays_php;
 
 if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 	$slim_php = $raintpl_folder."Slim.php";
@@ -155,9 +156,6 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 
 	$app->run();
 }
-
-# Global Arrays PHP file loader
-require $global_arrays_php;
 
 # Connect to Database
 require $sql_php;
@@ -291,15 +289,5 @@ if ($website_settings["custom_layout"] == False) {
 
 $full_website .= "</body>
 </html>";
-
-if (in_array($website_info["english_title"], $year_websites) == True) {
-	$year_summary_file = $year_language_folders[$website_info["full_language"]][$website_info["english_title"]].Language_Item_Definer("Summary", "Sumário").".txt";
-
-	if ($website_info["english_title"] == "2020" and $website_info["language"] == $language_pt) {
-		$year_summary_text = substr_replace($year_summary_text, "", -1);
-	}
-
-	Write_To_File($year_summary_file, $year_summary_text);
-}
 
 ?>

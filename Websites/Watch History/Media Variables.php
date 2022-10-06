@@ -29,12 +29,12 @@ $media_type_names_english = array(
 );
 
 $media_type_names_english_plural = array(
-Null,
-"Animes",
-"Cartoons",
-"Series",
-"Movies",
-"Videos",
+	Null,
+	"Animes",
+	"Cartoons",
+	"Series",
+	"Movies",
+	"Videos",
 );
 
 $media_type_names_portuguese = array(
@@ -100,15 +100,6 @@ $mixed_media_type_names = array(
 	$series_media_type_english.$media_type_separator.$series_media_type_portuguese,
 	$movie_media_type_english.$media_type_separator.$movie_media_type_portuguese,
 	$video_media_type_english.$media_type_separator.$video_media_type_portuguese,
-);
-
-$mixed_media_type_names_plural = array(
-	Null,
-	$anime_media_type,
-	$cartoon_media_type_english_plural.$media_type_separator.$cartoon_media_type_portuguese_plural,
-	$series_media_type_english_plural.$media_type_separator.$series_media_type_portuguese_plural,
-	$movie_media_type_english_plural.$media_type_separator.$movie_media_type_portuguese_plural,
-	$video_media_type_english_plural.$media_type_separator.$video_media_type_portuguese_plural,
 );
 
 $mixed_media_type_names_plural = array(

@@ -51,7 +51,7 @@ $english_watched_media_types_text = "Media Types";
 
 $read_text_lower = mb_strtolower($read_text);
 
-$person_names = array(
+$person_names_array = array(
 	"Izaque",
 	"Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
 	"Izaque White",
@@ -71,27 +71,27 @@ $person_name_colors = array(
 	"blue",
 );
 
-$person_names_array = array();
+$person_names = array();
 
-# Create person_names_array with custom variable
+# Create person_names with custom variables
 $i = 0;
-foreach ($person_names as $person_name) {
+foreach ($person_names_array as $person_name) {
 	$name_color = $person_name_colors[$i];
 
 	if ($person_name != "Ana" and in_array($person_name, ["Julia", "Júlia"]) == False) {
-		$person_names_array[$person_name] = "Izaque Sanvezzo (Stake2, Funkysnipa Cat)";
+		$person_names[$person_name] = "Izaque Sanvezzo (Stake2, Funkysnipa Cat)";
 	}
 
 	else {
-		$person_names_array[$person_name] = $person_name;
+		$person_names[$person_name] = $person_name;
 	}
 
 	if (strpos($name_color, "_") == False) {
-		$person_names_painted[$person_name] = Create_Element("span", $w3_text_colors[$name_color], $person_names_array[$person_name]);
+		$person_names_painted[$person_name] = Create_Element("span", $w3_text_colors[$name_color], $person_names[$person_name]);
 	}
 
 	else {
-		$person_names_painted[$person_name] = Create_Element("span", $name_color, $person_names_array[$person_name]);
+		$person_names_painted[$person_name] = Create_Element("span", $name_color, $person_names[$person_name]);
 	}
 
 	$i++;

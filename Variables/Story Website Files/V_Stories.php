@@ -141,7 +141,7 @@ foreach ($english_story_names as $local_story_name) {
 		$extension = "gif";
 	}
 
-	$local_story_cover .= "Book Cover.".$extension;
+	$local_story_cover .= "Cover.".$extension;
 
 	$story_covers[$local_story_name] = $local_story_cover;
 }
@@ -378,8 +378,6 @@ if ($website_info["type"] == $story_website_type) {
 }
 
 $cover_type = "Landscape";
-
-$middle_path = "/".$website_info["full_language"]."/".$cover_type."/Story/Book Cover.png";
 
 # Temporary unset because these stories do not have a website
 

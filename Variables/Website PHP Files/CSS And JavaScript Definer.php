@@ -27,6 +27,9 @@ if (strpos($_SERVER["REQUEST_URI"], "Website%20HTML") == False) {
 	unset($javascript_links[$number]);
 }
 
+$normal_website_type = "Normal Website Type";
+$story_website_type = "Story Website Type";
+
 if ($website_info["type"] == $story_website_type and $website_info["language"] != $language_geral) {
 	array_push($javascript_links, $website_story_websites_javascript_folder."Open Chapter By Keys");
 	array_push($javascript_links, $website_story_websites_javascript_folder."Write Chapter");
