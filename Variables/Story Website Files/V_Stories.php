@@ -15,8 +15,8 @@ $status_finished_and_publishing = $status[3];
 
 $story_statuses_names = array(
 	"Writing" => Language_Item_Definer("Writing", "Escrevendo"),
-	"Rewriting" => Language_Item_Definer("Rewriting", "Reescrevendo"),
-	"Reviewing and Rewriting" => Language_Item_Definer("Reviewing and Rewriting", "Revisando e Reescrevendo"),
+	"Rewriting" => Language_Item_Definer("Re-Writing", "Re-Escrevendo"),
+	"Reviewing and Rewriting" => Language_Item_Definer("Reviewing and Re-Writing", "Revisando e Re-Escrevendo"),
 	"Reviewing" => Language_Item_Definer("Reviewing", "Revisando"),
 	"Finished and Published" => Language_Item_Definer("Finished and Published", "Completada e Publicada"),
 	"Finished" => Language_Item_Definer("Finished", "Completada"),
