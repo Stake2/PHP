@@ -83,7 +83,7 @@ foreach ($website_titles as $value) {
 	$i++;
 }
 
-$website_info["meta_title"] = $website_info["language_title"];
+$website_info["meta_title"] = $website_info["english_title"];
 
 if ($website_info["language"] != $language_geral) {
 	$website_info["meta_title"] .= " ".$website_info["small_language"];
