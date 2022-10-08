@@ -17,8 +17,8 @@ function getElementByXpath(path) {
 </script>';
 
 if ($website_settings["custom_layout"] == False) {
-	echo '<div style="display:none;" id="click_website_button_color">'.$click_button_color.$div_close."\n";
-	echo '<div style="display:none;" id="old_website_button_color">'.$first_button_color.$div_close."\n";
+	echo '<div style="display:none;" id="click_button_background">'.$click_button_color.$div_close."\n";
+	echo '<div style="display:none;" id="button_background">'.$first_button_color.$div_close."\n";
 	echo '<div style="display:none;" id="button_number">'.$website_tab_number.$div_close."\n";
 }
 

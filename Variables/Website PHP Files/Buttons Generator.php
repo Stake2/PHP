@@ -45,9 +45,15 @@ if ($website_function_settings["website_buttons"] == True) {
 	}
 
 	while ($i <= $website_tab_number) {
-		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_computer[$i]."');Define_Button('computer_button_".($i + 1)."');Change_Button_Color();";
+		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_computer[$i]."');Define_Button('computer_button_".($i + 1)."');Change_Button_Color(".($i + 1).");";
 
-		$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<a href="#'.$website_tab_codes_computer[$i].'"><button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$scripts.'" title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'.$website_tab_titles_computer[$i].'</button></a>'."\n".$spanc."\n"."\n";
+		$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".
+		'<a href="#'.$website_tab_codes_computer[$i].'">'.
+		'<button id="computer_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$scripts.'" title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'.
+		$website_tab_titles_computer[$i].
+		'</button>'.
+		'</a>'.
+		"\n".$spanc."\n"."\n";
 
 		$computer_buttons[$i] = $button;
 
