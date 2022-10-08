@@ -45,7 +45,7 @@ if ($website_function_settings["website_buttons"] == True) {
 	}
 
 	while ($i <= $website_tab_number) {
-		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_computer[$i]."');Define_Button('computer_button_".($i + 1)."');Change_Button_Color(".($i + 1).");";
+		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_computer[$i]."');Change_Button_Color(".($i + 1).");";
 
 		$button = '<span title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".
 		'<a href="#'.$website_tab_codes_computer[$i].'">'.
@@ -91,7 +91,7 @@ if ($website_function_settings["website_buttons"] == True) {
 	
 	$i = 0;
 	while ($i <= $website_tab_number) {
-		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_mobile[$i]."');Define_Button('computer_button_".($i + 1)."');Change_Button_Color();";
+		$scripts = "Hide_Computer_Buttons();openCity('".$website_tab_codes_mobile[$i]."');Change_Button_Color(".($i + 1).");";
 
 		$button = '<a href="#'.$website_tab_codes_mobile[$i].'" onclick="Hide_Mobile_Buttons();" title="'.$tab_names[$i].'" alt="'.$tab_names[$i].'">'."\n".'<button id="mobile_button_'.($i + 1).'" class="w3-btn '.$first_button_style.'" '.$roundedborderstyle.' onclick="'.$scripts.'">'."\n".$website_tab_titles_mobile[$i]."\n".'</button>'."\n".'</a>'."\n";
 
@@ -122,7 +122,7 @@ if ($website_info["english_title"] == $website_titles["Watch History"]) {
 
 	$i = 0;
 	while ($current_variable_year <= $current_year - 1) {
-		$script = 'Define_Button('."'".'watched_archived_button_'.($i + 1)."'".');Change_Button_Color();';
+		$script = 'Change_Button_Color('.($i + 1).');';
 
 		$text = $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']';
 		$html = $archived_media_text.' '.$current_variable_year.' ['.${"watched_number_".$current_variable_year}.']: '.$icons[8];
@@ -153,7 +153,7 @@ if ($website_info["english_title"] == $website_titles["Watch History"]) {
 
 	$i = 0;
 	while ($current_variable_year <= $current_year - 1) {
-		$script = 'Define_Button('."'".'watched_archived_button_'.($i + 1)."'".');Change_Button_Color();';
+		$script = 'Change_Button_Color('.($i + 1).');';
 
 		$text = $archived_media_text.' '.$current_variable_year.': ['.${"watched_number_".$current_variable_year}.']';
 		$html = $archived_media_text.' '.$current_variable_year.' ['.${"watched_number_".$current_variable_year}.']: '.$icons[8];

@@ -22,6 +22,11 @@ foreach ($website_titles as $value) {
 		$add_to_button_title .= " 📗";
 	}
 
+	if (in_array($local_website_title, $year_websites)) {
+		$add_to_button_name .= " ".$icons_array["calendar"];
+		$add_to_button_title .= " 📅";
+	}
+
 	$website_link_buttons[$value] = Make_Website_Button($local_website_link, $local_website_title, $button_style, $add_to_button_name, $add_to_button_title, $new_tab);
 }
 
