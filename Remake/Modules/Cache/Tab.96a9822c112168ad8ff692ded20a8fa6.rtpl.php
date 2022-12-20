@@ -6,7 +6,7 @@
 		<p><br /><b id="<?php echo $tab['id']; ?>_title"><?php echo $tab["title"]; ?></b><br /><br /><p>
 	</h2>
 
-	<?php echo $website["elements"]["hr_1px"]["theme"]; ?>
+	<?php echo $website["elements"]["hr_1px"]["theme"]["light"]; ?>
 
 	<h2 class="text_size margin_sides_5_cent" style="<?php if( isset($tab['text_style']) ){ ?><?php echo $tab["text_style"]; ?><?php } ?>">
 		<?php echo $tab["content"]; ?>

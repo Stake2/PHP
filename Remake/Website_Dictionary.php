@@ -288,7 +288,7 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		if (is_array($website["dictionary"][$website_title]["style"]["border_4px"][$type]) === True) {
 			foreach (array_keys($website["dictionary"][$website_title]["style"]["border_4px"][$type]) as $key) {
-				$website["dictionary"][$website_title]["style"]["button"][$type][$key] = $website["dictionary"][$website_title]["style"]["background"][$type][$key]." ".$website["dictionary"][$website_title]["style"]["text"]["black"]." ".$website["dictionary"][$website_title]["style"]["border_4px"][$type]["dark"]." background_hover_white";
+				$website["dictionary"][$website_title]["style"]["button"][$type][$key] = $website["dictionary"][$website_title]["style"]["background"][$type][$key]." ".$website["dictionary"][$website_title]["style"]["text"]["black"]." ".$website["dictionary"][$website_title]["style"]["border_4px"][$type]["dark"]." box_shadow_".$website["dictionary"][$website_title]["json"]["style"][$type][$key]." background_hover_white";
 			}
 		}
 	}
@@ -421,7 +421,7 @@ foreach ($website["list"]["en"] as $website_title) {
 		$website["dictionary"][$website_title]["description"]["header"] = $Language -> Item($website["dictionary"][$website_title]["json"]["descriptions"]["header"]);
 
 		if (strpos($website["dictionary"][$website_title]["description"]["header"], "{website_title}") !== False) {
-			$website["dictionary"][$website_title]["description"]["header"] = str_replace("{website_title}", $website["dictionary"][$website_title]["titles"]["language"], $website["dictionary"][$website_title]["description"]["header"]);
+			$website["dictionary"][$website_title]["description"]["header"] = str_replace("{website_title}", HTML::Element("span", $website["dictionary"][$website_title]["titles"]["language"], "", $website["dictionary"][$website_title]["style"]["text_highlight"]), $website["dictionary"][$website_title]["description"]["header"]);
 		}
 
 		if (strpos($website["dictionary"][$website_title]["description"]["header"], "{author}") !== False) {
