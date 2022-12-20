@@ -343,6 +343,7 @@ foreach ($file_names as $file_name) {
 	$website["javascript"]["links"] .= '<script type="text/javascript" src="';
 
 	if (strpos($file_name, ".com") == False) {
+		#$website["javascript"]["links"] .= "/JavaScript/";
 		$website["javascript"]["links"] .= $website["folders"]["javascript"]["root"];
 	}
 

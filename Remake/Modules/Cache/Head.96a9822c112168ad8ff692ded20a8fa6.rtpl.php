@@ -64,12 +64,12 @@
 
 	<!-- JavaScript files -->
 <?php echo $website["javascript"]["links"]; ?>
-	<?php if( $parse == '/generate' ){ ?>
+	<?php if( $parse != '/generate' ){ ?>
+
 
 	<script>
 		Check_Language()
-	</script>
-	<?php } ?>
+	</script><?php } ?>
 
 </head>
 
