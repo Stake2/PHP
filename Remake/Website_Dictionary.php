@@ -288,7 +288,7 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		if (is_array($website["dictionary"][$website_title]["style"]["border_4px"][$type]) === True) {
 			foreach (array_keys($website["dictionary"][$website_title]["style"]["border_4px"][$type]) as $key) {
-				$website["dictionary"][$website_title]["style"]["button"][$type][$key] = $website["dictionary"][$website_title]["style"]["background"][$type][$key]." ".$website["dictionary"][$website_title]["style"]["text"]["black"]." ".$website["dictionary"][$website_title]["style"]["border_4px"][$type]["dark"]." box_shadow_".$website["dictionary"][$website_title]["json"]["style"][$type][$key]." background_hover_white";
+				$website["dictionary"][$website_title]["style"]["button"][$type][$key] = $website["dictionary"][$website_title]["style"]["background"][$type][$key]." ".$website["dictionary"][$website_title]["style"]["text"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["border_4px"][$type]["dark"]." box_shadow_".$website["dictionary"][$website_title]["json"]["style"][$type][$key]." background_hover_white";
 			}
 		}
 	}
@@ -540,10 +540,10 @@ foreach ($website["list"]["en"] as $website_title) {
 	}
 
 	# Create website link button
-	$h2 = HTML::Element("h2", "\n\t\t\t\t".$website["dictionary"][$website_title]["titles"]["icon"]."\n\t\t\t", "", "text_size ".$website["style"]["text"]["black"])."\n";
+	$h2 = HTML::Element("h2", "\n\t\t\t\t".$website["dictionary"][$website_title]["titles"]["icon"]."\n\t\t\t", "", "text_size")."\n";
 
 	$button = "\n"."\t\t".'<!-- "'.$website_title.'" link button -->'."\n".
-	"\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", ' onclick="window.open(\''.$website["dictionary"][$website_title]["links"]["language"].'\')" style="border-radius: 50px;"', "w3-btn ".$website["dictionary"][$website_title]["style"]["button"]["black"]);
+	"\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", ' onclick="window.open(\''.$website["dictionary"][$website_title]["links"]["language"].'\')" style="border-radius: 50px;"', "w3-btn ".$website["dictionary"][$website_title]["style"]["button"]["theme"]["light"]);
 
 	if ($website_title == $website["website"]) {
 		$button = str_replace('window.open(\''.$website["dictionary"][$website_title]["links"]["language"].'\')"', "", $button);

@@ -1,14 +1,14 @@
 {
 	"style": {
 		"theme": {
-			"normal": "purple",
+			"normal": "second_purple",
 			"light": "light_purple",
-			"dark": "second_purple"
+			"dark": "darker_purple"
 		},
 		"secondary_theme": {
-			"normal": "purple",
+			"normal": "second_purple",
 			"light": "light_purple",
-			"dark": "second_purple"
+			"dark": "darker_purple"
 		}
 	},
 	"tabs": {

@@ -1,16 +1,16 @@
 {
 	"style": {
 		"theme": {
-			"normal": "yellow_sand",
+			"normal": "yellow",
 			"light": "yellow_sand",
 			"dark": "dark_yellow"
 		},
 		"secondary_theme": {
-			"normal": "yellow_sand",
-			"light": "yellow",
+			"normal": "yellow",
+			"light": "yellow_sand",
 			"dark": "dark_yellow"
 		},
-		"text_highlight": "yellow"
+		"text_highlight": "dark_yellow"
 	},
 	"image_width": "40%",
 	"tabs": {

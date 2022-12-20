@@ -422,17 +422,17 @@ $full_language = $Language -> languages["full"][$language];
 
 # Create website image button if website data exists
 if (isset($website["data"]) == True) {
-	$h4 = HTML::Element("h4", $website["language_texts"]["open_image_in_new_tab"].": ".$website["icons"]["images"], "", "text_size ".$website["style"]["text"]["black"], ["new_line" => True, "tab" => "\t\t\t"]);
+	$h4 = HTML::Element("h4", $website["language_texts"]["open_image_in_new_tab"].": ".$website["icons"]["images"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
 	$website["data"]["image"]["button"] = "\n".
 	"	<!-- Website image button -->"."\n".
-	"\t".HTML::Element("button", $h4, 'onclick="window.open('."'".$website["data"]["image"]["link"]."'".')" style="z-index: 2;"', "w3-btn ".$website["style"]["button"]["black"], ["new_line" => True]);
+	"\t".HTML::Element("button", $h4, 'onclick="window.open('."'".$website["data"]["image"]["link"]."'".')" style="z-index: 2;"', "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
 
 	if (file_exists($website["data"]["folders"]["php"]["website_php"])) {
 		require $website["data"]["folders"]["php"]["website_php"];
 	}
 
-	$website["data"]["image"]["elements"]["black"] .= $website["data"]["image"]["button"]."\n";
+	$website["data"]["image"]["elements"]["theme"]["light"] .= $website["data"]["image"]["button"]."\n";
 
 	$website["tabs"] = $website["data"]["json"]["tabs"];
 
@@ -441,7 +441,7 @@ if (isset($website["data"]) == True) {
 		"id" => "websites_tab",
 		"name" => $website["language_texts"]["websites, title()"],
 		"add" => " ".HTML::Element("span", count($website["list"]["en"]), "", $website["style"]["text_highlight"]),
-		"class" => $website["style"]["tab"]["black"],
+		"class" => $website["style"]["tab"]["theme_dark"],
 		"icon" => "globe",
 		"content" => $website["website_buttons"],
 	];

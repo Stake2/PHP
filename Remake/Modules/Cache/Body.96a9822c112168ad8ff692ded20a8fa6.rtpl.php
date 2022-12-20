@@ -14,9 +14,9 @@
 	<br />
 
 	<!-- Website description -->
-	<h4 class="text_size">
+	<h3 class="text_size">
 <?php echo $website["data"]["description"]["header"]; ?>
-	</h4>
+	</h3>
 	<br />
 </div>
 

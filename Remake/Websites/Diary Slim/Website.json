@@ -2,13 +2,13 @@
 	"style": {
 		"theme": {
 			"normal": "orange",
-			"light": "orange",
-			"dark": "orange"
+			"light": "light_orange",
+			"dark": "dark_orange"
 		},
 		"secondary_theme": {
 			"normal": "orange",
-			"light": "orange",
-			"dark": "orange"
+			"light": "light_orange",
+			"dark": "dark_orange"
 		}
 	},
 	"tabs": {
