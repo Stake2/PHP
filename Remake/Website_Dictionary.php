@@ -241,7 +241,7 @@ foreach ($website["list"]["en"] as $website_title) {
 		}
 	}
 
-	$website["dictionary"][$website_title]["style"]["text_highlight"] = $website["dictionary"][$website_title]["json"]["style"]["theme"]["normal"];
+	$website["dictionary"][$website_title]["style"]["text_highlight"] = $website["dictionary"][$website_title]["json"]["style"]["theme"]["light"];
 
 	if (isset($website["dictionary"][$website_title]["json"]["style"]["text_highlight"]) == True) {
 		$website["dictionary"][$website_title]["style"]["text_highlight"] = $website["dictionary"][$website_title]["json"]["style"]["text_highlight"];
@@ -304,8 +304,10 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		"theme" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["black"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
-		"theme_text_dark" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
+		"theme_dark" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 	];
+
+	$website["dictionary"][$website_title]["style"]["tab"]["black"] = $website["dictionary"][$website_title]["style"]["tab"]["theme_dark"];
 
 	# Define website style as the style of the selected website
 	if ($website_title == $website["website"]) {
@@ -444,7 +446,7 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		# Define synopsis
 		$synopsis = str_replace("\n", "<br />"."\n"."\t\t", $website["dictionary"][$website_title]["story"]["Information"]["Synopsis"][$language]);
-		$synopsis = str_replace($website["dictionary"][$website_title]["titles"][$language], HTML::Element("span", $website["dictionary"][$website_title]["titles"][$language], "", $website["dictionary"][$website_title]["style"]["text"]["theme"]["light"]), $synopsis);
+		$synopsis = str_replace($website["dictionary"][$website_title]["titles"][$language], HTML::Element("span", $website["dictionary"][$website_title]["titles"][$language], "", $website["dictionary"][$website_title]["style"]["text_highlight"]), $synopsis);
 
 		# Define website header description for story websites
 		$website["dictionary"][$website_title]["description"]["header"] = "\t\t".'<!-- Story website info, author(s), chapters, readers, creation date, status -->'."\n".
@@ -486,12 +488,12 @@ foreach ($website["list"]["en"] as $website_title) {
 		# Add chapters
 		$website["dictionary"][$website_title]["description"]["header"] .= "\t\t".$website["language_texts"]["chapters, title()"].": ".$website["icons"]["book"]." ";
 
-		$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", $website["dictionary"][$website_title]["story"]["Information"]["Chapter number"], "", $website["dictionary"][$website_title]["style"]["text"]["theme"]["light"])."<br />"."\n";
+		$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", $website["dictionary"][$website_title]["story"]["Information"]["Chapter number"], "", $website["dictionary"][$website_title]["style"]["text_highlight"])."<br />"."\n";
 
 		# Add readers if they exist
 		if ($website["dictionary"][$website_title]["story"]["Information"]["Readers"][0] != $website["texts"]["no_readers, en - pt"]) {
 			$website["dictionary"][$website_title]["description"]["header"] .= "\t\t".$website["language_texts"]["readers, title()"].": ".$website["icons"]["reader"]." ";
-			$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", count($website["dictionary"][$website_title]["story"]["Information"]["Readers"]), "", $website["dictionary"][$website_title]["style"]["text"]["theme"]["light"])."<br />"."\n";
+			$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", count($website["dictionary"][$website_title]["story"]["Information"]["Readers"]), "", $website["dictionary"][$website_title]["style"]["text_highlight"])."<br />"."\n";
 		}
 
 		# Add story creation date
@@ -499,7 +501,7 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		$date = Date::Now($website["dictionary"][$website_title]["story"]["Information"]["Creation date"], $website["texts"]["date_format"]["pt"])[$website["language_texts"]["date_format"]];
 
-		$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", $date, "", $website["dictionary"][$website_title]["style"]["text"]["theme"]["light"])."<br />"."\n";
+		$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", $date, "", $website["dictionary"][$website_title]["style"]["text_highlight"])."<br />"."\n";
 
 		# Add status
 		$status_number = $website["dictionary"][$website_title]["story"]["Information"]["Status number"];
@@ -507,7 +509,7 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		$website["dictionary"][$website_title]["description"]["header"] .= "\t\t".$website["language_texts"]["status, title()"].": ".$website["icons"]["status_map"][$status_number]." ";
 
-		$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", $status, "", $website["dictionary"][$website_title]["style"]["text"]["theme"]["light"]);
+		$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("span", $status, "", $website["dictionary"][$website_title]["style"]["text_highlight"]);
 
 		# Update website title with icon
 		$website["dictionary"][$website_title]["titles"]["icon"] .= " ".$website["icons"]["status_map"][$status_number];
@@ -519,7 +521,7 @@ foreach ($website["list"]["en"] as $website_title) {
 			$website["dictionary"][$website_title]["description"]["header"] .= "<br />"."\n";
 			$website["dictionary"][$website_title]["description"]["header"] .= "\t\t"."Wattpad: ";
 
-			$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("a", $link, 'href="'.$link.'" target="_new"', $website["dictionary"][$website_title]["style"]["text"]["theme"]["light"]);
+			$website["dictionary"][$website_title]["description"]["header"] .= HTML::Element("a", $link, 'href="'.$link.'" target="_new"', $website["dictionary"][$website_title]["style"]["text_highlight"]);
 		}
 
 		$website["dictionary"][$website_title]["description"]["header"] .= "\n";

@@ -2,13 +2,13 @@
 	"style": {
 		"theme": {
 			"normal": "yellow_sand",
-			"light": "yellow",
-			"dark": "yellow_sand"
+			"light": "yellow_sand",
+			"dark": "dark_yellow"
 		},
 		"secondary_theme": {
 			"normal": "yellow_sand",
 			"light": "yellow",
-			"dark": "yellow_sand"
+			"dark": "dark_yellow"
 		},
 		"text_highlight": "yellow"
 	},

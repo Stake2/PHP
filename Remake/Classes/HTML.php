@@ -180,7 +180,7 @@ class HTML extends Class_ {
 		return $buttons;
 	}
 
-	public static function Chapter_Button($chapter_number, $chapter_title, $options = ["previous" => False, "next" => False, "text" => "", "text_class" => "", "button_class" => ""]) {
+	public static function Chapter_Button($chapter_number, $chapter_title, $options = ["previous" => False, "next" => False, "text" => ""]) {
 		global $website;
 
 		$chapter_id = "chapter_".$chapter_number;
@@ -203,12 +203,12 @@ class HTML extends Class_ {
 			$text = $options["text"];
 		}
 
-		if ($options["text_class"] == "") {
-			$options["text_class"] = $website["style"]["button"]["black"];
+		if (isset($options["text_class"]) == False) {
+			$options["text_class"] = $website["style"]["text"]["theme"]["dark"];
 		}
 
-		if ($options["button_class"] == "") {
-			$options["button_class"] = $website["style"]["button"]["black"];
+		if (isset($options["button_class"]) == False) {
+			$options["button_class"] = $website["style"]["button"]["theme"]["light"];
 		}
 
 		# Create chapter button

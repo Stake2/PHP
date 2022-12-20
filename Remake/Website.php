@@ -116,7 +116,7 @@ $stories["painted_authors"] = [];
 
 $colors = [
 	"text_orange",
-	"text_cyan",
+	"text_green_water",
 	"text_yellow",
 ];
 
@@ -258,7 +258,7 @@ $h4 = HTML::Element("h4", HTML::Element("b", "{}"), "", "text_size", ["new_line"
 
 $input = HTML::Element("input", HTML::Element("b", "{}"), 'type="radio" id="{}" value="{}" name="mode"', "w3-center w3-input ".$website["style"]["radio_input"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-$radio_template = "\t\t"."<!-- {} -->"."\n"."\t\t".HTML::Element("div", $h4."\n".$input, 'id="{}_div" style="width: 17%; height: auto; display: inline-block; border-radius: 45%;"', "w3-btn div_size ".$website["style"]["button"]["black"]." ".$website["style"]["radio"], ["new_line" => True, "tab" => "\t\t"]);
+$radio_template = "\t\t"."<!-- {} -->"."\n"."\t\t".HTML::Element("div", $h4."\n".$input, 'id="{}_div" style="width: 17%; height: auto; display: inline-block; border-radius: 45%;"', "w3-btn div_size ".$website["style"]["button"]["theme"]["light"]." ".$website["style"]["radio"], ["new_line" => True, "tab" => "\t\t"]);
 
 $radio_buttons = "";
 foreach (["code", "generate"] as $item) {

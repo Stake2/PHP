@@ -1,12 +1,12 @@
 <?php if(!class_exists('TPL')){exit;}?><!-- "Select website" form -->
 <center>
-	<form name="select_website" class="w3-container w3-animate-zoom <?php echo $website['style']['header']; ?>" action="/" method="POST" style="padding: 20px; width: 45%">
+	<form name="select_website" class="w3-container w3-animate-zoom <?php echo $website['style']['tab']['theme_dark']; ?>" action="/" method="POST" style="padding: 20px; width: 45%">
 		<!-- Select website -->
 		<h2 class="text_size">
 			<b><?php echo $website["language_texts"]["website_title"]; ?>:</b>
 		</h2>
 		<b>
-			<select name="website" id="Websites" class="w3-btn w3-center text_size div_size <?php echo $website['style']['button']['black']; ?> width_50_cent font_size_18_72px">
+			<select name="website" id="Websites" class="w3-btn w3-center text_size div_size <?php echo $website['style']['button']['theme']['light']; ?> width_50_cent font_size_18_72px">
 {}
 			</select>
 		</b>
@@ -17,7 +17,7 @@
 			<b><?php echo $website["language_texts"]["language, title()"]; ?>:</b>
 		</h2>
 		<b>
-			<select name="language" id="Languages" class="w3-btn w3-center text_size div_size <?php echo $website['style']['button']['black']; ?> width_50_cent font_size_18_72px">
+			<select name="language" id="Languages" class="w3-btn w3-center text_size div_size <?php echo $website['style']['button']['theme']['light']; ?> width_50_cent font_size_18_72px">
 {}
 			</select>
 		</b>
@@ -32,7 +32,7 @@
 		<br />
 
 		<!-- Send form -->
-		<button type="submit" class="w3-btn div_size <?php echo $website['style']['button']['black']; ?>" style="font-style: bold; border-radius: 50px;">
+		<button type="submit" class="w3-btn div_size <?php echo $website['style']['button']['theme']['light']; ?>" style="font-style: bold; border-radius: 50px;">
 			<h4 class="text_size">
 				<b><?php echo $website["language_texts"]["submit, title()"]; ?></b>
 			</h4>

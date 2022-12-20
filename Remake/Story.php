@@ -118,7 +118,7 @@ foreach ($chapter_titles as $chapter_title) {
 		"chapter_title" => $chapter_title_with_number,
 		"you_are_reading" => Text::Format($website["language_texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
 		"you_read" => Text::Format($website["language_texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
-		"class" => $website["style"]["tab"]["theme_text_dark"],
+		"class" => $website["style"]["tab"]["theme_dark"],
 		"top_button" => "",
 		"bottom_button" => "",
 		"chapter_text" => $chapter_text."\n",
@@ -164,8 +164,6 @@ foreach ($chapter_titles as $chapter_title) {
 			"previous" => True,
 			"next" => False,
 			"text" => $website["icons"]["arrow_left"],
-			"text_class" => $website["style"]["text"]["theme"]["dark"],
-			"button_class" => $website["style"]["button"]["theme"]["light"],
 		];
 
 		$chapter_tab["top_button"] .= "\n\n\t".HTML::Chapter_Button($c, $chapter_titles[$i - 1], $options);
@@ -180,8 +178,6 @@ foreach ($chapter_titles as $chapter_title) {
 			"previous" => False,
 			"next" => True,
 			"text" => $website["icons"]["arrow_right"],
-			"text_class" => $website["style"]["text"]["theme"]["dark"],
-			"button_class" => $website["style"]["button"]["theme"]["light"],
 		];
 
 		$chapter_tab["top_button"] .= "\n\n\t".HTML::Chapter_Button($c, $chapter_titles[$i - 1], $options);
@@ -215,7 +211,7 @@ foreach ($chapter_titles as $chapter_title) {
 		$margin = "10";
 	}
 
-	$censor_names = True;
+	$censor_names = False;
 
 	# Get chapter comments
 	if (file_exists($comments_folder) == True) {
@@ -421,11 +417,11 @@ foreach ($stories["titles"]["en"] as $english_story_title) {
 	$image = "";
 
 	if (file_exists($website["dictionary"][$english_story_title]["image"]["local_link"]) == True) {
-		$image = $website_data["image"]["elements"]["theme"]["normal"];
+		$image = $website_data["image"]["elements"]["theme"]["dark"];
 		$image = str_replace("height: auto;", "width: 100%;", $image);
 		$image = str_replace("image_size ", "", $image);
 		$image = str_replace("border_radius_8_cent", "border_radius_5_cent", $image);
-		$image = str_replace($website_data["style"]["box_shadow"]["theme"]["light"]." ", "", $image);
+		$image = str_replace($website_data["style"]["box_shadow"]["theme"]["dark"]." ", "", $image);
 		$image = '<!-- Story card image -->'."\n".
 		"\t\t\t".$image;
 	}
