@@ -20,7 +20,7 @@
 		<!-- <?php echo $chapter_modal['type_title']; ?> form -->
 		<form name="Story_<?php echo $chapter_modal['type_title']; ?>" method="POST" data-netlify="True">
 			<input type="hidden" name="form-name" value="Story_<?php echo $chapter_modal['type_title']; ?>">
-			<input type="hidden" name="website_title" value="<?php echo $website['data']['title']; ?>">
+			<input type="hidden" name="website_title" value="<?php echo $website['data']['titles']['language']; ?>">
 	
 			<!-- My name input -->
 			<h2 class="text_size margin_top_bottom_2_cent <?php echo $website['style']['text_highlight']; ?>" style="font-weight: bold;">
