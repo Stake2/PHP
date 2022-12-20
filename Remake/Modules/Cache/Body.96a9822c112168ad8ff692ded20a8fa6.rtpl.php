@@ -5,7 +5,7 @@
 <!-- Website header -->
 <div id="header" class="w3-container w3-animate-zoom <?php echo $website['style']['tab']['theme_dark']; ?> header_size" style="height: auto; border-radius: 50px; border-style: solid; border-width: 4px!important;">
 	<!-- Website title -->
-	<h2 class="text_size">
+	<h2 class="text_size <?php echo $website['style']['text_highlight']; ?>">
 		<p><br /><b><?php echo $website["data"]["titles"]["icon"]; ?></b><br /><br /><p>
 	</h2>
 

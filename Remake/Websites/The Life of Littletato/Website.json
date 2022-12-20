@@ -9,7 +9,8 @@
 			"normal": "salmon",
 			"light": "light_salmon",
 			"dark": "dark_salmon"
-		}
+		},
+		"text_highlight": "light_salmon"
 	},
 	"tabs": {
 		"data": {

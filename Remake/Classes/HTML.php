@@ -138,7 +138,7 @@ class HTML extends Class_ {
 			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["style"]["background"]["theme"]["normal"]." ".$website["style"]["border_4px"]["theme"]["light"]." ".$website["style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
 			"\t".'<!-- Hide hamburger menu button -->'."\n".
 			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 15px !important;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
-			"\t".HTML::Element("h2", $website["language_texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["style"]["text"]["secondary_theme"]["dark"])."\n\n".
+			"\t".HTML::Element("h2", $website["language_texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["style"]["text_highlight"])."\n\n".
 			"\t"."<br />"."\n\n",
 		];
 

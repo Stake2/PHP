@@ -2,7 +2,7 @@
 <center>
 	<form name="select_website" class="w3-container w3-animate-zoom <?php echo $website['style']['tab']['theme_dark']; ?>" action="/" method="POST" style="padding: 20px; width: 45%">
 		<!-- Select website -->
-		<h2 class="text_size">
+		<h2 class="text_size <?php echo $website['style']['text_highlight']; ?>">
 			<b><?php echo $website["language_texts"]["website_title"]; ?>:</b>
 		</h2>
 		<b>
@@ -13,7 +13,7 @@
 		<br />
 
 		<!-- Select language -->
-		<h2 class="text_size">
+		<h2 class="text_size <?php echo $website['style']['text_highlight']; ?>">
 			<b><?php echo $website["language_texts"]["language, title()"]; ?>:</b>
 		</h2>
 		<b>
@@ -24,7 +24,7 @@
 		<br />
 
 		<!-- Select programming mode -->
-		<h2 class="text_size">
+		<h2 class="text_size <?php echo $website['style']['text_highlight']; ?>">
 			<b><?php echo $website["language_texts"]["mode, title()"]; ?>:</b>
 		</h2>
 {}
