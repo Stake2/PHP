@@ -1,0 +1,29 @@
+{
+	"style": {
+		"theme": {
+			"normal": "grey",
+			"light": "grey",
+			"dark": "grey"
+		},
+		"secondary_theme": {
+			"normal": "grey",
+			"light": "grey",
+			"dark": "grey"
+		}
+	},
+	"tabs": {
+		"data": {
+			"first_tab": {
+				"name": {
+					"en": "First tab",
+					"pt": "Primeira aba"
+				}
+			}
+		}
+	},
+	"descriptions": {
+		"html": "",
+		"header": ""
+	},
+	"color": "808080"
+}

@@ -1,23 +1,7 @@
 <?php 
 
-# Website settings
-$website_settings["tab_body_generator"] = True;
-$website_settings["notifications"] = True;
-$website_settings["has_stories_tab"] = True;
-$website_settings["variable_inserter"] = True;
-$website_settings["use_custom_tab_titles"] = True;
-
-$story_website_settings["show_new_chapter_text"] = True;
-$story_website_settings["chapter_opener"] = True;
-$story_website_settings["has_titles"] = True;
-$story_website_settings["has_dates"] = True;
-$story_website_settings["has_reads"] = True;
-$story_website_settings["use_status"] = True;
-
-$website_info["theme_color"] = "#854d51";
-
-# Website Tab Names array
-$english = array("Read story", "Readers", $other_stories_text);
-$portuguese = array("Ler história", "Leitores", $other_stories_text);
+$website["story"] = [
+	"not_littletato_anime_girl" => HTML::Element("img", "", 'target="_blank" href="https://static.zerochan.net/Shouin.600.1344153.jpg"'),
+];
 
 ?>

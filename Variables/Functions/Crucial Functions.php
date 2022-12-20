@@ -256,13 +256,13 @@ function Read_String($file, $add_br = True) {
 }
 
 function Language_Item_Definer($english_variable, $portuguese_variable, $custom_language = Null) {
-	global $website_info;
+	global $website_information;
 	global $en_languages_array;
 	global $pt_languages_array;
 	global $english_words;
 	global $portuguese_words;
 
-	$local_website_language = $website_info["language"];
+	$local_website_language = $website_information["language"];
 
 	if ($custom_language != Null) {
 		$local_website_language = $custom_language;

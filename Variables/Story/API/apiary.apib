@@ -1,0 +1,66 @@
+FORMAT: 1A
+HOST: https://thestake2.netlify.app/api/v1/stories/
+
+# Stories API Blueprint
+
+Stories is a simple API allowing users to get story details and information about them.
+
+## Stories Collection [/stories-list]
+
+### List All Stories [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "story": "The Life of Littletato",
+                "synopsis": "This story talks about The Life of Littletato, a potato that always loved traveling, she got that from her father.She lived traveling between cities after she reached nineteen.And stopped on a city to look, it was San Francisco, she met another potato there.They started to talk, know each other a little more, and the life of Littletato started to change.",
+                "author": "Izaque Sanvezzo (Stake2)",
+                "creation_date": "05/08/2017",
+                "links": [
+                    {
+                        "website": "Netlify",
+                        "language": "English",
+                        "link": "https://thestake2.netlify.app/pequenata%20%F0%9F%93%98/en-us/?no-redirect=true",
+                    },
+
+                    {
+                        "website": "Netlify",
+                        "language": "Portuguese",
+                        "link": "https://thestake2.netlify.app/pequenata%20%F0%9F%93%98/pt-br/?no-redirect=true",
+                    },
+
+                    {
+                        "website": "Wattpad",
+                        "language": "English",
+                        "link": "https://www.wattpad.com/story/118496571-the-life-of-littletato",
+                    },
+
+                    {
+                        "website": "Wattpad",
+                        "language": "Portuguese",
+                        "link": "https://www.wattpad.com/story/216049317-a-vida-de-pequenata",
+                    },
+                ]
+                "status": "writing",
+                "chapter_number": 32,
+                "images": [
+                    {
+                        "image_type": "Story",
+                        "link": "https://thestake2.netlify.app/Images/Story%20Covers/The%20Life%20of%20Littletato/English/Landscape/Story/Book Cover.png",
+                    },
+
+                    {
+                        "image_type": "Chapter",
+                        "chapter_number": 1,
+                        "link": "https://thestake2.netlify.app/Images/Story%20Covers/The%20Life%20of%20Littletato/English/Landscape/Chapter/1%20-%2010/01.png",
+                    },
+
+                    {
+                        "image_type": "Chapter",
+                        "chapter_number": 2,
+                        "link": "https://thestake2.netlify.app/Images/Story%20Covers/The%20Life%20of%20Littletato/English/Landscape/Chapter/1%20-%2010/02.png",
+                    },
+                ]
+            }
+        ]

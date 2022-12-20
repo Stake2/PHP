@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+	<!-- Website title -->
+	<title>{$website["data"]["titles"]["language"]}</title>
+
+	<!-- Website links -->
+	<link rel="canonical" href="{$website['data']['links']['language']}" />
+	<link rel="icon" type="image/{$website['data']['image']['format']}" href="{$website['data']['image']['link']}" />
+	<link rel="image_src" type="image/{$website['data']['image']['format']}" href="{$website['data']['image']['link']}" />
+
+	<!-- Website meta tags -->
+	<meta name="title" content="{$website['data']['titles']['sanitized']}" />
+	<meta name="description" content="{$website['data']['description']['html']}" />
+	<meta name="meta_language" content="{$website['full_language']}" />
+	<meta name="theme-color" content="{$website['data']['color']}" />
+
+	<!-- Website og meta tags -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{$website['data']['titles']['sanitized']}" />
+	<meta property="og:site_name" content="{$website['data']['titles']['sanitized']}" />
+	<meta property="og:url" content="{$website['data']['links']['language']}" />
+	<meta property="og:image" type="image/{$website['data']['image']['format']}" content="{$website['data']['image']['link']}" />
+	<meta property="og:description" content="{$website['data']['description']['html']}" />
+	<meta property="og:locale" content="{$website['locale']}" />
+{if="isset($website['locale_alternate'])"}	<meta property="og:locale:alternative" content="{$website['locale_alternate']}" />
+{/if}
+
+	<!-- Twitter meta tags -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{$website['data']['titles']['sanitized']}" />
+	<meta name="twitter:description" content="{$website['data']['description']['html']}" />
+	<meta name="twitter:website" value="@{$website['author']}_" />
+	<meta name="twitter:site" value="@{$website['author']}_" />
+	<meta name="twitter:creator" content="@{$website['author']}_" />
+	<meta name="twitter:url" content="{$website['data']['links']['language']}" />
+	<meta name="twitter:image" type="image/{$website['data']['image']['format']}" content="{$website['data']['image']['link']}" />
+
+	<!-- Author related meta tags -->
+	<meta name="revised" content="{$website['author']}'s Enterprise TM, {$website['date'][$website['language_texts']['date_format']]}." />
+	<meta name="author" content="{$website['author']}" />
+
+	<!-- Viewport and charset -->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
+	<meta charset="UTF-8" />
+
+	<!-- CSS files -->
+{$website["css"]["links"]}
+
+	<!-- Define website box shadow -->
+	<style>
+	body {
+		--shadow-color: #{if="isset($website['data']['json']['color'])"}{$website["data"]["json"]["color"]}{else}dc96e8{/if}60;
+		--spread-container: 10px;
+		--spread-btn: 0.5px;
+	}
+
+	.w3-btn, .w3-container, .modal-content, .w3-input {
+		box-shadow: 0 -8px 20px var(--spread-btn) var(--shadow-color),
+		0 8px 20px var(--spread-btn) var(--shadow-color),
+		0 6px 20px var(--spread-btn) var(--shadow-color),
+		0 -6px 20px var(--spread-btn) var(--shadow-color);
+	}
+	</style>
+
+	<!-- JavaScript files -->
+{$website["javascript"]["links"]}
+	{if="$parse == '/generate'"}
+
+	<script>
+		Check_Language()
+	</script>
+	{/if}
+
+</head>
+

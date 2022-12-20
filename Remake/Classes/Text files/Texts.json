@@ -1,0 +1,281 @@
+{
+	"website, title()": {
+		"en": "Website",
+		"pt": "Site"
+	},
+	"websites, title()": {
+		"en": "Websites",
+		"pt": "Sites"
+	},
+	"website_title": {
+		"en": "Website title",
+		"pt": "Título do site"
+	},
+	"local_website_folder": {
+		"en": "Local website folder",
+		"pt": "Pasta local do site"
+	},
+	"remote_website_folder": {
+		"en": "Remote website folder",
+		"pt": "Pasta remota do site"
+	},
+	"the_website_file_did_not_exist_the_new_content_was_written_into_it": {
+		"en": "The website file did not exist, the new content were written into it",
+		"pt": "O arquivo do site não existia, o novo conteúdo foi gravado nele"
+	},
+	"the_website_file_was_updated_with_the_new_content": {
+		"en": "The website file was updated with the new content",
+		"pt": "O arquivo do site foi atualizado com o novo conteúdo"
+	},
+	"content_state": {
+		"en": "Content state",
+		"pt": "Estado de conteúdo"
+	},
+	"language, title()": {
+		"en": "Language",
+		"pt": "Idioma"
+	},
+	"mode, title()": {
+		"en": "Mode",
+		"pt": "Modo"
+	},
+	"code, title()": {
+		"en": "Code",
+		"pt": "Programar"
+	},
+	"generate, title()": {
+		"en": "Generate",
+		"pt": "Gerar"
+	},
+	"submit, title()": {
+		"en": "Submit",
+		"pt": "Enviar"
+	},
+	"years, title()": {
+		"en": "Years",
+		"pt": "Anos"
+	},
+	"summary, title()": {
+		"en": "Summary",
+		"pt": "Resumo"
+	},
+	"this_year_i": {
+		"en": "This Year I",
+		"pt": "Este Ano Eu"
+	},
+	"watched_things": {
+		"en": "Watched things",
+			"pt": "Coisas assistidas"
+	},
+	"the_year_summary_has_not_been_created_yet": {
+		"en": "The Year summary has not been created yet.",
+		"pt": "O resumo de Ano ainda não foi criado."
+	},
+	"the_{}_text_has_not_been_created_yet": {
+		"en": "The \"{}\" text has not been created yet.",
+		"pt": "O texto \"{}\" ainda não foi criado."
+	},
+	"select_website": {
+		"en": "Select website",
+		"pt": "Selecionar site"
+	},
+	"generate_website": {
+		"en": "Generate website",
+		"pt": "Gerar site"
+	},
+	"website_to_generate_the_website_{}": {
+		"en": "Website to generate the website '{}'.",
+		"pt": "Site para gerar o site '{}'."
+	},
+	"open_image_in_new_tab": {
+		"en": "Open image in new tab",
+		"pt": "Abrir imagem em nova aba"
+	},
+	"date_time_format": {
+		"en": "H:i m/d/Y",
+		"pt": "H:i d/m/Y"
+	},
+	"date_format": {
+		"en": "m/d/Y",
+		"pt": "d/m/Y"
+	},
+	"read_story": {
+		"en": "Read story",
+		"pt": "Ler história"
+	},
+	"synopsis, title()": {
+		"en": "Synopsis",
+		"pt": "Sinopse"
+	},
+	"story_author": {
+		"en": "Story author",
+		"pt": "Autor da história"
+	},
+	"story_authors": {
+		"en": "Story authors",
+		"pt": "Autores da história"
+	},
+	"chapter": {
+		"en": "chapter",
+		"pt": "capítulo"
+	},
+	"chapters, title()": {
+		"en": "Chapters",
+		"pt": "Capítulos"
+	},
+	"chapters_in_[language]": {
+		"en": "Chapters in English",
+		"pt": "Capítulos em Português"
+	},
+	"reader, title()": {
+		"en": "Reader",
+		"pt": "Leitor"
+	},
+	"readers, title()": {
+		"en": "Readers",
+		"pt": "Leitores"
+	},
+	"other_stories": {
+		"en": "Other stories",
+		"pt": "Outras histórias"
+	},
+	"chapter_written_in": {
+		"en": "Chapter written in",
+		"pt": "Capítulo escrito em"
+	},
+	"words, title()": {
+		"en": "Words",
+		"pt": "Palavras"
+	},
+	"no_readers, en - pt": "No Readers - Sem Leitores",
+	"story_creation_date": {
+		"en": "Story creation date",
+		"pt": "Data de criação da história"
+	},
+	"read, title()": {
+		"en": "Read",
+		"pt": "Leitura"
+	},
+	"reads, title()": {
+		"en": "Reads",
+		"pt": "Leituras"
+	},
+	"i_read": {
+		"en": "I read",
+		"pt": "Eu li"
+	},
+	"i_read_the_chapter": {
+		"en": "I read the chapter",
+		"pt": "Eu li o capítulo"
+	},
+	"read_the_chapter": {
+		"en": "Read the chapter",
+		"pt": "Leu o capítulo"
+	},
+	"comment, title()": {
+		"en": "Comment",
+		"pt": "Comentário"
+	},
+	"comments, title()": {
+		"en": "Comments",
+		"pt": "Comentários"
+	},
+	"to_comment": {
+		"en": "Comment",
+		"pt": "Comentar"
+	},
+	"comment_on_the_chapter": {
+		"en": "Comment on the chapter",
+		"pt": "Comentar no capítulo"
+	},
+	"my_name": {
+		"en": "My name",
+		"pt": "Meu nome"
+	},
+	"send, title()": {
+		"en": "Send",
+		"pt": "Enviar"
+	},
+	"status, title()": {
+		"en": "Status",
+		"pt": "Status"
+	},
+	"and": {
+		"en": "and",
+		"pt": "e"
+	},
+	"in, title()": {
+		"en": "In",
+		"pt": "Em"
+	},
+	"years, title()": {
+		"en": "Years",
+		"pt": "Anos"
+	},
+	"my, title()": {
+		"en": "My",
+		"pt": "Meu"
+	},
+	"you_are_here": {
+		"en": "You are here",
+		"pt": "Você está aqui"
+	},
+	"status, type: list": {
+		"en": [
+			"Writing",
+			"Re-Writing",
+			"Reviewing",
+			"Finished",
+			"Published",
+			"On hold"
+		],
+		"pt": [
+			"Escrevendo",
+			"Re-Escrevendo",
+			"Revisando",
+			"Finalizada",
+			"Publicada",
+			"Em pausa"
+		]
+	},
+	"website_about_my_story_{}_made_by_izaque_sanvezzo_stake2_funkysnipa_cat": {
+		"en": "Website about my story, {}, made by Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
+		"pt": "Site sobre a minha história, {}, feito por Izaque Sanvezzo (Stake2, Funkysnipa Cat)"
+	},
+	"tab_menu": {
+		"en": "Tab menu",
+		"pt": "Menu de abas"
+	},
+	"language_icon": {
+		"en": "🇺🇸",
+		"pt": "🇧🇷"
+	},
+	"you_are_reading_{}_chapter_{}": {
+		"en": "You are reading: {}<br />Chapter: {}",
+		"pt": "Você está lendo: {}<br />Capítulo: {}"
+	},
+	"you_just_read_{}_chapter_{}": {
+		"en": "You just read: {}<br />Chapter: {}",
+		"pt": "Você acabou de ler: {}<br />Capítulo: {}"
+	},
+	"nine": {
+		"en": "nine",
+		"pt": "nove"
+	},
+	"ten": {
+		"en": "ten",
+		"pt": "dez"
+	},
+	"my_little_pony_friendship_is_magic": {
+		"en": "My Little Pony: Friendship Is Magic",
+		"pt": "My Little Pony: A Amizade É Mágica"
+	},
+	"on_wikipedia": {
+		"en": "on Wikipedia",
+		"pt": "na Wikipédia"
+	},
+	"variables, title()": {
+		"en": "Variables",
+		"pt": "Variáveis"
+	}
+}

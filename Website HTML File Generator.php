@@ -1,35 +1,35 @@
 <?php
 
 $hard_drive_letter = "C";
-$mega_folder = $hard_drive_letter.":/Mega/";
+$folders["mega"]["root"] = $hard_drive_letter.":/Mega/";
 
-if (!file_exists($mega_folder)) {
+if (!file_exists($folders["mega"]["root"])) {
 	$hard_drive_letter = "D";
-	$mega_folder = $hard_drive_letter.":/Mega/";
+	$folders["mega"]["root"] = $hard_drive_letter.":/Mega/";
 }
 
-$mega_folder_stake2_website = $mega_folder."Websites/";
-$main_php_folder = $mega_folder."PHP/";
+$folders["mega"]["websites"]["root"] = $folders["mega"]["root"]."Websites/";
+$folders["mega"]["php"]["root"] = $folders["mega"]["root"]."PHP/";
 
 $index_variables_php_file = $hard_drive_letter.":/Mega/PHP/Variables/Index Variables.php";
 
 require $index_variables_php_file;
 
-$php_folder_websites = "Websites";
+$folders["mega"]["php"]["websites"]["root"] = "Websites";
 $variables_folder_variable = "Variables";
 $global_variable = "Global";
 
-$php_folder_variables = $main_php_folder.$variables_folder_variable."/";
-$global_files_folder = $php_folder_variables.$global_variable." Files/";
-$global_files_folder = $global_files_folder;
-$main_arrays_php = $global_files_folder."Main Arrays.php";
+$folders["mega"]["php"]["variables"]["root"] = $folders["mega"]["php"]["root"].$variables_folder_variable."/";
+$folders["mega"]["php"]["variables"]["global_files"]["root"] = $folders["mega"]["php"]["variables"]["root"].$global_variable." Files/";
+$folders["mega"]["php"]["variables"]["global_files"]["root"] = $folders["mega"]["php"]["variables"]["global_files"]["root"];
+$folders["mega"]["php"]["variables"]["global_files"]["main_arrays"] = $folders["mega"]["php"]["variables"]["global_files"]["root"]."Main Arrays.php";
 
-$index_php = $main_php_folder."Index.php";
+$index_php = $folders["mega"]["php"]["root"]."Index.php";
 
 # "Main PHP Folders" PHP File Loader
-require $main_folders_and_files;
+require $folders["mega"]["php"]["variables"]["folders_and_files"];
 
-require $main_arrays_php;
+require $folders["mega"]["php"]["variables"]["global_files"]["main_arrays"];
 
 $slim_php = $raintpl_folder."Slim.php";
 
@@ -44,26 +44,26 @@ $website = ob_get_clean();
 # Website CSS and Javascript definer
 require $website_css_and_javascript_definer_php;
 
-if (isset($website_info["website_folder_name"]) == True) {
-	$local_website_title = $website_info["website_folder_name"];
+if (isset($website_information["website_folder_name"]) == True) {
+	$local_website_title = $website_information["website_folder_name"];
 }
 
-if (isset($website_info["website_folder_name"]) == False) {
-	$local_website_title = $website_info["english_title"];
+if (isset($website_information["website_folder_name"]) == False) {
+	$local_website_title = $website_information["english_title"];
 }
 
-$root_html_folder = $mega_folder_stake2_website.Remove_Non_File_Characters($local_website_title)."/";
+$root_html_folder = $folders["mega"]["websites"]["root"].Remove_Non_File_Characters($local_website_title)."/";
 
 if (file_exists($root_html_folder) == False) {
 	mkdir($root_html_folder);
 }
 
-if (isset($website_info["language"]) == False) {
+if (isset($website_information["language"]) == False) {
 	exit;
 }
 
-if ($website_info["language"] != $language_geral) {
-	$html_folder = $root_html_folder.$website_info["title_language"]."/";
+if ($website_information["language"] != "general") {
+	$html_folder = $root_html_folder.$website_information["language"]."/";
 }
 
 else {
@@ -101,12 +101,12 @@ function Update_HTML_File($folder, $file) {
 
 Update_HTML_File($html_folder, $html_index_file);
 
-$local_website_title_backup = $website_info["language_title"];
+$local_website_title_backup = $website_information["language_title"];
 $local_website_title = Language_Item_Definer("Website HTML File Generator", "Gerador de Arquivos HTML de Sites").": ".$local_website_title_backup;
 $website_link = "";
 $website_image = "";
 $website_meta_description = Language_Item_Definer("Generator of HTML files for the selected website", "Gerador de arquivos HTMl para o site selecionado").": ".$local_website_title_backup;
-$website_info["image_format"] = "png";
+$website_information["image_format"] = "png";
 $data = date("d/m/Y");
 
 $website_head = '<!DOCTYPE html>
@@ -122,8 +122,8 @@ $website_head = '<!DOCTYPE html>
 <meta property="og:locale:alternate" content="pt_BR" />
 <meta property="og:locale:alternate" content="pt_PT" />
 <link rel="canonical" href="'.$website_link.'" />
-<link rel="icon" type="image/'.$website_info["image_format"].'" href="'.$website_image.'" />
-<link rel="image_src" type="image/'.$website_info["image_format"].'" href="'.$website_image.'" />
+<link rel="icon" type="image/'.$website_information["image_format"].'" href="'.$website_image.'" />
+<link rel="image_src" type="image/'.$website_information["image_format"].'" href="'.$website_image.'" />
 <meta name="description" content="'.$website_meta_description.'" />
 <meta name="revised" content="'."Stake2's Enterprise TM".', '.$data.'" />
 <meta name="author" content="Stake Ferreira" />
@@ -141,14 +141,14 @@ echo $website_head;
 echo '<center>'."\n";
 
 echo "\n".'<h1 class="text_grey"><b>'."\n".
-$website_info["language_title"].": <br />"."\n"
+$website_information["language_title"].": <br />"."\n"
 ."</h1>"."\n";
 
 $show_text = Language_Item_Definer("This is the name of the website", "Este é o nome do site");
 
 echo "\n".'<h2 class="text_grey"><b>'."\n".
 $show_text.": </b><br />"."\n".
-$website_info["language_title"]."\n"
+$website_information["language_title"]."\n"
 ."</h2>"."\n"."\n";
 
 $show_text = Language_Item_Definer("This is the folder where the selected website is", "Esta é a pasta onde o site selecionado está");

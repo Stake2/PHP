@@ -1,0 +1,5 @@
+{
+    "index": "http:\/\/php.stake2.site:8080\/",
+    "generate": "http:\/\/php.stake2.site:8080\/generate",
+    "generate_template": "http:\/\/php.stake2.site:8080\/generate?language={}&website={}"
+}

@@ -15,7 +15,7 @@ $story_website_settings["has_dates"] = False;
 $story_website_settings["has_titles"] = True;
 $story_website_settings["use_status"] = True;
 
-$website_info["theme_color"] = "#2196F3";
+$website_information["theme_color"] = "#2196F3";
 
 # Website Tab Names array
 $english = array("Read story", "Readers", $other_stories_text);

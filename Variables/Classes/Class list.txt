@@ -1,0 +1,6 @@
+Date
+File
+Folder
+Global_Switches
+Language
+Text

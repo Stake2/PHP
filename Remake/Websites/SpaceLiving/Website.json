@@ -1,0 +1,31 @@
+{
+	"style": {
+		"theme": {
+			"normal": "blue",
+			"light": "cyan",
+			"dark": "dark_blue"
+		},
+		"secondary_theme": {
+			"normal": "blue",
+			"light": "cyan",
+			"dark": "dark_blue"
+		},
+		"chapter_color": "dark_blue",
+		"text_highlight": "white"
+	},
+	"tabs": {
+		"data": {
+			"read_story": {
+				"template": "read story"
+			},
+			"readers": {
+				"template": "readers"
+			},
+			"other_stories": {
+				"template": "other stories"
+			}
+		}
+	},
+	"color": "2196F3",
+	"image_format": "gif"
+}

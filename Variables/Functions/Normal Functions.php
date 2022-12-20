@@ -85,19 +85,19 @@ function Write_To_File($file, $text) {
 }
 
 function Language_Item_Definer_Per_Language($en_item, $pt_item, $general_item = Null) {
-	global $website_info;
+	global $website_information;
 	global $language_en;
 	global $language_pt;
 
-	if ($general_item != Null and $website_info["language"] == $language_geral) {
+	if ($general_item != Null and $website_information["language"] == $language_geral) {
 		return $general_item;
 	}
 
-	if ($website_info["language"] == $language_en) {
+	if ($website_information["language"] == $language_en) {
 		return $en_item;
 	}
 
-	if ($website_info["language"] == $language_pt) {
+	if ($website_information["language"] == $language_pt) {
 		return $pt_item;
 	}
 }

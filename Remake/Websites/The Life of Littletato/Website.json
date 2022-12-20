@@ -1,0 +1,27 @@
+{
+	"style": {
+		"theme": {
+			"normal": "second_purple",
+			"light": "light_purple",
+			"dark": "darker_purple"
+		},
+		"secondary_theme": {
+			"normal": "salmon",
+			"light": "light_salmon",
+			"dark": "dark_salmon"
+		}
+	},
+	"tabs": {
+		"data": {
+			"read_story": {
+				"template": "read story"
+			},
+			"readers": {
+				"template": "readers"
+			},
+			"other_stories": {
+				"template": "other stories"
+			}
+		}
+	}
+}

@@ -58,7 +58,7 @@ $variable_inserter_replacer_array = array(
 );
 
 # Website name, title, URL and description setter, by language
-$website_info["language_title"] = $website_story_name;
-$website_info["language_title_with_icon"] = $website_info["language_title"].": ".$icons[11];
+$website_information["language_title"] = $website_story_name;
+$website_information["language_title_with_icon"] = $website_information["language_title"].": ".$icons[11];
 
 ?>

@@ -1,2 +1,0 @@
-http://php.stake2.site:8080/?website={}&language={}
-http://php.stake2.site:8080/Website HTML File Generator.php?website={}&language={}
