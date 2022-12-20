@@ -376,14 +376,30 @@ while ($i <= 4) {
 
 	$website["elements"][$element] = [
 		"black" => '<hr class="'.$website["style"][$border]["black"].' margin_sides_5_cent" />',
-		"theme" => '<hr class="'.$website["style"][$border]["theme"]["normal"].' margin_sides_5_cent" />',
-		"secondary_theme" => '<hr class="'.$website["style"][$border]["secondary_theme"]["normal"].' margin_sides_5_cent" />',
+		"theme" => [
+			"normal" => '<hr class="'.$website["style"][$border]["theme"]["normal"].' margin_sides_5_cent" />',
+			"light" => '<hr class="'.$website["style"][$border]["theme"]["light"].' margin_sides_5_cent" />',
+			"dark" => '<hr class="'.$website["style"][$border]["theme"]["dark"].' margin_sides_5_cent" />',
+		],
+		"secondary_theme" => [
+			"normal" => '<hr class="'.$website["style"][$border]["secondary_theme"]["normal"].' margin_sides_5_cent" />',
+			"light" => '<hr class="'.$website["style"][$border]["secondary_theme"]["light"].' margin_sides_5_cent" />',
+			"dark" => '<hr class="'.$website["style"][$border]["secondary_theme"]["dark"].' margin_sides_5_cent" />',
+		],
 	];
 
 	$website["elements"][$element."_no_margin"] = [
 		"black" => '<hr class="'.$website["style"][$border]["black"].'" />',
-		"theme" => '<hr class="'.$website["style"][$border]["theme"]["normal"].'" />',
-		"secondary_theme" => '<hr class="'.$website["style"][$border]["secondary_theme"]["normal"].'" />',
+		"theme" => [
+			"normal" => '<hr class="'.$website["style"][$border]["theme"]["normal"].'" />',
+			"light" => '<hr class="'.$website["style"][$border]["theme"]["light"].'" />',
+			"dark" => '<hr class="'.$website["style"][$border]["theme"]["dark"].'" />',
+		],
+		"secondary_theme" => [
+			"normal" => '<hr class="'.$website["style"][$border]["secondary_theme"]["normal"].'" />',
+			"light" => '<hr class="'.$website["style"][$border]["secondary_theme"]["light"].'" />',
+			"dark" => '<hr class="'.$website["style"][$border]["secondary_theme"]["dark"].'" />',
+		],
 	];
 
 	$i++;

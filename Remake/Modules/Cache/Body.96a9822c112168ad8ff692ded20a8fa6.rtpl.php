@@ -10,7 +10,7 @@
 	</h2>
 
 	<!-- Website image -->
-	<?php echo $website["data"]["image"]["elements"]["black"]; ?>
+	<?php echo $website["data"]["image"]["elements"]["theme"]["light"]; ?>
 	<br />
 
 	<!-- Website description -->

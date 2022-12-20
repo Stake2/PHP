@@ -118,7 +118,7 @@ foreach ($chapter_titles as $chapter_title) {
 		"chapter_title" => $chapter_title_with_number,
 		"you_are_reading" => Text::Format($website["language_texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
 		"you_read" => Text::Format($website["language_texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
-		"class" => $website["style"]["tab"]["theme"],
+		"class" => $website["style"]["tab"]["theme_text_dark"],
 		"top_button" => "",
 		"bottom_button" => "",
 		"chapter_text" => $chapter_text."\n",
@@ -152,7 +152,7 @@ foreach ($chapter_titles as $chapter_title) {
 
 		$chapter_tab["chapter_cover"] = "<!-- Chapter cover image -->"."\n".
 		"\t\t"."<center>"."\n".
-		"\t\t\t".HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'"', $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["black"])."\n\t\t"."</center>"."\n".
+		"\t\t\t".HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'"', $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["theme"]["light"])."\n\t\t"."</center>"."\n".
 		"\t\t"."<br />\n\n";
 	}
 
@@ -164,6 +164,8 @@ foreach ($chapter_titles as $chapter_title) {
 			"previous" => True,
 			"next" => False,
 			"text" => $website["icons"]["arrow_left"],
+			"text_class" => $website["style"]["text"]["theme"]["dark"],
+			"button_class" => $website["style"]["button"]["theme"]["light"],
 		];
 
 		$chapter_tab["top_button"] .= "\n\n\t".HTML::Chapter_Button($c, $chapter_titles[$i - 1], $options);
@@ -178,6 +180,8 @@ foreach ($chapter_titles as $chapter_title) {
 			"previous" => False,
 			"next" => True,
 			"text" => $website["icons"]["arrow_right"],
+			"text_class" => $website["style"]["text"]["theme"]["dark"],
+			"button_class" => $website["style"]["button"]["theme"]["light"],
 		];
 
 		$chapter_tab["top_button"] .= "\n\n\t".HTML::Chapter_Button($c, $chapter_titles[$i - 1], $options);
@@ -185,14 +189,14 @@ foreach ($chapter_titles as $chapter_title) {
 	}
 
 	# Create "Comment" button
-	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["to_comment"].": ".$website["icons"]["comment"]."\n\t\t", 'onclick="Open_Modal(\'comment\', \''.$chapter_tab["chapter_title"].'\')" style="font-weight: bold;"', "text_size ".$website["style"]["text"]["black"])."\n";
+	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["to_comment"].": ".$website["icons"]["comment"]."\n\t\t", 'onclick="Open_Modal(\'comment\', \''.$chapter_tab["chapter_title"].'\')" style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
 
-	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["black"]);
+	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
 
 	# Create "I read the chapter" button
-	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["i_read"].": ".$website["icons"]["check"]." ".$website["icons"]["reader"]."\n\t\t", 'onclick="Open_Modal(\'read\', \''.$chapter_tab["chapter_title"].'\')" style="font-weight: bold;"', "text_size ".$website["style"]["text"]["black"])."\n";
+	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["i_read"].": ".$website["icons"]["check"]." ".$website["icons"]["reader"]."\n\t\t", 'onclick="Open_Modal(\'read\', \''.$chapter_tab["chapter_title"].'\')" style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
 
-	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["black"]);
+	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
 
 	# HTML comment for buttons, text, and image
 	if ($i != 1 and $i != count($chapter_titles)) {
@@ -206,12 +210,12 @@ foreach ($chapter_titles as $chapter_title) {
 	$reads_folder = $story["folders"]["Readers and Reads"]["Reads"].$chapter_tab["number_leading_zeroes"]."/";
 
 	if (file_exists($comments_folder) == True or file_exists($reads_folder) == True) {
-		$chapter_tab["additional_elements"] = $website["elements"]["hr_1px"]["black"];
+		$chapter_tab["additional_elements"] = $website["elements"]["hr_1px"]["theme"]["dark"];
 		$width = "37";
 		$margin = "10";
 	}
 
-	$censor_names = False;
+	$censor_names = True;
 
 	# Get chapter comments
 	if (file_exists($comments_folder) == True) {
@@ -239,7 +243,7 @@ foreach ($chapter_titles as $chapter_title) {
 			$text = HTML::Element("b", $website["language_texts"]["comment, title()"]." (".count($comments).")".": ", "", "margin_top_bottom_2_cent");
 		}
 
-		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["style"]["text"]["black"]." margin_sides_5_cent margin_top_bottom_3_cent")."\n\n";
+		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_5_cent margin_top_bottom_3_cent")."\n\n";
 
 		$chapter_tab["additional_elements"] .= $h3;
 
@@ -258,13 +262,13 @@ foreach ($chapter_titles as $chapter_title) {
 
 			$text .= "<br />";
 			$text .= HTML::Element("b", $website["language_texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($date));
-			$text .= $website["elements"]["hr_1px"]["black"];
+			$text .= $website["elements"]["hr_1px"]["theme"]["light"];
 			$text .= $comment;
 
-			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["black"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n";
+			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($c + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["black"]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', "w3-container ".$website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." border_radius_50px");
 
 			if (file_exists($reads_folder) == True) {
 				$div = str_replace("33%", "100%", $div);
@@ -309,7 +313,7 @@ foreach ($chapter_titles as $chapter_title) {
 			$text = HTML::Element("b", $website["language_texts"]["reads, title()"]." (".count($readers).")".": ", "", "margin_top_bottom_2_cent");
 		}
 
-		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["style"]["text"]["black"]." margin_sides_5_cent margin_top_bottom_3_cent")."\n\n";
+		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_5_cent margin_top_bottom_3_cent")."\n\n";
 
 		$chapter_tab["additional_elements"] .= $h3;
 
@@ -328,10 +332,10 @@ foreach ($chapter_titles as $chapter_title) {
 			$text .= "<br />";
 			$text .= HTML::Element("b", $website["language_texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($read_date));
 
-			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["black"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n";
+			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($r + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["black"]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', "w3-container ".$website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." border_radius_50px");
 
 			if (file_exists($comments_folder) == True) {
 				$div = str_replace("33%", "100%", $div);
@@ -417,7 +421,7 @@ foreach ($stories["titles"]["en"] as $english_story_title) {
 	$image = "";
 
 	if (file_exists($website["dictionary"][$english_story_title]["image"]["local_link"]) == True) {
-		$image = $website_data["image"]["elements"]["theme"];
+		$image = $website_data["image"]["elements"]["theme"]["normal"];
 		$image = str_replace("height: auto;", "width: 100%;", $image);
 		$image = str_replace("image_size ", "", $image);
 		$image = str_replace("border_radius_8_cent", "border_radius_5_cent", $image);
