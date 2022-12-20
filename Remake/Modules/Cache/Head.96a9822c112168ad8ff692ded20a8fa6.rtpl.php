@@ -64,7 +64,7 @@
 
 	<!-- JavaScript files -->
 <?php echo $website["javascript"]["links"]; ?>
-	<?php if( $parse != '/generate' ){ ?>
+	<?php if( $parse == '/generate' ){ ?>
 
 
 	<script>
