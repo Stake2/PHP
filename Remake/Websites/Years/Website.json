@@ -1,14 +1,14 @@
 {
 	"style": {
 		"theme": {
-			"normal": "white",
+			"normal": "black",
 			"light": "white",
-			"dark": "white"
+			"dark": "grey"
 		},
 		"secondary_theme": {
-			"normal": "white",
+			"normal": "black",
 			"light": "white",
-			"dark": "white"
+			"dark": "grey"
 		}
 	},
 	"tabs": {

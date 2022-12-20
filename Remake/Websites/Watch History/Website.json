@@ -3,12 +3,12 @@
 		"theme": {
 			"normal": "blue",
 			"light": "blue",
-			"dark": "darker_blue"
+			"dark": "dark_blue"
 		},
 		"secondary_theme": {
 			"normal": "blue",
 			"light": "blue",
-			"dark": "darker_blue"
+			"dark": "dark_blue"
 		}
 	},
 	"tabs": {
