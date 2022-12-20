@@ -54,7 +54,7 @@
 		--spread-btn: 0.5px;
 	}
 
-	.w3-btn, .w3-container, .modal-content, .w3-input {
+	.w3-btn, .w3-container, .modal, .modal-content, .w3-input {
 		box-shadow: 0 -8px 20px var(--spread-btn) var(--shadow-color),
 		0 8px 20px var(--spread-btn) var(--shadow-color),
 		0 6px 20px var(--spread-btn) var(--shadow-color),

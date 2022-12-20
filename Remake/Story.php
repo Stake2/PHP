@@ -103,8 +103,8 @@ foreach ($chapter_titles as $chapter_title) {
 	# Paint story and chapter titles
 	$color = $website["style"]["text"]["secondary_theme"]["normal"];
 
-	if (isset($website["style"]["chapter_color"]) == True) {
-		$color = "text_".$website["style"]["chapter_color"];
+	if (isset($website["style"]["text_highlight"]) == True) {
+		$color = $website["style"]["text_highlight"];
 	}
 
 	$painted_story_title = HTML::Element("span", $website["data"]["titles"]["language"], "", $color);
@@ -119,11 +119,16 @@ foreach ($chapter_titles as $chapter_title) {
 		"you_are_reading" => Text::Format($website["language_texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
 		"you_read" => Text::Format($website["language_texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
 		"class" => $website["style"]["tab"]["theme_dark"],
+		"chapter_text_color" => "",
 		"top_button" => "",
 		"bottom_button" => "",
 		"chapter_text" => $chapter_text."\n",
 		"comment" => "<!-- Chapter button and text -->"."\n",
 	];
+
+	if (isset($website["style"]["chapter_text_color"]) == True) {
+		$chapter_tab["chapter_text_color"] = " text_".$website["style"]["chapter_text_color"];
+	}
 
 	$words = number_format(str_word_count($chapter_tab["chapter_text"]));
 
@@ -382,8 +387,8 @@ foreach ($modal_types as $type) {
 	if ($type == "comment") {
 		$chapter_modal["text"] = $website["language_texts"]["comment_on_the_chapter"];
 		$chapter_modal["comment_input"] = "\t\t\t"."<!-- Comment input -->"."\n".
-		"\t\t\t".HTML::Element("h2", "\n\t\t\t\t".$website["language_texts"]["comment, title()"].": "."\n\t\t\t", 'style="font-weight: bold;"', "text_size ".$website["style"]["text"]["secondary_theme"]["normal"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n".
-		"\t\t\t".HTML::Element("input", "", 'type="text" name="comment" style="font-weight: bold; width: 50%; border-radius: 50px;"', "w3-input text_size ".$website["style"]["button"]["black"])."\n";
+		"\t\t\t".HTML::Element("h2", "\n\t\t\t\t".$website["language_texts"]["comment, title()"].": "."\n\t\t\t", 'style="font-weight: bold;"', "text_size ".$website["style"]["text_highlight"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n".
+		"\t\t\t".HTML::Element("input", "", 'type="text" name="comment" style="font-weight: bold; width: 50%; border-radius: 50px;"', "w3-input text_size ".$website["style"]["button"]["theme"]["light"])."\n";
 
 		$chapter_modal["icon"] = $website["icons"]["comment"];
 		$chapter_modal["class"] = " margin_6_cent_auto";

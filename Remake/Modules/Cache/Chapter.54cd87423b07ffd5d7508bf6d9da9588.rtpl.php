@@ -17,7 +17,7 @@
 <?php echo $chapter_tab["chapter_cover"]; ?>
 <?php } ?>
 		<!-- Chapter text -->
-		<h4 class="text_size unselectable" style="text-align: left;">
+		<h4 class="text_size unselectable<?php echo $chapter_tab['chapter_text_color']; ?>" style="text-align: left;">
 		<?php echo $chapter_tab["chapter_text"]; ?>
 		</h4>
 		<?php echo $chapter_tab["bottom_button"]; ?>

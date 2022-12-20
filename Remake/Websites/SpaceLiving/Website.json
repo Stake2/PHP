@@ -10,8 +10,8 @@
 			"light": "cyan",
 			"dark": "dark_blue"
 		},
-		"chapter_color": "dark_blue",
-		"text_highlight": "green_water"
+		"text_highlight": "green_water",
+		"chapter_text_color": "green_water"
 	},
 	"tabs": {
 		"data": {
