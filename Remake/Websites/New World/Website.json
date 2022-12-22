@@ -1,14 +1,14 @@
 {
 	"style": {
 		"theme": {
-			"normal": "cyan",
-			"light": "light_cyan",
-			"dark": "dark_cyan"
+			"normal": "green_water",
+			"light": "green_water",
+			"dark": "dark_green_water"
 		},
 		"secondary_theme": {
-			"normal": "cyan",
-			"light": "light_cyan",
-			"dark": "dark_cyan"
+			"normal": "yellow_sand",
+			"light": "yellow_sand",
+			"dark": "yellow_sand"
 		}
 	},
 	"tabs": {

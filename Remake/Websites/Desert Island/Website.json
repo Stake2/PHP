@@ -9,7 +9,8 @@
 			"normal": "yellow_sand",
 			"light": "yellow_sand",
 			"dark": "yellow_sand"
-		}
+		},
+		"text_highlight": "dark_green_water"
 	},
 	"tabs": {
 		"data": {
