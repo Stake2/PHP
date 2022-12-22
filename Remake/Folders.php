@@ -37,6 +37,7 @@ foreach ($names as $item) {
 # App Text Files files
 $names = [
 	"Language",
+	"Tasks",
 	"Watch_History",
 ];
 
@@ -51,8 +52,13 @@ foreach ($names as $item) {
 # Languages.json file
 $folders["apps"]["app_text_files"]["language"]["languages"] = $folders["apps"]["app_text_files"]["language"]["root"]."Languages.json";
 
-# Watch History "Texts.json" file
-$folders["apps"]["app_text_files"]["watch_history"]["texts"] = $folders["apps"]["app_text_files"]["watch_history"]["root"]."Texts.json";
+# Foreach loop on module names
+foreach ($names as $item) {
+	$key = str_replace(" ", "_", strtolower($item));
+
+	# "Texts.json" file
+	$folders["apps"]["app_text_files"][$key]["texts"] = $folders["apps"]["app_text_files"][$key]["root"]."Texts.json";
+}
 
 # Mega folders
 $names = [
@@ -144,13 +150,34 @@ $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_networ
 	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["root"]."Productive Network/",
 ];
 
+# Productive Network/Media Network Data folder
+$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["media_network_data"] = [
+	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["root"]."Media Network Data/",
+];
+
+$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["media_network_data"]["task_types"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["media_network_data"]["root"]."Task Types.json";
+
+# Productive Network/Task Data folder
 $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_data"] = [
 	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["root"]."Task Data/",
 ];
 
+# Productive Network/Task History folder
+$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"] = [
+	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["root"]."Task History/",
+];
+
+# 2018 Task Data folder
 $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_data"]["2018"] = [
 	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_data"]["root"]."2018/",
 ];
+
+# Task History year folders
+foreach (range(2021, date("Y")) as $year) {
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"]["root"].$year."/",
+	];
+}
 
 # Temporary define the root PHP folder as the Remake folder, because I am remaking my PHP code structure
 $folders["mega"]["php"]["root"] = $folders["mega"]["php"]["root"]."Remake/";

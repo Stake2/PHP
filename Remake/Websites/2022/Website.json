@@ -10,7 +10,7 @@
 			"light": "yellow_sand",
 			"dark": "dark_yellow"
 		},
-		"text_highlight": "dark_yellow"
+		"text_highlight": "black"
 	},
 	"image_width": "40%",
 	"tabs": {
@@ -23,6 +23,9 @@
 			},
 			"watched_things": {
 				"template": "watched_things"
+			},
+			"tasks": {
+				"template": "tasks"
 			},
 			"years": {
 				"template": "years"

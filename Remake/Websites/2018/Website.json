@@ -3,13 +3,14 @@
 		"theme": {
 			"normal": "blue",
 			"light": "dark_blue",
-			"dark": "super_dark_blue"
+			"dark": "black"
 		},
 		"secondary_theme": {
 			"normal": "blue",
 			"light": "dark_blue",
 			"dark": "super_dark_blue"
-		}
+		},
+		"text_highlight": "dark_blue"
 	},
 	"image_width": "40%",
 	"tabs": {

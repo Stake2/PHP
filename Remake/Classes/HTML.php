@@ -247,7 +247,7 @@ class HTML extends Class_ {
 				}
 
 				# If file is empty, use empty message text
-				else {
+				if ($contents["lines"] == []) {
 					$tab["content"] = $tab["empty_message"];
 				}
 			}

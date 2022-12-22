@@ -59,24 +59,28 @@ class File extends Class_ {
 		while(!feof($read)) {
 			$line = fgets($read);
 
-			#echo '"'.$line.'"'."<br>";
-
 			array_push($contents["lines"], self::Replace_Text($line));
 		}
 
-		$i = 0;
-		foreach ($contents["lines"] as $line) {
-			$contents["string"] .= $line;
-		
-			if ($i != $contents["length"] - 1) {
-				if ($add_br == True) {
-					$contents["string"] .= "<br />";
+		if ($contents["lines"][0] == "") {
+			$contents["lines"] = [];
+		}
+
+		else {
+			$i = 0;
+			foreach ($contents["lines"] as $line) {
+				$contents["string"] .= $line;
+			
+				if ($i != $contents["length"] - 1) {
+					if ($add_br == True) {
+						$contents["string"] .= "<br />";
+					}
+			
+					$contents["string"] .= "\n";
 				}
-		
-				$contents["string"] .= "\n";
+			
+				$i++;
 			}
-		
-			$i++;
 		}
 
 		fclose($read);
