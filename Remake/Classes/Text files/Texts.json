@@ -65,7 +65,11 @@
 	},
 	"watched_things": {
 		"en": "Watched things",
-			"pt": "Coisas assistidas"
+		"pt": "Coisas assistidas"
+	},
+	"tasks, title()": {
+		"en": "Tasks",
+		"pt": "Tarefas"
 	},
 	"the_year_summary_has_not_been_created_yet": {
 		"en": "The Year summary has not been created yet.",
@@ -277,5 +281,9 @@
 	"variables, title()": {
 		"en": "Variables",
 		"pt": "Variáveis"
+	},
+	"unknown_watched_time": {
+		"en": "Unknown watched time",
+		"pt": "Horário assistido desconhecido"
 	}
 }

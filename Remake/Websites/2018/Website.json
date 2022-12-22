@@ -2,28 +2,41 @@
 	"style": {
 		"theme": {
 			"normal": "blue",
-			"light": "blue",
-			"dark": "dark_blue"
+			"light": "dark_blue",
+			"dark": "super_dark_blue"
 		},
 		"secondary_theme": {
 			"normal": "blue",
-			"light": "blue",
-			"dark": "dark_blue"
+			"light": "dark_blue",
+			"dark": "super_dark_blue"
 		}
 	},
+	"image_width": "40%",
 	"tabs": {
 		"data": {
-			"first_tab": {
-				"name": {
-					"en": "First tab",
-					"pt": "Primeira aba"
-				}
+			"summary": {
+				"template": "summary"
+			},
+			"watched_things": {
+				"template": "watched_things"
+			},
+			"tasks": {
+				"template": "tasks"
+			},
+			"years": {
+				"template": "years"
 			}
 		}
 	},
 	"descriptions": {
-		"html": "",
-		"header": ""
+		"html": {
+			"en": "Website to show how {website_title} was, and what I did in it.\nMade by {author}.",
+			"pt": "Site para mostrar como {website_title} foi, e o que eu fiz nele.\nFeito por {author}."
+		},
+		"header": {
+			"en": "Website to show how {website_title} was, and what I did in it.\nMade by {author}.",
+			"pt": "Site para mostrar como {website_title} foi, e o que eu fiz nele.\nFeito por {author}."
+		}
 	},
 	"color": "2196F3"
 }

@@ -283,7 +283,7 @@ class HTML extends Class_ {
 		$tab["name_icon"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
 
 		# Define tab content with content file
-		if (isset($tab["content"]) == False) {
+		if (isset($tab["content"]) == False and isset($tab["template"]) == False) {
 			$tab["content_file"] = $website["data"]["folders"]["php"]["tabs"].$i.".php";
 
 			if (file_exists($tab["content_file"]) == False) {

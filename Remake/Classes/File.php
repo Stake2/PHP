@@ -41,10 +41,10 @@ class File extends Class_ {
 		fclose($file);
 	}
 
-	public static function Replace_Text($array) {
-		$items = array("\r\n", "\r", "\n", "%EF%BB%BF", "%EF", "%BB", "%BF", "U+FEFF", "/uFEFF");
+	public static function Replace_Text($line) {
+		$items = array("\r\n");
 
-		return str_replace($items, "", $array);
+		return str_replace($items, "", $line);
 	}
 
 	public static function Contents($file, $add_br = True) {
@@ -56,22 +56,26 @@ class File extends Class_ {
 
 		$read = fopen($file, "r", "UTF-8");
 
-		if (count(file($file)) != 0) {
-			$contents["lines"] = self::Replace_Text(explode("\n", fread($read, filesize($file))));
+		while(!feof($read)) {
+			$line = fgets($read);
+
+			#echo '"'.$line.'"'."<br>";
+
+			array_push($contents["lines"], self::Replace_Text($line));
 		}
 
 		$i = 0;
 		foreach ($contents["lines"] as $line) {
 			$contents["string"] .= $line;
-
+		
 			if ($i != $contents["length"] - 1) {
 				if ($add_br == True) {
 					$contents["string"] .= "<br />";
 				}
-
+		
 				$contents["string"] .= "\n";
 			}
-
+		
 			$i++;
 		}
 

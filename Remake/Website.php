@@ -488,6 +488,13 @@ if ($website["data"]["title"] == "Years" or in_array($website["data"]["title"], 
 			"content" => $website["tab_content"]["watched_things"]["string"],
 			"icon" => "eye",
 		],
+		"tasks" => [
+			"name" => $website["language_texts"]["tasks, title()"],
+			"add" => " ".HTML::Element("span", $website["tab_content"]["tasks"]["number"], "", $website["style"]["text_highlight"]),
+			"text_style" => "text-align: left;",
+			"content" => $website["tab_content"]["tasks"]["string"],
+			"icon" => "check",
+		],
 		"years" => [
 			"name" => $website["language_texts"]["years, title()"],
 			"add" => " ".HTML::Element("span", count($website["years"]), "", $website["style"]["text_highlight"]),

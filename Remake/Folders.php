@@ -117,27 +117,39 @@ $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media
 	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["root"]."Watched/",
 ];
 
-# Current year Watched folder
-$current_year = new DateTime();
-$current_year = (string)$current_year -> format("Y");
+# Create year Watched folders
+foreach (range(2018, date("Y")) as $year) {
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$year] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"]["root"].$year."/",
+	];
 
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$current_year] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"]["root"].$current_year."/",
+	# "Per Media Type" folder of Current year Watched folder
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$year]["per_media_type"] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$year]["root"]."Per Media Type/",
+	];
+
+	# "Per Media Type" files folder of Current year Watched folder
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$year]["per_media_type"]["files"] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$year]["per_media_type"]["root"]."Files/",
+	];
+
+	# Years folders
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["years"][$year] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["years"]["root"].$year."/",
+	];
+}
+
+# Productive Network files
+$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"] = [
+	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["root"]."Productive Network/",
 ];
 
-# "Per Media Type" folder of Current year Watched folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$current_year]["per_media_type"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$current_year]["root"]."Per Media Type/",
+$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_data"] = [
+	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["root"]."Task Data/",
 ];
 
-# "Per Media Type" files folder of Current year Watched folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$current_year]["per_media_type"]["files"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$current_year]["per_media_type"]["root"]."Files/",
-];
-
-# Years folders
-$folders["mega"]["bloco_de_notas"]["dedicação"]["years"][$current_year] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["years"]["root"].$current_year."/",
+$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_data"]["2018"] = [
+	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_data"]["root"]."2018/",
 ];
 
 # Temporary define the root PHP folder as the Remake folder, because I am remaking my PHP code structure

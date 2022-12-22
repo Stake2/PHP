@@ -16,20 +16,27 @@ if ($language == "general") {
 # Define custom website folders
 $website["data"]["folders"]["year"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["years"][$website["data"]["title"]];
 
-# Watch History folders
-$website["data"]["folders"]["watch_history"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$website["data"]["title"]];
-
 # Define website files
 $website["data"]["files"] = [
 	"summary" => $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["summary, title()"].".txt",
 	"this_year_i" => $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["this_year_i"].".txt",
-	"texts" => $folders["apps"]["app_text_files"]["watch_history"]["texts"],
 ];
 
-# Define media types array
-$texts_json = File::JSON($website["data"]["files"]["texts"]);
+# Define Watch History array
+$watch_history = [
+	"folders" => [
+		"per_media_type_files" => [
+			"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["watched"][$website["data"]["title"]]["per_media_type"]["files"]["root"],
+		],
+	],
+	"files" => [
+		"texts" => $folders["apps"]["app_text_files"]["watch_history"]["texts"],
+	],
+];
 
-$watched_media = "";
+$watch_history["texts"] = [
+	"texts" => File::JSON($watch_history["files"]["texts"]),
+];
 
 $names = [
 	"Episodes",
@@ -44,16 +51,12 @@ $website["tab_content"] = [
 	],
 ];
 
-# Define files and texts arrays
-$files = [];
-$texts = [];
-
 # Define files and texts
 $i = 0;
-foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_type) {
-	$plural_media_type = $texts_json["plural_media_types, type: list"][$language][$i];
+foreach ($watch_history["texts"]["texts"]["plural_media_types, type: list, en - pt"] as $mixed_media_type) {
+	$plural_media_type = $watch_history["texts"]["texts"]["plural_media_types, type: list"][$language][$i];
 
-	$folder = $website["data"]["folders"]["watch_history"]["per_media_type"]["files"]["root"].$mixed_media_type."/";
+	$watch_history["folders"]["per_media_type_files"][$plural_media_type] = $watch_history["folders"]["per_media_type_files"]["root"].$mixed_media_type."/";
 
 	# Define file names
 	$file_names = $names;
@@ -62,31 +65,22 @@ foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_
 		array_push($file_names, "YouTube IDs");
 	}
 
-	$files[$plural_media_type] = [];
-	$texts[$plural_media_type] = [];
+	$watch_history["files"][$plural_media_type] = [];
+	$watch_history["texts"][$plural_media_type] = [];
 
 	# Define media type files and texts
 	foreach ($file_names as $item) {
 		$key = str_replace(" ", "_", strtolower($item));
 
 		# Define item file
-		$files[$plural_media_type][$key] = $folder.$item.".txt";
-
-		# Define item texts
-		$texts[$plural_media_type][$key] = [];
+		$watch_history["files"][$plural_media_type][$key] = $watch_history["folders"]["per_media_type_files"][$plural_media_type].$item.".txt";
 
 		# Get contents from item file
-		$contents = File::Contents($files[$plural_media_type][$key]);
-
-		$texts[$plural_media_type][$key] = [
-			"string" => $contents["string"],
-			"lines" => $contents["lines"],
-			"length" => count($contents["lines"]),
-		];
+		$watch_history["texts"][$plural_media_type][$key] = File::Contents($watch_history["files"][$plural_media_type][$key]);
 	}
 
 	# Add episode number to watched things number
-	$website["tab_content"]["watched_things"]["number"] += $texts[$plural_media_type][$key]["length"];
+	$website["tab_content"]["watched_things"]["number"] += $watch_history["texts"][$plural_media_type][$key]["length"];
 
 	$i++;
 }
@@ -95,10 +89,10 @@ $website["tab_content"]["watched_things"]["string"] .= "<!-- Media type headers 
 
 # Add plural media type header to watched things text
 $i = 0;
-foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_type) {
-	$plural_media_type = $texts_json["plural_media_types, type: list"][$language][$i];
+foreach ($watch_history["texts"]["texts"]["plural_media_types, type: list, en - pt"] as $mixed_media_type) {
+	$plural_media_type = $watch_history["texts"]["texts"]["plural_media_types, type: list"][$language][$i];
 
-	$span = HTML::Element("span", $texts[$plural_media_type]["episodes"]["length"], "", $website["style"]["text_highlight"]);
+	$span = HTML::Element("span", $watch_history["texts"][$plural_media_type]["episodes"]["length"], "", $website["style"]["text_highlight"]);
 
 	$b = HTML::Element("b", $plural_media_type.": ".$span);
 
@@ -177,10 +171,10 @@ if ($language == "pt") {
 
 # Add plural media type header and episodes to watched things text
 $i = 0;
-foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_type) {
-	$plural_media_type = $texts_json["plural_media_types, type: list"][$language][$i];
+foreach ($watch_history["texts"]["texts"]["plural_media_types, type: list, en - pt"] as $mixed_media_type) {
+	$plural_media_type = $watch_history["texts"]["texts"]["plural_media_types, type: list"][$language][$i];
 
-	$span = HTML::Element("span", $texts[$plural_media_type]["episodes"]["length"], "", $website["style"]["text_highlight"]);
+	$span = HTML::Element("span", $watch_history["texts"][$plural_media_type]["episodes"]["length"], "", $website["style"]["text_highlight"]);
 
 	$b = HTML::Element("b", $plural_media_type.": ".$span);
 
@@ -192,15 +186,27 @@ foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_
 
 	# Add episodes to watched things text
 	$e = 0;
-	foreach ($texts[$plural_media_type]["episodes"]["lines"] as $episode) {
-		$time = $texts[$plural_media_type]["times"]["lines"][$e];
+	foreach ($watch_history["texts"][$plural_media_type]["episodes"]["lines"] as $episode) {
+		$time = $watch_history["texts"][$plural_media_type]["times"]["lines"][$e];
 
 		if ($mixed_media_type == "Videos - Vídeos") {
-			$youtube_id = $texts[$plural_media_type]["youtube_ids"]["lines"][$e];
+			$youtube_id = $watch_history["texts"][$plural_media_type]["youtube_ids"]["lines"][$e];
 		}
 
 		# Format watched time in local date time format ("d/m/Y" for Portuguese and "m/d/Y" for English)
-		$time = Date::Now($time, $website["texts"]["date_time_format"]["pt"])[$website["language_texts"]["date_time_format"]];
+		if ($time != "Unknown Watched Time - Horário Assistido Desconhecido") {
+			$format = "date_time_format";
+
+			if (strstr($time, ":") == False) {
+				$format = "date_format";
+			}
+
+			$time = Date::Now($time, $website["texts"][$format]["pt"])[$website["language_texts"][$format]];
+		}
+
+		else {
+			$time = $website["language_texts"]["unknown_watched_time"];
+		}
 
 		# Translate episode texts
 		$episode = str_replace($replace["list"], $replace["with"], $episode);
@@ -210,7 +216,7 @@ foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_
 			$re_watched_number = explode("x ", preg_split("/Re-Watched /i", $episode)[1])[0];
 
 			$regex = "/Re-Watched [0-9]{1,}x - Re-Assistido [0-9]{1,}x/i";
-			$episode = preg_replace($regex, $texts_json["re_watched, title()"][$language]." ".$re_watched_number."x", $episode);
+			$episode = preg_replace($regex, $watch_history["texts"]["texts"]["re_watched, title()"][$language]." ".$re_watched_number."x", $episode);
 		}
 
 		$number = HTML::Element("span", ($e + 1), "", $website["style"]["text_highlight"]);
@@ -221,14 +227,14 @@ foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_
 
 		$website["tab_content"]["watched_things"]["string"] .= "\t\t".$span;
 
-		if ($e != count($texts[$plural_media_type]["episodes"]["lines"]) - 1) {
+		if ($e != count($watch_history["texts"][$plural_media_type]["episodes"]["lines"]) - 1) {
 			$website["tab_content"]["watched_things"]["string"] .= "<br />"."\n\n";
 		}
 
 		$e++;
 	}
 
-	if ($mixed_media_type != array_reverse($texts_json["plural_media_types, type: list, en - pt"])[0]) {
+	if ($mixed_media_type != array_reverse($watch_history["texts"]["texts"]["plural_media_types, type: list, en - pt"])[0]) {
 		$website["tab_content"]["watched_things"]["string"] .= "\t\t"."<br /><br />"."\n\n";
 	}
 
@@ -236,5 +242,19 @@ foreach ($texts_json["plural_media_types, type: list, en - pt"] as $mixed_media_
 }
 
 $website["tab_content"]["watched_things"]["string"] .= "<br /><br />";
+
+# Generate tasks tab content for 2018 year website
+$website["tab_content"]["tasks"] = [
+	"string" => "",
+	"number" => 0,
+];
+
+$website["data"]["files"]["tasks"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_data"]["2018"]["root"].$full_language.".txt";
+
+$contents = File::Contents($website["data"]["files"]["tasks"]);
+
+$website["tab_content"]["tasks"]["string"] = $contents["string"];
+
+$website["tab_content"]["tasks"]["number"] = $contents["length"];
 
 ?>

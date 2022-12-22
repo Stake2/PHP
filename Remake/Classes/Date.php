@@ -21,11 +21,11 @@ class Date extends Class_ {
 			$datetime = DateTime::createFromFormat($format, $string);
 		}
 
-		$date = [];
-
-		$date["day"] = $datetime -> format("d");
-		$date["month"] = $datetime -> format("m");
-		$date["year"] = $datetime -> format("Y");
+		$date = [
+			"day" => $datetime -> format("d"),
+			"month" => $datetime -> format("m"),
+			"year" => $datetime -> format("Y"),
+		];
 
 		foreach ($website["texts"]["date_format"] as $text) {
 			$date[$text] = $datetime -> format($text);
