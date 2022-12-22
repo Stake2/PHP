@@ -328,10 +328,6 @@ foreach ($website["list"]["en"] as $website_title) {
 	$website["dictionary"][$website_title]["image"] = [];
 	$website["dictionary"][$website_title]["image"]["format"] = "png";
 
-	if (isset($website["dictionary"][$website_title]["json"]["image_format"]) == True) {
-		$website["dictionary"][$website_title]["image"]["format"] = $website["dictionary"][$website_title]["json"]["image_format"];
-	}
-
 	# Define website image link
 	$website["dictionary"][$website_title]["image"]["link"] = $website["folders"]["images"]["icons"]["root"];
 
@@ -353,14 +349,29 @@ foreach ($website["list"]["en"] as $website_title) {
 		$local_folder = $folders["mega"]["websites"]["images"]["story_covers"]["root"].$website_title."/";
 		$folder = $website["folders"]["images"]["story_covers"]["root"].$website_title."/";
 
-		$file_name = "Cover.".$website["dictionary"][$website_title]["image"]["format"];
+		$file_name = "Cover";
 
-		if (file_exists($local_folder.$file_name) == True) {
-			$website["dictionary"][$website_title]["image"]["link"] = $folder.$file_name;
+		$formats = [
+			"png",
+			"jpg",
+			"gif",
+		];
+
+		foreach ($formats as $format) {	
+			$local_image = $local_folder.$file_name.".".$format;
+			$local_image_per_language = $local_folder.$full_language."/".$file_name.".".$format;
+
+			if (file_exists($local_image) or file_exists($local_image_per_language)) {
+				$website["dictionary"][$website_title]["image"]["format"] = $format;
+			}
 		}
 
-		if (file_exists($local_folder.$file_name) == False) {
-			$website["dictionary"][$website_title]["image"]["link"] = $folder.$full_language."/".$file_name;
+		if (file_exists($local_folder.$file_name.".".$website["dictionary"][$website_title]["image"]["format"]) == True) {
+			$website["dictionary"][$website_title]["image"]["link"] = $folder.$file_name.".".$website["dictionary"][$website_title]["image"]["format"];
+		}
+
+		if (file_exists($local_folder.$file_name.".".$website["dictionary"][$website_title]["image"]["format"]) == False) {
+			$website["dictionary"][$website_title]["image"]["link"] = $folder.$full_language."/".$file_name.".".$website["dictionary"][$website_title]["image"]["format"];
 		}
 	}
 

@@ -1,2 +1,6 @@
 Normal websites:
 	Create notification
+
+Story websites:
+	Create "Chapter_Tabs" method on "HTML" class to be used on the story websites and also on the "Diary" and "Diary Slim" websites
+	Add "chapter_tabs" key to JSON of the "Diary" and "Diary Slim" websites to use "Chapter_Tabs" method of "HTML" class

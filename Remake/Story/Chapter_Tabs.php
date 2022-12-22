@@ -46,9 +46,9 @@ foreach ($chapter_titles as $chapter_title) {
 	}
 
 	# Define chapter cover
-	$local_chapter_cover = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeros($i).".png";
+	$local_chapter_cover = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeros($i).".jpg";
 
-	$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeros($i).".png";
+	$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeros($i).".jpg";
 
 	# Paint story and chapter titles
 	$color = $website["style"]["text"]["secondary_theme"]["normal"];
