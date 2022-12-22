@@ -44,6 +44,7 @@ class Text extends Class_ {
 			$line_backup = $line;
 
 			$words = explode(" ", $line);
+			$variable_matches = [];
 
 			$w = 0;
 			foreach ($words as $word) {
@@ -56,21 +57,19 @@ class Text extends Class_ {
 					eval("echo $variable;");
 					$variable = ob_get_clean();
 
-					$words[$w] = $variable;
+					$variable_matches[$matches[0]] = $variable;
 				}
-
-				$words[$w] = $words[$w]." ";
 
 				$w++;
 			}
 
-			$line = self::From_Array($words, "", False, "", "", False, False);
-			
-			if ($line != "" and substr($line, -1) === " ") {
-				$line = substr($line, 0, strlen($line) - 1);
+			foreach (array_keys($variable_matches) as $match) {
+				$variable = $variable_matches[$match];
+
+				$line = str_replace($match, $variable, $line);
 			}
 
-			if (substr($line, 0, 1) != "<" and in_array(substr($line, -1), [".", '"', "", ":", "(", ")", "\n"]) == False) {
+			if (in_array(substr($line, -1), [":", ".", ";"]) == False and $line != "" and $variable_matches == []) {
 				$line .= ".";
 			}
 
@@ -79,7 +78,7 @@ class Text extends Class_ {
 			$i++;
 		}
 
-		return self::From_Array($text, "", False, "", "", True, False);
+		return self::From_Array($text, "", False, "", "", True, True);
 	}
 
 	public static function From_Array($array, $format = "", $enumerate = False, $number_class = "", $class = "", $add_br = True, $add_n = True) {

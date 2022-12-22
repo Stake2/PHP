@@ -49,7 +49,7 @@
 	<!-- Define website box shadow -->
 	<style>
 	body {
-		--shadow-color: #<?php if( isset($website['data']['json']['color']) ){ ?><?php echo $website["data"]["json"]["color"]; ?><?php }else{ ?>dc96e8<?php } ?>60;
+		--shadow-color: <?php if( isset($website['data']['color']) ){ ?><?php echo $website["data"]["color"]; ?><?php }else{ ?>#dc96e8<?php } ?>60;
 		--spread-container: 10px;
 		--spread-btn: 0.5px;
 	}
@@ -59,6 +59,20 @@
 		0 8px 20px var(--spread-btn) var(--shadow-color),
 		0 6px 20px var(--spread-btn) var(--shadow-color),
 		0 -6px 20px var(--spread-btn) var(--shadow-color);
+	}
+	
+	.video-container {
+		position: relative;
+		width: 50vw;
+		height: calc(50vw/1.77);
+	}
+
+	.video-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50vw;
+		height: calc(50vw/1.77);
 	}
 	</style>
 

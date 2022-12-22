@@ -26,10 +26,10 @@
 			<h2 class="text_size margin_top_bottom_2_cent <?php echo $website['style']['text_highlight']; ?>" style="font-weight: bold;">
 				<?php echo $website["language_texts"]["my_name"]; ?>:<br />
 			</h2>
-			<input type="text" name="name" class="w3-input text_size <?php echo $website['style']['button']['theme']['light']; ?>" style="font-weight: bold; width: 50%; border-radius: 50px;">
+			<input type="text" name="name" class="w3-input text_size <?php echo $website['style']['button']['theme']['light']; ?>" style="width: 100%; font-weight: bold; border-radius: 50px;">
 
 			<!-- Hidden chapter title input -->
-			<input id="chapter_<?php echo $chapter_modal['type']; ?>_value" type="hidden" name="chapter" value="" class="w3-input <?php echo $website['style']['button']['theme']['light']; ?>" style="display: none; font-weight: bold; border-radius: 50px; text-align: center;">
+			<input id="chapter_<?php echo $chapter_modal['type']; ?>_value" type="hidden" name="chapter" value="" class="w3-input <?php echo $website['style']['button']['theme']['light']; ?>" style="width: 100%; display: none; font-weight: bold; border-radius: 50px; text-align: center;">
 
 <?php if( isset($chapter_modal['comment_input']) ){ ?>
 <?php echo $chapter_modal['comment_input']; ?>
@@ -43,7 +43,7 @@
 				</h2>
 			</button>
 
-			<br class="mobile" />
+			<br class="mobile_inline_block" /><br class="mobile_inline_block" />
 		</form>
 	</div>
 </div>

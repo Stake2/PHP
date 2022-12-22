@@ -123,6 +123,10 @@
 		"en": "chapter",
 		"pt": "capítulo"
 	},
+	"chapter, title()": {
+		"en": "Chapter",
+		"pt": "Capítulo"
+	},
 	"chapters, title()": {
 		"en": "Chapters",
 		"pt": "Capítulos"
@@ -269,6 +273,10 @@
 	"ten": {
 		"en": "ten",
 		"pt": "dez"
+	},
+	"twenty_six": {
+		"en": "twenty-six",
+		"pt": "vinte e seis"
 	},
 	"my_little_pony_friendship_is_magic": {
 		"en": "My Little Pony: Friendship Is Magic",

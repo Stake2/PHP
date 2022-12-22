@@ -340,9 +340,6 @@ else {
 			}
 		}
 
-		# Add task number to done tasks number
-		$website["tab_content"]["tasks"]["number"] += $tasks["texts"][$english_task_type][$key]["length"];
-
 		$span = HTML::Element("span", count($tasks["texts"][$english_task_type]["tasks"][$language]), "", $website["style"]["text_highlight"]);
 
 		$b = HTML::Element("b", $language_task_type.": ".$span);
@@ -352,6 +349,7 @@ else {
 
 		$website["tab_content"]["tasks"]["string"] .= $a."<br />"."\n\t\t";
 
+		# Add task number to done tasks number
 		$website["tab_content"]["tasks"]["number"] += count($tasks["texts"][$english_task_type]["tasks"][$language]);
 
 		$t++;

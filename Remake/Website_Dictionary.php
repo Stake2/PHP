@@ -163,7 +163,9 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	$website["dictionary"][$website_title]["links"]["language"] = $website["dictionary"][$website_title]["link"].$Language -> user_language."/";
 
-	$website["dictionary"][$website_title]["links"]["element"] = HTML::Element("a", $website["dictionary"][$website_title]["titles"]["language"], 'href="'.$website["dictionary"][$website_title]["links"]["language"].'"');
+	$website["dictionary"][$website_title]["links"]["element"] = HTML::Element("a", '"'.$website["dictionary"][$website_title]["titles"]["language"].'"', 'href="'.$website["dictionary"][$website_title]["links"]["language"].'" target="_blank"', "text_".$website["dictionary"][$website_title]["json"]["style"]["theme"]["dark"]);
+
+	$website["dictionary"][$website_title]["links"]["element_no_quotes"] = HTML::Element("a", $website["dictionary"][$website_title]["titles"]["language"], 'href="'.$website["dictionary"][$website_title]["links"]["language"].'" target="_blank"', "text_".$website["dictionary"][$website_title]["json"]["style"]["theme"]["dark"]);
 
 	if (isset($website["dictionary"][$website_title]["json"]["tabs"]) == True) {
 		$website["dictionary"][$website_title]["tabs"] = $website["dictionary"][$website_title]["json"]["tabs"];
@@ -210,8 +212,16 @@ foreach ($website["list"]["en"] as $website_title) {
 	# Define each type of each style item
 	foreach ($items as $item) {
 		# Add black border to border item array
-		if (strpos($item, "border") === 0 and isset($website["dictionary"][$website_title]["style"][$item]["black"]) == False) {
-			$website["dictionary"][$website_title]["style"][$item]["black"] = $item." border_color_black";
+		if (isset($website["dictionary"][$website_title]["style"][$item]["black"]) == False) {
+			$website["dictionary"][$website_title]["style"][$item]["black"] = $item;
+
+			if (strpos($item, "border") === 0) {
+				$website["dictionary"][$website_title]["style"][$item]["black"] .= " border_color_black";
+			}
+
+			if ($item == "box_shadow") {
+				$website["dictionary"][$website_title]["style"][$item]["black"] .= "_black";
+			}
 		}
 
 		foreach ($types as $type) {

@@ -1,5 +1,7 @@
 <?php
 
+# Folders
+
 # folders array
 $folders = array(
 	"hard_drive_letter" => substr(__FILE__, 0, 2)."/",
@@ -187,11 +189,16 @@ $names = [
 	"Classes",
 	"JSON",
 	"Modules",
+	"Story",
 	"Websites",
 ];
 
 foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
+
+	if ($item == "Story") {
+		$key = "story_folder";
+	}
 
 	$folders["mega"]["php"][$key] = [
 		"root" => $folders["mega"]["php"]["root"].$item."/",
@@ -256,6 +263,20 @@ foreach ($names as $item) {
 
 # Website Information files
 $folders["mega"]["php"]["websites"]["root_websites"] = $folders["mega"]["php"]["websites"]["root"]."Root websites.json";
+
+# Story files
+$names = [
+	"Chapter_Tabs",
+	"Insert_Variables",
+	"Modals",
+	"Story_Cards",
+];
+
+foreach ($names as $item) {
+	$key = str_replace(" ", "_", strtolower($item));
+
+	$folders["mega"]["php"]["story_folder"][$key] = $folders["mega"]["php"]["story_folder"]["root"].$item.".php";
+}
 
 # Index PHP files
 $names = [

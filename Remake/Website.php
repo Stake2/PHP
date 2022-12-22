@@ -297,6 +297,7 @@ foreach ($file_names as $file_name) {
 	$website["css"]["links"] .= '<link rel="stylesheet" type="text/css" href="';
 
 	if (strpos($file_name, ".com") == False) {
+		#$website["css"]["links"] .= "./CSS/";
 		$website["css"]["links"] .= $website["folders"]["css"]["root"];
 	}
 
