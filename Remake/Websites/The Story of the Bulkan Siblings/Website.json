@@ -9,7 +9,8 @@
 			"normal": "brown",
 			"light": "light_brown",
 			"dark": "dark_brown"
-		}
+		},
+		"text_highlight": "dark_brown"
 	},
 	"tabs": {
 		"data": {
