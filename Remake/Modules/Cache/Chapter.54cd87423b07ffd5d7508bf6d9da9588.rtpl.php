@@ -8,7 +8,7 @@
 
 	<?php echo $chapter_tab["comment"]; ?>
 	<div class="margin_sides_5_cent">
-		<?php echo $website["elements"]["hr_1px_no_margin"]["theme"]["light"]; ?>
+		<?php echo $website["elements"]["hr_1px_no_margin"]["theme"][$website["style"]["border_color"]]; ?>
 		<?php echo $chapter_tab["top_button"]; ?>
 
 		<br /><br /><br />

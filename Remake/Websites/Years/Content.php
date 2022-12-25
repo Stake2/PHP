@@ -377,6 +377,14 @@ else {
 		foreach ($tasks["texts"][$english_task_type]["tasks"][$language] as $task) {
 			$time = $tasks["texts"][$english_task_type]["times"]["lines"][$i];
 
+			$format = "date_time_format";
+
+			if (strstr($time, ":") == False) {
+				$format = "date_format";
+			}
+
+			$time = Date::Now($time, $website["texts"][$format]["pt"])[$website["language_texts"][$format]];
+
 			$number = HTML::Element("span", ($i + 1), "", $website["style"]["text_highlight"]);
 
 			$time = HTML::Element("span", "(".$time.")", "", $website["style"]["text_highlight"]);

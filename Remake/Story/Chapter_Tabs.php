@@ -111,6 +111,10 @@ foreach ($chapter_titles as $chapter_title) {
 		"\t\t"."<br />\n\n";
 	}
 
+	else {
+		$chapter_tab["chapter_cover"] = "<br />"."<br />";
+	}
+
 	# Add previous chapter button if chapter is not the first one
 	if ($i != 1) {
 		$c = $i - 1;
@@ -168,6 +172,8 @@ foreach ($chapter_titles as $chapter_title) {
 
 	$censor_names = False;
 
+	$border_color = $website["style"]["border_color"];
+
 	# Get chapter comments
 	if (file_exists($comments_folder) == True) {
 		# Add hr (line) to additional_elements key
@@ -214,14 +220,14 @@ foreach ($chapter_titles as $chapter_title) {
 			$text = '<br class="mobile_inline_block" />'.$text;
 			$text .= "<br />";
 			$text .= HTML::Element("b", $website["language_texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($date));
-			$text .= $website["elements"]["hr_1px"]["theme"]["light"];
+			$text .= "<br />"."<br />";
 			$text .= $comment;
 			$text .= '<br class="mobile_inline_block" />'.'<br class="mobile_inline_block" />';
 
-			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n";
+			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($c + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', "w3-container ".$website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." ".$website["style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
 
 			if (file_exists($reads_folder) == True) {
 				$div = str_replace("33%", "100%", $div);
@@ -287,10 +293,10 @@ foreach ($chapter_titles as $chapter_title) {
 			$text .= HTML::Element("b", $website["language_texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($read_date));
 			$text .= '<br class="mobile_inline_block" />'.'<br class="mobile_inline_block" />';
 
-			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n";
+			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_2_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($r + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', "w3-container ".$website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." ".$website["style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
 
 			if (file_exists($comments_folder) == True) {
 				$div = str_replace("33%", "100%", $div);

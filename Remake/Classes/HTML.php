@@ -129,13 +129,15 @@ class HTML extends Class_ {
 		$show_text = HTML::Element("h2", "\n\t\t".$website["icons"]["bars"]."\n\t", "", "text_size")."\n";
 		$hide_text = HTML::Element("h4", "\n\t\t"."X"."\n\t\t", 'style="font-weight: bold;"', "text_size")."\n";
 
+		$border_color = $website["style"]["border_color"];
+
 		$buttons = [
 			"list" => [],
 
 			"hamburger_menu" => "\n"."<!-- Open hamburger menu button -->"."\n".
 			HTML::Element("button", "\n\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]." w3-animate-zoom")."\n".
 			"\n"."<!--- Hamburger menu -->"."\n".
-			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["style"]["background"]["theme"]["normal"]." ".$website["style"]["border_4px"]["theme"]["light"]." ".$website["style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
+			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["style"]["background"]["theme"]["normal"]." ".$website["style"]["border_4px"]["theme"][$border_color]." ".$website["style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
 			"\t".'<!-- Hide hamburger menu button -->'."\n".
 			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 15px !important;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
 			"\t".HTML::Element("h2", $website["language_texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["style"]["text_highlight"])."\n\n".

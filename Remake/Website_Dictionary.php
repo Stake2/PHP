@@ -119,7 +119,6 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	# PHP website tabs folder
 	$website["dictionary"][$website_title]["folders"]["php"]["tabs"] = $website["dictionary"][$website_title]["folders"]["php"]["root"]."Tabs/";
-	Folder::Create($website["dictionary"][$website_title]["folders"]["php"]["tabs"]);
 
 	# PHP website JSON file
 	$website["dictionary"][$website_title]["folders"]["php"]["website"] = $website["dictionary"][$website_title]["folders"]["php"]["root"]."Website.json";
@@ -207,6 +206,12 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	if (isset($website["dictionary"][$website_title]["json"]["border_radius_image"]) == True) {
 		$website["dictionary"][$website_title]["style"]["border_radius_image"] = $website["dictionary"][$website_title]["json"]["border_radius_image"];
+	}
+
+	$website["dictionary"][$website_title]["style"]["border_color"] = "light";
+
+	if (isset($website["dictionary"][$website_title]["json"]["border_color"]) == True) {
+		$website["dictionary"][$website_title]["style"]["border_color"] = $website["dictionary"][$website_title]["json"]["border_color"];
 	}
 
 	# Define each type of each style item
@@ -309,12 +314,14 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	$website["dictionary"][$website_title]["style"]["header"] = $website["dictionary"][$website_title]["style"]["background"]["black"]." ".$website["dictionary"][$website_title]["style"]["text"]["secondary_theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." ".$website["dictionary"][$website_title]["style"]["border_radius"];
 
+	$border_color = $website["dictionary"][$website_title]["style"]["border_color"];
+
 	$website["dictionary"][$website_title]["style"]["tab"] = [
 		"black" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["black"]." ".$website["dictionary"][$website_title]["style"]["text"]["secondary_theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
 		"theme" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["black"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
-		"theme_dark" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
+		"theme_dark" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"][$border_color]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 	];
 
 	$website["dictionary"][$website_title]["style"]["tab"]["black"] = $website["dictionary"][$website_title]["style"]["tab"]["theme_dark"];
