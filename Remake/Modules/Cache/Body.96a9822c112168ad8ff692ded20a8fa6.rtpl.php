@@ -3,14 +3,14 @@
 <?php echo $website["buttons"]; ?>
 
 <!-- Website header -->
-<div id="header" class="w3-container w3-animate-zoom <?php echo $website['style']['tab']['theme_dark']; ?> header_size" style="height: auto; border-radius: 50px; border-style: solid; border-width: 4px!important;">
+<div id="header" class="w3-animate-zoom <?php echo $website['style']['tab']['theme_dark']; ?> <?php echo $website['style']['box_shadow_class']; ?> header_size" style="height: auto; border-radius: 50px; border-style: solid; border-width: 4px!important;">
 	<!-- Website title -->
 	<h2 class="text_size <?php echo $website['style']['text_highlight']; ?>">
 		<p><br /><b><?php echo $website["data"]["titles"]["icon"]; ?></b><br /><br /><p>
 	</h2>
 
 	<!-- Website image -->
-	<?php echo $website["data"]["image"]["elements"]["theme"][$website["style"]["border_color"]]; ?>
+	<?php echo $website["data"]["image"]["elements"]["theme"][$website["style"]["box_shadow_color"]]; ?>
 	<br />
 
 	<!-- Website description -->

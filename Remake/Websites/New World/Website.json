@@ -11,7 +11,7 @@
 			"dark": "dark_blue"
 		},
 		"text_highlight": "dark_blue",
-		"border_color": "dark"
+		"border_color": "light"
 	},
 	"tabs": {
 		"data": {

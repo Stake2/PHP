@@ -208,10 +208,20 @@ foreach ($website["list"]["en"] as $website_title) {
 		$website["dictionary"][$website_title]["style"]["border_radius_image"] = $website["dictionary"][$website_title]["json"]["border_radius_image"];
 	}
 
+	# Define default border color
 	$website["dictionary"][$website_title]["style"]["border_color"] = "light";
 
+	# Define border color from JSON
 	if (isset($website["dictionary"][$website_title]["json"]["border_color"]) == True) {
 		$website["dictionary"][$website_title]["style"]["border_color"] = $website["dictionary"][$website_title]["json"]["border_color"];
+	}
+
+	# Define default box shadow
+	$website["dictionary"][$website_title]["style"]["box_shadow_color"] = "light";
+
+	# Define box shadow from JSON
+	if (isset($website["dictionary"][$website_title]["json"]["box_shadow_color"]) == True) {
+		$website["dictionary"][$website_title]["style"]["box_shadow_color"] = $website["dictionary"][$website_title]["json"]["box_shadow_color"];
 	}
 
 	# Define each type of each style item
@@ -316,12 +326,14 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	$border_color = $website["dictionary"][$website_title]["style"]["border_color"];
 
+	$website["dictionary"][$website_title]["style"]["box_shadow_class"] = $website["dictionary"][$website_title]["style"]["box_shadow"]["theme"][$website["dictionary"][$website_title]["style"]["box_shadow_color"]];
+
 	$website["dictionary"][$website_title]["style"]["tab"] = [
 		"black" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["black"]." ".$website["dictionary"][$website_title]["style"]["text"]["secondary_theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
 		"theme" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["black"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"]["light"]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
-		"theme_dark" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"][$border_color]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
+		"theme_dark" => "header_size ".$website["dictionary"][$website_title]["style"]["background"]["theme"]["normal"]." ".$website["dictionary"][$website_title]["style"]["text"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["border_4px"]["theme"][$border_color]." ".$website["dictionary"][$website_title]["style"]["box_shadow_class"]." ".$website["dictionary"][$website_title]["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 	];
 
 	$website["dictionary"][$website_title]["style"]["tab"]["black"] = $website["dictionary"][$website_title]["style"]["tab"]["theme_dark"];
@@ -384,7 +396,7 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	$website["dictionary"][$website_title]["image"]["local_link"] = str_replace($website["url"], $folders["mega"]["websites"]["root"], $website["dictionary"][$website_title]["image"]["link"]);
 
-	$website["dictionary"][$website_title]["image"]["element"] = HTML::Element("img", "", 'src="'.$website["dictionary"][$website_title]["image"]["link"].'" style="height: auto;"', $website["dictionary"][$website_title]["style"]["box_shadow"]["theme"]["dark"]." ".$website["dictionary"][$website_title]["style"]["img"]["theme"]["normal"])."<br />"."\n";
+	$website["dictionary"][$website_title]["image"]["element"] = HTML::Element("img", "", 'src="'.$website["dictionary"][$website_title]["image"]["link"].'" style="height: auto;"', $website["dictionary"][$website_title]["style"]["box_shadow"]["theme"][$website["dictionary"][$website_title]["style"]["box_shadow_color"]]." ".$website["dictionary"][$website_title]["style"]["img"]["theme"]["normal"])."<br />"."\n";
 
 	if (isset($website["dictionary"][$website_title]["json"]["image_width"]) == True) {
 		$website["dictionary"][$website_title]["image"]["element"] = str_replace("image_size ", "", $website["dictionary"][$website_title]["image"]["element"]);
