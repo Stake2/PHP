@@ -178,7 +178,11 @@ foreach ($website["list"]["en"] as $website_title) {
 		$website["dictionary"][$website_title]["links"][$local_language] = $website["dictionary"][$website_title]["link"].$local_language."/";
 	}
 
-	$website["dictionary"][$website_title]["links"]["language"] = $website["dictionary"][$website_title]["link"].$Language -> user_language."/";
+	$website["dictionary"][$website_title]["links"]["language"] = $website["dictionary"][$website_title]["link"];
+
+	if ($website["language"] != "general") {
+		$website["dictionary"][$website_title]["links"]["language"] .= $language."/";
+	}
 
 	$website["dictionary"][$website_title]["links"]["element"] = HTML::Element("a", '"'.$website["dictionary"][$website_title]["titles"]["language"].'"', 'href="'.$website["dictionary"][$website_title]["links"]["language"].'" target="_blank"', "text_".$website["dictionary"][$website_title]["json"]["style"]["theme"]["dark"]);
 
@@ -473,8 +477,6 @@ foreach ($website["list"]["en"] as $website_title) {
 		if (strpos($website["dictionary"][$website_title]["description"]["html"], "{author}") !== False) {
 			$website["dictionary"][$website_title]["description"]["html"] = str_replace("{author}", $website["website_author"], $website["dictionary"][$website_title]["description"]["html"]);
 		}
-
-		$website["dictionary"][$website_title]["description"]["html"] = str_replace("\n", "<br />", $website["dictionary"][$website_title]["description"]["html"]);
 	}
 
 	if (isset($website["dictionary"][$website_title]["json"]["descriptions"]) == True) {
