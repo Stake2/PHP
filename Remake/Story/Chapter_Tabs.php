@@ -144,14 +144,14 @@ foreach ($chapter_titles as $chapter_title) {
 	}
 
 	# Create "Comment" button
-	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["to_comment"].": ".$website["icons"]["comment"]."\n\t\t", 'onclick="Open_Modal(\'comment\', \''.$chapter_tab["chapter_title"].'\')" style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
+	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["to_comment"].": ".$website["icons"]["comment"]."\n\t\t", ' style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
 
-	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
+	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'comment\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
 
 	# Create "I read the chapter" button
-	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["i_read"].": ".$website["icons"]["check"]." ".$website["icons"]["reader"]."\n\t\t", 'onclick="Open_Modal(\'read\', \''.$chapter_tab["chapter_title"].'\')" style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
+	$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["i_read"].": ".$website["icons"]["check"]." ".$website["icons"]["reader"]."\n\t\t", 'style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
 
-	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
+	$chapter_tab["bottom_button"] .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'read\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
 
 	# HTML comment for buttons, text, and image
 	if ($i != 1 and $i != count($chapter_titles)) {

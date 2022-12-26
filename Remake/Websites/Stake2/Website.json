@@ -1,4 +1,6 @@
 {
+	"title": "Izaque, Stake2, Funkysnipa Cat",
+	"icon": "user_circle",
 	"style": {
 		"theme": {
 			"normal": "orange",
@@ -9,21 +11,35 @@
 			"normal": "orange",
 			"light": "light_orange",
 			"dark": "dark_orange"
-		}
+		},
+		"text_highlight": "dark_orange"
 	},
+	"image_width": "40%",
 	"tabs": {
 		"data": {
-			"first_tab": {
-				"name": {
-					"en": "First tab",
-					"pt": "Primeira aba"
-				}
+			"Izaque": {
+				"template": "Izaque"
+			},
+			"Stake2": {
+				"template": "Stake2"
+			},
+			"Funkysnipa_Cat": {
+				"template": "Funkysnipa Cat"
+			},
+			"Social_Networks": {
+				"template": "Social Networks"
 			}
 		}
 	},
 	"descriptions": {
-		"html": "",
-		"header": ""
+		"html": {
+			"en": "Website to show who I am in the Internet, created by me, Izaque.\nI am my two Digital Identities, Stake2, and Funkysnipa Cat.",
+			"pt": "Site para mostrar quem eu sou na Internet, criado por mim Izaque.\nEu sou minhas duas Identidades Digitais, Stake2, e Funkysnipa Cat."
+		},
+		"header": {
+			"en": "Website to show who I am in the Internet, created by me, Izaque.\nI am my two Digital Identities, Stake2, and Funkysnipa Cat.",
+			"pt": "Site para mostrar quem eu sou na Internet, criado por mim Izaque.\nEu sou minhas duas Identidades Digitais, Stake2, e Funkysnipa Cat."
+		}
 	},
 	"color": "ffa500",
 	"border_radius_image": "border_radius_100_cent"

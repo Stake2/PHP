@@ -414,4 +414,36 @@ else {
 	$website["tab_content"]["tasks"]["string"] .= "<br /><br />";
 }
 
+# Define tab templates
+$website["tabs"]["templates"] = [
+	"summary" => [
+		"name" => $website["language_texts"]["summary, title()"],
+		"file" => $website["data"]["files"]["summary"],
+		"empty_message" => $website["language_texts"]["the_year_summary_has_not_been_created_yet"],
+		"text_style" => "text-align: left;",
+		"icon" => "clipboard",
+	],
+	"this_year_i" => [
+		"name" => $website["language_texts"]["this_year_i"],
+		"file" => $website["data"]["files"]["this_year_i"],
+		"empty_message" => Text::Format($website["language_texts"]["the_{}_text_has_not_been_created_yet"], $website["language_texts"]["this_year_i"]),
+		"text_style" => "text-align: left;",
+		"icon" => "calendar_days",
+	],
+	"watched_things" => [
+		"name" => $website["language_texts"]["watched_things"],
+		"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["style"]["text_highlight"]),
+		"text_style" => "text-align: left;",
+		"content" => $website["tab_content"]["watched_things"]["string"],
+		"icon" => "eye",
+	],
+	"tasks" => [
+		"name" => $website["language_texts"]["tasks, title()"],
+		"add" => " ".HTML::Element("span", $website["tab_content"]["tasks"]["number"], "", $website["style"]["text_highlight"]),
+		"text_style" => "text-align: left;",
+		"content" => $website["tab_content"]["tasks"]["string"],
+		"icon" => "check",
+	],
+];
+
 ?>

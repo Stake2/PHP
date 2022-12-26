@@ -136,6 +136,20 @@ foreach ($website["list"]["en"] as $website_title) {
 		$website["dictionary"][$website_title]["titles"]["language"] = $website["language_texts"]["my, title()"]." ".$website["dictionary"][$website_title]["titles"]["language"];
 	}
 
+	if (isset($website["dictionary"][$website_title]["json"]["titles"]) == True) {
+		foreach ($Language -> languages["small"] as $local_language) {
+			if (isset($website["dictionary"][$website_title]["json"]["titles"][$local_language]) == True) {
+				$website["dictionary"][$website_title]["titles"][$local_language] = $website["dictionary"][$website_title]["json"]["titles"][$local_language];
+			}
+		}
+
+		$website["dictionary"][$website_title]["titles"]["language"] = $website["dictionary"][$website_title]["titles"][$language];
+	}
+
+	if (isset($website["dictionary"][$website_title]["json"]["title"]) == True) {
+		$website["dictionary"][$website_title]["titles"]["language"] = $website["dictionary"][$website_title]["json"]["title"];
+	}
+
 	$website["dictionary"][$website_title]["titles"]["sanitized"] = str_replace('"', "'", $website["dictionary"][$website_title]["titles"]["language"]);
 
 	# Define website title with icon
@@ -149,6 +163,10 @@ foreach ($website["list"]["en"] as $website_title) {
 	# Add calendar days icon to year websites
 	if ($website_title == "Years" or in_array($website_title, $website["years"])) {
 		$website["dictionary"][$website_title]["titles"]["icon"] .= " ".$website["icons"]["calendar_days"];
+	}
+
+	if (isset($website["dictionary"][$website_title]["json"]["icon"]) == True) {
+		$website["dictionary"][$website_title]["titles"]["icon"] .= " ".$website["icons"][$website["dictionary"][$website_title]["json"]["icon"]];
 	}
 
 	$website["dictionary"][$website_title]["link"] = $website["url"].$website_link."/";
@@ -470,7 +488,7 @@ foreach ($website["list"]["en"] as $website_title) {
 			$website["dictionary"][$website_title]["description"]["header"] = str_replace("{author}", $website["painted_author"], $website["dictionary"][$website_title]["description"]["header"]);
 		}
 
-		$website["dictionary"][$website_title]["description"]["header"] = str_replace("\n", "<br />", $website["dictionary"][$website_title]["description"]["header"]);
+		$website["dictionary"][$website_title]["description"]["header"] = "\t\t".str_replace("\n", "<br />\n\t\t", $website["dictionary"][$website_title]["description"]["header"])."\n";
 	}
 
 	# Define story website description
@@ -583,10 +601,10 @@ foreach ($website["list"]["en"] as $website_title) {
 	$h2 = HTML::Element("h2", "\n\t\t\t\t".$website["dictionary"][$website_title]["titles"]["icon"]."\n\t\t\t", "", "text_size")."\n";
 
 	$button = "\n"."\t\t".'<!-- "'.$website_title.'" link button -->'."\n".
-	"\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", ' onclick="window.open(\''.$website["dictionary"][$website_title]["links"]["language"].'\')" style="border-radius: 50px;"', "w3-btn ".$website["dictionary"][$website_title]["style"]["button"]["theme"]["light"]);
+	"\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", 'onclick="window.open(\''.$website["dictionary"][$website_title]["links"]["language"].'\')" style="border-radius: 50px;"', "w3-btn ".$website["dictionary"][$website_title]["style"]["button"]["theme"]["light"]);
 
 	if ($website_title == $website["website"]) {
-		$button = str_replace('window.open(\''.$website["dictionary"][$website_title]["links"]["language"].'\')"', "", $button);
+		$button = str_replace('window.open(\''.$website["dictionary"][$website_title]["links"]["language"].'\')', "", $button);
 		$button = str_replace($website["dictionary"][$website_title]["titles"]["icon"], $website["dictionary"][$website_title]["titles"]["icon"]." (".$website["language_texts"]["you_are_here"].")", $button);
 	}
 

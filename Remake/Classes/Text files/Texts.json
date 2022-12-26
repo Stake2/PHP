@@ -293,5 +293,58 @@
 	"unknown_watched_time": {
 		"en": "Unknown watched time",
 		"pt": "Horário assistido desconhecido"
+	},
+	"person, title()": {
+		"en": "Person",
+		"pt": "Pessoa"
+	},
+	"me": {
+		"en": "me",
+		"pt": "eu"
+	},
+	"me, title()": {
+		"en": "Me",
+		"pt": "Eu"
+	},
+	"this_file_does_not_exist_{}": {
+		"en": "This file does not exist:<br />\n{}",
+		"pt": "Este arquivo não existe:<br />\n{}"
+	},
+	"little_biography": {
+		"en": "Little biography",
+		"pt": "Pequena biografia"
+	},
+	"digital_identity": {
+		"en": "Digital Identity",
+		"pt": "Identidade Digital"
+	},
+	"social_networks": {
+		"en": "Social Networks",
+		"pt": "Redes Sociais"
+	},
+	"art, title()": {
+		"en": "Art",
+		"pt": "Arte"
+	},
+	"music, title()": {
+		"en": "Music",
+		"pt": "Música"
+	},
+	"games, title()": {
+		"en": "Games",
+		"pt": "Jogos"
+	},
+	"anime, title()": {
+		"en": "Anime",
+		"pt": "Anime"
+	},
+	"christmas, title()": {
+		"en": "Christmas",
+		"pt": "Natal"
+	},
+	"christmas, title(), en - pt": "Christmas - Natal",
+	"halloween, title()": {
+		"en": "Halloween",
+		"pt": "Halloween"
 	}
 }

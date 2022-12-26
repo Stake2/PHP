@@ -98,6 +98,7 @@ foreach ($names as $item) {
 $names = [
 	"Diary",
 	"Diary Slim",
+	"Izaque Sanvezzo",
 	"Networks",
 	"Years",
 ];
@@ -107,6 +108,34 @@ foreach ($names as $item) {
 
 	$folders["mega"]["bloco_de_notas"]["dedicação"][$key] = [
 		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["root"].$item."/",
+	];
+}
+
+# Dedicação/Izaque Sanvezzo folders
+$names = [
+	"About me - Sobre mim",
+];
+
+foreach ($names as $item) {
+	$key = str_replace(" ", "_", strtolower($item));
+	$key = str_replace("_-_", "_", $key);
+
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"][$key] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"]["root"].$item."/",
+	];
+}
+
+# Izaque Sanvezzo/About me folders
+$names = [
+	"Social Networks",
+];
+
+foreach ($names as $item) {
+	$key = str_replace(" ", "_", strtolower($item));
+	$key = str_replace("_-_", "_", $key);
+
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"]["about_me_sobre_mim"][$key] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"]["about_me_sobre_mim"]["root"].$item."/",
 	];
 }
 

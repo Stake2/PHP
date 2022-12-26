@@ -122,6 +122,18 @@ class HTML extends Class_ {
 		);
 	}
 
+	public static function Button($text = "", $attributes = "", $class = "") {
+		global $website;
+
+		$class = $website["style"]["button"]["theme"]["light"].$class;
+
+		$text = HTML::Element("h3", "\n\t\t".$text."\n\t\t", 'style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
+
+		$button = "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", $attributes, "w3-btn ".$class);
+
+		return $button;
+	}
+
 	public static function Generate_Buttons() {
 		global $website;
 		global $Language;
@@ -250,6 +262,10 @@ class HTML extends Class_ {
 
 				# If file is empty, use empty message text
 				if ($contents["lines"] == []) {
+					if (isset($tab["empty_message"]) == False) {
+						$tab["empty_message"] = $website["language_texts"]["this_file_does_not_exist_{}"];
+					}
+
 					$tab["content"] = $tab["empty_message"];
 				}
 			}
@@ -329,8 +345,10 @@ class HTML extends Class_ {
 
 			# Define CSS class
 			$tab["class"] = $website["style"]["tab"]["black"];
-			
-			$tab["content"] .= "\n";
+
+			if (isset($tab["content"]) == True) {
+				$tab["content"] .= "\n";
+			}
 
 			# Generate tab HTML
 			$tab = self::Tab($tab);
