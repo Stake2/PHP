@@ -134,6 +134,8 @@ foreach (array_keys($songs) as $key) {
 
 	if (isset($song["embed"]) == False) {
 		$website["variable_inserter"]["songs"][$key] = HTML::Element("a", $text, 'href="'.$link.'" target="_blank"');
+
+		$website["variable_inserter"]["songs"][$key."_no_quote"] = HTML::Element("a", str_replace('"', "", $text), 'href="'.$link.'" target="_blank"');
 	}
 
 	if (isset($song["embed"]) == True) {

@@ -74,6 +74,7 @@ foreach ($chapter_titles as $chapter_title) {
 		"bottom_button" => "",
 		"chapter_text" => $chapter_text."\n",
 		"comment" => "<!-- Chapter button and text -->"."\n",
+		"padding" => "2px",
 	];
 
 	if (isset($website["style"]["chapter_text_color"]) == True) {
@@ -105,7 +106,7 @@ foreach ($chapter_titles as $chapter_title) {
 	if (file_exists($local_chapter_cover) == True) {
 		$chapter_tab["comment"] = str_replace("button", "button, image,", $chapter_tab["comment"]);
 
-		$chapter_tab["chapter_cover"] = "<!-- Chapter cover image -->"."\n".
+		$chapter_tab["chapter_cover"] = "<br />"."<!-- Chapter cover image -->"."\n".
 		"\t\t"."<center>"."\n".
 		"\t\t\t".HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'"', $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["theme"]["light"])."\n\t\t"."</center>"."\n".
 		"\t\t"."<br />\n\n";
@@ -316,8 +317,24 @@ foreach ($chapter_titles as $chapter_title) {
 		}
 	}
 
+	if (file_exists($comments_folder) == True and file_exists($reads_folder) == True) {
+		if (count($commentators) <= 1) {
+			$chapter_tab["padding"] = "50vh";
+		}
+
+		if (count($commentators) > 1) {
+			$chapter_tab["padding"] = "calc(30vh + 1".(count($readers) + count($commentators))."vh)";
+		}
+	}
+
 	if (isset($chapter_tab["additional_elements"]) == True) {
-		$chapter_tab["additional_elements"] .= "\n";
+		if (file_exists($reads_folder) == True) {
+			foreach ($readers as $reader) {
+				$chapter_tab["additional_elements"] .= "<br /><br />\n";
+			}
+		}
+
+		$chapter_tab["additional_elements"] .= "<br />\n";
 	}
 
 	# Create chapter tab

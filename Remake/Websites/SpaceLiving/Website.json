@@ -2,12 +2,12 @@
 	"style": {
 		"theme": {
 			"normal": "blue",
-			"light": "light_blue",
+			"light": "cyan",
 			"dark": "dark_blue"
 		},
 		"secondary_theme": {
 			"normal": "blue",
-			"light": "light_blue",
+			"light": "cyan",
 			"dark": "dark_blue"
 		},
 		"text_highlight": "green_water",

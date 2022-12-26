@@ -88,6 +88,7 @@ foreach ($identities as $identity) {
 			$folder = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity."/";
 
 			$style .= "border-radius: 50px;";
+			$class = $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["theme"]["dark"];
 
 			# Add Funkysnipa Cat profile pictures
 			$i = 1;
@@ -95,7 +96,7 @@ foreach ($identities as $identity) {
 				$link = $folder.$i.".jpg";
 
 				# Identity image
-				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"][$website["style"]["box_shadow_color"]]." ".$website["style"]["img"]["theme"]["normal"]);
+				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
 
 				array_push($images, $image);
 
@@ -106,7 +107,7 @@ foreach ($identities as $identity) {
 			$link = $folder.$website["language_texts"]["christmas, title(), en - pt"].".jpg";
 
 			# Identity image
-			$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"][$website["style"]["box_shadow_color"]]." ".$website["style"]["img"]["theme"]["normal"]);
+			$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
 
 			array_push($images, $image);
 
@@ -114,7 +115,7 @@ foreach ($identities as $identity) {
 			$link = $folder.$website["language_texts"]["halloween, title()"].".jpg";
 
 			# Identity image
-			$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"][$website["style"]["box_shadow_color"]]." ".$website["style"]["img"]["theme"]["normal"]);
+			$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
 
 			array_push($images, $image);
 		}
