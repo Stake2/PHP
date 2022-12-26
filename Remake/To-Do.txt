@@ -1,6 +1,7 @@
 Normal websites:
 	Create notification
+	Add "previous" and "next" tab buttons to the left and right side of the tab titles, with "Open_Tab" with "tab number" less one or plus one
 
 Story websites:
 	Create "Chapter_Tabs" method on "HTML" class to be used on the story websites and also on the "Diary" and "Diary Slim" websites
-	Add "chapter_tabs" key to JSON of the "Diary" and "Diary Slim" websites to use "Chapter_Tabs" method of "HTML" class
+	Add "chapter_tabs: true" key to Website JSON of the "Diary" and "Diary Slim" websites to use the "Chapter_Tabs" method of "HTML" class

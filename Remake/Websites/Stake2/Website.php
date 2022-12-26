@@ -87,7 +87,7 @@ foreach ($identities as $identity) {
 		if ($identity == "Funkysnipa Cat") {
 			$folder = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity."/";
 
-			$style .= "border-radius: 50px;";
+			$style .= "border-radius: 1px;";
 			$class = $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["theme"]["dark"];
 
 			# Add Funkysnipa Cat profile pictures
