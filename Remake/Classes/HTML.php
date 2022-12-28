@@ -194,46 +194,6 @@ class HTML extends Class_ {
 		return $buttons;
 	}
 
-	public static function Chapter_Button($chapter_number, $chapter_title, $options = ["previous" => False, "next" => False, "text" => ""]) {
-		global $website;
-
-		$chapter_id = "chapter_".$chapter_number;
-
-		$add = "";
-		$comment = '<!-- Chapter button for "'.$chapter_number." - ".$chapter_title.'" chapter -->';
-		$text = $chapter_number." - ".$chapter_title;
-
-		if ($options["previous"] != False) {
-			$add = " float: left;";
-			$comment = '<!-- Chapter button for previous chapter -->';
-		}
-
-		if ($options["next"] != False) {
-			$add = " float: right;";
-			$comment = '<!-- Chapter button for next chapter -->';
-		}
-
-		if ($options["text"] != "") {
-			$text = $options["text"];
-		}
-
-		if (isset($options["text_class"]) == False) {
-			$options["text_class"] = $website["style"]["text"]["theme"]["dark"];
-		}
-
-		if (isset($options["button_class"]) == False) {
-			$options["button_class"] = $website["style"]["button"]["theme"]["light"];
-		}
-
-		# Create chapter button
-		$h3 = HTML::Element("h3", "\n\t\t\t\t".$text."\n\t\t\t", 'style="font-weight: bold;"', "text_size ".$options["text_class"])."\n";
-
-		$chapter_button = "\t".$comment."\n".
-		"\t\t".HTML::Element("button", "\n\t\t\t".$h3."\t\t", 'onclick="Open_Chapter(\''.$chapter_number.'\', \''.$chapter_title.'\');" style="border-radius: 50px;'.$add.'"', "w3-btn ".$options["button_class"]);
-
-		return $chapter_button;
-	}
-
 	public static function Tab_Info($tab, $i) {
 		global $website;
 		global $Language;

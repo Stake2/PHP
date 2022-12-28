@@ -496,6 +496,7 @@ foreach ($tabs as $tab) {
 	}
 }
 
+# Add chapter tabs and chapter number variable to website content
 if ($website["data"]["type"] == "Story") {
 	$website["content"] .= $story["chapters"]."\n\n";
 
