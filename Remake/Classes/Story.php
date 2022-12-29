@@ -55,21 +55,22 @@ class Story extends Class_ {
 		global $website;
 		global $story;
 		global $full_language;
-		global $chapter_title;
-		global $i;
+		global $chapter_tab;
 
-		$variables_folder = $story["folders"]["Chapters"][$full_language]["root"].$website["language_texts"]["variables, title()"]."/";
-		Folder::Create($variables_folder);
+		if (isset($website["data"]["json"]["story"]) == False) {
+			$variables_folder = $story["folders"]["Chapters"][$full_language]["root"].$website["language_texts"]["variables, title()"]."/";
+			Folder::Create($variables_folder);
+
+			$variables_file = $variables_folder.$chapter_tab["chapter_title_file"].".txt";
+		}
 
 		# Define chapter file
-		$chapter_file = $story["folders"]["Chapters"][$full_language]["root"].Text::Add_Leading_Zeros($i)." - ".Folder::Sanitize($chapter_title).".txt";
-
-		$variables_file = $variables_folder.Text::Add_Leading_Zeros($i)." - ".Folder::Sanitize($chapter_title).".txt";
+		$chapter_file = $story["folders"]["Chapters"][$full_language]["root"].$chapter_tab["chapter_title_file"].".txt";
 
 		$contents = File::Contents($chapter_file, $add_br = False);
 
 		# Run Insert_Variables method to insert variables in chapter text
-		if (file_exists($variables_file) == True) {
+		if (isset($website["data"]["json"]["story"]) == False and file_exists($variables_file) == True) {
 			$contents = File::Contents($variables_file, $add_br = False);
 			$chapter_text = Text::Insert_Variables($contents["lines"]);
 			$chapter_text = str_replace("\n", "\n\t\t", $chapter_text);
@@ -77,6 +78,10 @@ class Story extends Class_ {
 
 		# Define chapter text without Insert_Variables
 		else {
+			if (strstr($contents["string"], "<") !== False) {
+				$contents["string"] = htmlentities($contents["string"]);
+			}
+
 			$chapter_text = str_replace("\n", "<br />\n\t\t", $contents["string"]);
 		}
 
@@ -89,9 +94,17 @@ class Story extends Class_ {
 		global $chapter_tab;
 		global $i;
 
-		$local_chapter_cover = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeros($i).".jpg";
+		if (isset($website["data"]["folders"]["local_website"]["images"]["story_covers"])) {
+			$local_chapter_cover = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i).".jpg";
 
-		$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeros($i).".jpg";
+			$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i).".jpg";
+		}
+
+		else {
+			$local_chapter_cover = "";
+
+			$remote_chapter_cover = "";
+		}
 
 		if (file_exists($local_chapter_cover) == True) {
 			$chapter_tab["comment"] = str_replace("button", "button, image,", $chapter_tab["comment"]);
@@ -343,8 +356,37 @@ class Story extends Class_ {
 		global $margin;
 		global $i;
 
-		$chapter_id = "chapter_".$i;
-		$chapter_title_with_number = $i." - ".$chapter_title;
+		# Paint story and chapter titles
+		$color = $website["style"]["text"]["secondary_theme"]["normal"];
+
+		if (isset($website["style"]["text_highlight"]) == True) {
+			$color = $website["style"]["text_highlight"];
+		}
+
+		$painted_story_title = HTML::Element("span", $website["data"]["titles"]["language"], "", $color);
+		$painted_chapter_title = HTML::Element("span", $i." - ".$chapter_title, 'id="chapter_'.$i.'_title"', $color);
+
+		# Define chapter tab array
+		$chapter_tab = [
+			"number" => $i,
+			"number_leading_zeroes" => Text::Add_Leading_Zeroes($i),
+			"id" => "chapter_".$i,
+			"chapter_title" => $i." - ".$chapter_title,
+			"chapter_title_file" => Text::Add_Leading_Zeroes($i)." - ".Folder::Sanitize($chapter_title),
+			"you_are_reading" => Text::Format($website["language_texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
+			"you_read" => Text::Format($website["language_texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
+			"class" => $website["style"]["tab"]["theme_dark"],
+			"chapter_text_color" => "",
+			"top_button" => "",
+			"bottom_button" => "",
+			"chapter_text" => "",
+			"comment" => "<!-- Chapter button and text -->"."\n",
+			"padding" => "2px",
+		];
+
+		if (isset($website["data"]["json"]["story"]) == True) {
+			$chapter_tab["chapter_title_file"] = Folder::Sanitize($chapter_title);
+		}
 
 		# Create chapter button
 		$chapter_button = "\n\t\t".Story::Chapter_Button($i, $chapter_title);
@@ -357,34 +399,7 @@ class Story extends Class_ {
 		}
 
 		# Get chapter text
-		$chapter_text = self::Chapter_Text();
-
-		# Paint story and chapter titles
-		$color = $website["style"]["text"]["secondary_theme"]["normal"];
-
-		if (isset($website["style"]["text_highlight"]) == True) {
-			$color = $website["style"]["text_highlight"];
-		}
-
-		$painted_story_title = HTML::Element("span", $website["data"]["titles"]["language"], "", $color);
-		$painted_chapter_title = HTML::Element("span", $chapter_title_with_number, "", $color);
-
-		# Define chapter tab array
-		$chapter_tab = [
-			"number" => $i,
-			"number_leading_zeroes" => Text::Add_Leading_Zeros($i),
-			"id" => $chapter_id,
-			"chapter_title" => $chapter_title_with_number,
-			"you_are_reading" => Text::Format($website["language_texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
-			"you_read" => Text::Format($website["language_texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
-			"class" => $website["style"]["tab"]["theme_dark"],
-			"chapter_text_color" => "",
-			"top_button" => "",
-			"bottom_button" => "",
-			"chapter_text" => $chapter_text."\n",
-			"comment" => "<!-- Chapter button and text -->"."\n",
-			"padding" => "2px",
-		];
+		$chapter_tab["chapter_text"] = self::Chapter_Text()."\n";
 
 		if (isset($website["style"]["chapter_text_color"]) == True) {
 			$chapter_tab["chapter_text_color"] = " text_".$website["style"]["chapter_text_color"];

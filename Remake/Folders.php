@@ -111,6 +111,41 @@ foreach ($names as $item) {
 	];
 }
 
+# Dedicação/Diary Slim folders
+$names = [];
+
+foreach (range(2018, date("Y")) as $year) {
+	$year = (string)$year;
+
+	array_push($names, $year);
+}
+
+array_push($names, "Database");
+array_push($names, "Story");
+
+foreach ($names as $item) {
+	$key = str_replace(" ", "_", strtolower($item));
+
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"][$key] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["root"].$item."/",
+	];
+}
+
+# Diary Slim/Story folders
+$names = [
+	"Synopsis",
+	"Comments",
+	"Readers and Reads",
+];
+
+foreach ($names as $item) {
+	$key = str_replace(" ", "_", strtolower($item));
+
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["story"][$key] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["story"]["root"].$item."/",
+	];
+}
+
 # Dedicação/Izaque Sanvezzo folders
 $names = [
 	"About me - Sobre mim",

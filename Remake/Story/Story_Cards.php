@@ -16,7 +16,15 @@ foreach ($stories["titles"]["en"] as $english_story_title) {
 
 	if (file_exists($website["dictionary"][$english_story_title]["image"]["local_link"]) == True) {
 		$image = $website_data["image"]["elements"]["theme"]["dark"];
-		$image = str_replace("height: auto;", "width: 100%;", $image);
+
+		if ($english_story_title != $website["data"]["story"]["Information"]["Titles"]["en"]) {
+			$image = str_replace("height: auto;", "width: 100%;", $image);
+		}
+
+		if (isset($website["data"]["json"]["story"]) == True and $english_story_title == $story["Information"]["Titles"]["en"]) {
+			$image = str_replace("width: 40%;", "width: 60%;", $image);
+		}
+
 		$image = str_replace("image_size ", "", $image);
 		$image = str_replace("border_radius_8_cent", "border_radius_5_cent", $image);
 		$image = str_replace($website_data["style"]["box_shadow"]["theme"]["dark"]." ", "", $image);

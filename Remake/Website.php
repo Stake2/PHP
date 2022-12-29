@@ -315,7 +315,6 @@ $file_names = array(
 	"Functions",
 	"Language_Redirector",
 	"Tabs",
-	"Tab_By_Key",
 );
 
 # Define default website data
@@ -326,7 +325,7 @@ if (array_key_exists("website", $website) == True) {
 	$website["data"] = $website["dictionary"][$website["website"]];
 }
 
-if ($website["data"]["type"] == "Story") {
+if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story"])) {
 	array_push($file_names, "Story");
 }
 
@@ -450,7 +449,7 @@ if (isset($website["data"]) == True) {
 }
 
 # Define story of website and run Story.php file
-if ($website["data"]["type"] == "Story") {
+if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story"])) {
 	$story = $website["data"]["story"];
 
 	require $folders["php"]["story"];
@@ -497,7 +496,7 @@ foreach ($tabs as $tab) {
 }
 
 # Add chapter tabs and chapter number variable to website content
-if ($website["data"]["type"] == "Story") {
+if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story"])) {
 	$website["content"] .= $story["chapters"]."\n\n";
 
 	$website["content"] .= "<script>"."\n".

@@ -56,34 +56,36 @@ class File extends Class_ {
 
 		$read = fopen($file, "r", "UTF-8");
 
-		while(!feof($read)) {
-			$line = fgets($read);
+		if (file_exists($file) == True) {
+			while(!feof($read)) {
+				$line = fgets($read);
 
-			array_push($contents["lines"], self::Replace_Text($line));
-		}
-
-		if ($contents["lines"][0] == "") {
-			$contents["lines"] = [];
-		}
-
-		else {
-			$i = 0;
-			foreach ($contents["lines"] as $line) {
-				$contents["string"] .= $line;
-			
-				if ($i != $contents["length"] - 1) {
-					if ($add_br == True) {
-						$contents["string"] .= "<br />";
-					}
-			
-					$contents["string"] .= "\n";
-				}
-			
-				$i++;
+				array_push($contents["lines"], self::Replace_Text($line));
 			}
-		}
 
-		fclose($read);
+			if ($contents["lines"][0] == "") {
+				$contents["lines"] = [];
+			}
+
+			else {
+				$i = 0;
+				foreach ($contents["lines"] as $line) {
+					$contents["string"] .= $line;
+				
+					if ($i != $contents["length"] - 1) {
+						if ($add_br == True) {
+							$contents["string"] .= "<br />";
+						}
+				
+						$contents["string"] .= "\n";
+					}
+				
+					$i++;
+				}
+			}
+
+			fclose($read);
+		}
 
 		return $contents;
 	}

@@ -161,6 +161,42 @@ foreach (array_keys($links) as $key) {
 	$website["variable_inserter"]["The_Life_of_Littletato"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["data"]["style"]["img"]["secondary_theme"]["light"]." ".$website["data"]["style"]["box_shadow"]["black"])."<br />";
 }
 
+# Define "The Life of Littletato" songs
+$songs = [
+	"Yuru_Camp_Solo_Camp" => [
+		"text" => "Yuru Camp",
+		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM",
+	],
+	"Yuru_Camp_Solo_Camp_Title" => [
+		"text" => "Yuru Camp △ - OST - ソロキャン△のすすめ - Solo Camp 10 Hours",
+		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM",
+	],
+	"Folk_Songs" => [
+		"text" => [
+			"en" => "folk songs",
+			"pt" => "músicas do gênero folk",
+		],
+		"link" => "https://www.youtube.com/watch?v=gRejhGxr69Y",
+	],
+	"Take_That_By_RIOT" => [
+		"text" => [
+			"en" => '"Take That" by RIOT',
+			"pt" => '"Take That" por RIOT',
+		],
+		"link" => "https://www.youtube.com/watch?v=NpNYYkXxT-A",
+	],
+];
+
+foreach (array_keys($songs) as $key) {
+	$song = $songs[$key];
+
+	if (is_array($song["text"]) == True) {
+		$song["text"] = $Language -> Item($song["text"]);
+	}
+
+	$website["variable_inserter"]["The_Life_of_Littletato"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+}
+
 # Define "The Life of Littletato" chapter links and buttons
 $numbers = [
 	26,

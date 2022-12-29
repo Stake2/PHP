@@ -36,9 +36,6 @@ foreach ($website["list"]["en"] as $website_title) {
 	# Define website type as story if the website is from a story
 	if (in_array($website_title, $stories["titles"]["en"]) == True) {
 		$website["dictionary"][$website_title]["type"] = "Story";
-
-		# Add story dictionary to website dictionary
-		$website["dictionary"][$website_title]["story"] = $stories[$website_title];
 	}
 
 	# Define website link
@@ -128,6 +125,50 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	# Read website JSON file
 	$website["dictionary"][$website_title]["json"] = File::JSON($website["dictionary"][$website_title]["folders"]["php"]["website"]);
+
+	if ($website["dictionary"][$website_title]["type"] == "Story") {
+		# Add story dictionary to website dictionary
+		$website["dictionary"][$website_title]["story"] = $stories[$website_title];
+	}
+
+	if (isset($website["dictionary"][$website_title]["json"]["story"]) == True) {
+		# Add story dictionary to website dictionary
+		$folder = $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["story"]["root"];
+
+		$creation_date_file = $folder."Creation date.txt";
+		$information_file = $folder."Information.json";
+		$readers_file = $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["story"]["readers_and_reads"]["root"]."Readers.txt";
+		$titles_file = $folder."Titles.json";
+
+
+		$website["dictionary"][$website_title]["story"] = [];
+
+		$website["dictionary"][$website_title]["story"]["Information"] = array_merge(File::JSON($information_file), ["Titles" => File::JSON($titles_file)]);
+
+		$website["dictionary"][$website_title]["story"]["Information"]["Synopsis"] = [];
+
+		foreach ($Language -> languages["small"] as $local_language) {
+			if ($local_language != "general") {
+				$local_full_language = $Language -> languages["full"][$local_language];
+
+				$file = $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["story"]["synopsis"]["root"].$local_full_language.".txt";
+
+				$website["dictionary"][$website_title]["story"]["Information"]["Synopsis"][$local_language] = File::Contents($file, $add_br = False)["string"];
+			}
+		}
+
+		$website["dictionary"][$website_title]["story"]["Information"]["Creation date"] = File::Contents($creation_date_file)["lines"][0];
+
+		$contents = File::Contents($readers_file);
+
+		$website["dictionary"][$website_title]["story"]["Information"]["Readers"] = $contents["lines"];
+
+		$website["dictionary"][$website_title]["story"]["Information"]["Readers number"] = $contents["length"];
+
+		foreach (array_keys($website["dictionary"][$website_title]["story"]["Information"]["Titles"]) as $key) {
+			array_push($stories["titles"][$key], $website["dictionary"][$website_title]["story"]["Information"]["Titles"][$key]);
+		}
+	}
 
 	$website["dictionary"][$website_title]["titles"]["language"] = $website["dictionary"][$website_title]["titles"][$language];
 
@@ -373,7 +414,13 @@ foreach ($website["list"]["en"] as $website_title) {
 	$website["dictionary"][$website_title]["image"]["link"] = $website["folders"]["images"]["icons"]["root"];
 
 	if (strpos($website_title, "My Little Pony") === False) {
-		$website["dictionary"][$website_title]["image"]["link"] .= $website_title;
+		if (isset($website["dictionary"][$website_title]["json"]["image_file_name"]) == False) {
+			$website["dictionary"][$website_title]["image"]["link"] .= $website_title;
+		}
+
+		else {
+			$website["dictionary"][$website_title]["image"]["link"] .= $website["dictionary"][$website_title]["titles"]["language"];
+		}
 	}
 
 	if (strpos($website_title, "My Little Pony") !== False) {
@@ -494,7 +541,7 @@ foreach ($website["list"]["en"] as $website_title) {
 	}
 
 	# Define story website description
-	if ($website["dictionary"][$website_title]["type"] == "Story") {
+	if ($website["dictionary"][$website_title]["type"] == "Story" or isset($website["dictionary"][$website_title]["json"]["story"])) {
 		# Define website HTML description for story websites
 		$website["dictionary"][$website_title]["description"]["html"] = Text::Format($website["language_texts"]["website_about_my_story_{}_made_by_izaque_sanvezzo_stake2_funkysnipa_cat"], $website["dictionary"][$website_title]["titles"]["language"]);
 
@@ -516,31 +563,38 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		# Add painted author
 		$text = $website["language_texts"]["story_author"];
-		$author = HTML::Element("span", $website["dictionary"][$website_title]["story"]["Information"]["Author"], "", "text_orange");
 
-		# Add painted authors if there are more than one
-		if (substr_count($website["dictionary"][$website_title]["story"]["Information"]["Author"], "\n") > 0) {
-			$count = substr_count($website["dictionary"][$website_title]["story"]["Information"]["Author"], "\n");
+		if (isset($website["dictionary"][$website_title]["story"]["Information"]["Author"]) == True) {
+			$author = HTML::Element("span", $website["dictionary"][$website_title]["story"]["Information"]["Author"], "", "text_orange");
 
-			$text = $website["language_texts"]["story_authors"];
+			# Add painted authors if there are more than one
+			if (substr_count($website["dictionary"][$website_title]["story"]["Information"]["Author"], "\n") > 0) {
+				$count = substr_count($website["dictionary"][$website_title]["story"]["Information"]["Author"], "\n");
 
-			$authors = "";
+				$text = $website["language_texts"]["story_authors"];
 
-			foreach ($stories["authors"] as $author) {
-				if (strpos($website["dictionary"][$website_title]["story"]["Information"]["Author"], $author) !== False) {
-					$authors .= $stories["painted_authors"][$author];
+				$authors = "";
 
-					if ($count > 1 and $author != array_reverse($stories["authors"])[0]) {
-						$authors .= ", ";
-					}
+				foreach ($stories["authors"] as $author) {
+					if (strpos($website["dictionary"][$website_title]["story"]["Information"]["Author"], $author) !== False) {
+						$authors .= $stories["painted_authors"][$author];
 
-					if ($count <= 1 and $author == $stories["authors"][0] or $count > 1 and $author == $stories["authors"][1]) {
-						$authors .= " ".$website["language_texts"]["and"]." ";
+						if ($count > 1 and $author != array_reverse($stories["authors"])[0]) {
+							$authors .= ", ";
+						}
+
+						if ($count <= 1 and $author == $stories["authors"][0] or $count > 1 and $author == $stories["authors"][1]) {
+							$authors .= " ".$website["language_texts"]["and"]." ";
+						}
 					}
 				}
-			}
 
-			$author = $authors;
+				$author = $authors;
+			}
+		}
+
+		else {
+			$author = $website["website_author"];
 		}
 
 		$website["dictionary"][$website_title]["description"]["header"] .= "\t\t".$text.": ".$website["icons"]["pen"]." ".$author."<br />"."\n";

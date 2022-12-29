@@ -1,29 +1,66 @@
 <?php 
 
-$website_information["custom_css_file"] = "POCB";
+# Diary Slim
 
-# Website settings
-$website_settings["tab_body_generator"] = True;
-$website_settings["use_custom_buttons_bar"] = True;
-$website_settings["has_stories_tab"] = True;
-$website_settings["use_custom_tab_titles"] = True;
-$website_settings["notifications"] = False;
+$language = $Language -> user_language;
+$full_language = $Language -> full_user_language;
 
-$story_website_settings["show_new_chapter_text"] = False;
-$story_website_settings["has_story_covers"] = True;
-$story_website_settings["has_custom_story_folder"] = True;
-$story_website_settings["multiple_titles_files"] = True;
-$story_website_settings["replace_story_text"] = True;
-$story_website_settings["chapter_opener"] = True;
-$story_website_settings["has_titles"] = True;
-$story_website_settings["has_reads"] = True;
-$story_website_settings["has_dates"] = False;
-$story_website_settings["use_status"] = False;
-$story_website_settings["chapter_comments"] = True;
+if ($language == "general") {
+	$language = "en";
+	$full_language = "English";
+}
 
-$website_information["theme_color"] = "#808080";
+$file_names = [
+	"File names",
+	"Month folders",
+	"Year folders",
+];
 
-$english = array("Read the ".$local_website_name, $other_stories_text);
-$portuguese = array("Ler o Diário Slim", $other_stories_text);
+$files = [];
+$texts = [];
+
+foreach ($file_names as $file_name) {
+	$key = str_replace(" ", "_", strtolower($file_name));
+
+	$file = $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["database"]["root"].$file_name.".txt";
+
+	$files[$key] = $file;
+	$texts[$key] = File::Contents($file)["lines"];
+}
+
+$contents = File::Contents($files["year_folders"]);
+
+$website["data"]["story"]["Information"]["Chapter titles"] = [];
+$website["data"]["story"]["Information"]["Chapter dates"] = [];
+$website["data"]["story"]["Information"]["Chapter number"] = $contents["length"];
+
+$i = 0;
+foreach ($contents["lines"] as $year) {
+	$file_name = $year;
+	$file_name .= $texts["month_folders"][$i];
+	$file_name .= $texts["file_names"][$i];
+
+	array_push($website["data"]["story"]["Information"]["Chapter titles"], $file_name);
+
+	$date = explode(", ", $texts["file_names"][$i])[1];
+	$date = str_replace("-", "/", $date);
+	array_push($website["data"]["story"]["Information"]["Chapter dates"], $date);
+
+	$i++;
+}
+
+$website["data"]["story"]["folders"] = [
+	"Chapters" => [
+		$full_language => [
+			"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["root"],
+		],
+	],
+	"Comments" => [
+		"Chapter" => $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["story"]["comments"]["root"]."Chapter/",
+	],
+	"Readers and Reads" => [
+		"Reads" => $folders["mega"]["bloco_de_notas"]["dedicação"]["diary_slim"]["story"]["readers_and_reads"]["root"]."Reads/",
+	],
+];
 
 ?>

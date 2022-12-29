@@ -6,7 +6,13 @@
 $story["chapter_buttons"] = "";
 $story["chapters"] = "";
 
-$chapter_titles = $story["Information"]["Chapter titles"][$language];
+if (isset($website["data"]["json"]["story"]) == False) {
+	$chapter_titles = $story["Information"]["Chapter titles"][$language];
+}
+
+else {
+	$chapter_titles = $story["Information"]["Chapter titles"];
+}
 
 # Generate chapter tabs
 Story::Chapter_Tabs($chapter_titles);

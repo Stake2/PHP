@@ -158,7 +158,7 @@ class Text extends Class_ {
 		);
 	}
 
-	public static function Add_Leading_Zeros($number) {
+	public static function Add_Leading_Zeroes($number) {
 		if ($number <= 9) {
 			return "0".(string)$number;
 		}
