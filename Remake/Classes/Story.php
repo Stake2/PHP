@@ -51,6 +51,21 @@ class Story extends Class_ {
 		return $chapter_button;
 	}
 
+	public static function Replace_Text($chapter_text) {
+		global $website;
+
+		$i = 0;
+		foreach ($website["text_replacer"]["replace"] as $replace) {
+			$with = $website["text_replacer"]["with"][$i];
+
+			$chapter_text = str_replace($replace, $with, $chapter_text);
+
+			$i++;
+		}
+
+		return $chapter_text;
+	}
+
 	public static function Chapter_Text() {
 		global $website;
 		global $story;
@@ -78,11 +93,17 @@ class Story extends Class_ {
 
 		# Define chapter text without Insert_Variables
 		else {
-			if (strstr($contents["string"], "<") !== False) {
-				$contents["string"] = htmlentities($contents["string"]);
-			}
+	
 
 			$chapter_text = str_replace("\n", "<br />\n\t\t", $contents["string"]);
+		}
+
+		if (isset($website["data"]["json"]["chapter_text_replacer"]) == True) {
+			$chapter_text = self::Replace_Text($chapter_text);
+		}
+
+		if (isset($website["data"]["json"]["story"]) == False and file_exists($variables_file) == False and strstr($contents["string"], "<") !== False) {
+			$contents["string"] = htmlentities($contents["string"]);
 		}
 
 		return $chapter_text;

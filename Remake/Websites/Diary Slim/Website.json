@@ -38,5 +38,6 @@
 		}
 	},
 	"story": true,
+	"chapter_text_replacer": true,
 	"color": "ffa500"
 }
