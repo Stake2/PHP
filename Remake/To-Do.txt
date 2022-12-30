@@ -3,5 +3,6 @@ Normal websites:
 	Add "previous" and "next" tab buttons to the left and right side of the tab titles, with "Open_Tab" with "tab number" less one or plus one
 
 Story websites:
-	Create text replacer with "chapter_text_replacer" on website JSON of "Diary Slim" website
+	Add "chapter_loader" close to the additional scripts on the end of the website, and "chapter_loader: true" on "Diary Slim" Website.json
+	Update JavaScript files of the websites with the local JavaScript files on "Remake" folder
 	Check variables of "The Secret of the Crystals" and "The Story of the Bulkan Siblings" story websites

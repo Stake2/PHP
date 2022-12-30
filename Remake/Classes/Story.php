@@ -93,8 +93,6 @@ class Story extends Class_ {
 
 		# Define chapter text without Insert_Variables
 		else {
-	
-
 			$chapter_text = str_replace("\n", "<br />\n\t\t", $contents["string"]);
 		}
 
@@ -439,14 +437,15 @@ class Story extends Class_ {
 
 			$date = Date::Now($date, $website["texts"][$format]["pt"])[$website["language_texts"][$format]];
 
-			$chapter_tab["chapter_text"] .= "<br />"."<br />".$website["language_texts"]["chapter_written_in"].": ".$date."<br />";
+			$chapter_tab["chapter_text"] .= "\t\t"."<br />"."<br />"."\n".
+			"\t\t".$website["language_texts"]["chapter_written_in"].": ".$date."<br />"."\n";
 		}
 
 		else {
-			$chapter_tab["chapter_text"] .= "<br />"."<br />";
+			$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
 		}
 
-		$chapter_tab["chapter_text"] .= $website["language_texts"]["words, title()"].": ".$words."<br />"."<br />";
+		$chapter_tab["chapter_text"] .= "\t\t".$website["language_texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
 
 		# Define chapter cover
 		$chapter_tab["chapter_cover"] = self::Chapter_Cover();
