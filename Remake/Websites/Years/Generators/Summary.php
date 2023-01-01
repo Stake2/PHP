@@ -25,6 +25,9 @@ foreach ($contents["lines"] as $line) {
 	# Paint year (website title) text
 	$line = str_replace($year.": ", Text::Format($span, $year).": ", $line);
 
+	# Paint year (website title) text
+	$line = str_replace($year." ", Text::Format($span, $year)." ", $line);
+
 	# Paint date time text with parenthesis
 	$line = preg_replace("/\([0-9][0-9]\:[0-9][0-9] [0-9][0-9]\/[0-9][0-9]\/[0-9][0-9][0-9][0-9]\)/i", Text::Format($span, "$0"), $line);
 

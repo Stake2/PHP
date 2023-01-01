@@ -123,6 +123,12 @@ foreach ($website["list"]["en"] as $website_title) {
 	# PHP website PHP file
 	$website["dictionary"][$website_title]["folders"]["php"]["website_php"] = $website["dictionary"][$website_title]["folders"]["php"]["root"]."Website.php";
 
+	if (file_exists($website["dictionary"][$website_title]["folders"]["php"]["website"]) == False or File::Contents($website["dictionary"][$website_title]["folders"]["php"]["website"], $add_br = False, $add_n = False)["lines"] == []) {
+		$text = File::Contents($folders["php"]["json"]["website_template"], $add_br = False, $add_n = False)["string"];
+
+		File::Edit($website["dictionary"][$website_title]["folders"]["php"]["website"], $text, "w");
+	}
+
 	# Read website JSON file
 	$website["dictionary"][$website_title]["json"] = File::JSON($website["dictionary"][$website_title]["folders"]["php"]["website"]);
 
@@ -231,12 +237,6 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	if (isset($website["dictionary"][$website_title]["json"]["tabs"]) == True) {
 		$website["dictionary"][$website_title]["tabs"] = $website["dictionary"][$website_title]["json"]["tabs"];
-	}
-
-	if (file_exists($website["dictionary"][$website_title]["folders"]["php"]["website"]) == False) {
-		$text = File::Contents($folders["php"]["json"]["website_template"], $add_br = False)["string"];
-
-		File::Edit($website["dictionary"][$website_title]["folders"]["php"]["website"], $text, "w");
 	}
 
 	# Define website style

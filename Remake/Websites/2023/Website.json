@@ -1,16 +1,16 @@
 {
 	"style": {
 		"theme": {
-			"normal": "orange",
-			"light": "light_orange",
-			"dark": "dark_orange"
+			"normal": "blue",
+			"light": "light_blue",
+			"dark": "dark_blue"
 		},
 		"secondary_theme": {
-			"normal": "orange",
-			"light": "light_orange",
-			"dark": "dark_orange"
+			"normal": "blue",
+			"light": "light_blue",
+			"dark": "dark_blue"
 		},
-		"text_highlight": "dark_orange"
+		"text_highlight": "dark_blue"
 	},
 	"tabs": {
 		"data": {

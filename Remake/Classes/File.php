@@ -47,7 +47,7 @@ class File extends Class_ {
 		return str_replace($items, "", $line);
 	}
 
-	public static function Contents($file, $add_br = True) {
+	public static function Contents($file, $add_br = True, $add_n = True) {
 		$contents = [
 			"lines" => [],
 			"string" => "",
@@ -76,8 +76,10 @@ class File extends Class_ {
 						if ($add_br == True) {
 							$contents["string"] .= "<br />";
 						}
-				
-						$contents["string"] .= "\n";
+
+						if ($add_n == True) {
+							$contents["string"] .= "\n";
+						}
 					}
 				
 					$i++;
@@ -110,7 +112,11 @@ class File extends Class_ {
 	}
 
 	public static function JSON($file) {
-		$contents = json_decode(file_get_contents($file), True);
+		$contents = [];
+
+		if (file_exists($file) == True) {
+			$contents = json_decode(file_get_contents($file), True);
+		}
 
 		return $contents;
 	}
