@@ -1,0 +1,39 @@
+{
+	"style": {
+		"theme": {
+			"normal": "blue",
+			"light": "light_blue",
+			"dark": "dark_blue"
+		},
+		"secondary_theme": {
+			"normal": "blue",
+			"light": "light_blue",
+			"dark": "dark_blue"
+		}
+	},
+	"image_width": "40%",
+	"tabs": {
+		"data": {
+			"watched_things": {
+				"template": "watched_things"
+			},
+			"media_being_watched": {
+				"template": "media_being_watched"
+			},
+			"past_registries": {
+				"template": "past_registries"
+			}
+		}
+	},
+	"descriptions": {
+		"html": {
+			"en": "Website to show {media_types} that I watched, and medias that I will watch.\nMade by {author}.",
+			"pt": "Site para mostrar {media_types} que assisti, e mídias que eu vou assistir.\nFeito por {author}."
+		},
+		"header": {
+			"en": "Website to show {media_types} that I watched, and medias that I will watch.\nMade by {author}.",
+			"pt": "Site para mostrar {media_types} que assisti, e mídias que eu vou assistir.\nFeito por {author}."
+		}
+	},
+	"color": "2196F3"
+}

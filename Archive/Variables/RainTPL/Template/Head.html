@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+	<title>{$title}</title>
+	<link rel="canonical" href="{$link}" />
+	<link rel="icon" type="image/{$image_format}" href="{$image_link}" />
+	<link rel="image_src" type="image/{$image_format}" href="{$image_link}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{$title}" />
+	<meta property="og:site_name" content="{$title}" />
+	<meta property="og:url" content="{$link}" />
+	<meta property="og:image" content="{$image_link}" />
+	<meta property="og:description" content="{$description}" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:locale:alternate" content="pt_BR" />
+	<meta property="og:locale:alternate" content="pt_PT" />
+	<meta name="language_title" content="{$language_title}" />
+	<meta name="description" content="{$description}" />
+	<meta name="theme-color" content="{$theme_color}" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:website" value="@{$twitter_author}" />
+	<meta name="twitter:site" value="@{$twitter_author}" />
+	<meta name="twitter:creator" content="@{$twitter_author}" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:url" content="{$link}" />
+	<meta name="revised" content="{$website["author"]}'s Enterprise TM, {$date}." />
+	<meta name="author" content="{$website["author"]}" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />
+	<meta charset="UTF-8" />
+
+	<!-- CSS files -->
+{$website_css_links}
+
+	<!-- JavaScript files -->
+{$website_javascript_links}
+</head>

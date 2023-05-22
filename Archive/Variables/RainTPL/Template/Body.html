@@ -1,0 +1,39 @@
+<body{if="$language != $language_geral"} onLoad="Define_Colors_And_Styles();"{/if}>
+<center>
+{if="isset($website_buttons)"}
+	{$website_buttons}
+{/if}
+
+{if="$language != $language_geral"}<div id="computer_buttons_bar_space" class="{$computer_variable}">
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</div>
+
+{$website_notification}
+
+{$change_website_title_script}
+{/if}
+
+<!-- Website header -->
+<div class="{$header_background_color} {$first_border_color} border_4px" style="{$header_margin}">
+{$zoom_animation}
+
+<!-- Website computer title -->
+<{$h2} class="w3-center {$first_text_color} {$zoom_animation_class} {$computer_variable}">
+<p><br /><b>{$title_with_icon}</b><br /><br /><p>
+</{$h2}>
+</div>
+
+<!-- Website mobile title -->
+{$zoom_animation}
+<{$h4} class="w3-center {$first_text_color} {$zoom_animation_class} {$mobile_variable}">
+<p><br /><b>{$title_with_icon}</b><br /><br /><p>
+</{$h4}>
+</div>
+{$header_hr}
+
+<!-- Website Images -->
+<div class="w3-center">
+{$website_images_variable}
+</div>
+
+{$header_hr}
