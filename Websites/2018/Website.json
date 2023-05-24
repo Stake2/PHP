@@ -1,25 +1,22 @@
 {
 	"style": {
 		"theme": {
-			"normal": "yellow",
-			"light": "yellow_sand",
-			"dark": "dark_yellow"
+			"normal": "blue",
+			"light": "dark_blue",
+			"dark": "black"
 		},
 		"secondary_theme": {
-			"normal": "yellow",
-			"light": "yellow_sand",
-			"dark": "dark_yellow"
+			"normal": "blue",
+			"light": "dark_blue",
+			"dark": "super_dark_blue"
 		},
-		"text_highlight": "black"
+		"text_highlight": "dark_blue"
 	},
 	"image_width": "40%",
 	"tabs": {
 		"data": {
 			"summary": {
 				"template": "summary"
-			},
-			"this_year_i": {
-				"template": "this_year_i"
 			},
 			"watched_things": {
 				"template": "watched_things"
@@ -39,5 +36,5 @@
 		},
 		"header": {}
 	},
-	"color": "ffeb3b"
+	"color": "2196F3"
 }

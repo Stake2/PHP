@@ -252,7 +252,7 @@
 		"en": "You are here",
 		"pt": "Você está aqui"
 	},
-	"status, type: list": {
+	"writing_statuses, type: list": {
 		"en": [
 			"Writing",
 			"Re-Writing",
@@ -370,5 +370,13 @@
 	"halloween, title()": {
 		"en": "Halloween",
 		"pt": "Halloween"
+	},
+	"details, title()": {
+		"en": "Details",
+		"pt": "Detalhes"
+	},
+	"on_hold, title()": {
+		"en": "On hold",
+		"pt": "Em pausa"
 	}
 }

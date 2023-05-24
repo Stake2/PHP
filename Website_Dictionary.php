@@ -55,7 +55,7 @@ foreach ($website["list"]["en"] as $website_title) {
 	$website["dictionary"][$website_title]["folders"] = [];
 
 	$website["dictionary"][$website_title]["folders"]["website"] = [
-		"root" => $website["folders"]["root"].File::Sanitize($website_link)."/",
+		"root" => $website["folders"]["root"].File::Sanitize($website_link)."/"
 	];
 
 	$website["dictionary"][$website_title]["folders"]["website"]["language"] = $website["dictionary"][$website_title]["folders"]["website"]["root"];
@@ -65,14 +65,20 @@ foreach ($website["list"]["en"] as $website_title) {
 	}
 
 	$website["dictionary"][$website_title]["folders"]["local_website"] = [
-		"root" => $folders["mega"]["websites"]["root"].File::Sanitize($website_link)."/",
+		"root" => $folders["mega"]["websites"]["root"].File::Sanitize($website_link)."/"
 	];
 
+	$Folder -> Create($website["dictionary"][$website_title]["folders"]["local_website"]["root"]);
+
 	$website["dictionary"][$website_title]["folders"]["local_website"]["language"] = $website["dictionary"][$website_title]["folders"]["local_website"]["root"];
+
+	$Folder -> Create($website["dictionary"][$website_title]["folders"]["local_website"]["language"]);
 
 	if ($website["language"] != "general") {
 		$website["dictionary"][$website_title]["folders"]["local_website"]["language"] .= $website["language"]."/";
 	}
+
+	$Folder -> Create($website["dictionary"][$website_title]["folders"]["local_website"]["language"]);
 
 	# Define Mega Websites Images website image folders
 	$names = [
@@ -85,33 +91,33 @@ foreach ($website["list"]["en"] as $website_title) {
 	}
 
 	$website["dictionary"][$website_title]["folders"]["website"]["images"] = [
-		"root" => $website["dictionary"][$website_title]["folders"]["website"]["root"]."Images/".File::Sanitize($website_title)."/",
+		"root" => $website["dictionary"][$website_title]["folders"]["website"]["root"]."Images/".File::Sanitize($website_title)."/"
 	];
 
 	$website["dictionary"][$website_title]["folders"]["local_website"]["images"] = [
-		"root" => $website["dictionary"][$website_title]["folders"]["local_website"]["root"]."Images/".File::Sanitize($website_title)."/",
+		"root" => $website["dictionary"][$website_title]["folders"]["local_website"]["root"]."Images/".File::Sanitize($website_title)."/"
 	];
 
 	foreach ($names as $item) {
 		$key = str_replace(" ", "_", strtolower($item));
 
 		$website["dictionary"][$website_title]["folders"]["website"]["images"][$key] = [
-			"root" => $website["folders"]["images"]["root"].$item."/".File::Sanitize($website_title)."/",
+			"root" => $website["folders"]["images"]["root"].$item."/".File::Sanitize($website_title)."/"
 		];
 
 		$website["dictionary"][$website_title]["folders"]["local_website"]["images"][$key] = [
-			"root" => $folders["mega"]["websites"]["images"]["root"].$item."/".File::Sanitize($website_title)."/",
+			"root" => $folders["mega"]["websites"]["images"]["root"].$item."/".File::Sanitize($website_title)."/"
 		];
 	}
 
 	# Define Mega website texts folder
 	$website["dictionary"][$website_title]["folders"]["website"]["texts"] = [
-		"root" => $website["folders"]["texts"]["root"].File::Sanitize($website_title)."/",
+		"root" => $website["folders"]["texts"]["root"].File::Sanitize($website_title)."/"
 	];
 
 	# PHP website PHP folder
 	$website["dictionary"][$website_title]["folders"]["php"] = [
-		"root" => $folders["php"]["websites"]["root"].File::Sanitize($website_title)."/",
+		"root" => $folders["php"]["websites"]["root"].File::Sanitize($website_title)."/"
 	];
 
 	$Folder -> Create($website["dictionary"][$website_title]["folders"]["php"]["root"]);
@@ -133,6 +139,13 @@ foreach ($website["list"]["en"] as $website_title) {
 
 	# Read website JSON file
 	$website["dictionary"][$website_title]["json"] = $JSON -> To_PHP($website["dictionary"][$website_title]["folders"]["php"]["website"]);
+
+	# Define website Generators folder
+	if ($Folder -> Exist($website["dictionary"][$website_title]["folders"]["php"]["root"]."Generators/") == True) {
+		$website["dictionary"][$website_title]["folders"]["php"]["generators"] = [
+			"root" => $website["dictionary"][$website_title]["folders"]["php"]["root"]."Generators/"
+		];
+	}
 
 	if ($website["dictionary"][$website_title]["type"] == "Story") {
 		# Add story dictionary to website dictionary
@@ -338,6 +351,8 @@ foreach ($website["list"]["en"] as $website_title) {
 		$website["dictionary"][$website_title]["style"]["text_highlight"] = $website["dictionary"][$website_title]["json"]["style"]["text_highlight"];
 	}
 
+	$website["dictionary"][$website_title]["style"]["text_hover"] = "text_hover_".$website["dictionary"][$website_title]["style"]["text_highlight"];
+
 	$website["dictionary"][$website_title]["style"]["text_highlight"] = "text_".$website["dictionary"][$website_title]["style"]["text_highlight"];
 
 	$website["dictionary"][$website_title]["style"]["body"] = $website["dictionary"][$website_title]["style"]["background"]["secondary_theme"]["dark"];
@@ -345,7 +360,7 @@ foreach ($website["list"]["en"] as $website_title) {
 	$types = [
 		"black",
 		"theme",
-		"secondary_theme",
+		"secondary_theme"
 	];
 
 	$website["dictionary"][$website_title]["style"]["img"] = [];
@@ -445,7 +460,7 @@ foreach ($website["list"]["en"] as $website_title) {
 		$formats = [
 			"png",
 			"jpg",
-			"gif",
+			"gif"
 		];
 
 		foreach ($formats as $format) {	
@@ -528,7 +543,13 @@ foreach ($website["list"]["en"] as $website_title) {
 			$website["dictionary"][$website_title]["description"]["html"] = str_replace("{author}", $website["website_author"], $website["dictionary"][$website_title]["description"]["html"]);
 		}
 
-		$website["dictionary"][$website_title]["description"]["header"] = $Language -> Item($website["dictionary"][$website_title]["json"]["descriptions"]["header"]);
+		if ($website["dictionary"][$website_title]["description"]["header"] != []) {
+			$website["dictionary"][$website_title]["description"]["header"] = $Language -> Item($website["dictionary"][$website_title]["json"]["descriptions"]["header"]);
+		}
+
+		if ($website["dictionary"][$website_title]["description"]["header"] == []) {
+			$website["dictionary"][$website_title]["description"]["header"] = $website["dictionary"][$website_title]["description"]["html"];
+		}
 
 		if (strpos($website["dictionary"][$website_title]["description"]["header"], "{website_title}") !== False) {
 			$website["dictionary"][$website_title]["description"]["header"] = str_replace("{website_title}", HTML::Element("span", $website["dictionary"][$website_title]["titles"]["language"], "", $website["dictionary"][$website_title]["style"]["text_highlight"]), $website["dictionary"][$website_title]["description"]["header"]);
@@ -620,7 +641,7 @@ foreach ($website["list"]["en"] as $website_title) {
 
 		# Add status
 		$status_number = $website["dictionary"][$website_title]["story"]["Information"]["Status number"];
-		$status = $website["language_texts"]["status, type: list"][$status_number];
+		$status = $website["language_texts"]["writing_statuses, type: list"][$status_number];
 
 		$website["dictionary"][$website_title]["description"]["header"] .= "\t\t".$website["language_texts"]["status, title()"].": ".$website["icons"]["status_map"][$status_number]." ";
 

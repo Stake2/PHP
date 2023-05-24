@@ -36,6 +36,9 @@ foreach ($names as $item) {
 	];
 }
 
+# Apps files
+$folders["apps"]["settings"] = $folders["apps"]["root"]."Settings.json";
+
 # "Module files" folders
 $modules = [
 	"Utility",
@@ -196,14 +199,28 @@ $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media
 	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["root"]."Audiovisual Media Network/"
 ];
 
-# Audiovisual Media Network/Data folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["data"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["root"]."Data/"
+# "Audiovisual Media Network" folders
+$names = [
+	"Data",
+	"Media Info",
+	"Watch History"
 ];
 
+foreach ($names as $item) {
+	$key = str_replace(" ", "_", strtolower($item));
+
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"][$key] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["root"].$item."/"
+	];
+}
+
+# "Audiovisual Media Network/Data" folder
 $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["data"]["types"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["data"]["root"]."Types.json";
 
-# Audiovisual Media Network/Watch History folder
+# "Audiovisual Media Network/Media Info" folder
+$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["media_info"]["info"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["media_info"]["root"]."Info.json";
+
+# "Audiovisual Media Network/Watch History" folder
 $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"] = [
 	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["root"]."Watch History/"
 ];

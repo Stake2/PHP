@@ -8,7 +8,7 @@ class File extends Class_ {
 	}
 
 	public function Sanitize($file) {
-		$restricted_characters = [":", "?", '"', "|", "*", "<", ">"];
+		$restricted_characters = [":", "?", '"', "|", "*", "<", ">", "/"];
 
 		return str_replace($restricted_characters, "", $file);
 	}
@@ -111,6 +111,7 @@ class File extends Class_ {
 
 				$key = $split[0];
 				$value = $split[1];
+				$value = $this -> Replace_Text($value);
 
 				$dictionary[$key] = $value;
 			}

@@ -9,13 +9,18 @@ class Language extends Class_ {
 		parent::__construct(self::class);
 
 		$this -> folders = $folders;
+		$this -> settings = self::JSON_To_Python($folders["apps"]["settings"]);
 
 		$this -> Define_Languages();
 	}
 
+	private function JSON_To_Python($file) {
+		return json_decode(file_get_contents($file), true);
+	}
+
 	private function Define_Languages() {
-		$this -> languages = json_decode(file_get_contents($this -> folders["apps"]["module_files"]["utility"]["language"]["languages"]), true);
-		array_splice($this -> languages["small"], 0, 0, "general");
+		$this -> languages = self::JSON_To_Python($this -> folders["apps"]["module_files"]["utility"]["language"]["languages"]);
+		$this -> languages["small"] = array_insert($this -> languages["small"], 0, "general");
 
 		$array = $this -> languages["full"];
 
@@ -28,7 +33,7 @@ class Language extends Class_ {
 		}
 
 		foreach ($this -> languages["small"] as $key) {
-			if (in_array($key, $this -> languages["supported"]) == False) {
+			if (in_array($key, $this -> languages["supported"]) == False and $key != "general") {
 				$this -> languages["small"] = array_diff($this -> languages["small"], [$key]);
 				unset($this -> languages["full"][$key]);
 			}
@@ -41,6 +46,7 @@ class Language extends Class_ {
 		global $JSON;
 		global $website;
 
+		$this -> modules_language = $this -> settings["Language"];
 		$this -> user_language = $website["language"];
 
 		$website["language"] = $this -> user_language;

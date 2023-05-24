@@ -17,8 +17,8 @@ class Folder extends Class_ {
 		return str_replace($restricted_characters, "", $folder);
 	}
 
-	public function Exist($file) {
-		if (file_exists($file) == True) {
+	public function Exist($folder) {
+		if (file_exists($folder) == True) {
 			return True;
 		}
 

@@ -22,13 +22,12 @@ $website["data"]["folders"]["generators"] = [
 
 # Define the website files
 $website["data"]["files"] = [
-	"generators" => [
-		
-	]
+	"generators" => []
 ];
 
 # Define the Generator files
 $names = [
+	"Watched",
 	"Media being watched",
 	"Past registries"
 ];
@@ -39,29 +38,151 @@ foreach ($names as $item) {
 	$website["data"]["files"]["generators"][$key] = $website["data"]["folders"]["generators"]["root"].$item.".php";
 }
 
+if (isset($website["data"]["year"]) == False) {
+	$website["data"]["year"] = Date::Now()["year"];
+}
+
+if (in_array($website["data"]["title"], $website["years"]) == True) {
+	$website["data"]["year"] = $website["data"]["title"];
+}
+
+# Define the Watch History array
+$watch_history = [
+	"files" => [
+		"per_media_type" => [
+			"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["per_media_type"]["root"]
+		]
+	],
+	"types" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["data"]["types"]),
+	"entries" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["entries"]),
+	"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["watch_history"]["texts"]),
+	"language_texts" => [],
+	"media_info" => [
+		"Info" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["media_info"]["info"])
+	]
+];
+
+$watch_history["language_texts"] = $Language -> Item($watch_history["texts"]);
+
+if (function_exists("Generate_Media_Type_Headers") == False) {
+	function Generate_Media_Type_Headers($header_text = "") {
+		global $website;
+		global $Language;
+		global $JSON;
+		global $watch_history;
+
+		$language = "pt";
+
+		if (isset($website["language"]) == True) {
+			$language = $website["language"];
+		}
+
+		if ($language == "general") {
+			$language = "en";
+		}
+
+		if ($header_text == "") {
+			$header_text = $website["language_texts"]["watched_things"]." [".$website["data"]["year"]."]";
+		}
+
+		$array = [
+			"links" => "",
+			"headers" => []
+		];
+
+		# Iterate through the English plural media types list
+		$i = 0;
+		foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
+			$language_media_type = $watch_history["types"]["Plural"][$language][$i];
+
+			$number = $watch_history["entries"]["Numbers"]["Per Media Type"][$plural_media_type];
+
+			if ($header_text == $website["language_texts"]["media_being_watched"]) {
+				$number = $watch_history["media_info"]["Info"]["Numbers"][$plural_media_type];
+			}
+
+			$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+
+			$b = HTML::Element("b", $language_media_type.": ".$span);
+
+			$href = $header_text.": ".$language_media_type;
+
+			# Anchor element to go to media type list
+			if ($number != 0) {
+				$a = HTML::Element("a", $b, 'href="#'.$href.'"');
+			}
+
+			else {
+				$a = HTML::Element("a", $b);
+			}
+
+			$array["links"] .= $a."<br />"."\n\t\t";
+
+			$watch_history["files"]["per_media_type"][$plural_media_type] = $JSON -> To_PHP($watch_history["files"]["per_media_type"]["root"].$plural_media_type."/Entries.json");
+
+			$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+
+			$b = HTML::Element("b", $language_media_type.": ".$span);
+
+			# Plural media type header with anchor href to go to media type episodes part
+			$a = HTML::Element("a", $b, 'name="'.$href.'"')."<br />";
+
+			$array["headers"][$plural_media_type] = "\t\t".'<!-- "'.$plural_media_type.'" media type header -->'."\n".
+			"\t\t".$a."\n";
+
+			$i++;
+		}
+
+		return $array;
+	}
+}
+
+if (function_exists("Define_Title") == False) {
+	function Define_Title($array) {
+		global $Language;
+		global $language;
+
+		$key = "Original";
+
+		if (array_key_exists($language, $array) == True) {
+			$key = $language;
+		}
+
+		elseif (array_key_exists("Romanized", $array) == True) {
+			$key = "Romanized";
+		}
+
+		return $array[$key];
+	}
+}
+
+if (function_exists("Sanitize_Title") == False) {
+	function Sanitize_Title($title) {
+		global $File;
+
+		if (strlen($title) > 1 and $title[0].$title[1] == ": ") {
+			$title = substr($title, 2);
+		}
+
+		if (str_contains($title, ". ")) {
+			$title = str_replace(". ", " ", $title);
+		}
+
+		elseif (str_contains($title, ".")) {
+			$title = str_replace(".", "", $title);
+		}
+
+		$title = $File -> Sanitize($title);
+
+		return $title;
+	}
+}
+
 # Require generator files to generate tab templates
 foreach (array_keys($website["data"]["files"]["generators"]) as $key) {
 	$generator_file = $website["data"]["files"]["generators"][$key];
 
 	require $generator_file;
 }
-
-# Create the "media_being_watched" tab template
-$website["tabs"]["templates"]["media_being_watched"] = [
-	"name" => $website["language_texts"]["media_being_watched"],
-	"add" => " ".HTML::Element("span", "1", "", $website["style"]["text_highlight"]),
-	"text_style" => "text-align: left;",
-	"content" => "content",
-	"icon" => "play"
-];
-
-# Create the "past_registries" tab template
-$website["tabs"]["templates"]["past_registries"] = [
-	"name" => $website["language_texts"]["past_registries"],
-	"add" => " ".HTML::Element("span", "4", "", $website["style"]["text_highlight"]),
-	"text_style" => "text-align: left;",
-	"content" => "content",
-	"icon" => "archive"
-];
 
 ?>

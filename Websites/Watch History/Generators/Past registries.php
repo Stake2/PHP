@@ -15,12 +15,93 @@ if ($language == "general") {
 	$full_language = $Language -> languages["full"][$language];
 }
 
+$website["tab_content"]["past_registries"] = [
+	"string" => "<center>",
+	"number" => 0
+];
+
+$website["additional_tabs"] = [
+	"data" => []
+];
+
+# Iterate through the years list
+$years_list = Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1);
+
+foreach ($years_list as $local_year) {
+	$website["data"]["year"] = $local_year;
+
+	$id = "past_registry_".$local_year;
+
+	# Define the tab button
+	$tab = [
+		"id" => $id,
+		"name" => $local_year,
+		"name_icon" => $local_year.": ".$website["icons"]["calendar"]
+	];
+
+	# Add the tab button
+	$website["tab_content"]["past_registries"]["string"] .= HTML::Tab_Button($tab)."\n";
+
+	# Define the tab data
+	$content = "";
+
+	# Define the tab content
+	if ($local_year != $years_list[0]) {
+		$previous_year = (int)$local_year - 1;
+
+		$previous_year = [
+			"id" => "past_registry_".$previous_year,
+			"name" => $previous_year,
+			"name_icon" => $previous_year.": ".$website["icons"]["calendar"],
+			"button_style" => "float: left;"
+		];
+
+		$content .= HTML::Tab_Button($previous_year)."\n";
+	}
+
+	if ($local_year != array_reverse($years_list)[0]) {
+		$next_year = (int)$local_year + 1;
+
+		$next_year = [
+			"id" => "past_registry_".$next_year,
+			"name" => $next_year,
+			"name_icon" => $next_year.": ".$website["icons"]["calendar"],
+			"button_style" => "float: right;"
+		];
+
+		$content .= HTML::Tab_Button($next_year)."\n";
+	}
+
+	if ($content != "") {
+		$content .= "<br /><br />".
+		HTML::Element("hr", "", "", $website["data"]["style"]["border_1px"]["theme"]["light"]);
+	}
+
+	# Require "Watched.php" to generate the "Watched things" elements and information
+	$website["data"]["year"] = $local_year;
+	require $website["data"]["files"]["generators"]["watched"];
+
+	$content .= $website["tab_content"]["watched_things"]["string"];
+
+	$website["additional_tabs"]["data"][$local_year] = [
+		"id" => $id,
+		"name" => $local_year,
+		"text_style" => "text-align: left;",
+		"content" => $content,
+		"icon" => "calendar"
+	];
+
+	$website["tab_content"]["past_registries"]["number"]++;
+}
+
+$website["tab_content"]["past_registries"]["string"] .= "</center>";
+
 # Create the "past_registries" tab template
 $website["tabs"]["templates"]["past_registries"] = [
 	"name" => $website["language_texts"]["past_registries"],
-	"add" => " ".HTML::Element("span", "4", "", $website["style"]["text_highlight"]),
+	"add" => " ".HTML::Element("span", $website["tab_content"]["past_registries"]["number"], "", $website["style"]["text_highlight"]),
 	"text_style" => "text-align: left;",
-	"content" => "content",
+	"content" => $website["tab_content"]["past_registries"]["string"],
 	"icon" => "archive"
 ];
 

@@ -36,10 +36,7 @@
 			"en": "Website to show who I am in the Internet, created by me, Izaque.\nI am my two Digital Identities, Stake2, and Funkysnipa Cat.",
 			"pt": "Site para mostrar quem eu sou na Internet, criado por mim Izaque.\nEu sou minhas duas Identidades Digitais, Stake2, e Funkysnipa Cat."
 		},
-		"header": {
-			"en": "Website to show who I am in the Internet, created by me, Izaque.\nI am my two Digital Identities, Stake2, and Funkysnipa Cat.",
-			"pt": "Site para mostrar quem eu sou na Internet, criado por mim Izaque.\nEu sou minhas duas Identidades Digitais, Stake2, e Funkysnipa Cat."
-		}
+		"header": {}
 	},
 	"color": "ffa500",
 	"border_radius_image": "border_radius_100_cent"

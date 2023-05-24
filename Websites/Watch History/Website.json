@@ -27,13 +27,10 @@
 	},
 	"descriptions": {
 		"html": {
-			"en": "Website to show {media_types} that I watched, and medias that I will watch.\nMade by {author}.",
-			"pt": "Site para mostrar {media_types} que assisti, e mídias que eu vou assistir.\nFeito por {author}."
+			"en": "Website to show the {media_types} that I watched, and medias that I will watch.\nMade by {author}.",
+			"pt": "Site para mostrar os {media_types} que assisti, e mídias que eu vou assistir.\nFeito por {author}."
 		},
-		"header": {
-			"en": "Website to show {media_types} that I watched, and medias that I will watch.\nMade by {author}.",
-			"pt": "Site para mostrar {media_types} que assisti, e mídias que eu vou assistir.\nFeito por {author}."
-		}
+		"header": {}
 	},
 	"color": "2196F3"
 }

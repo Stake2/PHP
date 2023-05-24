@@ -5,6 +5,32 @@ session_start();
 # Load "Folders.php" file
 require "Folders.php";
 
+if (function_exists("str_contains") == False) {
+    function str_contains($haystack, $needle) {
+        return $needle !== "" && mb_strpos($haystack, $needle) !== False;
+    }
+}
+
+if (function_exists("array_insert") == False) {
+	function array_insert(&$array, $position, $insert) {
+		if (is_int($position)) {
+			array_splice($array, $position, 0, $insert);
+		}
+
+		else {
+			$position = array_search($position, array_keys($array));
+
+			$array = array_merge(
+				array_slice($array, 0, $position),
+				$insert,
+				array_slice($array, $position)
+			);
+		}
+
+		return $array;
+	}
+}
+
 # Loads the classes, including the module ones (Slim, RainTPL)
 require $folders["mega"]["php"]["classes"]["loader"];
 
@@ -73,6 +99,7 @@ $slim -> get("/generate", function() {
 	global $website;
 	global $folders;
 	global $parse;
+	global $File;
 
 	# Create website HTML for generate route
 	$website["html"] = "";

@@ -122,14 +122,39 @@ class HTML extends Class_ {
 		);
 	}
 
-	public static function Button($text = "", $attributes = "", $class = "") {
+	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3") {
 		global $website;
 
 		$class = $website["style"]["button"]["theme"]["light"].$class;
 
-		$text = HTML::Element("h3", "\n\t\t".$text."\n\t\t", 'style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
+		$text_attributes = "";
+
+		if ($heading == "h3") {
+			$text_attributes = 'style="font-weight: bold;"';
+		}
+
+		$text = HTML::Element($heading, "\n\t\t".$text."\n\t\t", $text_attributes, "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
 
 		$button = "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", $attributes, "w3-btn ".$class);
+
+		return $button;
+	}
+
+	public static function Tab_Button($tab) {
+		global $website;
+		global $i;
+
+		# Generate tab button
+		if (array_key_exists("button_style", $tab) == False) {
+			$tab["button_style"] = "";
+		}
+
+		if (array_key_exists("button_class", $tab) == False) {
+			$tab["button_class"] = "";
+		}
+
+		$button = '<!-- "'.$tab["name"].'" button -->'."\n".
+		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\n\t\t".self::Button("\n\t\t\t\t".$tab["name_icon"]."\n\t\t\t", ' onclick="Open_Tab(\''.$tab["id"].'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
 
 		return $button;
 	}
@@ -137,6 +162,7 @@ class HTML extends Class_ {
 	public static function Generate_Buttons() {
 		global $website;
 		global $Language;
+		global $i;
 
 		$show_text = HTML::Element("h2", "\n\t\t".$website["icons"]["bars"]."\n\t", "", "text_size")."\n";
 		$hide_text = HTML::Element("h4", "\n\t\t"."X"."\n\t\t", 'style="font-weight: bold;"', "text_size")."\n";
@@ -153,7 +179,7 @@ class HTML extends Class_ {
 			"\t".'<!-- Hide hamburger menu button -->'."\n".
 			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 15px !important;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
 			"\t".HTML::Element("h2", $website["language_texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["style"]["text_highlight"])."\n\n".
-			"\t"."<br />"."\n\n",
+			"\t"."<br />"."\n\n"
 		];
 
 		# Generate buttons
@@ -167,11 +193,7 @@ class HTML extends Class_ {
 
 			$tab = self::Tab_Info($tab, $i);
 
-			# Generate tab button
-			$h2 = HTML::Element("h2", "\n\t\t\t\t".$tab["name_icon"]."\n\t\t\t", "", "text_size")."\n";
-
-			$button = '<!-- "'.$tab["name"].'" button -->'."\n".
-			"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\n\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", ' onclick="Open_Tab(\''.$tab["id"].'\');" style="border-radius: 50px;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\t"."</span>";
+			$button = self::Tab_Button($tab);
 
 			# Add button to buttons array
 			array_push($buttons["list"], $button);
@@ -192,6 +214,64 @@ class HTML extends Class_ {
 		$buttons["hamburger_menu"] .= "\n"."</div>";
 
 		return $buttons;
+	}
+
+	public static function Generate_Buttons_List($tab = [], $remove = "", $center = True) {
+		global $website;
+
+		if ($tab == []) {
+			$tab["all_buttons"] = False;
+		}
+
+		$string = "";
+
+		if ($center == True) {
+			$string .= "<center>";
+		}
+
+		$buttons_list = $website["buttons_list"];
+
+		if ($tab["all_buttons"] == False) {
+			$i = 0;
+			$number = 0;
+			foreach ($buttons_list as $button) {
+				if (str_contains($button, $remove) == True) {
+					$number = $i;
+				}
+
+				$i++;
+			}
+
+			# Previous button
+			if ($number -1 != -1) {
+				$buttons_list[$number - 1] = self::Element("span", $buttons_list[$number - 1], 'style="float: left;"', "margin_sides_5_cent");
+				$string .= $buttons_list[$number - 1];
+			}
+
+			# Next button
+			if ($number + 1 != count($buttons_list)) {
+				$buttons_list[$number + 1] = self::Element("span", $buttons_list[$number + 1], 'style="float: right;"', "margin_sides_5_cent");
+				$string .= $buttons_list[$number + 1];
+			}
+
+			$string .= "<br /><br /><br /><br />";
+		}
+
+		if ($tab["all_buttons"] == True) {
+			foreach ($buttons_list as $button) {
+				if (str_contains($button, "websites_tab") == False) {
+					$string .= $button;
+				}
+			}
+		}
+
+		$string .= $website["elements"]["hr_1px"]["theme"][$website["style"]["border_color"]];
+
+		if ($center == True) {
+			$string .= "</center>";
+		}
+
+		return $string;
 	}
 
 	public static function Tab_Info($tab, $i) {
@@ -289,20 +369,41 @@ class HTML extends Class_ {
 		return $tpl -> draw("Tab", $toString = True);
 	}
 
-	public static function Generate_Tabs() {
+	public static function Generate_Tabs($tabs_data = Null, $buttons = True, $all_buttons = False) {
 		global $website;
 
-		$tabs = [];
+		$tabs = [
+			"List" => [],
+			"Dictionary" => [],
+			"ID" => 0
+		];
 
-		$i = 0;
-		foreach (array_keys($website["tabs"]["data"]) as $id) {
-			$tab = $website["tabs"]["data"][$id];
+		if ($tabs_data != Null) {
+			$tabs_data = $tabs_data["data"];
+		}
 
-			# Define id and name
-			$tab["id"] = $id;
-			$tab["number"] = $i + 1;
+		if ($tabs_data == Null) {
+			$tabs_data = $website["tabs"]["data"];
+		}
 
-			$tab = self::Tab_Info($tab, $i);
+		foreach (array_keys($tabs_data) as $id) {
+			$tab = $tabs_data[$id];
+
+			# Define the tab id
+			if (array_key_exists("id", $tab) == False) {
+				$tab["id"] = $id;
+			}
+
+			if (array_key_exists("button_style", $tab) == False) {
+				$tab["button_style"] = "";
+			}
+
+			$tab["number"] = $tabs["ID"] + 1;
+
+			$tab["buttons"] = $buttons;
+			$tab["all_buttons"] = $all_buttons;
+
+			$tab = self::Tab_Info($tab, $tabs["ID"]);
 
 			# Define CSS class
 			$tab["class"] = $website["style"]["tab"]["black"];
@@ -311,13 +412,14 @@ class HTML extends Class_ {
 				$tab["content"] .= "\n";
 			}
 
-			# Generate tab HTML
-			$tab = self::Tab($tab);
+			# Generate the tab HTML
+			$tab["content"] = "<center>".self::Tab($tab)."</center>";
 
-			# Add tab to elements array
-			array_push($tabs, $tab);
+			# Add tab to the tabs array
+			array_push($tabs["List"], $tab["name"]);
+			$tabs["Dictionary"][$tab["name"]] = $tab;
 
-			$i++;
+			$tabs["ID"]++;
 		}
 
 		return $tabs;

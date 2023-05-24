@@ -1,9 +1,8 @@
-Watch_History:
-	Make second and third tabs
+2023:
+	Make "Tasks" code of "Years/Generators/Tasks.php"
 
 Normal websites:
 	Create notification
-	Add "previous" and "next" tab buttons to the left and right side of the tab titles, with "Open_Tab" with "tab number" less one or plus one
 
 Story websites:
 	Re-add "chapter written in" text to "chapter_text" key

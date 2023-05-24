@@ -436,6 +436,8 @@ if (isset($website["data"]) == True) {
 
 	$website["tabs"] = $website["data"]["json"]["tabs"];
 
+	$website["tabs"]["templates"] = [];
+
 	if (file_exists($website["data"]["folders"]["php"]["website_php"]) == True) {
 		require $website["data"]["folders"]["php"]["website_php"];
 	}
@@ -485,16 +487,35 @@ $buttons = HTML::Generate_Buttons();
 
 # Add website buttons to website content
 $website["buttons"] = $buttons["hamburger_menu"]."\n";
+$website["buttons_list"] = $buttons["list"];
 
 # Create website tabs
-$tabs = HTML::Generate_Tabs();
+$website["tabs"]["array"] = HTML::Generate_Tabs();
 
 # Add tabs to website content
-foreach ($tabs as $tab) {
-	$website["content"] .= $tab;
+foreach ($website["tabs"]["array"]["List"] as $tab) {
+	$tab = $website["tabs"]["array"]["Dictionary"][$tab];
 
-	if ($tab != array_slice($tabs, -1)) {
+	$website["content"] .= $tab["content"];
+
+	if ($tab != array_slice($website["tabs"]["array"]["List"], -1)) {
 		$website["content"] .= "\n\n";
+	}
+}
+
+if (array_key_exists("additional_tabs", $website) == True) {
+	# Create website tabs
+	$tabs = HTML::Generate_Tabs($website["additional_tabs"], $buttons = True, $all_buttons = True);
+
+	# Add tabs to website content
+	foreach ($tabs["List"] as $tab) {
+		$tab = $tabs["Dictionary"][$tab];
+
+		$website["content"] .= $tab["content"];
+
+		if ($tab != array_slice($tabs["List"], -1)) {
+			$website["content"] .= "\n\n";
+		}
 	}
 }
 

@@ -15,7 +15,7 @@ class Date extends Class_ {
 
 		if ($string != "") {
 			if ($format == "") {
-				$format = $website["texts"]["date_format"][$Language -> user_language];
+				$format = "H:i d/m/Y";
 			}
 
 			$datetime = DateTime::createFromFormat($format, $string);
