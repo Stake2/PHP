@@ -30,6 +30,10 @@ class Folder extends Class_ {
 	public function Create($folder) {
 		$folder = $this -> Sanitize($folder);
 
+		if ($this -> switches["verbose"] == True) {
+			echo $folder."<br />"."\n";
+		}
+
 		if ($this -> Exist($folder) == False) {
 			mkdir($folder);
 		}

@@ -58,6 +58,10 @@ foreach ($names as $item) {
 		$local_folder = $website["dictionary"]["Watch History"]["folders"]["php"]["generators"]["root"];
 	}
 
+	if ($item == "Tasks") {
+		$local_folder = $website["dictionary"]["Tasks"]["folders"]["php"]["generators"]["root"];
+	}
+
 	$website["data"]["files"]["generators"][$key] = $local_folder.$item.".php";
 }
 

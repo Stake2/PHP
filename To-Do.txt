@@ -1,5 +1,6 @@
-2023:
-	Make "Tasks" code of "Years/Generators/Tasks.php"
+Stake2:
+	Fazer evolução das fotos de perfil do "Stake2"
+	Colocar capas do "Stake2" e do "Funkysnipa Cat"
 
 Normal websites:
 	Create notification

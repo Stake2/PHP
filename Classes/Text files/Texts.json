@@ -378,5 +378,61 @@
 	"on_hold, title()": {
 		"en": "On hold",
 		"pt": "Em pausa"
+	},
+	"texts, title()": {
+		"en": "Texts",
+		"pt": "Textos"
+	},
+	"stories, title()": {
+		"en": "Stories",
+		"pt": "Histórias"
+	},
+	"videos, title()": {
+		"en": "Videos",
+		"pt": "Vídeos"
+	},
+	"first_task_in_the_year": {
+		"en": "First task in the year",
+		"pt": "Primeira mídia assistida no ano"
+	},
+	"first_task_per_task_type_in_the_year": {
+		"en": "First task Per Task Type in the year",
+		"pt": "Primeira Tarefa Por Tipo De Tarefa no ano"
+	},
+	"downloading_media": {
+		"en": "Downloading media",
+		"pt": "Baixando mídia"
+	},
+	"watching_media": {
+		"en": "Watching media",
+		"pt": "Assistindo mídia"
+	},
+	"registering_media": {
+		"en": "Registering media",
+		"pt": "Registrando mídia"
+	},
+	"register_things": {
+		"en": "Register things",
+		"pt": "Registrar coisas"
+	},
+	"social_media": {
+		"en": "Social Media",
+		"pt": "Redes Sociais"
+	},
+	"gaming, title()": {
+		"en": "Gaming",
+		"pt": "Jogos"
+	},
+	"files, title()": {
+		"en": "Files",
+		"pt": "Arquivos"
+	},
+	"life, title()": {
+		"en": "Life",
+		"pt": "Vida"
+	},
+	"programming, title()": {
+		"en": "Programming",
+		"pt": "Programação"
 	}
 }

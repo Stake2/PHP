@@ -239,7 +239,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 
 			$text = $entry["Number"]." -";
 
-			# Add re-watched times number
+			# Add States
 			if (array_key_exists("States", $entry) == True) {
 				if (array_key_exists("Re-watched", $entry["States"]) == True) {
 					$times_text = $website["language_texts"]["number_of_watched_times"].": ".($entry["States"]["Re-watched"]["Times"] + 1)."x";
@@ -248,11 +248,15 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 				}
 
 				if (array_key_exists("First entry in year", $entry["States"]) == True) {
-					$text .= " ".HTML::Element("span", "1# ".$website["icons"]["calendar"], 'alt="'.$website["language_texts"]["first_watched_media_in_the_year"].'" title="'.$website["language_texts"]["first_watched_media_in_the_year"].'"', $website["style"]["text_highlight"]);
+					$first_text = $website["language_texts"]["first_watched_media_in_the_year"];
+
+					$text .= " ".HTML::Element("span", "1# ".$website["icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]);
 				}
 
 				if (array_key_exists("First media type entry in year", $entry["States"]) == True) {
-					$text .= " ".HTML::Element("span", "1# ".$website["icons"]["film"], 'alt="'.$website["language_texts"]["first_watched_media_per_media_type_in_the_year"].'" title="'.$website["language_texts"]["first_watched_media_per_media_type_in_the_year"].'"', $website["style"]["text_highlight"]);
+					$first_text = $website["language_texts"]["first_watched_media_per_media_type_in_the_year"];
+
+					$text .= " ".HTML::Element("span", "1# ".$website["icons"]["film"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]);
 				}
 			}
 

@@ -51,11 +51,17 @@ foreach ($website["list"]["en"] as $website_title) {
 		$website_link = $stories[$website_title]["Information"]["Website link name"];
 	}
 
+	if (strpos($website_title, "My Little Pony") !== False) {
+		$website_link = explode(": ", $website_link);
+
+		$website_link = $website_link[0]."/".$website_link[1];
+	}
+
 	# Define website folders
 	$website["dictionary"][$website_title]["folders"] = [];
 
 	$website["dictionary"][$website_title]["folders"]["website"] = [
-		"root" => $website["folders"]["root"].File::Sanitize($website_link)."/"
+		"root" => $website["folders"]["root"].$website_link."/"
 	];
 
 	$website["dictionary"][$website_title]["folders"]["website"]["language"] = $website["dictionary"][$website_title]["folders"]["website"]["root"];
@@ -65,7 +71,7 @@ foreach ($website["list"]["en"] as $website_title) {
 	}
 
 	$website["dictionary"][$website_title]["folders"]["local_website"] = [
-		"root" => $folders["mega"]["websites"]["root"].File::Sanitize($website_link)."/"
+		"root" => $folders["mega"]["websites"]["root"].$website_link."/"
 	];
 
 	$Folder -> Create($website["dictionary"][$website_title]["folders"]["local_website"]["root"]);

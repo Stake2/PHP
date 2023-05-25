@@ -1,0 +1,33 @@
+{
+	"style": {
+		"theme": {
+			"normal": "orange",
+			"light": "light_orange",
+			"dark": "dark_orange"
+		},
+		"secondary_theme": {
+			"normal": "orange",
+			"light": "light_orange",
+			"dark": "dark_orange"
+		},
+		"text_highlight": "light_orange"
+	},
+	"image_width": "40%",
+	"image_file_name": "language",
+	"tabs": {
+		"data": {
+			"read_story": {
+				"template": "read story"
+			},
+			"readers": {
+				"template": "readers"
+			},
+			"other_stories": {
+				"template": "other stories"
+			}
+		}
+	},
+	"story": true,
+	"chapter_text_replacer": true,
+	"color": "ffa500"
+}

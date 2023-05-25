@@ -267,16 +267,17 @@ $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_networ
 	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["root"]."Task History/",
 ];
 
-# 2018 Task Data folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["data"]["2018"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["data"]["root"]."2018/",
-];
-
 # Task History year folders
-foreach (range(2021, date("Y")) as $year) {
+foreach (range(2018, date("Y")) as $year) {
 	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year] = [
 		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"]["root"].$year."/"
 	];
+
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["per_task_type"] = [
+		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["root"]."Per Task Type/"
+	];
+
+	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["tasks"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["root"]."Tasks.json";
 }
 
 # PHP folders
