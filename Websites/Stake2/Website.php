@@ -13,9 +13,9 @@ if ($language == "general") {
 $full_language = $Language -> languages["full"][$language];
 
 # Define website folders
-$website["data"]["folders"]["izaque_sanvezzo"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"];
+$website["data"]["folders"]["izaque_sanvezzo"] = $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"];
 
-$website["data"]["folders"]["social_networks"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"]["about_me_sobre_mim"]["social_networks"];
+$website["data"]["folders"]["social_networks"] = $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["about_me_sobre_mim"]["social_networks"];
 
 # Define website files
 $website["data"]["files"] = [

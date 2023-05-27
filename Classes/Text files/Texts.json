@@ -83,13 +83,29 @@
 		"en": "First watched media Per Media Type in the year",
 		"pt": "Primeira mídia assistida Por Tipo De Mídia no ano"
 	},
+	"media_unit_link": {
+		"en": "Media unit link",
+		"pt": "Link da unidade de mídia"
+	},
 	"number_of_watched_times": {
 		"en": "Number of watched times",
 		"pt": "Número de vezes assistidas"
 	},
+	"task, title()": {
+		"en": "Task",
+		"pt": "Tarefa"
+	},
 	"tasks, title()": {
 		"en": "Tasks",
 		"pt": "Tarefas"
+	},
+	"task_description": {
+		"en": "Task description",
+		"pt": "Descrição da tarefa"
+	},
+	"entry_description": {
+		"en": "Entry description",
+		"pt": "Descrição da entrada"
 	},
 	"the_year_summary_has_not_been_created_yet": {
 		"en": "The Year summary has not been created yet.",
@@ -111,9 +127,9 @@
 		"en": "Website to generate the website '{}'.",
 		"pt": "Site para gerar o site '{}'."
 	},
-	"open_image_in_new_tab": {
-		"en": "Open image in new tab",
-		"pt": "Abrir imagem em nova aba"
+	"open_image_in_a_new_tab": {
+		"en": "Open image in a new tab",
+		"pt": "Abrir imagem em uma nova aba"
 	},
 	"date_time_format": {
 		"en": "H:i d/m/Y",
@@ -208,6 +224,10 @@
 		"en": "Comment",
 		"pt": "Comentário"
 	},
+	"comment, title()": {
+		"en": "Comment",
+		"pt": "Comentário"
+	},
 	"comments, title()": {
 		"en": "Comments",
 		"pt": "Comentários"
@@ -219,6 +239,14 @@
 	"comment_on_the_chapter": {
 		"en": "Comment on the chapter",
 		"pt": "Comentar no capítulo"
+	},
+	"comment_link": {
+		"en": "Comment link",
+		"pt": "Link do comentário"
+	},
+	"description, title()": {
+		"en": "Description",
+		"pt": "Descrição"
 	},
 	"my_name": {
 		"en": "My name",
@@ -434,5 +462,13 @@
 	"programming, title()": {
 		"en": "Programming",
 		"pt": "Programação"
+	},
+	"done_tasks": {
+		"en": "Done tasks",
+		"pt": "Tarefas feitas"
+	},
+	"watched_media": {
+		"en": "Watched media",
+		"pt": "Mídia assistida"
 	}
 }

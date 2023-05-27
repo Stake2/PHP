@@ -20,12 +20,18 @@ $website["tab_content"]["past_registries"] = [
 	"number" => 0
 ];
 
-$website["additional_tabs"] = [
-	"data" => []
-];
+if (array_key_exists("additional_tabs", $website) == False) {
+	$website["additional_tabs"] = [
+		"data" => []
+	];
+}
+
+$website["past_registries_buttons"] = [];
 
 # Iterate through the years list
 $years_list = Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1);
+
+$content = "";
 
 foreach ($years_list as $local_year) {
 	$website["data"]["year"] = $local_year;
@@ -40,7 +46,9 @@ foreach ($years_list as $local_year) {
 	];
 
 	# Add the tab button
-	$website["tab_content"]["past_registries"]["string"] .= HTML::Tab_Button($tab)."\n";
+	$website["past_registries_buttons"][$website["data"]["year"]] = HTML::Tab_Button($tab)."\n";
+
+	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["data"]["year"]]."\n";
 
 	# Define the tab data
 	$content = "";

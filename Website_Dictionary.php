@@ -162,11 +162,11 @@ foreach ($website["list"]["en"] as $website_title) {
 		$key = str_replace(" ", "_", strtolower($website_title));
 
 		# Add story dictionary to website dictionary
-		$folder = $folders["mega"]["bloco_de_notas"]["dedicação"][$key]["story"]["root"];
+		$folder = $folders["mega"]["notepad"]["effort"][$key]["story"]["root"];
 
 		$creation_date_file = $folder."Creation date.txt";
 		$information_file = $folder."Information.json";
-		$readers_file = $folders["mega"]["bloco_de_notas"]["dedicação"][$key]["story"]["readers_and_reads"]["root"]."Readers.txt";
+		$readers_file = $folders["mega"]["notepad"]["effort"][$key]["story"]["readers_and_reads"]["root"]."Readers.txt";
 		$titles_file = $folder."Titles.json";
 
 		$website["dictionary"][$website_title]["story"] = [];
@@ -179,7 +179,7 @@ foreach ($website["list"]["en"] as $website_title) {
 			if ($local_language != "general") {
 				$local_full_language = $Language -> languages["full"][$local_language];
 
-				$file = $folders["mega"]["bloco_de_notas"]["dedicação"][$key]["story"]["synopsis"]["root"].$local_full_language.".txt";
+				$file = $folders["mega"]["notepad"]["effort"][$key]["story"]["synopsis"]["root"].$local_full_language.".txt";
 
 				$website["dictionary"][$website_title]["story"]["Information"]["Synopsis"][$local_language] = $File -> Contents($file, $add_br = False)["string"];
 			}

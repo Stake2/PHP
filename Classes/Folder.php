@@ -11,6 +11,10 @@ class Folder extends Class_ {
 		$this -> folders = $folders;
 	}
 
+	public function Verbose($folder, $text) {
+		return False;
+	}
+
 	public function Sanitize($folder) {
 		$restricted_characters = ["?", '"', "|", "*", "<", ">"];
 

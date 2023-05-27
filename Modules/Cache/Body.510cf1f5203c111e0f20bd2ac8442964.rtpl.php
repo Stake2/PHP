@@ -57,3 +57,5 @@
 	</h3>
 	<br />
 </div>
+
+<?php echo $website["content"]; ?>

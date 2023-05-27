@@ -21,6 +21,13 @@ $website["tab_content"]["tasks"] = [
 	"number" => 0
 ];
 
+# Create additional tabs array
+if (array_key_exists("additional_tabs", $website) == False) {
+	$website["additional_tabs"] = [
+		"data" => []
+	];
+}
+
 if (isset($website["data"]["year"]) == False) {
 	$website["data"]["year"] = Date::Now()["year"];
 }
@@ -34,11 +41,11 @@ if (isset($tasks) == False) {
 	$tasks = [
 		"files" => [
 			"per_task_type" => [
-				"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$website["data"]["year"]]["per_task_type"]["root"]
+				"root" => $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$website["data"]["year"]]["per_task_type"]["root"]
 			]
 		],
-		"types" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["data"]["types"]),
-		"entries" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$website["data"]["year"]]["tasks"]),
+		"types" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["data"]["types"]),
+		"entries" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$website["data"]["year"]]["tasks"]),
 		"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["tasks"]["texts"]),
 		"language_texts" => []
 	];
@@ -190,22 +197,61 @@ foreach ($tasks["types"] as $plural_task_type) {
 
 				$text = $entry["Number"]." -";
 
-				# Add States
+				# Add the States
 				if (array_key_exists("States", $entry) == True) {
 					if (array_key_exists("First task in year", $entry["States"]) == True) {
 						$first_text = $website["language_texts"]["first_task_in_the_year"];
 
-						$text .= " ".HTML::Element("span", "1# ".$website["icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]);
+						$text .= " ".HTML::Element("span", "1# ".$website["icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]." underline_on_hover");
 					}
 
 					if (array_key_exists("First task type task in year", $entry["States"]) == True) {
 						$first_text = $website["language_texts"]["first_task_per_task_type_in_the_year"];
 
-						$text .= " ".HTML::Element("span", "1# ".$website["icons"]["film"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]);
+						$text .= " ".HTML::Element("span", "1# ".$website["icons"]["list_check"]." ".$website["icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]." underline_on_hover");
+					}
+
+					if (
+						array_key_exists("First task in year", $entry["States"]) == True or
+						array_key_exists("First task type task in year", $entry["States"]) == True
+					) {
+						$text .= " - ";
 					}
 				}
 
 				$title = HTML::Element("span", $entry["Titles"][$language], "", $website["style"]["text_highlight"]);
+
+				if ($website["States"]["Tasks"]["Entry tabs"] == True and (int)$website["data"]["year"] >= 2023) {
+					# Add the task description tab link and create the tab
+					$link_text = $website["language_texts"]["task_description"];
+
+					$tab_id = "task_description_".$entry["Number"];
+
+					$style = 'style="text-decoration: underline; cursor: pointer;"';
+
+					$title = HTML::Element("a", $title, 'onclick="'."Open_Tab('".$tab_id."')".'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'" '.$style, $website["style"]["text_highlight"]);
+
+					# Create the tab title
+					$tab_title = $entry["Number"]." - ".$entry["Titles"][$language]." (".$time.")";
+
+					# Get the task description file
+					$folder = $folders["mega"]["notepad"]["effort"]["years"][$website["data"]["year"]][$language]["done_tasks"]["root"].$language_task_type."/";
+
+					$local_entry = str_replace(":", ";", $entry["Entry"]);
+					$local_entry = str_replace("/", "-", $local_entry);
+
+					$file = $folder.$local_entry.".txt";
+
+					# Create the tab array and content
+					$website["additional_tabs"]["data"][$tab_id] = [
+						"id" => $tab_id,
+						"name" => $tab_title,
+						"text_style" => "text-align: left;",
+						"file" => $file,
+						"icon" => "list_check",
+						"only_button" => "tasks"
+					];
+				}
 
 				$text .= " ".$title." (".$time.")";
 
@@ -231,7 +277,7 @@ $website["tabs"]["templates"]["tasks"] = [
 	"add" => " ".HTML::Element("span", $website["tab_content"]["tasks"]["number"], "", $website["style"]["text_highlight"]),
 	"text_style" => "text-align: left;",
 	"content" => $website["tab_content"]["tasks"]["string"],
-	"icon" => "check"
+	"icon" => "list_check"
 ];
 
 ?>

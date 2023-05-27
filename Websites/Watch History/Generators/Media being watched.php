@@ -55,7 +55,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 	];
 
 	if ($watch_history["media_info"]["Info"]["Numbers"][$plural_media_type] != 0) {
-		$media_info_folder = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["media_info"]["root"].$language_media_type."/";
+		$media_info_folder = $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["root"].$language_media_type."/";
 
 		$info_json = $media_info_folder."Info.json";
 

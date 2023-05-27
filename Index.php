@@ -1,8 +1,10 @@
 <?php
 
+# Index.php
+
 session_start();
 
-# Load "Folders.php" file
+# Load the "Folders.php" file to define the folders
 require "Folders.php";
 
 if (function_exists("str_contains") == False) {
@@ -31,11 +33,36 @@ if (function_exists("array_insert") == False) {
 	}
 }
 
+# Load the auto linker
+require $folders["mega"]["php"]["modules"]["root"]."lib_autolink.php";
+
 # Loads the classes, including the module ones (Slim, RainTPL)
 require $folders["mega"]["php"]["classes"]["loader"];
 
 if (isset($parse) == False) {
 	$parse = parse_url($_SERVER["REQUEST_URI"])["path"];
+}
+
+# Define the local switches
+$switches = $Global_Switches -> global_switches;
+$has_switches = False;
+
+# Check if the "_GET" variable contains switches
+foreach (array_keys($Global_Switches -> global_switches) as $switch) {
+	if (isset($_GET[$switch]) == True) {
+		$switches[$switch] = (bool)$_GET[$switch];
+
+		$has_switches = True;
+	}
+}
+
+# Switch to either the default switches or the modified ones
+$Global_Switches -> Switch($switches);
+
+# If the local switches and global switches were not equal, reload classes
+if ($switches != $Global_Switches -> switches) {
+	# Loads the classes, including the module ones (Slim, RainTPL)
+	require $folders["mega"]["php"]["classes"]["loader"];
 }
 
 # Creates the "website" array and populates it
@@ -144,7 +171,10 @@ $slim -> get("/generate", function() {
 	$website["javascript"]["class_attributes"]["body"] = "";
 	$parse = "/";
 
-	$website["content"] = "";
+	Generate_Form();
+
+	$website["content"] = "<br />"."<br />"."<br />"."<br />"."<br />"."\n\n".
+	$website["form"];
 
 	$tpl -> assign("website", $website);
 	$tpl -> assign("parse", $parse);
@@ -193,7 +223,10 @@ $slim -> post("/generate", function() {
 	$website["javascript"]["class_attributes"]["body"] = "";
 	$parse = "/";
 
-	$website["content"] = "";
+	Generate_Form();
+
+	$website["content"] = "<br />"."<br />"."<br />"."<br />"."<br />"."\n\n".
+	$website["form"];
 
 	$tpl -> assign("website", $website);
 	$tpl -> assign("parse", $parse);
@@ -203,8 +236,14 @@ $slim -> post("/generate", function() {
 # Run the Slim app to check routes
 $slim -> run();
 
-if ($_POST != [] and $parse != "/generate") {
-	Text::Show_Variable($_POST);
+if ($Global_Switches -> switches["verbose"] == True) {
+	if ($_POST != []) {
+		Text::Show_Variable($_POST);
+	}
+
+	if ($_GET != []) {
+		Text::Show_Variable($_GET);
+	}
 }
 
 ?>

@@ -17,7 +17,7 @@ if ($language == "general") {
 
 # Define custom website folders
 if (in_array($website["data"]["title"], $website["years"]) == True) {
-	$website["data"]["folders"]["year"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["years"][$website["data"]["title"]];
+	$website["data"]["folders"]["year"] = $folders["mega"]["notepad"]["effort"]["years"][$website["data"]["title"]];
 }
 
 $website["data"]["folders"]["generators"] = [

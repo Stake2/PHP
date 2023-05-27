@@ -50,15 +50,15 @@ if (in_array($website["data"]["title"], $website["years"]) == True) {
 $watch_history = [
 	"files" => [
 		"per_media_type" => [
-			"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["per_media_type"]["root"]
+			"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["per_media_type"]["root"]
 		]
 	],
-	"types" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["data"]["types"]),
-	"entries" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["entries"]),
+	"types" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["data"]["types"]),
+	"entries" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["entries"]),
 	"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["watch_history"]["texts"]),
 	"language_texts" => [],
 	"media_info" => [
-		"Info" => $JSON -> To_PHP($folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["media_info"]["info"])
+		"Info" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["info"])
 	]
 ];
 

@@ -7,6 +7,10 @@ class File extends Class_ {
 		parent::__construct(self::class);
 	}
 
+	public function Verbose($file, $text) {
+		return False;
+	}
+
 	public function Sanitize($file) {
 		$restricted_characters = [":", "?", '"', "|", "*", "<", ">", "/"];
 

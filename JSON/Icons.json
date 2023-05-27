@@ -27,6 +27,7 @@
 	"film": "<i class=\"fa-solid fa-film\"></i>",
 	"play": "<i class=\"fas fa-play\"></i>",
 	"archive": "<i class=\"fas fa-archive\"></i>",
+	"list_check": "<i class=\"fa-solid fa-list-check\"></i>",
     "DeviantArt": "<i class=\"fab fa-deviantart\"><\/i>",
     "YouTube": "<i class=\"fab fa-youtube\"><\/i>",
 	"YouTube Music": "<i class=\"fab fa-youtube\"><\/i>",

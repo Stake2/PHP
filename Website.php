@@ -1,5 +1,7 @@
 <?php
 
+# Website.php
+
 $website = [
 	"author" => "Stake2",
 	"website_author" => "Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
@@ -108,6 +110,19 @@ $Language -> Define_User_Language();
 
 $website["languages"] = $Language -> languages;
 
+# Load the "Additional folders.php" file to define the additional folders that require the classes to be defined
+require "Additional folders.php";
+
+$website["States"] = [
+	"Watch History" => [
+		"Entry tabs" => True,
+		"Past registry entry tabs" => True
+	],
+	"Tasks" => [
+		"Entry tabs" => True
+	]
+];
+
 # Define stories array
 $stories = $JSON -> To_PHP($folders["mega"]["stories"]["database"]["stories"]);
 
@@ -192,6 +207,8 @@ $website["years"] = Date::Create_Years_List();
 # Add websites and website data to website dictionary
 require $folders["php"]["website_dictionary"];
 
+$GLOBALS["link_class"] = $website["style"]["text_highlight"]." ".$website["style"]["text_hover"];
+
 $language = "pt";
 
 if (isset($website["language"]) == True) {
@@ -253,31 +270,50 @@ foreach (array_values($Language -> languages["small"]) as $language) {
 
 $tpl -> assign("website", $website);
 
-# Make Form radio buttons
-$h4 = HTML::Element("h4", HTML::Element("b", "{}"), "", "text_size", ["new_line" => True, "tab" => "\t\t\t\t"]);
+function Generate_Form() {
+	global $website;
+	global $websites;
+	global $languages;
+	global $radio_buttons;
+	global $tpl;
 
-$input = HTML::Element("input", HTML::Element("b", "{}"), 'type="radio" id="{}" value="{}" name="mode"', "w3-center w3-input ".$website["style"]["radio_input"], ["new_line" => True, "tab" => "\t\t\t"]);
+	# Make Form radio buttons
+	$h4 = HTML::Element("h4", HTML::Element("b", "{}"), "", "text_size", ["new_line" => True, "tab" => "\t\t\t\t"]);
 
-$radio_template = "\t\t"."<!-- {} -->"."\n"."\t\t".HTML::Element("div", $h4."\n".$input, 'id="{}_div" style="width: 17%; height: auto; display: inline-block; border-radius: 45%;"', "w3-btn div_size ".$website["style"]["button"]["theme"]["light"]." ".$website["style"]["radio"], ["new_line" => True, "tab" => "\t\t"]);
+	$input = HTML::Element("input", HTML::Element("b", "{}"), 'type="radio" id="{}" value="{}" name="mode"', "w3-center w3-input ".$website["style"]["radio_input"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-$radio_buttons = "";
+	$radio_template = "\t\t"."<!-- {} -->"."\n"."\t\t".HTML::Element("div", $h4."\n".$input, 'id="{}_div" style="width: 17%; height: auto; display: inline-block; border-radius: 45%;"', "w3-btn div_size ".$website["style"]["button"]["theme"]["light"]." ".$website["style"]["radio"], ["new_line" => True, "tab" => "\t\t"]);
 
-foreach (["code", "generate"] as $item) {
-	$language_text = $website["language_texts"][$item.", title()"];
-	$item_capitalize = ucfirst($item);
+	$radio_buttons = "";
 
-	$radio_buttons .= Text::Format($radio_template, [$item_capitalize, $item_capitalize, $language_text, $item_capitalize, $item_capitalize]);
+	foreach (["code", "generate"] as $item) {
+		$language_text = $website["language_texts"][$item.", title()"];
+		$item_capitalize = ucfirst($item);
 
-	if ($item == "code") {
-		$radio_buttons = str_replace('" />', '" checked="True" />', $radio_buttons);
-		$radio_buttons = str_replace('<!--', "\n"."\t\t".'<!--', $radio_buttons);
-		$radio_buttons .= "\n\n";
+		$radio_buttons .= Text::Format($radio_template, [$item_capitalize, $item_capitalize, $language_text, $item_capitalize, $item_capitalize]);
+
+		$parse = parse_url($_SERVER["REQUEST_URI"])["path"];
+
+		if (
+			isset($website["method"]["mode"]) == True and ucfirst($item) == $website["method"]["mode"] or
+			isset($website["method"]["mode"]) == False and "/".$item == $parse
+		) {
+			$radio_buttons = str_replace('" />', '" checked="True" />', $radio_buttons);
+			$radio_buttons = str_replace('<!--', "\n"."\t\t".'<!--', $radio_buttons);
+			$radio_buttons .= "\n\n";
+		}
 	}
+
+	# Define website POST form
+	$website["form"] = $tpl -> draw("Form", $toString = True);
+	$website["form"] = Text::Format($website["form"], [$websites, $languages, $radio_buttons]);
+	$website["form"] .= "\n\n".
+	'<script type="text/javascript" src="'.$website["folders"]["javascript"]["root"].'Functions.js"></script>';
 }
 
-# Define website POST form
-$website["form"] = $tpl -> draw("Form", $toString = True);
-$website["form"] = Text::Format($website["form"], [$websites, $languages, $radio_buttons]);
+Generate_Form();
+
+$tpl -> assign("website", $website);
 
 # Define website CSS files
 $file_names = [
@@ -344,8 +380,8 @@ foreach ($file_names as $file_name) {
 	$website["javascript"]["links"] .= '<script type="text/javascript" src="';
 
 	if (strpos($file_name, ".com") == False) {
-		$website["javascript"]["links"] .= "/JavaScript/";
-		#$website["javascript"]["links"] .= $website["folders"]["javascript"]["root"];
+		#$website["javascript"]["links"] .= "/JavaScript/";
+		$website["javascript"]["links"] .= $website["folders"]["javascript"]["root"];
 	}
 
 	$website["javascript"]["links"] .= $file_name.".js";
@@ -426,7 +462,7 @@ $website["tabs"]["templates"] = [];
 
 # Create website image button if website data exists
 if (isset($website["data"]) == True) {
-	$h4 = HTML::Element("h4", $website["language_texts"]["open_image_in_new_tab"].": ".$website["icons"]["images"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+	$h4 = HTML::Element("h4", $website["language_texts"]["open_image_in_a_new_tab"].": ".$website["icons"]["images"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
 	$website["data"]["image"]["button"] = "\n".
 	"	<!-- Website image button -->"."\n".
@@ -503,7 +539,7 @@ foreach ($website["tabs"]["array"]["List"] as $tab) {
 	}
 }
 
-if (array_key_exists("additional_tabs", $website) == True) {
+if (array_key_exists("additional_tabs", $website) == True and $website["additional_tabs"]["data"] != []) {
 	# Create website tabs
 	$tabs = HTML::Generate_Tabs($website["additional_tabs"], $buttons = True, $all_buttons = True);
 

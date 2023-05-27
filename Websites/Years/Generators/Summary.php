@@ -85,6 +85,8 @@ if ($contents["lines"] != []) {
 
 $contents["string"] = Text::From_Array($contents["lines"]);
 
+$contents["string"] = Linkfy($contents["string"]);
+
 # Add tab to tab templates
 $website["tabs"]["templates"]["summary"] = [
 	"name" => $website["language_texts"]["summary, title()"],

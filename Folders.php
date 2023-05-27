@@ -1,6 +1,6 @@
 <?php
 
-# Folders
+# Folders.php
 
 # folders array
 $folders = [
@@ -11,11 +11,20 @@ $folders = [
 $names = [
 	"Apps",
 	"Mega",
-	"Mídias"
+	"Media",
+	"Games"
 ];
 
 foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
+
+	if ($item == "Media") {
+		$item = "Mídias";
+	}
+
+	if ($item == "Games") {
+		$item = "Jogos";
+	}
 
 	$folders[$key] = [
 		"root" => $folders["hard_drive_letter"].$item."/"
@@ -80,7 +89,7 @@ foreach ($modules as $item) {
 
 # Mega folders
 $names = [
-	"Bloco De Notas",
+	"Notepad",
 	"Image",
 	"PHP",
 	"Stories",
@@ -90,6 +99,10 @@ $names = [
 foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 
+	if ($item == "Notepad") {
+		$item = "Bloco De Notas";
+	}
+
 	$folders["mega"][$key] = [
 		"root" => $folders["mega"]["root"].$item."/"
 	];
@@ -97,7 +110,7 @@ foreach ($names as $item) {
 
 # Bloco De Notas folders
 $names = [
-	"Dedicação",
+	"Effort",
 	"Dump",
 	"Locked"
 ];
@@ -105,12 +118,16 @@ $names = [
 foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 
-	$folders["mega"]["bloco_de_notas"][$key] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["root"].$item."/"
+	if ($item == "Effort") {
+		$item = "Dedicação";
+	}
+
+	$folders["mega"]["notepad"][$key] = [
+		"root" => $folders["mega"]["notepad"]["root"].$item."/"
 	];
 }
 
-# Bloco De Notas/Dedicação folders
+# Bloco De Notas/Effort folders
 $names = [
 	"Diary",
 	"Diary Slim",
@@ -122,12 +139,17 @@ $names = [
 foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 
-	$folders["mega"]["bloco_de_notas"]["dedicação"][$key] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["root"].$item."/"
+	$folders["mega"]["notepad"]["effort"][$key] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["root"].$item."/"
 	];
 }
 
-# Dedicação/Diary (Slim) folders
+# Effort/Diary (Slim) folders
+$diaries = [
+	"Diary",
+	"Diary Slim"
+];
+
 $names = [];
 
 foreach (range(2018, date("Y")) as $year) {
@@ -139,14 +161,15 @@ foreach (range(2018, date("Y")) as $year) {
 array_push($names, "Database");
 array_push($names, "Story");
 
-foreach (["Diary", "Diary Slim"] as $diary) {
-	$diary = str_replace(" ", "_", strtolower($diary));
+foreach ($diaries as $diary) {
+	$diary_key = str_replace(" ", "_", strtolower($diary));
 
+	# Diary (Slim)/Year folders
 	foreach ($names as $item) {
 		$key = str_replace(" ", "_", strtolower($item));
 
-		$folders["mega"]["bloco_de_notas"]["dedicação"][$diary][$key] = [
-			"root" => $folders["mega"]["bloco_de_notas"]["dedicação"][$diary]["root"].$item."/"
+		$folders["mega"]["notepad"]["effort"][$diary_key][$key] = [
+			"root" => $folders["mega"]["notepad"]["effort"][$diary_key]["root"].$item."/"
 		];
 	}
 
@@ -160,13 +183,13 @@ foreach (["Diary", "Diary Slim"] as $diary) {
 	foreach ($sub_files as $item) {
 		$key = str_replace(" ", "_", strtolower($item));
 
-		$folders["mega"]["bloco_de_notas"]["dedicação"][$diary]["story"][$key] = [
-			"root" => $folders["mega"]["bloco_de_notas"]["dedicação"][$diary]["story"]["root"].$item."/"
+		$folders["mega"]["notepad"]["effort"][$diary_key]["story"][$key] = [
+			"root" => $folders["mega"]["notepad"]["effort"][$diary_key]["story"]["root"].$item."/"
 		];
 	}
 }
 
-# Dedicação/Izaque Sanvezzo folders
+# Effort/Izaque Sanvezzo folders
 $names = [
 	"About me - Sobre mim"
 ];
@@ -175,8 +198,8 @@ foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 	$key = str_replace("_-_", "_", $key);
 
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"][$key] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"]["root"].$item."/"
+	$folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"][$key] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["root"].$item."/"
 	];
 }
 
@@ -189,14 +212,14 @@ foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 	$key = str_replace("_-_", "_", $key);
 
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"]["about_me_sobre_mim"][$key] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["izaque_sanvezzo"]["about_me_sobre_mim"]["root"].$item."/"
+	$folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["about_me_sobre_mim"][$key] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["about_me_sobre_mim"]["root"].$item."/"
 	];
 }
 
 # Networks/Audiovisual Media Network folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["root"]."Audiovisual Media Network/"
+$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"] = [
+	"root" => $folders["mega"]["notepad"]["effort"]["networks"]["root"]."Audiovisual Media Network/"
 ];
 
 # "Audiovisual Media Network" folders
@@ -209,75 +232,75 @@ $names = [
 foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"][$key] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["root"].$item."/"
+	$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"][$key] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["root"].$item."/"
 	];
 }
 
 # "Audiovisual Media Network/Data" folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["data"]["types"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["data"]["root"]."Types.json";
+$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["data"]["types"] = $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["data"]["root"]."Types.json";
 
 # "Audiovisual Media Network/Media Info" folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["media_info"]["info"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["media_info"]["root"]."Info.json";
+$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["info"] = $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["root"]."Info.json";
 
 # "Audiovisual Media Network/Watch History" folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["root"]."Watch History/"
+$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"] = [
+	"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["root"]."Watch History/"
 ];
 
 # Create year Watched folders
 foreach (range(2018, date("Y")) as $year) {
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$year] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"]["root"].$year."/"
+	$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$year] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"]["root"].$year."/"
 	];
 
 	# "Entries.json" file
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["entries"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["root"]."Entries.json";
+	$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["entries"] = $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["root"]."Entries.json";
 
 	# "Per Media Type" folder of current year Watched folder
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["per_media_type"] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["root"]."Per Media Type/"
+	$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["per_media_type"] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["root"]."Per Media Type/"
 	];
 
 	# "Per Media Type" files folder of current year Watched folder
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["per_media_type"]["files"] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["per_media_type"]["root"]."Files/"
+	$folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["per_media_type"]["files"] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$year]["per_media_type"]["root"]."Files/"
 	];
 
 	# Years folders
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["years"][$year] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["years"]["root"].$year."/"
+	$folders["mega"]["notepad"]["effort"]["years"][$year] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["years"]["root"].$year."/"
 	];
 }
 
 # Productive Network files
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["root"]."Productive Network/"
+$folders["mega"]["notepad"]["effort"]["networks"]["productive_network"] = [
+	"root" => $folders["mega"]["notepad"]["effort"]["networks"]["root"]."Productive Network/"
 ];
 
 # Productive Network/Data folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["data"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["root"]."Data/"
+$folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["data"] = [
+	"root" => $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["root"]."Data/"
 ];
 
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["data"]["types"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["data"]["root"]."Types.json";
+$folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["data"]["types"] = $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["data"]["root"]."Types.json";
 
 # Productive Network/Task History folder
-$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"] = [
-	"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["root"]."Task History/",
+$folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"] = [
+	"root" => $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["root"]."Task History/",
 ];
 
 # Task History year folders
 foreach (range(2018, date("Y")) as $year) {
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"]["root"].$year."/"
+	$folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$year] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"]["root"].$year."/"
 	];
 
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["per_task_type"] = [
-		"root" => $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["root"]."Per Task Type/"
+	$folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$year]["per_task_type"] = [
+		"root" => $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$year]["root"]."Per Task Type/"
 	];
 
-	$folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["tasks"] = $folders["mega"]["bloco_de_notas"]["dedicação"]["networks"]["productive_network"]["task_history"][$year]["root"]."Tasks.json";
+	$folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$year]["tasks"] = $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$year]["root"]."Tasks.json";
 }
 
 # PHP folders

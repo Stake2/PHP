@@ -221,6 +221,7 @@ class HTML extends Class_ {
 
 		if ($tab == []) {
 			$tab["all_buttons"] = False;
+			$tab["only_button"] = Null;
 		}
 
 		$string = "";
@@ -231,38 +232,52 @@ class HTML extends Class_ {
 
 		$buttons_list = $website["buttons_list"];
 
-		if ($tab["all_buttons"] == False) {
-			$i = 0;
-			$number = 0;
-			foreach ($buttons_list as $button) {
-				if (str_contains($button, $remove) == True) {
-					$number = $i;
+		if ($tab["only_button"] == Null) {
+			if ($tab["all_buttons"] == False) {
+				$i = 0;
+				$number = 0;
+				foreach ($buttons_list as $button) {
+					if (str_contains($button, $remove) == True) {
+						$number = $i;
+					}
+
+					$i++;
 				}
 
-				$i++;
+				# Previous button
+				if ($number -1 != -1) {
+					$buttons_list[$number - 1] = self::Element("span", $buttons_list[$number - 1], 'style="float: left;"', "margin_sides_5_cent");
+					$string .= $buttons_list[$number - 1];
+				}
+
+				# Next button
+				if ($number + 1 != count($buttons_list)) {
+					$buttons_list[$number + 1] = self::Element("span", $buttons_list[$number + 1], 'style="float: right;"', "margin_sides_5_cent");
+					$string .= $buttons_list[$number + 1];
+				}
+
+				$string .= "<br /><br /><br /><br />";
 			}
 
-			# Previous button
-			if ($number -1 != -1) {
-				$buttons_list[$number - 1] = self::Element("span", $buttons_list[$number - 1], 'style="float: left;"', "margin_sides_5_cent");
-				$string .= $buttons_list[$number - 1];
+			if ($tab["all_buttons"] == True) {
+				foreach ($buttons_list as $button) {
+					if (str_contains($button, "websites_tab") == False) {
+						$string .= $button;
+					}
+				}
 			}
-
-			# Next button
-			if ($number + 1 != count($buttons_list)) {
-				$buttons_list[$number + 1] = self::Element("span", $buttons_list[$number + 1], 'style="float: right;"', "margin_sides_5_cent");
-				$string .= $buttons_list[$number + 1];
-			}
-
-			$string .= "<br /><br /><br /><br />";
 		}
 
-		if ($tab["all_buttons"] == True) {
+		if ($tab["only_button"] != Null) {
 			foreach ($buttons_list as $button) {
-				if (str_contains($button, "websites_tab") == False) {
+				if (str_contains($button, $tab["only_button"]) == True) {
 					$string .= $button;
 				}
 			}
+		}
+
+		if (isset($tab["button"]) and $tab["button"] != Null) {
+			$string .= $tab["button"];
 		}
 
 		$string .= $website["elements"]["hr_1px"]["theme"][$website["style"]["border_color"]];
@@ -292,23 +307,23 @@ class HTML extends Class_ {
 			foreach (array_keys($template) as $key) {
 				$tab[$key] = $template[$key];
 			}
+		}
 
-			# Read file if index exists
-			if (isset($tab["file"]) == True) {
-				$contents = $File -> Contents($tab["file"]);
+		# Read the tab file if the file index exists
+		if (isset($tab["file"]) == True) {
+			$contents = $File -> Contents($tab["file"]);
 
-				if ($contents["lines"] != []) {
-					$tab["content"] = $contents["string"];
+			if ($contents["lines"] != [] and array_key_exists("content", $tab) == False) {
+				$tab["content"] = Linkfy($contents["string"]);
+			}
+
+			# If file is empty, use empty message text
+			if ($contents["lines"] == []) {
+				if (isset($tab["empty_message"]) == False) {
+					$tab["empty_message"] = $website["language_texts"]["this_file_does_not_exist_{}"];
 				}
 
-				# If file is empty, use empty message text
-				if ($contents["lines"] == []) {
-					if (isset($tab["empty_message"]) == False) {
-						$tab["empty_message"] = $website["language_texts"]["this_file_does_not_exist_{}"];
-					}
-
-					$tab["content"] = $tab["empty_message"];
-				}
+				$tab["content"] = $tab["empty_message"];
 			}
 		}
 
@@ -326,7 +341,7 @@ class HTML extends Class_ {
 				$tab["title"] = $tab["title"][$language];
 			}
 
-			if (strpos($tab["title"], "[") == True) {
+			if (str_contains($tab["title"], "[") == True) {
 				$key = explode("[", $tab["title"])[1];
 				$key = explode("]", $key)[0];
 
@@ -335,8 +350,14 @@ class HTML extends Class_ {
 		}
 
 		# Define title if it is not present
-		if (isset($tab["title"]) == False and strpos($tab["name"], ": ") === False) {
-			$tab["title"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
+		if (isset($tab["title"]) == False) {
+			if (str_contains($tab["name"], ": ") == False) {
+				$tab["title"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
+			}
+
+			if (str_contains($tab["name"], ": ") == True) {
+				$tab["title"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
+			}
 		}
 
 		$tab["name_icon"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
@@ -401,7 +422,14 @@ class HTML extends Class_ {
 			$tab["number"] = $tabs["ID"] + 1;
 
 			$tab["buttons"] = $buttons;
-			$tab["all_buttons"] = $all_buttons;
+
+			if (array_key_exists("all_buttons", $tab) == False) {
+				$tab["all_buttons"] = $all_buttons;
+			}
+
+			if (array_key_exists("only_button", $tab) == False) {
+				$tab["only_button"] = Null;
+			}
 
 			$tab = self::Tab_Info($tab, $tabs["ID"]);
 
