@@ -62,4 +62,3 @@ The ["Summary.php"](https://github.com/Stake2/PHP/blob/main/Websites/Years/Gener
 In order to generate "Summary" tabs on all year websites website.
 
 [Python: Connection of Python files to PHP files](https://github.com/Stake2/Python#connection-of-python-files-to-php-files-and-websites)
-[Websites: Connection of Python files to PHP files](https://github.com/Stake2/Python#connection-of-python-files-to-php-files-and-websites)
