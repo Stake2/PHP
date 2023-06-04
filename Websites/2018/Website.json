@@ -21,8 +21,8 @@
 			"watched_things": {
 				"template": "watched_things"
 			},
-			"tasks": {
-				"template": "tasks"
+			"completed_tasks": {
+				"template": "completed_tasks"
 			},
 			"years": {
 				"template": "years"

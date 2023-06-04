@@ -1,3 +1,9 @@
+Sites de anos:
+	Destacar "Meu {Ano}"
+
+Folders:
+	Fazer geração de pastas de Redes de Dados em um só "foreach"
+
 Stake2:
 	Fazer evolução das fotos de perfil do "Stake2"
 	Colocar capas do "Stake2" e do "Funkysnipa Cat"

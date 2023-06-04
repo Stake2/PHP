@@ -296,7 +296,8 @@ function Generate_Form() {
 
 		if (
 			isset($website["method"]["mode"]) == True and ucfirst($item) == $website["method"]["mode"] or
-			isset($website["method"]["mode"]) == False and "/".$item == $parse
+			isset($website["method"]["mode"]) == False and "/".$item == $parse or
+			isset($website["method"]["mode"]) == False and $item == "code"
 		) {
 			$radio_buttons = str_replace('" />', '" checked="True" />', $radio_buttons);
 			$radio_buttons = str_replace('<!--', "\n"."\t\t".'<!--', $radio_buttons);

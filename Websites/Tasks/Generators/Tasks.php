@@ -16,7 +16,7 @@ if ($language == "general") {
 }
 
 # Generate tasks tab content
-$website["tab_content"]["tasks"] = [
+$website["tab_content"]["completed_tasks"] = [
 	"string" => "",
 	"number" => 0
 ];
@@ -153,9 +153,9 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 $task_type_headers = Generate_Task_Type_Headers();
 
 # Update the watched things number
-$website["tab_content"]["tasks"]["number"] = $tasks["entries"]["Numbers"]["Total"];
+$website["tab_content"]["completed_tasks"]["number"] = $tasks["entries"]["Numbers"]["Total"];
 
-$website["tab_content"]["tasks"]["string"] .= "<!-- Task type headers -->"."\n"."\t\t".
+$website["tab_content"]["completed_tasks"]["string"] .= "<!-- Task type headers -->"."\n"."\t\t".
 $task_type_headers["links"].
 "\n"."\t\t"."<br />"."\n\n";
 
@@ -168,7 +168,7 @@ foreach ($tasks["types"] as $plural_task_type) {
 		$number = $tasks["entries"]["Numbers"]["Per Task Type"][$plural_task_type];
 
 		if ($number != 0) {
-			$website["tab_content"]["tasks"]["string"] .= $task_type_headers["headers"][$plural_task_type];
+			$website["tab_content"]["completed_tasks"]["string"] .= $task_type_headers["headers"][$plural_task_type];
 
 			# Iterate through the task type Entries list
 			foreach ($tasks["files"]["per_task_type"][$plural_task_type]["Entries"] as $entry) {
@@ -257,11 +257,11 @@ foreach ($tasks["types"] as $plural_task_type) {
 
 				$text = HTML::Element("span", $text, 'style="margin-left: 3%;"', $website["style"]["text_hover"]);
 
-				$website["tab_content"]["tasks"]["string"] .= $text."<br />"."\n";
+				$website["tab_content"]["completed_tasks"]["string"] .= $text."<br />"."\n";
 			}
 
 			if ($plural_task_type != array_reverse($tasks["language_types"])[0]) {
-				$website["tab_content"]["tasks"]["string"] .= "\t\t"."<br />"."\n\n";
+				$website["tab_content"]["completed_tasks"]["string"] .= "\t\t"."<br />"."\n\n";
 			}
 		}
 	}
@@ -269,14 +269,14 @@ foreach ($tasks["types"] as $plural_task_type) {
 	$i++;
 }
 
-$website["tab_content"]["tasks"]["string"] .= "<br /><br />";
+$website["tab_content"]["completed_tasks"]["string"] .= "<br /><br />";
 
 # Add tab to tab templates
-$website["tabs"]["templates"]["tasks"] = [
-	"name" => $tasks["language_texts"]["tasks, title()"],
-	"add" => " ".HTML::Element("span", $website["tab_content"]["tasks"]["number"], "", $website["style"]["text_highlight"]),
+$website["tabs"]["templates"]["completed_tasks"] = [
+	"name" => $tasks["language_texts"]["completed_tasks"],
+	"add" => " ".HTML::Element("span", $website["tab_content"]["completed_tasks"]["number"], "", $website["style"]["text_highlight"]),
 	"text_style" => "text-align: left;",
-	"content" => $website["tab_content"]["tasks"]["string"],
+	"content" => $website["tab_content"]["completed_tasks"]["string"],
 	"icon" => "list_check"
 ];
 

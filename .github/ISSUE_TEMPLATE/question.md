@@ -1,12 +1,12 @@
 ---
 name: Question
-about: To ask questions to the author of this repo
-title: Question
-labels: question
+about: Use this template to ask questions to the author of this repository
+title: "Question: "
+labels: Question
 assignees: Stake2
-
 ---
 
-Question: 
+Question:
+
 
 Comments:

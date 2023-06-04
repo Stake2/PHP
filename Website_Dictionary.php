@@ -541,11 +541,13 @@ foreach ($website["list"]["en"] as $website_title) {
 	if (isset($website["dictionary"][$website_title]["json"]["descriptions"]) == True) {
 		$website["dictionary"][$website_title]["description"]["html"] = $Language -> Item($website["dictionary"][$website_title]["json"]["descriptions"]["html"]);
 
+		$description_backup = $website["dictionary"][$website_title]["description"]["html"];
+
 		if (strpos($website["dictionary"][$website_title]["description"]["html"], "{website_title}") !== False) {
 			$website["dictionary"][$website_title]["description"]["html"] = str_replace("{website_title}", $website["dictionary"][$website_title]["titles"]["language"], $website["dictionary"][$website_title]["description"]["html"]);
 		}
 
-		if (strpos($website["dictionary"][$website_title]["description"]["html"], "{author}") !== False) {
+		if (str_contains($website["dictionary"][$website_title]["description"]["html"], "{author}") == True) {
 			$website["dictionary"][$website_title]["description"]["html"] = str_replace("{author}", $website["website_author"], $website["dictionary"][$website_title]["description"]["html"]);
 		}
 
@@ -554,14 +556,16 @@ foreach ($website["list"]["en"] as $website_title) {
 		}
 
 		if ($website["dictionary"][$website_title]["description"]["header"] == []) {
-			$website["dictionary"][$website_title]["description"]["header"] = $website["dictionary"][$website_title]["description"]["html"];
+			$website["dictionary"][$website_title]["description"]["header"] = $description_backup;
 		}
 
-		if (strpos($website["dictionary"][$website_title]["description"]["header"], "{website_title}") !== False) {
-			$website["dictionary"][$website_title]["description"]["header"] = str_replace("{website_title}", HTML::Element("span", $website["dictionary"][$website_title]["titles"]["language"], "", $website["dictionary"][$website_title]["style"]["text_highlight"]), $website["dictionary"][$website_title]["description"]["header"]);
+		if (str_contains($website["dictionary"][$website_title]["description"]["header"], "{website_title}") == True) {
+			$span = HTML::Element("span", $website["dictionary"][$website_title]["titles"]["language"], "", $website["dictionary"][$website_title]["style"]["text_highlight"]);
+
+			$website["dictionary"][$website_title]["description"]["header"] = str_replace("{website_title}", $span, $website["dictionary"][$website_title]["description"]["header"]);
 		}
 
-		if (strpos($website["dictionary"][$website_title]["description"]["header"], "{author}") !== False) {
+		if (str_contains($website["dictionary"][$website_title]["description"]["header"], "{author}") == True) {
 			$website["dictionary"][$website_title]["description"]["header"] = str_replace("{author}", $website["painted_author"], $website["dictionary"][$website_title]["description"]["header"]);
 		}
 

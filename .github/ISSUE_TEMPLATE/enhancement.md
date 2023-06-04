@@ -1,16 +1,18 @@
 ---
 name: Enhancement
-about: Template for enhancements of project scripts
-title: 'Enhancement: '
-labels: enhancement
+about: Use this template to suggest and enhancement of a PHP file, script, or class
+title: "Enhancement: "
+labels: Enhancement
 assignees: Stake2
-
 ---
 
-Enhancement: 
+Enhancement:
 
-Description: 
 
-PHP file: 
+Description:
+
+
+PHP file:
+
 
 Comments:

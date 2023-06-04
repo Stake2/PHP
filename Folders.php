@@ -45,7 +45,7 @@ foreach ($names as $item) {
 	];
 }
 
-# Apps files
+# "Apps" files
 $folders["apps"]["settings"] = $folders["apps"]["root"]."Settings.json";
 
 # "Module files" folders
@@ -74,12 +74,12 @@ foreach (["Language"] as $item) {
 	];
 }
 
-# Languages.json file
+# "Languages.json" file
 $folders["apps"]["module_files"]["utility"]["language"]["languages"] = $folders["apps"]["module_files"]["utility"]["language"]["root"]."Languages.json";
 
 $modules = array_diff($modules, ["Language"]);
 
-# Foreach loop on module names
+# Foreach loop on the module names list
 foreach ($modules as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 
@@ -108,7 +108,7 @@ foreach ($names as $item) {
 	];
 }
 
-# Bloco De Notas folders
+# "Notepad" folders
 $names = [
 	"Effort",
 	"Dump",
@@ -127,7 +127,7 @@ foreach ($names as $item) {
 	];
 }
 
-# Bloco De Notas/Effort folders
+# "Notepad/Effort" folders
 $names = [
 	"Diary",
 	"Diary Slim",
@@ -144,7 +144,7 @@ foreach ($names as $item) {
 	];
 }
 
-# Effort/Diary (Slim) folders
+# "Effort/Diary (Slim)" folders
 $diaries = [
 	"Diary",
 	"Diary Slim"
@@ -164,7 +164,7 @@ array_push($names, "Story");
 foreach ($diaries as $diary) {
 	$diary_key = str_replace(" ", "_", strtolower($diary));
 
-	# Diary (Slim)/Year folders
+	# "Diary (Slim)/Year" folders
 	foreach ($names as $item) {
 		$key = str_replace(" ", "_", strtolower($item));
 
@@ -173,7 +173,7 @@ foreach ($diaries as $diary) {
 		];
 	}
 
-	# Diary (Slim)/Story folders
+	# "Diary (Slim)/Story" folders
 	$sub_files = [
 		"Synopsis",
 		"Comments",
@@ -189,7 +189,7 @@ foreach ($diaries as $diary) {
 	}
 }
 
-# Effort/Izaque Sanvezzo folders
+# "Effort/Izaque Sanvezzo" folders
 $names = [
 	"About me - Sobre mim"
 ];
@@ -203,7 +203,7 @@ foreach ($names as $item) {
 	];
 }
 
-# Izaque Sanvezzo/About me folders
+# "Izaque Sanvezzo/About me" folders
 $names = [
 	"Social Networks",
 ];
@@ -217,7 +217,7 @@ foreach ($names as $item) {
 	];
 }
 
-# Networks/Audiovisual Media Network folder
+# "Networks/Audiovisual Media Network" folder
 $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"] = [
 	"root" => $folders["mega"]["notepad"]["effort"]["networks"]["root"]."Audiovisual Media Network/"
 ];
