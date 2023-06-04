@@ -9,14 +9,14 @@ function Remove_Zoom() {
 	array.forEach(
 		function(element) {
 			if (element.tagName == "BUTTON") {
-				element.classList.toggle("w3-animate-zoom");
+				element.classList.toggle("w3-animate-zoom")
 			}
 		}
 	)
 
 	var text = {
 		"en": 'The "w3-animate-zoom" class was removed from the buttons (removed zoom animation of buttons)',
-		"pt": 'A classe "w3-animate-zoom" foi removida dos botões (removida animação de zoom dos botões)',
+		"pt": 'A classe "w3-animate-zoom" foi removida dos botões (removida animação de zoom dos botões)'
 	}
 
 	print("Functions.Remove_Zoom(): " + Language.Item(text) + ".")
@@ -118,7 +118,7 @@ function Add_Text_To_Element(url, element) {
 
 var script_name = {
 	"en": "Functions",
-	"pt": "Funções",
+	"pt": "Funções"
 }
 
 print(format(Language.language_texts["javascript_{0}_script_was_loaded"], Language.Item(script_name)))
