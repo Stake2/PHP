@@ -367,6 +367,28 @@ if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story
 	array_push($file_names, "Story");
 }
 
+$website["style"]["background_image"] = "";
+
+if (isset($website["data"]["json"]["background_image"]) == True) {
+	$local_image_file = $website["data"]["folders"]["local_website"]["images"]["images"]["root"].$website["data"]["json"]["background_image"];
+
+	$formats = [
+		"png",
+		"jpg",
+		"gif"
+	];
+
+	foreach ($formats as $format) {	
+		$local_image = $local_image_file.".".$format;
+
+		if (file_exists($local_image) == True) {
+			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$website["data"]["json"]["background_image"].".".$format;
+		}
+	}
+
+	$website["style"]["background_image"] = ' style="background: url('."'".$link."'".') no-repeat center center fixed; background-size: 100% 100%;"';
+}
+
 #array_push($file_names, "https://code.jquery.com/jquery-3.6.0.slim.min");
 array_push($file_names, "https://kit.fontawesome.com/6f0935b8d2");
 
@@ -381,8 +403,8 @@ foreach ($file_names as $file_name) {
 	$website["javascript"]["links"] .= '<script type="text/javascript" src="';
 
 	if (strpos($file_name, ".com") == False) {
-		#$website["javascript"]["links"] .= "/JavaScript/";
-		$website["javascript"]["links"] .= $website["folders"]["javascript"]["root"];
+		$website["javascript"]["links"] .= "/JavaScript/";
+		#$website["javascript"]["links"] .= $website["folders"]["javascript"]["root"];
 	}
 
 	$website["javascript"]["links"] .= $file_name.".js";

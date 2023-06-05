@@ -1,6 +1,3 @@
-Sites de anos:
-	Destacar "Meu {Ano}"
-
 Folders:
 	Fazer geração de pastas de Redes de Dados em um só "foreach"
 
@@ -12,6 +9,4 @@ Normal websites:
 	Create notification
 
 Story websites:
-	Re-add "chapter written in" text to "chapter_text" key
 	Add "chapter_loader" close to the additional scripts on the end of the website, and "chapter_loader: true" on "Diary Slim" Website.json
-	Check variables of "The Secret of the Crystals" and "The Story of the Bulkan Siblings" story websites

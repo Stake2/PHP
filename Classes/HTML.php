@@ -84,7 +84,7 @@ class HTML extends Class_ {
 		$parameters = [
 			$element,
 			$class,
-			$attributes,
+			$attributes
 		];
 
 		# Add text and element to non self-closing elements

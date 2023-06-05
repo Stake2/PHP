@@ -470,5 +470,9 @@
 	"watched_media": {
 		"en": "Watched media",
 		"pt": "Mídia assistida"
+	},
+	"source, title()": {
+		"en": "Source",
+		"pt": "Fonte"
 	}
 }

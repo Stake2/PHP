@@ -1,4 +1,4 @@
-<?php if(!class_exists('TPL')){exit;}?><body class="<?php echo $website['style']['body']; ?>" <?php echo $website["javascript"]["class_attributes"]["body"]; ?>>
+<?php if(!class_exists('TPL')){exit;}?><body class="<?php echo $website['style']['body']; ?>" <?php echo $website["javascript"]["class_attributes"]["body"]; ?><?php echo $website["style"]["background_image"]; ?>>
 <center>
 <?php echo $website["buttons"]; ?>
 

@@ -10,7 +10,7 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 	$number_names = [
 		"9" => "nine",
 		"10" => "ten",
-		"26" => "twenty_six",
+		"26" => "twenty_six"
 	];
 
 	$key = str_replace(" ", "_", $website_title);
@@ -38,7 +38,9 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 		$link = $website_data["links"]["language"];
 		$link .= "?chapter=".$number."#";
 
-		$website["variable_inserter"][$key]["chapter_".$number."_button"] = '<div style="padding-top: 1%;">'.HTML::Element("a", "\n\t".$title." - ".$website["language_texts"]["chapter, title()"].": ".$number." - ".$chapter_title."\n\t", 'href="'.$link.'" target="_blank" style="max-width: 50%; font-weight: bold;"', "w3-btn ".$website_data["style"]["button"]["theme"]["light"]." animation_shake_side")."</div>"."\n";
+		$website["variable_inserter"][$key]["chapter_".$number."_button"] = '<div style="padding-top: 1%;">'."\n".
+		HTML::Element("a", "\n\t".$title." - ".$website["language_texts"]["chapter, title()"].": ".$number." - ".$chapter_title."\n\t", 'href="'.$link.'" target="_blank" style="max-width: 50%; font-weight: bold;"', "w3-btn ".$website_data["style"]["button"]["theme"]["light"]." animation_shake_side")."\n".
+		"</div>"."\n";
 
 		$i++;
 	}
@@ -54,44 +56,42 @@ $songs = [
 	"Porter_Robinson_Madeon_Shelter_Official_Video_Link" => [
 		"text" => [
 			"en" => "Porter Robinson & Madeon - Shelter (Official Video) (Short Film with A-1 Pictures & Crunchyroll)",
-			"pt" => "Porter Robinson & Madeon - Shelter (Vídeo Oficial) (Filme curto com A-1 Pictures & Crunchyroll)",
+			"pt" => "Porter Robinson & Madeon - Shelter (Vídeo Oficial) (Filme curto com A-1 Pictures & Crunchyroll)"
 		],
-		"id" => "fzQ6gRAEoy0",
+		"id" => "fzQ6gRAEoy0"
 	],
 	"God's_Warrior_-_Still_Got_Something" => [
 		"text" => [
 			"en" => "'Still Got Something' from God's Warrior",
-			"pt" => "'Still Got Something' do God's Warrior",
+			"pt" => "'Still Got Something' do God's Warrior"
 		],
-		"id" => "8WYMQbWUxGM",
+		"id" => "8WYMQbWUxGM"
 	],
 	"Skybreak_&_Mizu_-_Aurora" => [
-		"id" => "J2P1_v9aFV8",
+		"id" => "J2P1_v9aFV8"
 	],
 	"Panda_Eyes_-_Take_My_Hand_Ft._Azuria_Sky_(Z∆NE_Remix)" => [
-		"id" => "OCIEd71mViM",
+		"id" => "OCIEd71mViM"
 	],
 	"Tom_&_Jerry_(2021)_Soundtrack_Playlist" => [
-		"text" => [
-			"en" => 'the soundtrack of the "Tom & Jerry" movie from 2021',
-			"pt" => 'a trilha sonora do filme "Tom e Jerry" de 2021',
-		],
 		"id" => "PLDisKgcnAC4TkSDGxuPm1DeohG8FMEMNa",
-		"embed" => True,
+		"no_text" => True,
+		"embed" => True
 	],
 	"Tom_&_Jerry_-_Married_In_The_Park" => [
 		"id" => "cAlTw8szj6Q",
+		"embed" => True
 	],
 	"Tom_&_Jerry_-_The_Wedding's_Off" => [
-		"id" => "SCxnA10GOMA",
+		"id" => "SCxnA10GOMA"
 	],
 	"Among_Us_Trap_Remix_By_Leonz" => [
 		"text" => [
 			"en" => "Among Us Drip Theme Song Original (Among Us Trap Remix / Amogus Meme Music) by Leonz",
-			"pt" => "Tema musical original drip do Among Us (Remix de Trap do Among Us / Música de Meme do Amogus) por Leonz",
+			"pt" => "Tema musical original drip do Among Us (Remix de Trap do Among Us / Música de Meme do Amogus) por Leonz"
 		],
-		"id" => "fzQ6gRAEoy0",
-	],
+		"id" => "fzQ6gRAEoy0"
+	]
 ];
 
 foreach (array_keys($songs) as $key) {
@@ -103,10 +103,18 @@ foreach (array_keys($songs) as $key) {
 		$text = $Language -> Item($song["text"]);
 	}
 
+	if (isset($song["no_text"]) == True) {
+		$text = "";
+	}
+
 	$link = "https://www.youtube.com/";
 
 	if (isset($song["embed"]) == True) {
-		$link = "https://www.youtube.com/embed/";
+		$link .= "embed/";
+	}
+
+	if (isset($song["embed"]) == False) {
+		$link .= "watch?v=";
 	}
 
 	if (strstr($key, "Playlist") == False) {
@@ -139,13 +147,17 @@ foreach (array_keys($songs) as $key) {
 	}
 
 	if (isset($song["embed"]) == True) {
-		$website["variable_inserter"]["songs"][$key] = $text."<br />"."\n".'<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br />';
+		if ($text != "") {
+			$text = $text."<br />"."\n";
+		}
+
+		$website["variable_inserter"]["songs"][$key] = $text.'<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
 	}
 }
 
 # Define "The Life of Littletato" key of Variable Inserter array
 $website["variable_inserter"]["The_Life_of_Littletato"] = [
-	"images" => [],
+	"images" => []
 ];
 
 # Define "The Life of Littletato" images
@@ -154,7 +166,7 @@ $links = [
 
 	"Littletato" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Littletato.jpg",
 
-	"Mansion_of_Littletato_and_Friends" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Mansion of Littletato and Friends.png",
+	"Mansion_of_Littletato_and_Friends" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Mansion of Littletato and Friends.png"
 ];
 
 foreach (array_keys($links) as $key) {
@@ -165,25 +177,32 @@ foreach (array_keys($links) as $key) {
 $songs = [
 	"Yuru_Camp_Solo_Camp" => [
 		"text" => "Yuru Camp",
-		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM",
+		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM"
+	],
+	"Yuru_Camp_Soundtrack" => [
+		"text" => [
+			"en" => "Yuru Camp soundtrack",
+			"pt" => "Trilha sonora de Yuru Camp"
+		],
+		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM"
 	],
 	"Yuru_Camp_Solo_Camp_Title" => [
 		"text" => "Yuru Camp △ - OST - ソロキャン△のすすめ - Solo Camp 10 Hours",
-		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM",
+		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM"
 	],
 	"Folk_Songs" => [
 		"text" => [
 			"en" => "folk songs",
-			"pt" => "músicas do gênero folk",
+			"pt" => "músicas do gênero folk"
 		],
-		"link" => "https://www.youtube.com/watch?v=gRejhGxr69Y",
+		"link" => "https://www.youtube.com/watch?v=gRejhGxr69Y"
 	],
 	"Take_That_By_RIOT" => [
 		"text" => [
 			"en" => '"Take That" by RIOT',
-			"pt" => '"Take That" por RIOT',
+			"pt" => '"Take That" por RIOT'
 		],
-		"link" => "https://www.youtube.com/watch?v=NpNYYkXxT-A",
+		"link" => "https://www.youtube.com/watch?v=NpNYYkXxT-A"
 	],
 ];
 
@@ -199,25 +218,25 @@ foreach (array_keys($songs) as $key) {
 
 # Define "The Life of Littletato" chapter links and buttons
 $numbers = [
-	26,
+	26
 ];
 
 Create_Chapter_Link_And_Button($numbers, "The Life of Littletato");
 
 # Define SpaceLiving key of Variable Inserter array
 $website["variable_inserter"]["SpaceLiving"] = [
-	"images" => [],
+	"images" => []
 ];
 
-# Define SpaceLiving chapter links
+# Define the "SpaceLiving" chapter links
 $numbers = [
 	9,
-	10,
+	10
 ];
 
 Create_Chapter_Link_And_Button($numbers, "SpaceLiving");
 
-# Define SpaceLiving images
+# Define the "SpaceLiving" images
 $links = [
 	"Lisa" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Lisa.jpg".'"', $website["data"]["style"]["img"]["secondary_theme"]["light"],
 
@@ -231,7 +250,7 @@ $links = [
 
 	"Funky_Black_Cat_Original_Profile_Picture" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Funky Black Cat Original Profile Picture.png",
 
-	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg",
+	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg"
 ];
 
 foreach (array_keys($links) as $key) {
@@ -241,16 +260,126 @@ foreach (array_keys($links) as $key) {
 # Define SpaceLiving Discord server join link
 $texts = [
 	"en" => "Discord server of the SpaceLiving Network",
-	"pt" => "Servidor do Discord da Rede SpaceLiving",
+	"pt" => "Servidor do Discord da Rede SpaceLiving"
 ];
 
 $text = $Language -> Item($texts);
 
 $website["variable_inserter"]["SpaceLiving"]["Discord_Server"] = HTML::Element("a", '"'.$text.'"', 'href="https://discord.com/invite/NYN4CCu" target="_blank"');
 
+# Define "The Secret of the Crystals" key of Variable Inserter array
+$website["variable_inserter"]["The_Secret_of_the_Crystals"] = [
+	"images" => [],
+	"songs" => []
+];
+
+# Define "The Secret of the Crystals" images
+$links = [
+	"Lapis_Lazuli_Steven_Universe" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Lapis Lazuli.png",
+
+	"Humanoid_Ted" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Humanoid Kódek.jpg",
+];
+
+foreach (array_keys($links) as $key) {
+	$website["variable_inserter"]["The_Secret_of_the_Crystals"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["data"]["style"]["img"]["secondary_theme"]["light"]." ".$website["data"]["style"]["box_shadow"]["black"])."<br />";
+}
+
+# Define "The Secret of the Crystals" songs
+$songs = [
+	"Sharks_-_Coral" => [
+		"link" => "https://soundcloud.com/rushdownrecs/sharks-coral/comments/686621514"
+	],
+	"Sharks_-_Maelstrom_EP" => [
+		"link" => "https://www.youtube.com/watch?v=L9NU4luuCb0"
+	]
+];
+
+foreach (array_keys($songs) as $key) {
+	$song = $songs[$key];
+
+	$song["text"] = str_replace("_", " ", $key);
+
+	if (is_array($song["text"]) == True) {
+		$song["text"] = $Language -> Item($song["text"]);
+	}
+
+	$website["variable_inserter"]["The_Secret_of_the_Crystals"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+}
+
+# Define "The Story of the Bulkan Siblings" key of Variable Inserter array
+$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"] = [
+	"songs" => [],
+	"links" => []
+];
+
+# Define "The Story of the Bulkan Siblings" songs
+$songs = [
+	"Disneys_Zootopia_-_11_-_Work_Slowly_and_Carry_a_Big_Shtick" => [
+		"id" => "9o3cEYOxAjs"
+	]
+];
+
+foreach (array_keys($songs) as $key) {
+	$song = $songs[$key];
+
+	$link = "https://www.youtube.com/embed/".$song["id"];
+	$link .= "?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&";
+
+	$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"]["songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
+}
+
+# Define "The Story of the Bulkan Siblings" links
+$links = [
+	"Wikipedia_Tulpa" => [
+		"text" => [
+			"en" => "Read more on Wikipedia (Click here)",
+			"pt" => "Leia mais na Wikipedia (Clique aqui)"
+		],
+		"link" => [
+			"en" => "https://en.wikipedia.org/wiki/Tulpa",
+			"pt" => "https://pt.wikipedia.org/wiki/Tulpa"
+		]
+	]
+];
+
+foreach (array_keys($links) as $key) {
+	$link = $links[$key];
+
+	if (is_array($link["text"]) == True) {
+		$link["text"] = $Language -> Item($link["text"]);
+	}
+
+	else {
+		$link["text"] = str_replace("_", " ", $key);
+	}
+
+	if (is_array($link["link"]) == True) {
+		$link["link"] = $Language -> Item($link["link"]);
+	}
+
+	$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"]["links"][$key] = HTML::Element("a", $link["text"], 'href="'.$link["link"].'" target="_blank"');
+}
+
+# Define "The Story of the Bulkan Siblings" references
+$references = [
+	"Chapter_1" => [
+		"Link" => HTML::Element("a", "[1]", 'href="#Chapter_1_Reference_1"', $website["style"]["text_highlight"]),
+		"Anchor" => HTML::Element("a", "", 'name="Chapter_1_Reference_1"'),
+	],
+	"Chapter_3" => [
+		"Link" => HTML::Element("a", "[1]", 'href="#Chapter_3_Reference_1"', $website["style"]["text_highlight"]),
+		"Anchor" => HTML::Element("a", "", 'name="Chapter_3_Reference_1"'),
+	]
+];
+
+foreach (array_keys($references) as $key) {
+	$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"]["References"][$key] = $references[$key];
+}
+
+# Define general links
 $link = [
 	"en" => "https://en.wikipedia.org/wiki/My_Little_Pony:_Friendship_Is_Magic",
-	"pt" => "https://pt.wikipedia.org/wiki/My_Little_Pony:_A_Amizade_%C3%89_M%C3%A1gica",
+	"pt" => "https://pt.wikipedia.org/wiki/My_Little_Pony:_A_Amizade_%C3%89_M%C3%A1gica"
 ];
 
 $link = $Language -> Item($link);

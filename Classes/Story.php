@@ -75,35 +75,74 @@ class Story extends Class_ {
 		global $chapter_tab;
 
 		if (isset($website["data"]["json"]["story"]) == False) {
-			$variables_folder = $story["folders"]["Chapters"][$full_language]["root"].$website["language_texts"]["variables, title()"]."/";
-			$Folder -> Create($variables_folder);
+			$root_variables_folder = $story["folders"]["Chapters"]["root"].$website["texts"]["variables, title()"]["en"]."/";
+			$Folder -> Create($root_variables_folder);
 
-			$variables_file = $variables_folder.$chapter_tab["chapter_title_file"].".txt";
+			$root_variables_file = $root_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
+
+			$language_variables_folder = $story["folders"]["Chapters"][$full_language]["root"].$website["language_texts"]["variables, title()"]."/";
+			$Folder -> Create($language_variables_folder);
+
+			$language_variables_file = $language_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
 		}
 
 		# Define chapter file
 		$chapter_file = $story["folders"]["Chapters"][$full_language]["root"].$chapter_tab["chapter_title_file"].".txt";
 
-		$contents = $File -> Contents($chapter_file, $add_br = False);
-
-		# Run Insert_Variables method to insert variables in chapter text
-		if (isset($website["data"]["json"]["story"]) == False and file_exists($variables_file) == True) {
-			$contents = $File -> Contents($variables_file, $add_br = False);
-			$chapter_text = Text::Insert_Variables($contents["lines"]);
-			$chapter_text = str_replace("\n", "\n\t\t", $chapter_text);
-		}
+		$chapter_contents = $File -> Contents($chapter_file, $add_br = False);
+		$chapter_text = $chapter_contents["string"];
 
 		# Define chapter text without Insert_Variables
-		else {
-			$chapter_text = str_replace("\n", "<br />\n\t\t", $contents["string"]);
+		$chapter_text = str_replace("\n", "<br />\n\t\t", $chapter_text);
+
+		# Run the Insert_Variables method to insert variables in chapter text
+		if (isset($website["data"]["json"]["story"]) == False) {
+			if (file_exists($root_variables_file) == True) {
+				$root_variables_contents = $File -> Contents($root_variables_file, $add_br = True);
+
+				# Iterate through the root variables contents lines
+				$i = 0;
+				foreach ($root_variables_contents["lines"] as $line) {
+					# If the line contains a variable, insert the variable into the normal chapter text line
+					if (str_contains($line, "{\$") == True) {
+						$chapter_contents["lines"][$i] = Text::Insert_Variable($root_variables_contents["lines"][$i]);
+					}
+
+					$i++;
+				}
+			}
+
+			if (file_exists($language_variables_file) == True) {
+				$language_variables_contents = $File -> Contents($language_variables_file, $add_br = True);
+
+				# Iterate through the language variables contents lines
+				$i = 0;
+				foreach ($language_variables_contents["lines"] as $line) {
+					# If the line contains a variable, insert the variable into the normal chapter text line
+					if (str_contains($line, "{\$") == True) {
+						$chapter_contents["lines"][$i] = Text::Insert_Variable($language_variables_contents["lines"][$i]);
+					}
+
+					$i++;
+				}
+			}
+
+			# Remake the chapter contents string from the lines array
+			$chapter_text = Text::From_Array($chapter_contents["lines"], $format = "", $enumerate = False, $number_class = "", $class = "", $add_br = True, $add_n = True);
 		}
+
+		$chapter_text = Linkfy($chapter_text);
 
 		if (isset($website["data"]["json"]["chapter_text_replacer"]) == True) {
 			$chapter_text = $this -> Replace_Text($chapter_text);
 		}
 
-		if (isset($website["data"]["json"]["story"]) == False and file_exists($variables_file) == False and strstr($contents["string"], "<") !== False) {
-			$contents["string"] = htmlentities($contents["string"]);
+		if (
+			isset($website["data"]["json"]["story"]) == False and
+			file_exists($root_variables_file) == False and file_exists($language_variables_file) == False and
+			str_contains($chapter_contents["string"], "<") == True
+		) {
+			$chapter_contents["string"] = htmlentities($chapter_contents["string"]);
 		}
 
 		return $chapter_text;

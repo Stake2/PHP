@@ -36,6 +36,42 @@ class Text extends Class_ {
 		}
 	}
 
+	public static function Insert_Variable($line) {
+		global $website;
+
+		$words = explode(" ", $line);
+		$variable_matches = [];
+
+		$w = 0;
+		foreach ($words as $word) {
+			preg_match('/{\$.*\}/', $word, $matches);
+
+			if ($matches != []) {
+				$variable = str_replace(["{", "}"], "", $matches[0]);
+
+				ob_start();
+				eval("echo $variable;");
+				$variable = ob_get_clean();
+
+				$variable_matches[$matches[0]] = $variable;
+			}
+
+			$w++;
+		}
+
+		foreach (array_keys($variable_matches) as $match) {
+			$variable = $variable_matches[$match];
+
+			$line = str_replace($match, $variable, $line);
+		}
+
+		if (in_array(substr($line, -1), [":", ".", ";"]) == False and $line != "" and $variable_matches == []) {
+			$line .= ".";
+		}
+
+		return $line;
+	}
+
 	public static function Insert_Variables($text) {
 		global $website;
 
@@ -43,35 +79,7 @@ class Text extends Class_ {
 		foreach ($text as $line) {
 			$line_backup = $line;
 
-			$words = explode(" ", $line);
-			$variable_matches = [];
-
-			$w = 0;
-			foreach ($words as $word) {
-				preg_match('/{\$.*\}/', $word, $matches);
-
-				if ($matches != []) {
-					$variable = str_replace(["{", "}"], "", $matches[0]);
-
-					ob_start();
-					eval("echo $variable;");
-					$variable = ob_get_clean();
-
-					$variable_matches[$matches[0]] = $variable;
-				}
-
-				$w++;
-			}
-
-			foreach (array_keys($variable_matches) as $match) {
-				$variable = $variable_matches[$match];
-
-				$line = str_replace($match, $variable, $line);
-			}
-
-			if (in_array(substr($line, -1), [":", ".", ";"]) == False and $line != "" and $variable_matches == []) {
-				$line .= ".";
-			}
+			$line = self::Insert_Variable($line);
 
 			$text[$i] = $line;
 
