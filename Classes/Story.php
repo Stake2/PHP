@@ -91,6 +91,7 @@ class Story extends Class_ {
 
 		$chapter_contents = $File -> Contents($chapter_file, $add_br = False);
 		$chapter_text = $chapter_contents["string"];
+		$original_text = $chapter_text;
 
 		# Define chapter text without Insert_Variables
 		$chapter_text = str_replace("\n", "<br />\n\t\t", $chapter_text);
@@ -145,7 +146,11 @@ class Story extends Class_ {
 			$chapter_contents["string"] = htmlentities($chapter_contents["string"]);
 		}
 
-		return $chapter_text;
+		return array(
+			"Text" => $chapter_text,
+			"Text backup" => $original_text,
+			"Lines" => $chapter_contents["length"]
+		);
 	}
 
 	public function Chapter_Cover() {
@@ -418,6 +423,7 @@ class Story extends Class_ {
 		global $width;
 		global $margin;
 		global $i;
+		global $parse;
 
 		# Paint story and chapter titles
 		$color = $website["style"]["text"]["secondary_theme"]["normal"];
@@ -462,7 +468,9 @@ class Story extends Class_ {
 		}
 
 		# Get chapter text
-		$chapter_tab["chapter_text"] = $this -> Chapter_Text()."\n";
+		$array = $this -> Chapter_Text();
+
+		$chapter_tab["chapter_text"] = $array["Text"]."\n";
 
 		if (isset($website["style"]["chapter_text_color"]) == True) {
 			$chapter_tab["chapter_text_color"] = " text_".$website["style"]["chapter_text_color"];
@@ -487,6 +495,46 @@ class Story extends Class_ {
 
 		else {
 			$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
+		}
+
+		# Add a text area to write the chapter
+		if ($parse != "/generate") {
+			$class = $website["style"]["border_4px"]["theme"]["light"];
+
+			$style = "width: 100%; border: none; overflow: hidden; resize: none;";
+
+			$h2 = HTML::Element("h2", "<p><br /><b>".$website["language_texts"]["edit, title()"].":"."</b><br /><br /><p>", "", $chapter_tab["chapter_text_color"])."\n";
+
+			$title = "<center>".$h2."</center>";
+
+			#$rows = $array["Lines"] + ($array["Lines"] / 3) - 15;
+			$rows = "";
+
+			$text = str_replace("<br />", "", $array["Text backup"]);
+
+			$chapter_tab["chapter_text"] .= '<div class="'.$class.'" style="border-radius: 40px;">'."\n".
+			$title."\n".
+			"\t".'<div style="margin: 1.5%;">'."\n".
+			"\t\t".'<textarea class="'.$website["style"]["background"]["theme"]["normal"]." ".$chapter_tab["chapter_text_color"].'" style="'.$style.'" rows="'.$rows.'">'."\n".
+			$text.
+			"</textarea>"."\n".
+			"\t"."</div>"."\n".
+			"</div>"."\n".
+			$website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n".
+			"<br />";
+
+			// Add script to resize texarea
+			/*
+			$chapter_tab["chapter_text"] .= '<script>'.'
+			$(function() {
+				$("textarea").each(function() {
+					if (this.scrollHeight > this.clientHeight) {
+						this.style.height = this.scrollHeight + "px"
+					}
+				});
+			});
+			</script>';
+			*/
 		}
 
 		$chapter_tab["chapter_text"] .= "\t\t".$website["language_texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";

@@ -35,6 +35,7 @@ class Language_Class {
 			"English": "en"
 		}
 	}
+
 	texts = {}
 	language_texts = {}
 
@@ -68,22 +69,25 @@ class Language_Class {
 
 	Define_Texts() {
 		this.texts = {
-			"script_name": "Language",
-			"language_script_name": {
+			"class_title": {
 				"en": "Language",
-				"pt": "Idioma",
+				"pt": "Idioma"
 			},
-			"javascript_{0}_script_was_loaded": {
-				"en": 'JavaScript: "{0}.js" script was loaded.',
-				"pt": 'JavaScript: O script "{0}.js" foi carregado.',
+			"javascript_the_{0}_class_was_loaded_file_{1}.js": {
+				"en": 'JavaScript: The "{0}" class was loaded\nFile: "{1}.js"',
+				"pt": 'JavaScript: A classe "{0}" foi carregada\nArquivo: "{1}.js"'
 			},
+			"{Class}.{Method}(): {Text}": {
+				"en": '{0}.{1}(): {2}',
+				"pt": '{0}.{1}(): {2}'
+			}
 		}
 
 		this.language_texts = this.Item(this.texts)
 	}
 }
 
-// JavaScript String format function
+// String format function
 function format(text) {
 	var args = arguments
 
@@ -92,10 +96,48 @@ function format(text) {
 	})
 }
 
+// Show text on console function (easier to type than "console.log")
 function print(text) {
 	console.log(text)
 }
 
 const Language = new Language_Class()
 
-print(format(Language.language_texts["javascript_{0}_script_was_loaded"], Language.language_texts["language_script_name"]))
+// Class_Method text displayer
+function Class_Method(class_title) {
+	var Show_Class_Method = function(method, text) {
+		var local_class_title = class_title
+
+		if (local_class_title.constructor == Object) {
+			local_class_title = Language.Item(local_class_title)
+		}
+
+		if (method.constructor == Object) {
+			method = Language.Item(method)
+		}
+
+		if (text.constructor == Object) {
+			text = Language.Item(text)
+		}
+
+		print(format(local_class_title + ".{0}(): {1}", method, text))
+	}
+
+	return Show_Class_Method
+}
+
+// Loaded_Class text displayer
+function Loaded_Class(class_title) {
+	var local_class_title = class_title
+
+	var class_file = local_class_title["en"]
+
+	if (local_class_title.constructor == Object) {
+		local_class_title = Language.Item(local_class_title)
+	}
+
+	print(format(Language.language_texts["javascript_the_{0}_class_was_loaded_file_{1}.js"], local_class_title, class_file))
+}
+
+// Show the "Loaded_Class" text
+Loaded_Class(Language.texts["class_title"])

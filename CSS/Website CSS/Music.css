@@ -1,0 +1,513 @@
+body { 
+    /*background-image:url("bg.png");*/
+    background-color:black;
+    margin: 0;
+    padding: 0;
+} 
+ 
+.shadow {
+  border: 20px solid;
+  padding: 20px;
+  box-shadow: 5px 5px #888888;
+}
+
+h1, h2, h3, h4, h5, h6, a, button {
+  text-shadow: 2px 2px 5px gray;
+}
+
+.mobHide { display: none; }
+
+.bigShow { display: none;}
+
+@media only screen
+  and (min-device-width : 600px)
+  and (max-device-width : 1000px){ 
+    .bigShow {display: inline;}
+}
+
+.bigHide { display: inline;}
+
+@media only screen
+  and (min-device-width : 600px)
+  and (max-device-width : 1000px){ 
+    .bigHide {display: none;}
+}
+
+.smap { /* Sitemap */
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 21px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    float: left;
+}
+
+.smap:hover { /* Sitemap */
+    color: black;
+    box-shadow: 0 15px 17px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.poc { /* Prints of Computer */
+    background-color: transparent;
+    border: none;
+    padding: 0.2px 0.1px;
+    float: left;
+}
+
+.poc:hover { /* Prints of Computer */
+    background-color: white;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.pocm { /* Prints of Computer Mobile */
+    background-color: #3f48cc;
+    border: none;
+    padding: 0.1px 0.1px;
+    float: left;
+}
+
+.pocm:hover { /* Prints of Computer Mobile */
+    color: black;
+    box-shadow: 0 11px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.pocb { /* Prints of Computer Blocks */
+    background-color: transparent;
+    border: none;
+    padding: 0.1px 0.1px;
+    float: left;
+}
+
+.pocb:hover { /* Prints of Computer Blocks */
+    color: black;
+    box-shadow: 0 11px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.nw { /* Noteblock Website */
+    background-color: transparent;
+    border: none;
+    padding: 0.1px 0.1px;
+    float: left;
+}
+
+.nw:hover { /* Noteblock Website */
+    background-color: transparent;
+    color: black;
+    box-shadow: 0 11px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.posts { /* Posts */
+    background-color: transparent;
+    border: none;
+    padding: 0.1px 0.1px;
+    float: left;
+}
+
+.posts:hover { /* Posts */
+    background-color: transparent;
+    color: black;
+    box-shadow: 0 11px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.bluetext {
+	color:#002933;
+}
+
+/*
+.pocm { /* Prints of Computer Mobile 
+    background-color: #3f48cc;
+    border: none;
+    padding: 0.1px 0.1px;
+    float: left;
+}*/
+
+.blue {
+    border:1px solid black;
+	color:#002933;
+	background-color:#002933;
+}
+
+.pocm:hover { /* Prints of Computer Mobile */
+    color: black;
+    box-shadow: 0 11px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.pocb { /* Prints of Computer Blocks */
+    background-color: #FF7F27;
+    border: none;
+    padding: 0.1px 0.1px;
+    float: left;
+}
+
+.pocb:hover { /* Prints of Computer Blocks */
+    color: black;
+    box-shadow: 0 11px 15px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.nw { /* Noteblock Website */
+    background-color: #00FF00;
+    border: none;
+    padding: 0.1px 0.001px;
+    float: left;
+}
+
+.nw:hover { /* Noteblock Website */
+    background-color: white;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.posts { /* Posts */
+    background-color: #00FF00;
+    border: none;
+    padding: 0.1px 0.1px;
+    float: left;
+}
+
+.posts:hover { /* Posts */
+    background-color: white;
+    color: black;
+    box-shadow: 0 15px 17px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.fulltext {
+    color: #003300;
+    text-shadow: 2px 1px #009900;
+    font-family:arial; 
+}
+
+.button1 { /* Noteblock Website */
+    background-color: gray;
+    border: none;
+    color: black;
+    padding: 14px 21px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    float: left;
+}
+
+.button1:hover { /* Noteblock Website */
+    background-color: white;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Top,bottom buttons */
+
+.button4 { /* top button */
+    background-color: Transparent;
+    position: fixed;
+    border: none;
+    color: black;
+    display: inline-block;
+    transition-duration: 0.4s;
+    bottom: 445px;
+    right: 0px; 
+}
+
+/* .button4:hover {  top hover 
+    color: black;
+    box-shadow: 0 15px 17px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+} */
+
+.button3 { /* bottom button */
+    background-color: Transparent;
+    position: fixed;
+    border: none;
+    color: black;
+    transition-duration: 0.4s;
+    bottom: 500px;
+    right: 0px; 
+}
+
+/* .button3:hover {  bottom hover 
+    background-color: white;
+    color: black;
+    box-shadow: 0 15px 17px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+} */
+
+/* End of Top, Bottom buttons */
+
+.bkbutton {
+    border: none;
+    color: black;
+}
+
+ /* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gray;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+    background-color: gray;
+}
+
+.btn-img {
+	border:none;
+	outline:0;
+	padding:10px 10px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	color:transparent;
+	background-color:inherit;
+	text-align:center;
+	cursor:pointer;	
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: white;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/* Date visual */
+
+.date {
+    width:auto;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size:30px;
+    color:#2e80bf;
+    float:right;
+    font-weight:normal;
+    font-style:italic;
+    margin:0;
+    padding:0;
+    display:inline-block;
+}
+
+/* Download visual */
+
+.download {
+    style:font-family:arial;
+    color:#003300;
+    text-align:right;
+    margin: 0;
+    padding: 0;
+    float:right;
+}
+
+#list  p {
+    font: arial;
+    font-size:30px;
+    background-color: Transparent;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+    box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the list items */
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+/* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Style the header */
+.header {
+    background-color: #f44336;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the input */
+input {
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+.sees {
+  animation: blink 2s infinite;
+}
+
+sees {
+  animation: blink 2s infinite;
+}
+
+a.youtube1:hover {
+    position: relative;
+}
+
+a.youtube1:hover:after {
+    content: url(/yjn.png); 
+    display: block;
+    position: absolute;
+    left: 100px; /* change this value to one that suits you */
+    top: 40px; /* change this value to one that suits you */
+    width: 3%;
+    padding: 1px;
+}
+
+
+a:link    {color:green; background-color:transparent; text-decoration:none}
+a:visited {color:purple; background-color:transparent; text-decoration:none}
+//a:hover   {color:red; background-color:transparent; text-decoration:underline}
+a:active  {color:yellow; background-color:transparent; text-decoration:underline}

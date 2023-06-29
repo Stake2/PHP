@@ -2,47 +2,46 @@
 
 class Language_Redirector_Class {
 	"texts" = {
-		"script_name": "Language_Redirector",
-		"language_script_name": {
+		"class_title": {
 			"en": "Language_Redirector",
-			"pt": "Redirecionador_de_Idioma",
+			"pt": "Redirecionador_De_Idioma"
 		},
 		"check, title()": {
 			"en": "Check",
-			"pt": "Checagem",
+			"pt": "Checagem"
 		},
 		"website_title": {
 			"en": "Website title",
-			"pt": "Título do site",
+			"pt": "Título do site"
 		},
 		"website_link": {
 			"en": "Website link",
-			"pt": "Link do site",
+			"pt": "Link do site"
 		},
 		"website_language": {
 			"en": "Website language",
-			"pt": "Idioma do site",
+			"pt": "Idioma do site"
 		},
 		"user_language": {
 			"en": "User language",
-			"pt": "Idioma do usuário",
+			"pt": "Idioma do usuário"
 		},
 		"link, title()": {
 			"en": "Link",
-			"pt": "Link",
+			"pt": "Link"
 		},
 		"new_link": {
 			"en": "New link",
-			"pt": "Novo link",
+			"pt": "Novo link"
 		},
 		"the_user_is_in_the_{0}_redirecting_to_{1}_website": {
-			"en": `The user is in the {0} website, redirecting to {1} website`,
-			"pt": `O usuário está no site {0}, redirecionando para o site em {1}`,
+			"en": "The user is in the {0} website, redirecting to {1} website",
+			"pt": "O usuário está no site {0}, redirecionando para o site em {1}"
 		},
 		"the_user_is_in_the_correct_website_for_their_language": {
 			"en": "The user is in the correct website for their language",
-			"pt": "O usuário está no site correto para seu idioma",
-		},
+			"pt": "O usuário está no site correto para seu idioma"
+		}
 	}
 }
 
@@ -50,11 +49,13 @@ const Language_Redirector = new Language_Redirector_Class()
 
 Language_Redirector.language_texts = Language.Item(Language_Redirector.texts)
 
+Language_Redirector.Class_Method = Class_Method(Language_Redirector.texts["class_title"])
+
 // Define website dictionary
 var website = {
 	"title": String(document.title),
 	"link": String(window.location),
-	"addon": "",
+	"addon": ""
 }
 
 var languages = Language.languages
@@ -80,12 +81,21 @@ Object.keys(parameters).forEach(
 	}
 )
 
+// Define the "Check_Language" function
 function Check_Language() {
-	var text = Language_Redirector.language_texts["script_name"] + ".Check_Language():\n\n" +
-	Language_Redirector.language_texts["website_title"] + ": " + website["title"] + "\n" +
-	Language_Redirector.language_texts["website_link"] + ": " + website["link"] + "\n\n" +
-	Language_Redirector.language_texts["user_language"] + ": " + languages["full_translated"][languages["user"]][languages["user"]] + "\n" +
-	Language_Redirector.language_texts["website_language"] + ": " + languages["full_translated"][languages["full_to_small"][languages["meta"]]][languages["user"]]
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Verificar_Idioma"
+	}
+
+	var text = "\n\n" +
+	Language_Redirector.language_texts["website_title"] + ": " + '"{0}"' + "\n" +
+	Language_Redirector.language_texts["website_link"] + ": " + "{1}" + "\n\n" +
+	Language_Redirector.language_texts["user_language"] + ": " + "{2}" + "\n" +
+	Language_Redirector.language_texts["website_language"] + ": " + "{3}"
+
+	text = format(text, website["title"], website["link"], languages["full_translated"][languages["user"]][languages["user"]], languages["full_translated"][languages["full_to_small"][languages["meta"]]][languages["user"]])
 
 	website["correct_language"] = true
 
@@ -137,11 +147,12 @@ function Check_Language() {
 
 	text += "\n\n" + Language_Redirector.language_texts["check, title()"] + ": " + add_text
 
-	print(text)
+	Language_Redirector.Class_Method(method_title, text)
 
 	if (website["correct_language"] == false && website["check"] == false) {
 		window.location = website["link"]
 	}
 }
 
-print(format(Language.language_texts["javascript_{0}_script_was_loaded"], Language_Redirector.language_texts["language_script_name"]))
+// Show the "Loaded_Class" text
+Loaded_Class(Language_Redirector.texts["class_title"])

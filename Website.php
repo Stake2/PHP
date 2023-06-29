@@ -308,8 +308,10 @@ function Generate_Form() {
 	# Define website POST form
 	$website["form"] = $tpl -> draw("Form", $toString = True);
 	$website["form"] = Text::Format($website["form"], [$websites, $languages, $radio_buttons]);
+
+	# Reload the "Functions" class
 	$website["form"] .= "\n\n".
-	'<script type="text/javascript" src="'.$website["folders"]["javascript"]["root"].'Functions.js"></script>';
+	'<script type="text/javascript" src="JavaScript/Functions.js"></script>';
 }
 
 Generate_Form();
@@ -335,8 +337,8 @@ foreach ($file_names as $file_name) {
 	$website["css"]["links"] .= '<link rel="stylesheet" type="text/css" href="';
 
 	if (strpos($file_name, ".com") == False) {
-		#$website["css"]["links"] .= "./CSS/";
-		$website["css"]["links"] .= $website["folders"]["css"]["root"];
+		$website["css"]["links"] .= "./CSS/";
+		#$website["css"]["links"] .= $website["folders"]["css"]["root"];
 	}
 
 	$website["css"]["links"] .= $file_name.".css";
@@ -389,7 +391,7 @@ if (isset($website["data"]["json"]["background_image"]) == True) {
 	$website["style"]["background_image"] = ' style="background: url('."'".$link."'".') no-repeat center center fixed; background-size: 100% 100%;"';
 }
 
-#array_push($file_names, "https://code.jquery.com/jquery-3.6.0.slim.min");
+array_push($file_names, "https://code.jquery.com/jquery-3.6.0.slim.min");
 array_push($file_names, "https://kit.fontawesome.com/6f0935b8d2");
 
 $website["javascript"] = [];
@@ -596,6 +598,32 @@ if ($parse != "/generate") {
 
 if ($Global_Switches -> switches["verbose"] == True) {
 	$website["content"] .= "<br />"."\n\n".HTML::Element("div", Text::Show_Variable($website, $return = True), 'style="text-align:left;"', "");
+}
+
+if ($parse != "/generate") {
+	$website["content"] .= '<script>
+function Resize() {
+	var textareas = Array.from(document.getElementsByTagName("textarea"))
+
+	textareas.forEach(
+		function(element) {
+			element.style.height = element.scrollHeight + "px"
+		}
+	)
+}
+
+window.addEventListener("load", Resize)
+
+//var textareas = Array.from(document.getElementsByTagName("textarea"))
+
+//textareas.forEach(
+//	function(element) {
+//		element.addEventListener("click", function() {
+//			element.style.height = element.scrollHeight + "px"
+//		})
+//	}
+//)
+</script>';
 }
 
 $JSON -> Edit($folders["mega"]["php"]["website_information"], $website);

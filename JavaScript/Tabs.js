@@ -2,19 +2,26 @@
 
 class Tabs_Class {
 	"texts" = {
-		"script_name": "Tabs",
-		"language_script_name": {
+		"class_title": {
 			"en": "Tabs",
-			"pt": "Abas",
+			"pt": "Abas"
 		},
 		"opened_the_tab_with_id_{0}_title_{1}_and_number_{2}": {
 			"en": 'Opened the tab with id "{0}", title "{1}", and number "{2}"',
-			"pt": 'Aberto a aba com id "{0}", título "{1}", e número "{2}"',
+			"pt": 'Aberto a aba com id "{0}", título "{1}", e número "{2}"'
+		},
+		"showed_the_hamburger_menu": {
+			"en": 'Showed the hamburger menu',
+			"pt": 'Mostrou o menu hambúrguer'
+		},
+		"hidden_the_hamburger_menu": {
+			"en": 'Hidden the hamburger menu',
+			"pt": 'Escondeu o menu hambúrguer'
 		},
 		"undefined": {
 			"en": "Undefined",
-			"pt": "Indefinido",
-		},
+			"pt": "Indefinido"
+		}
 	}
 }
 
@@ -22,9 +29,17 @@ const Tabs = new Tabs_Class()
 
 Tabs.language_texts = Language.Item(Tabs.texts)
 
+Tabs.Class_Method = Class_Method(Tabs.texts["class_title"])
+
 var tabs, tab_number = 0
 
 function Open_Tab(tab_id) {
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Abrir_Aba"
+	}
+
 	// Get tab
 	var tab = document.getElementById(tab_id)
 
@@ -80,12 +95,15 @@ function Open_Tab(tab_id) {
 		Define_Chapter(chapter_number, tab_title)
 	}
 
-	print(Tabs.language_texts["script_name"] + ".Open_Tab(): " + format(Tabs.language_texts["opened_the_tab_with_id_{0}_title_{1}_and_number_{2}"], tab_id, tab_title, (tab_number + 1)) + ".")
+	// Show information about the opened tab
+	var text = format(Tabs.language_texts["opened_the_tab_with_id_{0}_title_{1}_and_number_{2}"], tab_id, tab_title, (tab_number + 1))
 
-	// Hide hamburger menu
+	Tabs.Class_Method(method_title, text)
+
+	// Hide the hamburger menu
 	w3.hide("#hamburger_menu")
 
-	// Show hamburger menu button
+	// Show the hamburger menu button
 	w3.show("#hamburger_menu_button")
 
 	// Get tab buttons
@@ -110,23 +128,45 @@ function Open_Tab(tab_id) {
 }
 
 function Show_Hamburger_Menu() {
-	// Show hamburger menu
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Mostrar_Menu_Hambúrguer"
+	}
+
+	// Show the hamburger menu
 	hamburger_menu = document.getElementById("hamburger_menu")
 	hamburger_menu.style.display = "block"
 
-	// Hide hamburger menu button
+	// Hide the hamburger menu button
 	hamburger_menu_button = document.getElementById("hamburger_menu_button")
 	hamburger_menu_button.style.display = "none"
+
+	// Show information about showing the hamburger menu
+	var text = Tabs.language_texts["showed_the_hamburger_menu"]
+
+	Tabs.Class_Method(method_title, text)
 }
 
 function Hide_Hamburger_Menu() {
-	// Hide hamburger menu
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Esconder_Menu_Hambúrguer"
+	}
+
+	// Hide the hamburger menu
 	hamburger_menu = document.getElementById("hamburger_menu")
 	hamburger_menu.style.display = "none"
 
-	// Show hamburger menu button
+	// Show the hamburger menu button
 	hamburger_menu_button = document.getElementById("hamburger_menu_button")
 	hamburger_menu_button.style.display = "block"
+
+	// Show information about hiding the hamburger menu
+	var text = Tabs.language_texts["hidden_the_hamburger_menu"]
+
+	Tabs.Class_Method(method_title, text)
 }
 
 // Open tab by URL
@@ -137,7 +177,7 @@ parameters = Object.fromEntries(
 // Check tab in URL and open if tab is present in URL
 var tab_keys = [
 	"tab",
-	"aba",
+	"aba"
 ]
 
 tab_keys.forEach(
@@ -148,7 +188,7 @@ tab_keys.forEach(
 					tab = Array.from(document.getElementsByClassName("tab"))[parameters[key] - 1]
 					Open_Tab(tab.id)
 				},
-				3000,
+				3000
 			)
 		}
 	}
@@ -230,6 +270,7 @@ var tab_by_key = function(event) {
 }
 
 // Add event listener
-document.addEventListener("keyup", tab_by_key);
+document.addEventListener("keyup", tab_by_key)
 
-print(format(Language.language_texts["javascript_{0}_script_was_loaded"], Tabs.language_texts["language_script_name"]))
+// Show the "Loaded_Class" text
+Loaded_Class(Tabs.texts["class_title"])

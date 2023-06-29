@@ -1,0 +1,21 @@
+:root {
+	--black-background: url("https://thestake2.netlify.app/Images/Backgrounds/Black%20Background.png");
+	--black-background-with-particles: url("https://thestake2.netlify.app/Images/Backgrounds/Black%20Background%20With%20Particles.png");
+}
+
+body { 
+    background-image: var(--black-background-with-particles); 
+    background-color: #D3D3D3;
+    margin: 0;
+    padding: 0;
+} 
+
+a.wb {
+	background-color:#2196F3;
+	color:#000;
+}
+
+.twb {
+	color:#000;
+	background-color:#4CAF50;
+}

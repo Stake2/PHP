@@ -77,14 +77,18 @@ foreach (["Language"] as $item) {
 # "Languages.json" file
 $folders["apps"]["module_files"]["utility"]["language"]["languages"] = $folders["apps"]["module_files"]["utility"]["language"]["root"]."Languages.json";
 
-$modules = array_diff($modules, ["Language"]);
-
 # Foreach loop on the module names list
 foreach ($modules as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 
 	# "Texts.json" file
-	$folders["apps"]["module_files"][$key]["texts"] = $folders["apps"]["module_files"][$key]["root"]."Texts.json";
+	if (isset($folders["apps"]["module_files"][$key]) == True) {
+		$folders["apps"]["module_files"][$key]["texts"] = $folders["apps"]["module_files"][$key]["root"]."Texts.json";
+	}
+
+	else {
+		$folders["apps"]["module_files"]["utility"][$key]["texts"] = $folders["apps"]["module_files"]["utility"][$key]["root"]."Texts.json";
+	}
 }
 
 # Mega folders

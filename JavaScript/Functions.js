@@ -1,9 +1,35 @@
 // Functions.js
 
+var Functions = {
+	"texts": {
+		"class_title": {
+			"en": "Functions",
+			"pt": "Funções"
+		}
+	}
+}
+
+Functions.language_texts = Language.Item(Functions.texts)
+
+Functions.Class_Method = Class_Method(Functions.texts["class_title"])
+
 // Functions that are used on various websites
 
-// Remove zoom class after page has been loaded
+// Remove the zoom class after the page has been loaded
 function Remove_Zoom() {
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Remover_Zoom"
+	}
+
+	// Define the verbose title
+	var text = {
+		"en": 'The "w3-animate-zoom" class was removed from the buttons (removed zoom animation of buttons)',
+		"pt": 'A classe "w3-animate-zoom" foi removida dos botões (removida animação de zoom dos botões)'
+	}
+
+	// Get all elements with the "w3-animate-zoom" class
 	array = Array.from(document.getElementsByClassName("w3-animate-zoom"))
 
 	array.forEach(
@@ -14,16 +40,17 @@ function Remove_Zoom() {
 		}
 	)
 
-	var text = {
-		"en": 'The "w3-animate-zoom" class was removed from the buttons (removed zoom animation of buttons)',
-		"pt": 'A classe "w3-animate-zoom" foi removida dos botões (removida animação de zoom dos botões)'
-	}
-
-	print("Functions.Remove_Zoom(): " + Language.Item(text) + ".")
+	Functions.Class_Method(method_title, text)
 }
 
 // Click on input button part
 function Click_Input(array)	{
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Clicar_Input"
+	}
+
 	var array = Array.from(array)
 
 	// Iterate through elements list
@@ -32,6 +59,13 @@ function Click_Input(array)	{
 			// If element is Input element, click it
 			if (item.tagName == "INPUT") {
 				item.click()
+
+				var text = {
+					"en": "Clicking on the Input element in a Div",
+					"pt": "Clicando no elemento Input em uma Div"
+				}
+
+				Functions.Class_Method(method_title, text)
 			}
 		}
 	)
@@ -95,13 +129,29 @@ array.forEach(
 
 // Add leading zeroes to number
 function Add_Leading_Zeroes(number) {
-	if (number <= 9) {
-		return "0" + String(number)
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Adicionar_Zeros_À_Esquerda"
 	}
 
-	if (number > 9) {
-		return number
+	var old_number = number
+
+	var text = {
+		"en": "Did not added leading zeros to this number: {0}",
+		"pt": "Não adicionou zeros à esquerda à este número: {0}"
 	}
+
+	if (number <= 9) {
+		text = {
+			"en": "Added leading zeros to this number: {0}",
+			"pt": "Adicionou zeros à esquerda à este número: {0}"
+		}
+
+		number = "0" + String(number)
+	}
+
+	Functions.Class_Method(method_title, format(text, number))
 }
 
 // Add text gotten from file to element
@@ -116,9 +166,49 @@ function Add_Text_To_Element(url, element) {
 	}
 }
 
-var script_name = {
-	"en": "Functions",
-	"pt": "Funções"
+// Hide hamburger buttons menu when scrolling down
+// Show hamburger buttons menu when scrolling up
+var hamburger_menu_button = document.getElementById("hamburger_menu_button")
+var last_scroll = window.scrollY
+
+function Check_Page_Scrolling() {
+	// Define the method title
+	var method_title = {
+		"en": arguments.callee.name,
+		"pt": "Verificar_Rolagem_Da_Página"
+	}
+
+	var window_Y = window.scrollY
+
+	// Scrolling up
+	if (window_Y < last_scroll) {
+		var text = {
+			"en": "The user scrolled the page up, showing the hamburger menu button",
+			"pt": "O usuário rolou a página para cima, mostrando o botão do menu hambúrguer"
+		}
+
+		w3.show("#hamburger_menu_button")
+		w3.addClass("#hamburger_menu_button", "w3-animate-zoom")
+	}
+
+	// Scrolling down
+	if (window_Y > last_scroll) {
+		var text = {
+			"en": "The user scrolled the page down, hiding the hamburger menu button",
+			"pt": "O usuário rolou a página para baixo, escondendo o botão do menu hambúrguer"
+		}
+
+		w3.hide("#hamburger_menu_button")
+		w3.removeClass("#hamburger_menu_button", "w3-animate-zoom")
+	}
+
+	last_scroll = window.scrollY
+
+	// Functions.Class_Method(method_title, text)
 }
 
-print(format(Language.language_texts["javascript_{0}_script_was_loaded"], Language.Item(script_name)))
+// Add the event listener
+window.addEventListener("scroll", Check_Page_Scrolling)
+
+// Show the "Loaded_Class" text
+Loaded_Class(Functions.texts["class_title"])

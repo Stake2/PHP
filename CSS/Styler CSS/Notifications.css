@@ -1,0 +1,33 @@
+.element_appear_from_bottom {
+	position:relative;
+	animation:element_appear_from_bottom_keyframe 3s;
+}
+
+@keyframes element_appear_from_bottom_keyframe {
+	from {
+		bottom:-300px;
+		opacity:0;
+	}
+
+	to {
+		bottom:0;
+		opacity:1;
+	}
+}
+
+.element_disappear_to_bottom {
+	position:relative;
+	animation:element_disappear_to_bottom_keyframe 10s;
+}
+
+@keyframes element_disappear_to_bottom_keyframe {
+	from {
+		bottom:0px;
+		opacity:1;
+	}
+
+	to {
+		bottom:-300px;
+		opacity:0;
+	}
+}

@@ -257,7 +257,7 @@ foreach (array_keys($links) as $key) {
 	$website["variable_inserter"]["SpaceLiving"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["data"]["style"]["img"]["secondary_theme"]["light"]." ".$website["data"]["style"]["box_shadow"]["black"])."<br />";
 }
 
-# Define SpaceLiving Discord server join link
+# Define the "SpaceLiving" Discord server join link
 $texts = [
 	"en" => "Discord server of the SpaceLiving Network",
 	"pt" => "Servidor do Discord da Rede SpaceLiving"
