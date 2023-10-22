@@ -120,7 +120,7 @@ function Class_Method(class_title) {
 			text = Language.Item(text)
 		}
 
-		print(format(local_class_title + ".{0}(): {1}", method, text))
+		print(format(local_class_title + ".{0}():\n{1}", method, text))
 	}
 
 	return Show_Class_Method

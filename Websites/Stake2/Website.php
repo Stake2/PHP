@@ -15,11 +15,11 @@ $full_language = $Language -> languages["full"][$language];
 # Define website folders
 $website["data"]["folders"]["izaque_sanvezzo"] = $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"];
 
-$website["data"]["folders"]["social_networks"] = $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["about_me_sobre_mim"]["social_networks"];
+$website["data"]["folders"]["Social Networks"] = $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["about_me_sobre_mim"]["Social Networks"];
 
 # Define website files
 $website["data"]["files"] = [
-	"social_networks" => $website["data"]["folders"]["social_networks"]["root"]."Social Networks.json",
+	"Social Networks" => $website["data"]["folders"]["Social Networks"]["root"]."Social Networks.json",
 ];
 
 # Define identities array
@@ -62,9 +62,9 @@ foreach ($identities as $identity) {
 
 	foreach ($identities as $local_identity) {
 		# Replace identity text with colored identity text
-		$bold = HTML::Element("b", $local_identity, "", "text_light_orange");
+		$element = HTML::Element("b", $local_identity, "", $website["data"]["style"]["text_highlight"]);
 
-		$string = str_replace($local_identity, $bold, $string);
+		$string = str_replace($local_identity, $element, $string);
 	}
 
 	$website["tabs"]["templates"][$identity]["content"] = $string;
@@ -74,7 +74,7 @@ foreach ($identities as $identity) {
 
 		$style = "width: 25%; height: auto;";
 
-		# Add Stake2 profile picture
+		# Add the "Stake2" profile picture
 		if ($identity == "Stake2") {
 			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity.".png";
 
@@ -84,16 +84,38 @@ foreach ($identities as $identity) {
 			array_push($images, $image);
 		}
 
-		if ($identity == "Funkysnipa Cat") {
-			$folder = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity."/";
+		if (
+			$identity == "Stake2" or
+			$identity == "Funkysnipa Cat"
+		) {
+			$remote_folder = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity."/";
+			$local_folder = $website["data"]["folders"]["local_website"]["images"]["images"]["root"].$identity."/";
 
 			$style .= "border-radius: 1px;";
 			$class = $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["theme"]["dark"];
 
-			# Add Funkysnipa Cat profile pictures
+			$formats = [
+				"png",
+				"jpeg",
+				"jpg"
+			];
+
+			$number_of_images = 7;
+
+			# Add Digital Identities profile pictures
 			$i = 1;
-			while ($i <= 6) {
-				$link = $folder.$i.".jpg";
+			while ($i <= $number_of_images) {
+				foreach ($formats as $format) {
+					if (file_exists($local_folder.$i.".".$format)) {
+						$right_format = $format;
+					}
+				}
+
+				if ($identity == "Stake2") {
+					$right_format = "jpg";
+				}
+
+				$link = $remote_folder.$i.".".$right_format;
 
 				# Identity image
 				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
@@ -103,21 +125,29 @@ foreach ($identities as $identity) {
 				$i++;
 			}
 
-			# Add Christmas profile picture of Funkysnipa Cat
-			$link = $folder.$website["language_texts"]["christmas, title(), en - pt"].".jpg";
+			$text = $website["language_texts"]["christmas, title(), en - pt"];
 
-			# Identity image
-			$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
+			if (file_exists($local_folder.$text.".png")) {
+				# Add the "Christmas" profile picture of the Digital Identity
+				$link = $remote_folder.$text.".png";
 
-			array_push($images, $image);
+				# Identity image
+				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
 
-			# Add Halloween profile picture of Funkysnipa Cat
-			$link = $folder.$website["language_texts"]["halloween, title()"].".jpg";
+				array_push($images, $image);
+			}
 
-			# Identity image
-			$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
+			$text = $website["language_texts"]["halloween, title()"];
 
-			array_push($images, $image);
+			if (file_exists($local_folder.$text.".png")) {
+				# Add Halloween profile picture of the Digital Identity
+				$link = $remote_folder.$text.".png";
+
+				# Identity image
+				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
+
+				array_push($images, $image);
+			}
 		}
 
 		# Define tab content
@@ -125,10 +155,6 @@ foreach ($identities as $identity) {
 
 		foreach ($images as $image) {
 			$website["tabs"]["templates"][$identity]["content"] .= $image;
-
-			if ($image != array_reverse($images)[0] and $identity != "Funkysnipa Cat") {
-				$website["tabs"]["templates"][$identity]["content"] .= "<br />"."\n";
-			}
 		}
 		
 		$website["tabs"]["templates"][$identity]["content"] .= $website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n".
@@ -138,9 +164,9 @@ foreach ($identities as $identity) {
 
 foreach ($identities as $identity) {
 	# Replace identity text with colored identity text
-	$bold = HTML::Element("b", $identity, "", "text_light_orange");
+	$element = HTML::Element("b", $identity, "", $website["data"]["style"]["text_highlight"]);
 
-	$website["data"]["description"]["header"] = str_replace($identity, $bold, $website["data"]["description"]["header"]);
+	$website["data"]["description"]["header"] = str_replace($identity, $element, $website["data"]["description"]["header"]);
 }
 
 # Define tab template for Social Networks
@@ -150,13 +176,13 @@ $website["tabs"]["templates"]["Social Networks"] = [
 	"content" => ""
 ];
 
-$social_networks_json = $JSON -> To_PHP($website["data"]["files"]["social_networks"]);
+$social_networks_json = $JSON -> To_PHP($website["data"]["files"]["Social Networks"]);
 
 # Iterate through Social Network categories
-foreach (array_keys($social_networks_json["categories"]) as $category) {
-	$key = $category;
+foreach (array_keys($social_networks_json["Categories"]) as $category) {
+	$key = str_replace(" ", "_", strtolower($category));
 
-	if (strstr($category, "_") === False) {
+	if (str_contains($key, "_") == False) {
 		$key .= ", title()";
 	}
 
@@ -166,11 +192,11 @@ foreach (array_keys($social_networks_json["categories"]) as $category) {
 
 	$website["tabs"]["templates"]["Social Networks"]["content"] .= "\t\t".HTML::Element("h2", "\n\t\t\t".$text.": "."\n\t\t", 'style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["light"]." margin_top_bottom_2_cent")."\n";
 
-	$social_networks = $social_networks_json["categories"][$category];
+	$social_networks = $social_networks_json["Categories"][$category];
 
 	# Iterate through Social Networks
 	foreach ($social_networks as $social_network) {
-		$link = $social_networks_json[$social_network]["link"];
+		$link = $social_networks_json[$social_network]["Link"];
 
 		if (isset($website["icons"][$social_network])) {
 			$social_network .= " ".$website["icons"][$social_network];

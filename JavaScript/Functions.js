@@ -40,7 +40,7 @@ function Remove_Zoom() {
 		}
 	)
 
-	Functions.Class_Method(method_title, text)
+	Class_Method(method_title, text)
 }
 
 // Click on input button part
@@ -65,7 +65,7 @@ function Click_Input(array)	{
 					"pt": "Clicando no elemento Input em uma Div"
 				}
 
-				Functions.Class_Method(method_title, text)
+				Class_Method(method_title, text)
 			}
 		}
 	)
@@ -151,7 +151,7 @@ function Add_Leading_Zeroes(number) {
 		number = "0" + String(number)
 	}
 
-	Functions.Class_Method(method_title, format(text, number))
+	Class_Method(method_title, format(text, number))
 }
 
 // Add text gotten from file to element
@@ -204,7 +204,7 @@ function Check_Page_Scrolling() {
 
 	last_scroll = window.scrollY
 
-	// Functions.Class_Method(method_title, text)
+	Class_Method(method_title, text)
 }
 
 // Add the event listener

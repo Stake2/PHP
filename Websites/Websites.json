@@ -1,0 +1,40 @@
+{
+	"List": {
+		"en": [
+			"Stake2",
+			"Prints of Computer Blocks",
+			"Diary",
+			"Diary Slim",
+			"My Little Pony",
+			"Friendship Is Magic",
+			"Watch History",
+			"Music",
+			"Games",
+			"Foobar Albums",
+			"Tasks",
+			"Stories"
+		],
+		"pt": [
+			"Stake2",
+			"Prints of Computer Blocks",
+			"Diário",
+			"Diário Slim",
+			"My Little Pony",
+			"A Amizade É Mágica",
+			"Watch History",
+			"Música",
+			"Jogos",
+			"Foobar Albums",
+			"Tarefas",
+			"Histórias"
+		]
+	},
+	"Remove from websites tab": [],
+	"Configuration": {
+		"Friendship Is Magic": {
+			"Parent": {
+				"Title": "My Little Pony"
+			}
+		}
+	}
+}

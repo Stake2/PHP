@@ -118,7 +118,7 @@ class HTML extends Class_ {
 
 			array_values($parameters),
 
-			$text,
+			$text
 		);
 	}
 

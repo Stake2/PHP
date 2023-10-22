@@ -10,23 +10,28 @@
 			"light": "light_orange",
 			"dark": "dark_orange"
 		},
-		"text_highlight": "light_orange"
+		"text_highlight": "dark_orange"
 	},
-	"image_file_name": "language",
 	"tabs": {
 		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
+			"first_tab": {
+				"name": {
+					"en": "First tab",
+					"pt": "Primeira aba"
+				},
+				"icon": "user_circle"
 			}
 		}
 	},
-	"story": true,
-	"chapter_text_replacer": true,
+	"descriptions": {
+		"html": {
+			"en": "",
+			"pt": ""
+		},
+		"header": {
+			"en": "",
+			"pt": ""
+		}
+	},
 	"color": "ffa500"
 }

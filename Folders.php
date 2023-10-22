@@ -209,12 +209,11 @@ foreach ($names as $item) {
 
 # "Izaque Sanvezzo/About me" folders
 $names = [
-	"Social Networks",
+	"Social Networks" => "Redes Sociais"
 ];
 
-foreach ($names as $item) {
-	$key = str_replace(" ", "_", strtolower($item));
-	$key = str_replace("_-_", "_", $key);
+foreach (array_keys($names) as $key) {
+	$item = $names[$key];
 
 	$folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["about_me_sobre_mim"][$key] = [
 		"root" => $folders["mega"]["notepad"]["effort"]["izaque_sanvezzo"]["about_me_sobre_mim"]["root"].$item."/"
@@ -330,13 +329,11 @@ foreach ($names as $item) {
 
 # PHP files
 $names = [
-	"Website_Information"
+	"Dictionary"
 ];
 
 foreach ($names as $item) {
-	$key = str_replace(" ", "_", strtolower($item));
-
-	$folders["mega"]["php"][$key] = $folders["mega"]["php"]["root"].$item.".json";
+	$folders["mega"]["php"][$item] = $folders["mega"]["php"]["root"].$item.".json";
 }
 
 # Classes folders and files
@@ -396,7 +393,7 @@ foreach ($names as $item) {
 }
 
 # Website Information files
-$folders["mega"]["php"]["websites"]["root_websites"] = $folders["mega"]["php"]["websites"]["root"]."Root websites.json";
+$folders["mega"]["php"]["websites"]["Websites"] = $folders["mega"]["php"]["websites"]["root"]."Websites.json";
 
 # Story files
 $names = [
@@ -419,7 +416,7 @@ $names = [
 	"SQL",
 	"Story",
 	"Website",
-	"Website_Dictionary"
+	"Make_Website_Dictionary"
 ];
 
 foreach ($names as $item) {

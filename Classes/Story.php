@@ -75,19 +75,19 @@ class Story extends Class_ {
 		global $chapter_tab;
 
 		if (isset($website["data"]["json"]["story"]) == False) {
-			$root_variables_folder = $story["folders"]["Chapters"]["root"].$website["texts"]["variables, title()"]["en"]."/";
+			$root_variables_folder = $story["Folders"]["Chapters"]["root"].$website["texts"]["variables, title()"]["en"]."/";
 			$Folder -> Create($root_variables_folder);
 
 			$root_variables_file = $root_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
 
-			$language_variables_folder = $story["folders"]["Chapters"][$full_language]["root"].$website["language_texts"]["variables, title()"]."/";
+			$language_variables_folder = $story["Folders"]["Chapters"][$full_language]["root"].$website["language_texts"]["variables, title()"]."/";
 			$Folder -> Create($language_variables_folder);
 
 			$language_variables_file = $language_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
 		}
 
 		# Define chapter file
-		$chapter_file = $story["folders"]["Chapters"][$full_language]["root"].$chapter_tab["chapter_title_file"].".txt";
+		$chapter_file = $story["Folders"]["Chapters"][$full_language]["root"].$chapter_tab["chapter_title_file"].".txt";
 
 		$chapter_contents = $File -> Contents($chapter_file, $add_br = False);
 		$chapter_text = $chapter_contents["string"];
@@ -160,9 +160,28 @@ class Story extends Class_ {
 		global $i;
 
 		if (isset($website["data"]["folders"]["local_website"]["images"]["story_covers"])) {
-			$local_chapter_cover = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i).".jpg";
+			$chapter_cover_file_name = $full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i);
 
-			$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i).".jpg";
+			$image_format = "";
+
+			$formats = [
+				"png",
+				"jpg",
+				"jpeg",
+				"gif"
+			];
+
+			foreach ($formats as $format) {
+				$local_image = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$format;
+
+				if (file_exists($local_image) == True) {
+					$local_chapter_cover = $local_image;
+
+					$image_format = $format;
+				}
+			}
+
+			$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$image_format;
 		}
 
 		else {
@@ -478,19 +497,24 @@ class Story extends Class_ {
 
 		$words = number_format(str_word_count($chapter_tab["chapter_text"]));
 
-		# Check chapter dates
-		if ($story["Information"]["Chapter dates"] != []) {
-			$date = $story["Information"]["Chapter dates"][$i - 1];
-			$format = "date_format";
+		# Check the chapter dates
+		if (
+			$story["Information"]["Chapters"]["Dates"] != []
+		) {
+			if (isset($story["Information"]["Chapters"]["Dates"][$i - 1]) == True) {
+				$date = $story["Information"]["Chapters"]["Dates"][$i - 1];
 
-			if (strstr($date, ":") == True) {
-				$format = "date_time_format";
+				$format = "date_format";
+
+				if (strstr($date, ":") == True) {
+					$format = "date_time_format";
+				}
+
+				$date = Date::Now($date, $website["texts"][$format]["pt"])[$website["language_texts"][$format]];
+
+				$chapter_tab["chapter_text"] .= "\t\t"."<br />"."<br />"."\n".
+				"\t\t".$website["language_texts"]["chapter_written_in"].": ".$date."<br />"."\n";
 			}
-
-			$date = Date::Now($date, $website["texts"][$format]["pt"])[$website["language_texts"][$format]];
-
-			$chapter_tab["chapter_text"] .= "\t\t"."<br />"."<br />"."\n".
-			"\t\t".$website["language_texts"]["chapter_written_in"].": ".$date."<br />"."\n";
 		}
 
 		else {
@@ -499,7 +523,9 @@ class Story extends Class_ {
 
 		# Add a text area to write the chapter
 		if ($parse != "/generate") {
-			$class = $website["style"]["border_4px"]["theme"]["light"];
+			$border_and_text_class = $website["data"]["style"]["background"]["theme"]["light"]." ".$website["data"]["style"]["text"]["theme"]["dark"];
+
+			$class = $border_and_text_class." ".$website["style"]["border_4px"]["theme"]["dark"];
 
 			$style = "width: 100%; border: none; overflow: hidden; resize: none;";
 
@@ -507,25 +533,34 @@ class Story extends Class_ {
 
 			$title = "<center>".$h2."</center>";
 
-			#$rows = $array["Lines"] + ($array["Lines"] / 3) - 15;
-			$rows = "";
+			$rows = $array["Lines"] + ($array["Lines"] / 3) - 90;
 
 			$text = str_replace("<br />", "", $array["Text backup"]);
 
-			$chapter_tab["chapter_text"] .= '<div class="'.$class.'" style="border-radius: 40px;">'."\n".
+			$textarea_class = 'class="'.$border_and_text_class;
+
+			if ($chapter_tab["chapter_text_color"] != "") {
+				$textarea_class .= " ".$chapter_tab["chapter_text_color"];
+			}
+
+			$textarea_class .= '"';
+
+			$chapter_tab["chapter_text"] .= "<br />".
+			'<div class="'.$class.'" style="border-radius: 40px;">'."\n".
 			$title."\n".
-			"\t".'<div style="margin: 1.5%;">'."\n".
-			"\t\t".'<textarea class="'.$website["style"]["background"]["theme"]["normal"]." ".$chapter_tab["chapter_text_color"].'" style="'.$style.'" rows="'.$rows.'">'."\n".
+			"\t".'<div style="margin: 3%;">'."\n".
+			$website["elements"]["hr_1px_no_margin"]["theme"]["dark"]."\n".
+			"\t\t".'<textarea '.$textarea_class.' style="'.$style.'" rows="'.$rows.'">'."\n".
 			$text.
 			"</textarea>"."\n".
 			"\t"."</div>"."\n".
 			"</div>"."\n".
-			$website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n".
+			$website["elements"]["hr_1px_no_margin"]["theme"]["dark"]."\n".
+			"<br />"."\n".
 			"<br />";
 
-			// Add script to resize texarea
-			/*
-			$chapter_tab["chapter_text"] .= '<script>'.'
+			// Add script to resize textarea
+			$chapter_tab["chapter_text"] .= "<script>".'
 			$(function() {
 				$("textarea").each(function() {
 					if (this.scrollHeight > this.clientHeight) {
@@ -534,7 +569,6 @@ class Story extends Class_ {
 				});
 			});
 			</script>';
-			*/
 		}
 
 		$chapter_tab["chapter_text"] .= "\t\t".$website["language_texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
@@ -550,8 +584,8 @@ class Story extends Class_ {
 			$chapter_tab["comment"] = str_replace("button", "buttons", $chapter_tab["comment"]);
 		}
 
-		$comments_folder = $story["folders"]["Comments"]["Chapter"].$chapter_tab["number_leading_zeroes"]."/";
-		$reads_folder = $story["folders"]["Readers and Reads"]["Reads"].$chapter_tab["number_leading_zeroes"]."/";
+		$comments_folder = $story["Folders"]["Comments"]["Chapter"].$chapter_tab["number_leading_zeroes"]."/";
+		$reads_folder = $story["Folders"]["Readers and Reads"]["Reads"].$chapter_tab["number_leading_zeroes"]."/";
 
 		if (file_exists($comments_folder) == True or file_exists($reads_folder) == True) {
 			$chapter_tab["additional_elements"] = $website["elements"]["hr_1px"]["theme"]["dark"];

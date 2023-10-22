@@ -9,12 +9,14 @@
 		},
 		"secondary_theme": {
 			"normal": "orange",
-			"light": "light_orange",
-			"dark": "dark_orange"
+			"light": "light_red",
+			"dark": "dark_red"
 		},
-		"text_highlight": "dark_orange"
+		"text_highlight": "black"
 	},
-	"image_width": "40%",
+	"image": {
+		"width": "40%"
+	},
 	"tabs": {
 		"data": {
 			"Izaque": {

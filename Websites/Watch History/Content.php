@@ -157,7 +157,7 @@ if (function_exists("Define_Title") == False) {
 }
 
 if (function_exists("Sanitize_Title") == False) {
-	function Sanitize_Title($title) {
+	function Sanitize_Title($title, $remove_dot = True) {
 		global $File;
 
 		if (strlen($title) > 1 and $title[0].$title[1] == ": ") {
@@ -168,7 +168,10 @@ if (function_exists("Sanitize_Title") == False) {
 			$title = str_replace(". ", " ", $title);
 		}
 
-		elseif (str_contains($title, ".")) {
+		if (
+			$remove_dot == True and
+			str_contains($title, ".")
+		) {
 			$title = str_replace(".", "", $title);
 		}
 

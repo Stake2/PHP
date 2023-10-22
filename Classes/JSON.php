@@ -19,7 +19,7 @@ class JSON extends Class_ {
 			$text."<br />"."\n".
 			$item."\n";
 
-			echo $string;
+			#echo $string;
 		}
 	}
 

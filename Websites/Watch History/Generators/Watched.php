@@ -292,12 +292,19 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 				}
 			}
 
-			if (array_key_exists("Comment", $entry) == True and array_key_exists("Link", $entry["Comment"]) == False) {
+			if (
+				array_key_exists("Comment", $entry) == True and
+				array_key_exists("Link", $entry["Comment"]) == False
+			) {
 				$title .= " ".HTML::Element("span", $website["icons"]["comment"], "", $website["style"]["text_highlight"]);
 			}
 
 			# If the entry tabs are activated
-			if (isset($entry["States"]) == True and isset($entry["States"]["Commented"]) and $website["States"]["Watch History"]["Entry tabs"] == True) {
+			if (
+				isset($entry["States"]) == True and
+				isset($entry["States"]["Commented"]) and
+				$website["States"]["Watch History"]["Entry tabs"] == True
+			) {
 				# If the past history entry tabs are activated
 				# Or they are deactivated and the year inside the data array is the same as the current year
 				if (
@@ -338,37 +345,43 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 							$media_title = Sanitize_Title($entry["Media"]["Original"]);
 						}
 
-						$media_folder = $media_info_folder.$media_title."/";
+						$media_folder = $media_info_folder.Sanitize_Title($media_title)."/";
 
 						# Add the media item list folder to the media folder
-						if ($item != "") {
-							if ($plural_media_type != $watch_history["texts"]["videos, title()"]["en"]) {
-								$text_key = "seasons";
-							}
+						if ($plural_media_type != $watch_history["texts"]["videos, title()"]["en"]) {
+							$text_key = "seasons";
+						}
 
-							if ($plural_media_type == $watch_history["texts"]["videos, title()"]["en"]) {
-								$text_key = "series";
-							}
+						if ($plural_media_type == $watch_history["texts"]["videos, title()"]["en"]) {
+							$text_key = "series";
+						}
 
-							$folder_name = $watch_history["texts"][$text_key.", title()"][$Language -> modules_language];
+						$folder_name = $watch_history["texts"][$text_key.", title()"][$Language -> modules_language];
 
-							# Add the media item list folder
+						# Add the media item list folder if it exists
+						if (file_exists($media_folder.$folder_name."/") == True) {
 							$media_folder .= $folder_name."/";
+						}
 
-							# Add the media item folder
-
+						if (array_key_exists("Item", $entry)) {
 							$item = $entry["Item"]["Original"];
 
 							if (isset($entry["Item"]["en"]) == True) {
 								$item = $entry["Item"]["en"];
 							}
 
-							$media_folder .= $item."/";
+							$media_folder .= Sanitize_Title($item)."/";
+						}
+
+						# Add the media folder if it exists
+						if (file_exists($media_folder.$media_title."/") == True) {
+							$media_folder .= $media_title."/";
 						}
 
 						# Get the comments folder
 						$comment_text = $website["texts"]["comments, title()"][$Language -> modules_language];
 						$comments_folder = $media_folder.$comment_text."/";
+						$comments_files_folder = $comments_folder.$website["texts"]["files, title()"][$Language -> modules_language]."/";
 
 						# Define the media unit text
 						$media_unit_title = Define_Title($entry["Media"]);
@@ -380,6 +393,8 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 						# Define and read the comments file
 						$comments_file = $comments_folder.$website["texts"]["comments, title()"]["en"].".json";
 						$comments = $JSON -> To_PHP($comments_file);
+
+						$verbosity_text = "";
 
 						# Iterate through the comment names list
 						foreach ($comments["Entries"] as $comment) {
@@ -393,8 +408,28 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 								"<br />"."\n".
 								$website["language_texts"]["comment, title()"].":"."<br />"."\n".
 								"<br />"."\n".
-								$File -> Contents($comments_folder.Sanitize_Title($comment["Entry"]).".txt")["string"];
+								$File -> Contents($comments_files_folder.Sanitize_Title($comment["Entry"], $remove_dot = False).".txt")["string"];
 							}
+
+							if (
+								$comment["Titles"][$language] != $media_unit_title and
+								$website["data"]["year"] == 2022
+							) {
+								if ($verbosity_text == "") {
+									$verbosity_text = $media_title."\n".
+									$media_folder."\n".
+									$comments_file."\n".
+									$website["data"]["year"];
+								}
+
+								$verbosity_text .= "\n".$comment["Titles"][$language]."\n".
+								$media_unit_title."\n".
+								$comment["Entry"]."\n";
+							}
+						}
+
+						if ($verbosity_text != "") {
+							#$Text -> Show_Variable($verbosity_text);
 						}
 					}
 
@@ -426,7 +461,10 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 			}
 
 			# Add the media unit comment link
-			if (array_key_exists("Comment", $entry) == True and array_key_exists("Link", $entry["Comment"]) == True) {
+			if (
+				array_key_exists("Comment", $entry) == True and
+				array_key_exists("Link", $entry["Comment"]) == True
+			) {
 				$link_text = $website["language_texts"]["comment_link"];
 
 				if (array_key_exists("Link", $entry) == False) {
