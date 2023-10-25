@@ -12,17 +12,7 @@
 		},
 		"text_highlight": "light_salmon"
 	},
-	"tabs": {
-		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
-			}
-		}
+	"image": {
+		"border_radius": 6
 	}
 }

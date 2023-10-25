@@ -2,9 +2,11 @@
 
 # Website.php
 
+require "Functions.php";
+
 $website = [
-	"author" => "Stake2",
-	"website_author" => "Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
+	"author" => "Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
+	"Twitter author" => "Stake2",
 	"format" => "https://{}.{}/"
 ];
 
@@ -14,7 +16,7 @@ foreach (array_keys($json) as $key) {
 	$website[$key] = $json[$key];
 }
 
-$website["painted_author"] = HTML::Element("span", $website["website_author"], "", "text_orange");
+$website["painted_author"] = HTML::Element("span", $website["author"], "", "text_orange");
 
 $website["netlify_format"] = "https://{}.".$website["netlify"]."/";
 
@@ -44,6 +46,13 @@ foreach ($json as $item) {
 if ($File -> Exist($folders["php"]["json"]["url"]) == False) {
 	$JSON -> Edit($folders["php"]["json"]["url"], $website["local_url"], "w");
 }
+
+$website["Image formats"] = [
+	"png",
+	"jpeg",
+	"jpg",
+	"gif"
+];
 
 $website["folders"] = [];
 
@@ -369,7 +378,7 @@ foreach ($file_names as $file_name) {
 	$website["css"]["links"] .= '<link rel="stylesheet" type="text/css" href="';
 
 	if (strpos($file_name, ".com") == False) {
-		$website["css"]["links"] .= "./CSS/";
+		$website["css"]["links"] .= "/CSS/";
 		#$website["css"]["links"] .= $website["folders"]["css"]["root"];
 	}
 
@@ -406,15 +415,17 @@ $GLOBALS["link_class"] = $website["data"]["style"]["text_highlight"]." ".$websit
 $website["style"]["background_image"] = "";
 
 if (isset($website["data"]["json"]["background_image"]) == True) {
-	$local_image_file = $website["data"]["folders"]["local_website"]["images"]["images"]["root"].$website["data"]["json"]["background_image"];
+	$local_image_file = $website["data"]["folders"]["local_website"]["images"]["images"]["root"];
 
-	$formats = [
-		"png",
-		"jpg",
-		"gif"
-	];
+	if ($website["data"]["json"]["background_image"] != "") {
+		$local_image_file .= $website["data"]["json"]["background_image"];
+	}
 
-	foreach ($formats as $format) {	
+	else {
+		$local_image_file .= "Background";
+	}
+
+	foreach ($website["Image formats"] as $format) {	
 		$local_image = $local_image_file.".".$format;
 
 		if (file_exists($local_image) == True) {
@@ -532,6 +543,10 @@ if (isset($website["data"]) == True) {
 
 	$website["data"]["image"]["elements"]["theme"]["light"] .= $website["data"]["image"]["button"]."\n";
 
+	if (isset($website["data"]["json"]["tabs"]) == False) {
+		$website["data"]["json"]["tabs"] = [];
+	}
+
 	$website["tabs"] = $website["data"]["json"]["tabs"];
 
 	$website["tabs"]["templates"] = [];
@@ -555,11 +570,15 @@ if (isset($website["data"]) == True) {
 if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story"])) {
 	$story = $website["data"]["story"];
 
+	# Require the "Story.php" file to define story website variables
 	require $folders["php"]["story"];
 }
 
 # Define website data related to year websites
-if ($website["data"]["title"] == "Years" or in_array($website["data"]["title"], $website["years"])) {
+if (
+	$website["data"]["title"] == "Years" or
+	in_array($website["data"]["title"], $website["years"])
+) {
 	$year_buttons = "";
 
 	foreach ($website["years"] as $year) {
@@ -568,13 +587,48 @@ if ($website["data"]["title"] == "Years" or in_array($website["data"]["title"], 
 		$year_buttons .= $year_button."\n";
 	}
 
-	# Create years tab template
+	# Add tab keys and templates
+	$tab_titles = [
+		"summary"
+	];
+
+	if ((int)$website["data"]["title"] >= 2022) {
+		array_push($tab_titles, "this_year_i");
+	}
+
+	# Add the "Years" tab
+	$more_tabs = [
+		"watched_things",
+		"completed_tasks",
+		"years",
+	];
+
+	$tab_titles = array_merge($tab_titles, $more_tabs);
+
+	$tabs = [];
+
+	foreach ($tab_titles as $tab) {
+		$tabs[$tab] = [
+			"template" => $tab
+		];
+	}
+
+	$website["tabs"]["data"] = $website["tabs"]["data"] + $tabs;
+
+	# Create the years tab template
 	$website["tabs"]["templates"]["years"] = [
 		"name" => $website["language_texts"]["years, title()"],
 		"add" => " ".HTML::Element("span", count($website["years"]), "", $website["style"]["text_highlight"]),
 		"content" => $year_buttons,
 		"icon" => "calendar_days"
 	];
+
+	# Move the websites tab template to the end
+	$backup = $website["tabs"]["data"]["websites_tab"];
+
+	unset($website["tabs"]["data"]["websites_tab"]);
+
+	$website["tabs"]["data"]["websites_tab"] = $backup;
 }
 
 # Define the website content, adding the "select website" form

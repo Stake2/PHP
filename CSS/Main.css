@@ -42,7 +42,7 @@ body {
 	}
 
 	.image_size {
-		max-width: 100%;
+		max-width: 40vw;
 	}
 
 	.div_size {
@@ -67,7 +67,7 @@ body {
 	}
 
 	.image_size {
-		max-width: 80%;
+		max-width: 40vw;
 	}
 
 	.header_size {
@@ -88,7 +88,7 @@ body {
 	}
 
 	.image_size {
-		max-width: var(--max-width);
+		max-width: 50vw;
 	}
 
 	.header_size {
@@ -105,7 +105,7 @@ body {
 	and (min-device-width: 1025px) {
 
 	.image_size {
-		max-width: var(--max-width);
+		max-width: 50vw;
 	}
 
 	.header_size {
@@ -186,12 +186,32 @@ body {
 	border-style: solid!important;
 }
 
+.width_10_cent {
+	width: 10%;
+}
+
 .width_50_cent {
 	width: 50%;
 }
 
+.width_100_cent {
+	width: 100%;
+}
+
+.border_radius_1_cent {
+	border-radius: 1%;
+}
+
+.border_radius_3_cent {
+	border-radius: 3%;
+}
+
 .border_radius_5_cent {
 	border-radius: 5%;
+}
+
+.border_radius_6_cent {
+	border-radius: 6%;
 }
 
 .border_radius_8_cent {

@@ -412,6 +412,7 @@ foreach ($names as $item) {
 # Index PHP files
 $names = [
 	"Folders",
+	"Functions",
 	"Index",
 	"SQL",
 	"Story",

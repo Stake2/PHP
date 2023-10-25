@@ -474,5 +474,9 @@
 	"source, title()": {
 		"en": "Source",
 		"pt": "Fonte"
+	},
+	"Year website descriptions": {
+		"en": "Website to show how {website_title} was, and what I did in it.\nMade by {author}.",
+		"pt": "Site para mostrar como {website_title} foi, e o que eu fiz nele.\nFeito por {author}."
 	}
 }

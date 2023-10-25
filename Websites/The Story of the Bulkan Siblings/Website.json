@@ -11,18 +11,5 @@
 			"dark": "dark_brown"
 		},
 		"text_highlight": "dark_brown"
-	},
-	"tabs": {
-		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
-			}
-		}
 	}
 }

@@ -90,6 +90,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define the website link
 	$website_link = $website_title;
 
+	$custom_website_link = "";
+
 	# Parent story configuration
 	if (
 		$website_dictionary["type"] == "Story" and
@@ -129,7 +131,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$link = $website_link;
 
-	if (isset($custom_website_link)) {
+	if (
+		isset($custom_website_link) and
+		$custom_website_link != ""
+	) {
 		$link = $custom_website_link;
 	}
 
@@ -221,14 +226,26 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$verbose_text .= "\n";
 
-	# PHP website tabs folder
+	# Define the website tabs folder
 	$website_dictionary["folders"]["php"]["tabs"] = $website_dictionary["folders"]["php"]["root"]."Tabs/";
 
-	# PHP website JSON file
+	# Define the "Website.json" file
 	$website_dictionary["folders"]["php"]["website"] = $website_dictionary["folders"]["php"]["root"]."Website.json";
 
-	# PHP website PHP file
+	# Define the "Website.php" file
 	$website_dictionary["folders"]["php"]["website_php"] = $website_dictionary["folders"]["php"]["root"]."Website.php";
+
+	# Define the website "Descriptions" folder
+	$website_dictionary["folders"]["php"]["descriptions"] = [
+		"root" => $website_dictionary["folders"]["php"]["root"]."Descriptions/"
+	];
+
+	# Define the language website descriptions files
+	foreach ($website["small_languages"] as $local_language) {
+		$local_full_language = $Language -> languages["full"][$local_language];
+
+		$website_dictionary["folders"]["php"]["descriptions"][$local_language] = $website_dictionary["folders"]["php"]["descriptions"]["root"].$local_full_language.".txt";
+	}
 
 	if (
 		file_exists($website_dictionary["folders"]["php"]["website"]) == False or
@@ -333,13 +350,19 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define website title with icon
 	$website_dictionary["titles"]["icon"] = $website_dictionary["titles"]["language"];
 
-	# Add book icon to story websites
-	if ($website_title == "Stories" or in_array($website_title, $stories["Titles"]["en"]) == True) {
+	# Add the book icon to story websites
+	if (
+		$website_title == "Stories" or
+		in_array($website_title, $stories["Titles"]["en"]) == True
+	) {
 		$website_dictionary["titles"]["icon"] .= " ".$website["icons"]["book"];
 	}
 
-	# Add calendar days icon to year websites
-	if ($website_title == "Years" or in_array($website_title, $website["years"])) {
+	# Add the "calendar days" icon to year websites
+	if (
+		$website_title == "Years" or
+		in_array($website_title, $website["years"])
+	) {
 		$website_dictionary["titles"]["icon"] .= " ".$website["icons"]["calendar_days"];
 	}
 
@@ -347,7 +370,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["titles"]["icon"] .= " ".$website["icons"][$website_dictionary["json"]["icon"]];
 	}
 
-	$website_dictionary["link"] = $website["url"].$website_link."/";
+	$website_dictionary["link"] = $website["url"].$link."/";
 
 	# Define website links
 	$website_dictionary["links"] = [];
@@ -395,11 +418,23 @@ foreach ($websites["List"]["en"] as $website_title) {
 			"black" => "text_black"
 		],
 		"border_radius" => "border_radius_15_cent",
-		"border_radius_image" => "border_radius_8_cent"
+		"border_radius_image" => "border_radius_8_cent",
+		"border_radius_website_image" => "border_radius_8_cent"
 	];
 
-	if (isset($website_dictionary["json"]["border_radius_image"]) == True) {
-		$website_dictionary["style"]["border_radius_image"] = $website_dictionary["json"]["border_radius_image"];
+	if (isset($website_dictionary["json"]["image"]) == False) {
+		$website_dictionary["json"]["image"] = [];
+	}
+
+	if (
+		isset($website_dictionary["json"]["image"]) == True and
+		isset($website_dictionary["json"]["image"]["border_radius"])
+	) {
+		$website_dictionary["style"]["border_radius_website_image"] = "border_radius_".$website_dictionary["json"]["image"]["border_radius"]."_cent";
+	}
+
+	if (isset($website_dictionary["json"]["image"]["box_shadow"]) == False) {
+		$website_dictionary["json"]["image"]["box_shadow"] = True;
 	}
 
 	# Define default border color
@@ -483,18 +518,48 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define website image themes
 	foreach ($types as $type) {
 		if (is_array($website_dictionary["style"]["border_4px"][$type]) === False) {
-			$website_dictionary["style"]["img"][$type] = "image_size ".$website_dictionary["style"]["border_4px"][$type];
-	
-			$website_dictionary["style"]["img"][$type] .= " ".$website_dictionary["style"]["border_radius_image"];
+			$website_dictionary["style"]["img"][$type] = "image_size";
+
+			$text = " ".$website_dictionary["style"]["border_4px"][$type];
+
+			if (isset($website_dictionary["json"]["image"]) == True) {
+				if (
+					isset($website_dictionary["json"]["image"]["border"]) and
+					$website_dictionary["json"]["image"]["border"] == True or
+						isset($website_dictionary["json"]["image"]["border"]) == False
+				) {
+					$website_dictionary["style"]["img"][$type] .= $text;
+				}
+			}
+
+			if (isset($website_dictionary["json"]["image"]) == False) {
+				$website_dictionary["style"]["img"][$type] .= $text;
+			}
+
+			$website_dictionary["style"]["img"][$type] .= " ".$website_dictionary["style"]["border_radius_website_image"];
 		}
 
 		if (is_array($website_dictionary["style"]["border_4px"][$type]) === True) {
 			foreach (array_keys($website_dictionary["style"]["border_4px"][$type]) as $key) {
-				$website_dictionary["style"]["img"][$type][$key] = "image_size ";
+				$website_dictionary["style"]["img"][$type][$key] = "image_size";
 
-				$website_dictionary["style"]["img"][$type][$key] .= $website_dictionary["style"]["border_4px"][$type][$key];
+				$text = " ".$website_dictionary["style"]["border_4px"][$type][$key];
 
-				$website_dictionary["style"]["img"][$type][$key] .= " ".$website_dictionary["style"]["border_radius_image"];
+				if (isset($website_dictionary["json"]["image"]) == True) {
+					if (
+						isset($website_dictionary["json"]["image"]["border"]) and
+						$website_dictionary["json"]["image"]["border"] == True or
+						isset($website_dictionary["json"]["image"]["border"]) == False
+					) {
+						$website_dictionary["style"]["img"][$type][$key] .= $text;
+					}
+				}
+
+				if (isset($website_dictionary["json"]["image"]) == False) {
+					$website_dictionary["style"]["img"][$type][$key] .= $text;
+				}
+
+				$website_dictionary["style"]["img"][$type][$key] .= " ".$website_dictionary["style"]["border_radius_website_image"];
 			}
 		}
 	}
@@ -529,8 +594,14 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		"theme" => "header_size ".$website_dictionary["style"]["background"]["theme"]["normal"]." ".$website_dictionary["style"]["text"]["black"]." ".$website_dictionary["style"]["border_4px"]["theme"]["light"]." ".$website_dictionary["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
-		"theme_dark" => "header_size ".$website_dictionary["style"]["background"]["theme"]["normal"]." ".$website_dictionary["style"]["text"]["theme"]["dark"]." ".$website_dictionary["style"]["border_4px"]["theme"][$border_color]." ".$website_dictionary["style"]["box_shadow_class"]." ".$website_dictionary["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom"
+		"theme_dark" => "header_size ".$website_dictionary["style"]["background"]["theme"]["normal"]." ".$website_dictionary["style"]["text"]["theme"]["dark"]." ".$website_dictionary["style"]["border_4px"]["theme"][$border_color]." "
 	];
+
+	if ($website_dictionary["json"]["image"]["box_shadow"] == True) {
+		$website_dictionary["style"]["tab"]["theme_dark"] .= $website_dictionary["style"]["box_shadow_class"]." ";
+	}
+
+	$website_dictionary["style"]["tab"]["theme_dark"] .= $website_dictionary["style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom";
 
 	$website_dictionary["style"]["tab"]["black"] = $website_dictionary["style"]["tab"]["theme_dark"];
 
@@ -562,13 +633,6 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$remote_folder = $website_dictionary["image"]["link"];
 
-	$formats = [
-		"png",
-		"jpg",
-		"jpeg",
-		"gif"
-	];
-
 	$local_folder = $folders["mega"]["websites"]["images"]["icons"]["root"];
 
 	$verbose_text .= "Imagem:"."\n".
@@ -577,7 +641,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	"\n".
 	"\t"."Formatos:"."\n";
 
-	foreach ($formats as $format) {	
+	foreach ($website["Image formats"] as $format) {	
 		$local_image = $local_folder.$file_name.".".$format;
 
 		$verbose_text .= "\t\t".'"'.$format.'"'."\n";
@@ -591,6 +655,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$website_dictionary["image"]["link"] .= ".".$website_dictionary["image"]["format"];
 
+	if (isset($website_dictionary["json"]["image"]["width"]) == False) {
+		$website_dictionary["json"]["image"]["width"] = "";
+	}
+
 	# Define website image link for stories
 	if ($website_dictionary["type"] == "Story") {
 		# Check for story cover in root folder
@@ -601,7 +669,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		# If the format is empty
 		if ($website_dictionary["image"]["format"] == "") {
-			foreach ($formats as $format) {	
+			foreach ($website["Image formats"] as $format) {	
 				$local_image = $local_folder.$file_name.".".$format;
 				$local_image_per_language = $local_folder.$full_language."/".$file_name.".".$format;
 
@@ -620,6 +688,15 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		$website_dictionary["image"]["link"] .= $file_name.".".$website_dictionary["image"]["format"];
+
+		$website_dictionary["json"]["image"]["width"] = "50";
+	}
+
+	if (
+		in_array($website_title, $website["years"]) == True or
+		str_contains($website_title, "Diary")
+	) {
+		$website_dictionary["json"]["image"]["width"] = "30";
 	}
 
 	$verbose_text .= "\n"."\t"."Formato: ".'"'.$website_dictionary["image"]["format"].'"'."\n\n";
@@ -645,30 +722,24 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$website_dictionary["image"]["local_link"] = str_replace($website["url"], $folders["mega"]["websites"]["root"], $website_dictionary["image"]["link"]);
 
-	$website_dictionary["image"]["element"] = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $website_dictionary["style"]["box_shadow"]["theme"][$website_dictionary["style"]["box_shadow_color"]]." ".$website_dictionary["style"]["img"]["theme"]["normal"])."<br />"."\n";
+	$class = $website_dictionary["style"]["img"]["theme"]["normal"];
 
-	if (
-		in_array($website_title, $website["years"]) == True or
-		str_contains($website_title, "Diary")
-	) {
-		$width = "40";
-
-		$website_dictionary["image"]["element"] = str_replace("height: auto;", "max-width: ".$width."%"."; height: auto;", $website_dictionary["image"]["element"]);
+	if ($website_dictionary["json"]["image"]["box_shadow"] == True) {
+		$class .= " ".$website_dictionary["style"]["box_shadow"]["theme"][$website_dictionary["style"]["box_shadow_color"]];
 	}
 
-	if (
-		isset($website_dictionary["json"]["image"]) == True and
-		isset($website_dictionary["json"]["image"]["width"]) == True
-	) {
+	$website_dictionary["image"]["element"] = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class)."<br />"."\n";
+
+	if ($website_dictionary["json"]["image"]["width"] != "") {
 		$website_dictionary["image"]["element"] = str_replace("image_size ", "", $website_dictionary["image"]["element"]);
-		$website_dictionary["image"]["element"] = str_replace("height: auto;", "max-width: ".$website_dictionary["json"]["image"]["width"]."; height: auto;", $website_dictionary["image"]["element"]);
+		$website_dictionary["image"]["element"] = str_replace("height: auto;", "max-width: ".$website_dictionary["json"]["image"]["width"]."vw; height: auto;", $website_dictionary["image"]["element"]);
 	}
 
 	# Define website image elements for style
 	$types = [
 		"black",
 		"theme",
-		"secondary_theme",
+		"secondary_theme"
 	];
 
 	# Define website image element themes
@@ -676,11 +747,17 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	foreach ($types as $type) {
 		if ($type == "black") {
-			$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $website_dictionary["style"]["box_shadow"]["theme"]["light"]." ".$website_dictionary["style"]["img"]["black"])."<br />"."\n";
+			$class = $website_dictionary["style"]["img"]["black"];
 
-			if (isset($website_dictionary["json"]["image"]["width"]) == True) {
+			if ($website_dictionary["json"]["image"]["box_shadow"] == True) {
+				$class .= " ".$website_dictionary["style"]["box_shadow"]["theme"]["light"];
+			}
+
+			$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class)."<br />"."\n";
+
+			if ($website_dictionary["json"]["image"]["width"] != "") {
 				$image = str_replace("image_size ", "", $image);
-				$image = str_replace("height: auto;", "max-width: ".$website_dictionary["json"]["image"]["width"]."; height: auto;", $image);
+				$image = str_replace("height: auto;", "max-width: ".$website_dictionary["json"]["image"]["width"]."vw; height: auto;", $image);
 			}
 
 			$website_dictionary["image"]["elements"][$type] = $image;
@@ -688,11 +765,17 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		if ($type != "black") {
 			foreach (array_keys($website_dictionary["style"]["img"][$type]) as $key) {
-				$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $website_dictionary["style"]["box_shadow"]["theme"][$key]." ".$website_dictionary["style"]["img"]["theme"][$key])."<br />"."\n";
+				$class = $website_dictionary["style"]["img"]["theme"][$key];
 
-				if (isset($website_dictionary["json"]["image"]["width"]) == True) {
+				if ($website_dictionary["json"]["image"]["box_shadow"] == True) {
+					$class .= " ".$website_dictionary["style"]["box_shadow"]["theme"][$key];
+				}
+
+				$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class." ".$website_dictionary["style"]["img"]["theme"][$key])."<br />"."\n";
+
+				if ($website_dictionary["json"]["image"]["width"] != "") {
 					$image = str_replace("image_size ", "", $image);
-					$image = str_replace("height: auto;", "max-width: ".$website_dictionary["json"]["image"]["width"]."; height: auto;", $image);
+					$image = str_replace("height: auto;", "max-width: ".$website_dictionary["json"]["image"]["width"]."vw; height: auto;", $image);
 				}
 
 				$website_dictionary["image"]["elements"][$type][$key] = $image;
@@ -700,48 +783,108 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 	}
 
-	# Define website description
+	# Define the default website descriptions array
 	$website_dictionary["description"] = [
 		"html" => "",
 		"header" => ""
 	];
 
-	if (isset($website_dictionary["json"]["descriptions"]) == True) {
-		$website_dictionary["description"]["html"] = $Language -> Item($website_dictionary["json"]["descriptions"]["html"]);
+	# Define the normal website descriptions
+	if ($website_dictionary["type"] == "Normal") {
+		$json_descriptions = True;
+
+		# Define the JSON descriptions array
+		if (isset($website_dictionary["json"]["descriptions"]) == True) {
+			$descriptions = $website_dictionary["json"]["descriptions"];
+		}
+
+		# Define the file descriptions array
+		if (file_exists($website_dictionary["folders"]["php"]["descriptions"]["root"])) {
+			$descriptions = [
+				"html" => []
+			];
+		
+			# Define the language website descriptions files
+			foreach ($website["small_languages"] as $local_language) {
+				$descriptions["html"][$local_language] = $File -> Contents($website_dictionary["folders"]["php"]["descriptions"][$local_language])["string"];
+			}
+
+			$json_descriptions = False;
+		}
+
+		# Define HTML descriptions for year websites
+		if (in_array($website_title, $website["years"]) == True) {
+			$descriptions["html"] = $website["texts"]["Year website descriptions"];
+		}
+
+		$website_dictionary["description"]["html"] = $Language -> Item($descriptions["html"]);
 
 		$description_backup = $website_dictionary["description"]["html"];
 
-		if (strpos($website_dictionary["description"]["html"], "{website_title}") !== False) {
+		if (str_contains($website_dictionary["description"]["html"], "{website_title}") == True) {
 			$website_dictionary["description"]["html"] = str_replace("{website_title}", $website_dictionary["titles"]["language"], $website_dictionary["description"]["html"]);
 		}
 
 		if (str_contains($website_dictionary["description"]["html"], "{author}") == True) {
-			$website_dictionary["description"]["html"] = str_replace("{author}", $website["website_author"], $website_dictionary["description"]["html"]);
+			$website_dictionary["description"]["html"] = str_replace("{author}", $website["author"], $website_dictionary["description"]["html"]);
 		}
 
+		$descriptions["header"] = [];
+
 		if ($website_dictionary["description"]["header"] != []) {
-			$website_dictionary["description"]["header"] = $Language -> Item($website_dictionary["json"]["descriptions"]["header"]);
+			$website_dictionary["description"]["header"] = $Language -> Item($descriptions["header"]);
 		}
 
 		if ($website_dictionary["description"]["header"] == []) {
 			$website_dictionary["description"]["header"] = $description_backup;
 		}
 
-		if (str_contains($website_dictionary["description"]["header"], "{website_title}") == True) {
-			$span = HTML::Element("span", $website_dictionary["titles"]["language"], "", $website_dictionary["style"]["text_highlight"]);
+		# Replace the website title text with a painted version
+		$find_text = "{website_title}";
 
-			$website_dictionary["description"]["header"] = str_replace("{website_title}", $span, $website_dictionary["description"]["header"]);
+		$website_title_text = $website_dictionary["titles"]["language"];
+
+		# If the header description contains the full website title
+		if (str_contains($website_dictionary["description"]["header"], $website_dictionary["titles"]["language"]) == True) {
+			$find_text = $website_dictionary["titles"]["language"];
+
+			# If the header description contains the full website title with quotes
+			$text = '"'.$website_dictionary["titles"]["language"].'"';
+
+			if (str_contains($website_dictionary["description"]["header"], $text) == True) {
+				$find_text = '"'.$website_dictionary["titles"]["language"].'"';
+
+				$website_title_text = $find_text;
+			}
 		}
 
-		if (str_contains($website_dictionary["description"]["header"], "{author}") == True) {
-			$website_dictionary["description"]["header"] = str_replace("{author}", $website["painted_author"], $website_dictionary["description"]["header"]);
+		$span = HTML::Element("span", $website_title_text, "", $website_dictionary["style"]["text_highlight"]);
+
+		$website_dictionary["description"]["header"] = str_replace($find_text, $span, $website_dictionary["description"]["header"]);
+
+		# Replace the website author text with a painted version
+		$author_text = "{author}";
+
+		if (str_contains($website_dictionary["description"]["header"], $website["author"]) == True) {
+			$author_text = $website["author"];
 		}
 
-		$website_dictionary["description"]["header"] = "\t\t".str_replace("\n", "<br />\n\t\t", $website_dictionary["description"]["header"])."\n";
+		$website_dictionary["description"]["header"] = str_replace($author_text, $website["painted_author"], $website_dictionary["description"]["header"]);
+
+		# Add line separators to the website header descriptions if they were gotten from the "Website.json" file
+		if ($json_descriptions == True) {
+			$website_dictionary["description"]["header"] = "\t\t".str_replace("\n", "<br />\n\t\t", $website_dictionary["description"]["header"])."\n";
+		}
+
+		# Replace quotes in HTML descriptions if they exist
+		$website_dictionary["description"]["html"] = str_replace($website_dictionary["description"]["html"], '"', "'");
 	}
 
-	# Define story website description
-	if ($website_dictionary["type"] == "Story" or isset($website_dictionary["json"]["story"])) {
+	# Define the story website descriptions
+	if (
+		$website_dictionary["type"] == "Story" or
+		isset($website_dictionary["json"]["story"])
+	) {
 		# Define website HTML description for story websites
 		$website_dictionary["description"]["html"] = Text::Format($website["language_texts"]["website_about_my_story_{}_made_by_izaque_sanvezzo_stake2_funkysnipa_cat"], $website_dictionary["titles"]["language"]);
 
@@ -764,8 +907,12 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Add painted author
 		$text = $website["language_texts"]["story_author"];
 
-		if (isset($website_dictionary["story"]["Information"]["Author"]) == True) {
+		if (
+			isset($website_dictionary["story"]["Information"]["Author"]) == True and
+			$website_dictionary["story"]["Information"]["Author"] != $website["author"]
+		) {
 			$authors_list = $website_dictionary["story"]["Information"]["Authors"];
+
 			$last_author = array_reverse($authors_list)[0];
 
 			# Add painted authors if there are more than one
@@ -777,17 +924,25 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$authors = "";
 
 				foreach ($authors_list as $author) {
-					$authors .= $stories["Authors (painted)"][$author];
+					$painted_author = $author;
+
+					if (isset($stories["Authors (painted)"][$author])) {
+						$painted_author = $stories["Authors (painted)"][$painted_author];
+					}
+
+					$authors .= $painted_author;
 
 					if (
-						$count > 1 and
-						$author != $last_author
+						$count >= 3 and
+						$author != $last_author or
+						$count >= 3 and
+						$author == array_reverse($authors_list)[1]
 					) {
 						$authors .= ", ";
 					}
 
 					if (
-						$count >= 3 and
+						$count >= 2 and
 						$author == array_reverse($authors_list)[1]
 					) {
 						$authors .= " ".$website["language_texts"]["and"]." ";
@@ -799,7 +954,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		else {
-			$author = $website["website_author"];
+			$author = $stories["Authors (painted)"][$website["author"]];
 		}
 
 		$website_dictionary["story"]["Information"]["Author"] = $author;

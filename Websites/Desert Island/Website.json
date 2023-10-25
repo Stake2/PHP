@@ -11,18 +11,5 @@
 			"dark": "yellow_sand"
 		},
 		"text_highlight": "dark_green_water"
-	},
-	"tabs": {
-		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
-			}
-		}
 	}
 }

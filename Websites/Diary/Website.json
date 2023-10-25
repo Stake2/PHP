@@ -12,19 +12,6 @@
 		}
 	},
 	"image_file_name": "language",
-	"tabs": {
-		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
-			}
-		}
-	},
 	"story": true,
 	"color": "808080"
 }

@@ -10,18 +10,5 @@
 			"light": "light_purple",
 			"dark": "second_purple"
 		}
-	},
-	"tabs": {
-		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
-			}
-		}
 	}
 }

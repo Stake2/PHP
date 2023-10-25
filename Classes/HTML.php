@@ -177,9 +177,10 @@ class HTML extends Class_ {
 			"\n"."<!--- Hamburger menu -->"."\n".
 			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["style"]["background"]["theme"]["normal"]." ".$website["style"]["border_4px"]["theme"][$border_color]." ".$website["style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
 			"\t".'<!-- Hide hamburger menu button -->'."\n".
-			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 15px !important;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
+			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 17px 3px 17px !important; margin-right: 6%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
 			"\t".HTML::Element("h2", $website["language_texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["style"]["text_highlight"])."\n\n".
-			"\t"."<br />"."\n\n"
+			"\t"."<br />"."\n\n".
+			'<div style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">'."\n"
 		];
 
 		# Generate buttons
@@ -210,8 +211,9 @@ class HTML extends Class_ {
 			}
 		}
 
-		# Close hamburger menu div
-		$buttons["hamburger_menu"] .= "\n"."</div>";
+		# Close the hamburger menu div
+		$buttons["hamburger_menu"] .= "\n"."</div>".
+		"\n"."</div>";
 
 		return $buttons;
 	}
@@ -329,6 +331,10 @@ class HTML extends Class_ {
 
 		if (isset($tab["text_class"]) == True) {
 			$tab["content"] = self::Element("span", $tab["content"], "", $tab["text_class"]);
+		}
+
+		else {
+			$tab["content"] = self::Element("span", $tab["content"], "", $website["data"]["style"]["text_highlight"]);
 		}
 
 		# Define tab name in the user language

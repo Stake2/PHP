@@ -29,14 +29,14 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="<?php echo $website['data']['titles']['sanitized']; ?>" />
 	<meta name="twitter:description" content="<?php echo $website['data']['description']['html']; ?>" />
-	<meta name="twitter:website" value="@<?php echo $website['author']; ?>_" />
-	<meta name="twitter:site" value="@<?php echo $website['author']; ?>_" />
-	<meta name="twitter:creator" content="@<?php echo $website['author']; ?>_" />
+	<meta name="twitter:website" value="@<?php echo $website['Twitter author']; ?>_" />
+	<meta name="twitter:site" value="@<?php echo $website['Twitter author']; ?>_" />
+	<meta name="twitter:creator" content="@<?php echo $website['Twitter author']; ?>_" />
 	<meta name="twitter:url" content="<?php echo $website['data']['links']['language']; ?>" />
 	<meta name="twitter:image" type="image/<?php echo $website['data']['image']['format']; ?>" content="<?php echo $website['data']['image']['link']; ?>" />
 
 	<!-- Author related meta tags -->
-	<meta name="revised" content="<?php echo $website['author']; ?>'s Enterprise TM, <?php echo $website['date'][$website['language_texts']['date_format']]; ?>." />
+	<meta name="revised" content="<?php echo $website['Twitter author']; ?>'s Enterprise TM, <?php echo $website['date'][$website['language_texts']['date_format']]; ?>." />
 	<meta name="author" content="<?php echo $website['author']; ?>" />
 
 	<!-- Viewport and charset -->

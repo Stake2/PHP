@@ -127,47 +127,6 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 	}
 }
 
-if (function_exists("Define_Title") == False) {
-	function Define_Title($array) {
-		global $Language;
-		global $language;
-
-		$key = "Original";
-
-		if (array_key_exists($language, $array) == True) {
-			$key = $language;
-		}
-
-		elseif (array_key_exists("Romanized", $array) == True) {
-			$key = "Romanized";
-		}
-
-		return $array[$key];
-	}
-}
-
-if (function_exists("Sanitize_Title") == False) {
-	function Sanitize_Title($title) {
-		global $File;
-
-		if (strlen($title) > 1 and $title[0].$title[1] == ": ") {
-			$title = substr($title, 2);
-		}
-
-		if (str_contains($title, ". ")) {
-			$title = str_replace(". ", " ", $title);
-		}
-
-		elseif (str_contains($title, ".")) {
-			$title = str_replace(".", "", $title);
-		}
-
-		$title = $File -> Sanitize($title);
-
-		return $title;
-	}
-}
-
 # Define the Watch History array
 $watch_history["files"] = [
 	"per_media_type" => [

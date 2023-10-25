@@ -13,18 +13,5 @@
 		"text_highlight": "green_water",
 		"chapter_text_color": "green_water"
 	},
-	"tabs": {
-		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
-			}
-		}
-	},
-	"background_image": "Background"
+	"background_image": ""
 }

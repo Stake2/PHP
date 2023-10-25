@@ -72,17 +72,29 @@ foreach ($identities as $identity) {
 	if ($identity != "Izaque") {
 		$images = [];
 
-		$style = "width: 25%; height: auto;";
+		$style = "width: 40%; height: auto;";
 
 		# Add the "Stake2" profile picture
 		if ($identity == "Stake2") {
 			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity.".png";
 
 			# Identity image
-			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"][$website["style"]["box_shadow_color"]]." ".$website["style"]["img"]["theme"]["normal"])."</center>";
+			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.' border-radius: 100%;"', $website["style"]["img"]["theme"]["normal"])."</center>";
 
 			array_push($images, $image);
 		}
+
+		# Add the "Funkysnipa Cat" profile picture
+		if ($identity == "Funkysnipa Cat") {
+			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity.".png";
+
+			# Identity image
+			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"]["light"]." ".$website["style"]["img"]["theme"]["light"])."</center>";
+
+			array_push($images, $image);
+		}
+
+		$style = "width: 25%; height: auto;";
 
 		if (
 			$identity == "Stake2" or
@@ -91,28 +103,18 @@ foreach ($identities as $identity) {
 			$remote_folder = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity."/";
 			$local_folder = $website["data"]["folders"]["local_website"]["images"]["images"]["root"].$identity."/";
 
-			$style .= "border-radius: 1px;";
-			$class = $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["theme"]["dark"];
-
-			$formats = [
-				"png",
-				"jpeg",
-				"jpg"
-			];
+			$style .= "border-radius: 5%;";
+			$class = $website["style"]["box_shadow"]["theme"]["light"]." ".$website["style"]["img"]["theme"]["light"];
 
 			$number_of_images = 7;
 
 			# Add Digital Identities profile pictures
 			$i = 1;
 			while ($i <= $number_of_images) {
-				foreach ($formats as $format) {
+				foreach ($website["Image formats"] as $format) {
 					if (file_exists($local_folder.$i.".".$format)) {
 						$right_format = $format;
 					}
-				}
-
-				if ($identity == "Stake2") {
-					$right_format = "jpg";
 				}
 
 				$link = $remote_folder.$i.".".$right_format;

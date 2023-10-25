@@ -159,26 +159,26 @@ class Story extends Class_ {
 		global $chapter_tab;
 		global $i;
 
+		$local_chapter_cover = "";
+
 		if (isset($website["data"]["folders"]["local_website"]["images"]["story_covers"])) {
-			$chapter_cover_file_name = $full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i);
+			$chapter_cover_file_name = Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i);
 
 			$image_format = "";
 
-			$formats = [
-				"png",
-				"jpg",
-				"jpeg",
-				"gif"
-			];
-
-			foreach ($formats as $format) {
+			foreach ($website["Image formats"] as $format) {
 				$local_image = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$format;
+				$local_image_per_language = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$full_language."/".$chapter_cover_file_name.".".$format;
 
 				if (file_exists($local_image) == True) {
 					$local_chapter_cover = $local_image;
-
-					$image_format = $format;
 				}
+
+				if (file_exists($local_image_per_language) == True) {
+					$local_image_per_language = $local_image;
+				}
+
+				$image_format = $format;
 			}
 
 			$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$image_format;
@@ -529,7 +529,7 @@ class Story extends Class_ {
 
 			$style = "width: 100%; border: none; overflow: hidden; resize: none;";
 
-			$h2 = HTML::Element("h2", "<p><br /><b>".$website["language_texts"]["edit, title()"].":"."</b><br /><br /><p>", "", $chapter_tab["chapter_text_color"])."\n";
+			$h2 = HTML::Element("h2", "<p><br /><b>".$website["language_texts"]["write, title()"].":"."</b><br /><br /><p>", "", $chapter_tab["chapter_text_color"])."\n";
 
 			$title = "<center>".$h2."</center>";
 

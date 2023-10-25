@@ -12,18 +12,5 @@
 		},
 		"text_highlight": "dark_blue",
 		"border_color": "light"
-	},
-	"tabs": {
-		"data": {
-			"read_story": {
-				"template": "read story"
-			},
-			"readers": {
-				"template": "readers"
-			},
-			"other_stories": {
-				"template": "other stories"
-			}
-		}
 	}
 }

@@ -12,31 +12,5 @@
 		},
 		"text_highlight": "black"
 	},
-	"tabs": {
-		"data": {
-			"summary": {
-				"template": "summary"
-			},
-			"this_year_i": {
-				"template": "this_year_i"
-			},
-			"watched_things": {
-				"template": "watched_things"
-			},
-			"completed_tasks": {
-				"template": "completed_tasks"
-			},
-			"years": {
-				"template": "years"
-			}
-		}
-	},
-	"descriptions": {
-		"html": {
-			"en": "Website to show how {website_title} was, and what I did in it.\nMade by {author}.",
-			"pt": "Site para mostrar como {website_title} foi, e o que eu fiz nele.\nFeito por {author}."
-		},
-		"header": {}
-	},
 	"color": "ffeb3b"
 }

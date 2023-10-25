@@ -14,7 +14,7 @@ if ($contents["lines"] != []) {
 	$i = 0;
 	foreach ($contents["lines"] as $line) {
 		# Paint website author text
-		$line = str_replace($website["website_author"], Text::Format($span, $website["website_author"]), $line);
+		$line = str_replace($website["author"], Text::Format($span, $website["author"]), $line);
 
 		# Paint year (website title) text
 		$line = str_replace($year.": ", Text::Format($span, $year).": ", $line);

@@ -10,6 +10,30 @@ if ($language == "general") {
 	$full_language = "English";
 }
 
+# Create the basic story website tabs
+$tab_titles = [
+	"read_story",
+	"readers",
+	"other_stories"
+];
+
+$tabs = [];
+
+foreach ($tab_titles as $tab) {
+	$tabs[$tab] = [
+		"template" => $tab
+	];
+}
+
+$website["tabs"]["data"] = $website["tabs"]["data"] + $tabs;
+
+# Move the websites tab template to the end
+$backup = $website["tabs"]["data"]["websites_tab"];
+
+unset($website["tabs"]["data"]["websites_tab"]);
+
+$website["tabs"]["data"]["websites_tab"] = $backup;
+
 # Require "Insert_Variables.php" PHP file to create Variable Inserter array
 require $folders["php"]["story_folder"]["insert_variables"];
 
@@ -24,7 +48,7 @@ require $folders["php"]["story_folder"]["story_cards"];
 
 # Define tab templates for story websites
 $website["tabs"]["templates"] = [
-	"read story" => [
+	"read_story" => [
 		"name" => $website["language_texts"]["read_story"],
 		"title" => $website["language_texts"]["chapters_in_[language]"].": ".$website["language_texts"]["language_icon"]." ".HTML::Element("span", $story["Information"]["Chapters"]["Number"], "", $website["style"]["text_highlight"]),
 		"content" => $story["chapter_buttons"],
@@ -36,7 +60,7 @@ $website["tabs"]["templates"] = [
 		"content" => Text::From_Array($story["Information"]["Readers"]["List"], "", $enumerate = True, $website["style"]["text_highlight"], "text_hover_white"),
 		"icon" => "reader"
 	],
-	"other stories" => [
+	"other_stories" => [
 		"name" => $website["language_texts"]["other_stories"],
 		"add" => " ".HTML::Element("span", ($stories["Number"]), "", $website["style"]["text_highlight"]),
 		"content" => $website["story_cards"],

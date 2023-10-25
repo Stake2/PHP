@@ -12,7 +12,7 @@
 		}
 	},
 	"image": {
-		"width": "40%"
+		"width": "30"
 	},
 	"tabs": {
 		"data": {
@@ -31,8 +31,7 @@
 		"html": {
 			"en": "Website to show the {media_types} that I watched, and medias that I will watch.\nMade by {author}.",
 			"pt": "Site para mostrar os {media_types} que assisti, e mídias que eu vou assistir.\nFeito por {author}."
-		},
-		"header": {}
+		}
 	},
 	"color": "2196F3"
 }
