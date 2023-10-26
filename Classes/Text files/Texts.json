@@ -63,9 +63,9 @@
 		"en": "This Year I",
 		"pt": "Este Ano Eu"
 	},
-	"watched_things": {
-		"en": "Watched things",
-		"pt": "Coisas assistidas"
+	"watched_things_in": {
+		"en": "Watched things in",
+		"pt": "Coisas assistidas em"
 	},
 	"media_being_watched": {
 		"en": "Media being watched",

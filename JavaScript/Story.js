@@ -15,12 +15,16 @@ class Story_Class {
 			"pt": "Capítulos"
 		},
 		"opening_chapter_with_number_{0}_and_title_{1}": {
-			"en": 'Opening chapter with number "{0}" and title "{1}".',
-			"pt": 'Abrindo capítulo com número "{0}" e título "{1}".'
+			"en": 'Opening chapter with number "{0}" and title "{1}"',
+			"pt": 'Abrindo capítulo com número "{0}" e título "{1}"'
+		},
+		"opened_the_chapter_tab": {
+			"en": 'Opened the chapter tab',
+			"pt": 'Aberto a aba do capítulo'
 		},
 		"defined_chapter_with_number_{0}_and_title_{1}": {
-			"en": 'Defined chapter with number "{0}" and title "{1}".',
-			"pt": 'Definido capítulo com número "{0}" e título "{1}".'
+			"en": 'Defined chapter with number "{0}" and title "{1}"',
+			"pt": 'Definido capítulo com número "{0}" e título "{1}"'
 		},
 		"opened_the_modal_tab_with_id_{0}": {
 			"en": 'Opened the modal tab with id "{0}"',
@@ -34,9 +38,9 @@ class Story_Class {
 			"en": 'Reading this chapter file to get the chapter text:\n{0}',
 			"pt": 'Lendo este arquivo de capítulo para pegar o texto do capítulo\n{0}'
 		},
-		"undefined": {
-			"en": "Undefined",
-			"pt": "Indefinido"
+		"scrolled_to_the_write_chapter_element_to_write": {
+			"en": 'Scrolled to the "write chapter" element to write',
+			"pt": 'Descido até o elemento "escrever capítulo" para escrever'
 		}
 	}
 }
@@ -47,74 +51,91 @@ Story.language_texts = Language.Item(Story.texts)
 
 Story.Class_Method = Class_Method(Story.texts["class_title"])
 
-// Define chapter number, website title and set backup
-var chapter_number = 0
+// Define the chapter number, website title and set the website URL backup
+var chapter_title, chapter_tab_id, chapter_number = 0, chapter_title_element
+
 website["backup"] = String(document.title)
 
 // Function to define chapter number and title
-function Define_Chapter(number, title) {
+function Define_Chapter(number, chapter_title) {
 	// Define the method title
 	var method_title = {
 		"en": arguments.callee.name,
 		"pt": "Definir_Capítulo"
 	}
 
-	// Define chapter number
+	// Define the chapter number
 	chapter_number = Number(number)
 
-	// Add chapter title to website title
-	document.title = website["backup"] + " - " + Story.language_texts["chapter, title()"] + ":"
+	// Define the chapter title element
+	chapter_title_element = document.getElementById(chapter_tab_id + "_title")
 
-	if (title == undefined) {
-		document.title = document.title + " " + number
+	if (chapter_title_element != null) {
+		chapter_title = chapter_title_element.innerHTML
+
+		// Add the chapter title to the website title
+		document.title = website["backup"] + " - " + Story.language_texts["chapter, title()"] + ":"
+
+		document.title = document.title + " " + chapter_title
+
+		// Show information about the defined chapter
+		var text = format(Story.language_texts["defined_chapter_with_number_{0}_and_title_{1}"], number, chapter_title.split(" - ")[1])
+
+		return text
 	}
 
-	if (title != undefined) {
-		document.title = document.title + " " + title
+	else {
+		return null
 	}
-
-	if (title == undefined) {
-		title = Story.language_texts["undefined"]
-	}
-
-	// Show information about the defined chapter
-	var text = format(Story.language_texts["defined_chapter_with_number_{0}_and_title_{1}"], number, title)
-
-	Story.Class_Method(method_title, text)
 }
 
 // Function to define chapter number and title, show "opening chapter" text, and open chapter tab
-function Open_Chapter(number, title) {
+function Open_Chapter(number, chapter_title) {
 	// Define the method title
 	var method_title = {
 		"en": arguments.callee.name,
 		"pt": "Abrir_Capítulo"
 	}
 
-	// Define chapter tab id
-	var chapter_tab_id = "chapter_" + number
+	// Define the chapter tab id
+	chapter_tab_id = "chapter_" + number
 
 	// Define chapter and change website title
-	Define_Chapter(number, title)
+	var text = Define_Chapter(number, chapter_title)
 
-	// Show information about the chapter
-	var text = format(Story.language_texts["opening_chapter_with_number_{0}_and_title_{1}"] + " ", number, title)
+	if (text != null) {
+		// Scroll to the "write chapter" text area if it exists
+		if ($("#chapter_" + number + "_write_anchor").length) {
+			setTimeout(function() {
+				// Scroll to the "write chapter" text area
+				$("#chapter_" + number + "_write_anchor").get(0).scrollIntoView()
 
-	Story.Class_Method(method_title, text)
+				// Resize the text area by triggering a input in it
+				$("#chapter_" + number + "_write_textarea").trigger("input")
+			}, 400)
 
-	// Open chapter tab
-	Open_Tab(chapter_tab_id)
+			text += "\n" + Story.language_texts["scrolled_to_the_write_chapter_element_to_write"]
+		}
 
-	// Load chapter text from file
-	//Load_Chapter(chapter_tab_id, number)
+		// Show information about the chapter
+		text += "\n" + Story.language_texts["opened_the_chapter_tab"]
+
+		Story.Class_Method(method_title, text)
+
+		// Open the chapter tab
+		Open_Tab(chapter_tab_id)
+
+		// Load the chapter text from the file
+		//Load_Chapter(chapter_tab_id, number)
+	}
 }
 
-// Open chapter tab by URL
+// Open a chapter tab by the URL
 parameters = Object.fromEntries(  
 	new URLSearchParams(window.location.search)
 )
 
-// Check chapter in URL and open if chapter is present in URL
+// Check if the "chapter" key is prenset in the URL and open the chapter tab if so
 var chapter_keys = [
 	"chapter",
 	"capítulo",
@@ -124,12 +145,11 @@ var chapter_keys = [
 chapter_keys.forEach(
 	function(key) {
 		if (Object.keys(parameters).includes(key) == true) {
-			setTimeout(
-				function() {
-					Open_Chapter(parameters[key])
-				},
-				3000
-			)
+			chapter_tab_id = 'chapter_' + parameters[key]
+
+			$("#" + chapter_tab_id).ready(function() {
+				Open_Chapter(parameters[key])
+			})
 		}
 	}
 )
@@ -153,7 +173,10 @@ function Open_Modal(id, chapter_title) {
 	// Scroll to modal tab
 	var modal_anchor = document.getElementById(id + "_anchor")
 
-	if (typeof modal_anchor != "undefined" && modal_anchor != null) {
+	if (
+		typeof modal_anchor != "undefined" &&
+		modal_anchor != null
+	) {
 		modal_anchor.scrollIntoView(true)
 	}
 
@@ -192,7 +215,10 @@ function Hide_Modal(id) {
 
 // Add click event listener to hide modal when user clicks outside modal-content
 document.addEventListener("click", function(event) {
-	if (String(event.target.id).includes("chapter_comment") || String(event.target.id).includes("chapter_read")) {
+	if (
+		String(event.target.id).includes("chapter_comment") ||
+		String(event.target.id).includes("chapter_read")
+	) {
 		event.preventDefault()
 
 		// Define the method title

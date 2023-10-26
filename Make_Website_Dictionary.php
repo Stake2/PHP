@@ -659,13 +659,25 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["json"]["image"]["width"] = "";
 	}
 
-	# Define website image link for stories
-	if ($website_dictionary["type"] == "Story") {
-		# Check for story cover in root folder
-		$local_folder = $folders["mega"]["websites"]["images"]["story_covers"]["root"].$website_title."/";
-		$remote_folder = $website["folders"]["images"]["story_covers"]["root"].$website_title."/";
+	# Define the website image link for stories
+	if (
+		$website_dictionary["type"] == "Story" or
+		isset($website_dictionary["json"]["story"])
+	) {
+		# Check for the story cover in the root folder
+		if ($website_dictionary["type"] == "Story") {
+			$local_folder = $folders["mega"]["websites"]["images"]["story_covers"]["root"].$website_title."/";
+			$remote_folder = $website["folders"]["images"]["story_covers"]["root"].$website_title."/";
 
-		$file_name = "Cover";
+			$file_name = "Cover";
+		}
+
+		if (isset($website_dictionary["json"]["story"])) {
+			$local_folder = $folders["mega"]["websites"]["images"]["icons"]["root"];
+			$remote_folder = $website["folders"]["images"]["icons"]["root"];
+
+			$file_name = $website_dictionary["titles"]["language"];
+		}
 
 		# If the format is empty
 		if ($website_dictionary["image"]["format"] == "") {
@@ -673,7 +685,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$local_image = $local_folder.$file_name.".".$format;
 				$local_image_per_language = $local_folder.$full_language."/".$file_name.".".$format;
 
-				if (file_exists($local_image) or file_exists($local_image_per_language)) {
+				if (
+					file_exists($local_image) or
+					file_exists($local_image_per_language)
+				) {
 					$website_dictionary["image"]["format"] = $format;
 				}
 			}
@@ -839,29 +854,6 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$website_dictionary["description"]["header"] = $description_backup;
 		}
 
-		# Replace the website title text with a painted version
-		$find_text = "{website_title}";
-
-		$website_title_text = $website_dictionary["titles"]["language"];
-
-		# If the header description contains the full website title
-		if (str_contains($website_dictionary["description"]["header"], $website_dictionary["titles"]["language"]) == True) {
-			$find_text = $website_dictionary["titles"]["language"];
-
-			# If the header description contains the full website title with quotes
-			$text = '"'.$website_dictionary["titles"]["language"].'"';
-
-			if (str_contains($website_dictionary["description"]["header"], $text) == True) {
-				$find_text = '"'.$website_dictionary["titles"]["language"].'"';
-
-				$website_title_text = $find_text;
-			}
-		}
-
-		$span = HTML::Element("span", $website_title_text, "", $website_dictionary["style"]["text_highlight"]);
-
-		$website_dictionary["description"]["header"] = str_replace($find_text, $span, $website_dictionary["description"]["header"]);
-
 		# Replace the website author text with a painted version
 		$author_text = "{author}";
 
@@ -877,7 +869,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		# Replace quotes in HTML descriptions if they exist
-		$website_dictionary["description"]["html"] = str_replace($website_dictionary["description"]["html"], '"', "'");
+		$website_dictionary["description"]["html"] = str_replace('"', "'", $website_dictionary["description"]["html"]);
 	}
 
 	# Define the story website descriptions
@@ -896,7 +888,6 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		# Define synopsis
 		$synopsis = str_replace("\n", "<br />"."\n"."\t\t", $website_dictionary["story"]["Information"]["Synopsis"][$language]);
-		$synopsis = str_replace($website_dictionary["titles"][$language], HTML::Element("span", $website_dictionary["titles"][$language], "", $website_dictionary["style"]["text_highlight"]), $synopsis);
 
 		# Define website header description for story websites
 		$website_dictionary["description"]["header"] = "\t\t".'<!-- Story website info, author(s), chapters, readers, creation date, status -->'."\n".
@@ -1004,6 +995,38 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["description"]["header"] .= "\n";
 	}
 
+	# Replace the website title text with a painted version
+	$find_text = "{website_title}";
+
+	$website_title_text = $website_dictionary["titles"]["language"];
+
+	# If the header description contains the website title template text with quotes
+	$text = '"'."{website_title}".'"';
+
+	if (str_contains($website_dictionary["description"]["header"], $text) == True) {
+		$find_text = $text;
+
+		$website_title_text = '"'.$website_title_text.'"';
+	}
+
+	# If the header description contains the full website title
+	if (str_contains($website_dictionary["description"]["header"], $website_dictionary["titles"]["language"]) == True) {
+		$find_text = $website_dictionary["titles"]["language"];
+
+		# If the header description contains the full website title with quotes
+		$text = '"'.$website_dictionary["titles"]["language"].'"';
+
+		if (str_contains($website_dictionary["description"]["header"], $text) == True) {
+			$find_text = '"'.$website_dictionary["titles"]["language"].'"';
+
+			$website_title_text = $find_text;
+		}
+	}
+
+	$span = HTML::Element("span", $website_title_text, "", $website_dictionary["style"]["text_highlight"]);
+
+	$website_dictionary["description"]["header"] = str_replace($find_text, $span, $website_dictionary["description"]["header"]);
+
 	# Define website color
 	$website_dictionary["color"] = "#";
 
@@ -1040,6 +1063,11 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	$website["dictionary"][$website_title] = $website_dictionary;
+
+	# Replace spaces with underscores on website title and add the website dictionary
+	$website_title_replaced = str_replace(" ", "_", $website_title);
+
+	$website["dictionary"][$website_title_replaced] = $website_dictionary;
 
 	$website_dictionary = "";
 

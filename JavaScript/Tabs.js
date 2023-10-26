@@ -31,7 +31,7 @@ Tabs.language_texts = Language.Item(Tabs.texts)
 
 Tabs.Class_Method = Class_Method(Tabs.texts["class_title"])
 
-var tabs, tab_number = 0
+var tab, tabs, tab_number = 0
 
 function Open_Tab(tab_id) {
 	// Define the method title
@@ -41,7 +41,7 @@ function Open_Tab(tab_id) {
 	}
 
 	// Get tab
-	var tab = document.getElementById(tab_id)
+	tab = document.getElementById(tab_id)
 
 	// Get tabs
 	tabs = Array.from(document.getElementsByClassName("tab"))
@@ -59,7 +59,10 @@ function Open_Tab(tab_id) {
 	// Scroll to tab
 	var tab_anchor = document.getElementById(tab_id + "_anchor")
 
-	if (typeof tab_anchor != "undefined" && tab_anchor != null) {
+	if (
+		typeof tab_anchor != "undefined" &&
+		tab_anchor != null
+	) {
 		tab_anchor.scrollIntoView(true)
 	}
 
@@ -88,11 +91,6 @@ function Open_Tab(tab_id) {
 		}
 
 		i++
-	}
-
-	if (tab_id.includes("chapter_") == true) {
-		chapter_number = Number(tab_id.split("_")[1])
-		Define_Chapter(chapter_number, tab_title)
 	}
 
 	// Show information about the opened tab
@@ -169,12 +167,12 @@ function Hide_Hamburger_Menu() {
 	Tabs.Class_Method(method_title, text)
 }
 
-// Open tab by URL
+// Open a tab by the URL
 parameters = Object.fromEntries(  
 	new URLSearchParams(window.location.search)
 )
 
-// Check tab in URL and open if tab is present in URL
+// Check if the "tab" key is prenset in the URL and open the tab if so
 var tab_keys = [
 	"tab",
 	"aba"
@@ -183,13 +181,13 @@ var tab_keys = [
 tab_keys.forEach(
 	function(key) {
 		if (Object.keys(parameters).includes(key) == true) {
-			setTimeout(
-				function() {
-					tab = Array.from(document.getElementsByClassName("tab"))[parameters[key] - 1]
+			window.addEventListener("load", function() {
+				tab = Array.from(document.getElementsByClassName("tab"))[parameters[key] - 1]
+
+				$("#" + tab.id).ready(function() {
 					Open_Tab(tab.id)
-				},
-				3000
-			)
+				})
+			})
 		}
 	}
 )
@@ -227,24 +225,33 @@ var tab_by_key = function(event) {
 
 			open = false
 
-			if (event.keyCode === left_arrow || event.keyCode === right_arrow) {
+			if (
+				event.keyCode === left_arrow ||
+				event.keyCode === right_arrow
+			) {
 				open = true
 			}
 
-			// If left arrow is pressed then define tab number as the previous tab
+			// If the left arrow is pressed then define tab number as the previous tab
 			if (event.keyCode === left_arrow) {
 				// Only define as previous tab if the tab number is not zero (first tab) or first tab is open
-				if (tab_number !== 0 || tabs[0].style.display == "block") {
+				if (
+					tab_number !== 0 ||
+					tabs[0].style.display == "block"
+				) {
 					tab_number = Number(tab_number) - 1
 				}
 
-				// Else, if tab number is zero, it will open the first tab
+				// Else, if the tab number is zero, it will open the first tab
 			}
 
-			// If right arrow is pressed then define tab number as the next tab
+			// If the right arrow is pressed then define tab number as the next tab
 			if (event.keyCode === right_arrow) {
 				// Only define as next tab if the tab number is not zero (first tab) or first tab is open
-				if (tab_number !== 0 || tabs[0].style.display == "block") {
+				if (
+					tab_number !== 0 ||
+					tabs[0].style.display == "block"
+				) {
 					tab_number = Number(tab_number) + 1
 				}
 
@@ -261,7 +268,13 @@ var tab_by_key = function(event) {
 
 					// Only open tab if it is not open
 					if (tab.style.display !== "block") {
-						Open_Tab(tab_id)
+						if (tab_id.includes("chapter_") == false) {
+							Open_Tab(tab_id)
+						}
+
+						else {
+							Open_Chapter(tab_id.split("chapter_")[1])
+						}
 					}
 				}
 			}

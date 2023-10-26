@@ -63,7 +63,7 @@ var languages = Language.languages
 website["check"] = website["link"].includes("no-redirect=true")
 
 // Define link addon (URL parameters)
-parameters = Object.fromEntries(  
+var parameters = Object.fromEntries(  
 	new URLSearchParams(window.location.search)
 )
 
@@ -89,8 +89,7 @@ function Check_Language() {
 		"pt": "Verificar_Idioma"
 	}
 
-	var text = "\n" +
-	Language_Redirector.language_texts["website_title"] + ": " + '"{0}"' + "\n" +
+	var text = Language_Redirector.language_texts["website_title"] + ": " + '"{0}"' + "\n" +
 	Language_Redirector.language_texts["website_link"] + ": " + "{1}" + "\n\n" +
 	Language_Redirector.language_texts["user_language"] + ": " + "{2}" + "\n" +
 	Language_Redirector.language_texts["website_language"] + ": " + "{3}"

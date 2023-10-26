@@ -45,6 +45,7 @@ if (isset($parse) == False) {
 
 # Define the local switches
 $switches = $Global_Switches -> global_switches;
+
 $has_switches = False;
 
 # Check if the "_GET" variable contains switches
@@ -87,6 +88,7 @@ require $folders["php"]["sql"];
 $tpl -> assign("website", $website);
 $tpl -> assign("Language", $Language);
 $tpl -> assign("parse", $parse);
+$tpl -> assign("website", $website);
 
 function Generate_Website() {
 	global $tpl;

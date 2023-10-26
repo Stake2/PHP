@@ -88,8 +88,10 @@ foreach ($identities as $identity) {
 		if ($identity == "Funkysnipa Cat") {
 			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity.".png";
 
+			$class = str_replace("border_radius_100_cent", "border_radius_5_cent", $website["style"]["img"]["theme"]["light"]);
+
 			# Identity image
-			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"]["light"]." ".$website["style"]["img"]["theme"]["light"])."</center>";
+			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"]["light"]." ".$class)."</center>";
 
 			array_push($images, $image);
 		}

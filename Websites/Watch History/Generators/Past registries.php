@@ -29,11 +29,15 @@ if (array_key_exists("additional_tabs", $website) == False) {
 $website["past_registries_buttons"] = [];
 
 # Iterate through the years list
-$years_list = Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1);
+if (isset($website["watch_history"]) == False) {
+	$website["watch_history"] = [
+		"years_list" => Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1)
+	];
+}
 
 $content = "";
 
-foreach ($years_list as $local_year) {
+foreach ($website["watch_history"]["years_list"] as $local_year) {
 	$website["data"]["year"] = $local_year;
 
 	$id = "past_registry_".$local_year;
@@ -54,7 +58,7 @@ foreach ($years_list as $local_year) {
 	$content = "";
 
 	# Define the tab content
-	if ($local_year != $years_list[0]) {
+	if ($local_year != $website["watch_history"]["years_list"][0]) {
 		$previous_year = (int)$local_year - 1;
 
 		$previous_year = [
@@ -67,7 +71,7 @@ foreach ($years_list as $local_year) {
 		$content .= HTML::Tab_Button($previous_year)."\n";
 	}
 
-	if ($local_year != array_reverse($years_list)[0]) {
+	if ($local_year != array_reverse($website["watch_history"]["years_list"])[0]) {
 		$next_year = (int)$local_year + 1;
 
 		$next_year = [
@@ -87,16 +91,18 @@ foreach ($years_list as $local_year) {
 
 	# Require "Watched.php" to generate the "Watched things" elements and information
 	$website["data"]["year"] = $local_year;
+
 	require $website["data"]["files"]["generators"]["watched"];
 
 	$content .= $website["tab_content"]["watched_things"]["string"];
 
 	$website["additional_tabs"]["data"][$local_year] = [
 		"id" => $id,
-		"name" => $local_year,
+		"name" => $website["language_texts"]["watched_things_in"]." ".$local_year,
 		"text_style" => "text-align: left;",
 		"content" => $content,
-		"icon" => "calendar"
+		"icon" => "calendar",
+		"add" => " ".$website["data"]["numbers"]["Watched things by year"][$local_year]
 	];
 
 	$website["tab_content"]["past_registries"]["number"]++;

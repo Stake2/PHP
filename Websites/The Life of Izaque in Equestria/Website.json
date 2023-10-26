@@ -3,12 +3,14 @@
 		"theme": {
 			"normal": "purple",
 			"light": "light_purple",
-			"dark": "second_purple"
+			"dark": "dark_purple"
 		},
 		"secondary_theme": {
 			"normal": "purple",
 			"light": "light_purple",
-			"dark": "second_purple"
-		}
-	}
+			"dark": "dark_purple"
+		},
+		"text_highlight": "light_purple"
+	},
+	"color": "9425a7"
 }

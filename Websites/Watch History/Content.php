@@ -25,6 +25,11 @@ $website["data"]["files"] = [
 	"generators" => []
 ];
 
+$website["data"]["numbers"] = [
+	"Watched things by year" => [],
+	"Watched things by media type" => []
+];
+
 # Define the Generator files
 $names = [
 	"Watched",
@@ -82,7 +87,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["language_texts"]["watched_things"]." [".$website["data"]["year"]."]";
+			$header_text = $website["language_texts"]["watched_things_in"]." ".$website["data"]["year"];
 		}
 
 		$array = [

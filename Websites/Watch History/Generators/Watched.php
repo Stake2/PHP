@@ -36,6 +36,12 @@ if (in_array($website["data"]["title"], $website["years"]) == True) {
 	$website["data"]["year"] = $website["data"]["title"];
 }
 
+if (isset($website["watch_history"]) == False) {
+	$website["watch_history"] = [
+		"years_list" => Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1)
+	];
+}
+
 if (isset($watch_history) == False) {
 	# Define the Watch History array
 	$watch_history = [
@@ -72,7 +78,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["language_texts"]["watched_things"]." [".$website["data"]["year"]."]";
+			$header_text = $website["language_texts"]["watched_things_in"]."".$website["data"]["year"];
 		}
 
 		$array = [
@@ -136,6 +142,13 @@ $watch_history["files"] = [
 
 $watch_history["entries"] = $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["entries"]);
 
+# Add to year entries number
+$current_year = $website["data"]["year"];
+
+if (isset($website["data"]["numbers"]["Watched things by year"][$current_year]) == False) {
+	$website["data"]["numbers"]["Watched things by year"][$current_year] = $watch_history["entries"]["Numbers"]["Total"];
+}
+
 $media_type_headers = Generate_Media_Type_Headers();
 
 # Update the watched things number
@@ -149,9 +162,12 @@ $media_type_headers["links"].
 $i = 0;
 foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 	$language_media_type = $watch_history["types"]["Plural"][$language][$i];
+
 	$modules_language = $watch_history["types"]["Plural"][$Language -> modules_language][$i];
 
 	$number = $watch_history["entries"]["Numbers"]["Per Media Type"][$plural_media_type];
+
+	$website["data"]["numbers"]["Watched things by media type"][$plural_media_type] = $number;
 
 	if ($number != 0) {
 		$website["tab_content"]["watched_things"]["string"] .= $media_type_headers["headers"][$plural_media_type];
@@ -453,7 +469,7 @@ $website["tab_content"]["watched_things"]["string"] .= "<br /><br />";
 # Add tab to the tab templates
 if (array_key_exists("watched_things", $website["tabs"]["templates"]) == False) {
 	$website["tabs"]["templates"]["watched_things"] = [
-		"name" => $website["language_texts"]["watched_things"]." [".$website["data"]["year"]."]",
+		"name" => $website["language_texts"]["watched_things_in"]." ".$website["data"]["year"],
 		"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["style"]["text_highlight"]),
 		"text_style" => "text-align: left;",
 		"content" => $website["tab_content"]["watched_things"]["string"],

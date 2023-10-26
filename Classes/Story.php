@@ -158,27 +158,24 @@ class Story extends Class_ {
 		global $full_language;
 		global $chapter_tab;
 		global $i;
+		global $parse;
 
 		$local_chapter_cover = "";
 
-		if (isset($website["data"]["folders"]["local_website"]["images"]["story_covers"])) {
-			$chapter_cover_file_name = Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i);
+		if (
+			isset($website["data"]["folders"]["local_website"]["images"]["story_covers"]) and
+			$parse == "/generate"
+		) {
+			$chapter_cover_file_name = $full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i);
 
 			$image_format = "";
 
 			foreach ($website["Image formats"] as $format) {
-				$local_image = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$format;
-				$local_image_per_language = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$full_language."/".$chapter_cover_file_name.".".$format;
+				$local_chapter_cover = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$format;
 
-				if (file_exists($local_image) == True) {
-					$local_chapter_cover = $local_image;
+				if (file_exists($local_chapter_cover) == True) {
+					$image_format = $format;
 				}
-
-				if (file_exists($local_image_per_language) == True) {
-					$local_image_per_language = $local_image;
-				}
-
-				$image_format = $format;
 			}
 
 			$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$image_format;
@@ -190,7 +187,7 @@ class Story extends Class_ {
 			$remote_chapter_cover = "";
 		}
 
-		if (file_exists($local_chapter_cover) == True) {
+		if ($local_chapter_cover != "") {
 			$chapter_tab["comment"] = str_replace("button", "button, image,", $chapter_tab["comment"]);
 
 			$chapter_cover = "<br />"."<!-- Chapter cover image -->"."\n".
@@ -391,35 +388,37 @@ class Story extends Class_ {
 		global $chapter_titles;
 		global $i;
 
-		# Add previous chapter button if chapter is not the first one
+		# Define previous chapter button if the chapter is not the first one
 		if ($i != 1) {
 			$c = $i - 1;
 
 			$options = [
 				"previous" => True,
 				"next" => False,
-				"text" => $website["icons"]["arrow_left"],
+				"text" => $website["icons"]["arrow_left"]
 			];
 
-			$chapter_tab["top_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_titles[$i - 1], $options);
-			$chapter_tab["bottom_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_titles[$i - 1], $options);
+			$chapter_title = $chapter_titles[$i - 2];
 		}
 
-		# Add next chapter button if chapter is not the last one
+		# Define the next chapter button if chapter is not the last one
 		if ($i != count($chapter_titles)) {
 			$c = $i + 1;
 
 			$options = [
 				"previous" => False,
 				"next" => True,
-				"text" => $website["icons"]["arrow_right"],
+				"text" => $website["icons"]["arrow_right"]
 			];
 
-			$chapter_tab["top_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_titles[$i - 1], $options);
-			$chapter_tab["bottom_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_titles[$i - 1], $options);
+			$chapter_title = $chapter_titles[$i];
 		}
 
-		# Create comment and read buttons
+		# Add top and bottom buttons
+		$chapter_tab["top_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_title, $options);
+		$chapter_tab["bottom_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_title, $options);
+
+		# Create the comment and read buttons
 		$chapter_tab["bottom_button"] .= $this -> Comment_And_Read_Buttons();
 
 		$chapter_tab["top_button"] .= "\n";
@@ -498,9 +497,7 @@ class Story extends Class_ {
 		$words = number_format(str_word_count($chapter_tab["chapter_text"]));
 
 		# Check the chapter dates
-		if (
-			$story["Information"]["Chapters"]["Dates"] != []
-		) {
+		if ($story["Information"]["Chapters"]["Dates"] != []) {
 			if (isset($story["Information"]["Chapters"]["Dates"][$i - 1]) == True) {
 				$date = $story["Information"]["Chapters"]["Dates"][$i - 1];
 
@@ -515,6 +512,10 @@ class Story extends Class_ {
 				$chapter_tab["chapter_text"] .= "\t\t"."<br />"."<br />"."\n".
 				"\t\t".$website["language_texts"]["chapter_written_in"].": ".$date."<br />"."\n";
 			}
+
+			else {
+				$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
+			}
 		}
 
 		else {
@@ -522,18 +523,20 @@ class Story extends Class_ {
 		}
 
 		# Add a text area to write the chapter
-		if ($parse != "/generate") {
+		if (
+			$parse != "/generate" and
+			isset($_GET["write"]) and
+			$_GET["write"] == True
+		) {
 			$border_and_text_class = $website["data"]["style"]["background"]["theme"]["light"]." ".$website["data"]["style"]["text"]["theme"]["dark"];
 
 			$class = $border_and_text_class." ".$website["style"]["border_4px"]["theme"]["dark"];
 
-			$style = "width: 100%; border: none; overflow: hidden; resize: none;";
+			$style = "width: 100%; height: 800px; border: none; overflow-y: hidden; resize: none;";
 
 			$h2 = HTML::Element("h2", "<p><br /><b>".$website["language_texts"]["write, title()"].":"."</b><br /><br /><p>", "", $chapter_tab["chapter_text_color"])."\n";
 
 			$title = "<center>".$h2."</center>";
-
-			$rows = $array["Lines"] + ($array["Lines"] / 3) - 90;
 
 			$text = str_replace("<br />", "", $array["Text backup"]);
 
@@ -545,12 +548,16 @@ class Story extends Class_ {
 
 			$textarea_class .= '"';
 
-			$chapter_tab["chapter_text"] .= "<br />".
-			'<div class="'.$class.'" style="border-radius: 40px;">'."\n".
+			$anchor = "chapter_write";
+
+			$chapter_tab["chapter_text"] .= "<!-- Text area to write the chapter, with the chapter text -->"."\n".
+			"<br />"."\n".
+			'<a id="'.$chapter_tab["id"].'_write_anchor"></a>'."\n".
+			'<div id="'.$anchor.'" class="'.$class.'" style="border-radius: 40px;">'."\n".
 			$title."\n".
 			"\t".'<div style="margin: 3%;">'."\n".
 			$website["elements"]["hr_1px_no_margin"]["theme"]["dark"]."\n".
-			"\t\t".'<textarea '.$textarea_class.' style="'.$style.'" rows="'.$rows.'">'."\n".
+			"\t\t".'<textarea id="'.$chapter_tab["id"].'_write_textarea"'.$textarea_class.' style="'.$style.'" rows="100">'."\n".
 			$text.
 			"</textarea>"."\n".
 			"\t"."</div>"."\n".
@@ -558,17 +565,6 @@ class Story extends Class_ {
 			$website["elements"]["hr_1px_no_margin"]["theme"]["dark"]."\n".
 			"<br />"."\n".
 			"<br />";
-
-			// Add script to resize textarea
-			$chapter_tab["chapter_text"] .= "<script>".'
-			$(function() {
-				$("textarea").each(function() {
-					if (this.scrollHeight > this.clientHeight) {
-						this.style.height = this.scrollHeight + "px"
-					}
-				});
-			});
-			</script>';
 		}
 
 		$chapter_tab["chapter_text"] .= "\t\t".$website["language_texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
@@ -580,7 +576,10 @@ class Story extends Class_ {
 		$this -> Top_And_Bottom_Buttons();
 
 		# HTML comment for buttons, text, and image
-		if ($i != 1 and $i != count($chapter_titles)) {
+		if (
+			$i != 1 and
+			$i != count($chapter_titles)
+		) {
 			$chapter_tab["comment"] = str_replace("button", "buttons", $chapter_tab["comment"]);
 		}
 

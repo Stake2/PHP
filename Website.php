@@ -99,7 +99,10 @@ if (isset($website["method"]) == False) {
 }
 
 # Define method from GET
-if ($_GET != [] and isset($_GET["website"]) == True and isset($_GET["website"])) {
+if (
+	$_GET != [] and
+	isset($_GET["website"]) == True
+) {
 	$website["method"] = $_GET;
 	$_SESSION["GET"] = $_GET;
 }
@@ -110,13 +113,20 @@ if (isset($website["method"]) == True) {
 }
 
 # Get method from SESSION
-if (isset($website["method"]) == False and isset($_SESSION["method"]) == True) {
+if (
+	isset($website["method"]) == False and
+	isset($_SESSION["method"]) == True
+) {
 	$website["method"] = $_SESSION["method"];
 }
 
 # Define method on SESSION
 if (isset($website["method"]) == True) {
 	$_SESSION["method"] = $website["method"];
+}
+
+if (isset($website["method"]["language"]) == False) {
+	$website["method"]["language"] = "pt";
 }
 
 # Add keys and values of method to website array
@@ -211,6 +221,8 @@ foreach ($website["years"] as $year) {
 		}
 	}
 }
+
+$website["current_year"] = array_reverse($website["years"])[0];
 
 # Update websites JSON file
 $JSON -> Edit($folders["mega"]["php"]["json"]["websites"], $websites, "w");
@@ -357,8 +369,6 @@ function Generate_Form() {
 
 Generate_Form();
 
-$tpl -> assign("website", $website);
-
 # Define website CSS files
 $file_names = [
 	"W3",
@@ -389,15 +399,6 @@ foreach ($file_names as $file_name) {
 	$website["css"]["links"] .= "\n";
 }
 
-# Define website JavaScript files
-$file_names = [
-	"https://www.w3schools.com/lib/w3",
-	"Language",
-	"Functions",
-	"Language_Redirector",
-	"Tabs"
-];
-
 # Define default website data
 $website["data"] = $website["dictionary"]["The Life of Littletato"];
 
@@ -406,37 +407,55 @@ if (array_key_exists("website", $website) == True) {
 	$website["data"] = $website["dictionary"][$website["website"]];
 }
 
-if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story"])) {
-	array_push($file_names, "Story");
-}
-
 $GLOBALS["link_class"] = $website["data"]["style"]["text_highlight"]." ".$website["data"]["style"]["text_hover"];
 
-$website["style"]["background_image"] = "";
+$website["style"]["background_image"] = " test";
 
 if (isset($website["data"]["json"]["background_image"]) == True) {
 	$local_image_file = $website["data"]["folders"]["local_website"]["images"]["images"]["root"];
 
 	if ($website["data"]["json"]["background_image"] != "") {
-		$local_image_file .= $website["data"]["json"]["background_image"];
+		$file_name = $website["data"]["json"]["background_image"];
 	}
 
 	else {
-		$local_image_file .= "Background";
+		$file_name = "Background";
 	}
 
+	$link = "";
+
 	foreach ($website["Image formats"] as $format) {	
-		$local_image = $local_image_file.".".$format;
+		$local_image = $local_image_file.$file_name.".".$format;
 
 		if (file_exists($local_image) == True) {
-			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$website["data"]["json"]["background_image"].".".$format;
+			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$file_name.".".$format;
 		}
 	}
 
-	$website["style"]["background_image"] = ' style="background: url('."'".$link."'".') no-repeat center center fixed; background-size: 100% 100%;"';
+	if ($link != "") {
+		$website["style"]["background_image"] = ' style="background: url('."'".$link."'".') no-repeat center center fixed; background-size: 100% 100%;"';
+	}
 }
 
-array_push($file_names, "https://code.jquery.com/jquery-3.6.0.slim.min");
+$tpl -> assign("website", $website);
+
+# Define the website JavaScript files
+$file_names = [
+	"https://code.jquery.com/jquery-3.6.0.slim.min",
+	"https://www.w3schools.com/lib/w3",
+	"Language",
+	"Functions",
+	"Language_Redirector",
+	"Tabs"
+];
+
+if (
+	$website["data"]["type"] == "Story" or
+	isset($website["data"]["json"]["story"])
+) {
+	array_push($file_names, "Story");
+}
+
 array_push($file_names, "https://kit.fontawesome.com/6f0935b8d2");
 
 $website["javascript"] = [];
@@ -449,7 +468,7 @@ foreach ($file_names as $file_name) {
 
 	$website["javascript"]["links"] .= '<script type="text/javascript" src="';
 
-	if (strpos($file_name, ".com") == False) {
+	if (str_contains($file_name, ".com") == False) {
 		$website["javascript"]["links"] .= "/JavaScript/";
 		#$website["javascript"]["links"] .= $website["folders"]["javascript"]["root"];
 	}
@@ -458,7 +477,7 @@ foreach ($file_names as $file_name) {
 
 	$website["javascript"]["links"] .= '"';
 	
-	if (strpos($file_name, "fontawesome") == True) {
+	if (str_contains($file_name, "fontawesome") == True) {
 		$website["javascript"]["links"] .= ' crossorigin="anonymous"';
 	}
 
@@ -689,27 +708,35 @@ if ($parse != "/generate") {
 
 if ($parse != "/generate") {
 	$website["content"] .= '<script>
-function Resize() {
-	var textareas = Array.from(document.getElementsByTagName("textarea"))
+// Get URL parameters
+parameters = Object.fromEntries(  
+	new URLSearchParams(window.location.search)
+)
 
-	textareas.forEach(
-		function(element) {
-			element.style.height = element.scrollHeight + "px"
-		}
-	)
+function Resize_Textarea() {
+	chapter_write_anchor_id = "chapter_" + chapter_number + "_write_anchor"
+	chapter_write_element = document.getElementById(chapter_write_anchor_id)
+
+	$("textarea").each(function () {
+		this.style.height = "auto"
+		this.style.height = (this.scrollHeight) + "px;"
+	}).on("input", function () {
+		this.style.height = "auto"
+		this.style.height = (this.scrollHeight) + "px"
+	})
 }
 
-window.addEventListener("load", Resize)
+if (Object.keys(parameters).includes("chapter") == true) {
+	window.addEventListener("load", Resize_Textarea)
+}
 
-//var textareas = Array.from(document.getElementsByTagName("textarea"))
-
-//textareas.forEach(
-//	function(element) {
-//		element.addEventListener("click", function() {
-//			element.style.height = element.scrollHeight + "px"
-//		})
-//	}
-//)
+$("textarea").each(function () {
+	this.style.height = "auto"
+	this.style.height = (this.scrollHeight) + "px;"
+}).on("input", function () {
+	this.style.height = "auto"
+	this.style.height = (this.scrollHeight) + "px"
+})
 </script>';
 }
 
@@ -717,5 +744,7 @@ $dictionary = $website;
 unset($dictionary["content"]);
 
 $JSON -> Edit($folders["mega"]["php"]["Dictionary"], $dictionary);
+
+$tpl -> assign("website", $website);
 
 ?>
