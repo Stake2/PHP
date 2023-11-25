@@ -76,7 +76,7 @@ foreach ($identities as $identity) {
 
 		# Add the "Stake2" profile picture
 		if ($identity == "Stake2") {
-			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity.".png";
+			$link = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$identity.".png";
 
 			# Identity image
 			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.' border-radius: 100%;"', $website["style"]["img"]["theme"]["normal"])."</center>";
@@ -86,7 +86,7 @@ foreach ($identities as $identity) {
 
 		# Add the "Funkysnipa Cat" profile picture
 		if ($identity == "Funkysnipa Cat") {
-			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity.".png";
+			$link = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$identity.".png";
 
 			$class = str_replace("border_radius_100_cent", "border_radius_5_cent", $website["style"]["img"]["theme"]["light"]);
 
@@ -102,7 +102,7 @@ foreach ($identities as $identity) {
 			$identity == "Stake2" or
 			$identity == "Funkysnipa Cat"
 		) {
-			$remote_folder = $website["data"]["folders"]["website"]["images"]["images"]["root"].$identity."/";
+			$remote_folder = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$identity."/";
 			$local_folder = $website["data"]["folders"]["local_website"]["images"]["images"]["root"].$identity."/";
 
 			$style .= "border-radius: 5%;";

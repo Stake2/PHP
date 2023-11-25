@@ -7,38 +7,51 @@ class Date extends Class_ {
 		parent::__construct(self::class);
 	}
 
-	public static function Now($string = "", $format = "") {
+	public static function Now($string = "", $format = "", $object = "") {
 		global $website;
 		global $Language;
 
-		$datetime = new DateTime();
+		if ($object == "") {
+			$object = new DateTime();
+		}
 
 		if ($string != "") {
 			if ($format == "") {
 				$format = "H:i d/m/Y";
 			}
 
-			$datetime = DateTime::createFromFormat($format, $string);
+			$object = DateTime::createFromFormat($format, $string);
 		}
 
 		$date = [
-			"day" => $datetime -> format("d"),
-			"month" => $datetime -> format("m"),
-			"year" => $datetime -> format("Y"),
+			"Object" => $object,
+			"day" => $object -> format("d"),
+			"month" => $object -> format("m"),
+			"year" => $object -> format("Y"),
 			"formats" => [
-				"HH:MM DD/MM/YYYY" => $datetime -> format("H:i d/m/Y")
+				"HH:MM DD/MM/YYYY" => $object -> format("H:i d/m/Y")
 			]
 		];
 
 		foreach ($website["texts"]["date_format"] as $text) {
-			$date[$text] = $datetime -> format($text);
+			$date[$text] = $object -> format($text);
 		}
 
 		foreach ($website["texts"]["date_time_format"] as $text) {
-			$date[$text] = $datetime -> format($text);
+			$date[$text] = $object -> format($text);
 		}
 
+		$date["Formats"] = $date["formats"];
+
 		return $date;
+	}
+
+	public static function From_Unix($datetime, $timestamp) {
+		$datetime -> setTimestamp($timestamp);
+
+		$datetime = Date::Now("", "", $datetime);
+
+		return $datetime;
 	}
 
 	public static function Create_Years_List($mode = "array", $start = 2018, $plus = 0, $function = "string", $string_format = Null) {

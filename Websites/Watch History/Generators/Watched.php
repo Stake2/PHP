@@ -86,6 +86,8 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 			"headers" => []
 		];
 
+		$text_color = $website["style"]["text"]["theme"]["dark"];
+
 		# Iterate through the English plural media types list
 		$i = 0;
 		foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
@@ -97,31 +99,35 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 				$number = $watch_history["media_info"]["Info"]["Numbers"][$plural_media_type];
 			}
 
-			$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+			$number_element = HTML::Element("span", $number, "", $text_color);
 
-			$b = HTML::Element("b", $language_media_type.": ".$span);
+			$span = $language_media_type.": ".$number_element;
+
+			$span = HTML::Element("b", $span);
 
 			$href = $header_text.": ".$language_media_type;
 
 			# Anchor element to go to media type list
 			if ($number != 0) {
-				$a = HTML::Element("a", $b, 'href="#'.$href.'"');
+				$a = HTML::Element("a", $span, 'href="#'.$href.'"');
 			}
 
 			else {
-				$a = HTML::Element("a", $b);
+				$a = HTML::Element("a", $span);
 			}
 
 			$array["links"] .= $a."<br />"."\n\t\t";
 
 			$watch_history["files"]["per_media_type"][$plural_media_type] = $JSON -> To_PHP($watch_history["files"]["per_media_type"]["root"].$plural_media_type."/Entries.json");
 
-			$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+			$number_element = HTML::Element("span", $number, "", $text_color);
 
-			$b = HTML::Element("b", $language_media_type.": ".$span);
+			$span = $language_media_type.": ".$number_element;
+
+			$span = HTML::Element("b", $span);
 
 			# Plural media type header with anchor href to go to media type episodes part
-			$a = HTML::Element("a", $b, 'name="'.$href.'"')."<br />";
+			$a = HTML::Element("a", $span, 'name="'.$href.'"')."<br />";
 
 			$array["headers"][$plural_media_type] = "\t\t".'<!-- "'.$plural_media_type.'" media type header -->'."\n".
 			"\t\t".$a."\n";
@@ -157,6 +163,8 @@ $website["tab_content"]["watched_things"]["number"] = $watch_history["entries"][
 $website["tab_content"]["watched_things"]["string"] .= "<!-- Media type headers -->"."\n"."\t\t".
 $media_type_headers["links"].
 "\n"."\t\t"."<br />"."\n\n";
+
+$text_color = $website["style"]["text"]["theme"]["dark"];
 
 # Iterate through the English plural media types list
 $i = 0;
@@ -284,7 +292,8 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 				# Or they are deactivated and the year inside the data array is the same as the current year
 				if (
 					$website["States"]["Watch History"]["Past registry entry tabs"] == True or
-					$website["States"]["Watch History"]["Past registry entry tabs"] == False and $website["data"]["year"] == $website["date"]["year"]
+					$website["States"]["Watch History"]["Past registry entry tabs"] == False and
+					$website["data"]["year"] == $website["date"]["year"]
 				) {
 					# Add the description tab link and create the tab
 					$link_text = $website["language_texts"]["entry_description"];
@@ -293,7 +302,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 
 					$style = 'style="text-decoration: underline; cursor: pointer;"';
 
-					$title = HTML::Element("a", $title, 'onclick="'."Open_Tab('".$tab_id."')".'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'" '.$style, $website["style"]["text_highlight"]);
+					$title = HTML::Element("a", $title, 'onclick="'."Open_Tab('".$tab_id."')".'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'" '.$style, $text_color);
 
 					# Create the tab title
 					$tab_title = $entry["Number"]." - ".$entry_title." (".$time.")";
@@ -426,7 +435,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 				}
 			}
 
-			$title = HTML::Element("span", $title, "", $website["style"]["text_highlight"]);
+			$title = HTML::Element("span", $title, "", $text_color);
 
 			# Add the media unit link
 			if (array_key_exists("Link", $entry) == True) {
@@ -446,7 +455,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 					$title .= " - ";
 				}
 
-				$title .= " ".HTML::Element("a", $website["icons"]["comment"], 'href="'.$entry["Comment"]["Link"].'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'"', $website["style"]["text_highlight"]);
+				$title .= " ".HTML::Element("a", $website["icons"]["comment"], 'href="'.$entry["Comment"]["Link"].'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'"', $text_color);
 			}
 
 			$text .= " ".$title." (".$time.")";
@@ -470,7 +479,7 @@ $website["tab_content"]["watched_things"]["string"] .= "<br /><br />";
 if (array_key_exists("watched_things", $website["tabs"]["templates"]) == False) {
 	$website["tabs"]["templates"]["watched_things"] = [
 		"name" => $website["language_texts"]["watched_things_in"]." ".$website["data"]["year"],
-		"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["style"]["text_highlight"]),
+		"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["style"]["text"]["theme"]["dark"]),
 		"text_style" => "text-align: left;",
 		"content" => $website["tab_content"]["watched_things"]["string"],
 		"icon" => "eye"

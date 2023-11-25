@@ -13,6 +13,7 @@ $full_language = $Language -> languages["full"][$language];
 
 if ($language == "general") {
 	$language = "en";
+
 	$full_language = $Language -> languages["full"][$language];
 }
 
@@ -55,8 +56,15 @@ $last_year = $website["current_year"];
 $text = $number." ".HTML::format($watch_history["language_texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
 
 # Add watched things number to the language and header website title with the text
-$website["data"]["titles"]["language"] .= ":\n".
-$text;
+$website["data"]["titles"]["language"] .= ": ".$text;
+
+# Change the text color of the number
+$number = HTML::Element("span", $number, "", $website["style"]["text"]["theme"]["dark"]);
+$first_year = HTML::Element("span", $first_year, "", $website["style"]["text"]["theme"]["dark"]);
+$last_year = HTML::Element("span", $last_year, "", $website["style"]["text"]["theme"]["dark"]);
+
+# Update the text
+$text = $number." ".HTML::format($watch_history["language_texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
 
 $website["data"]["titles"]["icon"] .= "<br />"."\n".
 $text;

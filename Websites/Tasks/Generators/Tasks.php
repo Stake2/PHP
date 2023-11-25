@@ -79,6 +79,8 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 			"headers" => []
 		];
 
+		$text_color = $website["style"]["text"]["theme"]["dark"];
+
 		$task_types = $tasks["types"];
 		$tasks["types"] = $tasks["types"]["Plural"]["en"];
 		$tasks["language_types"] = $task_types["Plural"][$language];
@@ -113,7 +115,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 			if (array_key_exists($plural_task_type, $tasks["entries"]["Numbers"]["Per Task Type"])) {
 				$number = $tasks["entries"]["Numbers"]["Per Task Type"][$plural_task_type];
 
-				$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+				$span = HTML::Element("span", $number, "", $text_color);
 
 				$b = HTML::Element("b", $language_task_type.": ".$span);
 
@@ -132,7 +134,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 
 				$tasks["files"]["per_task_type"][$plural_task_type] = $JSON -> To_PHP($tasks["files"]["per_task_type"]["root"].$plural_task_type."/Tasks.json");
 
-				$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+				$span = HTML::Element("span", $number, "", $text_color);
 
 				$b = HTML::Element("b", $language_task_type.": ".$span);
 
@@ -158,6 +160,8 @@ $website["tab_content"]["completed_tasks"]["number"] = $tasks["entries"]["Number
 $website["tab_content"]["completed_tasks"]["string"] .= "<!-- Task type headers -->"."\n"."\t\t".
 $task_type_headers["links"].
 "\n"."\t\t"."<br />"."\n\n";
+
+$text_color = $website["style"]["text"]["theme"]["dark"];
 
 # Iterate through the English task types list
 $i = 0;
@@ -219,7 +223,7 @@ foreach ($tasks["types"] as $plural_task_type) {
 					}
 				}
 
-				$title = HTML::Element("span", $entry["Titles"][$language], "", $website["style"]["text_highlight"]);
+				$title = HTML::Element("span", $entry["Titles"][$language], "", $text_color);
 
 				if ($website["States"]["Tasks"]["Entry tabs"] == True and (int)$website["data"]["year"] >= 2023) {
 					# Add the task description tab link and create the tab
@@ -229,7 +233,7 @@ foreach ($tasks["types"] as $plural_task_type) {
 
 					$style = 'style="text-decoration: underline; cursor: pointer;"';
 
-					$title = HTML::Element("a", $title, 'onclick="'."Open_Tab('".$tab_id."')".'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'" '.$style, $website["style"]["text_highlight"]);
+					$title = HTML::Element("a", $title, 'onclick="'."Open_Tab('".$tab_id."')".'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'" '.$style, $text_color);
 
 					# Create the tab title
 					$tab_title = $entry["Number"]." - ".$entry["Titles"][$language]." (".$time.")";
@@ -274,7 +278,7 @@ $website["tab_content"]["completed_tasks"]["string"] .= "<br /><br />";
 # Add tab to tab templates
 $website["tabs"]["templates"]["completed_tasks"] = [
 	"name" => $tasks["language_texts"]["completed_tasks"],
-	"add" => " ".HTML::Element("span", $website["tab_content"]["completed_tasks"]["number"], "", $website["style"]["text_highlight"]),
+	"add" => " ".HTML::Element("span", $website["tab_content"]["completed_tasks"]["number"], "", $website["style"]["text"]["theme"]["dark"]),
 	"text_style" => "text-align: left;",
 	"content" => $website["tab_content"]["completed_tasks"]["string"],
 	"icon" => "list_check"

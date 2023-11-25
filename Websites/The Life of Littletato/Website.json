@@ -3,7 +3,7 @@
 		"theme": {
 			"normal": "second_purple",
 			"light": "light_purple",
-			"dark": "darker_purple"
+			"dark": "dark_purple"
 		},
 		"secondary_theme": {
 			"normal": "salmon",

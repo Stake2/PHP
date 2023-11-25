@@ -50,19 +50,19 @@ require $folders["php"]["story_folder"]["story_cards"];
 $website["tabs"]["templates"] = [
 	"read_story" => [
 		"name" => $website["language_texts"]["read_story"],
-		"title" => $website["language_texts"]["chapters_in_[language]"].": ".$website["language_texts"]["language_icon"]." ".HTML::Element("span", $story["Information"]["Chapters"]["Number"], "", $website["style"]["text_highlight"]),
+		"title" => $website["language_texts"]["chapters_in_[language]"].": ".$website["language_texts"]["language_icon"]." ".HTML::Element("span", $story["Information"]["Chapters"]["Number"], "", $website["style"]["text"]["theme"]["dark"]),
 		"content" => $story["chapter_buttons"],
 		"icon" => "open_book"
 	],
 	"readers" => [
 		"name" => $website["language_texts"]["readers, title()"],
-		"add" => " ".HTML::Element("span", $story["Information"]["Readers"]["Number"], "", $website["style"]["text_highlight"]),
+		"add" => " ".HTML::Element("span", $story["Information"]["Readers"]["Number"], "", $website["style"]["text"]["theme"]["dark"]),
 		"content" => Text::From_Array($story["Information"]["Readers"]["List"], "", $enumerate = True, $website["style"]["text_highlight"], "text_hover_white"),
 		"icon" => "reader"
 	],
 	"other_stories" => [
 		"name" => $website["language_texts"]["other_stories"],
-		"add" => " ".HTML::Element("span", ($stories["Number"]), "", $website["style"]["text_highlight"]),
+		"add" => " ".HTML::Element("span", ($stories["Number"]), "", $website["style"]["text"]["theme"]["dark"]),
 		"content" => $website["story_cards"],
 		"icon" => "book"
 	]

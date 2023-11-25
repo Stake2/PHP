@@ -93,7 +93,10 @@ $default_website = [
 ];
 
 if (isset($website["method"]) == False) {
-	if ($_POST == [] or $_GET == []) {
+	if (
+		$_POST == [] or
+		$_GET == []
+	) {
 		$website["method"] = $default_website;
 	}
 }
@@ -162,6 +165,9 @@ $website["States"] = [
 	],
 	"Website" => [
 		"Parent" => False
+	],
+	"Story" => [
+		"Write" => False
 	]
 ];
 
@@ -334,7 +340,14 @@ function Generate_Form() {
 	$radio_buttons = "";
 
 	foreach (["code", "generate"] as $item) {
-		$language_text = $website["language_texts"][$item.", title()"];
+		$text_key = $item.", title()";
+
+		if ($item == "code") {
+			$text_key = $item."_2, title()";
+		}
+
+		$language_text = $website["language_texts"][$text_key];
+
 		$item_capitalize = ucfirst($item);
 
 		$radio_buttons .= Text::Format($radio_template, [$item_capitalize, $item_capitalize, $language_text, $item_capitalize, $item_capitalize]);
@@ -409,7 +422,7 @@ if (array_key_exists("website", $website) == True) {
 
 $GLOBALS["link_class"] = $website["data"]["style"]["text_highlight"]." ".$website["data"]["style"]["text_hover"];
 
-$website["style"]["background_image"] = " test";
+$website["style"]["background_image"] = "";
 
 if (isset($website["data"]["json"]["background_image"]) == True) {
 	$local_image_file = $website["data"]["folders"]["local_website"]["images"]["images"]["root"];
@@ -428,7 +441,7 @@ if (isset($website["data"]["json"]["background_image"]) == True) {
 		$local_image = $local_image_file.$file_name.".".$format;
 
 		if (file_exists($local_image) == True) {
-			$link = $website["data"]["folders"]["website"]["images"]["images"]["root"].$file_name.".".$format;
+			$link = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$file_name.".".$format;
 		}
 	}
 
@@ -502,7 +515,7 @@ while ($i <= 4) {
 	$border = "border_".$i."px";
 
 	$theme_border = $website["style"][$border]["theme"];
-	$secondary_theme_border = $website["style"][$border]["theme"];
+	$secondary_theme_border = $website["style"][$border]["secondary_theme"];
 
 	$website["elements"][$element] = [
 		"black" => '<hr class="'.$website["style"][$border]["black"].' margin_sides_5_cent" />',
@@ -568,86 +581,49 @@ if (isset($website["data"]) == True) {
 
 	$website["tabs"] = $website["data"]["json"]["tabs"];
 
-	$website["tabs"]["templates"] = [];
+	$keys = [
+		"templates",
+		"data"
+	];
 
-	if (file_exists($website["data"]["folders"]["php"]["website_php"]) == True) {
-		require $website["data"]["folders"]["php"]["website_php"];
+	foreach ($keys as $key) {
+		if (isset($website["tabs"][$key]) == False) {
+			$website["tabs"][$key] = [];
+		}
 	}
 
 	# Create websites tab and add it to the tabs array
 	$website["tabs"]["data"]["websites_tab"] = [
 		"id" => "websites_tab",
 		"name" => $website["language_texts"]["websites, title()"],
-		"add" => " ".HTML::Element("span", count($websites["List"]["en"]), "", $website["style"]["text_highlight"]),
+		"add" => " ".HTML::Element("span", count($websites["List"]["en"]), "", $website["style"]["text"]["theme"]["dark"]),
 		"class" => $website["style"]["tab"]["theme_dark"],
 		"icon" => "globe",
 		"content" => $website["website_buttons"]
 	];
+
+	if (file_exists($website["data"]["folders"]["php"]["website_php"]) == True) {
+		require $website["data"]["folders"]["php"]["website_php"];
+	}
 }
 
 # Define story of website and run Story.php file
-if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story"])) {
+if (
+	$website["data"]["type"] == "Story" or
+	isset($website["data"]["json"]["story"])
+) {
 	$story = $website["data"]["story"];
+
+	if (
+		$parse != "/generate" and
+		isset($_GET["write"]) and
+		$_GET["write"] == True
+	) {
+		$website["States"]["Story"]["Write"] = True;
+	}
 
 	# Require the "Story.php" file to define story website variables
 	require $folders["php"]["story"];
-}
-
-# Define website data related to year websites
-if (
-	$website["data"]["title"] == "Years" or
-	in_array($website["data"]["title"], $website["years"])
-) {
-	$year_buttons = "";
-
-	foreach ($website["years"] as $year) {
-		$year_button = $website["dictionary"][$year]["button"];
-
-		$year_buttons .= $year_button."\n";
-	}
-
-	# Add tab keys and templates
-	$tab_titles = [
-		"summary"
-	];
-
-	if ((int)$website["data"]["title"] >= 2022) {
-		array_push($tab_titles, "this_year_i");
-	}
-
-	# Add the "Years" tab
-	$more_tabs = [
-		"watched_things",
-		"completed_tasks",
-		"years",
-	];
-
-	$tab_titles = array_merge($tab_titles, $more_tabs);
-
-	$tabs = [];
-
-	foreach ($tab_titles as $tab) {
-		$tabs[$tab] = [
-			"template" => $tab
-		];
-	}
-
-	$website["tabs"]["data"] = $website["tabs"]["data"] + $tabs;
-
-	# Create the years tab template
-	$website["tabs"]["templates"]["years"] = [
-		"name" => $website["language_texts"]["years, title()"],
-		"add" => " ".HTML::Element("span", count($website["years"]), "", $website["style"]["text_highlight"]),
-		"content" => $year_buttons,
-		"icon" => "calendar_days"
-	];
-
-	# Move the websites tab template to the end
-	$backup = $website["tabs"]["data"]["websites_tab"];
-
-	unset($website["tabs"]["data"]["websites_tab"]);
-
-	$website["tabs"]["data"]["websites_tab"] = $backup;
 }
 
 # Define the website content, adding the "select website" form
@@ -708,11 +684,12 @@ if ($parse != "/generate") {
 
 if ($parse != "/generate") {
 	$website["content"] .= '<script>
-// Get URL parameters
+// Get the URL parameters
 parameters = Object.fromEntries(  
 	new URLSearchParams(window.location.search)
 )
 
+// Define the function to resize text areas
 function Resize_Textarea() {
 	chapter_write_anchor_id = "chapter_" + chapter_number + "_write_anchor"
 	chapter_write_element = document.getElementById(chapter_write_anchor_id)
@@ -726,10 +703,12 @@ function Resize_Textarea() {
 	})
 }
 
+// Resize all text areas if the "chapter" key is present in the URL parameters
 if (Object.keys(parameters).includes("chapter") == true) {
 	window.addEventListener("load", Resize_Textarea)
 }
 
+// Resize all text areas
 $("textarea").each(function () {
 	this.style.height = "auto"
 	this.style.height = (this.scrollHeight) + "px;"
@@ -741,6 +720,7 @@ $("textarea").each(function () {
 }
 
 $dictionary = $website;
+
 unset($dictionary["content"]);
 
 $JSON -> Edit($folders["mega"]["php"]["Dictionary"], $dictionary);

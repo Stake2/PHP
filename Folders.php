@@ -4,7 +4,8 @@
 
 # folders array
 $folders = [
-	"hard_drive_letter" => substr(__FILE__, 0, 2)."/"
+	"hard_drive_letter" => substr(__FILE__, 0, 2)."/",
+	"Hard drive letter" => substr(__FILE__, 0, 2)."/"
 ];
 
 # Root folders

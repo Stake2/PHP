@@ -2,11 +2,23 @@ Folders:
 	Fazer geração de pastas de Redes de Dados em um só "foreach"
 
 Stake2:
-	Fazer evolução das fotos de perfil do "Stake2"
 	Colocar capas do "Stake2" e do "Funkysnipa Cat"
 
-Normal websites:
-	Create notification
+	Redes Sociais:
+		Colocar parte da rede social "Fandom":
+			Perfil Fandom
+			Fandom Stake2
 
-Story websites:
-	Add "chapter_loader" close to the additional scripts on the end of the website, and "chapter_loader: true" on "Diary Slim" Website.json
+Normal websites:
+	Criar notificações
+
+Sites de histórias:
+	Adicionar "chapter_loader" perto dos script adicionais no fim do site, e "chapter_loader: true" no "Website.json" do site "Diário Slim"
+
+	Adicionar número total de leituras e comentários no cabeçalho do site
+
+Imagens:
+	Trocar métodos "HTML -> Element()" pelo novo método "HTML -> Image"
+
+	Adicionar verificação de pasta raiz de imagens do site, para verificar se deve pegar ícones da pasta de imagens geral do site
+	E não da pasta específica "Icons"

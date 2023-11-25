@@ -27,6 +27,18 @@ class File extends Class_ {
 		}
 	}
 
+	public function Extension($file, $add_dot = True) {
+		$extension = "";
+
+		if ($add_dot == True) {
+			$extension .= ".";
+		}
+
+		$extension .= pathinfo($file, PATHINFO_EXTENSION);
+
+		return $extension;
+	}
+
 	public function Create($file) {
 		
 	}

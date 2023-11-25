@@ -162,11 +162,11 @@ $website["variable_inserter"]["The_Life_of_Littletato"] = [
 
 # Define "The Life of Littletato" images
 $links = [
-	"Not_Littletato" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Not Littletato.jpg",
+	"Not_Littletato" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Not Littletato.jpg",
 
-	"Littletato" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Littletato.jpg",
+	"Littletato" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Littletato.jpg",
 
-	"Mansion_of_Littletato_and_Friends" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Mansion of Littletato and Friends.png"
+	"Mansion_of_Littletato_and_Friends" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Mansion of Littletato and Friends.png"
 ];
 
 foreach (array_keys($links) as $key) {
@@ -238,19 +238,19 @@ Create_Chapter_Link_And_Button($numbers, "SpaceLiving");
 
 # Define the "SpaceLiving" images
 $links = [
-	"Lisa" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Lisa.jpg".'"', $website["data"]["style"]["img"]["secondary_theme"]["light"],
+	"Lisa" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Lisa.jpg".'"', $website["data"]["style"]["img"]["secondary_theme"]["light"],
 
-	"LonelyShip_Story_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."LonelyShip Story Cover.png",
+	"LonelyShip_Story_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."LonelyShip Story Cover.png",
 
-	"LonelyShip_Story_Cover_Front_Signboards" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."LonelyShip Story Cover Front Signboards.png",
+	"LonelyShip_Story_Cover_Front_Signboards" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."LonelyShip Story Cover Front Signboards.png",
 
-	"Audacity_Blue_Bass_Waveform" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Audacity Blue Bass Waveform.png",
+	"Audacity_Blue_Bass_Waveform" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Audacity Blue Bass Waveform.png",
 
-	"Original_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Orignal Sharks - FROG PARTY Song Cover.jpg",
+	"Original_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Orignal Sharks - FROG PARTY Song Cover.jpg",
 
-	"Funky_Black_Cat_Original_Profile_Picture" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Funky Black Cat Original Profile Picture.png",
+	"Funky_Black_Cat_Original_Profile_Picture" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Funky Black Cat Original Profile Picture.png",
 
-	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["images"]["images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg"
+	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg"
 ];
 
 foreach (array_keys($links) as $key) {
@@ -275,9 +275,9 @@ $website["variable_inserter"]["The_Secret_of_the_Crystals"] = [
 
 # Define "The Secret of the Crystals" images
 $links = [
-	"Lapis_Lazuli_Steven_Universe" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Lapis Lazuli.png",
+	"Lapis_Lazuli_Steven_Universe" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Lapis Lazuli.png",
 
-	"Humanoid_Ted" => $website["data"]["folders"]["website"]["images"]["images"]["root"]."Humanoid Kódek.jpg",
+	"Humanoid_Ted" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Humanoid Kódek.jpg",
 ];
 
 foreach (array_keys($links) as $key) {

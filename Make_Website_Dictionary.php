@@ -180,14 +180,16 @@ foreach ($websites["List"]["en"] as $website_title) {
 		array_push($names, "Story Covers");
 	}
 
-	$website_dictionary["folders"]["website"]["images"] = [];
+	# Define the remote and local website image folders
+	# (Old way of defining website image folders)
+	$website_dictionary["folders"]["website"]["website_images"] = [];
 
 	$website_dictionary["folders"]["local_website"]["images"] = [];
 
 	foreach ($names as $item) {
 		$key = str_replace(" ", "_", strtolower($item));
 
-		$website_dictionary["folders"]["website"]["images"][$key] = [
+		$website_dictionary["folders"]["website"]["website_images"][$key] = [
 			"root" => $website["folders"]["images"]["root"].$item."/".$website_link."/"
 		];
 
@@ -196,7 +198,46 @@ foreach ($websites["List"]["en"] as $website_title) {
 		];
 	}
 
-	# Define Mega website texts folder
+	# Define the local unified website icons and images folder, with local and remote keys
+	# (New way of defining website image folders, more organized)
+	$dictionary = [
+		"Local" => [],
+		"Remote" => [],
+		"Custom folders" => []
+	];
+
+	if (in_array($website_title, $website["years"]) == True) {
+		array_push($dictionary["Custom folders"], "Memories");
+	}
+
+	# Define each root folder
+	foreach (array_keys($dictionary) as $key) {
+		# Local folder
+		$folder = $folders["mega"]["websites"]["images"]["root"];
+
+		# Remote folder
+		if ($key == "Remote") {
+			$folder = $website["folders"]["images"]["root"];
+		}
+
+		# Define the root folder
+		$dictionary[$key]["root"] = $folder.$website_title."/";
+
+		# Define the "Icons" folder
+		$dictionary[$key]["Icons"] = $dictionary[$key]["root"]."Icons/";
+
+		# Define other website image folders
+		foreach ($dictionary["Custom folders"] as $folder) {
+			$dictionary[$key][$folder] = [
+				"root" => $dictionary[$key]["root"].$folder."/"
+			];
+		}
+	}
+
+	# Define the website images dictionary as the local dictionary used above
+	$website_dictionary["folders"]["website"]["images"] = $dictionary;
+
+	# Define the Mega website texts folder
 	$website_dictionary["folders"]["website"]["texts"] = [
 		"root" => $website["folders"]["texts"]["root"].$website_link."/"
 	];
@@ -208,6 +249,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$Folder -> Create($website_dictionary["folders"]["php"]["root"]);
 
+	# Add to the verbose text
 	$verbose_text .= "Pastas:"."\n";
 
 	if ($website_title != $website_link) {

@@ -87,13 +87,15 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["language_texts"]["watched_things_in"]." ".$website["data"]["year"];
+			$header_text = $website["language_texts"]["watched_things_in"]."".$website["data"]["year"];
 		}
 
 		$array = [
 			"links" => "",
 			"headers" => []
 		];
+
+		$text_color = $website["style"]["text"]["theme"]["dark"];
 
 		# Iterate through the English plural media types list
 		$i = 0;
@@ -106,31 +108,35 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 				$number = $watch_history["media_info"]["Info"]["Numbers"][$plural_media_type];
 			}
 
-			$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+			$number_element = HTML::Element("span", $number, "", $text_color);
 
-			$b = HTML::Element("b", $language_media_type.": ".$span);
+			$span = $language_media_type.": ".$number_element;
+
+			$span = HTML::Element("b", $span);
 
 			$href = $header_text.": ".$language_media_type;
 
 			# Anchor element to go to media type list
 			if ($number != 0) {
-				$a = HTML::Element("a", $b, 'href="#'.$href.'"');
+				$a = HTML::Element("a", $span, 'href="#'.$href.'"');
 			}
 
 			else {
-				$a = HTML::Element("a", $b);
+				$a = HTML::Element("a", $span);
 			}
 
 			$array["links"] .= $a."<br />"."\n\t\t";
 
 			$watch_history["files"]["per_media_type"][$plural_media_type] = $JSON -> To_PHP($watch_history["files"]["per_media_type"]["root"].$plural_media_type."/Entries.json");
 
-			$span = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+			$number_element = HTML::Element("span", $number, "", $text_color);
 
-			$b = HTML::Element("b", $language_media_type.": ".$span);
+			$span = $language_media_type.": ".$number_element;
+
+			$span = HTML::Element("b", $span);
 
 			# Plural media type header with anchor href to go to media type episodes part
-			$a = HTML::Element("a", $b, 'name="'.$href.'"')."<br />";
+			$a = HTML::Element("a", $span, 'name="'.$href.'"')."<br />";
 
 			$array["headers"][$plural_media_type] = "\t\t".'<!-- "'.$plural_media_type.'" media type header -->'."\n".
 			"\t\t".$a."\n";

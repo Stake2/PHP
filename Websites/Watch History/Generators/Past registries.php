@@ -113,7 +113,7 @@ $website["tab_content"]["past_registries"]["string"] .= "</center>";
 # Create the "past_registries" tab template
 $website["tabs"]["templates"]["past_registries"] = [
 	"name" => $website["language_texts"]["past_registries"],
-	"add" => " ".HTML::Element("span", $website["tab_content"]["past_registries"]["number"], "", $website["style"]["text_highlight"]),
+	"add" => " ".HTML::Element("span", $website["tab_content"]["past_registries"]["number"], "", $website["style"]["text"]["theme"]["dark"]),
 	"text_style" => "text-align: left;",
 	"content" => $website["tab_content"]["past_registries"]["string"],
 	"icon" => "archive"

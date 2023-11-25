@@ -192,88 +192,111 @@ tab_keys.forEach(
 	}
 )
 
-// Create event listener to keyup to open tabs
+// Create a event listener on "keyup" to open tabs
 var tab_by_key = function(event) {
-	var left_arrow = 37, right_arrow = 39
+	// Define the elements where the keys will not work
+	var disallowed_elements = [
+		"input",
+		"textarea"
+	]
 
-	// If left or right arrow is pressed
-	if (event.keyCode === left_arrow || event.keyCode === right_arrow) {
-		// Prevent default event
-		event.preventDefault()
+	// Define the target element tag name
+	var tag_name = event.target.tagName.toLowerCase()
 
-		// Define supported modifier keys
-		var supported_modifier_keys = [!!event.ctrlKey, !!event.shiftKey]
+	var check = true
 
-		var modifier_key_pressed = false
+	// Do not check for a tab if the event target is a text area or input
+	// (The user must want to select text)
+	if (disallowed_elements.indexOf(tag_name) != -1) {
+		check = false
+	}
 
-		// Check if modifiey key is pressed
-		var i = 0
-		while (i <= supported_modifier_keys.length) {
-			var modifier_key = supported_modifier_keys[i]
+	if (check == true) {
+		var left_arrow = 37, right_arrow = 39
 
-			if (modifier_key == true) {
-				modifier_key_pressed = true
-			}
+		// If the left or right arrow is pressed
+		if (
+			event.keyCode === left_arrow ||
+			event.keyCode === right_arrow
+		) {
+			// Prevent the default event
+			event.preventDefault()
 
-			i++
-		}
+			// Define the supported modifier keys
+			var supported_modifier_keys = [
+				!!event.ctrlKey,
+				!!event.shiftKey
+			]
 
-		// If one of them is pressed, then check what key was pressed
-		if (modifier_key_pressed == true) {
-			// Get tabs
-			var tabs = Array.from(document.getElementsByClassName("tab"))
+			var modifier_key_pressed = false
 
-			open = false
+			// Check if modifiey key is pressed
+			var i = 0
+			while (i <= supported_modifier_keys.length) {
+				var modifier_key = supported_modifier_keys[i]
 
-			if (
-				event.keyCode === left_arrow ||
-				event.keyCode === right_arrow
-			) {
-				open = true
-			}
-
-			// If the left arrow is pressed then define tab number as the previous tab
-			if (event.keyCode === left_arrow) {
-				// Only define as previous tab if the tab number is not zero (first tab) or first tab is open
-				if (
-					tab_number !== 0 ||
-					tabs[0].style.display == "block"
-				) {
-					tab_number = Number(tab_number) - 1
+				if (modifier_key == true) {
+					modifier_key_pressed = true
 				}
 
-				// Else, if the tab number is zero, it will open the first tab
+				i++
 			}
 
-			// If the right arrow is pressed then define tab number as the next tab
-			if (event.keyCode === right_arrow) {
-				// Only define as next tab if the tab number is not zero (first tab) or first tab is open
+			// If one of them is pressed, then check what key was pressed
+			if (modifier_key_pressed == true) {
+				// Get tabs
+				var tabs = Array.from(document.getElementsByClassName("tab"))
+
+				open = false
+
 				if (
-					tab_number !== 0 ||
-					tabs[0].style.display == "block"
+					event.keyCode === left_arrow ||
+					event.keyCode === right_arrow
 				) {
-					tab_number = Number(tab_number) + 1
+					open = true
 				}
 
-				// Else, if tab number is zero, it will open the first tab
-			}
+				// If the left arrow is pressed then define tab number as the previous tab
+				if (event.keyCode === left_arrow) {
+					// Only define as previous tab if the tab number is not zero (first tab) or first tab is open
+					if (
+						tab_number !== 0 ||
+						tabs[0].style.display == "block"
+					) {
+						tab_number = Number(tab_number) - 1
+					}
 
-			// If either key is pressed, get tab by tab number and open tab
-			if (open == true) {
-				// If tab index exists
-				if (tabs[tab_number] != undefined) {
-					// Define tab id
-					tab_id = tabs[tab_number].id
-					var tab = document.getElementById(tab_id)
+					// Else, if the tab number is zero, it will open the first tab
+				}
 
-					// Only open tab if it is not open
-					if (tab.style.display !== "block") {
-						if (tab_id.includes("chapter_") == false) {
-							Open_Tab(tab_id)
-						}
+				// If the right arrow is pressed then define tab number as the next tab
+				if (event.keyCode === right_arrow) {
+					// Only define as next tab if the tab number is not zero (first tab) or first tab is open
+					if (
+						tab_number !== 0 ||
+						tabs[0].style.display == "block"
+					) {
+						tab_number = Number(tab_number) + 1
+					}
+				}
 
-						else {
-							Open_Chapter(tab_id.split("chapter_")[1])
+				// If either key is pressed, get the tab by the tab number and open the tab
+				if (open == true) {
+					// If the tab index exists
+					if (tabs[tab_number] != undefined) {
+						// Define the tab id
+						tab_id = tabs[tab_number].id
+						var tab = document.getElementById(tab_id)
+
+						// Only open the tab if it is not open
+						if (tab.style.display !== "block") {
+							if (tab_id.includes("chapter_") == false) {
+								Open_Tab(tab_id)
+							}
+
+							else {
+								Open_Chapter(tab_id.split("chapter_")[1])
+							}
 						}
 					}
 				}
@@ -282,7 +305,7 @@ var tab_by_key = function(event) {
 	}
 }
 
-// Add event listener
+// Add the "tab by key" event listener
 document.addEventListener("keyup", tab_by_key)
 
 // Show the "Loaded_Class" text

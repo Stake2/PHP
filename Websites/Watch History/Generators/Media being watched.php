@@ -110,7 +110,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 # Create the "media_being_watched" tab template
 $website["tabs"]["templates"]["media_being_watched"] = [
 	"name" => $website["language_texts"]["media_being_watched"],
-	"add" => " ".HTML::Element("span", $website["tab_content"]["media_being_watched"]["number"], "", $website["style"]["text_highlight"]),
+	"add" => " ".HTML::Element("span", $website["tab_content"]["media_being_watched"]["number"], "", $website["style"]["text"]["theme"]["dark"]),
 	"text_style" => "text-align: left;",
 	"content" => $website["tab_content"]["media_being_watched"]["string"],
 	"icon" => "play"

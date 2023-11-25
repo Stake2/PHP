@@ -96,6 +96,16 @@ class HTML extends Class_ {
 		return self::Format($template, $parameters);
 	}
 
+	public static function Image($source, $class = "", $attributes = "") {
+		global $website;
+
+		if ($class == "") {
+			$class = $website["data"]["style"]["img"]["theme"]["dark"]." ".$website["style"]["box_shadow"]["theme"]["light"];
+		}
+
+		return HTML::Element("img", "", 'src="'.$source.'"'.$attributes, $class);
+	}
+
 	public static function Format($text, $parameters) {
 		$parameters = (array)$parameters;
 
@@ -177,7 +187,7 @@ class HTML extends Class_ {
 			"\n"."<!--- Hamburger menu -->"."\n".
 			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["style"]["background"]["theme"]["normal"]." ".$website["style"]["border_4px"]["theme"][$border_color]." ".$website["style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
 			"\t".'<!-- Hide hamburger menu button -->'."\n".
-			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 17px 3px 17px !important; margin-right: 6%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
+			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
 			"\t".HTML::Element("h2", $website["language_texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["style"]["text_highlight"])."\n\n".
 			"\t"."<br />"."\n\n".
 			'<div style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">'."\n"

@@ -1,25 +1,16 @@
 {
 	"style": {
 		"theme": {
-			"normal": "black",
-			"light": "white",
-			"dark": "grey"
+			"normal": "blue",
+			"light": "light_blue",
+			"dark": "dark_blue"
 		},
 		"secondary_theme": {
-			"normal": "black",
-			"light": "white",
-			"dark": "grey"
-		}
+			"normal": "blue",
+			"light": "light_blue",
+			"dark": "dark_blue"
+		},
+		"text_highlight": "light_blue"
 	},
-	"tabs": {
-		"data": {
-			"first_tab": {
-				"name": {
-					"en": "First tab",
-					"pt": "Primeira aba"
-				}
-			}
-		}
-	},
-	"color": "000000"
+	"color": "98D1FF"
 }

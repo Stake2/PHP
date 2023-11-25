@@ -11,7 +11,29 @@ class Text extends Class_ {
 		$this -> folders = $folders;
 	}
 
-	public static function Show_Variable($variable, $return = False) {
+	public static function Show_Variable($variable, $return = False, $style = []) {
+		# Define the style dictionary
+		$dictionary = [
+			"text_color" => "grey",
+			"background_color" => "black",
+			"rest" => 'line-height: 1.5;'
+		];
+
+		if ($style != []) {
+			foreach ($style as $key) {
+				$dictionary[$key] = $style[$key];
+			}
+		}
+
+		# Define colors
+		$dictionary["full"] = "color: ".$dictionary["text_color"].";";
+		$dictionary["full"] .= "background-color: ".$dictionary["background_color"].";";
+
+		# Add the rest
+		$dictionary["full"] .= $dictionary["rest"];
+
+		$style = $dictionary;
+
 		$variable = var_export($variable, True);
 
 		$variable = str_replace("'", '"', $variable);
@@ -23,7 +45,7 @@ class Text extends Class_ {
 		$variable = htmlspecialchars($variable);
 		$variable = str_replace("&quot;", '"', $variable);
 
-		$variable = '<pre style="background-color: white;font-family: Verdana, sans-serif;font-size: 15px;line-height: 1.5;">'."\n".
+		$variable = '<pre style="'.$style["full"].'">'."\n".
 		$variable.";"."\n".
 		"</pre>";
 

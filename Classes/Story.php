@@ -42,7 +42,7 @@ class Story extends Class_ {
 			$options["button_class"] = $website["style"]["button"]["theme"]["light"];
 		}
 
-		# Create chapter button
+		# Create the chapter button
 		$h3 = HTML::Element("h3", "\n\t\t\t\t".$text."\n\t\t\t", 'style="font-weight: bold;"', "text_size ".$options["text_class"])."\n";
 
 		$chapter_button = "\t".$comment."\n".
@@ -90,7 +90,9 @@ class Story extends Class_ {
 		$chapter_file = $story["Folders"]["Chapters"][$full_language]["root"].$chapter_tab["chapter_title_file"].".txt";
 
 		$chapter_contents = $File -> Contents($chapter_file, $add_br = False);
+
 		$chapter_text = $chapter_contents["string"];
+
 		$original_text = $chapter_text;
 
 		# Define chapter text without Insert_Variables
@@ -140,7 +142,8 @@ class Story extends Class_ {
 
 		if (
 			isset($website["data"]["json"]["story"]) == False and
-			file_exists($root_variables_file) == False and file_exists($language_variables_file) == False and
+			file_exists($root_variables_file) == False and
+			file_exists($language_variables_file) == False and
 			str_contains($chapter_contents["string"], "<") == True
 		) {
 			$chapter_contents["string"] = htmlentities($chapter_contents["string"]);
@@ -178,7 +181,7 @@ class Story extends Class_ {
 				}
 			}
 
-			$remote_chapter_cover = $website["data"]["folders"]["website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$image_format;
+			$remote_chapter_cover = $website["data"]["folders"]["website"]["website_images"]["story_covers"]["root"].$chapter_cover_file_name.".".$image_format;
 		}
 
 		else {
@@ -468,7 +471,8 @@ class Story extends Class_ {
 			"bottom_button" => "",
 			"chapter_text" => "",
 			"comment" => "<!-- Chapter button and text -->"."\n",
-			"padding" => "2px"
+			"padding" => "2px",
+			"style" => ""
 		];
 
 		if (isset($website["data"]["json"]["story"]) == True) {
@@ -485,7 +489,7 @@ class Story extends Class_ {
 			$story["chapter_buttons"] .= "\n";
 		}
 
-		# Get chapter text
+		# Get the chapter text
 		$array = $this -> Chapter_Text();
 
 		$chapter_tab["chapter_text"] = $array["Text"]."\n";
@@ -522,15 +526,49 @@ class Story extends Class_ {
 			$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
 		}
 
-		# Add a text area to write the chapter
-		if (
-			$parse != "/generate" and
-			isset($_GET["write"]) and
-			$_GET["write"] == True
-		) {
-			$border_and_text_class = $website["data"]["style"]["background"]["theme"]["light"]." ".$website["data"]["style"]["text"]["theme"]["dark"];
+		$chapter_tab["chapter_text"] .= "\t\t".$website["language_texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
 
-			$class = $border_and_text_class." ".$website["style"]["border_4px"]["theme"]["dark"];
+		# Add a text area to write the chapter if the "write chapter" mode is on
+		if ($website["States"]["Story"]["Write"] == True) {
+			$chapter_tab["style"] = " width: 100%;";
+
+			# Define the "write element" themes
+			$themes = [
+				"Story" => [
+					"Background" => "normal",
+					"Text" => "dark",
+					"Border" => "light",
+					"Theme" => "theme"
+				],
+				"Light" => [
+					"Background" => "light",
+					"Text" => "dark",
+					"Border" => "dark",
+					"Theme" => "theme"
+				],
+				"Light (secondary)" => [
+					"Background" => "light",
+					"Text" => "dark",
+					"Border" => "light",
+					"Theme" => "secondary_theme"
+				],
+				"Stylized" => [
+					"Background" => "dark",
+					"Text" => "light",
+					"Border" => "light",
+					"Theme" => "secondary_theme"
+				]
+			];
+
+			# Select a theme
+			#$theme = $themes["Story"];
+			$theme = $themes["Light"];
+			#$theme = $themes["Light (secondary)"];
+			#$theme = $themes["Stylized"];
+
+			$background_and_text_class = $website["data"]["style"]["background"]["theme"][$theme["Background"]]." ".$website["data"]["style"]["text"]["theme"][$theme["Text"]];
+
+			$class = $background_and_text_class." ".$website["style"]["box_shadow"][$theme["Theme"]]["dark"]." ".$website["style"]["border_4px"][$theme["Theme"]][$theme["Border"]];
 
 			$style = "width: 100%; height: 800px; border: none; overflow-y: hidden; resize: none;";
 
@@ -540,7 +578,7 @@ class Story extends Class_ {
 
 			$text = str_replace("<br />", "", $array["Text backup"]);
 
-			$textarea_class = 'class="'.$border_and_text_class;
+			$textarea_class = 'class="'.$background_and_text_class;
 
 			if ($chapter_tab["chapter_text_color"] != "") {
 				$textarea_class .= " ".$chapter_tab["chapter_text_color"];
@@ -550,24 +588,24 @@ class Story extends Class_ {
 
 			$anchor = "chapter_write";
 
+			$hr = $website["elements"]["hr_1px_no_margin"][$theme["Theme"]][$theme["Border"]];
+
 			$chapter_tab["chapter_text"] .= "<!-- Text area to write the chapter, with the chapter text -->"."\n".
 			"<br />"."\n".
 			'<a id="'.$chapter_tab["id"].'_write_anchor"></a>'."\n".
 			'<div id="'.$anchor.'" class="'.$class.'" style="border-radius: 40px;">'."\n".
 			$title."\n".
 			"\t".'<div style="margin: 3%;">'."\n".
-			$website["elements"]["hr_1px_no_margin"]["theme"]["dark"]."\n".
+			$hr."\n".
 			"\t\t".'<textarea id="'.$chapter_tab["id"].'_write_textarea"'.$textarea_class.' style="'.$style.'" rows="100">'."\n".
 			$text.
 			"</textarea>"."\n".
 			"\t"."</div>"."\n".
 			"</div>"."\n".
-			$website["elements"]["hr_1px_no_margin"]["theme"]["dark"]."\n".
+			$hr."\n".
 			"<br />"."\n".
 			"<br />";
 		}
-
-		$chapter_tab["chapter_text"] .= "\t\t".$website["language_texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
 
 		# Define chapter cover
 		$chapter_tab["chapter_cover"] = $this -> Chapter_Cover();
@@ -644,15 +682,18 @@ class Story extends Class_ {
 		global $i;
 		global $chapter_title;
 
-		# Generate chapter tabs
+		# Generate the chapter tabs
 		$i = 1;
+
 		foreach ($chapter_titles as $chapter_title) {
-			# Generate
+			# Generate the chapter tab
 			$chapter_tab = $this -> Chapter_Tab($chapter_title, $i);
 
-			# Add chapter tab to story array
+			# Add the chapter tab to the story array
 			$tpl -> assign("website", $website);
+
 			$tpl -> assign("chapter_tab", $chapter_tab);
+
 			$story["chapters"] .= $tpl -> draw("Story/Chapter", True);
 
 			if ($chapter_title != array_reverse($chapter_titles)[0]) {

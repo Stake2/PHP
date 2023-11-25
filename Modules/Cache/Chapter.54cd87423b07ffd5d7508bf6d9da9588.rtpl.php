@@ -1,6 +1,6 @@
 <?php if(!class_exists('TPL')){exit;}?><!-- Chapter tab for "<?php echo $chapter_tab['chapter_title']; ?>" chapter -->
 <a id="<?php echo $chapter_tab['id']; ?>_anchor" name="<?php echo $chapter_tab['chapter_title']; ?>"></a>
-<div id="<?php echo $chapter_tab['id']; ?>" class="tab <?php echo $chapter_tab['class']; ?>" style="height: auto; border-style: solid; border-radius: 50px; padding-bottom: <?php echo $chapter_tab['padding']; ?>; margin-bottom: 2%; display: none;">
+<div id="<?php echo $chapter_tab['id']; ?>" class="tab <?php echo $chapter_tab['class']; ?>" style="height: auto; border-style: solid; border-radius: 50px; padding-bottom: <?php echo $chapter_tab['padding']; ?>; margin-bottom: 2%; display: none;<?php echo $chapter_tab['style']; ?>">
 	<!-- Chapter title top -->
 	<h2 class="text_size">
 		<p><br /><b><?php echo $chapter_tab["you_are_reading"]; ?></b><br /><br /><p>

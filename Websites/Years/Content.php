@@ -15,7 +15,7 @@ if ($language == "general") {
 	$full_language = $Language -> languages["full"][$language];
 }
 
-# Define custom website folders
+# Define the custom website folders
 if (in_array($website["data"]["title"], $website["years"]) == True) {
 	$website["data"]["folders"]["year"] = $folders["mega"]["notepad"]["effort"]["years"][$website["data"]["title"]];
 }
@@ -41,9 +41,11 @@ $names = [
 	"Watched"
 ];
 
+# Replace the names array with an array with more generators
 if (in_array($website["data"]["title"], $website["years"]) == True) {
 	$names = [
 		"Summary",
+		"Memories",
 		"Watched",
 		"Tasks"
 	];
@@ -85,6 +87,65 @@ foreach (array_keys($website["data"]["files"]["generators"]) as $key) {
 	$generator_file = $website["data"]["files"]["generators"][$key];
 
 	require $generator_file;
+}
+
+# Define the website tabs and data related to the year websites
+if (
+	$website["data"]["title"] == "Years" or
+	in_array($website["data"]["title"], $website["years"])
+) {
+	$year_buttons = "";
+
+	foreach ($website["years"] as $year) {
+		$year_button = $website["dictionary"][$year]["button"];
+
+		$year_buttons .= $year_button."\n";
+	}
+
+	# Add tab keys and templates
+	$tab_titles = [
+		"summary"
+	];
+
+	# Add tabs for years after the year 2022
+	if ((int)$website["data"]["title"] >= 2022) {
+		array_push($tab_titles, "this_year_i");
+	}
+
+	# Add tabs that all year websites should have
+	$more_tabs = [
+		"memories",
+		"watched_things",
+		"completed_tasks",
+		"years",
+	];
+
+	$tab_titles = array_merge($tab_titles, $more_tabs);
+
+	$tabs = [];
+
+	foreach ($tab_titles as $tab) {
+		$tabs[$tab] = [
+			"template" => $tab
+		];
+	}
+
+	$website["tabs"]["data"] = $website["tabs"]["data"] + $tabs;
+
+	# Create the years tab template
+	$website["tabs"]["templates"]["years"] = [
+		"name" => $website["language_texts"]["years, title()"],
+		"add" => " ".HTML::Element("span", count($website["years"]), "", $website["style"]["text"]["theme"]["dark"]),
+		"content" => $year_buttons,
+		"icon" => "calendar_days"
+	];
+
+	# Move the websites tab template to the end
+	$backup = $website["tabs"]["data"]["websites_tab"];
+
+	unset($website["tabs"]["data"]["websites_tab"]);
+
+	$website["tabs"]["data"]["websites_tab"] = $backup;
 }
 
 ?>
