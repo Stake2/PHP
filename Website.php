@@ -171,10 +171,10 @@ $website["States"] = [
 	]
 ];
 
-# Define stories array
+# Define the stories array
 $stories = $JSON -> To_PHP($folders["mega"]["stories"]["database"]["stories"]);
 
-# Define story painted authors
+# Define the story painted authors
 $stories["Authors (painted)"] = [];
 
 $colors = [
@@ -607,7 +607,7 @@ if (isset($website["data"]) == True) {
 	}
 }
 
-# Define story of website and run Story.php file
+# Define the story of website and run the "Story.php" file to define the story variables
 if (
 	$website["data"]["type"] == "Story" or
 	isset($website["data"]["json"]["story"])

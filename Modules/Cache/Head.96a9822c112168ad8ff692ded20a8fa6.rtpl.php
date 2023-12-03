@@ -9,15 +9,15 @@
 	<link rel="image_src" type="image/<?php echo $website['data']['image']['format']; ?>" href="<?php echo $website['data']['image']['link']; ?>" />
 
 	<!-- Website meta tags -->
-	<meta name="title" content="<?php echo $website['data']['titles']['sanitized']; ?>" />
+	<meta name="title" content="<?php echo $website['data']['titles']['language']; ?>" />
 	<meta name="description" content="<?php echo $website['data']['description']['html']; ?>" />
 	<meta name="meta_language" content="<?php echo $website['full_language']; ?>" />
 	<meta name="theme-color" content="<?php echo $website['data']['color']; ?>" />
 
 	<!-- Website og meta tags -->
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="<?php echo $website['data']['titles']['sanitized']; ?>" />
-	<meta property="og:site_name" content="<?php echo $website['data']['titles']['sanitized']; ?>" />
+	<meta property="og:title" content="<?php echo $website['data']['titles']['language']; ?>" />
+	<meta property="og:site_name" content="<?php echo $website['data']['titles']['language']; ?>" />
 	<meta property="og:url" content="<?php echo $website['data']['links']['language']; ?>" />
 	<meta property="og:image" type="image/<?php echo $website['data']['image']['format']; ?>" content="<?php echo $website['data']['image']['link']; ?>" />
 	<meta property="og:description" content="<?php echo $website['data']['description']['html']; ?>" />
@@ -26,8 +26,8 @@
 <?php } ?>
 
 	<!-- Twitter meta tags -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="<?php echo $website['data']['titles']['sanitized']; ?>" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="<?php echo $website['data']['titles']['language']; ?>" />
 	<meta name="twitter:description" content="<?php echo $website['data']['description']['html']; ?>" />
 	<meta name="twitter:website" value="@<?php echo $website['Twitter author']; ?>_" />
 	<meta name="twitter:site" value="@<?php echo $website['Twitter author']; ?>_" />

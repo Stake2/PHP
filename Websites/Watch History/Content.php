@@ -55,15 +55,15 @@ if (in_array($website["data"]["title"], $website["years"]) == True) {
 $watch_history = [
 	"files" => [
 		"per_media_type" => [
-			"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["per_media_type"]["root"]
+			"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["Per Media Type"]["root"]
 		]
 	],
-	"types" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["data"]["types"]),
-	"entries" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["entries"]),
+	"types" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["types"]),
+	"entries" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["entries"]),
 	"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["watch_history"]["texts"]),
 	"language_texts" => [],
-	"media_info" => [
-		"Info" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["info"])
+	"Media information" => [
+		"Information" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["Information"])
 	]
 ];
 
@@ -105,7 +105,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 			$number = $watch_history["entries"]["Numbers"]["Per Media Type"][$plural_media_type];
 
 			if ($header_text == $website["language_texts"]["media_being_watched"]) {
-				$number = $watch_history["media_info"]["Info"]["Numbers"][$plural_media_type];
+				$number = $watch_history["Media information"]["Information"]["Numbers"][$plural_media_type];
 			}
 
 			$number_element = HTML::Element("span", $number, "", $text_color);

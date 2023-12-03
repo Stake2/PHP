@@ -9,15 +9,15 @@
 	<link rel="image_src" type="image/{$website['data']['image']['format']}" href="{$website['data']['image']['link']}" />
 
 	<!-- Website meta tags -->
-	<meta name="title" content="{$website['data']['titles']['sanitized']}" />
+	<meta name="title" content="{$website['data']['titles']['language']}" />
 	<meta name="description" content="{$website['data']['description']['html']}" />
 	<meta name="meta_language" content="{$website['full_language']}" />
 	<meta name="theme-color" content="{$website['data']['color']}" />
 
 	<!-- Website og meta tags -->
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="{$website['data']['titles']['sanitized']}" />
-	<meta property="og:site_name" content="{$website['data']['titles']['sanitized']}" />
+	<meta property="og:title" content="{$website['data']['titles']['language']}" />
+	<meta property="og:site_name" content="{$website['data']['titles']['language']}" />
 	<meta property="og:url" content="{$website['data']['links']['language']}" />
 	<meta property="og:image" type="image/{$website['data']['image']['format']}" content="{$website['data']['image']['link']}" />
 	<meta property="og:description" content="{$website['data']['description']['html']}" />
@@ -26,8 +26,8 @@
 {/if}
 
 	<!-- Twitter meta tags -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="{$website['data']['titles']['sanitized']}" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="{$website['data']['titles']['language']}" />
 	<meta name="twitter:description" content="{$website['data']['description']['html']}" />
 	<meta name="twitter:website" value="@{$website['Twitter author']}_" />
 	<meta name="twitter:site" value="@{$website['Twitter author']}_" />

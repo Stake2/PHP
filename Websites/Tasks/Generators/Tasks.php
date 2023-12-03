@@ -39,13 +39,13 @@ if (in_array($website["data"]["title"], $website["years"]) == True) {
 if (isset($tasks) == False) {
 	# Define the Tasks array
 	$tasks = [
-		"files" => [
-			"per_task_type" => [
-				"root" => $folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$website["data"]["year"]]["per_task_type"]["root"]
+		"Files" => [
+			"Per Task Type" => [
+				"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"][$website["data"]["year"]]["Per Task Type"]["root"]
 			]
 		],
-		"types" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["data"]["types"]),
-		"entries" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["productive_network"]["task_history"][$website["data"]["year"]]["tasks"]),
+		"types" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Data"]["types"]),
+		"entries" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"][$website["data"]["year"]]["tasks"]),
 		"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["tasks"]["texts"]),
 		"language_texts" => []
 	];
@@ -132,7 +132,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 
 				$array["links"] .= $a."<br />"."\n\t\t";
 
-				$tasks["files"]["per_task_type"][$plural_task_type] = $JSON -> To_PHP($tasks["files"]["per_task_type"]["root"].$plural_task_type."/Tasks.json");
+				$tasks["Files"]["Per Task Type"][$plural_task_type] = $JSON -> To_PHP($tasks["Files"]["Per Task Type"]["root"].$plural_task_type."/Tasks.json");
 
 				$span = HTML::Element("span", $number, "", $text_color);
 
@@ -175,7 +175,7 @@ foreach ($tasks["types"] as $plural_task_type) {
 			$website["tab_content"]["completed_tasks"]["string"] .= $task_type_headers["headers"][$plural_task_type];
 
 			# Iterate through the task type Entries list
-			foreach ($tasks["files"]["per_task_type"][$plural_task_type]["Entries"] as $entry) {
+			foreach ($tasks["Files"]["Per Task Type"][$plural_task_type]["Entries"] as $entry) {
 				$entry = $tasks["entries"]["Dictionary"][$entry];
 
 				# Add the task title
@@ -239,7 +239,7 @@ foreach ($tasks["types"] as $plural_task_type) {
 					$tab_title = $entry["Number"]." - ".$entry["Titles"][$language]." (".$time.")";
 
 					# Get the task description file
-					$folder = $folders["mega"]["notepad"]["effort"]["years"][$website["data"]["year"]][$language]["done_tasks"]["root"].$language_task_type."/";
+					$folder = $folders["Mega"]["Notepad"]["Years"][$website["data"]["year"]][$language]["done_tasks"]["root"].$language_task_type."/";
 
 					$local_entry = str_replace(":", ";", $entry["Entry"]);
 					$local_entry = str_replace("/", "-", $local_entry);

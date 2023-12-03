@@ -47,15 +47,15 @@ if (isset($watch_history) == False) {
 	$watch_history = [
 		"files" => [
 			"per_media_type" => [
-				"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["per_media_type"]["root"]
+				"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["Per Media Type"]["root"]
 			]
 		],
-		"types" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["data"]["types"]),
-		"entries" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["entries"]),
+		"types" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["types"]),
+		"entries" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["entries"]),
 		"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["watch_history"]["texts"]),
 		"language_texts" => [],
 		"media_info" => [
-			"Info" => $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["info"])
+			"Info" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["Information"])
 		]
 	];
 }
@@ -96,7 +96,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 			$number = $watch_history["entries"]["Numbers"]["Per Media Type"][$plural_media_type];
 
 			if ($header_text == $website["language_texts"]["media_being_watched"]) {
-				$number = $watch_history["media_info"]["Info"]["Numbers"][$plural_media_type];
+				$number = $watch_history["Media information"]["Information"]["Numbers"][$plural_media_type];
 			}
 
 			$number_element = HTML::Element("span", $number, "", $text_color);
@@ -142,11 +142,11 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 # Define the Watch History array
 $watch_history["files"] = [
 	"per_media_type" => [
-		"root" => $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["per_media_type"]["root"]
+		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["Per Media Type"]["root"]
 	]
 ];
 
-$watch_history["entries"] = $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["watch_history"][$website["data"]["year"]]["entries"]);
+$watch_history["entries"] = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["entries"]);
 
 # Add to year entries number
 $current_year = $website["data"]["year"];
@@ -308,7 +308,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 					$tab_title = $entry["Number"]." - ".$entry_title." (".$time.")";
 
 					# Get the entry description file
-					$folder = $folders["mega"]["notepad"]["effort"]["years"][$website["data"]["year"]][$language]["watched_media"]["root"].$language_media_type."/";
+					$folder = $folders["Mega"]["Notepad"]["Years"][$website["data"]["year"]][$language]["watched_media"]["root"].$language_media_type."/";
 
 					$local_entry = str_replace(":", ";", $entry["Entry"]);
 					$local_entry = str_replace("/", "-", $local_entry);
@@ -321,7 +321,7 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 					# Add the comment text to the entry description text
 					if (array_key_exists("Comment", $entry) == True) {
 						# Get the media folder
-						$media_info_folder = $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["root"].$modules_language."/";
+						$media_info_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["root"].$modules_language."/";
 
 						$media_title = Sanitize_Title(Define_Title($entry["Media"]));
 

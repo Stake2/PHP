@@ -54,14 +54,15 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 		"Number" => 0
 	];
 
-	if ($watch_history["media_info"]["Info"]["Numbers"][$plural_media_type] != 0) {
-		$media_info_folder = $folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["media_info"]["root"].$language_media_type."/";
+	if ($watch_history["Media information"]["Information"]["Numbers"][$plural_media_type] != 0) {
+		$media_info_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["root"].$language_media_type."/";
 
-		$info_json = $media_info_folder."Info.json";
+		$information = $media_info_folder."Information.json";
 
-		$media = $JSON -> To_PHP($info_json);
+		$media = $JSON -> To_PHP($information);
 
-		$watch_history["media_info"]["Info"]["Numbers"][$plural_media_type] = 0;
+		$watch_history["Media information"]["Information"]["Numbers"][$plural_media_type] = 0;
+
 		foreach ($media["Titles"] as $media) {
 			$media_folder = $media_info_folder.Sanitize_Title($media)."/";
 			$details_file = $media_folder.$website["texts"]["details, title()"][$Language -> modules_language].".txt";
@@ -70,12 +71,19 @@ foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
 			if (in_array($details["Status"], $statuses)) {
 				$status = Get_Language_Status($details["Status"]);
 
-				$span = HTML::Element("span", $media, "", $website["style"]["text_highlight"]);
-				$media = HTML::Element("span", ($watch_history["media_info"]["Info"]["Numbers"][$plural_media_type] + 1)." - ".$span." - (".$status.")", 'style="margin-left: 3%;"', $website["style"]["text_hover"]);
+				$span = HTML::Element("span", $media, "", $website["style"]["text"]["theme"]["dark"]);
 
-				$media_list[$plural_media_type]["String"] .= $media."<br />";
+				$media = " - ".$span." - (".$status.")";
 
-				$watch_history["media_info"]["Info"]["Numbers"][$plural_media_type]++;
+				$number = ($watch_history["Media information"]["Information"]["Numbers"][$plural_media_type] + 1);
+
+				$text = $number.$media;
+
+				$line = HTML::Element("span", $text, 'style="margin-left: 3%;"', $website["style"]["text_highlight"]);
+
+				$media_list[$plural_media_type]["String"] .= $line."<br />";
+
+				$watch_history["Media information"]["Information"]["Numbers"][$plural_media_type]++;
 				$media_list[$plural_media_type]["Number"]++;
 				$website["tab_content"]["media_being_watched"]["number"]++;
 			}

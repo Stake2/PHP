@@ -133,7 +133,7 @@
 	},
 	"open_image_in_a_new_tab": {
 		"en": "Open image in a new tab",
-		"pt": "Abrir imagem em uma nova aba"
+		"pt": "Abrir imagem em uma nova guia"
 	},
 	"date_time_format": {
 		"en": "H:i d/m/Y",
@@ -482,5 +482,13 @@
 	"Year website descriptions": {
 		"en": "Website to show how {website_title} was, and what I did in it.\nMade by {author}.",
 		"pt": "Site para mostrar como {website_title} foi, e o que eu fiz nele.\nFeito por {author}."
+	},
+	"previous_image": {
+		"en": "Previous image",
+		"pt": "Imagem anterior"
+	},
+	"next_image": {
+		"en": "Next image",
+		"pt": "Próxima imagem"
 	}
 }

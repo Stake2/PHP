@@ -1,7 +1,7 @@
 <?php 
 
 # Add the media types to the website descriptions
-$types = $JSON -> To_PHP($folders["mega"]["notepad"]["effort"]["networks"]["audiovisual_media_network"]["data"]["types"]);
+$types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["types"]);
 
 $language = "pt";
 

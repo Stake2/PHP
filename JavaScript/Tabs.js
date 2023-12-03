@@ -73,7 +73,10 @@ function Open_Tab(tab_id) {
 	// Get tab title
 	tab_title_element = document.getElementById(tab_id + "_title")
 
-	if (typeof tab_title_element != "undefined" && tab_title_element != null) {
+	if (
+		typeof tab_title_element != "undefined" &&
+		tab_title_element != null
+	) {
 		var tab_title = String(document.getElementById(tab_id + "_title").innerHTML).split(": ")[0]
 	}
 
@@ -181,9 +184,24 @@ var tab_keys = [
 tab_keys.forEach(
 	function(key) {
 		if (Object.keys(parameters).includes(key) == true) {
-			window.addEventListener("load", function() {
-				tab = Array.from(document.getElementsByClassName("tab"))[parameters[key] - 1]
+			var value = parameters[key]
 
+			if (String(Number(value)) != "NaN") {
+				value = Number(value)
+			}
+
+			window.addEventListener("load", function() {
+				// Get the tab by tab number
+				if (typeof value == "number") {
+					tab = Array.from(document.getElementsByClassName("tab"))[value - 1]
+				}
+
+				// Get the tab by the tab id
+				if (typeof value == "string") {
+					tab = document.getElementById(value)
+				}
+
+				// Open the tab
 				$("#" + tab.id).ready(function() {
 					Open_Tab(tab.id)
 				})
