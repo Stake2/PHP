@@ -1,14 +1,6 @@
 Folders:
 	Fazer geração de pastas de Redes de Dados em um só "foreach"
 
-Stake2:
-	Colocar capas do "Stake2" e do "Funkysnipa Cat"
-
-	Redes Sociais:
-		Colocar parte da rede social "Fandom":
-			Perfil Fandom
-			Fandom Stake2
-
 Normal websites:
 	Criar notificações
 

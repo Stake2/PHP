@@ -1,15 +1,16 @@
 {
 	"style": {
 		"theme": {
-			"normal": "green",
-			"light": "green",
-			"dark": "dark_green_water"
+			"normal": "orange",
+			"light": "light_orange",
+			"dark": "dark_orange"
 		},
 		"secondary_theme": {
-			"normal": "green",
-			"light": "green",
-			"dark": "dark_green_water"
-		}
+			"normal": "orange",
+			"light": "light_orange",
+			"dark": "dark_orange"
+		},
+		"text_highlight": "dark_orange"
 	},
 	"tabs": {
 		"data": {
@@ -17,9 +18,20 @@
 				"name": {
 					"en": "First tab",
 					"pt": "Primeira aba"
-				}
+				},
+				"icon": "user_circle"
 			}
 		}
 	},
-	"color": "2196F3"
+	"descriptions": {
+		"html": {
+			"en": "",
+			"pt": ""
+		},
+		"header": {
+			"en": "",
+			"pt": ""
+		}
+	},
+	"color": "ffa500"
 }

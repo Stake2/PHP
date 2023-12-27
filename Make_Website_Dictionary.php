@@ -208,6 +208,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		];
 
 		if (in_array($website_title, $website["years"]) == True) {
+			array_push($dictionary["Custom folders"], "Pictures");
 			array_push($dictionary["Custom folders"], "Memories");
 		}
 
@@ -943,8 +944,11 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$website_dictionary["description"]["header"] = "\t\t".str_replace("\n", "<br />\n\t\t", $website_dictionary["description"]["header"])."\n";
 		}
 
-		# Replace quotes in HTML descriptions if they exist
+		# Replace quotes in the HTML description if they exist
 		$website_dictionary["description"]["html"] = str_replace('"', "'", $website_dictionary["description"]["html"]);
+
+		# Replace br's in HTML the descriptions if it exists
+		$website_dictionary["description"]["html"] = str_replace("<br />", "", $website_dictionary["description"]["html"]);
 	}
 
 	# Define the story website descriptions
@@ -1025,28 +1029,29 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		$website_dictionary["story"]["Information"]["Author"] = $author;
 
+		# Add the author
 		$website_dictionary["description"]["header"] .= "\t\t".$text.": ".$website["icons"]["pen"]." ".$author."<br />"."\n";
 
-		# Add chapters
+		# Add the chapters text and number
 		$website_dictionary["description"]["header"] .= "\t\t".$website["language_texts"]["chapters, title()"].": ".$website["icons"]["book"]." ";
 
 		$website_dictionary["description"]["header"] .= HTML::Element("span", $website_dictionary["story"]["Information"]["Chapters"]["Number"], "", $website_dictionary["style"]["text_highlight"])."<br />"."\n";
 
-		# Add readers if they exist
+		# Add the readers if they exist
 		if ($website_dictionary["story"]["Information"]["Readers"]["List"][0] != $website["texts"]["no_readers, en - pt"]) {
 			$website_dictionary["description"]["header"] .= "\t\t".$website["language_texts"]["readers, title()"].": ".$website["icons"]["reader"]." ";
 
 			$website_dictionary["description"]["header"] .= HTML::Element("span", $website_dictionary["story"]["Information"]["Readers"]["Number"], "", $website_dictionary["style"]["text_highlight"])."<br />"."\n";
 		}
 
-		# Add story creation date
+		# Add the story creation date
 		$website_dictionary["description"]["header"] .= "\t\t".$website["language_texts"]["story_creation_date"].": ".$website["icons"]["calendar_days"]." ";
 
 		$date = Date::Now($website_dictionary["story"]["Information"]["Creation date"], $website["texts"]["date_format"]["pt"])[$website["language_texts"]["date_format"]];
 
 		$website_dictionary["description"]["header"] .= HTML::Element("span", $date, "", $website_dictionary["style"]["text_highlight"])."<br />"."\n";
 
-		# Add status
+		# Add the status
 		$status_number = $website_dictionary["story"]["Information"]["Status"]["Number"];
 		$status = $website["language_texts"]["writing_statuses, type: list"][$status_number];
 

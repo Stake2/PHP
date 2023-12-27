@@ -164,7 +164,7 @@ class HTML extends Class_ {
 		}
 
 		$button = '<!-- "'.$tab["name"].'" button -->'."\n".
-		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\n\t\t".self::Button("\n\t\t\t\t".$tab["name_icon"]."\n\t\t\t", ' onclick="Open_Tab(\''.$tab["id"].'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
+		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\n\t\t".self::Button("\n\t\t\t\t".$tab["name_icon"]."\n\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
 
 		return $button;
 	}
@@ -428,7 +428,7 @@ class HTML extends Class_ {
 
 			# Define the tab id
 			if (array_key_exists("id", $tab) == False) {
-				$tab["id"] = $id;
+				$tab["id"] = strtolower($id);
 			}
 
 			if (array_key_exists("button_style", $tab) == False) {
@@ -461,6 +461,7 @@ class HTML extends Class_ {
 
 			# Add tab to the tabs array
 			array_push($tabs["List"], $tab["name"]);
+
 			$tabs["Dictionary"][$tab["name"]] = $tab;
 
 			$tabs["ID"]++;

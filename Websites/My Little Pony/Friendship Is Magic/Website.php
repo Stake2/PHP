@@ -41,11 +41,12 @@ foreach (array_keys($items) as $item) {
 }
 
 # Define tab template for identity
-$website["tabs"]["templates"]["first_tab"] = [
-	"name" => "First tab",
-	"icon" => "user_circle"
+$website["tabs"]["templates"]["thanks"] = [
+	"name" => "Thanks",
+	"title" => $website["language_texts"]["thanks, title()"],
+	"icon" => "heart"
 ];
 
-$website["tabs"]["templates"]["first_tab"]["content"] = "Texto";
+$website["tabs"]["templates"]["thanks"]["content"] = "Conteúdo";
 
 ?>

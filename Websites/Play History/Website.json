@@ -1,0 +1,15 @@
+{
+	"style": {
+		"theme": {
+			"normal": "green",
+			"light": "light_green_water",
+			"dark": "dark_green_water"
+		},
+		"secondary_theme": {
+			"normal": "green",
+			"light": "light_green_water",
+			"dark": "dark_green_water"
+		}
+	},
+	"color": "2196F3"
+}

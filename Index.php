@@ -156,7 +156,10 @@ $slim -> get("/", function() {
 	global $parse;
 	global $website;
 
-	if (isset($website["mode"]) and $website["mode"] == "Generate") {
+	if (
+		isset($website["mode"]) and
+		$website["mode"] == "Generate"
+	) {
 		header("Location: /generate");
 		exit;
 	}
@@ -168,7 +171,10 @@ $slim -> post("/", function() {
 	global $tpl;
 	global $website;
 
-	if (isset($website["mode"]) and $website["mode"] == "Generate") {
+	if (
+		isset($website["mode"]) and
+		$website["mode"] == "Generate"
+	) {
 		header("Location: /generate");
 		exit;
 	}

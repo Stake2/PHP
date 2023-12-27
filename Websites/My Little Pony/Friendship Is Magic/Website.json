@@ -14,8 +14,8 @@
 	},
 	"tabs": {
 		"data": {
-			"first_tab": {
-				"template": "first_tab"
+			"thanks": {
+				"template": "thanks"
 			}
 		}
 	},

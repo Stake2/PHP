@@ -45,6 +45,7 @@ $names = [
 if (in_array($website["data"]["title"], $website["years"]) == True) {
 	$names = [
 		"Summary",
+		"Pictures",
 		"Memories",
 		"Watched",
 		"Tasks"
@@ -114,6 +115,7 @@ if (
 
 	# Add tabs that all year websites should have
 	$more_tabs = [
+		"pictures",
 		"memories",
 		"watched_things",
 		"completed_tasks",

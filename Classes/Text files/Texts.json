@@ -3,6 +3,10 @@
 		"en": "Website",
 		"pt": "Site"
 	},
+	"website_2": {
+		"en": "Website",
+		"pt": "Site"
+	},
 	"websites, title()": {
 		"en": "Websites",
 		"pt": "Sites"
@@ -287,7 +291,7 @@
 	"writing_statuses, type: list": {
 		"en": [
 			"Writing",
-			"Re-Writing",
+			"Re-writing",
 			"Reviewing",
 			"Finished",
 			"Published",
@@ -295,7 +299,7 @@
 		],
 		"pt": [
 			"Escrevendo",
-			"Re-Escrevendo",
+			"Re-escrevendo",
 			"Revisando",
 			"Finalizada",
 			"Publicada",
@@ -411,6 +415,10 @@
 		"en": "On hold",
 		"pt": "Em pausa"
 	},
+	"text, title()": {
+		"en": "Text",
+		"pt": "Texto"
+	},
 	"texts, title()": {
 		"en": "Texts",
 		"pt": "Textos"
@@ -490,5 +498,33 @@
 	"next_image": {
 		"en": "Next image",
 		"pt": "Próxima imagem"
+	},
+	"thanks, title()": {
+		"en": "Thanks",
+		"pt": "Obrigado"
+	},
+	"about_me": {
+		"en": "About me",
+		"pt": "Sobre mim"
+	},
+	"versions, title()": {
+		"en": "Versions",
+		"pt": "Versões"
+	},
+	"specials, title()": {
+		"en": "Specials",
+		"pt": "Especiais"
+	},
+	"cover, title()": {
+		"en": "Cover",
+		"pt": "Capa"
+	},
+	"pictures, title()": {
+		"en": "Pictures",
+		"pt": "Fotos"
+	},
+	"happy_new_year": {
+		"en": "Happy New Year",
+		"pt": "Feliz Ano Novo"
 	}
 }

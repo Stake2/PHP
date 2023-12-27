@@ -1,6 +1,19 @@
 <?php 
 
-# Memories
+# Pictures
+
+$language = "pt";
+
+if (isset($website["language"]) == True) {
+	$language = $website["language"];
+}
+
+$full_language = $website["full_language"];
+
+if ($language == "general") {
+	$language = "en";
+	$full_language = $Language -> languages["full"][$language];
+}
 
 $tab_content = [
 	"Number" => 0,
@@ -8,31 +21,49 @@ $tab_content = [
 ];
 
 # Define the local and remote image folders
-$local_folder = $website["data"]["folders"]["website"]["Images"]["Local"]["Memories"]["root"];
-$remote_folder = $website["data"]["folders"]["website"]["Images"]["Remote"]["Memories"]["root"];
+$local_folder = $website["data"]["folders"]["website"]["Images"]["Local"]["Pictures"]["root"];
+$remote_folder = $website["data"]["folders"]["website"]["Images"]["Remote"]["Pictures"]["root"];
 
 # List the folder contents
 $contents = $Folder -> Contents($local_folder, $remote_folder);
 
-# Define the dates file
-$file = $local_folder."Dates.txt";
-
-# List the file dates
-$times = $File -> Contents($file)["lines"];
-
-$add_image_title = False;
-
 # Tone
 $tone = "dark";
+
+$add_image_title = True;
 
 # Iterate through the file keys
 $i = 0;
 
+# Store the file dictionary into a variable for later use
+$files = $contents["File"]["Dictionary"];
+
+# Reset the root file dictionary
+$contents["File"]["Dictionary"] = [];
+
+# Add the "Icon" image
+$contents["File"]["Dictionary"]["Icon"] = [
+	"Title" => $website["language_texts"]["website_2"],
+	"Extension" => "png",
+	"Path" => $website["data"]["image"]["link"]
+];
+
+# Re-add the old files that were inside the file dictionary
+foreach (array_keys($files) as $key) {
+	$contents["File"]["Dictionary"][$key] = $files[$key];
+}
+
+# Update the image title of the "Happy New Year" image
+$contents["File"]["Dictionary"]["1 - Happy New Year"]["Title"] = $website["language_texts"]["happy_new_year"];
+
+# Update the image title of the "Christmas" image
+$contents["File"]["Dictionary"]["2 - Christmas"]["Title"] = $website["language_texts"]["christmas, title()"];
+
 # List the file keys
 $keys = array_keys($contents["File"]["Dictionary"]);
 
-$i = 1;
-
+$i = 0;
+$z = 1;
 foreach ($keys as $key) {
 	$key = (string)$key;
 
@@ -47,13 +78,13 @@ foreach ($keys as $key) {
 		# Make the image text and element centered
 		$image_string = '<center class="'.$class.'">'."\n";
 
-		if ($i != 1) {
+		if ($i != 0) {
 			# Create the "Previous image" button
 			$h4 = HTML::Element("h4", $website["icons"]["arrow_left"]." ".$website["language_texts"]["previous_image"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
 
-			$a = HTML::Element("a", $button, 'href="#memories_image_'.($i - 1).'" style="float: left; text-decoration: none; margin-top: 30px; margin-left: 30px;"', "");
+			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z - 1).'" style="float: left; text-decoration: none; margin-top: 30px; margin-left: 30px;"', "");
 
 			$previous_image_button = $a;
 
@@ -61,14 +92,13 @@ foreach ($keys as $key) {
 			$image_string .= $previous_image_button;
 		}
 
-
 		if ($i != count($keys) - 1) {
 			# Create the "Next image" button
 			$h4 = HTML::Element("h4", $website["language_texts"]["next_image"]." ".$website["icons"]["arrow_right"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
 
-			$a = HTML::Element("a", $button, 'href="#memories_image_'.($i + 1).'" style="float: right; text-decoration: none; margin-top: 30px; margin-right: 30px;"', "");
+			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z + 1).'" style="float: right; text-decoration: none; margin-top: 30px; margin-right: 30px;"', "");
 
 			$next_image_button = $a;
 
@@ -101,7 +131,68 @@ foreach ($keys as $key) {
 			$text = $HTML -> Element("b", $text)."\n";
 
 			# Make the image title
-			$title = $key.".".$file["Extension"];
+			$title = $file["Title"];
+
+			# Remove the "[number].1 - " text of the image title if it exists
+			if (str_contains($title, $i.".1 - ")) {
+				$title = str_replace($i.".1 - ", "", $title);
+			}
+
+			# Remove the "[number] - " text of the image title if it exists
+			else {
+				# Remove the "[number].1 - " text of the image title if it exists
+				if (str_contains($title, $z.".1 - ")) {
+					$title = str_replace($z.".1 - ", "", $title);
+				}
+
+				if (str_contains($title, $i." - ")) {
+					$title = str_replace($i." - ", "", $title);
+				}
+			}
+
+			# Remove the ".[extension]" of the image title if it exists
+			foreach ($website["Image formats"] as $extension) {
+				$extension = ".".$extension;
+
+				if (str_contains($title, $extension)) {
+					$title = str_replace($extension, "", $title);
+				}
+			}
+
+			# Replace "-" with "/" on image titles that have a date
+			$pattern = "/[0-9]{2}-[0-9]{2}-[0-9]{4}/i";
+
+			if (preg_match($pattern, $title)) {
+				$title = str_replace("-", "/", $title);
+
+				$title = str_replace(";", ":", $title);
+			}
+
+			# Remove "[number] / " of the image title
+			$date = "/\b[0-9]{2}\/[0-9]{2}\/[0-9]{4}\b/i";
+			$time = "/\b[0-9]{2}:[0-9]{2}/i";
+
+			if (
+				preg_match($date, $title) == 1 and
+				preg_match($time, $title) == 0
+			) {
+				$title = explode(" / ", $title)[1];
+			}
+
+			if (
+				preg_match($date, $title) == 1 and
+				preg_match($time, $title) == 1
+			) {
+				$title = explode(" / ", $title);
+
+				if (isset($title[1])) {
+					$title = $title[1];
+				}
+
+				else {
+					$title = $title[0];
+				}
+			}
 
 			# Add the title text and title to the image string
 			$image_string .= $text.$title;
@@ -127,25 +218,6 @@ foreach ($keys as $key) {
 			"<p></p>"."\n";
 		}
 
-		# Create the image "Date" text
-		$image_date = $website["language_texts"]["date, title()"].":".
-		"<br />"."\n";
-
-		# Make the image date text bold
-		$image_date = $HTML -> Element("b", $image_date)."\n";
-
-		# Get the image date
-		if (isset($times[$i - 1])) {
-			$image_date .= $times[$i - 1];
-		}
-
-		# Add the image date text to the image string
-		$image_string .= $image_date;
-
-		# Add some spaces
-		$image_string .= "<br />"."\n".
-		"<p></p>"."\n";
-
 		# Replace remote folder with the local PHP images folder
 		# To test if the images appear correctly
 		if ($parse == "/") {
@@ -161,16 +233,16 @@ foreach ($keys as $key) {
 		$class = str_replace("border_radius_8_cent", "border_radius_1_cent", $class);
 
 		# Define the attributes
-		$attributes = 'style="max-width: 100%;"';
+		$attributes = 'style="max-width: 70%;"';
 
 		# Add an alt text
-		$attributes .= ' alt="'.$file["Name"].'"';
+		$attributes .= ' alt="'.$file["Title"].'"';
 
 		# Add a title text
-		$attributes .= ' title="'.$file["Name"].'"';
+		$attributes .= ' title="'.$file["Title"].'"';
 
 		# Add the image anchor
-		$image_string .= '<a name="memories_image_'.$i.'">'."\n";
+		$image_string .= '<a name="pictures_image_'.$z.'">'."\n";
 
 		# Make the image element
 		$image_string .= $HTML -> Image($file["Path"], $class, $attributes);
@@ -178,13 +250,13 @@ foreach ($keys as $key) {
 		# Add some spaces
 		$image_string .= "<br />"."\n";
 
-		if ($i != 1) {
+		if ($i != 0) {
 			# Create the "Previous image" button
 			$h4 = HTML::Element("h4", $website["icons"]["arrow_left"]." ".$website["language_texts"]["previous_image"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
 
-			$a = HTML::Element("a", $button, 'href="#memories_image_'.($i - 1).'" style="float: left; text-decoration: none; margin-top: 20px; margin-left: 30px;"', "");
+			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z - 1).'" style="float: left; text-decoration: none; margin-top: 20px; margin-left: 30px;"', "");
 
 			# Add the button to the image string
 			$image_string .= $previous_image_button;
@@ -196,7 +268,7 @@ foreach ($keys as $key) {
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
 
-			$a = HTML::Element("a", $button, 'href="#memories_image_'.($i + 1).'" style="float: right; text-decoration: none; margin-top: 20px; margin-right: 30px;"', "");
+			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z + 1).'" style="float: right; text-decoration: none; margin-top: 20px; margin-right: 30px;"', "");
 
 			# Add the button to the image string
 			$image_string .= $next_image_button.
@@ -204,7 +276,7 @@ foreach ($keys as $key) {
 		}
 
 		if (
-			$i != 1 or
+			$i != 0 or
 			$i != count($keys) - 1
 		) {
 			$image_string .= "<br />"."\n".
@@ -229,7 +301,7 @@ foreach ($keys as $key) {
 		$image_string .= "</center>";
 
 		# Add a line break if it is needed
-		if ($key != array_reverse($keys)[1]) {
+		if ($key != array_reverse($keys)[0]) {
 			$image_string .= "<br />"."\n".
 			"<br />"."\n";
 		}
@@ -242,11 +314,12 @@ foreach ($keys as $key) {
 	}
 
 	$i++;
+	$z++;
 }
 
 # Add tab to tab templates
-$website["tabs"]["templates"]["memories"] = [
-	"name" => $website["language_texts"]["memories, title()"],
+$website["tabs"]["templates"]["pictures"] = [
+	"name" => $website["language_texts"]["pictures, title()"],
 	"add" => " ".HTML::Element("span", $tab_content["Number"], "", $website["style"]["text"]["theme"]["dark"]),
 	"text_style" => "text-align: left;",
 	"icon" => "images",

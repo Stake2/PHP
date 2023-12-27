@@ -12,34 +12,44 @@ if ($language == "general") {
 
 $full_language = $Language -> languages["full"][$language];
 
-# Define website folders
-$website["data"]["folders"]["izaque_sanvezzo"] = $folders["Mega"]["Notepad"]["Izaque Sanvezzo"];
-
-$website["data"]["folders"]["Social Networks"] = $folders["Mega"]["Notepad"]["Izaque Sanvezzo"]["about_me_sobre_mim"]["Social Networks"];
+# Define the website folders for easier typing
+$website["data"]["folders"]["Izaque Sanvezzo"] = $folders["Mega"]["Notepad"]["Izaque Sanvezzo"];
+$website["data"]["folders"]["About me"] = $website["data"]["folders"]["Izaque Sanvezzo"][$language]["About me"];
+$website["data"]["folders"]["Social Networks"] = $website["data"]["folders"]["Izaque Sanvezzo"]["en"]["Social Networks"];
 
 # Define website files
 $website["data"]["files"] = [
-	"Social Networks" => $website["data"]["folders"]["Social Networks"]["root"]."Social Networks.json",
+	"Social Networks" => $website["data"]["folders"]["Social Networks"]["Social Networks"]
 ];
 
-# Define identities array
+# Define the identities array
 $identities = [
 	"Izaque",
 	"Stake2",
 	"Funkysnipa Cat"
 ];
 
+# Define the identities folders
+foreach ($identities as $identity) {
+	foreach (["Local", "Remote"] as $type) {
+		$folder = $website["data"]["folders"]["website"]["Images"][$type]["root"];
+
+		$website["data"]["folders"]["website"]["Images"][$type][$identity] = [
+			"root" => $folder.$identity."/"
+		];
+	}
+}
+
 foreach ($identities as $identity) {
 	# Define identity folder and text file
-	$folder = $website["data"]["folders"]["izaque_sanvezzo"]["about_me_sobre_mim"]["root"];
-	$file_name = $website["language_texts"]["little_biography"];
+	$folder = $website["data"]["folders"]["About me"]["Little biography"];
+	$file_name = $website["language_texts"]["text, title()"];
 
 	if ($identity != "Izaque") {
-		$folder = $website["data"]["folders"]["izaque_sanvezzo"]["about_me_sobre_mim"]["root"].$identity."/";
-		$file_name = $full_language;
+		$folder = $website["data"]["folders"]["Izaque Sanvezzo"][$language][$identity];
 	}
 
-	$file = $folder.$file_name.".txt";
+	$file = $folder["root"].$file_name.".txt";
 
 	$title = $website["language_texts"]["person, title()"];
 
@@ -67,34 +77,51 @@ foreach ($identities as $identity) {
 		$string = str_replace($local_identity, $element, $string);
 	}
 
-	$website["tabs"]["templates"][$identity]["content"] = $string;
+	# Define the content of the tab
+	$website["tabs"]["templates"][$identity]["content"] = "";
+
+	$remote_folder = $website["data"]["folders"]["website"]["Images"]["Remote"]["root"];
+	$local_folder = $website["data"]["folders"]["website"]["Images"]["Local"]["root"];
+
+	# Replace remote folder with the local PHP images folder
+	# To test if the images appear correctly
+	if ($parse == "/") {
+		$php_folder = "Images/".$website["data"]["title"]."/";
+
+		$remote_folder = "/".$php_folder;
+		$local_folder = $folders["mega"]["php"]["root"].$php_folder;
+	}
 
 	if ($identity != "Izaque") {
-		$images = [];
+		$images = [
+			"Profile" => [],
+			"Versions" => [],
+			"Special" => [],
+			"Cover" => []
+		];
 
 		$style = "width: 40%; height: auto;";
 
+		$link = $remote_folder.$identity.".png";
+
 		# Add the "Stake2" profile picture
 		if ($identity == "Stake2") {
-			$link = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$identity.".png";
-
 			# Identity image
 			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.' border-radius: 100%;"', $website["style"]["img"]["theme"]["normal"])."</center>";
-
-			array_push($images, $image);
 		}
 
 		# Add the "Funkysnipa Cat" profile picture
 		if ($identity == "Funkysnipa Cat") {
-			$link = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$identity.".png";
-
 			$class = str_replace("border_radius_100_cent", "border_radius_5_cent", $website["style"]["img"]["theme"]["light"]);
 
 			# Identity image
 			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["style"]["box_shadow"]["theme"]["light"]." ".$class)."</center>";
-
-			array_push($images, $image);
 		}
+
+		array_push($images["Profile"], $image);
+
+		# Add the first image of the Digital Identity
+		$website["tabs"]["templates"][$identity]["content"] .= $image;
 
 		$style = "width: 25%; height: auto;";
 
@@ -102,19 +129,26 @@ foreach ($identities as $identity) {
 			$identity == "Stake2" or
 			$identity == "Funkysnipa Cat"
 		) {
-			$remote_folder = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$identity."/";
-			$local_folder = $website["data"]["folders"]["local_website"]["images"]["images"]["root"].$identity."/";
+			$remote_folder .= $identity."/";
+			$local_folder .= $identity."/";
 
 			$style .= "border-radius: 5%;";
 			$class = $website["style"]["box_shadow"]["theme"]["light"]." ".$website["style"]["img"]["theme"]["light"];
 
 			$number_of_images = 7;
 
-			# Add Digital Identities profile pictures
+			# Change the number of images for "Funkysnipa Cat"
+			if ($identity == "Funkysnipa Cat") {
+				$number_of_images = 8;
+			}
+
+			# Add the profile pictures of the Digital Identities
 			$i = 1;
 			while ($i <= $number_of_images) {
+				$right_format = "png";
+
 				foreach ($website["Image formats"] as $format) {
-					if (file_exists($local_folder.$i.".".$format)) {
+					if (file_exists($local_folder.$i.".".$format) == True) {
 						$right_format = $format;
 					}
 				}
@@ -124,45 +158,114 @@ foreach ($identities as $identity) {
 				# Identity image
 				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
 
-				array_push($images, $image);
+				array_push($images["Versions"], $image);
 
 				$i++;
 			}
 
-			$text = $website["language_texts"]["christmas, title(), en - pt"];
+			# Define the "Christmas" image
+			$text = "Christmas";
 
 			if (file_exists($local_folder.$text.".png")) {
-				# Add the "Christmas" profile picture of the Digital Identity
 				$link = $remote_folder.$text.".png";
 
 				# Identity image
 				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
 
-				array_push($images, $image);
+				array_push($images["Special"], $image);
 			}
 
-			$text = $website["language_texts"]["halloween, title()"];
+			# Define the "Halloween" image
+			$text = "Halloween";
 
 			if (file_exists($local_folder.$text.".png")) {
-				# Add Halloween profile picture of the Digital Identity
 				$link = $remote_folder.$text.".png";
 
 				# Identity image
 				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
 
-				array_push($images, $image);
+				array_push($images["Special"], $image);
 			}
+
+			# Define the "Cover" image
+			$folder = $remote_folder."Covers/";
+
+			$link = $folder.$full_language.".png";
+
+			# Identity image
+			$image = HTML::Element("img", "", 'src="'.$link.'" style="border-radius: 4%; height: auto;"', "image_size"." ".$website["style"]["box_shadow"]["theme"]["light"]);
+
+			array_push($images["Cover"], $image);
 		}
 
-		# Define tab content
-		$website["tabs"]["templates"][$identity]["content"] = "";
+		# Add HR separators and the description of the identity
+		$website["tabs"]["templates"][$identity]["content"] .= $website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n".
+		$string."\n".
+		$website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n";
 
-		foreach ($images as $image) {
+		# Add the image "Versions" text
+		$bold = HTML::Element("b", $website["language_texts"]["versions, title()"].":", "", "");
+
+		$h2 = HTML::Element("h2", $bold, "", "text_size")."\n";
+
+		$center = HTML::Element("center", $h2, "", "");
+
+		$website["tabs"]["templates"][$identity]["content"] .= $center;
+
+		# Add the images versions
+		foreach ($images["Versions"] as $image) {
 			$website["tabs"]["templates"][$identity]["content"] .= $image;
 		}
-		
-		$website["tabs"]["templates"][$identity]["content"] .= $website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n".
-		$string;
+
+		# Add a HR separator
+		$website["tabs"]["templates"][$identity]["content"] .= $website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n";
+
+		if ($images["Special"] != []) {
+			# Add the image "Special" text
+			$bold = HTML::Element("b", $website["language_texts"]["specials, title()"].":", "", "");
+
+			$h2 = HTML::Element("h2", $bold, "", "text_size")."\n";
+
+			$center = HTML::Element("center", $h2, "", "");
+
+			$website["tabs"]["templates"][$identity]["content"] .= $center;
+
+			# Center the images
+			$website["tabs"]["templates"][$identity]["content"] .= "<center>"."\n";
+
+			# Add the special images
+			foreach ($images["Special"] as $image) {
+				$website["tabs"]["templates"][$identity]["content"] .= $image;
+			}
+
+			$website["tabs"]["templates"][$identity]["content"] .= "</center>";
+		}
+
+		# Add a HR separator
+		$website["tabs"]["templates"][$identity]["content"] .= $website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n";
+
+		# Add the image "Cover" text
+		$bold = HTML::Element("b", $website["language_texts"]["cover, title()"].":", "", "");
+
+		$h2 = HTML::Element("h2", $bold, "", "text_size")."\n";
+
+		$center = HTML::Element("center", $h2, "", "");
+
+		$website["tabs"]["templates"][$identity]["content"] .= $center;
+
+		# Center the images
+		$website["tabs"]["templates"][$identity]["content"] .= "<center>"."\n";
+
+		# Add the cover images
+		foreach ($images["Cover"] as $image) {
+			$website["tabs"]["templates"][$identity]["content"] .= $image;
+		}
+
+		$website["tabs"]["templates"][$identity]["content"] .= "</center>";
+	}
+
+	if ($identity == "Izaque") {
+		$website["tabs"]["templates"][$identity]["content"] .= $string;
 	}
 }
 
@@ -200,7 +303,7 @@ foreach (array_keys($social_networks_json["Categories"]) as $category) {
 
 	# Iterate through Social Networks
 	foreach ($social_networks as $social_network) {
-		$link = $social_networks_json[$social_network]["Link"];
+		$link = $social_networks_json["Dictionary"][$social_network]["Link"];
 
 		if (isset($website["icons"][$social_network])) {
 			$social_network .= " ".$website["icons"][$social_network];

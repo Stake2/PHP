@@ -4,7 +4,6 @@
 
 # folders array
 $folders = [
-	"hard_drive_letter" => substr(__FILE__, 0, 2)."/",
 	"Hard drive letter" => substr(__FILE__, 0, 2)."/"
 ];
 
@@ -30,11 +29,11 @@ foreach ($names as $item) {
 	}
 
 	$folders[$key] = [
-		"root" => $folders["hard_drive_letter"].$item."/"
+		"root" => $folders["Hard drive letter"].$item."/"
 	];
 
 	$folders[$key_backup] = [
-		"root" => $folders["hard_drive_letter"].$item."/"
+		"root" => $folders["Hard drive letter"].$item."/"
 	];
 }
 
@@ -190,32 +189,87 @@ foreach ($diaries as $diary) {
 
 # "Notepad/Izaque Sanvezzo" folders
 $names = [
-	"About me - Sobre mim",
-	"Português",
-	"English"
+	"en" => "English",
+	"pt" => "Português"
 ];
 
-foreach ($names as $item) {
-	$key = str_replace(" ", "_", strtolower($item));
-	$key = str_replace("_-_", "_", $key);
+foreach (array_keys($names) as $key) {
+	$item = $names[$key];
 
 	$folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$key] = [
 		"root" => $folders["Mega"]["Notepad"]["Izaque Sanvezzo"]["root"].$item."/"
 	];
 }
 
-# "Izaque Sanvezzo/About me" folders
+# Define the language "About me" folders
 $names = [
-	"Social Networks" => "Redes Sociais"
+	"en" => "About me",
+	"pt" => "Sobre mim"
 ];
 
-foreach (array_keys($names) as $key) {
-	$item = $names[$key];
+$texts = [
+	"en" => "Little biography",
+	"pt" => "Pequena biografia"
+];
 
-	$folders["Mega"]["Notepad"]["Izaque Sanvezzo"]["about_me_sobre_mim"][$key] = [
-		"root" => $folders["Mega"]["Notepad"]["Izaque Sanvezzo"]["about_me_sobre_mim"]["root"].$item."/"
+foreach (array_keys($names) as $local_language) {
+	$key = "About me";
+	$item = $names[$local_language];
+
+	# "About me" folder
+	$folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language][$key] = [
+		"root" => $folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language]["root"].$item."/"
+	];
+
+	# "Little biography" folder
+	$folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language][$key]["Little biography"] = [
+		"root" => $folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language][$key]["root"].$texts[$local_language]."/"
 	];
 }
+
+# "Izaque Sanvezzo" Social Networks folders
+$names = [
+	"en" => "Social Networks",
+	"pt" => "Redes Sociais"
+];
+
+foreach (array_keys($names) as $local_language) {
+	$key = "Social Networks";
+	$item = $names[$local_language];
+
+	$folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language][$key] = [
+		"root" => $folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language]["root"].$item."/"
+	];
+}
+
+# "Social Networks.json" file
+$folders["Mega"]["Notepad"]["Izaque Sanvezzo"]["en"]["Social Networks"]["Social Networks"] = $folders["Mega"]["Notepad"]["Izaque Sanvezzo"]["en"]["Social Networks"]["root"]."Social Networks.json";
+
+# "Izaque Sanvezzo" Digital Identities folders
+$names = [
+	"Stake2",
+	"Funkysnipa Cat"
+];
+
+$texts = [
+	"en" => "Text",
+	"pt" => "Texto"
+];
+
+foreach (array_keys($texts) as $local_language) {
+	foreach ($names as $key) {
+		# Digital Identity folder
+		$folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language][$key] = [
+			"root" => $folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language]["root"].$key."/"
+		];
+
+		# Text file
+		$folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language][$key]["Text"] = $folders["Mega"]["Notepad"]["Izaque Sanvezzo"][$local_language][$key]["root"].$texts[$local_language].".txt";
+	}
+}
+
+# Digital Identity text files
+
 
 # "Networks/Audiovisual Media" folder
 $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"] = [
