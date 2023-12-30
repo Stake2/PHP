@@ -588,7 +588,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 				if (
 					isset($website_dictionary["json"]["image"]["border"]) and
 					$website_dictionary["json"]["image"]["border"] == True or
-						isset($website_dictionary["json"]["image"]["border"]) == False
+					isset($website_dictionary["json"]["image"]["border"]) == False
 				) {
 					$website_dictionary["style"]["img"][$type] .= $text;
 				}
@@ -694,6 +694,20 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Define the local image folder
 		$local_folder = $website_dictionary["folders"]["website"]["Images"]["Local"]["Icons"]["root"];
 
+		# Replace remote folder with the local PHP images folder
+		# To test if the images appear correctly
+		if ($parse == "/") {
+			$php_folder = "Images/".$website_dictionary["title"]."/";
+
+			$remote_folder = "/".$php_folder;
+			$local_folder = $folders["mega"]["php"]["root"].$php_folder;
+
+			$remote_folder .= "Icons/";
+			$local_folder .= "Icons/";
+
+			$website_dictionary["image"]["link"] = $remote_folder;
+		}
+
 		$verbose_text .= "Imagem:"."\n".
 		"\t"."Pasta local: local_folder"."\n".
 		"\t"."Pasta remota: remote_folder"."\n".
@@ -712,6 +726,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		array_push($file_names, $Language -> languages["full"][$language]);
+
+		$website_dictionary["image"]["File name"] = "png";
 
 		foreach ($file_names as $file_name) {
 			foreach ($website["Image formats"] as $format) {

@@ -150,9 +150,20 @@ $diaries = [
 	"Diary Slim"
 ];
 
+# Define the list of years
+$years_list = range(2018, date("Y"));
+
+if (
+	isset($_GET["next_year"]) == True and
+	$_GET["next_year"] == True or
+	$_GET["website"] == "2024"
+) {
+	array_push($years_list, (int)date("Y") + 1);
+}
+
 $names = [];
 
-foreach (range(2018, date("Y")) as $year) {
+foreach ($years_list as $year) {
 	$year = (string)$year;
 
 	array_push($names, $year);
@@ -270,7 +281,6 @@ foreach (array_keys($texts) as $local_language) {
 
 # Digital Identity text files
 
-
 # "Networks/Audiovisual Media" folder
 $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"] = [
 	"root" => $folders["Mega"]["Notepad"]["Data Networks"]["root"]."Mídia Audiovisual/"
@@ -307,7 +317,7 @@ $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History
 ];
 
 # Create year Watched folders
-foreach (range(2018, date("Y")) as $year) {
+foreach ($years_list as $year) {
 	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year] = [
 		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"]["root"].$year."/"
 	];
@@ -349,7 +359,7 @@ $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"] = [
 ];
 
 # Task History year folders
-foreach (range(2018, date("Y")) as $year) {
+foreach ($years_list as $year) {
 	$folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"][$year] = [
 		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"]["root"].$year."/"
 	];

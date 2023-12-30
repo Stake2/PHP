@@ -1,4 +1,5 @@
 {
+	"house": "<i class=\"fa-solid fa-house\"></i>",
     "reader": "<i class=\"fas fa-book-reader\"><\/i>",
     "comment": "<i class=\"fas fa-comments\"><\/i>",
 	"pen": "<i class=\"fa-solid fa-pen\"></i>",

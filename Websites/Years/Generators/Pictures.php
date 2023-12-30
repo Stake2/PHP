@@ -54,13 +54,19 @@ foreach (array_keys($files) as $key) {
 }
 
 # Update the image title of the "Happy New Year" image
-$contents["File"]["Dictionary"]["1 - Happy New Year"]["Title"] = $website["language_texts"]["happy_new_year"];
+if (isset($contents["File"]["Dictionary"]["1 - Happy New Year"]) == True) {
+	$contents["File"]["Dictionary"]["1 - Happy New Year"]["Title"] = $website["language_texts"]["happy_new_year"];
+}
 
 # Update the image title of the "Christmas" image
-$contents["File"]["Dictionary"]["2 - Christmas"]["Title"] = $website["language_texts"]["christmas, title()"];
+if (isset($contents["File"]["Dictionary"]["2 - Christmas"]) == True) {
+	$contents["File"]["Dictionary"]["2 - Christmas"]["Title"] = $website["language_texts"]["christmas, title()"];
+}
 
 # List the file keys
 $keys = array_keys($contents["File"]["Dictionary"]);
+
+$images = $keys;
 
 $i = 0;
 $z = 1;
@@ -120,7 +126,7 @@ foreach ($keys as $key) {
 		}
 
 		# Add some spaces
-		$image_string .= "<p></p>"."\n";
+		$image_string .= "<p></p><br />"."\n";
 
 		if ($add_image_title == True) {
 			# Create the image "Title" text
@@ -133,20 +139,28 @@ foreach ($keys as $key) {
 			# Make the image title
 			$title = $file["Title"];
 
-			# Remove the "[number].1 - " text of the image title if it exists
-			if (str_contains($title, $i.".1 - ")) {
-				$title = str_replace($i.".1 - ", "", $title);
-			}
+			$numbers = [
+				"1",
+				"2",
+				"3"
+			];
 
-			# Remove the "[number] - " text of the image title if it exists
-			else {
-				# Remove the "[number].1 - " text of the image title if it exists
-				if (str_contains($title, $z.".1 - ")) {
-					$title = str_replace($z.".1 - ", "", $title);
+			foreach ($numbers as $number) {
+				# Remove the "[number].[sub_number] - " text of the image title if it exists
+				if (str_contains($title, $i.".".$number." - ")) {
+					$title = str_replace($i.".".$number." - ", "", $title);
 				}
 
-				if (str_contains($title, $i." - ")) {
-					$title = str_replace($i." - ", "", $title);
+				# Remove the "[number] - " text of the image title if it exists
+				else {
+					# Remove the "[number].1 - " text of the image title if it exists
+					if (str_contains($title, $z.".".$number." - ")) {
+						$title = str_replace($z.".".$number." - ", "", $title);
+					}
+
+					if (str_contains($title, $i." - ")) {
+						$title = str_replace($i." - ", "", $title);
+					}
 				}
 			}
 
@@ -211,7 +225,7 @@ foreach ($keys as $key) {
 			$text = $HTML -> Element("b", $text)."\n";
 
 			# Add the number text and number to the image string
-			$image_string .= $text.$key;
+			$image_string .= $text.$z;
 
 			# Add some spaces
 			$image_string .= "<br />"."\n".
@@ -317,13 +331,20 @@ foreach ($keys as $key) {
 	$z++;
 }
 
-# Add tab to tab templates
-$website["tabs"]["templates"]["pictures"] = [
-	"name" => $website["language_texts"]["pictures, title()"],
-	"add" => " ".HTML::Element("span", $tab_content["Number"], "", $website["style"]["text"]["theme"]["dark"]),
-	"text_style" => "text-align: left;",
-	"icon" => "images",
-	"content" => $tab_content["Content"]
-];
+if ($images != ["Icon"]) {
+	# Add the tab to tab templates dictionary
+	$website["tabs"]["templates"]["pictures"] = [
+		"name" => $website["language_texts"]["pictures, title()"],
+		"add" => " ".HTML::Element("span", $tab_content["Number"], "", $website["style"]["text"]["theme"]["dark"]),
+		"text_style" => "text-align: left;",
+		"icon" => "images",
+		"content" => $tab_content["Content"]
+	];
+}
+
+# Define the "Pictures" tab to be removed if it only contains one picture (the image of the website)
+if ($images == ["Icon"]) {
+	array_push($website["tabs"]["To remove"], "pictures");
+}
 
 ?>

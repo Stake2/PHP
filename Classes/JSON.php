@@ -14,7 +14,11 @@ class JSON extends Class_ {
 	}
 
 	public function Verbose($text, $item, $verbose = Null) {
-		if ($this -> switches["verbose"] == True and $verbose == Null or $verbose == True) {
+		if (
+			$this -> switches["verbose"] == True and
+			$verbose == Null or
+			$verbose == True
+		) {
 			$string = "\n"."<br />"."\n".
 			$text."<br />"."\n".
 			$item."\n";

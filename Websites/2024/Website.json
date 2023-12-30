@@ -1,16 +1,16 @@
 {
 	"style": {
 		"theme": {
-			"normal": "blue",
-			"light": "light_blue",
-			"dark": "dark_blue"
+			"normal": "green",
+			"light": "light_green",
+			"dark": "dark_green"
 		},
 		"secondary_theme": {
-			"normal": "blue",
-			"light": "light_blue",
-			"dark": "dark_blue"
+			"normal": "green",
+			"light": "light_green",
+			"dark": "dark_green"
 		},
-		"text_highlight": "light_blue"
+		"text_highlight": "light_green"
 	},
-	"color": "98D1FF"
+	"color": "73FF78"
 }

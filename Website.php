@@ -82,7 +82,11 @@ if (
 }
 
 # Define method from POST
-if ($_POST != [] and isset($_POST["website"]) == True and isset($website["method"]) == False) {
+if (
+	$_POST != [] and
+	isset($_POST["website"]) == True and
+	isset($website["method"]) == False
+) {
 	$website["method"] = $_POST;
 	$_SESSION["POST"] = $_POST;
 }

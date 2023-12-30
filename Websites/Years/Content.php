@@ -27,11 +27,13 @@ $website["data"]["folders"]["generators"] = [
 # Define the website files
 $website["data"]["files"] = [
 	"summary" => "",
+	"welcome" => "",
 	"this_year_i" => "",
 	"generators" => []
 ];
 
 if (in_array($website["data"]["title"], $website["years"]) == True) {
+	$website["data"]["files"]["welcome"] = $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["welcome, title()"].".txt";
 	$website["data"]["files"]["summary"] = $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["summary, title()"].".txt";
 	$website["data"]["files"]["this_year_i"] = $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["this_year_i"].".txt";
 }
@@ -44,7 +46,9 @@ $names = [
 # Replace the names array with an array with more generators
 if (in_array($website["data"]["title"], $website["years"]) == True) {
 	$names = [
+		"Welcome",
 		"Summary",
+		"This Year I",
 		"Pictures",
 		"Memories",
 		"Watched",
@@ -72,16 +76,7 @@ $year = $website["data"]["title"];
 
 $website["tab_content"] = [];
 
-# Define tab templates
-if (in_array($website["data"]["title"], $website["years"]) == True) {
-	$website["tabs"]["templates"]["this_year_i"] = [
-		"name" => $website["language_texts"]["this_year_i"],
-		"file" => $website["data"]["files"]["this_year_i"],
-		"empty_message" => Text::Format($website["language_texts"]["the_{}_text_has_not_been_created_yet"], $website["language_texts"]["this_year_i"]),
-		"text_style" => "text-align: left;",
-		"icon" => "calendar_days"
-	];
-}
+$website["tabs"]["To remove"] = [];
 
 # Require generator files to generate tab templates
 foreach (array_keys($website["data"]["files"]["generators"]) as $key) {
@@ -104,11 +99,17 @@ if (
 	}
 
 	# Add tab keys and templates
-	$tab_titles = [
-		"summary"
-	];
+	$tab_titles = [];
 
-	# Add tabs for years after the year 2022
+	# Add the "Welcome" tab for years after the year 2022
+	if ((int)$website["data"]["title"] >= 2022) {
+		array_push($tab_titles, "welcome");
+	}
+
+	# Add the "summary" tab
+	array_push($tab_titles, "summary");
+
+	# Add the "This Year I" tab for years after the year 2022
 	if ((int)$website["data"]["title"] >= 2022) {
 		array_push($tab_titles, "this_year_i");
 	}
@@ -124,12 +125,15 @@ if (
 
 	$tab_titles = array_merge($tab_titles, $more_tabs);
 
+	# Create the dictionaries of the tabs
 	$tabs = [];
 
 	foreach ($tab_titles as $tab) {
-		$tabs[$tab] = [
-			"template" => $tab
-		];
+		if (in_array($tab, $website["tabs"]["To remove"]) == False) {
+			$tabs[$tab] = [
+				"template" => $tab
+			];
+		}
 	}
 
 	$website["tabs"]["data"] = $website["tabs"]["data"] + $tabs;
