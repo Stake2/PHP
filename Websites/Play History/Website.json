@@ -2,14 +2,15 @@
 	"style": {
 		"theme": {
 			"normal": "green",
-			"light": "light_green_water",
-			"dark": "dark_green_water"
+			"light": "light_green",
+			"dark": "dark_green"
 		},
 		"secondary_theme": {
 			"normal": "green",
-			"light": "light_green_water",
-			"dark": "dark_green_water"
-		}
+			"light": "light_green",
+			"dark": "dark_green"
+		},
+		"text_highlight": "light_green"
 	},
-	"color": "2196F3"
+	"color": "73FF78"
 }

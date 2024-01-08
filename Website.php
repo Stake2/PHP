@@ -18,10 +18,10 @@ foreach (array_keys($json) as $key) {
 
 $website["painted_author"] = HTML::Element("span", $website["author"], "", "text_orange");
 
-$website["netlify_format"] = "https://{}.".$website["netlify"]."/";
+$website["netlify_format"] = "https://{}.".$website["Netlify"]."/";
 
 # Define Netlify url
-$website["url"] = Text::Format($website["format"], [$website["subdomain"], $website["netlify"]]);
+$website["url"] = Text::Format($website["format"], [$website["Sub-domain"], $website["Netlify"]]);
 
 # Define local url
 $website["local_url"] = [

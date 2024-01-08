@@ -2,15 +2,15 @@
 	"style": {
 		"theme": {
 			"normal": "blue",
-			"light": "dark_blue",
+			"light": "light_blue",
 			"dark": "black"
 		},
 		"secondary_theme": {
 			"normal": "blue",
-			"light": "dark_blue",
-			"dark": "super_dark_blue"
+			"light": "light_blue",
+			"dark": "darker_blue"
 		},
-		"text_highlight": "dark_blue"
+		"text_highlight": "light_blue"
 	},
 	"color": "2196F3"
 }

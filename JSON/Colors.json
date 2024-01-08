@@ -1,92 +1,214 @@
 {
-	"names": [
-		"grey",
-		"dark-grey",
-		"white",
-		"black",
-		"red",
-		"dark-red",
-		"light-blue",
-		"blue",
-		"darker-blue",
-		"dark-blue",
-		"super-dark-blue",
-		"cyan",
-		"green",
-		"light-green",
-		"dark-green",
-		"light-green-water",
-		"green-water",
-		"dark-green-water",
-		"orange",
-		"light-orange",
-		"dark-orange",
-		"yellow",
-		"yellow-sand",
-		"dark-yellow",
-		"light-brown",
-		"brown",
-		"darker-brown",
-		"dark-brown",
-		"pink",
-		"dark-pink",
-		"salmon",
-		"dark-salmon",
-		"darker-salmon",
-		"light-salmon",
-		"purple",
-		"dark-purple",
-		"second-purple",
-		"second-dark-purple",
-		"darker-purple",
-		"light-purple",
-		"light-cyan",
-		"darker-light-cyan",
-		"dark-cyan"
+	"List": [
+		"White",
+		"Grey",
+		"Dark grey",
+		"Black",
+		"Purple",
+		"Dark purple",
+		"Light purple",
+		"Light purple darker",
+		"Pink",
+		"Dark pink",
+		"Light pink",
+		"Salmon",
+		"Dark salmon",
+		"Light salmon",
+		"Red",
+		"Dark red",
+		"Light red",
+		"Orange",
+		"Dark orange",
+		"Light orange",
+		"Brown",
+		"Dark brown",
+		"Light brown",
+		"Yellow",
+		"Dark yellow",
+		"Light yellow",
+		"Green",
+		"Dark green",
+		"Light green",
+		"Green water",
+		"Dark green water",
+		"Light green water",
+		"Cyan",
+		"Dark cyan",
+		"Light cyan",
+		"Light cyan darker",
+		"Blue",
+		"Dark blue",
+		"Darker blue",
+		"Light blue"
 	],
-	"hex": [
-		"#808080",
-		"#5e5e5e",
-		"#FFFFFF",
-		"#000000",
-		"#f44336",
-		"#790e06",
-		"#98D1FF",
-		"#2196F3",
-		"#349EF4",
-		"#07518D",
-		"#053861",
-		"#00bcd4",
-		"#4CAF50",
-		"#73FF78",
-		"#1C4F1F",
-		"#b5fff0",
-		"#86ffe6",
-		"#153e43",
-		"#ffa500",
-		"#ffc65e",
-		"#c88408",
-		"#ffeb3b",
-		"#ffffb3",
-		"#aa9d26",
-		"#e0a448",
-		"#b88e50",
-		"#916f3b",
-		"#261804",
-		"#ff0080",
-		"#440b28",
-		"#f2858c",
-		"#c26e73",
-		"#854d51",
-		"#f1858d",
-		"#9425a7",
-		"#4a1254",
-		"#b56bcc",
-		"#8d53a0",
-		"#623b6f",
-		"#dc96e8",
-		"#5cc6ca",
-		"#35a6aa",
-		"#257c7f"
-	]
+	"Dictionary": {
+		"White": {
+			"Name": "White",
+			"Code": "#FFFFFF"
+		},
+		"Grey": {
+			"Name": "Grey",
+			"Code": "#808080"
+		},
+		"Dark grey": {
+			"Name": "Dark grey",
+			"Code": "#5e5e5e"
+		},
+		"Black": {
+			"Name": "Black",
+			"Code": "#000000"
+		},
+		"Purple": {
+			"Name": "Purple",
+			"Code": "#9425a7"
+		},
+		"Dark purple": {
+			"Name": "Dark purple",
+			"Code": "#4a1254"
+		},
+		"Light purple": {
+			"Name": "Light purple",
+			"Code": "#dc96e8"
+		},
+		"Light purple darker": {
+			"Name": "Light purple darker",
+			"Code": "#a63dc6"
+		},
+		"Pink": {
+			"Name": "Pink",
+			"Code": "#ff0080"
+		},
+		"Dark pink": {
+			"Name": "Dark pink",
+			"Code": "#600030"
+		},
+		"Light pink": {
+			"Name": "Light pink",
+			"Code": "#ff73b9"
+		},
+		"Salmon": {
+			"Name": "Salmon",
+			"Code": "#f2858c"
+		},
+		"Dark salmon": {
+			"Name": "Dark salmon",
+			"Code": "#c26e73"
+		},
+		"Darker salmon": {
+			"Name": "Darker salmon",
+			"Code": "#854d51"
+		},
+		"Light salmon": {
+			"Name": "Light salmon",
+			"Code": "#f1858d"
+		},
+		"Red": {
+			"Name": "Red",
+			"Code": "#f44336"
+		},
+		"Dark red": {
+			"Name": "Dark red",
+			"Code": "#820900"
+		},
+		"Light red": {
+			"Name": "Light red",
+			"Code": "#ff1200"
+		},
+		"Orange": {
+			"Name": "Yellow",
+			"Code": "#ffa500"
+		},
+		"Dark orange": {
+			"Name": "Dark orange",
+			"Code": "#843a04"
+		},
+		"Light orange": {
+			"Name": "Light orange",
+			"Code": "#ffc65e"
+		},
+		"Brown": {
+			"Name": "Brown",
+			"Code": "#b88e50"
+		},
+		"Dark brown": {
+			"Name": "Dark brown",
+			"Code": "#402807"
+		},
+		"Light brown": {
+			"Name": "Light brown",
+			"Code": "#e0a448"
+		},
+		"Yellow": {
+			"Name": "Yellow",
+			"Code": "#ffef00"
+		},
+		"Dark yellow": {
+			"Name": "Dark yellow",
+			"Code": "#c19d15"
+		},
+		"Light yellow": {
+			"Name": "Light yellow",
+			"Code": "#ffc65e"
+		},
+		"Yellow sand": {
+			"Name": "Yellow sand",
+			"Code": "#ffffb3"
+		},
+		"Green": {
+			"Name": "Green",
+			"Code": "#4CAF50"
+		},
+		"Dark green": {
+			"Name": "Dark green",
+			"Code": "#1C4F1F"
+		},
+		"Light green": {
+			"Name": "Light green",
+			"Code": "#73FF78"
+		},
+		"Green water": {
+			"Name": "Green water",
+			"Code": "#86ffe6"
+		},
+		"Dark green water": {
+			"Name": "Dark green water",
+			"Code": "#153e43"
+		},
+		"Light green water": {
+			"Name": "Light green water",
+			"Code": "#b5fff0"
+		},
+		"Cyan": {
+			"Name": "Cyan",
+			"Code": "#00bcd4"
+		},
+		"Dark cyan": {
+			"Name": "Dark cyan",
+			"Code": "#257c7f"
+		},
+		"Light cyan": {
+			"Name": "Light cyan",
+			"Code": "#5cc6ca"
+		},
+		"Light cyan darker": {
+			"Name": "Light cyan darker",
+			"Code": "#35a6aa"
+		},
+		"Blue": {
+			"Name": "Blue",
+			"Code": "#2196F3"
+		},
+		"Dark blue": {
+			"Name": "Dark blue",
+			"Code": "#07518D"
+		},
+		"Darker blue": {
+			"Name": "Darker blue",
+			"Code": "#043964"
+		},
+		"Light blue": {
+			"Name": "Light blue",
+			"Code": "#98D1FF"
+		}
+	}
 }

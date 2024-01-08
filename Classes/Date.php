@@ -54,7 +54,7 @@ class Date extends Class_ {
 		return $datetime;
 	}
 
-	public static function Create_Years_List($mode = "array", $start = 2018, $plus = 1, $function = "string", $string_format = Null) {
+	public static function Create_Years_List($mode = "array", $start = 2018, $plus = 0, $function = "string", $string_format = Null) {
 		$array = [];
 
 		$current_year = self::Now()["year"] + $plus;

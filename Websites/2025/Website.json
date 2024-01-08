@@ -1,0 +1,16 @@
+{
+	"style": {
+		"theme": {
+			"normal": "orange",
+			"light": "light_orange",
+			"dark": "dark_orange"
+		},
+		"secondary_theme": {
+			"normal": "orange",
+			"light": "light_orange",
+			"dark": "dark_orange"
+		},
+		"text_highlight": "dark_orange"
+	},
+	"color": "ffa500"
+}

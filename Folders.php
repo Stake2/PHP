@@ -155,8 +155,7 @@ $years_list = range(2018, date("Y"));
 
 if (
 	isset($_GET["next_year"]) == True and
-	$_GET["next_year"] == True or
-	$_GET["website"] == "2024"
+	$_GET["next_year"] == True
 ) {
 	array_push($years_list, (int)date("Y") + 1);
 }
