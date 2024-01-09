@@ -26,6 +26,7 @@
 		"Yellow",
 		"Dark yellow",
 		"Light yellow",
+		"Yellow sand",
 		"Green",
 		"Dark green",
 		"Light green",
@@ -39,6 +40,7 @@
 		"Blue",
 		"Dark blue",
 		"Darker blue",
+		"Even darker blue",
 		"Light blue"
 	],
 	"Dictionary": {
@@ -205,6 +207,10 @@
 		"Darker blue": {
 			"Name": "Darker blue",
 			"Code": "#043964"
+		},
+		"Even darker blue": {
+			"Name": "Even darker blue",
+			"Code": "#011526"
 		},
 		"Light blue": {
 			"Name": "Light blue",

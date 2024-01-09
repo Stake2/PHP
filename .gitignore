@@ -1,7 +1,11 @@
+# Root folders
 Rubbish
-Rubbish/
 Other
+Images
+CSS
+JavaScript
+
+# Root files
 desktop.ini
 Websites/Diary Slim/Website.php
 *.rar
-Images
