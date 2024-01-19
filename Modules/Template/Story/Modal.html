@@ -1,9 +1,9 @@
 <!-- Chapter {$chapter_modal['type']} modal for all chapters -->
 <a id="chapter_{$chapter_modal['type']}_anchor" name="chapter_{$chapter_modal['type']}"></a>
 <div id="chapter_{$chapter_modal['type']}" class="modal" style="display: none; border-radius: 50px;">
-	<div class="modal-content {$website['style']['tab']['black']} {$website['style']['text_highlight']}{$chapter_modal['class']}" style="width: 50%; border-radius: 50px; padding-bottom: 7%;">
+	<div class="modal-content {$website['Style']['tab']['black']} {$website['Style']['text_highlight']}{$chapter_modal['class']}" style="width: 50%; border-radius: 50px; padding-bottom: 7%;">
 		<!-- Hide modal button -->
-		<button class="w3-btn {$website['style']['button']['theme']['light']}" onclick="Hide_Modal('{$chapter_modal['type']}');" style="float: right; padding: 2px 14px 3px 15px !important;">
+		<button class="w3-btn {$website['Style']['button']['theme']['light']}" onclick="Hide_Modal('{$chapter_modal['type']}');" style="float: right; padding: 2px 14px 3px 15px !important;">
 			<h4 class="text_size" style="font-weight: bold;">
 				X
 			</h4>
@@ -11,7 +11,7 @@
 		<br /><br /><br />
 
 		<!-- "{$chapter_modal['text']}" text -->
-		<h2 class="text_size {$website['style']['text_highlight']}" style="font-weight: bold;">
+		<h2 class="text_size {$website['Style']['text_highlight']}" style="font-weight: bold;">
 			{$chapter_modal["text"]}:<br />
 			<span id="chapter_{$chapter_modal['type']}_title">?</span> {$chapter_modal["icon"]}
 		</h2>
@@ -20,16 +20,16 @@
 		<!-- {$chapter_modal['type_title']} form -->
 		<form name="Story_{$chapter_modal['type_title']}" method="POST" data-netlify="True">
 			<input type="hidden" name="form-name" value="Story_{$chapter_modal['type_title']}">
-			<input type="hidden" name="website_title" value="{$website['data']['titles']['language']}">
+			<input type="hidden" name="website_title" value="{$website['Data']['titles']['language']}">
 	
 			<!-- My name input -->
-			<h2 class="text_size margin_top_bottom_2_cent {$website['style']['text_highlight']}" style="font-weight: bold;">
-				{$website["language_texts"]["my_name"]}:<br />
+			<h2 class="text_size margin_top_bottom_2_cent {$website['Style']['text_highlight']}" style="font-weight: bold;">
+				{$website["Language texts"]["my_name"]}:<br />
 			</h2>
-			<input type="text" name="name" class="w3-input text_size {$website['style']['button']['theme']['light']}" style="width: 100%; font-weight: bold; border-radius: 50px;">
+			<input type="text" name="name" class="w3-input text_size {$website['Style']['button']['theme']['light']}" style="width: 100%; font-weight: bold; border-radius: 50px;">
 
 			<!-- Hidden chapter title input -->
-			<input id="chapter_{$chapter_modal['type']}_value" type="hidden" name="chapter" value="" class="w3-input {$website['style']['button']['theme']['light']}" style="width: 100%; display: none; font-weight: bold; border-radius: 50px; text-align: center;">
+			<input id="chapter_{$chapter_modal['type']}_value" type="hidden" name="chapter" value="" class="w3-input {$website['Style']['button']['theme']['light']}" style="width: 100%; display: none; font-weight: bold; border-radius: 50px; text-align: center;">
 
 {if="isset($chapter_modal['comment_input'])"}
 {$chapter_modal['comment_input']}
@@ -37,9 +37,9 @@
 			<br />
 
 			<!-- Submit form button -->
-			<button type="submit" class="w3-btn {$website['style']['button']['theme']['light']}" style="float: right; border-radius: 50px;">
+			<button type="submit" class="w3-btn {$website['Style']['button']['theme']['light']}" style="float: right; border-radius: 50px;">
 				<h2 class="text_size">
-					<b>{$website["language_texts"]["send, title()"]}: {$website["icons"]["paper_plane"]}</b>
+					<b>{$website["Language texts"]["send, title()"]}: {$website["Icons"]["paper_plane"]}</b>
 				</h2>
 			</button>
 

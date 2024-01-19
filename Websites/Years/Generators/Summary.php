@@ -2,13 +2,15 @@
 
 # Summary
 
-if (file_exists($website["data"]["files"]["summary"]) == True) {
-	# Read the year summary file
-	$contents = $File -> Contents($website["data"]["files"]["summary"]);
+$file = $website["Data"]["Files"]["summary"];
 
-	$span = HTML::Element("span", "{}", "", $website["style"]["text_highlight"]);
+if (file_exists($file) == True) {
+	# Read the year summary file
+	$contents = $File -> Contents($file);
+
+	$span = HTML::Element("span", "{}", "", $website["Style"]["text_highlight"]);
 	$span_bold = HTML::Element("span", "{}", 'style="font-weight: bold;"');
-	$span_bold_color = HTML::Element("span", "{}", 'style="font-weight: bold;"', $website["style"]["text_highlight"]);
+	$span_bold_color = HTML::Element("span", "{}", 'style="font-weight: bold;"', $website["Style"]["text_highlight"]);
 	$margin = HTML::Element("span", "{}", 'style="margin-left: 3%;"');
 
 	if ($contents["lines"] != []) {
@@ -47,23 +49,22 @@ if (file_exists($website["data"]["files"]["summary"]) == True) {
 
 	# Add the tab to the tab templates
 	$website["tabs"]["templates"]["summary"] = [
-		"name" => $website["language_texts"]["summary, title()"],
+		"name" => $website["Language texts"]["summary, title()"],
 		"text_style" => "text-align: left;",
 		"icon" => "clipboard",
-		"file" => $website["data"]["files"]["summary"],
-		"empty_message" => Text::Format($website["language_texts"]["the_{}_text_has_not_been_created_yet"], $website["language_texts"]["summary, title()"]),
+		"file" => $file,
+		"empty_message" => Text::Format($website["Language texts"]["the_{}_text_has_not_been_created_yet"], $website["Language texts"]["summary, title()"]),
 		"content" => $contents["string"]
 	];
 }
 
-else {
-	# Add the tab to the tab templates
-	$website["tabs"]["templates"]["summary"] = [
-		"name" => $website["language_texts"]["summary, title()"],
-		"text_style" => "text-align: left;",
-		"icon" => "clipboard",
-		"content" => Text::Format($website["language_texts"]["the_{}_text_has_not_been_created_yet"], $website["language_texts"]["summary, title()"])
-	];
+if (
+	file_exists($file) == False or
+	file_exists($file) == True and
+	$File -> Contents($file)["lines"] == []
+) {
+	# Define the tab to be removed if the file is empty
+	array_push($website["tabs"]["To remove"], "summary");
 }
 
 ?>

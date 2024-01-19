@@ -12,6 +12,7 @@
 			"dark": "dark_blue"
 		}
 	},
+	"color": "2196F3",
 	"image": {
 		"width": "30"
 	},
@@ -33,6 +34,5 @@
 			"en": "Website to show the {media_types} that I watched, and medias that I will watch.\nMade by {author}.",
 			"pt": "Site para mostrar os {media_types} que assisti, e mídias que eu vou assistir.\nFeito por {author}."
 		}
-	},
-	"color": "2196F3"
+	}
 }

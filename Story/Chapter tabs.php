@@ -6,7 +6,7 @@
 $story["chapter_buttons"] = "";
 $story["chapters"] = "";
 
-if (isset($website["data"]["json"]["story"]) == False) {
+if (isset($website["Data"]["JSON"]["story"]) == False) {
 	$chapter_titles = $story["Information"]["Chapters"]["Titles"][$language];
 }
 

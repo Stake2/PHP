@@ -10,7 +10,7 @@ $website = [
 	"format" => "https://{}.{}/"
 ];
 
-$json = $JSON -> To_PHP($folders["mega"]["websites"]["website"]);
+$json = $JSON -> To_PHP($folders["Mega"]["Websites"]["Website"]);
 
 foreach (array_keys($json) as $key) {
 	$website[$key] = $json[$key];
@@ -20,19 +20,21 @@ $website["painted_author"] = HTML::Element("span", $website["author"], "", "text
 
 $website["netlify_format"] = "https://{}.".$website["Netlify"]."/";
 
+$website["Variable_Inserter"] = [];
+
 # Define Netlify url
-$website["url"] = Text::Format($website["format"], [$website["Sub-domain"], $website["Netlify"]]);
+$website["URL"] = Text::Format($website["format"], [$website["Sub-domain"], $website["Netlify"]]);
 
 # Define local url
-$website["local_url"] = [
-	"index" => (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on" ? "https" : "http")."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]
+$website["Local URL"] = [
+	"Index" => (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on" ? "https" : "http")."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]
 ];
 
-$website["local_url"]["generate"] = $website["local_url"]["index"]."generate";
+$website["Local URL"]["Generate"] = $website["Local URL"]["Index"]."generate";
 
-$website["local_url"]["generate_template"] = $website["local_url"]["generate"]."?language={}&website={}";
+$website["Local URL"]["generate_template"] = $website["Local URL"]["Generate"]."?language={}&website={}";
 
-$json = $website["local_url"];
+$json = $website["Local URL"];
 
 $i = 0;
 foreach ($json as $item) {
@@ -43,8 +45,8 @@ foreach ($json as $item) {
 	$i++;
 }
 
-if ($File -> Exist($folders["php"]["json"]["url"]) == False) {
-	$JSON -> Edit($folders["php"]["json"]["url"], $website["local_url"], "w");
+if ($File -> Exist($folders["PHP"]["JSON"]["URL"]) == False) {
+	$JSON -> Edit($folders["PHP"]["JSON"]["URL"], $website["Local URL"], "w");
 }
 
 $website["Image formats"] = [
@@ -54,16 +56,17 @@ $website["Image formats"] = [
 	"gif"
 ];
 
-$website["folders"] = [];
+# Define the "Folders" key inside the "website" dictionary
+$website["Folders"] = [];
 
-foreach (array_keys($folders["mega"]["websites"]) as $key) {
-	if (is_array($folders["mega"]["websites"][$key]) == False) {
-		$website["folders"][$key] = str_replace($folders["mega"]["websites"]["root"], $website["url"], $folders["mega"]["websites"][$key]);
+foreach (array_keys($folders["Mega"]["Websites"]) as $key) {
+	if (is_array($folders["Mega"]["Websites"][$key]) == False) {
+		$website["Folders"][$key] = str_replace($folders["Mega"]["Websites"]["root"], $website["URL"], $folders["Mega"]["Websites"][$key]);
 	}
 
 	else {
-		foreach (array_keys($folders["mega"]["websites"][$key]) as $sub_key) {
-			$website["folders"][$key][$sub_key] = str_replace($folders["mega"]["websites"]["root"], $website["url"], $folders["mega"]["websites"][$key][$sub_key]);
+		foreach (array_keys($folders["Mega"]["Websites"][$key]) as $sub_key) {
+			$website["Folders"][$key][$sub_key] = str_replace($folders["Mega"]["Websites"]["root"], $website["URL"], $folders["Mega"]["Websites"][$key][$sub_key]);
 		}
 	}
 }
@@ -176,7 +179,7 @@ $website["States"] = [
 ];
 
 # Define the stories array
-$stories = $JSON -> To_PHP($folders["mega"]["stories"]["database"]["stories"]);
+$stories = $JSON -> To_PHP($folders["Mega"]["Stories"]["Database"]["Stories"]);
 
 # Define the story painted authors
 $stories["Authors (painted)"] = [];
@@ -197,7 +200,7 @@ foreach ($stories["Authors"] as $author) {
 }
 
 # Define website list array
-$websites = $JSON -> To_PHP($folders["php"]["websites"]["Websites"]);
+$websites = $JSON -> To_PHP($folders["PHP"]["Websites"]["Websites"]);
 
 # Add story titles of each language into each language website list
 $keys = array_keys($stories["Titles"]);
@@ -216,7 +219,7 @@ foreach ($keys as $language) {
 # Add "Years" website to website list
 foreach ($Language -> languages["small"] as $language) {
 	if (isset($websites["List"][$language]) == True) {
-		array_push($websites["List"][$language], $website["texts"]["years, title()"][$language]);
+		array_push($websites["List"][$language], $website["Texts"]["years, title()"][$language]);
 	}
 }
 
@@ -232,16 +235,16 @@ foreach ($website["years"] as $year) {
 	}
 }
 
-$website["current_year"] = array_reverse($website["years"])[0];
+$website["current_year"] = end($website["years"]);
 
-# Update websites JSON file
-$JSON -> Edit($folders["mega"]["php"]["json"]["websites"], $websites, "w");
+# Update the "Websites.json" file
+$JSON -> Edit($folders["Mega"]["PHP"]["JSON"]["Websites"], $websites, "w");
 
-# Define website icons
-$website["icons"] = $JSON -> To_PHP($folders["php"]["json"]["icons"]);
+# Define the website icons
+$website["Icons"] = $JSON -> To_PHP($folders["PHP"]["JSON"]["Icons"]);
 
 # Define website style dictionary
-$website["style"] = [
+$website["Style"] = [
 	"background" => [
 		"black" => "background_black"
 	],
@@ -261,10 +264,10 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-# Add websites and website data to website dictionary
-require $folders["php"]["make_website_dictionary"];
+# Add the websites and website data to the "website" dictionary
+require $folders["PHP"]["Make website dictionary"];
 
-$website["style"] = array_merge($website["style"], $website["dictionary"][$website["website"]]["style"]);
+$website["Style"] = array_merge($website["Style"], $website["dictionary"][$website["website"]]["Style"]);
 
 $language = "pt";
 
@@ -298,7 +301,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$item = str_replace('">', '" selected>', $item);
 	}
 
-	if ($website_title != array_reverse($websites["List"][$language])[0]) {
+	if ($website_title != end($websites["List"][$language])) {
 		$item .= "\n";
 	}
 
@@ -318,7 +321,7 @@ foreach (array_values($Language -> languages["small"]) as $language) {
 		$item = str_replace('">', '" selected>', $item);
 	}
 
-	if ($language != array_reverse($Language -> languages["small"])[0]) {
+	if ($language != end($Language -> languages["small"])) {
 		$item .= "\n";
 	}
 
@@ -337,9 +340,9 @@ function Generate_Form() {
 	# Make Form radio buttons
 	$h4 = HTML::Element("h4", HTML::Element("b", "{}"), "", "text_size", ["new_line" => True, "tab" => "\t\t\t\t"]);
 
-	$input = HTML::Element("input", HTML::Element("b", "{}"), 'type="radio" id="{}" value="{}" name="mode"', "w3-center w3-input ".$website["style"]["radio_input"], ["new_line" => True, "tab" => "\t\t\t"]);
+	$input = HTML::Element("input", HTML::Element("b", "{}"), 'type="radio" id="{}" value="{}" name="mode"', "w3-center w3-input ".$website["Style"]["radio_input"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-	$radio_template = "\t\t"."<!-- {} -->"."\n"."\t\t".HTML::Element("div", $h4."\n".$input, 'id="{}_div" style="width: 17%; height: auto; display: inline-block; border-radius: 45%;"', "w3-btn div_size ".$website["style"]["button"]["theme"]["light"]." ".$website["style"]["radio"], ["new_line" => True, "tab" => "\t\t"]);
+	$radio_template = "\t\t"."<!-- {} -->"."\n"."\t\t".HTML::Element("div", $h4."\n".$input, 'id="{}_div" style="width: 17%; height: auto; display: inline-block; border-radius: 45%;"', "w3-btn div_size ".$website["Style"]["button"]["theme"]["light"]." ".$website["Style"]["radio"], ["new_line" => True, "tab" => "\t\t"]);
 
 	$radio_buttons = "";
 
@@ -350,7 +353,7 @@ function Generate_Form() {
 			$text_key = $item."_2, title()";
 		}
 
-		$language_text = $website["language_texts"][$text_key];
+		$language_text = $website["Language texts"][$text_key];
 
 		$item_capitalize = ucfirst($item);
 
@@ -406,7 +409,7 @@ foreach ($file_names as $file_name) {
 
 	if (strpos($file_name, ".com") == False) {
 		$website["css"]["links"] .= "/CSS/";
-		#$website["css"]["links"] .= $website["folders"]["css"]["root"];
+		#$website["css"]["links"] .= $website["Folders"]["css"]["root"];
 	}
 
 	$website["css"]["links"] .= $file_name.".css";
@@ -417,22 +420,22 @@ foreach ($file_names as $file_name) {
 }
 
 # Define default website data
-$website["data"] = $website["dictionary"]["The Life of Littletato"];
+$website["Data"] = $website["dictionary"]["The Life of Littletato"];
 
 # Define website data for the selected website
 if (array_key_exists("website", $website) == True) {
-	$website["data"] = $website["dictionary"][$website["website"]];
+	$website["Data"] = $website["dictionary"][$website["website"]];
 }
 
-$GLOBALS["link_class"] = $website["data"]["style"]["text_highlight"]." ".$website["data"]["style"]["text_hover"];
+$GLOBALS["link_class"] = $website["Data"]["Style"]["text_highlight"]." ".$website["Data"]["Style"]["text_hover"];
 
-$website["style"]["background_image"] = "";
+$website["Style"]["background_image"] = "";
 
-if (isset($website["data"]["json"]["background_image"]) == True) {
-	$local_image_file = $website["data"]["folders"]["local_website"]["images"]["images"]["root"];
+if (isset($website["Data"]["JSON"]["background_image"]) == True) {
+	$local_image_file = $website["Data"]["Folders"]["Local website"]["Images"]["Images"]["root"];
 
-	if ($website["data"]["json"]["background_image"] != "") {
-		$file_name = $website["data"]["json"]["background_image"];
+	if ($website["Data"]["JSON"]["background_image"] != "") {
+		$file_name = $website["Data"]["JSON"]["background_image"];
 	}
 
 	else {
@@ -445,12 +448,12 @@ if (isset($website["data"]["json"]["background_image"]) == True) {
 		$local_image = $local_image_file.$file_name.".".$format;
 
 		if (file_exists($local_image) == True) {
-			$link = $website["data"]["folders"]["website"]["website_images"]["images"]["root"].$file_name.".".$format;
+			$link = $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"].$file_name.".".$format;
 		}
 	}
 
 	if ($link != "") {
-		$website["style"]["background_image"] = ' style="background: url('."'".$link."'".') no-repeat center center fixed; background-size: 100% 100%;"';
+		$website["Style"]["background_image"] = ' style="background: url('."'".$link."'".') no-repeat center center fixed; background-size: 100% 100%;"';
 	}
 }
 
@@ -467,8 +470,8 @@ $file_names = [
 ];
 
 if (
-	$website["data"]["type"] == "Story" or
-	isset($website["data"]["json"]["story"])
+	$website["Data"]["type"] == "Story" or
+	isset($website["Data"]["JSON"]["story"])
 ) {
 	array_push($file_names, "Story");
 }
@@ -487,7 +490,7 @@ foreach ($file_names as $file_name) {
 
 	if (str_contains($file_name, ".com") == False) {
 		$website["javascript"]["links"] .= "/JavaScript/";
-		#$website["javascript"]["links"] .= $website["folders"]["javascript"]["root"];
+		#$website["javascript"]["links"] .= $website["Folders"]["javascript"]["root"];
 	}
 
 	$website["javascript"]["links"] .= $file_name.".js";
@@ -500,7 +503,7 @@ foreach ($file_names as $file_name) {
 
 	$website["javascript"]["links"] .= "></script>";
 
-	if ($file_name != array_reverse($file_names)[0]) {
+	if ($file_name != end($file_names)) {
 		$website["javascript"]["links"] .= "\n";
 	}
 }
@@ -518,11 +521,11 @@ while ($i <= 4) {
 	$element = "hr_".$i."px";
 	$border = "border_".$i."px";
 
-	$theme_border = $website["style"][$border]["theme"];
-	$secondary_theme_border = $website["style"][$border]["secondary_theme"];
+	$theme_border = $website["Style"][$border]["theme"];
+	$secondary_theme_border = $website["Style"][$border]["secondary_theme"];
 
 	$website["elements"][$element] = [
-		"black" => '<hr class="'.$website["style"][$border]["black"].' margin_sides_5_cent" />',
+		"black" => '<hr class="'.$website["Style"][$border]["black"].' margin_sides_5_cent" />',
 		"theme" => [
 			"normal" => '<hr class="'.$theme_border["normal"].' margin_sides_5_cent" />',
 			"light" => '<hr class="'.$theme_border["light"].' margin_sides_5_cent" />',
@@ -536,7 +539,7 @@ while ($i <= 4) {
 	];
 
 	$website["elements"][$element."_no_margin"] = [
-		"black" => '<hr class="'.$website["style"][$border]["black"].'" />',
+		"black" => '<hr class="'.$website["Style"][$border]["black"].'" />',
 		"theme" => [
 			"normal" => '<hr class="'.$theme_border["normal"].'" />',
 			"light" => '<hr class="'.$theme_border["light"].'" />',
@@ -553,7 +556,7 @@ while ($i <= 4) {
 }
 
 # Define website date
-$website["date"] = $Date -> Now();
+$website["Date"] = $Date -> Now();
 
 $language = "pt";
 
@@ -570,20 +573,20 @@ $full_language = $Language -> languages["full"][$language];
 $website["tabs"]["templates"] = [];
 
 # Create website image button if website data exists
-if (isset($website["data"]) == True) {
-	$h4 = HTML::Element("h4", $website["language_texts"]["open_image_in_a_new_tab"].": ".$website["icons"]["images"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+if (isset($website["Data"]) == True) {
+	$h4 = HTML::Element("h4", $website["Language texts"]["open_image_in_a_new_tab"].": ".$website["Icons"]["images"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-	$website["data"]["image"]["button"] = "\n".
+	$website["Data"]["image"]["button"] = "\n".
 	"	<!-- Website image button -->"."\n".
-	"\t".HTML::Element("button", $h4, 'onclick="window.open('."'".$website["data"]["image"]["link"]."'".')" style="z-index: 2;"', "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
+	"\t".HTML::Element("button", $h4, 'onclick="window.open('."'".$website["Data"]["image"]["link"]."'".')" style="z-index: 2;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
-	$website["data"]["image"]["elements"]["theme"]["light"] .= $website["data"]["image"]["button"]."\n";
+	$website["Data"]["image"]["elements"]["theme"]["light"] .= $website["Data"]["image"]["button"]."\n";
 
-	if (isset($website["data"]["json"]["tabs"]) == False) {
-		$website["data"]["json"]["tabs"] = [];
+	if (isset($website["Data"]["JSON"]["tabs"]) == False) {
+		$website["Data"]["JSON"]["tabs"] = [];
 	}
 
-	$website["tabs"] = $website["data"]["json"]["tabs"];
+	$website["tabs"] = $website["Data"]["JSON"]["tabs"];
 
 	$keys = [
 		"templates",
@@ -596,27 +599,29 @@ if (isset($website["data"]) == True) {
 		}
 	}
 
+	$website["tabs"]["To remove"] = [];
+
 	# Create websites tab and add it to the tabs array
 	$website["tabs"]["data"]["websites_tab"] = [
 		"id" => "websites_tab",
-		"name" => $website["language_texts"]["websites, title()"],
-		"add" => " ".HTML::Element("span", count($websites["List"]["en"]), "", $website["style"]["text"]["theme"]["dark"]),
-		"class" => $website["style"]["tab"]["theme_dark"],
+		"name" => $website["Language texts"]["websites, title()"],
+		"add" => " ".HTML::Element("span", count($websites["List"]["en"]), "", $website["Style"]["text"]["theme"]["dark"]),
+		"class" => $website["Style"]["tab"]["theme_dark"],
 		"icon" => "globe",
 		"content" => $website["website_buttons"]
 	];
 
-	if (file_exists($website["data"]["folders"]["php"]["website_php"]) == True) {
-		require $website["data"]["folders"]["php"]["website_php"];
+	if (file_exists($website["Data"]["Folders"]["PHP"]["Website (PHP)"]) == True) {
+		require $website["Data"]["Folders"]["PHP"]["Website (PHP)"];
 	}
 }
 
 # Define the story of website and run the "Story.php" file to define the story variables
 if (
-	$website["data"]["type"] == "Story" or
-	isset($website["data"]["json"]["story"])
+	$website["Data"]["type"] == "Story" or
+	isset($website["Data"]["JSON"]["story"])
 ) {
-	$story = $website["data"]["story"];
+	$story = $website["Data"]["story"];
 
 	if (
 		$parse != "/generate" and
@@ -627,7 +632,7 @@ if (
 	}
 
 	# Require the "Story.php" file to define story website variables
-	require $folders["php"]["story"];
+	require $folders["PHP"]["Story"];
 }
 
 # Define the website content, adding the "select website" form
@@ -671,7 +676,7 @@ if (array_key_exists("additional_tabs", $website) == True and $website["addition
 }
 
 # Add chapter tabs and chapter number variable to website content
-if ($website["data"]["type"] == "Story" or isset($website["data"]["json"]["story"])) {
+if ($website["Data"]["type"] == "Story" or isset($website["Data"]["JSON"]["story"])) {
 	$website["content"] .= $story["chapters"]."\n\n";
 
 	$website["content"] .= "<script>"."\n".
@@ -723,12 +728,10 @@ $("textarea").each(function () {
 </script>';
 }
 
-$dictionary = $website;
+# Define the website meta title
+$website["Meta title"] = $website["Data"]["titles"]["language"];
 
-unset($dictionary["content"]);
-
-$JSON -> Edit($folders["mega"]["php"]["Dictionary"], $dictionary);
-
+# Assign the "website" dictionary to RainTPL variables
 $tpl -> assign("website", $website);
 
 ?>

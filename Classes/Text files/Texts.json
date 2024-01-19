@@ -27,6 +27,10 @@
 		"en": "The website file did not exist, the new content were written into it",
 		"pt": "O arquivo do site não existia, o novo conteúdo foi gravado nele"
 	},
+	"the_website_file_was_not_updated": {
+		"en": "The website file was not updated",
+		"pt": "O arquivo do site não foi atualizado"
+	},
 	"the_website_file_was_updated_with_the_new_content": {
 		"en": "The website file was updated with the new content",
 		"pt": "O arquivo do site foi atualizado com o novo conteúdo"
@@ -79,29 +83,13 @@
 		"en": "Watched things in",
 		"pt": "Coisas assistidas em"
 	},
-	"media_being_watched": {
-		"en": "Media being watched",
-		"pt": "Mídia sendo assistida"
-	},
 	"past_registries": {
 		"en": "Past registries",
 		"pt": "Registros passados"
 	},
-	"first_watched_media_in_the_year": {
-		"en": "First watched media in the year",
-		"pt": "Primeira mídia assistida no ano"
-	},
-	"first_watched_media_per_media_type_in_the_year": {
-		"en": "First watched media Per Media Type in the year",
-		"pt": "Primeira mídia assistida Por Tipo De Mídia no ano"
-	},
 	"media_unit_link": {
 		"en": "Media unit link",
 		"pt": "Link da unidade de mídia"
-	},
-	"number_of_watched_times": {
-		"en": "Number of watched times",
-		"pt": "Número de vezes assistidas"
 	},
 	"task, title()": {
 		"en": "Task",
@@ -437,11 +425,11 @@
 	},
 	"first_task_in_the_year": {
 		"en": "First task in the year",
-		"pt": "Primeira mídia assistida no ano"
+		"pt": "Primeira tarefa no ano"
 	},
 	"first_task_per_task_type_in_the_year": {
-		"en": "First task Per Task Type in the year",
-		"pt": "Primeira Tarefa Por Tipo De Tarefa no ano"
+		"en": "First task per task type in the year",
+		"pt": "Primeira tarefa por tipo de tarefa no ano"
 	},
 	"downloading_media": {
 		"en": "Downloading media",

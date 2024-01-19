@@ -7,7 +7,7 @@ spl_autoload_register(
 	function($class_name) {
 		global $folders;
 
-		$file = $folders["mega"]["php"]["classes"]["root"].$class_name.".php";
+		$file = $folders["Mega"]["PHP"]["Classes"]["root"].$class_name.".php";
 
 		if (file_exists($file) == True) {
 			require $file;
@@ -15,8 +15,8 @@ spl_autoload_register(
 
 		if (file_exists($file) == False) {
 			echo $class_name."<br>";
-			echo $folders["mega"]["php"]["modules"]["root"].$class_name.".php";
-			require $folders["mega"]["php"]["modules"]["root"].$class_name.".php";
+			echo $folders["Mega"]["PHP"]["Modules"]["root"].$class_name.".php";
+			require $folders["Mega"]["PHP"]["Modules"]["root"].$class_name.".php";
 		}
 	}
 );
@@ -24,7 +24,9 @@ spl_autoload_register(
 # File class initiation
 $File = new File();
 
-$class_list = $File -> Contents($folders["mega"]["php"]["classes"]["class_list"])["lines"];
+$JSON = new JSON();
+
+$class_list = $File -> Contents($folders["Mega"]["PHP"]["Classes"]["Class list"])["lines"];
 
 # Initiation of classes
 foreach ($class_list as $class) {
@@ -38,6 +40,6 @@ foreach($functions as $function) {
 	spl_autoload_unregister($function);
 }
 
-require $folders["mega"]["php"]["modules"]["root"]."Loader.php";
+require $folders["Mega"]["PHP"]["Modules"]["root"]."Loader.php";
 
 ?>

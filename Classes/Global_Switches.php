@@ -13,7 +13,7 @@ class Global_Switches {
 		];
 
 		# Global Switches dictionary
-		$this -> switches = $this -> JSON_To_PHP($folders["mega"]["php"]["classes"]["text_files"]["switches"]);
+		$this -> switches = $this -> JSON_To_PHP($folders["Mega"]["PHP"]["Classes"]["Text files"]["Switches"]);
 	}
 
 	public function JSON_To_PHP($file) {
@@ -47,7 +47,7 @@ class Global_Switches {
 			}
 		}
 
-		$this -> Edit($folders["mega"]["php"]["classes"]["text_files"]["switches"], $switches);
+		$this -> Edit($folders["Mega"]["PHP"]["Classes"]["Text files"]["Switches"], $switches);
 
 		return True;
 	}

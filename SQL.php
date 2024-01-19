@@ -15,15 +15,15 @@ $column_keys = [
 ];
 
 $values = [
-	$website["data"]["titles"]["en"],
-	$website["data"]["titles"]["language"],
+	$website["Data"]["titles"]["en"],
+	$website["Data"]["titles"]["language"],
 	$website["full_language"],
-	$website["data"]["type"],
-	$website["data"]["link"],
-	$website["data"]["folders"]["php"]["root"],
-	$website["data"]["folders"]["website"]["root"],
-	$website["data"]["folders"]["local_website"]["root"],
-	$website["data"]["color"]
+	$website["Data"]["type"],
+	$website["Data"]["link"],
+	$website["Data"]["Folders"]["PHP"]["root"],
+	$website["Data"]["Folders"]["Website"]["root"],
+	$website["Data"]["Folders"]["Local website"]["root"],
+	$website["Data"]["color"]
 ];
 
 $columns = [];
@@ -33,10 +33,10 @@ foreach ($column_keys as $key) {
 }
 
 # Create table
-$SQL -> create_table($website["data"]["titles"]["en"], $columns);
+$SQL -> create_table($website["Data"]["titles"]["en"], $columns);
 
 # Update SQL database
-$website_key = strtolower(str_replace(" ", "_", $website["data"]["titles"]["en"]));
+$website_key = strtolower(str_replace(" ", "_", $website["Data"]["titles"]["en"]));
 
 # Gets columns from SQL Database
 $columns_result = $SQL -> select("SELECT * FROM ".$website_key." WHERE language = '".$website["full_language"]."';");

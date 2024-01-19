@@ -40,7 +40,12 @@ class File extends Class_ {
 	}
 
 	public function Create($file) {
-		
+		if (
+			$this -> switches["testing"] == False and
+			$this -> Exist($file) == False
+		) {
+			fopen($file, "w");
+		}
 	}
 
 	public function Delete($file) {

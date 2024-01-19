@@ -3,13 +3,14 @@
 		"theme": {
 			"normal": "white",
 			"light": "grey",
-			"dark": "dark_grey"
+			"dark": "black"
 		},
 		"secondary_theme": {
 			"normal": "white",
 			"light": "grey",
-			"dark": "dark_grey"
-		}
+			"dark": "black"
+		},
+		"text_highlight": "grey"
 	},
 	"image_file_name": "language",
 	"story": true,

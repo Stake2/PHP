@@ -8,8 +8,7 @@ class Language extends Class_ {
 
 		parent::__construct(self::class);
 
-		$this -> folders = $folders;
-		$this -> settings = self::JSON_To_PHP($folders["apps"]["settings"]);
+		$this -> settings = self::JSON_To_PHP($folders["Apps"]["Settings"]);
 
 		$this -> Define_Languages();
 	}
@@ -19,7 +18,9 @@ class Language extends Class_ {
 	}
 
 	private function Define_Languages() {
-		$this -> languages = self::JSON_To_PHP($this -> folders["apps"]["module_files"]["utility"]["language"]["languages"]);
+		global $folders;
+
+		$this -> languages = self::JSON_To_PHP($folders["Apps"]["Module files"]["Utility"]["Language"]["Languages"]);
 		$this -> languages["small"] = array_insert($this -> languages["small"], 0, "general");
 
 		$array = $this -> languages["full"];
@@ -33,7 +34,10 @@ class Language extends Class_ {
 		}
 
 		foreach ($this -> languages["small"] as $key) {
-			if (in_array($key, $this -> languages["supported"]) == False and $key != "general") {
+			if (
+				in_array($key, $this -> languages["supported"]) == False and
+				$key != "general"
+			) {
 				$this -> languages["small"] = array_diff($this -> languages["small"], [$key]);
 				unset($this -> languages["full"][$key]);
 			}
@@ -45,6 +49,7 @@ class Language extends Class_ {
 	public function Define_User_Language() {
 		global $JSON;
 		global $website;
+		global $folders;
 
 		$this -> modules_language = $this -> settings["Language"];
 		$this -> user_language = $website["language"];
@@ -84,17 +89,17 @@ class Language extends Class_ {
 		$website["full_language"] = $this -> full_user_language;
 
 		# Get the Python "Texts.json" file
-		$website["texts"] = $JSON -> To_PHP($this -> folders["php"]["classes"]["text_files"]["texts"]);
+		$website["Texts"] = $JSON -> To_PHP($folders["PHP"]["Classes"]["Text files"]["Texts"]);
 
 		# Mix it with the PHP "Texts.json" file
-		$website["texts"] = array_merge($website["texts"], $JSON -> To_PHP($this -> folders["apps"]["module_files"]["utility"]["language"]["texts"]));
+		$website["Texts"] = array_merge($website["Texts"], $JSON -> To_PHP($folders["Apps"]["Module files"]["Utility"]["Language"]["Texts"]));
 
-		$website["language_texts"] = self::Item($website["texts"]);
+		$website["Language texts"] = self::Item($website["Texts"]);
 
-		$this -> texts = $website["texts"];
-		$this -> language_texts = $website["language_texts"];
+		$this -> texts = $website["Texts"];
+		$this -> language_texts = $website["Language texts"];
 
-		$website["language_icon"] = $website["language_texts"]["language_icon"];
+		$website["language_icon"] = $website["Language texts"]["language_icon"];
 	}
 
 	public static function Item($item) {
@@ -106,15 +111,24 @@ class Language extends Class_ {
 			$language = "en";
 		}
 
-		if (is_array($item) == True and isset($item[$language]) == True) {
+		if (
+			is_array($item) == True and
+			isset($item[$language]) == True
+		) {
 			return $item[$language];
 		}
 
-		if (is_array($item) == True and isset($item[$language]) == False) {
+		if (
+			is_array($item) == True and
+			isset($item[$language]) == False
+		) {
 			$array = $item;
 
 			foreach (array_keys($array) as $key) {
-				if (isset($item[$key]) == True and isset($item[$key][$language]) == True) {
+				if (
+					isset($item[$key]) == True and
+					isset($item[$key][$language]) == True
+				) {
 					$array[$key] = $item[$key][$language];
 				}
 			}

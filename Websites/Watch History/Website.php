@@ -1,7 +1,7 @@
 <?php 
 
 # Add the media types to the website descriptions
-$types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["types"]);
+$types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["Types"]);
 
 $language = "pt";
 
@@ -21,72 +21,72 @@ $string = "";
 $styled_string = "";
 
 foreach ($types["Plural"][$language] as $type) {
-	if ($type == array_reverse($types["Plural"][$language])[0]) {
-		$string .= $website["language_texts"]["and"]." ";
-		$styled_string .= $website["language_texts"]["and"]." ";
+	if ($type == end($types["Plural"][$language])) {
+		$string .= $website["Language texts"]["and"]." ";
+		$styled_string .= $website["Language texts"]["and"]." ";
 	}
 
 	$string .= $type;
-	$styled_string .= HTML::Element("span", $type, "", $website["style"]["text_highlight"]);
+	$styled_string .= HTML::Element("span", $type, "", $website["Style"]["text_highlight"]);
 
-	if ($type != array_reverse($types["Plural"][$language])[0]) {
+	if ($type != end($types["Plural"][$language])) {
 		$string .= ", ";
 		$styled_string .= ", ";
 	}
 }
 
-$website["data"]["description"]["html"] = str_replace("{media_types}", $string, $website["data"]["description"]["html"]);
-$website["data"]["description"]["header"] = str_replace("{media_types}", $styled_string, $website["data"]["description"]["header"]);
+$website["Data"]["description"]["html"] = str_replace("{media_types}", $string, $website["Data"]["description"]["html"]);
+$website["Data"]["description"]["header"] = str_replace("{media_types}", $styled_string, $website["Data"]["description"]["header"]);
 
 # Require the "Watch History" website content PHP file to define the "media_being_watched" and "past_registries" tab templates
-require $website["data"]["folders"]["php"]["root"]."Content.php";
+require $website["Data"]["Folders"]["PHP"]["root"]."Content.php";
 
 # Add all watched things numbers of all years
-$website["data"]["numbers"]["Watched things"] = 0;
+$website["Data"]["Numbers"]["Total"] = 0;
 
-foreach ($website["data"]["numbers"]["Watched things by year"] as $number) {
-	$website["data"]["numbers"]["Watched things"] += $number;
+foreach ($website["Data"]["Numbers"]["By year"] as $number) {
+	$website["Data"]["Numbers"]["Total"] += $number;
 }
 
-$number = number_format($website["data"]["numbers"]["Watched things"], 0, ',', '.');
+$number = number_format($website["Data"]["Numbers"]["Total"], 0, ',', '.');
 
-$first_year = $website["watch_history"]["years_list"][0];
+$first_year = $website["Watch History"]["Years list"][0];
 $last_year = $website["current_year"];
 
-$text = $number." ".HTML::format($watch_history["language_texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
+$text = $number." ".HTML::format($watch_history["Language texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
 
 # Add watched things number to the language and header website title with the text
-$website["data"]["titles"]["language"] .= ": ".$text;
+$website["Data"]["titles"]["language"] .= ": ".$text;
 
 # Change the text color of the number
-$number = HTML::Element("span", $number, "", $website["style"]["text"]["theme"]["dark"]);
-$first_year = HTML::Element("span", $first_year, "", $website["style"]["text"]["theme"]["dark"]);
-$last_year = HTML::Element("span", $last_year, "", $website["style"]["text"]["theme"]["dark"]);
+$number = HTML::Element("span", $number, "", $website["Style"]["text"]["theme"]["dark"]);
+$first_year = HTML::Element("span", $first_year, "", $website["Style"]["text"]["theme"]["dark"]);
+$last_year = HTML::Element("span", $last_year, "", $website["Style"]["text"]["theme"]["dark"]);
 
-# Update the text
-$text = $number." ".HTML::format($watch_history["language_texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
+# Update the description text
+$text = $number." ".HTML::format($watch_history["Language texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
 
-$website["data"]["titles"]["icon"] .= "<br />"."\n".
+$website["Data"]["titles"]["icon"] .= "<br />"."\n".
 $text;
 
-$website["data"]["description"]["html"] .= "\n".
+$website["Data"]["description"]["html"] .= "\n".
 "\n";
 
-$website["data"]["description"]["header"] .= "<br />"."\n".
+$website["Data"]["description"]["header"] .= "<br />"."\n".
 "<br />"."\n";
 
-$array = $website["data"]["numbers"]["Watched things by year"];
+$array = $website["Data"]["Numbers"]["By year"];
 
-$years_list = Date::Create_Years_List();
+$years_list = Date::Create_Years_List($mode = "array", $start = 2018, $plus = 0);
 
 foreach ($years_list as $local_year) {
 	$number = $array[$local_year];
 
 	# Add to the HTML description
-	$website["data"]["description"]["html"] .= $watch_history["language_texts"]["things_watched_in"]." ".$local_year.": ".$number;
+	$website["Data"]["description"]["html"] .= $watch_history["Language texts"]["things_watched_in"]." ".$local_year.": ".$number;
 
 	# Add to the header description
-	$span = HTML::Element("span", $local_year, "", $website["style"]["text_highlight"]);
+	$span = HTML::Element("span", $local_year, "", $website["Style"]["text_highlight"]);
 
 	$style = 'style="text-decoration: underline; cursor: pointer;"';
 
@@ -96,47 +96,52 @@ foreach ($years_list as $local_year) {
 		$tab_id = "watched_things";
 	}
 
-	$colored_year = HTML::Element("a", $span, 'onclick="'."Open_Tab('".$tab_id."')".'"'." ".$style, $website["style"]["text_highlight"]);
+	$colored_year = HTML::Element("a", $span, 'onclick="'."Open_Tab('".$tab_id."')".'"'." ".$style, $website["Style"]["text_highlight"]);
 
-	$painted_number = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+	$painted_number = HTML::Element("span", $number, "", $website["Style"]["text_highlight"]);
 
-	$website["data"]["description"]["header"] .= $watch_history["language_texts"]["things_watched_in"]." ".$colored_year.": ".$painted_number;
+	$website["Data"]["description"]["header"] .= $watch_history["Language texts"]["things_watched_in"]." ".$colored_year.": ".$painted_number;
 
-	if ($local_year != array_reverse($years_list)[0]) {
-		$website["data"]["description"]["html"] .= "\n";
+	if ($local_year != end($years_list)) {
+		$website["Data"]["description"]["html"] .= "\n";
 
-		$website["data"]["description"]["header"] .= "<br />"."\n";
+		$website["Data"]["description"]["header"] .= "<br />"."\n";
 	}
 }
 
-$website["data"]["description"]["html"] .= "\n".
+$website["Data"]["description"]["html"] .= "\n".
 "\n".
-$watch_history["language_texts"]["media_types_watched_in_all_years"].":"."\n";
+$watch_history["Language texts"]["media_types_watched_in_all_years"].":"."\n";
 
-$website["data"]["description"]["header"] .= "<br />"."\n".
+$website["Data"]["description"]["header"] .= "<br />"."\n".
 "<br />"."\n".
-$watch_history["language_texts"]["media_types_watched_in_all_years"].":"."<br />"."\n";
+$watch_history["Language texts"]["media_types_watched_in_all_years"].":"."<br />"."\n";
 
-$array = $website["data"]["numbers"]["Watched things by media type"];
+$array = $website["Data"]["Numbers"]["By type"];
+
+$types_dictionary = $watch_history["Types"]["Plural"];
 
 $i = 0;
-foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
-	$language_media_type = $watch_history["types"]["Plural"][$language][$i];
+foreach ($types_dictionary["en"] as $type) {
+	$language_type = $types_dictionary[$language][$i];
 
-	$number = $array[$plural_media_type];
+	$number = $array[$type];
 
-	# Add to the HTML description
-	$website["data"]["description"]["html"] .= $language_media_type.": ".$number;
+	# If the number is not zero (0)
+	if ($number != 0) {
+		# Add to the HTML description
+		$website["Data"]["description"]["html"] .= $language_type.": ".$number;
 
-	# Add to the header description
-	$painted_number = HTML::Element("span", $number, "", $website["style"]["text_highlight"]);
+		# Add to the header description
+		$painted_number = HTML::Element("span", $number, "", $website["Style"]["text_highlight"]);
 
-	$website["data"]["description"]["header"] .= $language_media_type.": ".$painted_number;
+		$website["Data"]["description"]["header"] .= $language_type.": ".$painted_number;
 
-	if ($plural_media_type != array_reverse($watch_history["types"]["Plural"]["en"])[0]) {
-		$website["data"]["description"]["html"] .= "\n";
+		if ($type != end($types_dictionary["en"])) {
+			$website["Data"]["description"]["html"] .= "\n";
 
-		$website["data"]["description"]["header"] .= "<br />"."\n";
+			$website["Data"]["description"]["header"] .= "<br />"."\n";
+		}
 	}
 
 	$i++;

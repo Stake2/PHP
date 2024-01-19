@@ -18,7 +18,7 @@ foreach (range(2018, date("Y")) as $year) {
 		];
 
 		# "Done tasks" folder
-		$folder_name = $website["texts"]["done_tasks"][$local_language];
+		$folder_name = $website["Texts"]["done_tasks"][$local_language];
 		$key = "done_tasks";
 
 		$folders["Mega"]["Notepad"]["Years"][$year][$local_language][$key] = [
@@ -26,7 +26,7 @@ foreach (range(2018, date("Y")) as $year) {
 		];
 
 		# "Watched media" folder
-		$folder_name = $website["texts"]["watched_media"][$local_language];
+		$folder_name = $website["Texts"]["watched_media"][$local_language];
 		$key = "watched_media";
 
 		$folders["Mega"]["Notepad"]["Years"][$year][$local_language][$key] = [

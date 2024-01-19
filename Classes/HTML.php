@@ -4,11 +4,7 @@
 
 class HTML extends Class_ {
 	public function __construct() {
-		global $folders;
-
 		parent::__construct(self::class);
-
-		$this -> folders = $folders;
 	}
 
 	public static function Element($element, $text = "", $attributes = "", $class = "", $tab = []) {
@@ -41,7 +37,10 @@ class HTML extends Class_ {
 				$tabs["text"] .= "\t\t";
 			}
 
-			if (isset($tab["one"]) == False and in_array($element, $self_closing_elements) == True) {
+			if (
+				isset($tab["one"]) == False and
+				in_array($element, $self_closing_elements) == True
+			) {
 				if (isset($tab["tab"]) == False) {
 					$tabs["first"] .= "\t";
 				}
@@ -53,7 +52,10 @@ class HTML extends Class_ {
 
 			$tabs["text_less_one"] = substr_replace($tabs["text"], "", -1);
 
-			if (isset($tab["tab"]) == True and substr_count($tab["tab"], "\t") == 2) {
+			if (
+				isset($tab["tab"]) == True and
+				substr_count($tab["tab"], "\t") == 2
+			) {
 				$tabs["text_less_one"] = $tabs["text"];
 			}
 
@@ -100,7 +102,7 @@ class HTML extends Class_ {
 		global $website;
 
 		if ($class == "") {
-			$class = $website["data"]["style"]["img"]["theme"]["dark"]." ".$website["style"]["box_shadow"]["theme"]["light"];
+			$class = $website["Data"]["Style"]["img"]["theme"]["dark"]." ".$website["Style"]["box_shadow"]["theme"]["light"];
 		}
 
 		return HTML::Element("img", "", 'src="'.$source.'"'.$attributes, $class);
@@ -135,7 +137,7 @@ class HTML extends Class_ {
 	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3") {
 		global $website;
 
-		$class = $website["style"]["button"]["theme"]["light"].$class;
+		$class = $website["Style"]["button"]["theme"]["light"].$class;
 
 		$text_attributes = "";
 
@@ -143,7 +145,7 @@ class HTML extends Class_ {
 			$text_attributes = 'style="font-weight: bold;"';
 		}
 
-		$text = HTML::Element($heading, "\n\t\t".$text."\n\t\t", $text_attributes, "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
+		$text = HTML::Element($heading, "\n\t\t".$text."\n\t\t", $text_attributes, "text_size ".$website["Style"]["text"]["theme"]["dark"])."\n";
 
 		$button = "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", $attributes, "w3-btn ".$class);
 
@@ -164,7 +166,7 @@ class HTML extends Class_ {
 		}
 
 		$button = '<!-- "'.$tab["name"].'" button -->'."\n".
-		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\n\t\t".self::Button("\n\t\t\t\t".$tab["name_icon"]."\n\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
+		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\n\t\t".self::Button("\n\t\t\t\t".$tab["name_icon"]."\n\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["Style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
 
 		return $button;
 	}
@@ -174,21 +176,21 @@ class HTML extends Class_ {
 		global $Language;
 		global $i;
 
-		$show_text = HTML::Element("h2", "\n\t\t".$website["icons"]["bars"]."\n\t", "", "text_size")."\n";
+		$show_text = HTML::Element("h2", "\n\t\t".$website["Icons"]["bars"]."\n\t", "", "text_size")."\n";
 		$hide_text = HTML::Element("h4", "\n\t\t"."X"."\n\t\t", 'style="font-weight: bold;"', "text_size")."\n";
 
-		$border_color = $website["style"]["border_color"];
+		$border_color = $website["Style"]["border_color"];
 
 		$buttons = [
 			"list" => [],
 
 			"hamburger_menu" => "\n"."<!-- Open hamburger menu button -->"."\n".
-			HTML::Element("button", "\n\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]." w3-animate-zoom")."\n".
+			HTML::Element("button", "\n\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom")."\n".
 			"\n"."<!--- Hamburger menu -->"."\n".
-			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["style"]["background"]["theme"]["normal"]." ".$website["style"]["border_4px"]["theme"][$border_color]." ".$website["style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
+			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["Style"]["background"]["theme"]["normal"]." ".$website["Style"]["border_4px"]["theme"][$border_color]." ".$website["Style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
 			"\t".'<!-- Hide hamburger menu button -->'."\n".
-			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["style"]["button"]["theme"]["light"])."\n\n".
-			"\t".HTML::Element("h2", $website["language_texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["style"]["text_highlight"])."\n\n".
+			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"])."\n\n".
+			"\t".HTML::Element("h2", $website["Language texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["Style"]["text_highlight"])."\n\n".
 			"\t"."<br />"."\n\n".
 			'<div style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">'."\n"
 		];
@@ -216,7 +218,7 @@ class HTML extends Class_ {
 		foreach($buttons["list"] as $button) {
 			$buttons["hamburger_menu"] .= "\t".$button;
 
-			if ($button != array_reverse($buttons["list"])[0]) {
+			if ($button != end($buttons["list"])) {
 				$buttons["hamburger_menu"] .= "\n\n";
 			}
 		}
@@ -292,7 +294,7 @@ class HTML extends Class_ {
 			$string .= $tab["button"];
 		}
 
-		$string .= $website["elements"]["hr_1px"]["theme"][$website["style"]["border_color"]];
+		$string .= $website["elements"]["hr_1px"]["theme"][$website["Style"]["border_color"]];
 
 		if ($center == True) {
 			$string .= "</center>";
@@ -332,7 +334,7 @@ class HTML extends Class_ {
 			# If file is empty, use empty message text
 			if ($contents["lines"] == []) {
 				if (isset($tab["empty_message"]) == False) {
-					$tab["empty_message"] = $website["language_texts"]["this_file_does_not_exist_{}"];
+					$tab["empty_message"] = $website["Language texts"]["this_file_does_not_exist_{}"];
 				}
 
 				$tab["content"] = $tab["empty_message"];
@@ -344,7 +346,7 @@ class HTML extends Class_ {
 		}
 
 		else {
-			$tab["content"] = self::Element("span", $tab["content"], "", $website["data"]["style"]["text_highlight"]);
+			$tab["content"] = self::Element("span", $tab["content"], "", $website["Data"]["Style"]["text_highlight"]);
 		}
 
 		# Define tab name in the user language
@@ -368,19 +370,22 @@ class HTML extends Class_ {
 		# Define title if it is not present
 		if (isset($tab["title"]) == False) {
 			if (str_contains($tab["name"], ": ") == False) {
-				$tab["title"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
+				$tab["title"] = $tab["name"].": ".$website["Icons"][$tab["icon"]];
 			}
 
 			if (str_contains($tab["name"], ": ") == True) {
-				$tab["title"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
+				$tab["title"] = $tab["name"].": ".$website["Icons"][$tab["icon"]];
 			}
 		}
 
-		$tab["name_icon"] = $tab["name"].": ".$website["icons"][$tab["icon"]];
+		$tab["name_icon"] = $tab["name"].": ".$website["Icons"][$tab["icon"]];
 
 		# Define tab content with content file
-		if (isset($tab["content"]) == False and isset($tab["template"]) == False) {
-			$tab["content_file"] = $website["data"]["folders"]["php"]["tabs"].($i + 1).".php";
+		if (
+			isset($tab["content"]) == False and
+			isset($tab["template"]) == False
+		) {
+			$tab["content_file"] = $website["Data"]["Folders"]["PHP"]["Tabs"].($i + 1).".php";
 
 			if (file_exists($tab["content_file"]) == False) {
 				$File -> Edit($tab["content_file"], "<?php "."\n\n\n\n"."?>", "w");
@@ -450,14 +455,14 @@ class HTML extends Class_ {
 			$tab = self::Tab_Info($tab, $tabs["ID"]);
 
 			# Define CSS class
-			$tab["class"] = $website["style"]["tab"]["black"];
+			$tab["class"] = $website["Style"]["tab"]["black"];
 
 			if (isset($tab["content"]) == True) {
 				$tab["content"] .= "\n";
 			}
 
 			# Generate the tab HTML
-			$tab["content"] = "<center>".self::Tab($tab)."</center>";
+			$tab["content"] = "<center>"."\n\n".self::Tab($tab)."\n\n"."</center>";
 
 			# Add tab to the tabs array
 			array_push($tabs["List"], $tab["name"]);

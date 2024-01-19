@@ -4,11 +4,7 @@
 
 class Story extends Class_ {
 	public function __construct() {
-		global $folders;
-
 		parent::__construct(self::class);
-
-		$this -> folders = $folders;
 	}
 
 	public function Chapter_Button($chapter_number, $chapter_title, $options = ["previous" => False, "next" => False, "text" => ""]) {
@@ -35,11 +31,11 @@ class Story extends Class_ {
 		}
 
 		if (isset($options["text_class"]) == False) {
-			$options["text_class"] = $website["style"]["text"]["theme"]["dark"];
+			$options["text_class"] = $website["Style"]["text"]["theme"]["dark"];
 		}
 
 		if (isset($options["button_class"]) == False) {
-			$options["button_class"] = $website["style"]["button"]["theme"]["light"];
+			$options["button_class"] = $website["Style"]["button"]["theme"]["light"];
 		}
 
 		# Create the chapter button
@@ -69,18 +65,20 @@ class Story extends Class_ {
 	public function Chapter_Text() {
 		global $File;
 		global $Folder;
+		global $Text;
 		global $website;
+		global $variable_inserter;
 		global $story;
 		global $full_language;
 		global $chapter_tab;
 
-		if (isset($website["data"]["json"]["story"]) == False) {
-			$root_variables_folder = $story["Folders"]["Chapters"]["root"].$website["texts"]["variables, title()"]["en"]."/";
+		if (isset($website["Data"]["JSON"]["story"]) == False) {
+			$root_variables_folder = $story["Folders"]["Chapters"]["root"].$website["Texts"]["variables, title()"]["en"]."/";
 			$Folder -> Create($root_variables_folder);
 
 			$root_variables_file = $root_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
 
-			$language_variables_folder = $story["Folders"]["Chapters"][$full_language]["root"].$website["language_texts"]["variables, title()"]."/";
+			$language_variables_folder = $story["Folders"]["Chapters"][$full_language]["root"].$website["Language texts"]["variables, title()"]."/";
 			$Folder -> Create($language_variables_folder);
 
 			$language_variables_file = $language_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
@@ -95,11 +93,11 @@ class Story extends Class_ {
 
 		$original_text = $chapter_text;
 
-		# Define chapter text without Insert_Variables
+		# Define chapter text without Insert_Variable
 		$chapter_text = str_replace("\n", "<br />\n\t\t", $chapter_text);
 
-		# Run the Insert_Variables method to insert variables in chapter text
-		if (isset($website["data"]["json"]["story"]) == False) {
+		# Run the "Insert_Variable" method to insert variables in chapter text
+		if (isset($website["Data"]["JSON"]["story"]) == False) {
 			if (file_exists($root_variables_file) == True) {
 				$root_variables_contents = $File -> Contents($root_variables_file, $add_br = True);
 
@@ -108,7 +106,7 @@ class Story extends Class_ {
 				foreach ($root_variables_contents["lines"] as $line) {
 					# If the line contains a variable, insert the variable into the normal chapter text line
 					if (str_contains($line, "{\$") == True) {
-						$chapter_contents["lines"][$i] = Text::Insert_Variable($root_variables_contents["lines"][$i]);
+						$chapter_contents["lines"][$i] = $Text -> Insert_Variable($root_variables_contents["lines"][$i], $variable_inserter);
 					}
 
 					$i++;
@@ -123,7 +121,7 @@ class Story extends Class_ {
 				foreach ($language_variables_contents["lines"] as $line) {
 					# If the line contains a variable, insert the variable into the normal chapter text line
 					if (str_contains($line, "{\$") == True) {
-						$chapter_contents["lines"][$i] = Text::Insert_Variable($language_variables_contents["lines"][$i]);
+						$chapter_contents["lines"][$i] = $Text -> Insert_Variable($language_variables_contents["lines"][$i], $variable_inserter);
 					}
 
 					$i++;
@@ -136,12 +134,12 @@ class Story extends Class_ {
 
 		$chapter_text = Linkfy($chapter_text);
 
-		if (isset($website["data"]["json"]["chapter_text_replacer"]) == True) {
+		if (isset($website["Data"]["JSON"]["chapter_text_replacer"]) == True) {
 			$chapter_text = $this -> Replace_Text($chapter_text);
 		}
 
 		if (
-			isset($website["data"]["json"]["story"]) == False and
+			isset($website["Data"]["JSON"]["story"]) == False and
 			file_exists($root_variables_file) == False and
 			file_exists($language_variables_file) == False and
 			str_contains($chapter_contents["string"], "<") == True
@@ -166,7 +164,7 @@ class Story extends Class_ {
 		$local_chapter_cover = "";
 
 		if (
-			isset($website["data"]["folders"]["local_website"]["images"]["story_covers"]) and
+			isset($website["Data"]["Folders"]["Local website"]["Images"]["Story covers"]) and
 			$parse == "/generate"
 		) {
 			$chapter_cover_file_name = $full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i);
@@ -174,14 +172,14 @@ class Story extends Class_ {
 			$image_format = "";
 
 			foreach ($website["Image formats"] as $format) {
-				$local_chapter_cover = $website["data"]["folders"]["local_website"]["images"]["story_covers"]["root"].$chapter_cover_file_name.".".$format;
+				$local_chapter_cover = $website["Data"]["Folders"]["Local website"]["Images"]["Story covers"]["root"].$chapter_cover_file_name.".".$format;
 
 				if (file_exists($local_chapter_cover) == True) {
 					$image_format = $format;
 				}
 			}
 
-			$remote_chapter_cover = $website["data"]["folders"]["website"]["website_images"]["story_covers"]["root"].$chapter_cover_file_name.".".$image_format;
+			$remote_chapter_cover = $website["Data"]["Folders"]["Website"]["Website images"]["Story covers"]["root"].$chapter_cover_file_name.".".$image_format;
 		}
 
 		else {
@@ -195,7 +193,7 @@ class Story extends Class_ {
 
 			$chapter_cover = "<br />"."<!-- Chapter cover image -->"."\n".
 			"\t\t"."<center>"."\n".
-			"\t\t\t".HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'"', $website["style"]["box_shadow"]["theme"]["dark"]." ".$website["style"]["img"]["theme"]["light"])."\n\t\t"."</center>"."\n".
+			"\t\t\t".HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'"', $website["Style"]["box_shadow"]["theme"]["dark"]." ".$website["Style"]["img"]["theme"]["light"])."\n\t\t"."</center>"."\n".
 			"\t\t"."<br />\n\n";
 		}
 
@@ -228,20 +226,20 @@ class Story extends Class_ {
 		$commentator_file = $comments_folder."Commentator.txt";
 		$commentators = $File -> Contents($commentator_file)["lines"];
 
-		$comment_file = $comments_folder.$website["language_texts"]["comment, title()"].".txt";
+		$comment_file = $comments_folder.$website["Language texts"]["comment, title()"].".txt";
 		$comments = $File -> Contents($comment_file)["lines"];
 
 		# Define read date file
 		$date_file = $comments_folder."Date.txt";
 		$dates = $File -> Contents($date_file)["lines"];
 
-		$text = HTML::Element("b", $website["language_texts"]["comment, title()"].": ", "", "margin_top_bottom_2_cent");
+		$text = HTML::Element("b", $website["Language texts"]["comment, title()"].": ", "", "margin_top_bottom_2_cent");
 
 		if (count($comments) > 1) {
-			$text = HTML::Element("b", $website["language_texts"]["comment, title()"]." (".count($comments).")".": ", "", "margin_top_bottom_2_cent");
+			$text = HTML::Element("b", $website["Language texts"]["comment, title()"]." (".count($comments).")".": ", "", "margin_top_bottom_2_cent");
 		}
 
-		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_5_cent margin_top_bottom_3_cent").'<br class="mobile_inline_block" />'."\n\n";
+		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["Style"]["text"]["theme"]["dark"]." margin_sides_5_cent margin_top_bottom_3_cent").'<br class="mobile_inline_block" />'."\n\n";
 
 		$comments_string .= $h3;
 
@@ -260,15 +258,15 @@ class Story extends Class_ {
 
 			$text = '<br class="mobile_inline_block" />'.$text;
 			$text .= "<br />";
-			$text .= HTML::Element("b", $website["language_texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($date));
+			$text .= HTML::Element("b", $website["Language texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($date));
 			$text .= "<br />"."<br />";
 			$text .= $comment;
 			$text .= '<br class="mobile_inline_block" />'.'<br class="mobile_inline_block" />';
 
-			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent")."\n";
+			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["Style"]["text"]["theme"]["dark"]." margin_sides_10_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($c + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." ".$website["style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["Style"]["background"]["theme"]["light"]." ".$website["Style"]["border_4px"]["theme"]["dark"]." ".$website["Style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
 
 			if (file_exists($reads_folder) == True) {
 				$div = str_replace("33%", "100%", $div);
@@ -276,7 +274,7 @@ class Story extends Class_ {
 
 			$comments_string .= $div;
 
-			if ($commentator != array_reverse($commentators)[0]) {
+			if ($commentator != end($commentators)) {
 				$comments_string .= "\n\n\t"."<br />"."\n\n";
 			}
 
@@ -316,13 +314,13 @@ class Story extends Class_ {
 		$read_date_file = $reads_folder."Read date.txt";
 		$read_dates = $File -> Contents($read_date_file)["lines"];
 
-		$text = HTML::Element("b", $website["language_texts"]["read, title()"].": ", "", "margin_top_bottom_2_cent");
+		$text = HTML::Element("b", $website["Language texts"]["read, title()"].": ", "", "margin_top_bottom_2_cent");
 
 		if (count($readers) > 1) {
-			$text = HTML::Element("b", $website["language_texts"]["reads, title()"]." (".count($readers).")".": ", "", "margin_top_bottom_2_cent");
+			$text = HTML::Element("b", $website["Language texts"]["reads, title()"]." (".count($readers).")".": ", "", "margin_top_bottom_2_cent");
 		}
 
-		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_5_cent margin_top_bottom_3_cent").'<br class="mobile_inline_block" />'."\n\n";
+		$h3 = "\t".HTML::Element("h3", "\n\t\t".$text."\n\t", "", "text_size ".$website["Style"]["text"]["theme"]["dark"]." margin_sides_5_cent margin_top_bottom_3_cent").'<br class="mobile_inline_block" />'."\n\n";
 
 		$reads .= $h3;
 
@@ -340,13 +338,13 @@ class Story extends Class_ {
 
 			$text = '<br class="mobile_inline_block" />'.$text;
 			$text .= "<br />";
-			$text .= HTML::Element("b", $website["language_texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($read_date));
+			$text .= HTML::Element("b", $website["Language texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($read_date));
 			$text .= '<br class="mobile_inline_block" />'.'<br class="mobile_inline_block" />';
 
-			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_2_cent")."\n";
+			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["Style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_2_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($r + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["style"]["background"]["theme"]["light"]." ".$website["style"]["border_4px"]["theme"]["dark"]." ".$website["style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["Style"]["background"]["theme"]["light"]." ".$website["Style"]["border_4px"]["theme"]["dark"]." ".$website["Style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
 
 			if (file_exists($comments_folder) == True) {
 				$div = str_replace("33%", "100%", $div);
@@ -354,7 +352,7 @@ class Story extends Class_ {
 
 			$reads .= $div;
 
-			if ($reader != array_reverse($readers)[0]) {
+			if ($reader != end($readers)) {
 				$reads .= "\n\n\t"."<br />"."\n\n";
 			}
 
@@ -373,14 +371,14 @@ class Story extends Class_ {
 		global $chapter_tab;
 
 		# Create "Comment" button
-		$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["to_comment"].": ".$website["icons"]["comment"]."\n\t\t", ' style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
+		$text = HTML::Element("h3", "\n\t\t".$website["Language texts"]["to_comment"].": ".$website["Icons"]["comment"]."\n\t\t", ' style="font-weight: bold;"', "text_size ".$website["Style"]["text"]["theme"]["dark"])."\n";
 
-		$buttons = "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'comment\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
+		$buttons = "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'comment\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
 
 		# Create "I read the chapter" button
-		$text = HTML::Element("h3", "\n\t\t".$website["language_texts"]["i_read"].": ".$website["icons"]["check"]." ".$website["icons"]["reader"]."\n\t\t", 'style="font-weight: bold;"', "text_size ".$website["style"]["text"]["theme"]["dark"])."\n";
+		$text = HTML::Element("h3", "\n\t\t".$website["Language texts"]["i_read"].": ".$website["Icons"]["check"]." ".$website["Icons"]["reader"]."\n\t\t", 'style="font-weight: bold;"', "text_size ".$website["Style"]["text"]["theme"]["dark"])."\n";
 
-		$buttons .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'read\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["style"]["button"]["theme"]["light"]);
+		$buttons .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'read\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
 
 		return $buttons;
 	}
@@ -391,17 +389,37 @@ class Story extends Class_ {
 		global $chapter_titles;
 		global $i;
 
-		# Define previous chapter button if the chapter is not the first one
+		# Define the previous chapter button if the chapter is not the first one
 		if ($i != 1) {
 			$c = $i - 1;
 
 			$options = [
 				"previous" => True,
 				"next" => False,
-				"text" => $website["icons"]["arrow_left"]
+				"text" => $website["Icons"]["arrow_left"]
 			];
 
 			$chapter_title = $chapter_titles[$i - 2];
+		}
+
+		# Define the previous button if the chapter is not the first one and not the last one
+		if (
+			$i != 1 and
+			$i != count($chapter_titles)
+		) {
+			$second_c = $i - 1;
+
+			$second_options = [
+				"previous" => True,
+				"next" => False,
+				"text" => $website["Icons"]["arrow_left"]
+			];
+
+			$title = $chapter_titles[$i - 2];
+
+			# Add top and bottom buttons
+			$chapter_tab["top_button"] .= "\n\n\t".$this -> Chapter_Button($second_c, $title, $second_options);
+			$chapter_tab["bottom_button"] .= "\n\n\t".$this -> Chapter_Button($second_c, $title, $second_options);
 		}
 
 		# Define the next chapter button if chapter is not the last one
@@ -411,13 +429,13 @@ class Story extends Class_ {
 			$options = [
 				"previous" => False,
 				"next" => True,
-				"text" => $website["icons"]["arrow_right"]
+				"text" => $website["Icons"]["arrow_right"]
 			];
 
 			$chapter_title = $chapter_titles[$i];
 		}
 
-		# Add top and bottom buttons
+		# Add the top and bottom buttons
 		$chapter_tab["top_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_title, $options);
 		$chapter_tab["bottom_button"] .= "\n\n\t".$this -> Chapter_Button($c, $chapter_title, $options);
 
@@ -447,13 +465,13 @@ class Story extends Class_ {
 		global $parse;
 
 		# Paint story and chapter titles
-		$color = $website["style"]["text"]["secondary_theme"]["normal"];
+		$color = $website["Style"]["text"]["secondary_theme"]["normal"];
 
-		if (isset($website["style"]["text_highlight"]) == True) {
-			$color = $website["style"]["text_highlight"];
+		if (isset($website["Style"]["text_highlight"]) == True) {
+			$color = $website["Style"]["text_highlight"];
 		}
 
-		$painted_story_title = HTML::Element("span", $website["data"]["titles"]["language"], "", $color);
+		$painted_story_title = HTML::Element("span", $website["Data"]["titles"]["language"], "", $color);
 		$painted_chapter_title = HTML::Element("span", $i." - ".$chapter_title, 'id="chapter_'.$i.'_title"', $color);
 
 		# Define chapter tab array
@@ -463,9 +481,9 @@ class Story extends Class_ {
 			"id" => "chapter_".$i,
 			"chapter_title" => $i." - ".$chapter_title,
 			"chapter_title_file" => Text::Add_Leading_Zeroes($i)." - ".$Folder -> Sanitize($chapter_title),
-			"you_are_reading" => Text::Format($website["language_texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
-			"you_read" => Text::Format($website["language_texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
-			"class" => $website["style"]["tab"]["theme_dark"],
+			"you_are_reading" => Text::Format($website["Language texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
+			"you_read" => Text::Format($website["Language texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
+			"class" => $website["Style"]["tab"]["theme_dark"],
 			"chapter_text_color" => "",
 			"top_button" => "",
 			"bottom_button" => "",
@@ -475,7 +493,7 @@ class Story extends Class_ {
 			"style" => ""
 		];
 
-		if (isset($website["data"]["json"]["story"]) == True) {
+		if (isset($website["Data"]["JSON"]["story"]) == True) {
 			$chapter_tab["chapter_title_file"] = $Folder -> Sanitize($chapter_title);
 		}
 
@@ -485,7 +503,7 @@ class Story extends Class_ {
 		# Add chapter button to chapter buttons string
 		$story["chapter_buttons"] .= $chapter_button;
 
-		if ($chapter_title != array_reverse($chapter_titles)[0]) {
+		if ($chapter_title != end($chapter_titles)) {
 			$story["chapter_buttons"] .= "\n";
 		}
 
@@ -494,8 +512,8 @@ class Story extends Class_ {
 
 		$chapter_tab["chapter_text"] = $array["Text"]."\n";
 
-		if (isset($website["style"]["chapter_text_color"]) == True) {
-			$chapter_tab["chapter_text_color"] = " text_".$website["style"]["chapter_text_color"];
+		if (isset($website["Style"]["chapter_text_color"]) == True) {
+			$chapter_tab["chapter_text_color"] = " text_".$website["Style"]["chapter_text_color"];
 		}
 
 		$words = number_format(str_word_count($chapter_tab["chapter_text"]));
@@ -511,10 +529,10 @@ class Story extends Class_ {
 					$format = "date_time_format";
 				}
 
-				$date = Date::Now($date, $website["texts"][$format]["pt"])[$website["language_texts"][$format]];
+				$date = Date::Now($date, $website["Texts"][$format]["pt"])[$website["Language texts"][$format]];
 
 				$chapter_tab["chapter_text"] .= "\t\t"."<br />"."<br />"."\n".
-				"\t\t".$website["language_texts"]["chapter_written_in"].": ".$date."<br />"."\n";
+				"\t\t".$website["Language texts"]["chapter_written_in"].": ".$date."<br />"."\n";
 			}
 
 			else {
@@ -526,7 +544,7 @@ class Story extends Class_ {
 			$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
 		}
 
-		$chapter_tab["chapter_text"] .= "\t\t".$website["language_texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
+		$chapter_tab["chapter_text"] .= "\t\t".$website["Language texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
 
 		# Add a text area to write the chapter if the "write chapter" mode is on
 		if ($website["States"]["Story"]["Write"] == True) {
@@ -566,13 +584,13 @@ class Story extends Class_ {
 			#$theme = $themes["Light (secondary)"];
 			#$theme = $themes["Stylized"];
 
-			$background_and_text_class = $website["data"]["style"]["background"]["theme"][$theme["Background"]]." ".$website["data"]["style"]["text"]["theme"][$theme["Text"]];
+			$background_and_text_class = $website["Data"]["Style"]["background"]["theme"][$theme["Background"]]." ".$website["Data"]["Style"]["text"]["theme"][$theme["Text"]];
 
-			$class = $background_and_text_class." ".$website["style"]["box_shadow"][$theme["Theme"]]["dark"]." ".$website["style"]["border_4px"][$theme["Theme"]][$theme["Border"]];
+			$class = $background_and_text_class." ".$website["Style"]["box_shadow"][$theme["Theme"]]["dark"]." ".$website["Style"]["border_4px"][$theme["Theme"]][$theme["Border"]];
 
 			$style = "width: 100%; height: 800px; border: none; overflow-y: hidden; resize: none;";
 
-			$h2 = HTML::Element("h2", "<p><br /><b>".$website["language_texts"]["write, title()"].":"."</b><br /><br /><p>", "", $chapter_tab["chapter_text_color"])."\n";
+			$h2 = HTML::Element("h2", "<p><br /><b>".$website["Language texts"]["write, title()"].":"."</b><br /><br /><p>", "", $chapter_tab["chapter_text_color"])."\n";
 
 			$title = "<center>".$h2."</center>";
 
@@ -632,7 +650,7 @@ class Story extends Class_ {
 
 		$censor_names = False;
 
-		$border_color = $website["style"]["border_color"];
+		$border_color = $website["Style"]["border_color"];
 
 		if (file_exists($comments_folder) == True) {
 			# Get chapter comments
@@ -696,7 +714,7 @@ class Story extends Class_ {
 
 			$story["chapters"] .= $tpl -> draw("Story/Chapter", True);
 
-			if ($chapter_title != array_reverse($chapter_titles)[0]) {
+			if ($chapter_title != end($chapter_titles)) {
 				$story["chapters"] .= "\n\n";
 			}
 

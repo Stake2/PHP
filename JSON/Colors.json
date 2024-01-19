@@ -33,6 +33,9 @@
 		"Green water",
 		"Dark green water",
 		"Light green water",
+		"Saturated green",
+		"Dark saturated green",
+		"Light saturated green",
 		"Cyan",
 		"Dark cyan",
 		"Light cyan",
@@ -180,13 +183,25 @@
 			"Name": "Light green water",
 			"Code": "#b5fff0"
 		},
+		"Saturated green": {
+			"Name": "Saturated green",
+			"Code": "#01B708"
+		},
+		"Dark saturated green": {
+			"Name": "Dark saturated green",
+			"Code": "#016408"
+		},
+		"Light saturated green": {
+			"Name": "Light saturated green",
+			"Code": "#37FF3E"
+		},
 		"Cyan": {
 			"Name": "Cyan",
 			"Code": "#00bcd4"
 		},
 		"Dark cyan": {
 			"Name": "Dark cyan",
-			"Code": "#257c7f"
+			"Code": "#005457"
 		},
 		"Light cyan": {
 			"Name": "Light cyan",
@@ -214,7 +229,7 @@
 		},
 		"Light blue": {
 			"Name": "Light blue",
-			"Code": "#98D1FF"
+			"Code": "#8FDAFF"
 		}
 	}
 }

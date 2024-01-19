@@ -16,26 +16,42 @@ if ($language == "general") {
 }
 
 # Define the custom website folders
-if (in_array($website["data"]["title"], $website["years"]) == True) {
-	$website["data"]["folders"]["year"] = $folders["Mega"]["Notepad"]["Years"][$website["data"]["title"]];
+if (in_array($website["Data"]["title"], $website["years"]) == True) {
+	$website["Data"]["Folders"]["Year"] = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["title"]];
+
+	# Define the language folder
+	$website["Data"]["Folders"]["Year"]["Language"] = [
+		"root" => $website["Data"]["Folders"]["Year"]["root"].$full_language."/"
+	];
 }
 
-$website["data"]["folders"]["generators"] = [
-	"root" => $website["dictionary"]["Years"]["folders"]["php"]["root"]."Generators/"
+# Define the generators folder
+$website["Data"]["Folders"]["Generators"] = [
+	"root" => $website["dictionary"]["Years"]["Folders"]["PHP"]["root"]."Generators/"
 ];
 
 # Define the website files
-$website["data"]["files"] = [
+$website["Data"]["Files"] = [
 	"summary" => "",
 	"welcome" => "",
 	"this_year_i" => "",
-	"generators" => []
+	"goodbye" => "",
+	"Generators" => []
 ];
 
-if (in_array($website["data"]["title"], $website["years"]) == True) {
-	$website["data"]["files"]["welcome"] = $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["welcome, title()"].".txt";
-	$website["data"]["files"]["summary"] = $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["summary, title()"].".txt";
-	$website["data"]["files"]["this_year_i"] = $website["data"]["folders"]["year"]["root"].$full_language."/".$website["language_texts"]["this_year_i"].".txt";
+if (in_array($website["Data"]["title"], $website["years"]) == True) {
+	$keys = array_keys($website["Data"]["Files"]);
+	$keys = array_diff($keys, ["Generators"]);
+
+	foreach ($keys as $key) {
+		$text_key = $key;
+
+		if (str_contains($text_key, "_") == False) {
+			$text_key .= ", title()";
+		}
+
+		$website["Data"]["Files"][$key] = $website["Data"]["Folders"]["Year"]["Language"]["root"].$website["Language texts"][$text_key].".txt";
+	}
 }
 
 # Define the Generator files
@@ -44,7 +60,7 @@ $names = [
 ];
 
 # Replace the names array with an array with more generators
-if (in_array($website["data"]["title"], $website["years"]) == True) {
+if (in_array($website["Data"]["title"], $website["years"]) == True) {
 	$names = [
 		"Welcome",
 		"Summary",
@@ -52,43 +68,47 @@ if (in_array($website["data"]["title"], $website["years"]) == True) {
 		"Pictures",
 		"Memories",
 		"Watched",
-		"Tasks"
+		"Played",
+		"Tasks",
+		"Goodbye"
 	];
 }
 
 foreach ($names as $item) {
 	$key = str_replace(" ", "_", strtolower($item));
 
-	$local_folder = $website["data"]["folders"]["generators"]["root"];
+	$local_folder = $website["Data"]["Folders"]["Generators"]["root"];
 
 	if ($item == "Watched") {
-		$local_folder = $website["dictionary"]["Watch History"]["folders"]["php"]["generators"]["root"];
+		$local_folder = $website["dictionary"]["Watch History"]["Folders"]["PHP"]["Generators"]["root"];
+	}
+
+	if ($item == "Played") {
+		$local_folder = $website["dictionary"]["Play History"]["Folders"]["PHP"]["Generators"]["root"];
 	}
 
 	if ($item == "Tasks") {
-		$local_folder = $website["dictionary"]["Tasks"]["folders"]["php"]["generators"]["root"];
+		$local_folder = $website["dictionary"]["Tasks"]["Folders"]["PHP"]["Generators"]["root"];
 	}
 
-	$website["data"]["files"]["generators"][$key] = $local_folder.$item.".php";
+	$website["Data"]["Files"]["Generators"][$key] = $local_folder.$item.".php";
 }
 
-$year = $website["data"]["title"];
+$year = $website["Data"]["title"];
 
 $website["tab_content"] = [];
 
-$website["tabs"]["To remove"] = [];
-
 # Require generator files to generate tab templates
-foreach (array_keys($website["data"]["files"]["generators"]) as $key) {
-	$generator_file = $website["data"]["files"]["generators"][$key];
+foreach (array_keys($website["Data"]["Files"]["Generators"]) as $key) {
+	$generator_file = $website["Data"]["Files"]["Generators"][$key];
 
 	require $generator_file;
 }
 
 # Define the website tabs and data related to the year websites
 if (
-	$website["data"]["title"] == "Years" or
-	in_array($website["data"]["title"], $website["years"])
+	$website["Data"]["title"] == "Years" or
+	in_array($website["Data"]["title"], $website["years"])
 ) {
 	$year_buttons = "";
 
@@ -102,7 +122,7 @@ if (
 	$tab_titles = [];
 
 	# Add the "Welcome" tab for years after the year 2022
-	if ((int)$website["data"]["title"] >= 2022) {
+	if ((int)$website["Data"]["title"] >= 2022) {
 		array_push($tab_titles, "welcome");
 	}
 
@@ -110,7 +130,7 @@ if (
 	array_push($tab_titles, "summary");
 
 	# Add the "This Year I" tab for years after the year 2022
-	if ((int)$website["data"]["title"] >= 2022) {
+	if ((int)$website["Data"]["title"] >= 2022) {
 		array_push($tab_titles, "this_year_i");
 	}
 
@@ -118,10 +138,22 @@ if (
 	$more_tabs = [
 		"pictures",
 		"memories",
-		"watched_things",
-		"completed_tasks",
-		"years",
+		"watched_things"
 	];
+
+	# Add the "Game sessions tab" tab for years after the year 2021
+	if ((int)$website["Data"]["title"] >= 2021) {
+		array_push($more_tabs, "game_sessions");
+	}
+
+	array_push($more_tabs, "completed_tasks");
+
+	# Add the "Goodbye" tab for years after the year 2022
+	if ((int)$website["Data"]["title"] >= 2022) {
+		array_push($more_tabs, "goodbye");
+	}
+
+	array_push($more_tabs, "years");
 
 	$tab_titles = array_merge($tab_titles, $more_tabs);
 
@@ -140,8 +172,8 @@ if (
 
 	# Create the years tab template
 	$website["tabs"]["templates"]["years"] = [
-		"name" => $website["language_texts"]["years, title()"],
-		"add" => " ".HTML::Element("span", count($website["years"]), "", $website["style"]["text"]["theme"]["dark"]),
+		"name" => $website["Language texts"]["years, title()"],
+		"add" => " ".HTML::Element("span", count($website["years"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $year_buttons,
 		"icon" => "calendar_days"
 	];

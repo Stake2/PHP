@@ -37,13 +37,13 @@ foreach (array_keys($items) as $item) {
 
 	$span = HTML::Element("span", $item, "", $color);
 
-	$website["data"]["titles"]["icon"] = str_replace($item, $span, $website["data"]["titles"]["icon"]);
+	$website["Data"]["titles"]["icon"] = str_replace($item, $span, $website["Data"]["titles"]["icon"]);
 }
 
 # Define tab template for identity
 $website["tabs"]["templates"]["thanks"] = [
 	"name" => "Thanks",
-	"title" => $website["language_texts"]["thanks, title()"],
+	"title" => $website["Language texts"]["thanks, title()"],
 	"icon" => "heart"
 ];
 

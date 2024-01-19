@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <head>
 	<!-- Website title -->
-	<title>{$website["data"]["titles"]["language"]}</title>
+	<title>{$website["Data"]["titles"]["language"]}</title>
 
 	<!-- Website links -->
-	<link rel="canonical" href="{$website['data']['links']['language']}" />
-	<link rel="icon" type="image/{$website['data']['image']['format']}" href="{$website['data']['image']['link']}" />
-	<link rel="image_src" type="image/{$website['data']['image']['format']}" href="{$website['data']['image']['link']}" />
+	<link rel="canonical" href="{$website['Data']['links']['language']}" />
+	<link rel="icon" type="image/{$website['Data']['image']['format']}" href="{$website['Data']['image']['link']}" />
+	<link rel="image_src" type="image/{$website['Data']['image']['format']}" href="{$website['Data']['image']['link']}" />
 
 	<!-- Website meta tags -->
-	<meta name="title" content="{$website['data']['titles']['language']}" />
-	<meta name="description" content="{$website['data']['description']['html']}" />
+	<meta name="title" content="{$website['Meta title']}" />
+	<meta name="description" content="{$website['Data']['description']['html']}" />
 	<meta name="meta_language" content="{$website['full_language']}" />
-	<meta name="theme-color" content="{$website['data']['color']}" />
+	<meta name="theme-color" content="{$website['Data']['color']}" />
 
 	<!-- Website og meta tags -->
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="{$website['data']['titles']['language']}" />
-	<meta property="og:site_name" content="{$website['data']['titles']['language']}" />
-	<meta property="og:url" content="{$website['data']['links']['language']}" />
-	<meta property="og:image" type="image/{$website['data']['image']['format']}" content="{$website['data']['image']['link']}" />
-	<meta property="og:description" content="{$website['data']['description']['html']}" />
+	<meta property="og:title" content="{$website['Meta title']}" />
+	<meta property="og:site_name" content="{$website['Meta title']}" />
+	<meta property="og:url" content="{$website['Data']['links']['language']}" />
+	<meta property="og:image" type="image/{$website['Data']['image']['format']}" content="{$website['Data']['image']['link']}" />
+	<meta property="og:description" content="{$website['Data']['description']['html']}" />
 	<meta property="og:locale" content="{$website['locale']}" />
 {if="isset($website['locale_alternate'])"}	<meta property="og:locale:alternative" content="{$website['locale_alternate']}" />
 {/if}
 
 	<!-- Twitter meta tags -->
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="{$website['data']['titles']['language']}" />
-	<meta name="twitter:description" content="{$website['data']['description']['html']}" />
+	<meta name="twitter:title" content="{$website['Meta title']}" />
+	<meta name="twitter:description" content="{$website['Data']['description']['html']}" />
 	<meta name="twitter:website" value="@{$website['Twitter author']}_" />
 	<meta name="twitter:site" value="@{$website['Twitter author']}_" />
 	<meta name="twitter:creator" content="@{$website['Twitter author']}_" />
-	<meta name="twitter:url" content="{$website['data']['links']['language']}" />
-	<meta name="twitter:image" type="image/{$website['data']['image']['format']}" content="{$website['data']['image']['link']}" />
+	<meta name="twitter:url" content="{$website['Data']['links']['language']}" />
+	<meta name="twitter:image" type="image/{$website['Data']['image']['format']}" content="{$website['Data']['image']['link']}" />
 
 	<!-- Author related meta tags -->
-	<meta name="revised" content="{$website['Twitter author']}'s Enterprise TM, {$website['date'][$website['language_texts']['date_format']]}." />
+	<meta name="revised" content="{$website['Twitter author']}'s Enterprise TM, {$website['Date'][$website['Language texts']['date_format']]}." />
 	<meta name="author" content="{$website['author']}" />
 
 	<!-- Viewport and charset -->
@@ -49,7 +49,7 @@
 	<!-- Define website box shadow -->
 	<style>
 	body {
-		--shadow-color: {if="isset($website['data']['color'])"}{$website["data"]["color"]}{else}#dc96e8{/if}60;
+		--shadow-color: {if="isset($website['Data']['color'])"}{$website["Data"]["color"]}{else}#dc96e8{/if}60;
 		--spread-container: 10px;
 		--spread-btn: 0.5px;
 	}

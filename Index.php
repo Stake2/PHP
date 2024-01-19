@@ -34,10 +34,10 @@ if (function_exists("array_insert") == False) {
 }
 
 # Load the auto linker
-require $folders["mega"]["php"]["modules"]["root"]."lib_autolink.php";
+require $folders["Mega"]["PHP"]["Modules"]["root"]."lib_autolink.php";
 
 # Loads the classes, including the module ones (Slim, RainTPL)
-require $folders["mega"]["php"]["classes"]["loader"];
+require $folders["Mega"]["PHP"]["Classes"]["Loader"];
 
 if (isset($parse) == False) {
 	$parse = parse_url($_SERVER["REQUEST_URI"])["path"];
@@ -75,16 +75,16 @@ $Global_Switches -> Switch($switches);
 # If the local switches and global switches were not equal, reload classes
 if ($switches != $Global_Switches -> switches) {
 	# Loads the classes, including the module ones (Slim, RainTPL)
-	require $folders["mega"]["php"]["classes"]["loader"];
+	require $folders["Mega"]["PHP"]["Classes"]["Loader"];
 }
 
-# Creates the "website" array and populates it
-require $folders["php"]["website"];
+# Creates the "website" array and fills it
+require $folders["PHP"]["Website"];
 
-# Runs the SQL.php file to update database with website information
-require $folders["php"]["sql"];
+# Runs the "SQL.php" file to update the database with the website information
+require $folders["PHP"]["SQL"];
 
-# Assign website array and Language class instance variables to RainTPL
+# Assign the website array and the Language class instance variables to RainTPL
 $tpl -> assign("website", $website);
 $tpl -> assign("Language", $Language);
 $tpl -> assign("parse", $parse);
@@ -109,30 +109,41 @@ function Generate_Website() {
 	$website["html"] .= $tpl -> draw("Footer", $toString = True);
 
 	# Define HTML file for website
-	$html_file = $website["data"]["folders"]["local_website"]["language"]."Index.html";
+	$html_file = $website["Data"]["Folders"]["Local website"]["Language"]."Index.html";
 
 	# Define website state
 	if (file_exists($html_file) == False) {
-		$website["state"] = $website["language_texts"]["the_website_file_did_not_exist_the_new_content_was_written_into_it"];
+		$website["state"] = $website["Language texts"]["the_website_file_did_not_exist_the_new_content_was_written_into_it"];
 	}
 
-	if (file_exists($html_file) == True) {
-		$website["state"] = $website["language_texts"]["the_website_file_was_updated_with_the_new_content"];
-	}
+	$old_contents = $File -> Contents($html_file, $add_br = False, $add_n = False);
 
-	# Update HTML file with website contents
+	# Update the HTML file with the website contents
 	$File -> Edit($html_file, $website["html"], "w");
 
+	$new_contents = $File -> Contents($html_file, $add_br = False, $add_n = False);
+
+	if (file_exists($html_file) == True) {
+		$website["state"] = $website["Language texts"]["the_website_file_was_not_updated"];
+
+		if ($old_contents["string"] != $new_contents["string"]) {
+			$website["state"] = $website["Language texts"]["the_website_file_was_updated_with_the_new_content"];
+		}
+	}
+
 	# Show information about generated website
-	$website["data"]["description"]["html"] = Text::Format($website["language_texts"]["website_to_generate_the_website_{}"], $website["data"]["titles"]["language"]);
+	$website["Data"]["description"]["html"] = Text::Format($website["Language texts"]["website_to_generate_the_website_{}"], $website["Data"]["titles"]["language"]);
 
 	# Make backup of website title and define website title for Generate route
-	$website["data"]["titles"]["backup"] = $website["data"]["titles"]["language"];
-	$website["data"]["titles"]["language"] = $website["language_texts"]["generate_website"].': "'.$website["data"]["titles"]["backup"].'"';
-	$website["data"]["titles"]["sanitized"] = str_replace('"', "'", $website["data"]["titles"]["language"]);
+	$website["Data"]["titles"]["backup"] = $website["Data"]["titles"]["language"];
+	$website["Data"]["titles"]["language"] = $website["Language texts"]["generate_website"].': "'.$website["Data"]["titles"]["backup"].'"';
+	$website["Data"]["titles"]["sanitized"] = str_replace('"', "'", $website["Data"]["titles"]["language"]);
+
+	# Define the website meta title
+	$website["Meta title"] = str_replace('"', "'", $website["Data"]["titles"]["language"]);
 
 	# Define website link
-	$website["data"]["links"]["language"] = $website["local_url"]["index"];
+	$website["Data"]["links"]["language"] = $website["Local URL"]["Index"];
 
 	# Remove JavaScript stuff
 	$website["javascript"]["links"] = "";
@@ -187,11 +198,11 @@ $slim -> get("/select", function() {
 	global $tpl;
 	global $website;
 
-	$website["data"]["titles"] = [
-		"language" => $website["language_texts"]["select_website"]
+	$website["Data"]["titles"] = [
+		"language" => $website["Language texts"]["select_website"]
 	];
 
-	$website["data"]["titles"]["sanitized"] = str_replace('"', "'", $website["data"]["titles"]["language"]);
+	$website["Data"]["titles"]["sanitized"] = str_replace('"', "'", $website["Data"]["titles"]["language"]);
 
 	$website["content"] = "<br />"."<br />"."<br />"."<br />"."<br />"."\n\n".
 	$website["form"];

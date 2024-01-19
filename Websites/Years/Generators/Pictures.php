@@ -21,8 +21,8 @@ $tab_content = [
 ];
 
 # Define the local and remote image folders
-$local_folder = $website["data"]["folders"]["website"]["Images"]["Local"]["Pictures"]["root"];
-$remote_folder = $website["data"]["folders"]["website"]["Images"]["Remote"]["Pictures"]["root"];
+$local_folder = $website["Data"]["Folders"]["Website"]["Images"]["Local"]["Pictures"]["root"];
+$remote_folder = $website["Data"]["Folders"]["Website"]["Images"]["Remote"]["Pictures"]["root"];
 
 # List the folder contents
 $contents = $Folder -> Contents($local_folder, $remote_folder);
@@ -43,9 +43,9 @@ $contents["File"]["Dictionary"] = [];
 
 # Add the "Icon" image
 $contents["File"]["Dictionary"]["Icon"] = [
-	"Title" => $website["language_texts"]["website_2"],
+	"Title" => $website["Language texts"]["website_2"],
 	"Extension" => "png",
-	"Path" => $website["data"]["image"]["link"]
+	"Path" => $website["Data"]["image"]["link"]
 ];
 
 # Re-add the old files that were inside the file dictionary
@@ -55,12 +55,12 @@ foreach (array_keys($files) as $key) {
 
 # Update the image title of the "Happy New Year" image
 if (isset($contents["File"]["Dictionary"]["1 - Happy New Year"]) == True) {
-	$contents["File"]["Dictionary"]["1 - Happy New Year"]["Title"] = $website["language_texts"]["happy_new_year"];
+	$contents["File"]["Dictionary"]["1 - Happy New Year"]["Title"] = $website["Language texts"]["happy_new_year"];
 }
 
 # Update the image title of the "Christmas" image
 if (isset($contents["File"]["Dictionary"]["2 - Christmas"]) == True) {
-	$contents["File"]["Dictionary"]["2 - Christmas"]["Title"] = $website["language_texts"]["christmas, title()"];
+	$contents["File"]["Dictionary"]["2 - Christmas"]["Title"] = $website["Language texts"]["christmas, title()"];
 }
 
 # List the file keys
@@ -77,7 +77,7 @@ foreach ($keys as $key) {
 	$file = $contents["File"]["Dictionary"][$key];
 
 	if (in_array($file["Extension"], $website["Image formats"])) {
-		$class = $website["data"]["style"]["background"]["theme"][$tone]." ".$website["style"]["box_shadow"]["theme"][$tone];
+		$class = $website["Data"]["Style"]["background"]["theme"][$tone]." ".$website["Style"]["box_shadow"]["theme"][$tone];
 
 		$class .= " border_4px border_radius_5_cent";
 
@@ -86,9 +86,9 @@ foreach ($keys as $key) {
 
 		if ($i != 0) {
 			# Create the "Previous image" button
-			$h4 = HTML::Element("h4", $website["icons"]["arrow_left"]." ".$website["language_texts"]["previous_image"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Icons"]["arrow_left"]." ".$website["Language texts"]["previous_image"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
+			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
 			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z - 1).'" style="float: left; text-decoration: none; margin-top: 30px; margin-left: 30px;"', "");
 
@@ -100,9 +100,9 @@ foreach ($keys as $key) {
 
 		if ($i != count($keys) - 1) {
 			# Create the "Next image" button
-			$h4 = HTML::Element("h4", $website["language_texts"]["next_image"]." ".$website["icons"]["arrow_right"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Language texts"]["next_image"]." ".$website["Icons"]["arrow_right"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
+			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
 			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z + 1).'" style="float: right; text-decoration: none; margin-top: 30px; margin-right: 30px;"', "");
 
@@ -130,7 +130,7 @@ foreach ($keys as $key) {
 
 		if ($add_image_title == True) {
 			# Create the image "Title" text
-			$text = $website["language_texts"]["title, title()"].":"."\n".
+			$text = $website["Language texts"]["title, title()"].":"."\n".
 			"<br />"."\n";
 
 			# Make the title text bold
@@ -218,7 +218,7 @@ foreach ($keys as $key) {
 
 		else {
 			# Create the image "Number" text
-			$text = $website["language_texts"]["number, title()"].":".
+			$text = $website["Language texts"]["number, title()"].":".
 			"<br />"."\n";
 
 			# Make the number text bold
@@ -237,11 +237,11 @@ foreach ($keys as $key) {
 		if ($parse == "/") {
 			$php_folder = "/Images/";
 
-			$file["Path"] = str_replace($website["folders"]["images"]["root"], $php_folder, $file["Path"]);
+			$file["Path"] = str_replace($website["Folders"]["Images"]["root"], $php_folder, $file["Path"]);
 		}
 
 		# Create the image class
-		$class = $website["data"]["style"]["img"]["theme"]["light"];
+		$class = $website["Data"]["Style"]["img"]["theme"]["light"];
 
 		# Remove the border-radius
 		$class = str_replace("border_radius_8_cent", "border_radius_1_cent", $class);
@@ -266,9 +266,9 @@ foreach ($keys as $key) {
 
 		if ($i != 0) {
 			# Create the "Previous image" button
-			$h4 = HTML::Element("h4", $website["icons"]["arrow_left"]." ".$website["language_texts"]["previous_image"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Icons"]["arrow_left"]." ".$website["Language texts"]["previous_image"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
+			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
 			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z - 1).'" style="float: left; text-decoration: none; margin-top: 20px; margin-left: 30px;"', "");
 
@@ -278,9 +278,9 @@ foreach ($keys as $key) {
 
 		if ($i != count($keys) - 1) {
 			# Create the "Next image" button
-			$h4 = HTML::Element("h4", $website["language_texts"]["next_image"]." ".$website["icons"]["arrow_right"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Language texts"]["next_image"]." ".$website["Icons"]["arrow_right"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
+			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
 			$a = HTML::Element("a", $button, 'href="#pictures_image_'.($z + 1).'" style="float: right; text-decoration: none; margin-top: 20px; margin-right: 30px;"', "");
 
@@ -302,9 +302,9 @@ foreach ($keys as $key) {
 		}
 
 		# Create the image link button
-		$h4 = HTML::Element("h4", $website["language_texts"]["open_image_in_a_new_tab"].": ".$website["icons"]["images"], "", "text_size ".$website["style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+		$h4 = HTML::Element("h4", $website["Language texts"]["open_image_in_a_new_tab"].": ".$website["Icons"]["images"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
 
-		$button = HTML::Element("button", $h4, 'onclick="window.open('."'".$file["Path"]."'".')" style="margin-bottom: 10px; margin-bottom: 10px;"', "w3-btn ".$website["style"]["button"]["theme"]["light"], ["new_line" => True]);
+		$button = HTML::Element("button", $h4, 'onclick="window.open('."'".$file["Path"]."'".')" style="margin-bottom: 10px; margin-bottom: 10px;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
 		# Add the image link button to the image string
 		$image_string .= $button;
@@ -315,7 +315,7 @@ foreach ($keys as $key) {
 		$image_string .= "</center>";
 
 		# Add a line break if it is needed
-		if ($key != array_reverse($keys)[0]) {
+		if ($key != end($keys)) {
 			$image_string .= "<br />"."\n".
 			"<br />"."\n";
 		}
@@ -334,8 +334,8 @@ foreach ($keys as $key) {
 if ($images != ["Icon"]) {
 	# Add the tab to tab templates dictionary
 	$website["tabs"]["templates"]["pictures"] = [
-		"name" => $website["language_texts"]["pictures, title()"],
-		"add" => " ".HTML::Element("span", $tab_content["Number"], "", $website["style"]["text"]["theme"]["dark"]),
+		"name" => $website["Language texts"]["pictures, title()"],
+		"add" => " ".HTML::Element("span", $tab_content["Number"], "", $website["Style"]["text"]["theme"]["dark"]),
 		"text_style" => "text-align: left;",
 		"icon" => "images",
 		"content" => $tab_content["Content"]

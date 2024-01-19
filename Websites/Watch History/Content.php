@@ -1,6 +1,6 @@
 <?php 
 
-# Content.php
+# Content
 
 $language = "pt";
 
@@ -15,19 +15,14 @@ if ($language == "general") {
 	$full_language = $Language -> languages["full"][$language];
 }
 
-# Define custom website folders
-$website["data"]["folders"]["generators"] = [
-	"root" => $website["data"]["folders"]["php"]["root"]."Generators/"
+# Define the website "Generators" folder
+$website["Data"]["Folders"]["Generators"] = [
+	"root" => $website["Data"]["Folders"]["PHP"]["root"]."Generators/"
 ];
 
 # Define the website files
-$website["data"]["files"] = [
-	"generators" => []
-];
-
-$website["data"]["numbers"] = [
-	"Watched things by year" => [],
-	"Watched things by media type" => []
+$website["Data"]["Files"] = [
+	"Generators" => []
 ];
 
 # Define the Generator files
@@ -38,36 +33,52 @@ $names = [
 ];
 
 foreach ($names as $item) {
-	$key = str_replace(" ", "_", strtolower($item));
+	$website["Data"]["Files"]["Generators"][$item] = $website["Data"]["Folders"]["Generators"]["root"].$item.".php";
 
-	$website["data"]["files"]["generators"][$key] = $website["data"]["folders"]["generators"]["root"].$item.".php";
+	$File -> Create($website["Data"]["Files"]["Generators"][$item]);
 }
 
-if (isset($website["data"]["year"]) == False) {
-	$website["data"]["year"] = Date::Now()["year"];
+if (isset($website["Data"]["year"]) == False) {
+	$website["Data"]["year"] = Date::Now()["year"];
 }
 
-if (in_array($website["data"]["title"], $website["years"]) == True) {
-	$website["data"]["year"] = $website["data"]["title"];
+if (in_array($website["Data"]["title"], $website["years"]) == True) {
+	$website["Data"]["year"] = $website["Data"]["title"];
 }
 
-# Define the Watch History array
+# Define the "Watch History" array
+$folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
+
 $watch_history = [
-	"files" => [
-		"per_media_type" => [
-			"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["Per Media Type"]["root"]
+	"Files" => [
+		"Per Media Type" => [
+			"root" => $folder["Watch History"][$website["Data"]["year"]]["Per Media Type"]["root"]
 		]
 	],
-	"types" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["types"]),
-	"entries" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["entries"]),
-	"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["watch_history"]["texts"]),
-	"language_texts" => [],
+	"Types" => $JSON -> To_PHP($folder["Data"]["Types"]),
+	"Entries" => $JSON -> To_PHP($folder["Watch History"][$website["Data"]["year"]]["Entries"]),
+	"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Watch History"]["Texts"]),
+	"Language texts" => [],
 	"Media information" => [
-		"Information" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["Information"])
+		"Information" => $JSON -> To_PHP($folder["Media information"]["Information"])
 	]
 ];
 
-$watch_history["language_texts"] = $Language -> Item($watch_history["texts"]);
+$watch_history["Language texts"] = $Language -> Item($watch_history["Texts"]);
+
+# Define all watched things by type as zero (0)
+$types_dictionary = $watch_history["Types"]["Plural"];
+
+$website["Data"]["Numbers"] = [
+	"By year" => [],
+	"By type" => []
+];
+
+# Iterate through the English media types list
+$i = 0;
+foreach ($types_dictionary["en"] as $type) {
+	$website["Data"]["Numbers"]["By type"][$type] = 0;
+}
 
 if (function_exists("Generate_Media_Type_Headers") == False) {
 	function Generate_Media_Type_Headers($header_text = "") {
@@ -87,7 +98,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["language_texts"]["watched_things_in"]."".$website["data"]["year"];
+			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["year"];
 		}
 
 		$array = [
@@ -95,51 +106,56 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 			"headers" => []
 		];
 
-		$text_color = $website["style"]["text"]["theme"]["dark"];
+		$text_color = $website["Style"]["text"]["theme"]["dark"];
 
-		# Iterate through the English plural media types list
+		$types_dictionary = $watch_history["Types"]["Plural"];
+
+		# Iterate through the English media types list
 		$i = 0;
-		foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
-			$language_media_type = $watch_history["types"]["Plural"][$language][$i];
+		foreach ($types_dictionary["en"] as $type) {
+			$language_type = $types_dictionary[$language][$i];
 
-			$number = $watch_history["entries"]["Numbers"]["Per Media Type"][$plural_media_type];
+			$number = $watch_history["Entries"]["Numbers"]["Per Media Type"][$type];
 
-			if ($header_text == $website["language_texts"]["media_being_watched"]) {
-				$number = $watch_history["Media information"]["Information"]["Numbers"][$plural_media_type];
+			if ($header_text == $watch_history["Language texts"]["media_being_watched"]) {
+				$number = $watch_history["Media information"]["Information"]["Numbers"][$type];
 			}
 
-			$number_element = HTML::Element("span", $number, "", $text_color);
-
-			$span = $language_media_type.": ".$number_element;
-
-			$span = HTML::Element("b", $span);
-
-			$href = $header_text.": ".$language_media_type;
-
-			# Anchor element to go to media type list
+			# If the number is not zero (0)
 			if ($number != 0) {
-				$a = HTML::Element("a", $span, 'href="#'.$href.'"');
+				$number_element = HTML::Element("span", $number, "", $text_color);
+
+				$span = $language_type.": ".$number_element;
+
+				$span = HTML::Element("b", $span);
+
+				$href = $header_text.": ".$language_type;
+
+				# Anchor element to go to the media type list
+				if ($number != 0) {
+					$a = HTML::Element("a", $span, 'href="#'.$href.'"');
+				}
+
+				else {
+					$a = HTML::Element("a", $span);
+				}
+
+				$array["links"] .= $a."<br />"."\n\t\t";
+
+				$watch_history["Files"]["Per Media Type"][$type] = $JSON -> To_PHP($watch_history["Files"]["Per Media Type"]["root"].$type."/Entries.json");
+
+				$number_element = HTML::Element("span", $number, "", $text_color);
+
+				$span = $language_type.": ".$number_element;
+
+				$span = HTML::Element("b", $span);
+
+				# Plural media type header with anchor href to go to the media type episodes part
+				$a = HTML::Element("a", $span, 'name="'.$href.'"')."<br />";
+
+				$array["headers"][$type] = "\t\t".'<!-- "'.$type.'" media type header -->'."\n".
+				"\t\t".$a."\n";
 			}
-
-			else {
-				$a = HTML::Element("a", $span);
-			}
-
-			$array["links"] .= $a."<br />"."\n\t\t";
-
-			$watch_history["files"]["per_media_type"][$plural_media_type] = $JSON -> To_PHP($watch_history["files"]["per_media_type"]["root"].$plural_media_type."/Entries.json");
-
-			$number_element = HTML::Element("span", $number, "", $text_color);
-
-			$span = $language_media_type.": ".$number_element;
-
-			$span = HTML::Element("b", $span);
-
-			# Plural media type header with anchor href to go to media type episodes part
-			$a = HTML::Element("a", $span, 'name="'.$href.'"')."<br />";
-
-			$array["headers"][$plural_media_type] = "\t\t".'<!-- "'.$plural_media_type.'" media type header -->'."\n".
-			"\t\t".$a."\n";
 
 			$i++;
 		}
@@ -148,9 +164,9 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 	}
 }
 
-# Require generator files to generate tab templates
-foreach (array_keys($website["data"]["files"]["generators"]) as $key) {
-	$generator_file = $website["data"]["files"]["generators"][$key];
+# Require the generator files to generate the tab templates
+foreach (array_keys($website["Data"]["Files"]["Generators"]) as $key) {
+	$generator_file = $website["Data"]["Files"]["Generators"][$key];
 
 	require $generator_file;
 }

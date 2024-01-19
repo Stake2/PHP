@@ -1,16 +1,39 @@
 {
+	"icon": "gamepad",
 	"style": {
 		"theme": {
-			"normal": "green",
-			"light": "light_green",
-			"dark": "dark_green"
+			"normal": "saturated_green",
+			"light": "light_saturated_green",
+			"dark": "dark_saturated_green"
 		},
 		"secondary_theme": {
-			"normal": "green",
-			"light": "light_green",
-			"dark": "dark_green"
+			"normal": "saturated_green",
+			"light": "light_saturated_green",
+			"dark": "dark_saturated_green"
 		},
-		"text_highlight": "light_green"
+		"text_highlight": "light_saturated_green"
 	},
-	"color": "73FF78"
+	"color": "37FF3E",
+	"image": {
+		"width": "30"
+	},
+	"tabs": {
+		"data": {
+			"game_sessions": {
+				"template": "game_sessions"
+			},
+			"games_being_played": {
+				"template": "games_being_played"
+			},
+			"past_registries": {
+				"template": "past_registries"
+			}
+		}
+	},
+	"descriptions": {
+		"html": {
+			"en": "Website to show the games that I played, and games that I will play.\nMade by {author}.",
+			"pt": "Site para mostrar os jogos que eu joguei, e jogos que eu vou jogar.\nFeito por {author}."
+		}
+	}
 }

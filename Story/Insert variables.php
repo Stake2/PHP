@@ -1,6 +1,6 @@
 <?php 
 
-# Insert_Variables
+# Insert variables
 
 function Create_Chapter_Link_And_Button($numbers, $website_title) {
 	global $website;
@@ -25,32 +25,29 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 
 		$title = $website_data["titles"]["language"];
 
-		$text = $website["language_texts"][$number_name];
+		$text = $website["Language texts"][$number_name];
 
 		$link = $website_data["links"]["element"];
 		$link = str_replace($language."/", $language."/?chapter=".$number."#", $link);
 		$link = str_replace('"'.$title.'"', $text, $link);
 
-		$website["variable_inserter"][$key]["chapter_".$number] = $link;
+		$website["Variable_Inserter"][$key]["chapter_".$number] = $link;
 
 		$chapter_title = $website_data["story"]["Information"]["Chapters"]["Titles"][$language][$number - 1];
 
 		$link = $website_data["links"]["language"];
 		$link .= "?chapter=".$number."#";
 
-		$website["variable_inserter"][$key]["chapter_".$number."_button"] = '<div style="padding-top: 1%;">'."\n".
-		HTML::Element("a", "\n\t".$title." - ".$website["language_texts"]["chapter, title()"].": ".$number." - ".$chapter_title."\n\t", 'href="'.$link.'" target="_blank" style="max-width: 50%; font-weight: bold;"', "w3-btn ".$website_data["style"]["button"]["theme"]["light"]." animation_shake_side")."\n".
+		$website["Variable_Inserter"][$key]["chapter_".$number."_button"] = '<div style="padding-top: 1%;">'."\n".
+		HTML::Element("a", "\n\t".$title." - ".$website["Language texts"]["chapter, title()"].": ".$number." - ".$chapter_title."\n\t", 'href="'.$link.'" target="_blank" style="max-width: 50%; font-weight: bold;"', "w3-btn ".$website_data["Style"]["button"]["theme"]["light"]." animation_shake_side")."\n".
 		"</div>"."\n";
 
 		$i++;
 	}
 }
 
-# Define Variable Inserter array
-$website["variable_inserter"] = [];
-
-# Define songs of Variable Inserter
-$website["variable_inserter"]["songs"] = [];
+# Define the songs of Variable Inserter
+$website["Variable_Inserter"]["songs"] = [];
 
 $songs = [
 	"Porter_Robinson_Madeon_Shelter_Official_Video_Link" => [
@@ -141,9 +138,9 @@ foreach (array_keys($songs) as $key) {
 	}
 
 	if (isset($song["embed"]) == False) {
-		$website["variable_inserter"]["songs"][$key] = HTML::Element("a", $text, 'href="'.$link.'" target="_blank"');
+		$website["Variable_Inserter"]["songs"][$key] = HTML::Element("a", $text, 'href="'.$link.'" target="_blank"');
 
-		$website["variable_inserter"]["songs"][$key."_no_quote"] = HTML::Element("a", str_replace('"', "", $text), 'href="'.$link.'" target="_blank"');
+		$website["Variable_Inserter"]["songs"][$key."_no_quote"] = HTML::Element("a", str_replace('"', "", $text), 'href="'.$link.'" target="_blank"');
 	}
 
 	if (isset($song["embed"]) == True) {
@@ -151,26 +148,26 @@ foreach (array_keys($songs) as $key) {
 			$text = $text."<br />"."\n";
 		}
 
-		$website["variable_inserter"]["songs"][$key] = $text.'<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
+		$website["Variable_Inserter"]["songs"][$key] = $text.'<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
 	}
 }
 
 # Define "The Life of Littletato" key of Variable Inserter array
-$website["variable_inserter"]["The_Life_of_Littletato"] = [
+$website["Variable_Inserter"]["The_Life_of_Littletato"] = [
 	"images" => []
 ];
 
 # Define "The Life of Littletato" images
 $links = [
-	"Not_Littletato" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Not Littletato.jpg",
+	"Not_Littletato" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Not Littletato.jpg",
 
-	"Littletato" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Littletato.jpg",
+	"Littletato" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Littletato.jpg",
 
-	"Mansion_of_Littletato_and_Friends" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Mansion of Littletato and Friends.png"
+	"Mansion_of_Littletato_and_Friends" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Mansion of Littletato and Friends.png"
 ];
 
 foreach (array_keys($links) as $key) {
-	$website["variable_inserter"]["The_Life_of_Littletato"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["data"]["style"]["img"]["secondary_theme"]["light"]." ".$website["data"]["style"]["box_shadow"]["black"])."<br />";
+	$website["Variable_Inserter"]["The_Life_of_Littletato"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
 }
 
 # Define "The Life of Littletato" songs
@@ -213,7 +210,7 @@ foreach (array_keys($songs) as $key) {
 		$song["text"] = $Language -> Item($song["text"]);
 	}
 
-	$website["variable_inserter"]["The_Life_of_Littletato"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+	$website["Variable_Inserter"]["The_Life_of_Littletato"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
 }
 
 # Define "The Life of Littletato" chapter links and buttons
@@ -224,7 +221,7 @@ $numbers = [
 Create_Chapter_Link_And_Button($numbers, "The Life of Littletato");
 
 # Define SpaceLiving key of Variable Inserter array
-$website["variable_inserter"]["SpaceLiving"] = [
+$website["Variable_Inserter"]["SpaceLiving"] = [
 	"images" => []
 ];
 
@@ -238,23 +235,23 @@ Create_Chapter_Link_And_Button($numbers, "SpaceLiving");
 
 # Define the "SpaceLiving" images
 $links = [
-	"Lisa" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Lisa.jpg".'"', $website["data"]["style"]["img"]["secondary_theme"]["light"],
+	"Lisa" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Lisa.jpg".'"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"],
 
-	"LonelyShip_Story_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."LonelyShip Story Cover.png",
+	"LonelyShip_Story_Cover" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."LonelyShip Story Cover.png",
 
-	"LonelyShip_Story_Cover_Front_Signboards" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."LonelyShip Story Cover Front Signboards.png",
+	"LonelyShip_Story_Cover_Front_Signboards" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."LonelyShip Story Cover Front Signboards.png",
 
-	"Audacity_Blue_Bass_Waveform" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Audacity Blue Bass Waveform.png",
+	"Audacity_Blue_Bass_Waveform" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Audacity Blue Bass Waveform.png",
 
-	"Original_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Orignal Sharks - FROG PARTY Song Cover.jpg",
+	"Original_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Orignal Sharks - FROG PARTY Song Cover.jpg",
 
-	"Funky_Black_Cat_Original_Profile_Picture" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Funky Black Cat Original Profile Picture.png",
+	"Funky_Black_Cat_Original_Profile_Picture" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Funky Black Cat Original Profile Picture.png",
 
-	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["folders"]["website"]["website_images"]["images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg"
+	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg"
 ];
 
 foreach (array_keys($links) as $key) {
-	$website["variable_inserter"]["SpaceLiving"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["data"]["style"]["img"]["secondary_theme"]["light"]." ".$website["data"]["style"]["box_shadow"]["black"])."<br />";
+	$website["Variable_Inserter"]["SpaceLiving"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
 }
 
 # Define the "SpaceLiving" Discord server join link
@@ -265,23 +262,23 @@ $texts = [
 
 $text = $Language -> Item($texts);
 
-$website["variable_inserter"]["SpaceLiving"]["Discord_Server"] = HTML::Element("a", '"'.$text.'"', 'href="https://discord.com/invite/NYN4CCu" target="_blank"');
+$website["Variable_Inserter"]["SpaceLiving"]["Discord_Server"] = HTML::Element("a", '"'.$text.'"', 'href="https://discord.com/invite/NYN4CCu" target="_blank"');
 
 # Define "The Secret of the Crystals" key of Variable Inserter array
-$website["variable_inserter"]["The_Secret_of_the_Crystals"] = [
+$website["Variable_Inserter"]["The_Secret_of_the_Crystals"] = [
 	"images" => [],
 	"songs" => []
 ];
 
 # Define "The Secret of the Crystals" images
 $links = [
-	"Lapis_Lazuli_Steven_Universe" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Lapis Lazuli.png",
+	"Lapis_Lazuli_Steven_Universe" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Lapis Lazuli.png",
 
-	"Humanoid_Ted" => $website["data"]["folders"]["website"]["website_images"]["images"]["root"]."Humanoid Kódek.jpg",
+	"Humanoid_Ted" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Humanoid Kódek.jpg",
 ];
 
 foreach (array_keys($links) as $key) {
-	$website["variable_inserter"]["The_Secret_of_the_Crystals"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["data"]["style"]["img"]["secondary_theme"]["light"]." ".$website["data"]["style"]["box_shadow"]["black"])."<br />";
+	$website["Variable_Inserter"]["The_Secret_of_the_Crystals"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
 }
 
 # Define "The Secret of the Crystals" songs
@@ -303,11 +300,11 @@ foreach (array_keys($songs) as $key) {
 		$song["text"] = $Language -> Item($song["text"]);
 	}
 
-	$website["variable_inserter"]["The_Secret_of_the_Crystals"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+	$website["Variable_Inserter"]["The_Secret_of_the_Crystals"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
 }
 
 # Define "The Story of the Bulkan Siblings" key of Variable Inserter array
-$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"] = [
+$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"] = [
 	"songs" => [],
 	"links" => []
 ];
@@ -325,7 +322,7 @@ foreach (array_keys($songs) as $key) {
 	$link = "https://www.youtube.com/embed/".$song["id"];
 	$link .= "?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&";
 
-	$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"]["songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
+	$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"]["songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
 }
 
 # Define "The Story of the Bulkan Siblings" links
@@ -357,23 +354,23 @@ foreach (array_keys($links) as $key) {
 		$link["link"] = $Language -> Item($link["link"]);
 	}
 
-	$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"]["links"][$key] = HTML::Element("a", $link["text"], 'href="'.$link["link"].'" target="_blank"');
+	$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"]["links"][$key] = HTML::Element("a", $link["text"], 'href="'.$link["link"].'" target="_blank"');
 }
 
 # Define "The Story of the Bulkan Siblings" references
 $references = [
 	"Chapter_1" => [
-		"Link" => HTML::Element("a", "[1]", 'href="#Chapter_1_Reference_1"', $website["style"]["text_highlight"]),
+		"Link" => HTML::Element("a", "[1]", 'href="#Chapter_1_Reference_1"', $website["Style"]["text_highlight"]),
 		"Anchor" => HTML::Element("a", "", 'name="Chapter_1_Reference_1"'),
 	],
 	"Chapter_3" => [
-		"Link" => HTML::Element("a", "[1]", 'href="#Chapter_3_Reference_1"', $website["style"]["text_highlight"]),
+		"Link" => HTML::Element("a", "[1]", 'href="#Chapter_3_Reference_1"', $website["Style"]["text_highlight"]),
 		"Anchor" => HTML::Element("a", "", 'name="Chapter_3_Reference_1"'),
 	]
 ];
 
 foreach (array_keys($references) as $key) {
-	$website["variable_inserter"]["The_Story_of_the_Bulkan_Siblings"]["References"][$key] = $references[$key];
+	$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"]["References"][$key] = $references[$key];
 }
 
 # Define general links
@@ -384,8 +381,12 @@ $link = [
 
 $link = $Language -> Item($link);
 
-$website["variable_inserter"]["my_little_pony_fim_wikipedia_title"] = HTML::Element("a", '"'.$website["language_texts"]["my_little_pony_friendship_is_magic"].'"', 'href="'.$link.'" target="_blank"');
+$website["Variable_Inserter"]["my_little_pony_fim_wikipedia_title"] = HTML::Element("a", '"'.$website["Language texts"]["my_little_pony_friendship_is_magic"].'"', 'href="'.$link.'" target="_blank"');
 
-$website["variable_inserter"]["my_little_pony_fim_wikipedia_link"] = HTML::Element("a", '"'.$website["language_texts"]["my_little_pony_friendship_is_magic"].'" '.$website["language_texts"]["on_wikipedia"], 'href="'.$link.'" target="_blank"');
+$website["Variable_Inserter"]["my_little_pony_fim_wikipedia_link"] = HTML::Element("a", '"'.$website["Language texts"]["my_little_pony_friendship_is_magic"].'" '.$website["Language texts"]["on_wikipedia"], 'href="'.$link.'" target="_blank"');
+
+$variable_inserter = $website["Variable_Inserter"];
+
+#Text::Show_Variable(array_keys($variable_inserter));
 
 ?>

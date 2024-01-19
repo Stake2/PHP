@@ -55,7 +55,7 @@ class SQL extends PDO {
 		foreach ($columns as $column) {
 			$query .= $column."\n";
 
-			if ($column != array_reverse($columns)[0]) {
+			if ($column != end($columns)) {
 				$query .= ", ";
 			}
 		}
@@ -71,7 +71,7 @@ class SQL extends PDO {
 		foreach ($columns as $column) {
 			$query .= $column;
 
-			if ($column != array_reverse($columns)[0]) {
+			if ($column != end($columns)) {
 				$query .= ", ";
 			}
 		}
@@ -83,7 +83,7 @@ class SQL extends PDO {
 		foreach ($values as $value) {
 			$query .= "'".$value."'";
 
-			if ($value != array_reverse($values)[0]) {
+			if ($value != end($values)) {
 				$query .= ", ";
 			}
 		}

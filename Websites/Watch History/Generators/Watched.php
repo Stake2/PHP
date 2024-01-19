@@ -28,36 +28,54 @@ if (array_key_exists("additional_tabs", $website) == False) {
 	];
 }
 
-if (isset($website["data"]["year"]) == False) {
-	$website["data"]["year"] = Date::Now()["year"];
+if (isset($website["Data"]["year"]) == False) {
+	$website["Data"]["year"] = Date::Now()["year"];
 }
 
-if (in_array($website["data"]["title"], $website["years"]) == True) {
-	$website["data"]["year"] = $website["data"]["title"];
+if (in_array($website["Data"]["title"], $website["years"]) == True) {
+	$website["Data"]["year"] = $website["Data"]["title"];
 }
 
-if (isset($website["watch_history"]) == False) {
-	$website["watch_history"] = [
-		"years_list" => Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1)
+if (isset($website["Watch History"]) == False) {
+	$website["Watch History"] = [
+		"Years list" => Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1)
 	];
 }
+
+# Define the data network folder for easier typing
+$network_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
 
 if (isset($watch_history) == False) {
-	# Define the Watch History array
+	# Define the "Watch History" array
 	$watch_history = [
-		"files" => [
-			"per_media_type" => [
-				"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["Per Media Type"]["root"]
+		"Files" => [
+			"Per Media Type" => [
+				"root" => $network_folder["Watch History"][$website["Data"]["year"]]["Per Media Type"]["root"]
 			]
 		],
-		"types" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["types"]),
-		"entries" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["entries"]),
-		"texts" => $JSON -> To_PHP($folders["apps"]["module_files"]["watch_history"]["texts"]),
-		"language_texts" => [],
-		"media_info" => [
-			"Info" => $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["Information"])
+		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
+		"Entries" => $JSON -> To_PHP($network_folder["Watch History"][$website["Data"]["year"]]["Entries"]),
+		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Watch History"]["Texts"]),
+		"Language texts" => [],
+		"Media information" => [
+			"Information" => $JSON -> To_PHP($network_folder["Media information"]["Information"])
 		]
 	];
+
+	$watch_history["Language texts"] = $Language -> Item($watch_history["Texts"]);
+
+	$types_dictionary = $watch_history["Types"]["Plural"];
+
+	$website["Data"]["Numbers"] = [
+		"By year" => [],
+		"By type" => []
+	];
+
+	# Iterate through the English media types list
+	$i = 0;
+	foreach ($types_dictionary["en"] as $type) {
+		$website["Data"]["Numbers"]["By type"][$type] = 0;
+	}
 }
 
 if (function_exists("Generate_Media_Type_Headers") == False) {
@@ -66,6 +84,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		global $Language;
 		global $JSON;
 		global $watch_history;
+		global $types_dictionary;
 
 		$language = "pt";
 
@@ -78,7 +97,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["language_texts"]["watched_things_in"]."".$website["data"]["year"];
+			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["year"];
 		}
 
 		$array = [
@@ -86,51 +105,54 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 			"headers" => []
 		];
 
-		$text_color = $website["style"]["text"]["theme"]["dark"];
+		$text_color = $website["Style"]["text"]["theme"]["dark"];
 
-		# Iterate through the English plural media types list
+		# Iterate through the English media types list
 		$i = 0;
-		foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
-			$language_media_type = $watch_history["types"]["Plural"][$language][$i];
+		foreach ($types_dictionary["en"] as $type) {
+			$language_type = $types_dictionary[$language][$i];
 
-			$number = $watch_history["entries"]["Numbers"]["Per Media Type"][$plural_media_type];
+			$number = $watch_history["Entries"]["Numbers"]["Per Media Type"][$type];
 
-			if ($header_text == $website["language_texts"]["media_being_watched"]) {
-				$number = $watch_history["Media information"]["Information"]["Numbers"][$plural_media_type];
+			if ($header_text == $watch_history["Language texts"]["media_being_watched"]) {
+				$number = $watch_history["Media information"]["Information"]["Numbers"][$type];
 			}
 
-			$number_element = HTML::Element("span", $number, "", $text_color);
-
-			$span = $language_media_type.": ".$number_element;
-
-			$span = HTML::Element("b", $span);
-
-			$href = $header_text.": ".$language_media_type;
-
-			# Anchor element to go to media type list
+			# If the number is not zero (0)
 			if ($number != 0) {
-				$a = HTML::Element("a", $span, 'href="#'.$href.'"');
+				$number_element = HTML::Element("span", $number, "", $text_color);
+
+				$span = $language_type.": ".$number_element;
+
+				$span = HTML::Element("b", $span);
+
+				$href = $header_text.": ".$language_type;
+
+				# Anchor element to go to the media type list
+				if ($number != 0) {
+					$a = HTML::Element("a", $span, 'href="#'.$href.'"');
+				}
+
+				else {
+					$a = HTML::Element("a", $span);
+				}
+
+				$array["links"] .= $a."<br />"."\n\t\t";
+
+				$watch_history["Files"]["Per Media Type"][$type] = $JSON -> To_PHP($watch_history["Files"]["Per Media Type"]["root"].$type."/Entries.json");
+
+				$number_element = HTML::Element("span", $number, "", $text_color);
+
+				$span = $language_type.": ".$number_element;
+
+				$span = HTML::Element("b", $span);
+
+				# Plural media type header with anchor href to go to the media type episodes part
+				$a = HTML::Element("a", $span, 'name="'.$href.'"')."<br />";
+
+				$array["headers"][$type] = "\t\t".'<!-- "'.$type.'" media type header -->'."\n".
+				"\t\t".$a."\n";
 			}
-
-			else {
-				$a = HTML::Element("a", $span);
-			}
-
-			$array["links"] .= $a."<br />"."\n\t\t";
-
-			$watch_history["files"]["per_media_type"][$plural_media_type] = $JSON -> To_PHP($watch_history["files"]["per_media_type"]["root"].$plural_media_type."/Entries.json");
-
-			$number_element = HTML::Element("span", $number, "", $text_color);
-
-			$span = $language_media_type.": ".$number_element;
-
-			$span = HTML::Element("b", $span);
-
-			# Plural media type header with anchor href to go to media type episodes part
-			$a = HTML::Element("a", $span, 'name="'.$href.'"')."<br />";
-
-			$array["headers"][$plural_media_type] = "\t\t".'<!-- "'.$plural_media_type.'" media type header -->'."\n".
-			"\t\t".$a."\n";
 
 			$i++;
 		}
@@ -139,60 +161,65 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 	}
 }
 
-# Define the Watch History array
-$watch_history["files"] = [
-	"per_media_type" => [
-		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["Per Media Type"]["root"]
-	]
+# Update the "Per Media Type" folder
+$watch_history["Files"]["Per Media Type"] = [
+	"root" => $network_folder["Watch History"][$website["Data"]["year"]]["Per Media Type"]["root"]
 ];
 
-# Define the Entries file
-$entries_file = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$website["data"]["year"]]["entries"];
+# Define the Entries file for easier typing
+$entries_file = $network_folder["Watch History"][$website["Data"]["year"]]["Entries"];
 
 if (file_exists($entries_file) == True) {
-	$watch_history["entries"] = $JSON -> To_PHP($entries_file);
+	$watch_history["Entries"] = $JSON -> To_PHP($entries_file);
 
-	# Add to year entries number
-	$current_year = $website["data"]["year"];
+	# Add to the year entries number
+	$current_year = $website["Data"]["year"];
 
-	if (isset($website["data"]["numbers"]["Watched things by year"][$current_year]) == False) {
-		$website["data"]["numbers"]["Watched things by year"][$current_year] = $watch_history["entries"]["Numbers"]["Total"];
+	if (isset($website["Data"]["Numbers"]["By year"][$current_year]) == False) {
+		$website["Data"]["Numbers"]["By year"][$current_year] = $watch_history["Entries"]["Numbers"]["Total"];
 	}
+
+	# Sort the year keys
+	ksort($website["Data"]["Numbers"]["By year"]);
 
 	$media_type_headers = Generate_Media_Type_Headers();
 
 	# Update the watched things number
-	$website["tab_content"]["watched_things"]["number"] = $watch_history["entries"]["Numbers"]["Total"];
+	$website["tab_content"]["watched_things"]["number"] = $watch_history["Entries"]["Numbers"]["Total"];
 
 	$website["tab_content"]["watched_things"]["string"] .= "<!-- Media type headers -->"."\n"."\t\t".
 	$media_type_headers["links"].
 	"\n"."\t\t"."<br />"."\n\n";
 
-	$text_color = $website["style"]["text"]["theme"]["dark"];
+	$text_color = $website["Style"]["text"]["theme"]["dark"];
 
-	# Iterate through the English plural media types list
+	$types_dictionary = $watch_history["Types"]["Plural"];
+
+	# Iterate through the English media types list
 	$i = 0;
-	foreach ($watch_history["types"]["Plural"]["en"] as $plural_media_type) {
-		$language_media_type = $watch_history["types"]["Plural"][$language][$i];
+	foreach ($types_dictionary["en"] as $type) {
+		$language_type = $types_dictionary[$language][$i];
 
-		$modules_language = $watch_history["types"]["Plural"][$Language -> modules_language][$i];
+		$modules_language = $types_dictionary[$Language -> modules_language][$i];
 
-		$number = $watch_history["entries"]["Numbers"]["Per Media Type"][$plural_media_type];
+		$number = $watch_history["Entries"]["Numbers"]["Per Media Type"][$type];
 
-		$website["data"]["numbers"]["Watched things by media type"][$plural_media_type] = $number;
+		$website["Data"]["Numbers"]["By type"][$type] += $number;
 
 		if ($number != 0) {
-			$website["tab_content"]["watched_things"]["string"] .= $media_type_headers["headers"][$plural_media_type];
+			$website["tab_content"]["watched_things"]["string"] .= $media_type_headers["headers"][$type];
+
+			$entries = $watch_history["Files"]["Per Media Type"][$type]["Entries"];
 
 			# Iterate through the media type Entries list
-			foreach ($watch_history["files"]["per_media_type"][$plural_media_type]["Entries"] as $entry) {
-				$entry = $watch_history["entries"]["Dictionary"][$entry];
+			foreach ($entries as $entry) {
+				$entry = $watch_history["Entries"]["Dictionary"][$entry];
 
 				# Add the Media title
 				$title = Define_Title($entry["Media"]);
 
 				# Split original movie name (to get year and producer)
-				if ($plural_media_type == "Movies") {
+				if ($type == "Movies") {
 					$title .= " (".explode(" (", $entry["Media"]["Original"])[1];
 				}
 
@@ -202,7 +229,7 @@ if (file_exists($entries_file) == True) {
 				if (array_key_exists("Item", $entry) == True) {
 					$item = Define_Title($entry["Item"]);
 
-					if ($plural_media_type == "Videos") {
+					if ($type == "Videos") {
 						$title .= ": ";
 					}
 
@@ -210,7 +237,7 @@ if (file_exists($entries_file) == True) {
 						$title .= " ";
 					}
 
-					if ($plural_media_type != "Videos") {
+					if ($type != "Videos") {
 						$title .= $item;
 					}
 				}
@@ -219,7 +246,10 @@ if (file_exists($entries_file) == True) {
 				if (array_key_exists("Episode", $entry) == True) {
 					$episode = Define_Title($entry["Episode"]["Titles"]);
 
-					if ($episode[0].$episode[1] != ": " and preg_match_all("/S[0-9]{2}/i", $item) == 0) {
+					if (
+						$episode[0].$episode[1] != ": " and
+						preg_match_all("/S[0-9]{2}/i", $item) == 0
+					) {
 						$title .= " ";
 					}
 
@@ -228,6 +258,7 @@ if (file_exists($entries_file) == True) {
 
 				$entry_title = $title;
 
+				# Define the date
 				$format = "Y-m-d\TH:i:s\Z";
 
 				if (strlen($entry["Date"]) == 4) {
@@ -250,24 +281,24 @@ if (file_exists($entries_file) == True) {
 
 				$text = $entry["Number"]." -";
 
-				# Add States
+				# Add the States
 				if (array_key_exists("States", $entry) == True) {
 					if (array_key_exists("Re-watched", $entry["States"]) == True) {
-						$times_text = $website["language_texts"]["number_of_watched_times"].": ".($entry["States"]["Re-watched"]["Times"] + 1)."x";
+						$times_text = $watch_history["Language texts"]["number_of_watched_times"].": ".($entry["States"]["Re-watched"]["Times"] + 1)."x";
 
-						$text .= " ".HTML::Element("span", ($entry["States"]["Re-watched"]["Times"] + 1)."x ".$website["icons"]["eye"], 'alt="'.$times_text.'" title="'.$times_text.'"', $website["style"]["text_highlight"]." underline_on_hover");
+						$text .= " ".HTML::Element("span", ($entry["States"]["Re-watched"]["Times"] + 1)."x ".$website["Icons"]["eye"], 'alt="'.$times_text.'" title="'.$times_text.'"', $website["Style"]["text_highlight"]." underline_on_hover");
 					}
 
 					if (array_key_exists("First entry in year", $entry["States"]) == True) {
-						$first_text = $website["language_texts"]["first_watched_media_in_the_year"];
+						$first_text = $watch_history["Language texts"]["first_watched_media_in_the_year"];
 
-						$text .= " ".HTML::Element("span", "1# ".$website["icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]." underline_on_hover");
+						$text .= " ".HTML::Element("span", "1# ".$website["Icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["Style"]["text_highlight"]." underline_on_hover");
 					}
 
 					if (array_key_exists("First media type entry in year", $entry["States"]) == True) {
-						$first_text = $website["language_texts"]["first_watched_media_per_media_type_in_the_year"];
+						$first_text = $watch_history["Language texts"]["first_watched_media_per_media_type_in_the_year"];
 
-						$text .= " ".HTML::Element("span", "1# ".$website["icons"]["film"]." ".$website["icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["style"]["text_highlight"]." underline_on_hover");
+						$text .= " ".HTML::Element("span", "1# ".$website["Icons"]["film"]." ".$website["Icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["Style"]["text_highlight"]." underline_on_hover");
 					}
 
 					if (
@@ -283,7 +314,7 @@ if (file_exists($entries_file) == True) {
 					array_key_exists("Comment", $entry) == True and
 					array_key_exists("Link", $entry["Comment"]) == False
 				) {
-					$title .= " ".HTML::Element("span", $website["icons"]["comment"], "", $website["style"]["text_highlight"]);
+					$title .= " ".HTML::Element("span", $website["Icons"]["comment"], "", $website["Style"]["text_highlight"]);
 				}
 
 				# If the entry tabs are activated
@@ -297,12 +328,12 @@ if (file_exists($entries_file) == True) {
 					if (
 						$website["States"]["Watch History"]["Past registry entry tabs"] == True or
 						$website["States"]["Watch History"]["Past registry entry tabs"] == False and
-						$website["data"]["year"] == $website["date"]["year"]
+						$website["Data"]["year"] == $website["Date"]["year"]
 					) {
 						# Add the description tab link and create the tab
-						$link_text = $website["language_texts"]["entry_description"];
+						$link_text = $website["Language texts"]["entry_description"];
 
-						$tab_id = "watched_thing_".$website["data"]["year"]."_".$entry["Number"];
+						$tab_id = "watched_thing_".$website["Data"]["year"]."_".$entry["Number"];
 
 						$style = 'style="text-decoration: underline; cursor: pointer;"';
 
@@ -312,7 +343,7 @@ if (file_exists($entries_file) == True) {
 						$tab_title = $entry["Number"]." - ".$entry_title." (".$time.")";
 
 						# Get the entry description file
-						$folder = $folders["Mega"]["Notepad"]["Years"][$website["data"]["year"]][$language]["watched_media"]["root"].$language_media_type."/";
+						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["year"]][$language]["watched_media"]["root"].$language_type."/";
 
 						$local_entry = str_replace(":", ";", $entry["Entry"]);
 						$local_entry = str_replace("/", "-", $local_entry);
@@ -325,26 +356,26 @@ if (file_exists($entries_file) == True) {
 						# Add the comment text to the entry description text
 						if (array_key_exists("Comment", $entry) == True) {
 							# Get the media folder
-							$media_info_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["root"].$modules_language."/";
+							$media_info_folder = $network_folder["Media information"]["root"].$modules_language."/";
 
 							$media_title = Sanitize_Title(Define_Title($entry["Media"]));
 
-							if ($plural_media_type == $watch_history["texts"]["movies, title()"]["en"]) {
+							if ($type == $watch_history["Texts"]["movies, title()"]["en"]) {
 								$media_title = Sanitize_Title($entry["Media"]["Original"]);
 							}
 
 							$media_folder = $media_info_folder.Sanitize_Title($media_title)."/";
 
 							# Add the media item list folder to the media folder
-							if ($plural_media_type != $watch_history["texts"]["videos, title()"]["en"]) {
+							if ($type != $watch_history["Texts"]["videos, title()"]["en"]) {
 								$text_key = "seasons";
 							}
 
-							if ($plural_media_type == $watch_history["texts"]["videos, title()"]["en"]) {
+							if ($type == $watch_history["Texts"]["videos, title()"]["en"]) {
 								$text_key = "series";
 							}
 
-							$folder_name = $watch_history["texts"][$text_key.", title()"][$Language -> modules_language];
+							$folder_name = $watch_history["Texts"][$text_key.", title()"][$Language -> modules_language];
 
 							# Add the media item list folder if it exists
 							if (file_exists($media_folder.$folder_name."/") == True) {
@@ -367,9 +398,9 @@ if (file_exists($entries_file) == True) {
 							}
 
 							# Get the comments folder
-							$comment_text = $website["texts"]["comments, title()"][$Language -> modules_language];
+							$comment_text = $website["Texts"]["comments, title()"][$Language -> modules_language];
 							$comments_folder = $media_folder.$comment_text."/";
-							$comments_files_folder = $comments_folder.$website["texts"]["files, title()"][$Language -> modules_language]."/";
+							$comments_files_folder = $comments_folder.$website["Texts"]["files, title()"][$Language -> modules_language]."/";
 
 							# Define the media unit text
 							$media_unit_title = Define_Title($entry["Media"]);
@@ -379,7 +410,7 @@ if (file_exists($entries_file) == True) {
 							}
 
 							# Define and read the comments file
-							$comments_file = $comments_folder.$website["texts"]["comments, title()"]["en"].".json";
+							$comments_file = $comments_folder.$website["Texts"]["comments, title()"]["en"].".json";
 							$comments = $JSON -> To_PHP($comments_file);
 
 							$verbosity_text = "";
@@ -394,20 +425,20 @@ if (file_exists($entries_file) == True) {
 								if ($comment["Titles"][$language] == $media_unit_title) {
 									$tab_content .= "<br />"."\n".
 									"<br />"."\n".
-									$website["language_texts"]["comment, title()"].":"."<br />"."\n".
+									$website["Language texts"]["comment, title()"].":"."<br />"."\n".
 									"<br />"."\n".
 									$File -> Contents($comments_files_folder.Sanitize_Title($comment["Entry"], $remove_dot = False).".txt")["string"];
 								}
 
 								if (
 									$comment["Titles"][$language] != $media_unit_title and
-									$website["data"]["year"] == 2022
+									$website["Data"]["year"] == 2022
 								) {
 									if ($verbosity_text == "") {
 										$verbosity_text = $media_title."\n".
 										$media_folder."\n".
 										$comments_file."\n".
-										$website["data"]["year"];
+										$website["Data"]["year"];
 									}
 
 									$verbosity_text .= "\n".$comment["Titles"][$language]."\n".
@@ -434,18 +465,18 @@ if (file_exists($entries_file) == True) {
 						if (isset($website["past_registries_buttons"]) == True) {
 							$website["additional_tabs"]["data"][$tab_id]["only_button"] = "past_registries";
 
-							$website["additional_tabs"]["data"][$tab_id]["button"] = $website["past_registries_buttons"][$website["data"]["year"]];
+							$website["additional_tabs"]["data"][$tab_id]["button"] = $website["past_registries_buttons"][$website["Data"]["year"]];
 						}
 					}
 				}
 
-				$title = HTML::Element("span", $title, "", $text_color);
+				$title = HTML::Element("span", $title, "", $text_color." ".$website["Style"]["text_hover"]);
 
 				# Add the media unit link
 				if (array_key_exists("Link", $entry) == True) {
-					$link_text = $website["language_texts"]["media_unit_link"];
+					$link_text = $website["Language texts"]["media_unit_link"];
 
-					$title .= " - ".HTML::Element("a", $website["icons"]["YouTube"], 'href="'.$entry["Link"].'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'"', "text_red");
+					$title .= " - ".HTML::Element("a", $website["Icons"]["YouTube"], 'href="'.$entry["Link"].'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'"', "text_red");
 				}
 
 				# Add the media unit comment link
@@ -453,23 +484,23 @@ if (file_exists($entries_file) == True) {
 					array_key_exists("Comment", $entry) == True and
 					array_key_exists("Link", $entry["Comment"]) == True
 				) {
-					$link_text = $website["language_texts"]["comment_link"];
+					$link_text = $website["Language texts"]["comment_link"];
 
 					if (array_key_exists("Link", $entry) == False) {
 						$title .= " - ";
 					}
 
-					$title .= " ".HTML::Element("a", $website["icons"]["comment"], 'href="'.$entry["Comment"]["Link"].'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'"', $text_color);
+					$title .= " ".HTML::Element("a", $website["Icons"]["comment"], 'href="'.$entry["Comment"]["Link"].'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'"', $text_color);
 				}
 
 				$text .= " ".$title." (".$time.")";
 
-				$text = HTML::Element("span", $text, 'style="margin-left: 3%;"', $website["style"]["text_hover"]);
+				$text = HTML::Element("span", $text, 'style="margin-left: 3%;"', $website["Style"]["text_hover"]);
 
 				$website["tab_content"]["watched_things"]["string"] .= $text."<br />"."\n";
 			}
 
-			if ($plural_media_type != array_reverse($watch_history["types"]["Plural"][$language])[0]) {
+			if ($type != end($types_dictionary[$language])) {
 				$website["tab_content"]["watched_things"]["string"] .= "\t\t"."<br />"."\n\n";
 			}
 		}
@@ -482,8 +513,8 @@ if (file_exists($entries_file) == True) {
 	# Add the tab to the tab templates
 	if (array_key_exists("watched_things", $website["tabs"]["templates"]) == False) {
 		$website["tabs"]["templates"]["watched_things"] = [
-			"name" => $website["language_texts"]["watched_things_in"]." ".$website["data"]["year"],
-			"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["style"]["text"]["theme"]["dark"]),
+			"name" => $website["Language texts"]["watched_things_in"]." ".$website["Data"]["year"],
+			"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
 			"text_style" => "text-align: left;",
 			"content" => $website["tab_content"]["watched_things"]["string"],
 			"icon" => "eye"

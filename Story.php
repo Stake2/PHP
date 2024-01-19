@@ -34,35 +34,40 @@ unset($website["tabs"]["data"]["websites_tab"]);
 
 $website["tabs"]["data"]["websites_tab"] = $backup;
 
-# Require "Insert_Variables.php" PHP file to create Variable Inserter array
-require $folders["php"]["story_folder"]["insert_variables"];
+# Require all of the PHP files inside the "Story" folder
+$array = $folders["PHP"]["Story folder"];
 
-# Require "Chapter_Tabs.php" PHP file to generate chapter tabs
-require $folders["php"]["story_folder"]["chapter_tabs"];
+$keys = array_keys($array);
+$keys = array_diff($keys, ["root"]);
 
-# Require "Modals.php" PHP file to generate modals related to chapter comments and reads
-require $folders["php"]["story_folder"]["modals"];
+foreach ($keys as $key) {
+	$file = $array[$key];
 
-# Require "Story_Cards.php" PHP file to generate modals related to chapter comments and reads
-require $folders["php"]["story_folder"]["story_cards"];
+	require $file;
+}
+
+# "Chapter tabs.php", to generate the chapter tabs
+# "Insert variables.php", to create the "Variable Inserter" array
+# "Modals.php", to generate the modals for the chapter comments and reads
+# "Story cards.php", to generate the story cards used in the "Stories" tab
 
 # Define tab templates for story websites
 $website["tabs"]["templates"] = [
 	"read_story" => [
-		"name" => $website["language_texts"]["read_story"],
-		"title" => $website["language_texts"]["chapters_in_[language]"].": ".$website["language_texts"]["language_icon"]." ".HTML::Element("span", $story["Information"]["Chapters"]["Number"], "", $website["style"]["text"]["theme"]["dark"]),
+		"name" => $website["Language texts"]["read_story"],
+		"title" => $website["Language texts"]["chapters_in_[language]"].": ".$website["Language texts"]["language_icon"]." ".HTML::Element("span", $story["Information"]["Chapters"]["Number"], "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $story["chapter_buttons"],
 		"icon" => "open_book"
 	],
 	"readers" => [
-		"name" => $website["language_texts"]["readers, title()"],
-		"add" => " ".HTML::Element("span", $story["Information"]["Readers"]["Number"], "", $website["style"]["text"]["theme"]["dark"]),
-		"content" => Text::From_Array($story["Information"]["Readers"]["List"], "", $enumerate = True, $website["style"]["text_highlight"], "text_hover_white"),
+		"name" => $website["Language texts"]["readers, title()"],
+		"add" => " ".HTML::Element("span", $story["Information"]["Readers"]["Number"], "", $website["Style"]["text"]["theme"]["dark"]),
+		"content" => Text::From_Array($story["Information"]["Readers"]["List"], "", $enumerate = True, $website["Style"]["text_highlight"], "text_hover_white"),
 		"icon" => "reader"
 	],
 	"other_stories" => [
-		"name" => $website["language_texts"]["other_stories"],
-		"add" => " ".HTML::Element("span", ($stories["Number"]), "", $website["style"]["text"]["theme"]["dark"]),
+		"name" => $website["Language texts"]["other_stories"],
+		"add" => " ".HTML::Element("span", ($stories["Number"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $website["story_cards"],
 		"icon" => "book"
 	]

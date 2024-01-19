@@ -4,11 +4,7 @@
 
 class Text extends Class_ {
 	public function __construct() {
-		global $folders;
-
 		parent::__construct(self::class);
-
-		$this -> folders = $folders;
 	}
 
 	public static function Show_Variable($variable, $return = False, $style = []) {
@@ -46,7 +42,9 @@ class Text extends Class_ {
 		$variable = str_replace("&quot;", '"', $variable);
 
 		$variable = '<pre style="'.$style["full"].'">'."\n".
+		"<h2>"."\n".
 		$variable.";"."\n".
+		"</h2>"."\n".
 		"</pre>";
 
 		if ($return == False) {
@@ -58,7 +56,7 @@ class Text extends Class_ {
 		}
 	}
 
-	public static function Insert_Variable($line) {
+	public function Insert_Variable($line) {
 		global $website;
 
 		$words = explode(" ", $line);
@@ -72,7 +70,9 @@ class Text extends Class_ {
 				$variable = str_replace(["{", "}"], "", $matches[0]);
 
 				ob_start();
+
 				eval("echo $variable;");
+
 				$variable = ob_get_clean();
 
 				$variable_matches[$matches[0]] = $variable;
@@ -87,7 +87,11 @@ class Text extends Class_ {
 			$line = str_replace($match, $variable, $line);
 		}
 
-		if (in_array(substr($line, -1), [":", ".", ";"]) == False and $line != "" and $variable_matches == []) {
+		if (
+			in_array(substr($line, -1), [":", ".", ";"]) == False and
+			$line != "" and
+			$variable_matches == []
+		) {
 			$line .= ".";
 		}
 
@@ -146,7 +150,7 @@ class Text extends Class_ {
 
 			$string .= $item;
 
-			if ($item != array_reverse($array)[0]) {
+			if ($item != end($array)) {
 				if ($add_br == True) {
 					$string .= "<br />";
 				}
@@ -207,6 +211,22 @@ class Text extends Class_ {
 			return $number;
 		}
 	}
+
+    public function By_Number($number, $singular, $plural) {
+        if (is_array($number)) {
+            $number = count($number);
+        }
+
+        if ((int)$number <= 1) {
+            $text = $singular;
+        }
+
+        if ((int)$number >= 2) {
+            $text = $plural;
+        }
+
+        return $text;
+    }
 
 	public static function Chapter_Cover_Folder($number) {
 		if ($number <= 10) {

@@ -1,15 +1,17 @@
 {
+	"icon": "tasks",
 	"style": {
 		"theme": {
-			"normal": "black",
-			"light": "white",
-			"dark": "grey"
+			"normal": "white",
+			"light": "grey",
+			"dark": "black"
 		},
 		"secondary_theme": {
-			"normal": "black",
-			"light": "white",
-			"dark": "grey"
-		}
+			"normal": "white",
+			"light": "grey",
+			"dark": "black"
+		},
+		"text_highlight": "grey"
 	},
 	"color": "2196F3"
 }
