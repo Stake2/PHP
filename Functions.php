@@ -44,4 +44,26 @@ if (function_exists("Define_Title") == False) {
 	}
 }
 
+if (function_exists("Get_URL_Parameters") == False) {
+	function Get_URL_Parameters() {
+		$query_string = explode("&", $_SERVER["QUERY_STRING"]);
+
+		$parameters = array();
+
+		foreach ($query_string as $query) {
+			$explode = explode("=", $query);
+
+			$key = $explode[0];
+
+			if (isset($explode[1])) {
+				$value = $explode[1];
+
+				$parameters[$key] = $value;
+			}
+		}
+
+		return $parameters;	
+	}
+}
+
 ?>

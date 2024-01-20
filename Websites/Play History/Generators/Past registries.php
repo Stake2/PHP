@@ -29,16 +29,14 @@ if (array_key_exists("additional_tabs", $website) == False) {
 $website["past_registries_buttons"] = [];
 
 # Iterate through the years list
-if (isset($website["Play History"]) == False) {
-	$website["Play History"] = [
-		"Years list" => Date::Create_Years_List($mode = "array", $start = 2021, $plus = -1)
-	];
-}
+$website["Play History"] = [
+	"Years list" => Date::Create_Years_List($mode = "array", $start = 2021, $plus = -1)
+];
 
 $content = "";
 
 foreach ($website["Play History"]["Years list"] as $local_year) {
-	$website["Data"]["year"] = $local_year;
+	$website["Data"]["Year"] = $local_year;
 
 	$id = "past_registry_".$local_year;
 
@@ -50,9 +48,9 @@ foreach ($website["Play History"]["Years list"] as $local_year) {
 	];
 
 	# Add the tab button
-	$website["past_registries_buttons"][$website["Data"]["year"]] = HTML::Tab_Button($tab)."\n";
+	$website["past_registries_buttons"][$website["Data"]["Year"]] = HTML::Tab_Button($tab)."\n";
 
-	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["year"]]."\n";
+	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]]."\n";
 
 	# Define the tab data
 	$content = "";
@@ -90,11 +88,11 @@ foreach ($website["Play History"]["Years list"] as $local_year) {
 	}
 
 	# Require the "Played" generator to generate the "Game sessions" elements and information
-	$website["Data"]["year"] = $local_year;
+	$website["Data"]["Year"] = $local_year;
 
 	require $website["Data"]["Files"]["Generators"]["Played"];
 
-	$content .= $website["tab_content"]["game_sessions"]["string"];
+	$content .= $website["tab_content"]["game_sessions_played"]["string"];
 
 	$website["additional_tabs"]["data"][$local_year] = [
 		"id" => $id,

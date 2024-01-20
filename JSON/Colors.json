@@ -3,6 +3,7 @@
 		"White",
 		"Grey",
 		"Dark grey",
+		"Light grey",
 		"Black",
 		"Purple",
 		"Dark purple",
@@ -57,7 +58,11 @@
 		},
 		"Dark grey": {
 			"Name": "Dark grey",
-			"Code": "#5e5e5e"
+			"Code": "#2d2d2d"
+		},
+		"Light grey": {
+			"Name": "Light grey",
+			"Code": "#DDDDDD"
 		},
 		"Black": {
 			"Name": "Black",

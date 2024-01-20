@@ -1,6 +1,6 @@
 <?php 
 
-# Add the game types to the website descriptions
+# Read the "Types.json" file
 $types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Data"]["Types"]);
 
 $language = "pt";
@@ -15,24 +15,6 @@ if ($language == "general") {
 	$language = "en";
 
 	$full_language = $Language -> languages["full"][$language];
-}
-
-$string = "";
-$styled_string = "";
-
-foreach ($types["Types"][$language] as $type) {
-	if ($type == end($types["Types"][$language])) {
-		$string .= $website["Language texts"]["and"]." ";
-		$styled_string .= $website["Language texts"]["and"]." ";
-	}
-
-	$string .= $type;
-	$styled_string .= HTML::Element("span", $type, "", $website["Style"]["text_highlight"]);
-
-	if ($type != end($types["Types"][$language])) {
-		$string .= ", ";
-		$styled_string .= ", ";
-	}
 }
 
 # Require the "Play History" website content PHP file to define the "games_being_played" and "past_registries" tab templates
@@ -92,9 +74,9 @@ foreach ($years_list as $local_year) {
 	$tab_id = "past_registry_".$local_year;
 
 	# If the local year is the current year
-	# Then, the tab that needs to be used is the "Played things" tab
+	# Then, the tab that needs to be used is the "Game sessions played" tab
 	if ($local_year == $website["current_year"]) {
-		$tab_id = "played_things";
+		$tab_id = "game_sessions_played";
 	}
 
 	$colored_year = HTML::Element("a", $span, 'onclick="'."Open_Tab('".$tab_id."')".'"'." ".$style, $website["Style"]["text_highlight"]);

@@ -38,12 +38,12 @@ foreach ($names as $item) {
 	$File -> Create($website["Data"]["Files"]["Generators"][$item]);
 }
 
-if (isset($website["Data"]["year"]) == False) {
-	$website["Data"]["year"] = Date::Now()["year"];
+if (isset($website["Data"]["Year"]) == False) {
+	$website["Data"]["Year"] = Date::Now()["year"];
 }
 
 if (in_array($website["Data"]["title"], $website["years"]) == True) {
-	$website["Data"]["year"] = $website["Data"]["title"];
+	$website["Data"]["Year"] = $website["Data"]["title"];
 }
 
 # Define the data network folder for easier typing
@@ -52,11 +52,11 @@ $network_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Games"];
 $gameplayer = [
 	"Files" => [
 		"Per Game Type" => [
-			"root" => $network_folder["Play History"][$website["Data"]["year"]]["Per Game Type"]["root"]
+			"root" => $network_folder["Play History"][$website["Data"]["Year"]]["Per Game Type"]["root"]
 		]
 	],
 	"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
-	"Entries" => $JSON -> To_PHP($network_folder["Play History"][$website["Data"]["year"]]["Entries"]),
+	"Entries" => $JSON -> To_PHP($network_folder["Play History"][$website["Data"]["Year"]]["Entries"]),
 	"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["GamePlayer"]["Texts"]),
 	"Language texts" => [],
 	"Information" => [
@@ -66,7 +66,6 @@ $gameplayer = [
 
 $gameplayer["Language texts"] = $Language -> Item($gameplayer["Texts"]);
 
-# Define all game sessions played by type as zero (0)
 $types_dictionary = $gameplayer["Types"]["Types"];
 
 $website["Data"]["Numbers"] = [
@@ -74,7 +73,7 @@ $website["Data"]["Numbers"] = [
 	"By type" => []
 ];
 
-# Iterate through the English media types list
+# Define all game sessions played by type as zero (0)
 $i = 0;
 foreach ($types_dictionary["en"] as $type) {
 	$website["Data"]["Numbers"]["By type"][$type] = 0;
@@ -99,7 +98,7 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $gameplayer["Language texts"]["game_sessions_played_in"]."".$website["Data"]["year"];
+			$header_text = $gameplayer["Language texts"]["game_sessions_played_in"]."".$website["Data"]["Year"];
 		}
 
 		$array = [

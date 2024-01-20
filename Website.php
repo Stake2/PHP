@@ -25,28 +25,47 @@ $website["Variable_Inserter"] = [];
 # Define Netlify url
 $website["URL"] = Text::Format($website["format"], [$website["Sub-domain"], $website["Netlify"]]);
 
-# Define local url
+$website["URL parameters"] = Get_URL_Parameters();
+
+# Define the local URL dictionary
 $website["Local URL"] = [
 	"Index" => (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on" ? "https" : "http")."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]
 ];
 
-$website["Local URL"]["Generate"] = $website["Local URL"]["Index"]."generate";
+$website["Local URL"]["Index"] = explode("?", $website["Local URL"]["Index"])[0];
 
-$website["Local URL"]["generate_template"] = $website["Local URL"]["Generate"]."?language={}&website={}";
+# Define the local URL "Code" dictionary
+$website["Local URL"]["Code"] = [
+	"Link" => $website["Local URL"]["Index"],
+	"Templates" => []
+];
 
-$json = $website["Local URL"];
+# Add a URL template
+$website["Local URL"]["Code"]["Templates"]["Normal"] = $website["Local URL"]["Code"]["Link"]."?website={}";
 
-$i = 0;
-foreach ($json as $item) {
-	if (strpos($item, "?") !== True) {
-		$json[$i] = explode("?", $item)[0];
-	}
+$website["Local URL"]["Code"]["Templates"]["With language"] = $website["Local URL"]["Code"]["Link"]."?website={}&language={}";
 
-	$i++;
-}
+# Define the local URL "Generate" dictionary
+$website["Local URL"]["Generate"] = [
+	"Link" => $website["Local URL"]["Index"]."generate",
+	"Templates" => []
+];
 
-if ($File -> Exist($folders["PHP"]["JSON"]["URL"]) == False) {
-	$JSON -> Edit($folders["PHP"]["JSON"]["URL"], $website["Local URL"], "w");
+# Add URL templates
+$website["Local URL"]["Generate"]["Templates"]["Normal"] = $website["Local URL"]["Generate"]["Link"]."?website={}";
+
+$website["Local URL"]["Generate"]["Templates"]["With language"] = $website["Local URL"]["Generate"]["Link"]."?website={}&language={}";
+
+# Edit the "URL.json" file
+$JSON -> Edit($folders["PHP"]["JSON"]["URL"], $website["Local URL"], "w");
+
+$website["Local URL"]["Code"]["Templates"]["With tab"] = $website["Local URL"]["Code"]["Link"]."?website={}";
+
+# Add the tab parameter as a template if it exists
+if (isset($website["URL parameters"]["tab"])) {
+	$tab = $website["URL parameters"]["tab"];
+
+	$website["Local URL"]["Code"]["Templates"]["With tab"] .= "&tab=".$tab;
 }
 
 $website["Image formats"] = [
@@ -409,7 +428,6 @@ foreach ($file_names as $file_name) {
 
 	if (strpos($file_name, ".com") == False) {
 		$website["css"]["links"] .= "/CSS/";
-		#$website["css"]["links"] .= $website["Folders"]["css"]["root"];
 	}
 
 	$website["css"]["links"] .= $file_name.".css";
@@ -490,7 +508,6 @@ foreach ($file_names as $file_name) {
 
 	if (str_contains($file_name, ".com") == False) {
 		$website["javascript"]["links"] .= "/JavaScript/";
-		#$website["javascript"]["links"] .= $website["Folders"]["javascript"]["root"];
 	}
 
 	$website["javascript"]["links"] .= $file_name.".js";

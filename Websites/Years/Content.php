@@ -141,9 +141,9 @@ if (
 		"watched_things"
 	];
 
-	# Add the "Game sessions tab" tab for years after the year 2021
+	# Add the "Game sessions played" tab for years after the year 2021
 	if ((int)$website["Data"]["title"] >= 2021) {
-		array_push($more_tabs, "game_sessions");
+		array_push($more_tabs, "game_sessions_played");
 	}
 
 	array_push($more_tabs, "completed_tasks");

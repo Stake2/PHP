@@ -28,12 +28,18 @@ if (array_key_exists("additional_tabs", $website) == False) {
 	];
 }
 
-if (isset($website["Data"]["year"]) == False) {
-	$website["Data"]["year"] = Date::Now()["year"];
+if (isset($website["Data"]["Year"]) == False) {
+	$website["Data"]["Year"] = Date::Now()["year"];
 }
 
 if (in_array($website["Data"]["title"], $website["years"]) == True) {
-	$website["Data"]["year"] = $website["Data"]["title"];
+	$website["Data"]["Year"] = $website["Data"]["title"];
+}
+
+if (isset($website["Task History"]) == False) {
+	$website["Task History"] = [
+		"Years list" => Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1)
+	];
 }
 
 # Define the data network folder for easier typing
@@ -44,7 +50,7 @@ if (isset($tasks) == False) {
 	$tasks = [
 		"Files" => [
 			"Per Task Type" => [
-				"root" => $network_folder["Task History"][$website["Data"]["year"]]["Per Task Type"]["root"]
+				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
 			]
 		],
 		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
@@ -52,119 +58,209 @@ if (isset($tasks) == False) {
 		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Tasks"]["Texts"]),
 		"Language texts" => []
 	];
+
+	$tasks["Language texts"] = $Language -> Item($tasks["Texts"]);
+
+	$types_dictionary = $tasks["Types"]["Plural"];
+
+	$website["Data"]["Numbers"] = [
+		"By year" => [],
+		"By type" => []
+	];
+
+	# Iterate through the English media types list
+	$i = 0;
+	foreach ($types_dictionary["en"] as $type) {
+		$website["Data"]["Numbers"]["By type"][$type] = 0;
+	}
 }
 
+# Update the "Per Task Type" folder
+$tasks["Files"]["Per Task Type"] = [
+	"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
+];
+
 # Define the Entries file
-$entries_file = $network_folder["Task History"][$website["Data"]["year"]]["Tasks"];
+$entries_file = $network_folder["Task History"][$website["Data"]["Year"]]["Tasks"];
+
+if (file_exists($entries_file) == True) {
+	$tasks["Entries"] = $JSON -> To_PHP($entries_file);
+}
+
+if ($website["Data"]["title"] != "Tasks") {
+	$tasks["Types dictionary"] = $types_dictionary;
+}
+
+if (function_exists("Generate_Task_Type_Headers") == False) {
+	function Generate_Task_Type_Headers($header_text = "") {
+		global $website;
+		global $Language;
+		global $JSON;
+		global $tasks;
+
+		$language = "pt";
+
+		if (isset($website["language"]) == True) {
+			$language = $website["language"];
+		}
+
+		if ($language == "general") {
+			$language = "en";
+		}
+
+		if ($header_text == "") {
+			$header_text = $tasks["Texts"]["tasks, title()"][$language]." [".$website["Data"]["Year"]."]";
+		}
+
+		$array = [
+			"links" => "",
+			"headers" => []
+		];
+
+		$text_color = $website["Style"]["text"]["theme"]["dark"];
+
+		$types_dictionary = $tasks["Types"]["Plural"];
+
+		if ($website["Data"]["title"] != "Tasks") {
+			$types_dictionary = $tasks["Types dictionary"];
+		}
+
+		$tasks["language_types"] = $types_dictionary[$language];
+
+		foreach (array_keys($tasks["Entries"]["Numbers"]["Per Task Type"]) as $task_type) {
+			if (in_array($task_type, $types_dictionary["en"]) == False) {
+				array_push($types_dictionary["en"], $task_type);
+
+				$text = $task_type;
+
+				$text_key = str_replace(" ", "_", strtolower($task_type));
+
+				if (str_contains($task_type, " ") == False) {
+					$text_key .= ", title()";
+				}
+
+				if (in_array($task_type, ["Python", "PHP", "AutoHotKey", "HTML"]) == False) {
+					$text = $website["Texts"][$text_key][$language];
+				}
+
+				if (in_array($text, $tasks["language_types"]) == False) {
+					array_push($tasks["language_types"], $text);
+				}
+
+				if (in_array($text, $types_dictionary[$language]) == False) {
+					array_push($types_dictionary[$language], $text);
+				}
+			}
+		}
+
+		if ($website["Data"]["title"] != "Tasks") {
+			$tasks["Types dictionary"] = $types_dictionary;
+		}
+
+		# Iterate through the English plural task types list
+		$i = 0;
+		foreach ($types_dictionary["en"] as $type) {
+			$language_type = $tasks["language_types"][$i];
+
+			if (array_key_exists($type, $tasks["Entries"]["Numbers"]["Per Task Type"])) {
+				$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
+
+				# If the number is not zero (0)
+				if ($number != 0) {
+					$span = HTML::Element("span", $number, "", $text_color);
+
+					$b = HTML::Element("b", $language_type.": ".$span);
+
+					$href = $header_text.": ".$language_type;
+
+					# Anchor element to go to task type list
+					if ($number != 0) {
+						$a = HTML::Element("a", $b, 'href="#'.$href.'"');
+					}
+
+					else {
+						$a = HTML::Element("a", $b);
+					}
+
+					$array["links"] .= $a."<br />"."\n\t\t";
+
+					$tasks["Files"]["Per Task Type"][$type] = $JSON -> To_PHP($tasks["Files"]["Per Task Type"]["root"].$type."/Tasks.json");
+
+					$span = HTML::Element("span", $number, "", $text_color);
+
+					$b = HTML::Element("b", $language_type.": ".$span);
+
+					# Plural task type header with anchor href to go to task type part
+					$a = HTML::Element("a", $b, 'name="'.$href.'"')."<br />";
+
+					$array["headers"][$type] = "\t\t".'<!-- "'.$type.'" task type header -->'."\n".
+					"\t\t".$a."\n";
+				}
+			}
+
+			$i++;
+		}
+
+		return $array;
+	}
+}
+
+# Define the local types dictionary as the root types dictionary inside the "Tasks" dictionary
+$types_dictionary = $tasks["Types dictionary"];
+
+# Define the Entries file
+$entries_file = $network_folder["Task History"][$website["Data"]["Year"]]["Tasks"];
 
 if (file_exists($entries_file) == True) {
 	$tasks["Entries"] = $JSON -> To_PHP($entries_file);
 
-	$tasks["Language texts"] = $Language -> Item($tasks["Texts"]);
+	# Add to the year entries number
+	$current_year = $website["Data"]["Year"];
 
-	if (function_exists("Generate_Task_Type_Headers") == False) {
-		function Generate_Task_Type_Headers($header_text = "") {
-			global $website;
-			global $Language;
-			global $JSON;
-			global $tasks;
-
-			$language = "pt";
-
-			if (isset($website["language"]) == True) {
-				$language = $website["language"];
-			}
-
-			if ($language == "general") {
-				$language = "en";
-			}
-
-			if ($header_text == "") {
-				$header_text = $tasks["Texts"]["tasks, title()"][$language]." [".$website["Data"]["year"]."]";
-			}
-
-			$array = [
-				"links" => "",
-				"headers" => []
-			];
-
-			$text_color = $website["Style"]["text"]["theme"]["dark"];
-
-			$types_dictionary = $tasks["Types"]["Plural"];
-
-			$tasks["language_types"] = $types_dictionary[$language];
-
-			foreach (array_keys($tasks["Entries"]["Numbers"]["Per Task Type"]) as $task_type) {
-				if (in_array($task_type, $types_dictionary["en"]) == False) {
-					array_push($types_dictionary["en"], $task_type);
-
-					$text = $task_type;
-
-					$text_key = str_replace(" ", "_", strtolower($task_type));
-
-					if (str_contains($task_type, " ") == False) {
-						$text_key .= ", title()";
-					}
-
-					if (in_array($task_type, ["Python", "PHP", "AutoHotKey", "HTML"]) == False) {
-						$text = $website["Texts"][$text_key][$language];
-					}
-
-					if (in_array($text, $tasks["language_types"]) == False) {
-						array_push($tasks["language_types"], $text);
-					}
-				}
-			}
-
-			# Iterate through the English plural task types list
-			$i = 0;
-			foreach ($types_dictionary["en"] as $type) {
-				$language_type = $tasks["language_types"][$i];
-
-				if (array_key_exists($type, $tasks["Entries"]["Numbers"]["Per Task Type"])) {
-					$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
-
-					# If the number is not zero (0)
-					if ($number != 0) {
-						$span = HTML::Element("span", $number, "", $text_color);
-
-						$b = HTML::Element("b", $language_type.": ".$span);
-
-						$href = $header_text.": ".$language_type;
-
-						# Anchor element to go to task type list
-						if ($number != 0) {
-							$a = HTML::Element("a", $b, 'href="#'.$href.'"');
-						}
-
-						else {
-							$a = HTML::Element("a", $b);
-						}
-
-						$array["links"] .= $a."<br />"."\n\t\t";
-
-						$tasks["Files"]["Per Task Type"][$type] = $JSON -> To_PHP($tasks["Files"]["Per Task Type"]["root"].$type."/Tasks.json");
-
-						$span = HTML::Element("span", $number, "", $text_color);
-
-						$b = HTML::Element("b", $language_type.": ".$span);
-
-						# Plural task type header with anchor href to go to task type part
-						$a = HTML::Element("a", $b, 'name="'.$href.'"')."<br />";
-
-						$array["headers"][$type] = "\t\t".'<!-- "'.$type.'" task type header -->'."\n".
-						"\t\t".$a."\n";
-					}
-				}
-
-				$i++;
-			}
-
-			return $array;
-		}
+	if (isset($website["Data"]["Numbers"]["By year"][$current_year]) == False) {
+		$website["Data"]["Numbers"]["By year"][$current_year] = $tasks["Entries"]["Numbers"]["Total"];
 	}
 
-	$task_type_headers = Generate_Task_Type_Headers();
+	# Sort the year keys
+	ksort($website["Data"]["Numbers"]["By year"]);
+
+	$website_title = "Tasks";
+
+	$tab = "past_registry_".$website["Data"]["Year"];
+
+	# If the local year is the current year
+	# Then, the tab that needs to be used is the "Completed tasks" tab
+	if ($website["Data"]["Year"] == $website["current_year"]) {
+		$tab = "completed_tasks";
+	}
+
+	if ($website["Data"]["title"] != $website_title) {
+		$website_dictionary = $website["dictionary"][$website_title];
+
+		$link = $website_dictionary["links"]["language"];
+
+		if (str_contains($link, "?") == False) {
+			$link .= "?";
+		}
+
+		else {
+			$link .= "&";
+		}
+
+		$link .= "tab=".$tab;
+
+		# Add the website button to the top of the page
+		$website["tab_content"]["completed_tasks"]["string"] .= "<br />"."\n".
+		"<center>"."\n".
+		$Text -> Format($website_dictionary["Button template"], $link)."\n".
+
+		# Add the website image to the top of the tab
+		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
+		"</center>"."\n".
+		"<br />"."\n";
+	}
+
+	$task_type_headers = Generate_Task_Type_Headers($header_text = "", $update_types_dictionary = False);
 
 	# Update the watched things number
 	$website["tab_content"]["completed_tasks"]["number"] = $tasks["Entries"]["Numbers"]["Total"];
@@ -175,8 +271,6 @@ if (file_exists($entries_file) == True) {
 
 	$text_color = $website["Style"]["text"]["theme"]["dark"];
 
-	$types_dictionary = $tasks["Types"]["Plural"];
-
 	# Iterate through the English task types list
 	$i = 0;
 	foreach ($types_dictionary["en"] as $type) {
@@ -184,6 +278,12 @@ if (file_exists($entries_file) == True) {
 
 		if (array_key_exists($type, $tasks["Entries"]["Numbers"]["Per Task Type"]) == True) {
 			$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
+
+			if (isset($website["Data"]["Numbers"]["By type"][$type]) == False) {
+				$website["Data"]["Numbers"]["By type"][$type] = 0;
+			}
+
+			$website["Data"]["Numbers"]["By type"][$type] += $number;
 
 			if ($number != 0) {
 				$website["tab_content"]["completed_tasks"]["string"] .= $task_type_headers["headers"][$type];
@@ -239,7 +339,7 @@ if (file_exists($entries_file) == True) {
 
 					$title = HTML::Element("span", $entry["Titles"][$language], "", $text_color);
 
-					if ($website["States"]["Tasks"]["Entry tabs"] == True and (int)$website["Data"]["year"] >= 2023) {
+					if ($website["States"]["Tasks"]["Entry tabs"] == True and (int)$website["Data"]["Year"] >= 2023) {
 						# Add the task description tab link and create the tab
 						$link_text = $website["Language texts"]["task_description"];
 
@@ -253,7 +353,7 @@ if (file_exists($entries_file) == True) {
 						$tab_title = $entry["Number"]." - ".$entry["Titles"][$language]." (".$time.")";
 
 						# Get the task description file
-						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["year"]][$language]["done_tasks"]["root"].$language_type."/";
+						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["Year"]][$language]["done_tasks"]["root"].$language_type."/";
 
 						$local_entry = str_replace(":", ";", $entry["Entry"]);
 						$local_entry = str_replace("/", "-", $local_entry);
@@ -290,13 +390,15 @@ if (file_exists($entries_file) == True) {
 	$website["tab_content"]["completed_tasks"]["string"] .= "<br /><br />";
 
 	# Add the tab to the tab templates
-	$website["tabs"]["templates"]["completed_tasks"] = [
-		"name" => $tasks["Language texts"]["completed_tasks"],
-		"add" => " ".HTML::Element("span", $website["tab_content"]["completed_tasks"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
-		"text_style" => "text-align: left;",
-		"content" => $website["tab_content"]["completed_tasks"]["string"],
-		"icon" => "list_check"
-	];
+	if (array_key_exists("completed_tasks", $website["tabs"]["templates"]) == False) {
+		$website["tabs"]["templates"]["completed_tasks"] = [
+			"name" => $tasks["Language texts"]["completed_tasks"],
+			"add" => " ".HTML::Element("span", $website["tab_content"]["completed_tasks"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
+			"text_style" => "text-align: left;",
+			"content" => $website["tab_content"]["completed_tasks"]["string"],
+			"icon" => "list_check"
+		];
+	}
 }
 
 else {

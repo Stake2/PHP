@@ -28,16 +28,17 @@ if (array_key_exists("additional_tabs", $website) == False) {
 
 $website["past_registries_buttons"] = [];
 
-# Iterate through the years list
-if (isset($website["Watch History"]) == False) {
-	$website["Watch History"] = [
+# Define the "Task History" dictionary with the "Years list"
+if (isset($website["Task History"]) == False) {
+	$website["Task History"] = [
 		"Years list" => Date::Create_Years_List($mode = "array", $start = 2018, $plus = -1)
 	];
 }
 
 $content = "";
 
-foreach ($website["Watch History"]["Years list"] as $local_year) {
+# Iterate through the years list
+foreach ($website["Task History"]["Years list"] as $local_year) {
 	$website["Data"]["Year"] = $local_year;
 
 	$id = "past_registry_".$local_year;
@@ -58,7 +59,7 @@ foreach ($website["Watch History"]["Years list"] as $local_year) {
 	$content = "";
 
 	# Define the tab content
-	if ($local_year != $website["Watch History"]["Years list"][0]) {
+	if ($local_year != $website["Task History"]["Years list"][0]) {
 		$previous_year = (int)$local_year - 1;
 
 		$previous_year = [
@@ -71,7 +72,7 @@ foreach ($website["Watch History"]["Years list"] as $local_year) {
 		$content .= HTML::Tab_Button($previous_year)."\n";
 	}
 
-	if ($local_year != end($website["Watch History"]["Years list"])) {
+	if ($local_year != end($website["Task History"]["Years list"])) {
 		$next_year = (int)$local_year + 1;
 
 		$next_year = [
@@ -89,16 +90,16 @@ foreach ($website["Watch History"]["Years list"] as $local_year) {
 		HTML::Element("hr", "", "", $website["Data"]["Style"]["border_1px"]["theme"]["light"]);
 	}
 
-	# Require the "Watched" generator to generate the "Watched things" elements and information
+	# Require the "Tasks" generator to generate the "Completed tasks" elements and information
 	$website["Data"]["Year"] = $local_year;
 
-	require $website["Data"]["Files"]["Generators"]["Watched"];
+	require $website["Data"]["Files"]["Generators"]["Tasks"];
 
-	$content .= $website["tab_content"]["watched_things"]["string"];
+	$content .= $website["tab_content"]["completed_tasks"]["string"];
 
 	$website["additional_tabs"]["data"][$local_year] = [
 		"id" => $id,
-		"name" => $website["Language texts"]["watched_things_in"]." ".$local_year,
+		"name" => $tasks["Language texts"]["completed_tasks_in"]." ".$local_year,
 		"text_style" => "text-align: left;",
 		"content" => $content,
 		"icon" => "calendar",

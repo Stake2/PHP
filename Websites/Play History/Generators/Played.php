@@ -16,7 +16,7 @@ if ($language == "general") {
 }
 
 # Generate "watched things" tab content
-$website["tab_content"]["game_sessions"] = [
+$website["tab_content"]["game_sessions_played"] = [
 	"string" => "",
 	"number" => 0
 ];
@@ -28,17 +28,17 @@ if (array_key_exists("additional_tabs", $website) == False) {
 	];
 }
 
-if (isset($website["Data"]["year"]) == False) {
-	$website["Data"]["year"] = Date::Now()["year"];
+if (isset($website["Data"]["Year"]) == False) {
+	$website["Data"]["Year"] = Date::Now()["year"];
 }
 
 if (in_array($website["Data"]["title"], $website["years"]) == True) {
-	$website["Data"]["year"] = $website["Data"]["title"];
+	$website["Data"]["Year"] = $website["Data"]["title"];
 }
 
 if (isset($website["Play History"]) == False) {
 	$website["Play History"] = [
-		"Years list" => Date::Create_Years_List($mode = "array", $start = 2021, $plus = -1)
+		"Years list" => Date::Create_Years_List($mode = "array", $start = 2021, $plus = 0)
 	];
 }
 
@@ -50,11 +50,11 @@ if (isset($gameplayer) == False) {
 	$gameplayer = [
 		"Files" => [
 			"Per Game Type" => [
-				"root" => $network_folder["Play History"][$website["Data"]["year"]]["Per Game Type"]["root"]
+				"root" => $network_folder["Play History"][$website["Data"]["Year"]]["Per Game Type"]["root"]
 			]
 		],
 		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
-		"Entries" => $JSON -> To_PHP($network_folder["Play History"][$website["Data"]["year"]]["Entries"]),
+		"Entries" => $JSON -> To_PHP($network_folder["Play History"][$website["Data"]["Year"]]["Entries"]),
 		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["GamePlayer"]["Texts"]),
 		"Language texts" => [],
 		"Information" => [
@@ -96,7 +96,7 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $gameplayer["Language texts"]["game_sessions_played_in"]."".$website["Data"]["year"];
+			$header_text = $gameplayer["Language texts"]["game_sessions_played_in"]."".$website["Data"]["Year"];
 		}
 
 		$array = [
@@ -164,17 +164,17 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 
 # Update the "Per Game Type" folder
 $gameplayer["Files"]["Per Game Type"] = [
-	"root" => $network_folder["Play History"][$website["Data"]["year"]]["Per Game Type"]["root"]
+	"root" => $network_folder["Play History"][$website["Data"]["Year"]]["Per Game Type"]["root"]
 ];
 
 # Define the Entries file for easier typing
-$entries_file = $network_folder["Play History"][$website["Data"]["year"]]["Entries"];
+$entries_file = $network_folder["Play History"][$website["Data"]["Year"]]["Entries"];
 
 if (file_exists($entries_file) == True) {
 	$gameplayer["Entries"] = $JSON -> To_PHP($entries_file);
 
 	# Add to the year entries number
-	$current_year = $website["Data"]["year"];
+	$current_year = $website["Data"]["Year"];
 
 	if (isset($website["Data"]["Numbers"]["By year"][$current_year]) == False) {
 		$website["Data"]["Numbers"]["By year"][$current_year] = $gameplayer["Entries"]["Numbers"]["Total"];
@@ -183,12 +183,48 @@ if (file_exists($entries_file) == True) {
 	# Sort the year keys
 	ksort($website["Data"]["Numbers"]["By year"]);
 
+	$website_title = "Play History";
+
+	$tab = "past_registry_".$website["Data"]["Year"];
+
+	# If the local year is the current year
+	# Then, the tab that needs to be used is the "game_sessions_played" tab
+	if ($website["Data"]["Year"] == $website["current_year"]) {
+		$tab = "game_sessions_played";
+	}
+
+	if ($website["Data"]["title"] != $website_title) {
+		$website_dictionary = $website["dictionary"][$website_title];
+
+		$link = $website_dictionary["links"]["language"];
+
+		if (str_contains($link, "?") == False) {
+			$link .= "?";
+		}
+
+		else {
+			$link .= "&";
+		}
+
+		$link .= "tab=".$tab;
+
+		# Add the website button to the top of the page
+		$website["tab_content"]["game_sessions_played"]["string"] .= "<br />"."\n".
+		"<center>"."\n".
+		$Text -> Format($website_dictionary["Button template"], $link)."\n".
+
+		# Add the website image to the top of the tab
+		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
+		"</center>"."\n".
+		"<br />"."\n";
+	}
+
 	$type_headers = Generate_Game_Type_Headers();
 
 	# Update the game sessions number
-	$website["tab_content"]["game_sessions"]["number"] = $gameplayer["Entries"]["Numbers"]["Total"];
+	$website["tab_content"]["game_sessions_played"]["number"] = $gameplayer["Entries"]["Numbers"]["Total"];
 
-	$website["tab_content"]["game_sessions"]["string"] .= "<!-- Game type headers -->"."\n"."\t\t".
+	$website["tab_content"]["game_sessions_played"]["string"] .= "<!-- Game type headers -->"."\n"."\t\t".
 	$type_headers["links"].
 	"\n"."\t\t"."<br />"."\n\n";
 
@@ -208,7 +244,7 @@ if (file_exists($entries_file) == True) {
 		$website["Data"]["Numbers"]["By type"][$type] += $number;
 
 		if ($number != 0) {
-			$website["tab_content"]["game_sessions"]["string"] .= $type_headers["headers"][$type];
+			$website["tab_content"]["game_sessions_played"]["string"] .= $type_headers["headers"][$type];
 
 			$entries = $gameplayer["Files"]["Per Game Type"][$type]["Entries"];
 
@@ -314,34 +350,34 @@ if (file_exists($entries_file) == True) {
 
 				$text = HTML::Element("span", $text, 'style="margin-left: 3%;"', $website["Style"]["text_hover"]);
 
-				$website["tab_content"]["game_sessions"]["string"] .= $text."<br />"."\n";
+				$website["tab_content"]["game_sessions_played"]["string"] .= $text."<br />"."\n";
 			}
 
 			if ($type != end($types_dictionary[$language])) {
-				$website["tab_content"]["game_sessions"]["string"] .= "\t\t"."<br />"."\n\n";
+				$website["tab_content"]["game_sessions_played"]["string"] .= "\t\t"."<br />"."\n\n";
 			}
 		}
 
 		$i++;
 	}
 
-	$website["tab_content"]["game_sessions"]["string"] .= "<br /><br />";
+	$website["tab_content"]["game_sessions_played"]["string"] .= "<br /><br />";
 
 	# Add the tab to the tab templates
-	if (array_key_exists("game_sessions", $website["tabs"]["templates"]) == False) {
-		$website["tabs"]["templates"]["game_sessions"] = [
-			"name" => $gameplayer["Language texts"]["game_sessions_played_in"]." ".$website["Data"]["year"],
-			"add" => " ".HTML::Element("span", $website["tab_content"]["game_sessions"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
+	if (array_key_exists("game_sessions_played", $website["tabs"]["templates"]) == False) {
+		$website["tabs"]["templates"]["game_sessions_played"] = [
+			"name" => $gameplayer["Language texts"]["game_sessions_played_in"]." ".$website["Data"]["Year"],
+			"add" => " ".HTML::Element("span", $website["tab_content"]["game_sessions_played"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
 			"text_style" => "text-align: left;",
-			"content" => $website["tab_content"]["game_sessions"]["string"],
-			"icon" => "eye"
+			"content" => $website["tab_content"]["game_sessions_played"]["string"],
+			"icon" => "gamepad"
 		];
 	}
 }
 
 else {
 	# Define the "Game sessions" tab to be removed if it does not contain game sessions
-	array_push($website["tabs"]["To remove"], "game_sessions");
+	array_push($website["tabs"]["To remove"], "game_sessions_played");
 }
 
 ?>

@@ -460,6 +460,12 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["links"]["language"] .= $language."/";
 	}
 
+	if ($parse != "/generate") {
+		$new_link = $Text -> Format($website["Local URL"]["Code"]["Templates"]["With tab"], $website_dictionary["title"]);
+
+		$website_dictionary["links"]["language"] = explode("&tab=", $new_link)[0];
+	}
+
 	$website_dictionary["links"]["element"] = HTML::Element("a", '"'.$website_dictionary["titles"]["language"].'"', 'href="'.$website_dictionary["links"]["language"].'" target="_blank"', "text_".$website_dictionary["JSON"]["style"]["theme"]["dark"]);
 
 	$website_dictionary["links"]["element_no_quotes"] = HTML::Element("a", $website_dictionary["titles"]["language"], 'href="'.$website_dictionary["links"]["language"].'" target="_blank"', "text_".$website_dictionary["JSON"]["style"]["theme"]["dark"]);
@@ -1154,11 +1160,27 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Create website link button
 	$h2 = HTML::Element("h2", "\n\t\t\t\t".$website_dictionary["titles"]["icon"]."\n\t\t\t", "", "text_size")."\n";
 
+	# Define the link
+	$link = $website_dictionary["links"]["language"];
+
+	if ($parse != "/generate") {
+		$link = $Text -> Format($website["Local URL"]["Code"]["Templates"]["With tab"], $website_dictionary["title"]);
+	}
+
+	$window_open_template = 'window.open(\''."{}".'\')';
+
+	$window_open = $Text -> Format($window_open_template, $link);
+
 	$button = "\n"."\t\t".'<!-- "'.$website_title.'" link button -->'."\n".
-	"\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", 'onclick="window.open(\''.$website_dictionary["links"]["language"].'\')" style="border-radius: 50px;"', "w3-btn ".$website_dictionary["Style"]["button"]["theme"]["light"]);
+	"\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", 'onclick="'.$window_open.'" style="border-radius: 50px;"', "w3-btn ".$website_dictionary["Style"]["button"]["theme"]["light"]);
+
+	$onclick = $Text -> Format($window_open_template, "{}");
+
+	$button_template = "\n"."\t\t".'<!-- "'.$website_title.'" link button -->'."\n".
+	"\t\t".HTML::Element("button", "\n\t\t\t".$h2."\t\t", 'onclick="'.$onclick.'" style="border-radius: 50px;"', "w3-btn ".$website_dictionary["Style"]["button"]["theme"]["light"]);
 
 	if ($website_title == $website["website"]) {
-		$button = str_replace('window.open(\''.$website_dictionary["links"]["language"].'\')', "", $button);
+		$button = str_replace($window_open, "", $button);
 
 		$website_icon_title = $website_dictionary["titles"]["icon"];
 		$you_are_here_text = $website["Language texts"]["you_are_here"];
@@ -1168,7 +1190,11 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$button = str_replace('">', '" title="'.$website_dictionary["links"]["language"].'"'.">", $button);
 	}
 
+	# Add the button
 	$website_dictionary["button"] = $button;
+
+	# Add the button template
+	$website_dictionary["Button template"] = $button_template;
 
 	if (in_array($website_title, $websites["Remove from websites tab"]) == False) {
 		$website["website_buttons"] .= $button."\n";

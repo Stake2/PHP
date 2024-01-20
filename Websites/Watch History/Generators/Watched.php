@@ -28,12 +28,12 @@ if (array_key_exists("additional_tabs", $website) == False) {
 	];
 }
 
-if (isset($website["Data"]["year"]) == False) {
-	$website["Data"]["year"] = Date::Now()["year"];
+if (isset($website["Data"]["Year"]) == False) {
+	$website["Data"]["Year"] = Date::Now()["year"];
 }
 
 if (in_array($website["Data"]["title"], $website["years"]) == True) {
-	$website["Data"]["year"] = $website["Data"]["title"];
+	$website["Data"]["Year"] = $website["Data"]["title"];
 }
 
 if (isset($website["Watch History"]) == False) {
@@ -50,11 +50,11 @@ if (isset($watch_history) == False) {
 	$watch_history = [
 		"Files" => [
 			"Per Media Type" => [
-				"root" => $network_folder["Watch History"][$website["Data"]["year"]]["Per Media Type"]["root"]
+				"root" => $network_folder["Watch History"][$website["Data"]["Year"]]["Per Media Type"]["root"]
 			]
 		],
 		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
-		"Entries" => $JSON -> To_PHP($network_folder["Watch History"][$website["Data"]["year"]]["Entries"]),
+		"Entries" => $JSON -> To_PHP($network_folder["Watch History"][$website["Data"]["Year"]]["Entries"]),
 		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Watch History"]["Texts"]),
 		"Language texts" => [],
 		"Media information" => [
@@ -97,7 +97,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["year"];
+			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["Year"];
 		}
 
 		$array = [
@@ -163,17 +163,17 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 
 # Update the "Per Media Type" folder
 $watch_history["Files"]["Per Media Type"] = [
-	"root" => $network_folder["Watch History"][$website["Data"]["year"]]["Per Media Type"]["root"]
+	"root" => $network_folder["Watch History"][$website["Data"]["Year"]]["Per Media Type"]["root"]
 ];
 
 # Define the Entries file for easier typing
-$entries_file = $network_folder["Watch History"][$website["Data"]["year"]]["Entries"];
+$entries_file = $network_folder["Watch History"][$website["Data"]["Year"]]["Entries"];
 
 if (file_exists($entries_file) == True) {
 	$watch_history["Entries"] = $JSON -> To_PHP($entries_file);
 
 	# Add to the year entries number
-	$current_year = $website["Data"]["year"];
+	$current_year = $website["Data"]["Year"];
 
 	if (isset($website["Data"]["Numbers"]["By year"][$current_year]) == False) {
 		$website["Data"]["Numbers"]["By year"][$current_year] = $watch_history["Entries"]["Numbers"]["Total"];
@@ -181,6 +181,42 @@ if (file_exists($entries_file) == True) {
 
 	# Sort the year keys
 	ksort($website["Data"]["Numbers"]["By year"]);
+
+	$website_title = "Watch History";
+
+	$tab = "past_registry_".$website["Data"]["Year"];
+
+	# If the local year is the current year
+	# Then, the tab that needs to be used is the "watched_things" tab
+	if ($website["Data"]["Year"] == $website["current_year"]) {
+		$tab = "watched_things";
+	}
+
+	if ($website["Data"]["title"] != $website_title) {
+		$website_dictionary = $website["dictionary"][$website_title];
+
+		$link = $website_dictionary["links"]["language"];
+
+		if (str_contains($link, "?") == False) {
+			$link .= "?";
+		}
+
+		else {
+			$link .= "&";
+		}
+
+		$link .= "tab=".$tab;
+
+		# Add the website button to the top of the page
+		$website["tab_content"]["watched_things"]["string"] .= "<br />"."\n".
+		"<center>"."\n".
+		$Text -> Format($website_dictionary["Button template"], $link)."\n".
+
+		# Add the website image to the top of the tab
+		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
+		"</center>"."\n".
+		"<br />"."\n";
+	}
 
 	$media_type_headers = Generate_Media_Type_Headers();
 
@@ -328,12 +364,12 @@ if (file_exists($entries_file) == True) {
 					if (
 						$website["States"]["Watch History"]["Past registry entry tabs"] == True or
 						$website["States"]["Watch History"]["Past registry entry tabs"] == False and
-						$website["Data"]["year"] == $website["Date"]["year"]
+						$website["Data"]["Year"] == $website["Date"]["year"]
 					) {
 						# Add the description tab link and create the tab
 						$link_text = $website["Language texts"]["entry_description"];
 
-						$tab_id = "watched_thing_".$website["Data"]["year"]."_".$entry["Number"];
+						$tab_id = "watched_thing_".$website["Data"]["Year"]."_".$entry["Number"];
 
 						$style = 'style="text-decoration: underline; cursor: pointer;"';
 
@@ -343,7 +379,7 @@ if (file_exists($entries_file) == True) {
 						$tab_title = $entry["Number"]." - ".$entry_title." (".$time.")";
 
 						# Get the entry description file
-						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["year"]][$language]["watched_media"]["root"].$language_type."/";
+						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["Year"]][$language]["watched_media"]["root"].$language_type."/";
 
 						$local_entry = str_replace(":", ";", $entry["Entry"]);
 						$local_entry = str_replace("/", "-", $local_entry);
@@ -432,13 +468,13 @@ if (file_exists($entries_file) == True) {
 
 								if (
 									$comment["Titles"][$language] != $media_unit_title and
-									$website["Data"]["year"] == 2022
+									$website["Data"]["Year"] == 2022
 								) {
 									if ($verbosity_text == "") {
 										$verbosity_text = $media_title."\n".
 										$media_folder."\n".
 										$comments_file."\n".
-										$website["Data"]["year"];
+										$website["Data"]["Year"];
 									}
 
 									$verbosity_text .= "\n".$comment["Titles"][$language]."\n".
@@ -465,7 +501,7 @@ if (file_exists($entries_file) == True) {
 						if (isset($website["past_registries_buttons"]) == True) {
 							$website["additional_tabs"]["data"][$tab_id]["only_button"] = "past_registries";
 
-							$website["additional_tabs"]["data"][$tab_id]["button"] = $website["past_registries_buttons"][$website["Data"]["year"]];
+							$website["additional_tabs"]["data"][$tab_id]["button"] = $website["past_registries_buttons"][$website["Data"]["Year"]];
 						}
 					}
 				}
@@ -513,7 +549,7 @@ if (file_exists($entries_file) == True) {
 	# Add the tab to the tab templates
 	if (array_key_exists("watched_things", $website["tabs"]["templates"]) == False) {
 		$website["tabs"]["templates"]["watched_things"] = [
-			"name" => $website["Language texts"]["watched_things_in"]." ".$website["Data"]["year"],
+			"name" => $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"],
 			"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
 			"text_style" => "text-align: left;",
 			"content" => $website["tab_content"]["watched_things"]["string"],

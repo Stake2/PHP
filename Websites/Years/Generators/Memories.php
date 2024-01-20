@@ -159,7 +159,7 @@ if (file_exists($file) == True) {
 			$class = str_replace("border_radius_8_cent", "border_radius_1_cent", $class);
 
 			# Define the attributes
-			$attributes = 'style="max-width: 100%;"';
+			$attributes = 'style="max-width: 80%;"';
 
 			# Add an alt text
 			$attributes .= ' alt="'.$file["Name"].'"';

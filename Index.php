@@ -116,6 +116,9 @@ function Generate_Website() {
 		$website["state"] = $website["Language texts"]["the_website_file_did_not_exist_the_new_content_was_written_into_it"];
 	}
 
+	# Create the file
+	$File -> Create($html_file);
+
 	$old_contents = $File -> Contents($html_file, $add_br = False, $add_n = False);
 
 	# Update the HTML file with the website contents

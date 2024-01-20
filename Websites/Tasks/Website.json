@@ -2,16 +2,35 @@
 	"icon": "tasks",
 	"style": {
 		"theme": {
-			"normal": "white",
-			"light": "grey",
-			"dark": "black"
+			"normal": "grey",
+			"light": "light_grey",
+			"dark": "dark_grey"
 		},
 		"secondary_theme": {
-			"normal": "white",
-			"light": "grey",
-			"dark": "black"
+			"normal": "grey",
+			"light": "light_grey",
+			"dark": "dark_grey"
 		},
-		"text_highlight": "grey"
+		"text_highlight": "light_grey"
 	},
-	"color": "2196F3"
+	"color": "DDDDDD",
+	"image": {
+		"width": "30"
+	},
+	"tabs": {
+		"data": {
+			"completed_tasks": {
+				"template": "completed_tasks"
+			},
+			"past_registries": {
+				"template": "past_registries"
+			}
+		}
+	},
+	"descriptions": {
+		"html": {
+			"en": "Website to show the productive things that I did.\nMade by {author}.",
+			"pt": "Site para mostrar as coisas produtivas que eu fiz.\nFeito por {author}."
+		}
+	}
 }

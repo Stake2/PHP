@@ -38,12 +38,12 @@ foreach ($names as $item) {
 	$File -> Create($website["Data"]["Files"]["Generators"][$item]);
 }
 
-if (isset($website["Data"]["year"]) == False) {
-	$website["Data"]["year"] = Date::Now()["year"];
+if (isset($website["Data"]["Year"]) == False) {
+	$website["Data"]["Year"] = Date::Now()["year"];
 }
 
 if (in_array($website["Data"]["title"], $website["years"]) == True) {
-	$website["Data"]["year"] = $website["Data"]["title"];
+	$website["Data"]["Year"] = $website["Data"]["title"];
 }
 
 # Define the "Watch History" array
@@ -52,11 +52,11 @@ $folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
 $watch_history = [
 	"Files" => [
 		"Per Media Type" => [
-			"root" => $folder["Watch History"][$website["Data"]["year"]]["Per Media Type"]["root"]
+			"root" => $folder["Watch History"][$website["Data"]["Year"]]["Per Media Type"]["root"]
 		]
 	],
 	"Types" => $JSON -> To_PHP($folder["Data"]["Types"]),
-	"Entries" => $JSON -> To_PHP($folder["Watch History"][$website["Data"]["year"]]["Entries"]),
+	"Entries" => $JSON -> To_PHP($folder["Watch History"][$website["Data"]["Year"]]["Entries"]),
 	"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Watch History"]["Texts"]),
 	"Language texts" => [],
 	"Media information" => [
@@ -66,7 +66,6 @@ $watch_history = [
 
 $watch_history["Language texts"] = $Language -> Item($watch_history["Texts"]);
 
-# Define all watched things by type as zero (0)
 $types_dictionary = $watch_history["Types"]["Plural"];
 
 $website["Data"]["Numbers"] = [
@@ -74,7 +73,7 @@ $website["Data"]["Numbers"] = [
 	"By type" => []
 ];
 
-# Iterate through the English media types list
+# Define all watched things by type as zero (0)
 $i = 0;
 foreach ($types_dictionary["en"] as $type) {
 	$website["Data"]["Numbers"]["By type"][$type] = 0;
@@ -98,7 +97,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["year"];
+			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["Year"];
 		}
 
 		$array = [

@@ -1,6 +1,6 @@
 <?php 
 
-# Add the media types to the website descriptions
+# Read the "Types.json" file
 $types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["Types"]);
 
 $language = "pt";
@@ -17,6 +17,7 @@ if ($language == "general") {
 	$full_language = $Language -> languages["full"][$language];
 }
 
+# Add the media types to the website descriptions
 $string = "";
 $styled_string = "";
 
