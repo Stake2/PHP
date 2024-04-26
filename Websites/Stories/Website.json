@@ -1,25 +1,26 @@
 {
 	"style": {
 		"theme": {
-			"normal": "orange",
-			"light": "light_orange",
-			"dark": "dark_orange"
+			"normal": "light_purple_darker",
+			"light": "light_purple",
+			"dark": "dark_purple"
 		},
 		"secondary_theme": {
-			"normal": "orange",
-			"light": "light_orange",
-			"dark": "dark_orange"
-		}
+			"normal": "salmon",
+			"light": "light_salmon",
+			"dark": "dark_salmon"
+		},
+		"text_highlight": "light_salmon"
+	},
+	"color": "f1858d",
+	"image": {
+		"width": "30"
 	},
 	"tabs": {
 		"data": {
-			"first_tab": {
-				"name": {
-					"en": "First tab",
-					"pt": "Primeira aba"
-				}
+			"Stories": {
+				"template": "Stories"
 			}
 		}
-	},
-	"color": "ffa500"
+	}
 }

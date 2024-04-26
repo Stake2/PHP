@@ -181,21 +181,27 @@ class HTML extends Class_ {
 
 		$border_color = $website["Style"]["border_color"];
 
+		$open_hamburger_menu_button = "<!-- Open hamburger menu button -->"."\n".
+		HTML::Button("\n\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom");
+
+		$close_hamburger_menu_button = "\t".'<!-- Close hamburger menu button -->'."\n".
+		"\t".HTML::Button("\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
+
 		$buttons = [
 			"list" => [],
 
-			"hamburger_menu" => "\n"."<!-- Open hamburger menu button -->"."\n".
-			HTML::Element("button", "\n\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom")."\n".
+			"hamburger_menu" => "\n".$open_hamburger_menu_button.
+			"\n\n".
 			"\n"."<!--- Hamburger menu -->"."\n".
-			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["Style"]["background"]["theme"]["normal"]." ".$website["Style"]["border_4px"]["theme"][$border_color]." ".$website["Style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'."\n\n".
-			"\t".'<!-- Hide hamburger menu button -->'."\n".
-			"\t".HTML::Element("button", "\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"])."\n\n".
+			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["Style"]["background"]["theme"]["normal"]." ".$website["Style"]["border_4px"]["theme"][$border_color]." ".$website["Style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'.
+			"\n\n".
+			$close_hamburger_menu_button."\n\n".
 			"\t".HTML::Element("h2", $website["Language texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["Style"]["text_highlight"])."\n\n".
-			"\t"."<br />"."\n\n".
+			"\t"."<br />".
 			'<div style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">'."\n"
 		];
 
-		# Generate buttons
+		# Generate the buttons
 		$i = 0;
 		foreach (array_keys($website["tabs"]["data"]) as $id) {
 			$tab = $website["tabs"]["data"][$id];
@@ -236,6 +242,11 @@ class HTML extends Class_ {
 		if ($tab == []) {
 			$tab["all_buttons"] = False;
 			$tab["only_button"] = Null;
+			$tab["Buttons list"] = [];
+		}
+
+		if (isset($tab["Buttons list"]) == False) {
+			$tab["Buttons list"] = [];
 		}
 
 		$string = "";
@@ -245,6 +256,14 @@ class HTML extends Class_ {
 		}
 
 		$buttons_list = $website["buttons_list"];
+
+		if (isset($website["Additional buttons"]) == True) {
+			$buttons_list = $buttons_list + $website["Additional buttons"];
+		}
+
+		if ($tab["Buttons list"] != []) {
+			$buttons_list = $tab["Buttons list"];
+		}
 
 		if ($tab["only_button"] == Null) {
 			if ($tab["all_buttons"] == False) {
@@ -261,12 +280,14 @@ class HTML extends Class_ {
 				# Previous button
 				if ($number -1 != -1) {
 					$buttons_list[$number - 1] = self::Element("span", $buttons_list[$number - 1], 'style="float: left;"', "margin_sides_5_cent");
+
 					$string .= $buttons_list[$number - 1];
 				}
 
 				# Next button
 				if ($number + 1 != count($buttons_list)) {
 					$buttons_list[$number + 1] = self::Element("span", $buttons_list[$number + 1], 'style="float: right;"', "margin_sides_5_cent");
+
 					$string .= $buttons_list[$number + 1];
 				}
 
@@ -323,21 +344,39 @@ class HTML extends Class_ {
 			}
 		}
 
+		# Define the tab display key
+
+		# Define the "Display" key to hide the tab by default
+		$tab["Display"] = " display: none;";
+
+		# If the "Display tab by default" key is present
+		# And it is True
+		if (
+			isset($tab["Display tab by default"]) == True and
+			$tab["Display tab by default"] == True
+		) {
+			# Define the "Display" key to show the tab by default
+			$tab["Display"] = " display: block;";
+		}
+
 		# Read the tab file if the file index exists
 		if (isset($tab["file"]) == True) {
 			$contents = $File -> Contents($tab["file"]);
 
-			if ($contents["lines"] != [] and array_key_exists("content", $tab) == False) {
+			if (
+				$contents["lines"] != [] and
+				isset($tab["content"]) == False
+			) {
 				$tab["content"] = Linkfy($contents["string"]);
 			}
 
-			# If file is empty, use empty message text
+			# If the file is empty, use the empty message text
 			if ($contents["lines"] == []) {
 				if (isset($tab["empty_message"]) == False) {
 					$tab["empty_message"] = $website["Language texts"]["this_file_does_not_exist_{}"];
 				}
 
-				$tab["content"] = $tab["empty_message"];
+				$tab["content"] = "test".$tab["empty_message"];
 			}
 		}
 

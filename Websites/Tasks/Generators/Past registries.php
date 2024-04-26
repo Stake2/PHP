@@ -47,11 +47,15 @@ foreach ($website["Task History"]["Years list"] as $local_year) {
 	$tab = [
 		"id" => $id,
 		"name" => $local_year,
-		"name_icon" => $local_year.": ".$website["Icons"]["calendar"]
+		"name_icon" => $local_year.": ".$website["Icons"]["calendar"],
+		"Buttons list" => []
 	];
 
 	# Add the tab button
 	$website["past_registries_buttons"][$website["Data"]["Year"]] = HTML::Tab_Button($tab)."\n";
+
+	# Add the year tab button to the buttons list on the "Tab" dictionary
+	array_push($tab["Buttons list"], $website["past_registries_buttons"][$website["Data"]["Year"]]);
 
 	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]]."\n";
 

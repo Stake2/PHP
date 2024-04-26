@@ -193,7 +193,7 @@ if (file_exists($entries_file) == True) {
 	}
 
 	if ($website["Data"]["title"] != $website_title) {
-		$website_dictionary = $website["dictionary"][$website_title];
+		$website_dictionary = $website["Dictionary"][$website_title];
 
 		$link = $website_dictionary["links"]["language"];
 

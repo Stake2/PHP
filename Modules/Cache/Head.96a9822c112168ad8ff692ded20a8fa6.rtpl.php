@@ -37,7 +37,7 @@
 
 	<!-- Author related meta tags -->
 	<meta name="revised" content="<?php echo $website['Twitter author']; ?>'s Enterprise TM, <?php echo $website['Date'][$website['Language texts']['date_format']]; ?>." />
-	<meta name="author" content="<?php echo $website['author']; ?>" />
+	<meta name="author" content="<?php echo $website['Author']; ?>" />
 
 	<!-- Viewport and charset -->
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=yes" />

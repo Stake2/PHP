@@ -194,7 +194,7 @@ if (file_exists($entries_file) == True) {
 	}
 
 	if ($website["Data"]["title"] != $website_title) {
-		$website_dictionary = $website["dictionary"][$website_title];
+		$website_dictionary = $website["Dictionary"][$website_title];
 
 		$link = $website_dictionary["links"]["language"];
 
@@ -258,6 +258,17 @@ if (file_exists($entries_file) == True) {
 				$item = "";
 
 				$entry_title = $title;
+
+				# Add the sub-game title if it exists
+				if (isset($entry["Sub-game"])) {
+					$sub_game_title = Define_Title($entry["Sub-game"]);
+
+					if ($sub_game_title[0].$sub_game_title[1] != ": ") {
+						$title .= ": ";
+					}
+
+					$title .= $sub_game_title;
+				}
 
 				# Define the date
 				$format = "Y-m-d\TH:i:s\Z";

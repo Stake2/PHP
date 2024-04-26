@@ -4,7 +4,10 @@ if (function_exists("Sanitize_Title") == False) {
 	function Sanitize_Title($title, $remove_dot = True) {
 		global $File;
 
-		if (strlen($title) > 1 and $title[0].$title[1] == ": ") {
+		if (
+			strlen($title) > 1 and
+			$title[0].$title[1] == ": "
+		) {
 			$title = substr($title, 2);
 		}
 

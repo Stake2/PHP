@@ -18,10 +18,10 @@ if ($language == "general") {
 $story_titles = $stories["Titles"]["en"];
 
 # Add websites to website dictionary
-$i = 0;
+$website_number = 0;
 foreach ($websites["List"]["en"] as $website_title) {
 	# Define the current Website dictionary
-	$website["dictionary"][$website_title] = [
+	$website["Dictionary"][$website_title] = [
 		"title" => $website_title,
 		"titles" => []
 	];
@@ -30,7 +30,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$verbose_text = "Site: ".'"'.$website_title.'"'."\n";
 
 	# Define the "website_dictionary" variable for faster typing
-	$website_dictionary = $website["dictionary"][$website_title];
+	$website_dictionary = $website["Dictionary"][$website_title];
 
 	$website["States"]["Website"]["Parent"] = False;
 
@@ -55,10 +55,13 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$parent["Titles"]["Language"] = $Language -> Item($parent["Titles"]);
 			}
 
-			# Define Parent website folder
+			# Define the Parent website folder
 			if (isset($parent["Folder name"]) == False) {
 				$parent["Folder name"] = $parent["Title"];
 			}
+
+			# Define the Parent type
+			$parent["Type"] = "Website";
 
 			$website["States"]["Website"]["Parent"] = True;
 		}
@@ -67,7 +70,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define the language website titles
 	foreach ($website["small_languages"] as $local_language) {
 		if (isset($websites["List"][$local_language]) == True) {
-			$title = $websites["List"][$local_language][$i];
+			$title = $websites["List"][$local_language][$website_number];
 
 			if ($website["States"]["Website"]["Parent"] == True) {
 				$title = $parent["Titles"]["Language"].": ".$title;
@@ -93,16 +96,19 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Parent story configuration
 	if (
 		$website_dictionary["type"] == "Story" and
-		isset($stories[$website_title]["Information"]["Parent story"])
+		isset($stories["Dictionary"][$website_title]["Information"]["Parent story"])
 	) {
-		$parent = $stories[$website_title]["Information"]["Parent story"];
+		$parent = $stories["Dictionary"][$website_title]["Information"]["Parent story"];
 
 		if (isset($parent["Folder name"]) == False) {
 			$parent["Folder name"] = $parent["Title"];
 		}
 
-		# Define the Website link with the Parent story folder
+		# Define the website link with the Parent story folder
 		$custom_website_link = $parent["Folder name"]."/".$website_link;
+
+		# Define the Parent type
+		$parent["Type"] = "Story";
 
 		$website["States"]["Website"]["Parent"] = True;
 	}
@@ -174,10 +180,6 @@ foreach ($websites["List"]["en"] as $website_title) {
 		"Images"
 	];
 
-	if ($website_dictionary["type"] == "Story") {
-		array_push($names, "Story covers");
-	}
-
 	# Define the remote and local website image folders
 	# (Old way of defining website image folders)
 	$website_dictionary["Folders"]["Website"]["Website images"] = [];
@@ -196,61 +198,71 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$website_dictionary["Folders"]["Website"]["Images"] = [];
 
-	if ($website_dictionary["type"] != "Story") {
-		# Define the local unified website icons and images folder, with local and remote keys
-		# (New way of defining website image folders, more organized)
-		$dictionary = [
-			"Local" => [],
-			"Remote" => [],
-			"Custom folders" => []
+	# Define the local unified website icons and images folder, with local and remote keys
+	# (New way of defining website image folders, more organized)
+	$dictionary = [
+		"Local" => [],
+		"Remote" => [],
+		"Custom folders" => []
+	];
+
+	# Add the custom folders of the year websites
+	if (in_array($website_title, $website["years"]) == True) {
+		array_push($dictionary["Custom folders"], "Pictures");
+		array_push($dictionary["Custom folders"], "Memories");
+	}
+
+	# Add the custom folders of the story websites
+	if ($website_dictionary["type"] == "Story") {
+		array_push($dictionary["Custom folders"], "Chapters");
+	}
+
+	$keys = array_keys($dictionary);
+	unset($keys[2]);
+	$keys = array_values($keys);
+
+	# Define each root folder
+	foreach ($keys as $key) {
+		# Local folder
+		$folder = $folders["Mega"]["Websites"]["Images"]["root"];
+
+		# Remote folder
+		if ($key == "Remote") {
+			$folder = $website["Folders"]["Images"]["root"];
+		}
+
+		if (
+			$website["States"]["Website"]["Parent"] == True and
+			$website_dictionary["Parent"]["Type"] == "Website"
+		) {
+			$folder .= $website_dictionary["Parent"]["Folder name"]."/";
+		}
+
+		# Define the root folder
+		$dictionary[$key]["root"] = $folder.$website_title."/";
+
+		# Create it
+		$Folder -> Create($dictionary[$key]["root"]);
+
+		# Define the "Icons" folder
+		$dictionary[$key]["Icons"] = [
+			"root" => $dictionary[$key]["root"]."Icons/"
 		];
 
-		if (in_array($website_title, $website["years"]) == True) {
-			array_push($dictionary["Custom folders"], "Pictures");
-			array_push($dictionary["Custom folders"], "Memories");
+		if ($dictionary["Custom folders"] != []) {
+			# Define other website image folders
+			foreach ($dictionary["Custom folders"] as $custom_folder) {
+				$dictionary[$key][$custom_folder] = [
+					"root" => $dictionary[$key]["root"].$custom_folder."/"
+				];
+
+				$Folder -> Create($dictionary[$key][$custom_folder]["root"]);
+			}	
 		}
-
-		$keys = array_keys($dictionary);
-		unset($keys[2]);
-		$keys = array_values($keys);
-
-		# Define each root folder
-		foreach ($keys as $key) {
-			# Local folder
-			$folder = $folders["Mega"]["Websites"]["Images"]["root"];
-
-			# Remote folder
-			if ($key == "Remote") {
-				$folder = $website["Folders"]["Images"]["root"];
-			}
-
-			if ($website["States"]["Website"]["Parent"] == True) {
-				$folder .= $website_dictionary["Parent"]["Folder name"]."/";
-			}
-
-			# Define the root folder
-			$dictionary[$key]["root"] = $folder.$website_title."/";
-
-			# Define the "Icons" folder
-			$dictionary[$key]["Icons"] = [
-				"root" => $dictionary[$key]["root"]."Icons/"
-			];
-
-			if ($dictionary["Custom folders"] != []) {
-				# Define other website image folders
-				foreach ($dictionary["Custom folders"] as $custom_folder) {
-					$dictionary[$key][$custom_folder] = [
-						"root" => $dictionary[$key]["root"].$custom_folder."/"
-					];
-
-					$Folder -> Create($dictionary[$key][$custom_folder]["root"]);
-				}	
-			}
-		}
-
-		# Define the website images dictionary as the local dictionary used above
-		$website_dictionary["Folders"]["Website"]["Images"] = $dictionary;
 	}
+
+	# Define the website images dictionary as the local dictionary used above
+	$website_dictionary["Folders"]["Website"]["Images"] = $dictionary;
 
 	# Define the "Texts" folder of the website
 	$website_dictionary["Folders"]["Website"]["Texts"] = [
@@ -342,59 +354,99 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	if ($website_dictionary["type"] == "Story") {
-		# Add story dictionary to website dictionary
-		$website_dictionary["story"] = $stories[$website_title];
+		# Add the Story dictionary to the Website dictionary
+		$website_dictionary["Story"] = $stories["Dictionary"][$website_title];
+
+		# Create a chapter image folder for each chapter of the story
+
+		# Define the chapter number
+		$chapter_number = $website_dictionary["Story"]["Information"]["Chapters"]["Numbers"]["Total"];
+
+		# Define the "i" number
+		$i = 1;
+
+		# Define the chapter images folders
+		$local_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["Chapters"]["root"];
+
+		$remote_folder = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["Chapters"]["root"];
+
+		# Make the while loop
+		while ($i <= $chapter_number) {
+			# Add one to the local chapter number and make it a string
+			$number = strval($i);
+
+			# Define the chapter folder (Example: "01")
+			$chapter_folder = strval(Text::Add_Leading_Zeroes($number))."/";
+
+			# Define the local and remote chapter folders
+			$local_chapter_folder = $local_folder.$chapter_folder;
+
+			$remote_chapter_folder = $remote_folder.$chapter_folder;
+
+			# Create the folder
+			$Folder -> Create($local_chapter_folder);
+
+			$website_dictionary["Folders"]["Website"]["Images"]["Local"]["Chapters"][$number] = [
+				"root" => $local_chapter_folder
+			];
+
+			$website_dictionary["Folders"]["Website"]["Images"]["Remote"]["Chapters"][$number] = [
+				"root" => $remote_chapter_folder
+			];
+
+			$i++;
+		}
 	}
 
 	if (isset($website_dictionary["JSON"]["story"]) == True) {
 		$key = $website_title;
 
-		# Add story dictionary to website dictionary
-		$folder = $folders["Mega"]["Notepad"][$key]["story"]["root"];
+		# Add the story dictionary to the website dictionary
+		$folder = $folders["Mega"]["Notepad"][$key]["Story"]["root"];
 
-		$creation_date_file = $folder."Creation date.txt";
-		$information_file = $folder."Information.json";
-		$readers_file = $folders["Mega"]["Notepad"][$key]["story"]["readers_and_reads"]["root"]."Readers.txt";
+		$creation_date_file = $folder.$website["Language texts (Module language)"]["creation_date"].".txt";
+		$story_file = $folder."Story.json";
+		$readers_file = $folders["Mega"]["Notepad"][$key]["Story"]["Readers"]["root"].$website["Language texts (Module language)"]["readers, title()"].".txt";
 		$titles_file = $folder."Titles.json";
 
-		$website_dictionary["story"] = [
+		$website_dictionary["Story"] = [
 			"Titles" => $JSON -> To_PHP($titles_file),
-			"Information" => $JSON -> To_PHP($information_file)
+			"Information" => $JSON -> To_PHP($story_file)
 		];
 
-		$website_dictionary["story"]["Information"]["Synopsis"] = [];
+		$website_dictionary["Story"]["Information"]["Synopsis"] = [];
 
 		foreach ($website["small_languages"] as $local_language) {
 			$local_full_language = $Language -> languages["full"][$local_language];
 
-			$file = $folders["Mega"]["Notepad"][$key]["story"]["synopsis"]["root"].$local_full_language.".txt";
+			$file = $folders["Mega"]["Notepad"][$key]["Story"]["Synopsis"]["root"].$local_full_language.".txt";
 
-			$website_dictionary["story"]["Information"]["Synopsis"][$local_language] = $File -> Contents($file, $add_br = False)["string"];
+			$website_dictionary["Story"]["Information"]["Synopsis"][$local_language] = $File -> Contents($file, $add_br = False)["string"];
 		}
 
-		$website_dictionary["story"]["Information"]["Creation date"] = $File -> Contents($creation_date_file)["lines"][0];
+		$website_dictionary["Story"]["Information"]["Creation date"] = $File -> Contents($creation_date_file)["lines"][0];
 
 		$contents = $File -> Contents($readers_file);
 
-		$website_dictionary["story"]["Information"]["Readers"] = [
+		$website_dictionary["Story"]["Information"]["Readers"] = [
 			"Number" => $contents["length"],
 			"List" => $contents["lines"]
 		];
 
-		$english_story_title = $website_dictionary["story"]["Titles"]["en"];
+		$english_story_title = $website_dictionary["Story"]["Titles"]["en"];
 
 		# Add the English Story title to the "List" array of the Stories dictionary
 		array_push($stories["List"], $english_story_title);
 
 		# Add each language story title to the specific language array of the Stories "titles" dictionary
 		foreach ($website["small_languages"] as $local_language) {
-			$language_story_title = $website_dictionary["story"]["Titles"][$local_language];
+			$language_story_title = $website_dictionary["Story"]["Titles"][$local_language];
 
 			array_push($stories["Titles"][$local_language], $language_story_title);
 		}
 
 		# Add each language story title to the "All" array of the Stories "titles" dictionary
-		foreach (array_values($website_dictionary["story"]["Titles"]) as $story_title) {
+		foreach (array_values($website_dictionary["Story"]["Titles"]) as $story_title) {
 			array_push($stories["Titles"]["All"], $story_title);
 		}
 	}
@@ -460,7 +512,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["links"]["language"] .= $language."/";
 	}
 
-	if ($parse != "/generate") {
+	if (
+		$website["States"]["Website"]["Generate"] == False and
+		$website["States"]["Website"]["Change website link"	] == True
+	) {
 		$new_link = $Text -> Format($website["Local URL"]["Code"]["Templates"]["With tab"], $website_dictionary["title"]);
 
 		$website_dictionary["links"]["language"] = explode("&tab=", $new_link)[0];
@@ -696,78 +751,104 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	# Define website image
 	$website_dictionary["image"] = [
-		"format" => ""
+		"format" => "png"
 	];	
 
-	if ($website_dictionary["type"] != "Story") {
-		# Define the website image link
-		$website_dictionary["image"]["link"] = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["Icons"]["root"];
+	# Define the website image link
+	$website_dictionary["image"]["link"] = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["Icons"]["root"];
 
-		if (
-			isset($website_dictionary["JSON"]["image"]) == True and
-			isset($website_dictionary["JSON"]["image"]["format"]) == True
-		) {
-			$website_dictionary["image"]["format"] = $website_dictionary["JSON"]["image"]["format"];
-		}
+	if (
+		isset($website_dictionary["JSON"]["image"]) == True and
+		isset($website_dictionary["JSON"]["image"]["format"]) == True
+	) {
+		$website_dictionary["image"]["format"] = $website_dictionary["JSON"]["image"]["format"];
+	}
 
+	# Define the remote image folder
+	$remote_folder = $website_dictionary["image"]["link"];
+
+	# Define the local image folder
+	$local_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["Icons"]["root"];
+
+	# Define the image folder for story websites
+	if (
+		$website_dictionary["type"] == "Story" or
+		isset($website_dictionary["JSON"]["story"])
+	) {
 		# Define the remote image folder
-		$remote_folder = $website_dictionary["image"]["link"];
+		$remote_folder = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["root"];
 
 		# Define the local image folder
-		$local_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["Icons"]["root"];
+		$local_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["root"];
+	}
 
-		# Replace remote folder with the local PHP images folder
-		# To test if the images appear correctly
-		if ($parse == "/") {
-			$php_folder = "Images/".$website_dictionary["title"]."/";
+	# Replace remote folder with the local PHP images folder
+	# To test if the images appear correctly
+	#if ($website["States"]["Website"]["Generate"] == False) {
+		$php_folder = "Images/".$website_dictionary["title"]."/";
 
-			$remote_folder = "/".$php_folder;
-			$local_folder = $folders["Mega"]["PHP"]["root"].$php_folder;
+		$remote_folder = "/".$php_folder;
+		$local_folder = $folders["Mega"]["PHP"]["root"].$php_folder;
 
+		if (
+			$website_dictionary["type"] == "Normal" and
+			isset($website_dictionary["JSON"]["story"]) == False
+		) {
 			$remote_folder .= "Icons/";
 			$local_folder .= "Icons/";
-
-			$website_dictionary["image"]["link"] = $remote_folder;
 		}
 
-		$verbose_text .= "Imagem:"."\n".
-		"\t"."Pasta local: local_folder"."\n".
-		"\t"."Pasta remota: remote_folder"."\n".
-		"\n".
-		"\t"."Formatos:"."\n";
+		$website_dictionary["image"]["link"] = $remote_folder;
+	#}
 
-		# Create the file names array (list)
-		$file_names = [
-			$website_title,
-			"Foto",
-			"Picture"
-		];
+	$verbose_text .= "Imagem:"."\n".
+	"\t"."Pasta local: local_folder"."\n".
+	"\t"."Pasta remota: remote_folder"."\n".
+	"\n".
+	"\t"."Formatos:"."\n";
 
-		if ($website["States"]["Website"]["Parent"] == True) {
-			array_push($file_names, $website_dictionary["Parent"]["Folder name"]."/".$website_title);
-		}
+	# Create the file names array (list)
+	$file_names = [
+		$website_title,
+		"Foto",
+		"Picture"
+	];
 
-		array_push($file_names, $Language -> languages["full"][$language]);
+	if ($website["States"]["Website"]["Parent"] == True) {
+		array_push($file_names, $website_dictionary["Parent"]["Folder name"]."/".$website_title);
+	}
 
-		$website_dictionary["image"]["File name"] = "png";
+	# Add the "Cover" file name to the file names list
+	if (
+		$website_dictionary["type"] == "Story" or
+		isset($website_dictionary["JSON"]["story"])
+	) {
+		array_push($file_names, "Cover");
+	}
 
-		foreach ($file_names as $file_name) {
-			foreach ($website["Image formats"] as $format) {
-				$local_image = $local_folder.$file_name.".".$format;
+	# Add the full user language to the file names list
+	array_push($file_names, $Language -> languages["full"][$language]);
 
+	$website_dictionary["image"]["File name"] = "png";
+
+	foreach ($file_names as $file_name) {
+		foreach ($website["Image formats"] as $format) {
+			$local_image = $local_folder.$file_name.".".$format;
+
+			if (str_contains($verbose_text, $format) == False) {
 				$verbose_text .= "\t\t".'"'.$format.'"'."\n";
+			}
 
-				if (file_exists($local_image) == True) {
-					$website_dictionary["image"]["format"] = $format;
-					$website_dictionary["image"]["File name"] = $file_name;
-				}
+			if (file_exists($local_image) == True) {
+				$website_dictionary["image"]["format"] = $format;
+				$website_dictionary["image"]["File name"] = $file_name;
 			}
 		}
-
-		$website_dictionary["image"]["link"] .= $website_dictionary["image"]["File name"];
-
-		$website_dictionary["image"]["link"] .= ".".$website_dictionary["image"]["format"];
 	}
+
+	$website_dictionary["image"]["link"] .= $website_dictionary["image"]["File name"];
+
+	$website_dictionary["image"]["link"] .= ".".$website_dictionary["image"]["format"];
 
 	if (isset($website_dictionary["JSON"]["image"]["width"]) == False) {
 		$website_dictionary["JSON"]["image"]["width"] = "";
@@ -778,46 +859,6 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["type"] == "Story" or
 		isset($website_dictionary["JSON"]["story"])
 	) {
-		# Check for the story cover in the root folder
-		if ($website_dictionary["type"] == "Story") {
-			$local_folder = $folders["Mega"]["Websites"]["Images"]["Story covers"]["root"].$website_title."/";
-			$remote_folder = $website["Folders"]["Images"]["Story covers"]["root"].$website_title."/";
-
-			$file_name = "Cover";
-		}
-
-		if (isset($website_dictionary["JSON"]["story"])) {
-			$local_folder = $folders["Mega"]["Websites"]["Images"]["Icons"]["root"];
-			$remote_folder = $website["Folders"]["Images"]["Icons"]["root"];
-
-			$file_name = $website_dictionary["titles"]["language"];
-		}
-
-		# If the format is empty
-		if ($website_dictionary["image"]["format"] == "") {
-			foreach ($website["Image formats"] as $format) {	
-				$local_image = $local_folder.$file_name.".".$format;
-				$local_image_per_language = $local_folder.$full_language."/".$file_name.".".$format;
-
-				if (
-					file_exists($local_image) or
-					file_exists($local_image_per_language)
-				) {
-					$website_dictionary["image"]["format"] = $format;
-				}
-			}
-		}
-
-		if (file_exists($local_folder.$file_name.".".$website_dictionary["image"]["format"]) == True) {
-			$website_dictionary["image"]["link"] = $remote_folder;
-		}
-
-		if (file_exists($local_folder.$file_name.".".$website_dictionary["image"]["format"]) == False) {
-			$website_dictionary["image"]["link"] = $remote_folder.$full_language."/";
-		}
-
-		$website_dictionary["image"]["link"] .= $file_name.".".$website_dictionary["image"]["format"];
-
 		$website_dictionary["JSON"]["image"]["width"] = "50";
 	}
 
@@ -955,7 +996,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		if (str_contains($website_dictionary["description"]["html"], "{author}") == True) {
-			$website_dictionary["description"]["html"] = str_replace("{author}", $website["author"], $website_dictionary["description"]["html"]);
+			$website_dictionary["description"]["html"] = str_replace("{author}", $website["Author"], $website_dictionary["description"]["html"]);
 		}
 
 		$descriptions["header"] = [];
@@ -971,8 +1012,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Replace the website author text with a painted version
 		$author_text = "{author}";
 
-		if (str_contains($website_dictionary["description"]["header"], $website["author"]) == True) {
-			$author_text = $website["author"];
+		if (str_contains($website_dictionary["description"]["header"], $website["Author"]) == True) {
+			$author_text = $website["Author"];
 		}
 
 		$website_dictionary["description"]["header"] = str_replace($author_text, $website["painted_author"], $website_dictionary["description"]["header"]);
@@ -1004,7 +1045,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		# Define synopsis
-		$synopsis = str_replace("\n", "<br />"."\n"."\t\t", $website_dictionary["story"]["Information"]["Synopsis"][$language]);
+		$synopsis = str_replace("\n", "<br />"."\n"."\t\t", $website_dictionary["Story"]["Information"]["Synopsis"][$language]);
 
 		# Define website header description for story websites
 		$website_dictionary["description"]["header"] = "\t\t".'<!-- Story website info, author(s), chapters, readers, creation date, status -->'."\n".
@@ -1016,10 +1057,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$text = $website["Language texts"]["story_author"];
 
 		if (
-			isset($website_dictionary["story"]["Information"]["Author"]) == True and
-			$website_dictionary["story"]["Information"]["Author"] != $website["author"]
+			isset($website_dictionary["Story"]["Information"]["Author"]) == True and
+			$website_dictionary["Story"]["Information"]["Author"] != $website["Author"]
 		) {
-			$authors_list = $website_dictionary["story"]["Information"]["Authors"];
+			$authors_list = $website_dictionary["Story"]["Information"]["Authors"];
 
 			$last_author = end($authors_list);
 
@@ -1062,10 +1103,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		else {
-			$author = $stories["Authors (painted)"][$website["author"]];
+			$author = $stories["Authors (painted)"][$website["Author"]];
 		}
 
-		$website_dictionary["story"]["Information"]["Author"] = $author;
+		$website_dictionary["Story"]["Information"]["Author"] = $author;
 
 		# Add the author
 		$website_dictionary["description"]["header"] .= "\t\t".$text.": ".$website["Icons"]["pen"]." ".$author."<br />"."\n";
@@ -1073,24 +1114,24 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Add the chapters text and number
 		$website_dictionary["description"]["header"] .= "\t\t".$website["Language texts"]["chapters, title()"].": ".$website["Icons"]["book"]." ";
 
-		$website_dictionary["description"]["header"] .= HTML::Element("span", $website_dictionary["story"]["Information"]["Chapters"]["Number"], "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
+		$website_dictionary["description"]["header"] .= HTML::Element("span", $website_dictionary["Story"]["Information"]["Chapters"]["Numbers"]["Total"], "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
 
 		# Add the readers if they exist
-		if ($website_dictionary["story"]["Information"]["Readers"]["List"][0] != $website["Texts"]["no_readers, en - pt"]) {
+		if ($website_dictionary["Story"]["Information"]["Readers"]["List"] != []) {
 			$website_dictionary["description"]["header"] .= "\t\t".$website["Language texts"]["readers, title()"].": ".$website["Icons"]["reader"]." ";
 
-			$website_dictionary["description"]["header"] .= HTML::Element("span", $website_dictionary["story"]["Information"]["Readers"]["Number"], "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
+			$website_dictionary["description"]["header"] .= HTML::Element("span", $website_dictionary["Story"]["Information"]["Readers"]["Number"], "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
 		}
 
 		# Add the story creation date
 		$website_dictionary["description"]["header"] .= "\t\t".$website["Language texts"]["story_creation_date"].": ".$website["Icons"]["calendar_days"]." ";
 
-		$date = Date::Now($website_dictionary["story"]["Information"]["Creation date"], $website["Texts"]["date_format"]["pt"])[$website["Language texts"]["date_format"]];
+		$date = Date::Now($website_dictionary["Story"]["Information"]["Creation date"], $website["Texts"]["date_format"]["pt"])[$website["Language texts"]["date_format"]];
 
 		$website_dictionary["description"]["header"] .= HTML::Element("span", $date, "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
 
 		# Add the status
-		$status_number = $website_dictionary["story"]["Information"]["Status"]["Number"];
+		$status_number = $website_dictionary["Story"]["Information"]["Status"]["Number"];
 		$status = $website["Language texts"]["writing_statuses, type: list"][$status_number];
 
 		$website_dictionary["description"]["header"] .= "\t\t".$website["Language texts"]["status, title()"].": ".$website["Icons"]["status_map"][$status_number]." ";
@@ -1101,8 +1142,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["titles"]["icon"] .= " ".$website["Icons"]["status_map"][$status_number];
 
 		# Add Wattpad link if it exists
-		if (isset($website_dictionary["story"]["Information"]["Wattpad"]["links"]) == True) {
-			$link = $website_dictionary["story"]["Information"]["Wattpad"]["links"][$language];
+		if (isset($website_dictionary["Story"]["Information"]["Wattpad"]["links"]) == True) {
+			$link = $website_dictionary["Story"]["Information"]["Wattpad"]["links"][$language];
 
 			$website_dictionary["description"]["header"] .= "<br />"."\n";
 			$website_dictionary["description"]["header"] .= "\t\t"."Wattpad: ";
@@ -1154,7 +1195,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	# Define story website color
 	if ($website_dictionary["type"] == "Story") {
-		$website_dictionary["color"] .= $website_dictionary["story"]["Information"]["HEX color"];
+		$website_dictionary["color"] .= $website_dictionary["Story"]["Information"]["HEX color"];
 	}
 
 	# Create website link button
@@ -1163,7 +1204,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define the link
 	$link = $website_dictionary["links"]["language"];
 
-	if ($parse != "/generate") {
+	if ($website["States"]["Website"]["Generate"] == False) {
 		$link = $Text -> Format($website["Local URL"]["Code"]["Templates"]["With tab"], $website_dictionary["title"]);
 	}
 
@@ -1200,16 +1241,16 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website["website_buttons"] .= $button."\n";
 	}
 
-	$website["dictionary"][$website_title] = $website_dictionary;
+	$website["Dictionary"][$website_title] = $website_dictionary;
 
 	# Replace spaces with underscores on website title and add the website dictionary
 	$website_title_replaced = str_replace(" ", "_", $website_title);
 
-	$website["dictionary"][$website_title_replaced] = $website_dictionary;
+	$website["Dictionary"][$website_title_replaced] = $website_dictionary;
 
 	$website_dictionary = "";
 
-	$i++;
+	$website_number++;
 }
 
 ?>

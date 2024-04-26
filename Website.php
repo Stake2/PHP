@@ -5,7 +5,7 @@
 require "Functions.php";
 
 $website = [
-	"author" => "Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
+	"Author" => "Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
 	"Twitter author" => "Stake2",
 	"format" => "https://{}.{}/"
 ];
@@ -16,7 +16,7 @@ foreach (array_keys($json) as $key) {
 	$website[$key] = $json[$key];
 }
 
-$website["painted_author"] = HTML::Element("span", $website["author"], "", "text_orange");
+$website["painted_author"] = HTML::Element("span", $website["Author"], "", "text_orange");
 
 $website["netlify_format"] = "https://{}.".$website["Netlify"]."/";
 
@@ -34,6 +34,9 @@ $website["Local URL"] = [
 
 $website["Local URL"]["Index"] = explode("?", $website["Local URL"]["Index"])[0];
 
+# Remove the "generate" text from the index URL
+$website["Local URL"]["Index"] = str_replace("generate", "", $website["Local URL"]["Index"]);
+
 # Define the local URL "Code" dictionary
 $website["Local URL"]["Code"] = [
 	"Link" => $website["Local URL"]["Index"],
@@ -47,9 +50,15 @@ $website["Local URL"]["Code"]["Templates"]["With language"] = $website["Local UR
 
 # Define the local URL "Generate" dictionary
 $website["Local URL"]["Generate"] = [
-	"Link" => $website["Local URL"]["Index"]."generate",
+	"Link" => $website["Local URL"]["Index"],
 	"Templates" => []
 ];
+
+# If the "generate" text is not already in the generate link
+if (str_contains($website["Local URL"]["Generate"]["Link"], "generate") == False) {
+	# Add it
+	$website["Local URL"]["Generate"]["Link"] .= "generate";
+}
 
 # Add URL templates
 $website["Local URL"]["Generate"]["Templates"]["Normal"] = $website["Local URL"]["Generate"]["Link"]."?website={}";
@@ -133,15 +142,16 @@ if (
 	isset($_GET["website"]) == True
 ) {
 	$website["method"] = $_GET;
+
 	$_SESSION["GET"] = $_GET;
 }
 
-# Define method on SESSION
+# Define the method on SESSION
 if (isset($website["method"]) == True) {
 	$_SESSION["method"] = $website["method"];
 }
 
-# Get method from SESSION
+# Get the method from SESSION
 if (
 	isset($website["method"]) == False and
 	isset($_SESSION["method"]) == True
@@ -149,16 +159,23 @@ if (
 	$website["method"] = $_SESSION["method"];
 }
 
-# Define method on SESSION
+# Define the method on SESSION
 if (isset($website["method"]) == True) {
 	$_SESSION["method"] = $website["method"];
 }
 
-if (isset($website["method"]["language"]) == False) {
+if (
+	isset($website["method"]["language"]) == False and
+	isset($_GET["language"]) == False
+) {
 	$website["method"]["language"] = "pt";
 }
 
-# Add keys and values of method to website array
+if (isset($_GET["language"]) == True) {
+	$website["method"]["language"] = $_GET["language"];
+}
+
+# Add the keys and values of the method to the website array
 if (isset($website["method"]) == True) {
 	foreach (array_keys($website["method"]) as $key) {
 		$website[$key] = $website["method"][$key];
@@ -190,15 +207,25 @@ $website["States"] = [
 		"Entry tabs" => True
 	],
 	"Website" => [
-		"Parent" => False
+		"Parent" => False,
+		"Generate" => False,
+		"Change website link" => True
 	],
 	"Story" => [
 		"Write" => False
 	]
 ];
 
+# Define the "parse" with the URI path
+$parse = parse_url($_SERVER["REQUEST_URI"])["path"];
+
+# Define the "Generate" state as True if the "parse" path is "/generate"
+if ($parse == "/generate") {
+	$website["States"]["Website"]["Generate"] = True;
+}
+
 # Define the stories array
-$stories = $JSON -> To_PHP($folders["Mega"]["Stories"]["Database"]["Stories"]);
+$stories = $JSON -> To_PHP($folders["Mega"]["Stories"]["Stories"]);
 
 # Define the story painted authors
 $stories["Authors (painted)"] = [];
@@ -210,7 +237,7 @@ $colors = [
 ];
 
 $i = 0;
-foreach ($stories["Authors"] as $author) {
+foreach ($stories["Authors"]["List"] as $author) {
 	$color = $colors[$i];
 
 	$stories["Authors (painted)"][$author] = HTML::Element("span", $author, "", $color);
@@ -223,7 +250,7 @@ $websites = $JSON -> To_PHP($folders["PHP"]["Websites"]["Websites"]);
 
 # Add story titles of each language into each language website list
 $keys = array_keys($stories["Titles"]);
-$keys = array_diff($keys, ["All"]);
+$keys = array_diff($keys, ["Language", "All"]);
 
 foreach ($keys as $language) {
 	$story_titles = $stories["Titles"][$language];
@@ -274,7 +301,7 @@ $website["Style"] = [
 ];
 
 # Create an array on the "dictionary" key of the website array to contain all of the information about a specific website
-$website["dictionary"] = [];
+$website["Dictionary"] = [];
 $website["website_buttons"] = "";
 
 $language = "pt";
@@ -286,7 +313,16 @@ if (isset($website["language"]) == True) {
 # Add the websites and website data to the "website" dictionary
 require $folders["PHP"]["Make website dictionary"];
 
-$website["Style"] = array_merge($website["Style"], $website["dictionary"][$website["website"]]["Style"]);
+# Create the "Year buttons" list
+$website["Year buttons"] = [];
+
+foreach ($website["years"] as $year) {
+	$year_button = $website["Dictionary"][$year]["button"];
+
+	array_push($website["Year buttons"], $year_button);
+}
+
+$website["Style"] = array_merge($website["Style"], $website["Dictionary"][$website["website"]]["Style"]);
 
 $language = "pt";
 
@@ -438,11 +474,11 @@ foreach ($file_names as $file_name) {
 }
 
 # Define default website data
-$website["Data"] = $website["dictionary"]["The Life of Littletato"];
+$website["Data"] = $website["Dictionary"]["The Life of Littletato"];
 
 # Define website data for the selected website
 if (array_key_exists("website", $website) == True) {
-	$website["Data"] = $website["dictionary"][$website["website"]];
+	$website["Data"] = $website["Dictionary"][$website["website"]];
 }
 
 $GLOBALS["link_class"] = $website["Data"]["Style"]["text_highlight"]." ".$website["Data"]["Style"]["text_hover"];
@@ -587,6 +623,8 @@ if ($language == "general") {
 
 $full_language = $Language -> languages["full"][$language];
 
+# Define the empty lists and dictionaries
+$website["Additional buttons"] = [];
 $website["tabs"]["templates"] = [];
 
 # Create website image button if website data exists
@@ -638,14 +676,20 @@ if (
 	$website["Data"]["type"] == "Story" or
 	isset($website["Data"]["JSON"]["story"])
 ) {
-	$story = $website["Data"]["story"];
+	$story = $website["Data"]["Story"];
 
 	if (
-		$parse != "/generate" and
+		$website["States"]["Website"]["Generate"] == False and
 		isset($_GET["write"]) and
 		$_GET["write"] == True
 	) {
 		$website["States"]["Story"]["Write"] = True;
+	}
+
+	$website["unselectable_chapter_text"] = "unselectable ";
+
+	if ($website["States"]["Website"]["Generate"] == False) {
+		$website["unselectable_chapter_text"] = "";
 	}
 
 	# Require the "Story.php" file to define story website variables
@@ -676,7 +720,10 @@ foreach ($website["tabs"]["array"]["List"] as $tab) {
 	}
 }
 
-if (array_key_exists("additional_tabs", $website) == True and $website["additional_tabs"]["data"] != []) {
+if (
+	isset($website["additional_tabs"]) and
+	$website["additional_tabs"]["data"] != []
+) {
 	# Create website tabs
 	$tabs = HTML::Generate_Tabs($website["additional_tabs"], $buttons = True, $all_buttons = True);
 
@@ -693,22 +740,57 @@ if (array_key_exists("additional_tabs", $website) == True and $website["addition
 }
 
 # Add chapter tabs and chapter number variable to website content
-if ($website["Data"]["type"] == "Story" or isset($website["Data"]["JSON"]["story"])) {
+if (
+	$website["Data"]["type"] == "Story" or
+	isset($website["Data"]["JSON"]["story"])
+) {
 	$website["content"] .= $story["chapters"]."\n\n";
 
 	$website["content"] .= "<script>"."\n".
-	"\t"."var last_chapter = ".$story["Information"]["Chapters"]["Number"]."\n".
+	"\t"."var last_chapter = ".$story["Information"]["Chapters"]["Numbers"]["Total"]."\n".
 	"</script>";
+
+	if ($website["States"]["Story"]["Write"] == True) {
+		# Create the write button
+		$website["Write button"] = "\t".'<!-- Go to the "Write chapter" text area -->'."\n".
+		'<div style="float: right;">'."\n".
+		"\t".HTML::Button($website["Language texts"]["write, title()"].": ".$website["Icons"]["pen"], ' id="write_button" onclick="Jump_To_Write_Section()" style="position: fixed; right: 0;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"])."\n".
+		"</div>";
+
+		# Add the "Jump_To_Write_Section" function
+		$website["content"] .= '<script>
+function Jump_To_Write_Section() {
+	// Get the chapter write anchor element
+	chapter_write_anchor_id = "chapter_" + chapter_number + "_write_anchor"
+	chapter_write_element = document.getElementById(chapter_write_anchor_id)
+	chapter_write_element.scrollIntoView()
+}
+
+// Remove the previous event listener
+window.removeEventListener("scroll", scroll_function)
+
+// Make the list of element ids
+var list = [
+	"hamburger_menu_button",
+	"write_button"
+]
+
+// Add the event listener
+window.addEventListener("scroll", function(event) {
+	Check_Page_Scrolling(event, list)
+})
+</script>';
+	}
 }
 
 # Add form if the request is not "generate"
-if ($parse != "/generate") {
+if ($website["States"]["Website"]["Generate"] == False) {
 	$website["content"] .= "\n\n".
 	"<br />"."<br />"."\n\n".
 	$website["form"];
 }
 
-if ($parse != "/generate") {
+if ($website["States"]["Website"]["Generate"] == False) {
 	$website["content"] .= '<script>
 // Get the URL parameters
 parameters = Object.fromEntries(  

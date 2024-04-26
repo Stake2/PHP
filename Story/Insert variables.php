@@ -5,6 +5,7 @@
 function Create_Chapter_Link_And_Button($numbers, $website_title) {
 	global $website;
 	global $language;
+	global $parse;
 
 	# Define chapter links
 	$number_names = [
@@ -21,22 +22,38 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 
 		$number_name = $number_names[$number];
 
-		$website_data = $website["dictionary"][$website_title];
+		$website_data = $website["Dictionary"][$website_title];
 
 		$title = $website_data["titles"]["language"];
 
 		$text = $website["Language texts"][$number_name];
 
 		$link = $website_data["links"]["element"];
-		$link = str_replace($language."/", $language."/?chapter=".$number."#", $link);
 		$link = str_replace('"'.$title.'"', $text, $link);
+
+		if ($website["States"]["Website"]["Generate"] == False) {
+			$link = str_replace($website_title, $website_title."&chapter=".$number."#", $link);
+		}
+
+		if ($website["States"]["Website"]["Generate"] == True) {
+			$link = str_replace($language."/", $language."/?chapter=".$number."#", $link);
+		}
 
 		$website["Variable_Inserter"][$key]["chapter_".$number] = $link;
 
-		$chapter_title = $website_data["story"]["Information"]["Chapters"]["Titles"][$language][$number - 1];
+		$chapter_title = $website_data["Story"]["Information"]["Chapters"]["Titles"][$language][$number - 1];
 
 		$link = $website_data["links"]["language"];
-		$link .= "?chapter=".$number."#";
+
+		if ($website["States"]["Website"]["Generate"] == False) {
+			$link .= "&";
+		}
+
+		if ($website["States"]["Website"]["Generate"] == True) {
+			$link .= "?";
+		}
+
+		$link .= "chapter=".$number."#";
 
 		$website["Variable_Inserter"][$key]["chapter_".$number."_button"] = '<div style="padding-top: 1%;">'."\n".
 		HTML::Element("a", "\n\t".$title." - ".$website["Language texts"]["chapter, title()"].": ".$number." - ".$chapter_title."\n\t", 'href="'.$link.'" target="_blank" style="max-width: 50%; font-weight: bold;"', "w3-btn ".$website_data["Style"]["button"]["theme"]["light"]." animation_shake_side")."\n".
@@ -80,7 +97,8 @@ $songs = [
 		"embed" => True
 	],
 	"Tom_&_Jerry_-_The_Wedding's_Off" => [
-		"id" => "SCxnA10GOMA"
+		"id" => "SCxnA10GOMA",
+		"embed" => True
 	],
 	"Among_Us_Trap_Remix_By_Leonz" => [
 		"text" => [
@@ -152,23 +170,65 @@ foreach (array_keys($songs) as $key) {
 	}
 }
 
-# Define "The Life of Littletato" key of Variable Inserter array
-$website["Variable_Inserter"]["The_Life_of_Littletato"] = [
-	"images" => []
-];
-
 # Define "The Life of Littletato" images
-$links = [
-	"Not_Littletato" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Not Littletato.jpg",
-
-	"Littletato" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Littletato.jpg",
-
-	"Mansion_of_Littletato_and_Friends" => $website["Data"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Mansion of Littletato and Friends.png"
+$website["Variable_Inserter"]["The_Life_of_Littletato"]["Images"] = [
+	"Chapters" => []
 ];
 
-foreach (array_keys($links) as $key) {
-	$website["Variable_Inserter"]["The_Life_of_Littletato"]["images"][$key] = "<br />".HTML::Element("img", "", 'src="'.$links[$key].'" style="max-width: 50%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
+# Define the chapter number
+$chapter_number = $stories["Dictionary"]["The Life of Littletato"]["Information"]["Chapters"]["Numbers"]["Total"];
+
+# Define some local variables
+$i = 1;
+$dictionary = [];
+
+# Make the while loop
+while ($i <= $chapter_number) {
+	# Add one to the local chapter number and make it a string
+	$number = strval($i);
+
+	# Create the chapter dictionary
+	$dictionary[$number] = [];
+
+	# Get the chapter folder
+	$folder = $website["Dictionary"]["The Life of Littletato"]["Folders"]["Website"]["Images"]["Local"]["Chapters"][$number]["root"];
+
+	# Add the "Images" sub-folder
+	$folder .= "Images/";
+
+	# If the "Images" sub-folder exist
+	if ($Folder -> Exist($folder)) {
+		# List the images inside the chapter "Images" folder
+		$items = $Folder -> Contents($folder)["File"]["Dictionary"];
+
+		# Add each image with its key
+		foreach (array_values($items) as $file) {
+			$key = str_replace(" ", "_", $file["Name"]);
+
+			$replace = $website["Dictionary"]["The Life of Littletato"]["Folders"]["Website"]["Images"]["Local"]["Chapters"]["root"];
+
+			$with = $website["Dictionary"]["The Life of Littletato"]["Folders"]["Website"]["Images"]["Remote"]["Chapters"]["root"];
+
+			# Replace remote folder with the local PHP images folder
+			# To test if the images appear correctly
+			if ($website["States"]["Website"]["Generate"] == False) {
+				$php_folder = "/Images/".$website["Dictionary"]["The Life of Littletato"]["title"]."/Chapters/";
+
+				$with = $php_folder;
+			}
+
+			$file["Path"] = str_replace($replace, $with, $file["Path"]);
+
+			$image = "<br />".HTML::Element("img", "", 'src="'.$file["Path"].'" style="max-width: 50%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
+
+			$dictionary[$number][$key] = $image;
+		}	
+	}
+
+	$i++;
 }
+
+$website["Variable_Inserter"]["The_Life_of_Littletato"]["Images"]["Chapters"] = $dictionary;
 
 # Define "The Life of Littletato" songs
 $songs = [
@@ -235,19 +295,19 @@ Create_Chapter_Link_And_Button($numbers, "SpaceLiving");
 
 # Define the "SpaceLiving" images
 $links = [
-	"Lisa" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Lisa.jpg".'"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"],
+	"Lisa" => $website["Dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Lisa.jpg".'"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"],
 
-	"LonelyShip_Story_Cover" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."LonelyShip Story Cover.png",
+	"LonelyShip_Story_Cover" => $website["Dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."LonelyShip Story Cover.png",
 
-	"LonelyShip_Story_Cover_Front_Signboards" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."LonelyShip Story Cover Front Signboards.png",
+	"LonelyShip_Story_Cover_Front_Signboards" => $website["Dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."LonelyShip Story Cover Front Signboards.png",
 
-	"Audacity_Blue_Bass_Waveform" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Audacity Blue Bass Waveform.png",
+	"Audacity_Blue_Bass_Waveform" => $website["Dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Audacity Blue Bass Waveform.png",
 
-	"Original_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Orignal Sharks - FROG PARTY Song Cover.jpg",
+	"Original_Sharks_-_FROG_PARTY_Song_Cover" => $website["Dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Orignal Sharks - FROG PARTY Song Cover.jpg",
 
-	"Funky_Black_Cat_Original_Profile_Picture" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Funky Black Cat Original Profile Picture.png",
+	"Funky_Black_Cat_Original_Profile_Picture" => $website["Dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Funky Black Cat Original Profile Picture.png",
 
-	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg"
+	"Edited_Sharks_-_FROG_PARTY_Song_Cover" => $website["Dictionary"]["SpaceLiving"]["Folders"]["Website"]["Website images"]["Images"]["root"]."Edited Sharks - FROG PARTY Song Cover.jpg"
 ];
 
 foreach (array_keys($links) as $key) {
@@ -386,7 +446,5 @@ $website["Variable_Inserter"]["my_little_pony_fim_wikipedia_title"] = HTML::Elem
 $website["Variable_Inserter"]["my_little_pony_fim_wikipedia_link"] = HTML::Element("a", '"'.$website["Language texts"]["my_little_pony_friendship_is_magic"].'" '.$website["Language texts"]["on_wikipedia"], 'href="'.$link.'" target="_blank"');
 
 $variable_inserter = $website["Variable_Inserter"];
-
-#Text::Show_Variable(array_keys($variable_inserter));
 
 ?>

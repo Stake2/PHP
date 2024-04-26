@@ -198,7 +198,7 @@ class Text extends Class_ {
 		}
 
 		if ($number > 9) {
-			return $number;
+			return (string)$number;
 		}
 	}
 

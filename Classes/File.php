@@ -92,30 +92,31 @@ class File extends Class_ {
 				array_push($contents["lines"], $this -> Replace_Text($line));
 			}
 
-			if ($contents["lines"][0] == "") {
-				$contents["lines"] = [];
-			}
-
-			else {
-				$i = 0;
-				foreach ($contents["lines"] as $line) {
-					$contents["string"] .= $line;
-				
-					if ($i != $contents["length"] - 1) {
-						if ($add_br == True) {
-							$contents["string"] .= "<br />";
-						}
-
-						if ($add_n == True) {
-							$contents["string"] .= "\n";
-						}
+			$i = 0;
+			foreach ($contents["lines"] as $line) {
+				$contents["string"] .= $line;
+			
+				if ($i != $contents["length"] - 1) {
+					if ($add_br == True) {
+						$contents["string"] .= "<br />";
 					}
-				
-					$i++;
+
+					if ($add_n == True) {
+						$contents["string"] .= "\n";
+					}
 				}
+			
+				$i++;
 			}
 
 			fclose($read);
+		}
+
+		if (
+			array_keys($contents["lines"]) == [0] and
+			array_values($contents["lines"]) == [""]
+		) {
+			$contents["lines"] = [];
 		}
 
 		return $contents;

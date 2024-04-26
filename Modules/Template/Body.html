@@ -1,6 +1,7 @@
 <body class="{$website['Style']['body']}" {$website["javascript"]["class_attributes"]["body"]}{$website['Style']['background_image']}>
 <center>
 {$website["buttons"]}
+{if="isset($website['Write button'])"}{$website['Write button']}{/if}
 
 <!-- Website header -->
 <div id="header" class="w3-animate-zoom {$website['Data']['Style']['tab']['theme_dark']} {$website['Data']['Style']['box_shadow_class']} header_size" style="height: auto; border-radius: 50px; border-style: solid; border-width: 4px!important;">

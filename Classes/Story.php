@@ -73,7 +73,7 @@ class Story extends Class_ {
 		global $chapter_tab;
 
 		if (isset($website["Data"]["JSON"]["story"]) == False) {
-			$root_variables_folder = $story["Folders"]["Chapters"]["root"].$website["Texts"]["variables, title()"]["en"]."/";
+			$root_variables_folder = $story["Folders"]["Chapters"]["root"].$website["Language texts"]["variables, title()"]."/";
 			$Folder -> Create($root_variables_folder);
 
 			$root_variables_file = $root_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
@@ -84,7 +84,7 @@ class Story extends Class_ {
 			$language_variables_file = $language_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
 		}
 
-		# Define chapter file
+		# Define the chapter file
 		$chapter_file = $story["Folders"]["Chapters"][$full_language]["root"].$chapter_tab["chapter_title_file"].".txt";
 
 		$chapter_contents = $File -> Contents($chapter_file, $add_br = False);
@@ -160,26 +160,48 @@ class Story extends Class_ {
 		global $chapter_tab;
 		global $i;
 		global $parse;
+		global $folders;
 
 		$local_chapter_cover = "";
 
 		if (
-			isset($website["Data"]["Folders"]["Local website"]["Images"]["Story covers"]) and
-			$parse == "/generate"
+			$website["States"]["Website"]["Generate"] == False or
+			isset($_GET["show_chapter_covers"]) == True
 		) {
-			$chapter_cover_file_name = $full_language."/".Text::Chapter_Cover_Folder($i)."/".Text::Add_Leading_Zeroes($i);
+			$chapter_cover_file_name = $full_language;
 
 			$image_format = "";
 
+			# Define the local and remote folderes
+			$local_chapter_folder = $website["Data"]["Folders"]["Website"]["Images"]["Local"]["Chapters"]["root"];
+			$remote_chapter_folder = $website["Data"]["Folders"]["Website"]["Images"]["Remote"]["Chapters"]["root"];
+
+			# Define the chapter folder
+			$chapter_folder = Text::Add_Leading_Zeroes($i)."/";
+
+			# Add the chapter folder to the local and remote cover image Folders
+			$local_chapter_folder .= $chapter_folder;
+			$remote_chapter_folder .= $chapter_folder;
+
 			foreach ($website["Image formats"] as $format) {
-				$local_chapter_cover = $website["Data"]["Folders"]["Local website"]["Images"]["Story covers"]["root"].$chapter_cover_file_name.".".$format;
+				$local_chapter_cover = $local_chapter_folder.$chapter_cover_file_name.".".$format;
 
 				if (file_exists($local_chapter_cover) == True) {
 					$image_format = $format;
 				}
 			}
 
-			$remote_chapter_cover = $website["Data"]["Folders"]["Website"]["Website images"]["Story covers"]["root"].$chapter_cover_file_name.".".$image_format;
+			# Replace remote folder with the local PHP images folder
+			# To test if the images appear correctly
+			if ($website["States"]["Website"]["Generate"] == False) {
+				$php_folder = "Images/".$website["Data"]["title"]."/";
+
+				$remote_folder = "/".$php_folder;
+
+				$remote_chapter_folder = str_replace($website["Data"]["Folders"]["Website"]["Images"]["Remote"]["root"], $remote_folder, $remote_chapter_folder);
+			}
+
+			$remote_chapter_cover = $remote_chapter_folder.$chapter_cover_file_name.".".$image_format;
 		}
 
 		else {
@@ -311,7 +333,7 @@ class Story extends Class_ {
 		$readers = $File -> Contents($reader_file)["lines"];
 
 		# Define read date file
-		$read_date_file = $reads_folder."Read date.txt";
+		$read_date_file = $reads_folder."Date.txt";
 		$read_dates = $File -> Contents($read_date_file)["lines"];
 
 		$text = HTML::Element("b", $website["Language texts"]["read, title()"].": ", "", "margin_top_bottom_2_cent");
@@ -481,6 +503,7 @@ class Story extends Class_ {
 			"id" => "chapter_".$i,
 			"chapter_title" => $i." - ".$chapter_title,
 			"chapter_title_file" => Text::Add_Leading_Zeroes($i)." - ".$Folder -> Sanitize($chapter_title),
+			"painted_chapter_title" => $painted_chapter_title,
 			"you_are_reading" => Text::Format($website["Language texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
 			"you_read" => Text::Format($website["Language texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
 			"class" => $website["Style"]["tab"]["theme_dark"],
@@ -590,7 +613,10 @@ class Story extends Class_ {
 
 			$style = "width: 100%; height: 800px; border: none; overflow-y: hidden; resize: none;";
 
-			$h2 = HTML::Element("h2", "<p><br /><b>".$website["Language texts"]["write, title()"].":"."</b><br /><br /><p>", "", $chapter_tab["chapter_text_color"])."\n";
+			$write_text = "<p><br /><b>".$website["Language texts"]["write, title()"].": ".$website["Icons"]["pen"]."<br />".
+			$chapter_tab["chapter_title"]."</b><br /><br /><p>";
+
+			$h2 = HTML::Element("h2", $write_text, "", $chapter_tab["chapter_text_color"])."\n";
 
 			$title = "<center>".$h2."</center>";
 
@@ -639,11 +665,15 @@ class Story extends Class_ {
 			$chapter_tab["comment"] = str_replace("button", "buttons", $chapter_tab["comment"]);
 		}
 
-		$comments_folder = $story["Folders"]["Comments"]["Chapter"].$chapter_tab["number_leading_zeroes"]."/";
-		$reads_folder = $story["Folders"]["Readers and Reads"]["Reads"].$chapter_tab["number_leading_zeroes"]."/";
+		$comments_folder = $story["Folders"]["Comments"]["root"].$chapter_tab["number_leading_zeroes"]."/";
+		$reads_folder = $story["Folders"]["Readers"]["Reads"]["root"].$chapter_tab["number_leading_zeroes"]."/";
 
-		if (file_exists($comments_folder) == True or file_exists($reads_folder) == True) {
+		if (
+			file_exists($comments_folder) == True or
+			file_exists($reads_folder) == True
+		) {
 			$chapter_tab["additional_elements"] = $website["elements"]["hr_1px"]["theme"]["dark"];
+
 			$width = "37";
 			$margin = "10";
 		}
@@ -668,7 +698,10 @@ class Story extends Class_ {
 			$chapter_tab["additional_elements"] .= $reads;
 		}
 
-		if (file_exists($comments_folder) == True and file_exists($reads_folder) == True) {
+		if (
+			file_exists($comments_folder) == True and
+			file_exists($reads_folder) == True
+		) {
 			if (count($commentators) <= 1) {
 				$chapter_tab["padding"] = "50vh";
 			}

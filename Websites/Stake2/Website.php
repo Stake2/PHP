@@ -85,7 +85,7 @@ foreach ($identities as $identity) {
 
 	# Replace remote folder with the local PHP images folder
 	# To test if the images appear correctly
-	if ($parse == "/") {
+	if ($website["States"]["Website"]["Generate"] == False) {
 		$php_folder = "Images/".$website["Data"]["title"]."/";
 
 		$remote_folder = "/".$php_folder;

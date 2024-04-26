@@ -27,7 +27,7 @@ if (in_array($website["Data"]["title"], $website["years"]) == True) {
 
 # Define the generators folder
 $website["Data"]["Folders"]["Generators"] = [
-	"root" => $website["dictionary"]["Years"]["Folders"]["PHP"]["root"]."Generators/"
+	"root" => $website["Dictionary"]["Years"]["Folders"]["PHP"]["root"]."Generators/"
 ];
 
 # Define the website files
@@ -80,15 +80,15 @@ foreach ($names as $item) {
 	$local_folder = $website["Data"]["Folders"]["Generators"]["root"];
 
 	if ($item == "Watched") {
-		$local_folder = $website["dictionary"]["Watch History"]["Folders"]["PHP"]["Generators"]["root"];
+		$local_folder = $website["Dictionary"]["Watch History"]["Folders"]["PHP"]["Generators"]["root"];
 	}
 
 	if ($item == "Played") {
-		$local_folder = $website["dictionary"]["Play History"]["Folders"]["PHP"]["Generators"]["root"];
+		$local_folder = $website["Dictionary"]["Play History"]["Folders"]["PHP"]["Generators"]["root"];
 	}
 
 	if ($item == "Tasks") {
-		$local_folder = $website["dictionary"]["Tasks"]["Folders"]["PHP"]["Generators"]["root"];
+		$local_folder = $website["Dictionary"]["Tasks"]["Folders"]["PHP"]["Generators"]["root"];
 	}
 
 	$website["Data"]["Files"]["Generators"][$key] = $local_folder.$item.".php";
@@ -110,12 +110,11 @@ if (
 	$website["Data"]["title"] == "Years" or
 	in_array($website["Data"]["title"], $website["years"])
 ) {
+	# Create the year buttons string
 	$year_buttons = "";
 
-	foreach ($website["years"] as $year) {
-		$year_button = $website["dictionary"][$year]["button"];
-
-		$year_buttons .= $year_button."\n";
+	foreach ($website["Year buttons"] as $button) {
+		$year_buttons .= $button."\n";
 	}
 
 	# Add tab keys and templates

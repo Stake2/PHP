@@ -100,15 +100,29 @@ class Language extends Class_ {
 		$this -> language_texts = $website["Language texts"];
 
 		$website["language_icon"] = $website["Language texts"]["language_icon"];
+
+		# Define the website "Languages" dictionary
+		$website["Languages"] = [
+			"Small" => $website["language"],
+			"Full" => $website["full_language"],
+			"Module" => $this -> settings["Language"]
+		];
+
+		# Define the language texts but with the module language
+		$website["Language texts (Module language)"] = self::Item($website["Texts"], $website["Languages"]["Module"]);
 	}
 
-	public static function Item($item) {
+	public static function Item($item, $parameter_language = "") {
 		global $website;
 
 		$language = $website["language"];
 
 		if ($website["language"] == "general") {
 			$language = "en";
+		}
+
+		if ($parameter_language != "") {
+			$language = $parameter_language;
 		}
 
 		if (

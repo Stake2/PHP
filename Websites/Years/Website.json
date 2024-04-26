@@ -12,5 +12,15 @@
 		},
 		"text_highlight": "light_green"
 	},
-	"color": "73FF78"
+	"color": "73FF78",
+	"image": {
+		"width": "30"
+	},
+	"tabs": {
+		"data": {
+			"Years": {
+				"template": "Years"
+			}
+		}
+	}
 }

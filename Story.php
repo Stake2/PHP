@@ -51,11 +51,11 @@ foreach ($keys as $key) {
 # "Modals.php", to generate the modals for the chapter comments and reads
 # "Story cards.php", to generate the story cards used in the "Stories" tab
 
-# Define tab templates for story websites
+# Define the tab templates for story websites
 $website["tabs"]["templates"] = [
 	"read_story" => [
 		"name" => $website["Language texts"]["read_story"],
-		"title" => $website["Language texts"]["chapters_in_[language]"].": ".$website["Language texts"]["language_icon"]." ".HTML::Element("span", $story["Information"]["Chapters"]["Number"], "", $website["Style"]["text"]["theme"]["dark"]),
+		"title" => $website["Language texts"]["chapters_in_[language]"].": ".$website["Language texts"]["language_icon"]." ".HTML::Element("span", $story["Information"]["Chapters"]["Numbers"]["Total"], "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $story["chapter_buttons"],
 		"icon" => "open_book"
 	],
@@ -67,10 +67,16 @@ $website["tabs"]["templates"] = [
 	],
 	"other_stories" => [
 		"name" => $website["Language texts"]["other_stories"],
-		"add" => " ".HTML::Element("span", ($stories["Number"]), "", $website["Style"]["text"]["theme"]["dark"]),
+		"add" => " ".HTML::Element("span", ($stories["Numbers"]["Total"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $website["story_cards"],
 		"icon" => "book"
 	]
 ];
+
+# If the number of readers is zero, remove the "Readers" tab
+if ($story["Information"]["Readers"]["Number"] == 0) {
+	unset($website["tabs"]["data"]["readers"]);
+	unset($website["tabs"]["templates"]["readers"]);
+}
 
 ?>

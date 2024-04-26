@@ -115,9 +115,11 @@ foreach ($names as $item) {
 	$key = $item;
 
 	if ($item == "Notepad") {
-		$key = "Notepad";
-
 		$item = "Bloco De Notas";
+	}
+
+	if ($item == "Stories") {
+		$item = "Histórias";
 	}
 
 	$folders["Mega"][$key] = [
@@ -125,7 +127,7 @@ foreach ($names as $item) {
 	];
 }
 
-# "Notepad/Effort" folders
+# "Notepad" folders
 $names = [
 	"Diary" => "Diário",
 	"Diary Slim" => "Diário Slim",
@@ -169,21 +171,14 @@ foreach ($years_list as $year) {
 	];
 }
 
-$names = [];
-
-foreach ($years_list as $year) {
-	$year = (string)$year;
-
-	array_push($names, $year);
-}
-
-array_push($names, "Database");
-array_push($names, "Story");
+$names = [
+	"Story" => "História"
+];
 
 foreach ($diaries as $diary) {
 	# "Diary (Slim)/Year" folders
-	foreach ($names as $item) {
-		$key = str_replace(" ", "_", strtolower($item));
+	foreach (array_keys($names) as $key) {
+		$item = $names[$key];
 
 		$folders["Mega"]["Notepad"][$diary][$key] = [
 			"root" => $folders["Mega"]["Notepad"][$diary]["root"].$item."/"
@@ -192,16 +187,16 @@ foreach ($diaries as $diary) {
 
 	# "Diary (Slim)/Story" folders
 	$sub_files = [
-		"Synopsis",
-		"Comments",
-		"Readers and Reads"
+		"Synopsis" => "Sinopse",
+		"Comments" => "Comentários",
+		"Readers" => "Leitores"
 	];
 
-	foreach ($sub_files as $item) {
-		$key = str_replace(" ", "_", strtolower($item));
+	foreach (array_keys($sub_files) as $key) {
+		$item = $sub_files[$key];
 
-		$folders["Mega"]["Notepad"][$diary]["story"][$key] = [
-			"root" => $folders["Mega"]["Notepad"][$diary]["story"]["root"].$item."/"
+		$folders["Mega"]["Notepad"][$diary]["Story"][$key] = [
+			"root" => $folders["Mega"]["Notepad"][$diary]["Story"]["root"].$item."/"
 		];
 	}
 }
@@ -544,13 +539,8 @@ foreach ($names as $item) {
 	$folders["Mega"]["PHP"][$item] = $folders["Mega"]["PHP"]["root"].$item.".php";
 }
 
-# Mega Stories folders
-$folders["Mega"]["Stories"]["Database"] = [
-	"root" => $folders["Mega"]["Stories"]["root"]."Database/"
-];
-
-# Mega Stories Database Stories JSON file
-$folders["Mega"]["Stories"]["Database"]["Stories"] = $folders["Mega"]["Stories"]["Database"]["root"]."Stories.json";
+# "Mega/Stories" "Stories.json" file
+$folders["Mega"]["Stories"]["Stories"] = $folders["Mega"]["Stories"]["root"]."Stories.json";
 
 # Mega Websites folders
 $names = [

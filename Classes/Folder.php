@@ -154,7 +154,7 @@ class Folder extends Class_ {
 				$key = (string)explode(".", $key)[0];
 
 				$contents[$item]["Dictionary"][$key] = [
-					"Name" => $contents[$item]["Names"][$i],
+					"Name" => $key,
 					"Title" => $contents[$item]["Names"][$i],
 					"Extension" => $contents[$item]["Extensions"][$key],
 					"Path" => $contents[$item]["List"][$i],

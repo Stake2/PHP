@@ -1,6 +1,7 @@
 <?php if(!class_exists('TPL')){exit;}?><body class="<?php echo $website['Style']['body']; ?>" <?php echo $website["javascript"]["class_attributes"]["body"]; ?><?php echo $website['Style']['background_image']; ?>>
 <center>
 <?php echo $website["buttons"]; ?>
+<?php if( isset($website['Write button']) ){ ?><?php echo $website['Write button']; ?><?php } ?>
 
 <!-- Website header -->
 <div id="header" class="w3-animate-zoom <?php echo $website['Data']['Style']['tab']['theme_dark']; ?> <?php echo $website['Data']['Style']['box_shadow_class']; ?> header_size" style="height: auto; border-radius: 50px; border-style: solid; border-width: 4px!important;">

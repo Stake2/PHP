@@ -9,15 +9,24 @@ $i = 0;
 foreach ($stories["Titles"]["en"] as $english_story_title) {
 	$language_story_title = $stories["Titles"][$language][$i];
 
-	$website_data = $website["dictionary"][$english_story_title];
+	$website_data = $website["Dictionary"][$english_story_title];
 
 	# Define the default story image
 	$image = "";
 
-	if (file_exists($website["dictionary"][$english_story_title]["image"]["local_link"]) == True) {
+	$image_file = $website["Dictionary"][$english_story_title]["image"]["local_link"];
+
+	if ($website["States"]["Website"]["Generate"] == False) {
+		$image_file = $folders["Mega"]["PHP"]["root"].$image_file;
+	}
+
+	if (file_exists($image_file) == True) {
 		$image = $website_data["image"]["elements"]["theme"]["dark"];
 
-		if ($english_story_title != $website["Data"]["story"]["Titles"]["en"]) {
+		if (
+			isset($website["Data"]["Story"]) and
+			$english_story_title != $website["Data"]["Story"]["Titles"]["en"]
+		) {
 			$image = str_replace("height: auto;", "height: auto; width: 100%;", $image);
 		}
 

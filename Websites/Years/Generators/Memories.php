@@ -146,7 +146,7 @@ if (file_exists($file) == True) {
 
 			# Replace the remote folder with the local PHP images folder
 			# To test if the images appear correctly
-			if ($parse == "/") {
+			if ($website["States"]["Website"]["Generate"] == False) {
 				$php_folder = "/Images/";
 
 				$file["Path"] = str_replace($website["Folders"]["Images"]["root"], $php_folder, $file["Path"]);

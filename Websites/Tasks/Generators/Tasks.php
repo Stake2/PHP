@@ -235,7 +235,7 @@ if (file_exists($entries_file) == True) {
 	}
 
 	if ($website["Data"]["title"] != $website_title) {
-		$website_dictionary = $website["dictionary"][$website_title];
+		$website_dictionary = $website["Dictionary"][$website_title];
 
 		$link = $website_dictionary["links"]["language"];
 
@@ -339,11 +339,14 @@ if (file_exists($entries_file) == True) {
 
 					$title = HTML::Element("span", $entry["Titles"][$language], "", $text_color);
 
-					if ($website["States"]["Tasks"]["Entry tabs"] == True and (int)$website["Data"]["Year"] >= 2023) {
+					if (
+						$website["States"]["Tasks"]["Entry tabs"] == True and
+						(int)$website["Data"]["Year"] >= 2023
+					) {
 						# Add the task description tab link and create the tab
 						$link_text = $website["Language texts"]["task_description"];
 
-						$tab_id = "task_description_".$entry["Number"];
+						$tab_id = "task_description_".$entry["Number"]."_".$website["Data"]["Year"];
 
 						$style = 'style="text-decoration: underline; cursor: pointer;"';
 
@@ -369,6 +372,19 @@ if (file_exists($entries_file) == True) {
 							"icon" => "list_check",
 							"only_button" => "tasks"
 						];
+
+						# If the year in the "Data" dictionary is not the current one
+						if ($website["Data"]["Year"] != $website["current_year"]) {
+							if (isset($website["past_registries_buttons"]) == True) {
+								# Change the "only button" to the "past registry" button of the current year
+								$website["additional_tabs"]["data"][$tab_id]["only_button"] = "past_registry_".$website["Data"]["Year"];
+								$website["additional_tabs"]["data"][$tab_id]["Buttons list"] = $website["past_registries_buttons"];
+							}
+
+							else {
+								$website["additional_tabs"]["data"][$tab_id]["only_button"] = "completed_tasks";
+							}
+						}
 					}
 
 					$text .= " ".$title." (".$time.")";

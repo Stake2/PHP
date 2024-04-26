@@ -171,14 +171,6 @@
 		"en": "Chapters in English",
 		"pt": "Capítulos em Português"
 	},
-	"reader, title()": {
-		"en": "Reader",
-		"pt": "Leitor"
-	},
-	"readers, title()": {
-		"en": "Readers",
-		"pt": "Leitores"
-	},
 	"other_stories": {
 		"en": "Other stories",
 		"pt": "Outras histórias"
@@ -191,18 +183,9 @@
 		"en": "Words",
 		"pt": "Palavras"
 	},
-	"no_readers, en - pt": "No Readers - Sem Leitores",
 	"story_creation_date": {
 		"en": "Story creation date",
 		"pt": "Data de criação da história"
-	},
-	"read, title()": {
-		"en": "Read",
-		"pt": "Leitura"
-	},
-	"reads, title()": {
-		"en": "Reads",
-		"pt": "Leituras"
 	},
 	"i_read": {
 		"en": "I read",
