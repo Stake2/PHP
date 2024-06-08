@@ -212,7 +212,8 @@ $website["States"] = [
 		"Change website link" => True
 	],
 	"Story" => [
-		"Write" => False
+		"Write" => False,
+		"New chapter" => False
 	]
 ];
 
@@ -245,10 +246,26 @@ foreach ($stories["Authors"]["List"] as $author) {
 	$i++;
 }
 
-# Define website list array
-$websites = $JSON -> To_PHP($folders["PHP"]["Websites"]["Websites"]);
+# Create the "Websites" dictionary
+$websites = [
+	"List" => [],
+	"Dictionary" => [],
+	"Per type" => [],
+	"Remove from websites tab" => [],
+	"Configuration" => []
+];
 
-# Add story titles of each language into each language website list
+# Read the "Websites.json" file inside the websites folder
+$json = $JSON -> To_PHP($folders["PHP"]["Websites"]["Websites"]);
+
+# Update the keys of the root "Websites" dictionary with the keys on the dictionary above, if they exist
+foreach (array_keys($websites) as $key) {
+	if (isset($json[$key])) {
+		$websites[$key] = $json[$key];
+	}
+}
+
+# Add the story titles of each language into each language website list
 $keys = array_keys($stories["Titles"]);
 $keys = array_diff($keys, ["Language", "All"]);
 
@@ -262,18 +279,18 @@ foreach ($keys as $language) {
 	}
 }
 
-# Add "Years" website to website list
+# Add the "Years" website to the websites list
 foreach ($Language -> languages["small"] as $language) {
 	if (isset($websites["List"][$language]) == True) {
 		array_push($websites["List"][$language], $website["Texts"]["years, title()"][$language]);
 	}
 }
 
-# Create years array
-$website["years"] = Date::Create_Years_List();
+# Create the "Years" list
+$website["Years"] = Date::Create_Years_List();
 
-# Add year websites to website list
-foreach ($website["years"] as $year) {
+# Add the year websites to the websites list
+foreach ($website["Years"] as $year) {
 	foreach ($Language -> languages["small"] as $language) {
 		if (isset($websites["List"][$language]) == True) {
 			array_push($websites["List"][$language], $year);
@@ -281,9 +298,85 @@ foreach ($website["years"] as $year) {
 	}
 }
 
-$website["current_year"] = end($website["years"]);
+# Define the current year key
+$website["current_year"] = end($website["Years"]);
 
-# Update the "Websites.json" file
+# Add the websites to the the "Per type" dictionary inside the "Websites" dictionary
+
+# Redefine the "Per type" dictionary to add its keys
+$websites["Per type"] = [
+	"Normal" => [],
+	"Story" => [],
+	"Year" => []
+];
+
+# Get the correct list of per type keys to add language dictionaries to their dictionary
+$keys = array_keys($websites["Per type"]);
+$keys = array_diff($keys, ["Year"]);
+
+# Create the language dictionaries inside the per type dictionaries
+foreach ($Language -> languages["small"] as $language) {
+	if ($language != "general") {
+		foreach ($keys as $key) {
+			$websites["Per type"][$key][$language] = [];
+		}
+	}
+}
+
+# Iterate through the list of websites
+$i = 0;
+foreach ($websites["List"]["en"] as $website_title) {
+	# Create the local website dictionary
+	$dictionary = [
+		"Titles" => []
+	];
+
+	foreach ($Language -> languages["small"] as $language) {
+		if (isset($websites["List"][$language]) == True) {
+			# Get the language website title
+			$language_website_title = $websites["List"][$language][$i];
+
+			# Add the language website title to the "Titles" dictionary if it is not present
+			if (isset($dictionary["Titles"][$language]) == False) {
+				$dictionary["Titles"][$language] = $language_website_title;
+			}
+
+			# Add the normal websites to the "Normal" dictionary
+			if (
+				in_array($website_title, $stories["Titles"]["en"]) == False and
+				in_array($website_title, $website["Years"]) == False
+			) {
+				array_push($websites["Per type"]["Normal"][$language], $language_website_title);
+			}
+
+			# Add the story websites to the "Story" dictionary
+			if (
+				$website_title == "Stories" or
+				in_array($website_title, $stories["Titles"]["en"])
+			) {
+				array_push($websites["Per type"]["Story"][$language], $language_website_title);
+			}
+
+			# Add the year websites to the "Year" dictionary
+			if (
+				$website_title == "Years" and
+				$language == "en" or
+				in_array($website_title, $website["Years"])
+			) {
+				if (in_array($language_website_title, $websites["Per type"]["Year"]) == False) {
+					array_push($websites["Per type"]["Year"], $language_website_title);
+				}
+			}
+		}
+	}
+
+	# Define the website title dictionary inside the "Dictionary" key as the local dictionary
+	$websites["Dictionary"][$website_title] = $dictionary;
+
+	$i++;
+}
+
+# Update the "Websites.json" file inside the "JSON" folder
 $JSON -> Edit($folders["Mega"]["PHP"]["JSON"]["Websites"], $websites, "w");
 
 # Define the website icons
@@ -316,7 +409,7 @@ require $folders["PHP"]["Make website dictionary"];
 # Create the "Year buttons" list
 $website["Year buttons"] = [];
 
-foreach ($website["years"] as $year) {
+foreach ($website["Years"] as $year) {
 	$year_button = $website["Dictionary"][$year]["button"];
 
 	array_push($website["Year buttons"], $year_button);
@@ -515,8 +608,9 @@ $tpl -> assign("website", $website);
 
 # Define the website JavaScript files
 $file_names = [
-	"https://code.jquery.com/jquery-3.6.0.slim.min",
-	"https://www.w3schools.com/lib/w3",
+	"jQuery",
+	"W3",
+	"Font Awesome",
 	"Language",
 	"Functions",
 	"Language_Redirector",
@@ -530,7 +624,17 @@ if (
 	array_push($file_names, "Story");
 }
 
-array_push($file_names, "https://kit.fontawesome.com/6f0935b8d2");
+# Remove remote JavaScript files cause they are going to be local now
+/* $urls = [
+	"https://code.jquery.com/jquery-3.6.0.slim.min",
+	"https://www.w3schools.com/lib/w3",
+	"https://kit.fontawesome.com/6f0935b8d2"
+];
+
+foreach ($urls as $url) {
+	array_push($file_names, $url);
+}
+*/
 
 $website["javascript"] = [];
 $website["javascript"]["links"] = "\t";
@@ -550,7 +654,7 @@ foreach ($file_names as $file_name) {
 
 	$website["javascript"]["links"] .= '"';
 	
-	if (str_contains($file_name, "fontawesome") == True) {
+	if ($file_name == "Font Awesome") {
 		$website["javascript"]["links"] .= ' crossorigin="anonymous"';
 	}
 
@@ -769,16 +873,18 @@ function Jump_To_Write_Section() {
 // Remove the previous event listener
 window.removeEventListener("scroll", scroll_function)
 
-// Make the list of element ids
-var list = [
-	"hamburger_menu_button",
-	"write_button"
-]
-
 // Add the event listener
-window.addEventListener("scroll", function(event) {
+scroll_function = function(event) {
+	// Define the list of elements to show or hide depending on the scroll position
+	var list = [
+		"hamburger_menu_button",
+		"write_button"
+	]
+
 	Check_Page_Scrolling(event, list)
-})
+}
+
+window.addEventListener("scroll", scroll_function)
 </script>';
 	}
 }

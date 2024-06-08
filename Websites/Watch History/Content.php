@@ -42,7 +42,7 @@ if (isset($website["Data"]["Year"]) == False) {
 	$website["Data"]["Year"] = Date::Now()["year"];
 }
 
-if (in_array($website["Data"]["title"], $website["years"]) == True) {
+if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$website["Data"]["Year"] = $website["Data"]["title"];
 }
 

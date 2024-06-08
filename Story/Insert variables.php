@@ -230,22 +230,23 @@ while ($i <= $chapter_number) {
 
 $website["Variable_Inserter"]["The_Life_of_Littletato"]["Images"]["Chapters"] = $dictionary;
 
-# Define "The Life of Littletato" songs
+# Define the "The Life of Littletato" songs
 $songs = [
-	"Yuru_Camp_Solo_Camp" => [
+	"Yuru_Camp_Solo_Camp_Embed" => [
 		"text" => "Yuru Camp",
-		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM"
+		"id" => "cs4qzCzJTKk",
+		"embed" => True
+	],
+	"Yuru_Camp_Solo_Camp_Title" => [
+		"text" => "Yuru Camp OST #04 - Solo Camp Recommendation",
+		"link" => "https://www.youtube.com/watch?v=cs4qzCzJTKk"
 	],
 	"Yuru_Camp_Soundtrack" => [
 		"text" => [
 			"en" => "Yuru Camp soundtrack",
 			"pt" => "Trilha sonora de Yuru Camp"
 		],
-		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM"
-	],
-	"Yuru_Camp_Solo_Camp_Title" => [
-		"text" => "Yuru Camp △ - OST - ソロキャン△のすすめ - Solo Camp 10 Hours",
-		"link" => "https://www.youtube.com/watch?v=xZIqgCHrhRM"
+		"link" => "https://www.youtube.com/watch?v=cs4qzCzJTKk"
 	],
 	"Folk_Songs" => [
 		"text" => [
@@ -270,7 +271,17 @@ foreach (array_keys($songs) as $key) {
 		$song["text"] = $Language -> Item($song["text"]);
 	}
 
-	$website["Variable_Inserter"]["The_Life_of_Littletato"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+	if (isset($song["embed"]) == False) {
+		$website["Variable_Inserter"]["The_Life_of_Littletato"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+	}
+
+	if (isset($song["embed"]) == True) {
+		$link = "https://www.youtube.com/embed/".$song["id"];
+
+		$link .= "?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&";
+
+		$website["Variable_Inserter"]["The_Life_of_Littletato"]["songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
+	}
 }
 
 # Define "The Life of Littletato" chapter links and buttons

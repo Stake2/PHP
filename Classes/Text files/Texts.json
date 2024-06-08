@@ -171,6 +171,10 @@
 		"en": "Chapters in English",
 		"pt": "Capítulos em Português"
 	},
+	"a_new_chapter": {
+		"en": "A New Chapter",
+		"pt": "Um Novo Capítulo"
+	},
 	"other_stories": {
 		"en": "Other stories",
 		"pt": "Outras histórias"
@@ -178,6 +182,14 @@
 	"chapter_written_in": {
 		"en": "Chapter written in",
 		"pt": "Capítulo escrito em"
+	},
+	"chapter_revised_in": {
+		"en": "Chapter revised in",
+		"pt": "Capítulo revisado em"
+	},
+	"chapter_translated_in": {
+		"en": "Chapter translated to English in",
+		"pt": "Capítulo traduzido para o Inglês em"
 	},
 	"words, title()": {
 		"en": "Words",
@@ -297,9 +309,17 @@
 		"en": "You are reading: {}<br />Chapter: {}",
 		"pt": "Você está lendo: {}<br />Capítulo: {}"
 	},
+	"you_are_writing_{}_chapter_{}": {
+		"en": "You are writing: {}<br />Chapter: {}",
+		"pt": "Você está escrevendo: {}<br />Capítulo: {}"
+	},
 	"you_just_read_{}_chapter_{}": {
 		"en": "You just read: {}<br />Chapter: {}",
 		"pt": "Você acabou de ler: {}<br />Capítulo: {}"
+	},
+	"you_just_wrote_{}_chapter_{}": {
+		"en": "You just wrote: {}<br />Chapter: {}",
+		"pt": "Você acabou de escrever: {}<br />Capítulo: {}"
 	},
 	"nine": {
 		"en": "nine",

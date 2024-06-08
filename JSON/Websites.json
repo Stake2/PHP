@@ -59,6 +59,236 @@
             "2024"
         ]
     },
+    "Dictionary": {
+        "Stake2": {
+            "Titles": {
+                "pt": "Stake2",
+                "en": "Stake2"
+            }
+        },
+        "Prints of Computer Blocks": {
+            "Titles": {
+                "pt": "Prints of Computer Blocks",
+                "en": "Prints of Computer Blocks"
+            }
+        },
+        "Diary": {
+            "Titles": {
+                "pt": "Di\u00e1rio",
+                "en": "Diary"
+            }
+        },
+        "Diary Slim": {
+            "Titles": {
+                "pt": "Di\u00e1rio Slim",
+                "en": "Diary Slim"
+            }
+        },
+        "My Little Pony": {
+            "Titles": {
+                "pt": "My Little Pony",
+                "en": "My Little Pony"
+            }
+        },
+        "Friendship Is Magic": {
+            "Titles": {
+                "pt": "A Amizade \u00c9 M\u00e1gica",
+                "en": "Friendship Is Magic"
+            }
+        },
+        "Watch History": {
+            "Titles": {
+                "pt": "Watch History",
+                "en": "Watch History"
+            }
+        },
+        "Play History": {
+            "Titles": {
+                "pt": "Play History",
+                "en": "Play History"
+            }
+        },
+        "Tasks": {
+            "Titles": {
+                "pt": "Tarefas",
+                "en": "Tasks"
+            }
+        },
+        "Music": {
+            "Titles": {
+                "pt": "M\u00fasica",
+                "en": "Music"
+            }
+        },
+        "Stories": {
+            "Titles": {
+                "pt": "Hist\u00f3rias",
+                "en": "Stories"
+            }
+        },
+        "Desert Island": {
+            "Titles": {
+                "pt": "Ilha Deserta",
+                "en": "Desert Island"
+            }
+        },
+        "New World": {
+            "Titles": {
+                "pt": "New World",
+                "en": "New World"
+            }
+        },
+        "Rise to Equestria": {
+            "Titles": {
+                "pt": "Ascens\u00e3o \u00e0 Equestria",
+                "en": "Rise to Equestria"
+            }
+        },
+        "SpaceLiving": {
+            "Titles": {
+                "pt": "SpaceLiving",
+                "en": "SpaceLiving"
+            }
+        },
+        "The Life of Izaque in Equestria": {
+            "Titles": {
+                "pt": "A Vida de Izaque em Equestria",
+                "en": "The Life of Izaque in Equestria"
+            }
+        },
+        "The Life of Littletato": {
+            "Titles": {
+                "pt": "A Vida de Pequenata",
+                "en": "The Life of Littletato"
+            }
+        },
+        "The Secret of the Crystals": {
+            "Titles": {
+                "pt": "O Segredo dos Cristais",
+                "en": "The Secret of the Crystals"
+            }
+        },
+        "The Story of the Bulkan Siblings": {
+            "Titles": {
+                "pt": "A Hist\u00f3ria dos Irm\u00e3os Bulkan",
+                "en": "The Story of the Bulkan Siblings"
+            }
+        },
+        "Years": {
+            "Titles": {
+                "pt": "Anos",
+                "en": "Years"
+            }
+        },
+        "2018": {
+            "Titles": {
+                "pt": "2018",
+                "en": "2018"
+            }
+        },
+        "2019": {
+            "Titles": {
+                "pt": "2019",
+                "en": "2019"
+            }
+        },
+        "2020": {
+            "Titles": {
+                "pt": "2020",
+                "en": "2020"
+            }
+        },
+        "2021": {
+            "Titles": {
+                "pt": "2021",
+                "en": "2021"
+            }
+        },
+        "2022": {
+            "Titles": {
+                "pt": "2022",
+                "en": "2022"
+            }
+        },
+        "2023": {
+            "Titles": {
+                "pt": "2023",
+                "en": "2023"
+            }
+        },
+        "2024": {
+            "Titles": {
+                "pt": "2024",
+                "en": "2024"
+            }
+        }
+    },
+    "Per type": {
+        "Normal": {
+            "pt": [
+                "Stake2",
+                "Prints of Computer Blocks",
+                "Di\u00e1rio",
+                "Di\u00e1rio Slim",
+                "My Little Pony",
+                "A Amizade \u00c9 M\u00e1gica",
+                "Watch History",
+                "Play History",
+                "Tarefas",
+                "M\u00fasica",
+                "Hist\u00f3rias",
+                "Anos"
+            ],
+            "en": [
+                "Stake2",
+                "Prints of Computer Blocks",
+                "Diary",
+                "Diary Slim",
+                "My Little Pony",
+                "Friendship Is Magic",
+                "Watch History",
+                "Play History",
+                "Tasks",
+                "Music",
+                "Stories",
+                "Years"
+            ]
+        },
+        "Story": {
+            "pt": [
+                "Hist\u00f3rias",
+                "Ilha Deserta",
+                "New World",
+                "Ascens\u00e3o \u00e0 Equestria",
+                "SpaceLiving",
+                "A Vida de Izaque em Equestria",
+                "A Vida de Pequenata",
+                "O Segredo dos Cristais",
+                "A Hist\u00f3ria dos Irm\u00e3os Bulkan"
+            ],
+            "en": [
+                "Stories",
+                "Desert Island",
+                "New World",
+                "Rise to Equestria",
+                "SpaceLiving",
+                "The Life of Izaque in Equestria",
+                "The Life of Littletato",
+                "The Secret of the Crystals",
+                "The Story of the Bulkan Siblings"
+            ]
+        },
+        "Year": [
+            "Years",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024"
+        ]
+    },
     "Remove from websites tab": [],
     "Configuration": {
         "Friendship Is Magic": {

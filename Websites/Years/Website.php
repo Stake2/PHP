@@ -11,7 +11,7 @@ foreach ($website["Year buttons"] as $button) {
 $website["tabs"]["templates"] = [
 	"Years" => [
 		"name" => $website["Language texts"]["years, title()"],
-		"add" => " ".HTML::Element("span", count($website["years"]), "", $website["Style"]["text"]["theme"]["dark"]),
+		"add" => " ".HTML::Element("span", count($website["Years"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $year_buttons,
 		"icon" => "calendar",
 		"Display tab by default" => True

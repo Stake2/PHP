@@ -207,7 +207,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	];
 
 	# Add the custom folders of the year websites
-	if (in_array($website_title, $website["years"]) == True) {
+	if (in_array($website_title, $website["Years"]) == True) {
 		array_push($dictionary["Custom folders"], "Pictures");
 		array_push($dictionary["Custom folders"], "Memories");
 	}
@@ -414,6 +414,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 			"Information" => $JSON -> To_PHP($story_file)
 		];
 
+		# Add the story synopsis
 		$website_dictionary["Story"]["Information"]["Synopsis"] = [];
 
 		foreach ($website["small_languages"] as $local_language) {
@@ -424,10 +425,12 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$website_dictionary["Story"]["Information"]["Synopsis"][$local_language] = $File -> Contents($file, $add_br = False)["string"];
 		}
 
+		# Get the creation date
 		$website_dictionary["Story"]["Information"]["Creation date"] = $File -> Contents($creation_date_file)["lines"][0];
 
 		$contents = $File -> Contents($readers_file);
 
+		# Get the "Readers" dictionary
 		$website_dictionary["Story"]["Information"]["Readers"] = [
 			"Number" => $contents["length"],
 			"List" => $contents["lines"]
@@ -454,7 +457,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["titles"]["language"] = $website_dictionary["titles"][$language];
 
 	# Add "My" text to year website titles
-	if (in_array($website_title, $website["years"]) == True) {
+	if (in_array($website_title, $website["Years"]) == True) {
 		$website_dictionary["titles"]["language"] = $website["Language texts"]["my, title()"]." ".$website_dictionary["titles"]["language"];
 	}
 
@@ -488,7 +491,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Add the "calendar days" icon to year websites
 	if (
 		$website_title == "Years" or
-		in_array($website_title, $website["years"])
+		in_array($website_title, $website["Years"])
 	) {
 		$website_dictionary["titles"]["icon"] .= " ".$website["Icons"]["calendar_days"];
 	}
@@ -863,7 +866,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	if (
-		in_array($website_title, $website["years"]) == True or
+		in_array($website_title, $website["Years"]) == True or
 		str_contains($website_title, "Diary")
 	) {
 		$website_dictionary["JSON"]["image"]["width"] = "30";
@@ -983,7 +986,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		# Define HTML descriptions for year websites
-		if (in_array($website_title, $website["years"]) == True) {
+		if (in_array($website_title, $website["Years"]) == True) {
 			$descriptions["html"] = $website["Texts"]["Year website descriptions"];
 		}
 
@@ -1044,16 +1047,16 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$language = "en";
 		}
 
-		# Define synopsis
+		# Define the synopsis of the story
 		$synopsis = str_replace("\n", "<br />"."\n"."\t\t", $website_dictionary["Story"]["Information"]["Synopsis"][$language]);
 
-		# Define website header description for story websites
+		# Define the website header description for the story websites
 		$website_dictionary["description"]["header"] = "\t\t".'<!-- Story website info, author(s), chapters, readers, creation date, status -->'."\n".
 		"\t\t".$website["Language texts"]["synopsis, title()"].": ".$website["Icons"]["scroll"]." ".$synopsis."<br />"."\n";
 
-		$website_dictionary["description"]["header"] .= "\t\t"."---<br />"."\n";
+		$website_dictionary["description"]["header"] .= "\t\t"."-----"."<br />"."\n";
 
-		# Add painted author
+		# Add the painted author of the story
 		$text = $website["Language texts"]["story_author"];
 
 		if (
@@ -1108,7 +1111,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		$website_dictionary["Story"]["Information"]["Author"] = $author;
 
-		# Add the author
+		# Add the author to the header
 		$website_dictionary["description"]["header"] .= "\t\t".$text.": ".$website["Icons"]["pen"]." ".$author."<br />"."\n";
 
 		# Add the chapters text and number
@@ -1123,14 +1126,14 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$website_dictionary["description"]["header"] .= HTML::Element("span", $website_dictionary["Story"]["Information"]["Readers"]["Number"], "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
 		}
 
-		# Add the story creation date
+		# Add the creation date of the story
 		$website_dictionary["description"]["header"] .= "\t\t".$website["Language texts"]["story_creation_date"].": ".$website["Icons"]["calendar_days"]." ";
 
 		$date = Date::Now($website_dictionary["Story"]["Information"]["Creation date"], $website["Texts"]["date_format"]["pt"])[$website["Language texts"]["date_format"]];
 
 		$website_dictionary["description"]["header"] .= HTML::Element("span", $date, "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
 
-		# Add the status
+		# Add the status of the story
 		$status_number = $website_dictionary["Story"]["Information"]["Status"]["Number"];
 		$status = $website["Language texts"]["writing_statuses, type: list"][$status_number];
 
@@ -1138,17 +1141,53 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		$website_dictionary["description"]["header"] .= HTML::Element("span", $status, "", $website_dictionary["Style"]["text_highlight"]);
 
-		# Update website title with icon
+		# Update the website title with the story status icon
 		$website_dictionary["titles"]["icon"] .= " ".$website["Icons"]["status_map"][$status_number];
 
-		# Add Wattpad link if it exists
-		if (isset($website_dictionary["Story"]["Information"]["Wattpad"]["links"]) == True) {
-			$link = $website_dictionary["Story"]["Information"]["Wattpad"]["links"][$language];
+		# Add the external links of the story if they exist
+		if (
+			$website_dictionary["type"] == "Story" and
+			$website_dictionary["Story"]["Information"]["Links"] != []
+		) {
+			# Define the list of keys
+			$keys = array_keys($website_dictionary["Story"]["Information"]["Links"]);
+			$keys = array_diff($keys, ["Website"]);
+			$keys = array_values($keys);
 
-			$website_dictionary["description"]["header"] .= "<br />"."\n";
-			$website_dictionary["description"]["header"] .= "\t\t"."Wattpad: ";
+			# Define the empty links string
+			$links = "";
 
-			$website_dictionary["description"]["header"] .= HTML::Element("a", $link, 'href="'.$link.'" target="_new"', $website_dictionary["Style"]["text_highlight"]);
+			# Iterate through the story website links inside the "Links" dictionary
+			foreach ($keys as $key) {
+				# If the language link exists
+				if (isset($website_dictionary["Story"]["Information"]["Links"][$key]["Links"][$language])) {
+					# Get the link of the story website
+					$link = $website_dictionary["Story"]["Information"]["Links"][$key]["Links"][$language];
+
+					# Create the link element
+					$element = "";
+
+					# Add a space if the story website is not the first one
+					if ($key != $keys[0]) {
+						$element .= "<br />"."\n";
+					}	
+
+					# Add the name of the story website
+					$element .= "\t\t".$key.": "."<br />";
+
+					# Create the link
+					$element .= HTML::Element("a", $link, 'href="'.$link.'" target="_blank"', $website_dictionary["Style"]["text_highlight"]);
+
+					# Add it to the links string
+					$links .= $element;
+				}
+			}
+
+			# If the links string is not empty, add it to the website header
+			$website_dictionary["description"]["header"] .= "<br />"."\n".
+			"-----"."\n".
+			"<br />"."\n".
+			$links;
 		}
 
 		$website_dictionary["description"]["header"] .= "\n";

@@ -6,7 +6,7 @@ $text = $website["Language texts"]["goodbye, title()"];
 $icon = "plane departure";
 
 # Define the "Goodbye" tab templates
-if (in_array($website["Data"]["title"], $website["years"]) == True) {
+if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$file = $website["Data"]["Files"]["goodbye"];
 
 	if (file_exists($file) == True) {

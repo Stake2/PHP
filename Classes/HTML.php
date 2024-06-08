@@ -134,7 +134,7 @@ class HTML extends Class_ {
 		);
 	}
 
-	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3") {
+	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3", $tab = True) {
 		global $website;
 
 		$class = $website["Style"]["button"]["theme"]["light"].$class;
@@ -147,7 +147,15 @@ class HTML extends Class_ {
 
 		$text = HTML::Element($heading, "\n\t\t".$text."\n\t\t", $text_attributes, "text_size ".$website["Style"]["text"]["theme"]["dark"])."\n";
 
-		$button = "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", $attributes, "w3-btn ".$class);
+		$button = "\n\n";
+		$text = "\n".$text;
+
+		if ($tab == True) {
+			$button .= "\t";
+			$text = "\t\t".$text."\t";
+		}
+
+		$button .= HTML::Element("button", $text, $attributes, "w3-btn ".$class);
 
 		return $button;
 	}
@@ -166,7 +174,7 @@ class HTML extends Class_ {
 		}
 
 		$button = '<!-- "'.$tab["name"].'" button -->'."\n".
-		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\n\t\t".self::Button("\n\t\t\t\t".$tab["name_icon"]."\n\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["Style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
+		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\t\t".self::Button("\t".$tab["name_icon"]."\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["Style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
 
 		return $button;
 	}
@@ -176,16 +184,16 @@ class HTML extends Class_ {
 		global $Language;
 		global $i;
 
-		$show_text = HTML::Element("h2", "\n\t\t".$website["Icons"]["bars"]."\n\t", "", "text_size")."\n";
-		$hide_text = HTML::Element("h4", "\n\t\t"."X"."\n\t\t", 'style="font-weight: bold;"', "text_size")."\n";
+		$show_text = HTML::Element("h2", "\n\t\t\t\t".$website["Icons"]["bars"]."\n\t\t\t", "", "text_size");
+		$hide_text = HTML::Element("h4", "\n\t\t\t\t"."X"."\n\t\t\t", 'style="font-weight: bold;"', "text_size");
 
 		$border_color = $website["Style"]["border_color"];
 
-		$open_hamburger_menu_button = "<!-- Open hamburger menu button -->"."\n".
-		HTML::Button("\n\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom");
+		$open_hamburger_menu_button = "<!-- Open hamburger menu button -->".
+		HTML::Button("\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom", "h3");
 
-		$close_hamburger_menu_button = "\t".'<!-- Close hamburger menu button -->'."\n".
-		"\t".HTML::Button("\n\t\t".$hide_text."\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
+		$close_hamburger_menu_button = "\t".'<!-- Close hamburger menu button -->'.
+		HTML::Button("\t".$hide_text."\t\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
 
 		$buttons = [
 			"list" => [],
@@ -222,7 +230,7 @@ class HTML extends Class_ {
 
 		# Add buttons to hamburger menu
 		foreach($buttons["list"] as $button) {
-			$buttons["hamburger_menu"] .= "\t".$button;
+			$buttons["hamburger_menu"] .= "\n\t".$button;
 
 			if ($button != end($buttons["list"])) {
 				$buttons["hamburger_menu"] .= "\n\n";

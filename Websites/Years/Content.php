@@ -16,7 +16,7 @@ if ($language == "general") {
 }
 
 # Define the custom website folders
-if (in_array($website["Data"]["title"], $website["years"]) == True) {
+if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$website["Data"]["Folders"]["Year"] = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["title"]];
 
 	# Define the language folder
@@ -39,7 +39,7 @@ $website["Data"]["Files"] = [
 	"Generators" => []
 ];
 
-if (in_array($website["Data"]["title"], $website["years"]) == True) {
+if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$keys = array_keys($website["Data"]["Files"]);
 	$keys = array_diff($keys, ["Generators"]);
 
@@ -60,7 +60,7 @@ $names = [
 ];
 
 # Replace the names array with an array with more generators
-if (in_array($website["Data"]["title"], $website["years"]) == True) {
+if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$names = [
 		"Welcome",
 		"Summary",
@@ -108,7 +108,7 @@ foreach (array_keys($website["Data"]["Files"]["Generators"]) as $key) {
 # Define the website tabs and data related to the year websites
 if (
 	$website["Data"]["title"] == "Years" or
-	in_array($website["Data"]["title"], $website["years"])
+	in_array($website["Data"]["title"], $website["Years"])
 ) {
 	# Create the year buttons string
 	$year_buttons = "";
@@ -172,7 +172,7 @@ if (
 	# Create the years tab template
 	$website["tabs"]["templates"]["years"] = [
 		"name" => $website["Language texts"]["years, title()"],
-		"add" => " ".HTML::Element("span", count($website["years"]), "", $website["Style"]["text"]["theme"]["dark"]),
+		"add" => " ".HTML::Element("span", count($website["Years"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $year_buttons,
 		"icon" => "calendar_days"
 	];

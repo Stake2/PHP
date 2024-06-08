@@ -5,7 +5,7 @@
 $text = $website["Language texts"]["this_year_i"];
 
 # Define the "This Year I" tab templates
-if (in_array($website["Data"]["title"], $website["years"]) == True) {
+if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$file = $website["Data"]["Files"]["this_year_i"];
 
 	if (file_exists($file) == True) {

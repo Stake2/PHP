@@ -73,7 +73,7 @@ class Story extends Class_ {
 		global $chapter_tab;
 
 		if (isset($website["Data"]["JSON"]["story"]) == False) {
-			$root_variables_folder = $story["Folders"]["Chapters"]["root"].$website["Language texts"]["variables, title()"]."/";
+			$root_variables_folder = $story["Folders"]["Chapters"]["root"].$website["Language texts (Module language)"]["variables, title()"]."/";
 			$Folder -> Create($root_variables_folder);
 
 			$root_variables_file = $root_variables_folder.$chapter_tab["number_leading_zeroes"].".txt";
@@ -87,7 +87,24 @@ class Story extends Class_ {
 		# Define the chapter file
 		$chapter_file = $story["Folders"]["Chapters"][$full_language]["root"].$chapter_tab["chapter_title_file"].".txt";
 
-		$chapter_contents = $File -> Contents($chapter_file, $add_br = False);
+		if (
+			$website["States"]["Story"]["New chapter"] == False or
+			$website["States"]["Story"]["New chapter"] == True and
+			$chapter_tab["number"] != (int)$_GET["chapter"]
+		) {
+			$chapter_contents = $File -> Contents($chapter_file, $add_br = False);
+		}
+
+		if (
+			$website["States"]["Story"]["New chapter"] == True and
+			$chapter_tab["number"] == (int)$_GET["chapter"]
+		) {
+			$chapter_contents = [
+				"string" => "",
+				"lines" => [],
+				"length" => 0
+			];
+		}
 
 		$chapter_text = $chapter_contents["string"];
 
@@ -165,7 +182,7 @@ class Story extends Class_ {
 		$local_chapter_cover = "";
 
 		if (
-			$website["States"]["Website"]["Generate"] == False or
+			$website["States"]["Website"]["Generate"] == True or
 			isset($_GET["show_chapter_covers"]) == True
 		) {
 			$chapter_cover_file_name = $full_language;
@@ -202,6 +219,10 @@ class Story extends Class_ {
 			}
 
 			$remote_chapter_cover = $remote_chapter_folder.$chapter_cover_file_name.".".$image_format;
+
+			if (file_exists($local_chapter_cover) == False) {
+				$local_chapter_cover = "";
+			}
 		}
 
 		else {
@@ -496,16 +517,17 @@ class Story extends Class_ {
 		$painted_story_title = HTML::Element("span", $website["Data"]["titles"]["language"], "", $color);
 		$painted_chapter_title = HTML::Element("span", $i." - ".$chapter_title, 'id="chapter_'.$i.'_title"', $color);
 
-		# Define chapter tab array
+		# Define the "Chapter tab" dictionary
 		$chapter_tab = [
 			"number" => $i,
 			"number_leading_zeroes" => Text::Add_Leading_Zeroes($i),
 			"id" => "chapter_".$i,
 			"chapter_title" => $i." - ".$chapter_title,
 			"chapter_title_file" => Text::Add_Leading_Zeroes($i)." - ".$Folder -> Sanitize($chapter_title),
+			"Dictionary" => [],
 			"painted_chapter_title" => $painted_chapter_title,
-			"you_are_reading" => Text::Format($website["Language texts"]["you_are_reading_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
-			"you_read" => Text::Format($website["Language texts"]["you_just_read_{}_chapter_{}"], [$painted_story_title, $painted_chapter_title]),
+			"you_are_reading" => "",
+			"you_read" => "",
 			"class" => $website["Style"]["tab"]["theme_dark"],
 			"chapter_text_color" => "",
 			"top_button" => "",
@@ -515,6 +537,49 @@ class Story extends Class_ {
 			"padding" => "2px",
 			"style" => ""
 		];
+
+		# If the "write chapter" mode is off
+		# Or it is on
+		# And the current chapter is not the chapter the user wants to write
+		if (
+			$website["States"]["Story"]["Write"] == False or
+			$website["States"]["Story"]["Write"] == True and
+			$chapter_tab["number"] != (int)$_GET["chapter"]
+		) {
+			# Define the "you are reading" key
+			$text_key = "you_are_reading_{}_chapter_{}";
+			$second_text_key = "you_just_read_{}_chapter_{}";
+		}
+
+		# If the "Write chapter" mode is on
+		if ($website["States"]["Story"]["Write"] == True) {
+			# Define the "you are writing" key
+			$text_key = "you_are_writing_{}_chapter_{}";
+			$second_text_key = "you_just_wrote_{}_chapter_{}";
+		}
+
+		# Define the "you are reading" text with the defined text key
+		$chapter_tab["you_are_reading"] = Text::Format($website["Language texts"][$text_key], [$painted_story_title, $painted_chapter_title]);
+
+		# Define the "you just read" text with the defined text key
+		$chapter_tab["you_read"] = Text::Format($website["Language texts"][$second_text_key], [$painted_story_title, $painted_chapter_title]);
+
+		# If the chapter dictionary exists
+		if (isset($story["Information"]["Chapters"]["Dictionary"][$i])) {
+			# Get it
+			$chapter_tab["Dictionary"] = $story["Information"]["Chapters"]["Dictionary"][$i];
+		}
+
+		# Else, create an empty chapter dictionary
+		else {
+			$chapter_tab["Dictionary"] = [
+				"Dates" => [
+					"Written" => "",
+					"Revised" => "",
+					"Translated" => ""
+				]
+			];
+		}
 
 		if (isset($website["Data"]["JSON"]["story"]) == True) {
 			$chapter_tab["chapter_title_file"] = $Folder -> Sanitize($chapter_title);
@@ -539,35 +604,94 @@ class Story extends Class_ {
 			$chapter_tab["chapter_text_color"] = " text_".$website["Style"]["chapter_text_color"];
 		}
 
-		$words = number_format(str_word_count($chapter_tab["chapter_text"]));
+		# Define the "has dates" variable
+		$has_dates = False;
 
-		# Check the chapter dates
-		if ($story["Information"]["Chapters"]["Dates"] != []) {
-			if (isset($story["Information"]["Chapters"]["Dates"][$i - 1]) == True) {
-				$date = $story["Information"]["Chapters"]["Dates"][$i - 1];
+		# Define the empty dates list
+		$dates = [];
 
+		# Define the list of date types
+		$date_types = [
+			"Written",
+			"Revised",
+			"Translated"
+		];
+
+		# Iterate through the list of date types
+		foreach ($date_types as $date_type) {
+			# If the date of the chapter dictionary is not an empty string
+			if ($chapter_tab["Dictionary"]["Dates"][$date_type] != "") {
+				# Get the date
+				$date = $chapter_tab["Dictionary"]["Dates"][$date_type];
+
+				# Get the date format
 				$format = "date_format";
 
-				if (strstr($date, ":") == True) {
+				if (str_contains($date, ":") == True) {
 					$format = "date_time_format";
 				}
 
+				# Transform the date into a date dictionary with the correct format
 				$date = Date::Now($date, $website["Texts"][$format]["pt"])[$website["Language texts"][$format]];
 
-				$chapter_tab["chapter_text"] .= "\t\t"."<br />"."<br />"."\n".
-				"\t\t".$website["Language texts"]["chapter_written_in"].": ".$date."<br />"."\n";
-			}
+				# Define the text key for the text of the date type
+				$text_key = "chapter_".strtolower($date_type)."_in";
 
-			else {
+				# Define the date text of the date type
+				$date = "\t\t"."\n".
+				$website["Language texts"][$text_key].":"."\n".
+				"<br />"."\n".
+				$date;
+
+				# Add the date text to the "dates" list
+				array_push($dates, $date);
+
+				# Update the "has date" variable to True
+				$has_dates = True;
+			}
+		}
+
+		# If the list of dates is not empty
+		if ($dates != []) {
+			# Add two line breaks to the chapter text
+			$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
+		}
+
+		# Iterate through the dates inside the dates list
+		foreach ($dates as $date) {
+			# Add the date to the chapter text
+			$chapter_tab["chapter_text"] .= $date;
+
+			# If the date is not the last one
+			if ($date != end($dates)) {
+				# Add one line break to the chapter text
 				$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
 			}
 		}
 
-		else {
+		# If the "Write chapter" mode is off
+		# Or it is on
+		# And the current chapter is not the chapter the user wants to write
+		# Or it is on
+		# And the "New chapter" state is False
+		if (
+			$website["States"]["Story"]["Write"] == False or
+			$website["States"]["Story"]["Write"] == True and
+			$chapter_tab["number"] != (int)$_GET["chapter"] or
+			$website["States"]["Story"]["Write"] == True and
+			$website["States"]["Story"]["New chapter"] == False
+		) {
+			# Add two line breaks to the chapter text
 			$chapter_tab["chapter_text"] .= "<br />"."<br />"."\n";
-		}
 
-		$chapter_tab["chapter_text"] .= "\t\t".$website["Language texts"]["words, title()"].": ".$words."<br />"."<br />"."\n";
+			# Get the words of the chapter
+			$words = number_format(str_word_count($chapter_tab["chapter_text"]), 0, ".", ".");
+
+			# Add the number of words with its text
+			$chapter_tab["chapter_text"] .= "\t\t".$website["Language texts"]["words, title()"].":"."\n".
+			"<br />"."\n".
+			$words." ".strtolower($website["Language texts"]["words, title()"])."<br />"."<br />"."\n";
+		}
 
 		# Add a text area to write the chapter if the "write chapter" mode is on
 		if ($website["States"]["Story"]["Write"] == True) {

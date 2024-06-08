@@ -14,6 +14,18 @@ else {
 	$chapter_titles = $story["Information"]["Chapters"]["Titles"];
 }
 
+# Add a new chapter if the "chapter" URL parameter is a number greater than the total number of chapters
+if (
+	$website["States"]["Story"]["Write"] == True and
+	isset($_GET["chapter"]) and
+	(int)$_GET["chapter"] > count($chapter_titles)
+) {
+	array_push($chapter_titles, $website["Language texts"]["a_new_chapter"]);
+
+	# Define the "New chapter" state as True
+	$website["States"]["Story"]["New chapter"] = True;
+}
+
 # Generate chapter tabs
 $Story -> Chapter_Tabs($chapter_titles);
 
