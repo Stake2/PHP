@@ -1,16 +1,16 @@
 {
 	"style": {
 		"theme": {
-			"normal": "orange",
-			"light": "light_orange",
-			"dark": "dark_orange"
+			"normal": "cyan",
+			"light": "light_cyan",
+			"dark": "dark_cyan"
 		},
 		"secondary_theme": {
-			"normal": "orange",
-			"light": "light_orange",
-			"dark": "dark_orange"
+			"normal": "cyan",
+			"light": "light_cyan",
+			"dark": "dark_cyan"
 		},
-		"text_highlight": "dark_orange"
+		"text_highlight": "dark_cyan"
 	},
-	"color": "ffa500"
+	"color": "00bcd4"
 }

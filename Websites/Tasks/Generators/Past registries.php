@@ -57,7 +57,8 @@ foreach ($website["Task History"]["Years list"] as $local_year) {
 	# Add the year tab button to the buttons list on the "Tab" dictionary
 	array_push($tab["Buttons list"], $website["past_registries_buttons"][$website["Data"]["Year"]]);
 
-	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]]."\n";
+	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]].
+	"<br />"."\n";
 
 	# Define the tab data
 	$content = "";

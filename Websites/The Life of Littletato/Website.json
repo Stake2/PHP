@@ -1,16 +1,17 @@
 {
 	"style": {
 		"theme": {
-			"normal": "light_purple_darker",
+			"normal": "dark_purple",
 			"light": "light_purple",
-			"dark": "dark_purple"
+			"dark": "darker_purple"
 		},
 		"secondary_theme": {
 			"normal": "salmon",
 			"light": "light_salmon",
 			"dark": "dark_salmon"
 		},
-		"text_highlight": "light_salmon"
+		"text_highlight": "light_salmon",
+		"chapter_text_color": "light_purple"
 	},
 	"image": {
 		"border_radius": 6

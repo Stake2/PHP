@@ -37,6 +37,9 @@ $website["Local URL"]["Index"] = explode("?", $website["Local URL"]["Index"])[0]
 # Remove the "generate" text from the index URL
 $website["Local URL"]["Index"] = str_replace("generate", "", $website["Local URL"]["Index"]);
 
+# Remove the "favicon.ico" text from the index URL
+$website["Local URL"]["Index"] = str_replace("favicon.ico", "", $website["Local URL"]["Index"]);
+
 # Define the local URL "Code" dictionary
 $website["Local URL"]["Code"] = [
 	"Link" => $website["Local URL"]["Index"],
@@ -199,6 +202,12 @@ $website["small_languages"] = array_diff($website["small_languages"], ["general"
 require "Additional folders.php";
 
 $website["States"] = [
+	"Website" => [
+		"Parent" => False,
+		"Generate" => False,
+		"Change website link" => True,
+		"Privacy" => False
+	],
 	"Watch History" => [
 		"Entry tabs" => True,
 		"Past registry entry tabs" => True
@@ -206,14 +215,12 @@ $website["States"] = [
 	"Tasks" => [
 		"Entry tabs" => True
 	],
-	"Website" => [
-		"Parent" => False,
-		"Generate" => False,
-		"Change website link" => True
-	],
 	"Story" => [
 		"Write" => False,
 		"New chapter" => False
+	],
+	"Years" => [
+		"Next year" => True
 	]
 ];
 
@@ -252,7 +259,8 @@ $websites = [
 	"Dictionary" => [],
 	"Per type" => [],
 	"Remove from websites tab" => [],
-	"Configuration" => []
+	"Configuration" => [],
+	"Settings" => []
 ];
 
 # Read the "Websites.json" file inside the websites folder
@@ -286,8 +294,17 @@ foreach ($Language -> languages["small"] as $language) {
 	}
 }
 
+# Define the default "plus" variable as zero
+$plus = 0;
+
+# If the "Next year" year state is True
+if ($website["States"]["Years"]["Next year"] == True) {
+	# Define the plus as 1
+	$plus = 1;
+}
+
 # Create the "Years" list
-$website["Years"] = Date::Create_Years_List();
+$website["Years"] = Date::Create_Years_List($mode = "array", $start = 2018, $plus = $plus);
 
 # Add the year websites to the websites list
 foreach ($website["Years"] as $year) {
@@ -299,7 +316,7 @@ foreach ($website["Years"] as $year) {
 }
 
 # Define the current year key
-$website["current_year"] = end($website["Years"]);
+$website["current_year"] = ((int)end($website["Years"])) - $plus;
 
 # Add the websites to the the "Per type" dictionary inside the "Websites" dictionary
 
@@ -739,7 +756,7 @@ if (isset($website["Data"]) == True) {
 	"	<!-- Website image button -->"."\n".
 	"\t".HTML::Element("button", $h4, 'onclick="window.open('."'".$website["Data"]["image"]["link"]."'".')" style="z-index: 2;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
-	$website["Data"]["image"]["elements"]["theme"]["light"] .= $website["Data"]["image"]["button"]."\n";
+	$website["Data"]["image"]["elements"]["theme"]["light"] .= "<br />".$website["Data"]["image"]["button"]."\n";
 
 	if (isset($website["Data"]["JSON"]["tabs"]) == False) {
 		$website["Data"]["JSON"]["tabs"] = [];
@@ -858,7 +875,7 @@ if (
 		# Create the write button
 		$website["Write button"] = "\t".'<!-- Go to the "Write chapter" text area -->'."\n".
 		'<div style="float: right;">'."\n".
-		"\t".HTML::Button($website["Language texts"]["write, title()"].": ".$website["Icons"]["pen"], ' id="write_button" onclick="Jump_To_Write_Section()" style="position: fixed; right: 0;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"])."\n".
+		"\t".HTML::Button($website["Language texts"]["write, title()"].": ".$website["Icons"]["pen"], ' id="write_button" onclick="Jump_To_Write_Section()" style="position: fixed; right: 0;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"], "h2", $tab = True, $bold = False)."\n".
 		"</div>";
 
 		# Add the "Jump_To_Write_Section" function

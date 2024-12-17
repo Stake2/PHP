@@ -1,6 +1,6 @@
 <?php if(!class_exists('TPL')){exit;}?><!-- "Select website" form -->
 <center>
-	<form name="select_website" class="w3-container w3-animate-zoom <?php echo $website['Style']['tab']['theme_dark']; ?>" action="/" method="POST" style="padding: 20px; width: 45%">
+	<form name="select_website" class="w3-container w3-animate-zoom <?php echo $website['Style']['tab']['theme_dark']; ?>" action="/" method="POST" style="padding: 20px; width: 100%">
 		<!-- Select website -->
 		<h2 class="text_size <?php echo $website['Style']['text_highlight']; ?>">
 			<b><?php echo $website["Language texts"]["website_title"]; ?>:</b>

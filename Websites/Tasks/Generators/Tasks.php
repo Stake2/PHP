@@ -119,9 +119,12 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 
 		$text_color = $website["Style"]["text"]["theme"]["dark"];
 
+		# Define the default local types dictionary
 		$types_dictionary = $tasks["Types"]["Plural"];
 
+		# If the root website title is not "Tasks"
 		if ($website["Data"]["title"] != "Tasks") {
+			# Define the local types dictionary as the one inside the "Tasks" dictionary
 			$types_dictionary = $tasks["Types dictionary"];
 		}
 
@@ -237,7 +240,7 @@ if (file_exists($entries_file) == True) {
 	if ($website["Data"]["title"] != $website_title) {
 		$website_dictionary = $website["Dictionary"][$website_title];
 
-		$link = $website_dictionary["links"]["language"];
+		$link = $website_dictionary["Links"]["Language"];
 
 		if (str_contains($link, "?") == False) {
 			$link .= "?";
@@ -262,9 +265,30 @@ if (file_exists($entries_file) == True) {
 
 	$task_type_headers = Generate_Task_Type_Headers($header_text = "", $update_types_dictionary = False);
 
+	# Define the local types dictionary as the root types dictionary inside the "Tasks" dictionary
+	$types_dictionary = $tasks["Types dictionary"];
+
 	# Update the watched things number
 	$website["tab_content"]["completed_tasks"]["number"] = $tasks["Entries"]["Numbers"]["Total"];
 
+	if ($website["Data"]["title"] != $website_title) {
+		# Create the number of tasks variable with the tab title
+		$number_of_tasks = $tasks["Language texts"]["completed_tasks"].":";
+
+		# Add the icon of the tab
+		$number_of_tasks .= " ".$website["Icons"]["list_check"];
+
+		# Add the number of tasks
+		$number_of_tasks .= " ".HTML::Element("span", $website["tab_content"]["completed_tasks"]["number"], "", $website["Style"]["text"]["theme"]["dark"])."<br /><br />";
+
+		# Transform everything into bold style
+		$number_of_tasks = HTML::Element("b", $number_of_tasks);
+
+		# Add the number of tasks text to the tab string content
+		$website["tab_content"]["completed_tasks"]["string"] .= $number_of_tasks;
+	}
+
+	# Add the task type headers
 	$website["tab_content"]["completed_tasks"]["string"] .= "<!-- Task type headers -->"."\n"."\t\t".
 	$task_type_headers["links"].
 	"\n"."\t\t"."<br />"."\n\n";
@@ -274,6 +298,7 @@ if (file_exists($entries_file) == True) {
 	# Iterate through the English task types list
 	$i = 0;
 	foreach ($types_dictionary["en"] as $type) {
+		# Get the language type
 		$language_type = $tasks["language_types"][$i];
 
 		if (array_key_exists($type, $tasks["Entries"]["Numbers"]["Per Task Type"]) == True) {

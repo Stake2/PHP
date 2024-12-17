@@ -143,6 +143,14 @@
 		"en": "Read story",
 		"pt": "Ler história"
 	},
+	"click_to_open_the_buttons_menu": {
+		"en": "Click to open the buttons menu",
+		"pt": "Clique para abrir o menu de botões"
+	},
+	"click_to_read_story": {
+		"en": "Click to read story",
+		"pt": "Clique para ler a história"
+	},
 	"synopsis, title()": {
 		"en": "Synopsis",
 		"pt": "Sinopse"
@@ -340,6 +348,14 @@
 	"on_wikipedia": {
 		"en": "on Wikipedia",
 		"pt": "na Wikipédia"
+	},
+	"on, title()": {
+		"en": "On",
+		"pt": "No"
+	},
+	"the_story_on_other_websites": {
+		"en": "The story on other websites",
+		"pt": "A história em outros sites"
 	},
 	"variables, title()": {
 		"en": "Variables",

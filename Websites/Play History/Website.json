@@ -2,16 +2,16 @@
 	"icon": "gamepad",
 	"style": {
 		"theme": {
-			"normal": "saturated_green",
-			"light": "light_saturated_green",
-			"dark": "dark_saturated_green"
+			"normal": "green",
+			"light": "light_green",
+			"dark": "dark_green"
 		},
 		"secondary_theme": {
-			"normal": "saturated_green",
-			"light": "light_saturated_green",
-			"dark": "dark_saturated_green"
+			"normal": "green",
+			"light": "light_green",
+			"dark": "dark_green"
 		},
-		"text_highlight": "light_saturated_green"
+		"text_highlight": "light_green"
 	},
 	"color": "37FF3E",
 	"image": {

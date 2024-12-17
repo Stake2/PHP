@@ -4,7 +4,7 @@
 <?php if( isset($website['Write button']) ){ ?><?php echo $website['Write button']; ?><?php } ?>
 
 <!-- Website header -->
-<div id="header" class="w3-animate-zoom <?php echo $website['Data']['Style']['tab']['theme_dark']; ?> <?php echo $website['Data']['Style']['box_shadow_class']; ?> header_size" style="height: auto; border-radius: 50px; border-style: solid; border-width: 4px!important;">
+<div id="header" class="w3-animate-zoom <?php echo $website['Data']['Style']['tab']['theme_dark']; ?> <?php echo $website['Data']['Style']['box_shadow_class']; ?>" style="height: auto; border-radius: 50px; border-style: solid; border-width: 4px!important;">
 	<!-- Website title -->
 	<h2 class="text_size <?php echo $website['Style']['text_highlight']; ?>">
 		<p><br /><b><?php echo $website["Data"]["titles"]["icon"]; ?></b><br /><br /><p>

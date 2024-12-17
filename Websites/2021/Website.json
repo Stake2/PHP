@@ -1,12 +1,12 @@
 {
 	"style": {
 		"theme": {
-			"normal": "white",
+			"normal": "dark_grey",
 			"light": "grey",
 			"dark": "black"
 		},
 		"secondary_theme": {
-			"normal": "white",
+			"normal": "dark_grey",
 			"light": "grey",
 			"dark": "black"
 		}

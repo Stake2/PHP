@@ -1,7 +1,7 @@
 <?php if(!class_exists('TPL')){exit;}?><!-- Chapter <?php echo $chapter_modal['type']; ?> modal for all chapters -->
 <a id="chapter_<?php echo $chapter_modal['type']; ?>_anchor" name="chapter_<?php echo $chapter_modal['type']; ?>"></a>
 <div id="chapter_<?php echo $chapter_modal['type']; ?>" class="modal" style="display: none; border-radius: 50px;">
-	<div class="modal-content <?php echo $website['Style']['tab']['black']; ?> <?php echo $website['Style']['text_highlight']; ?><?php echo $chapter_modal['class']; ?>" style="width: 50%; border-radius: 50px; padding-bottom: 7%;">
+	<div class="modal-content <?php echo $website['Style']['tab']['black']; ?> <?php echo $website['Style']['text_highlight']; ?><?php echo $chapter_modal['class']; ?>" style="width: 100%; border-radius: 50px; padding-bottom: 8%;">
 		<!-- Hide modal button -->
 		<button class="w3-btn <?php echo $website['Style']['button']['theme']['light']; ?>" onclick="Hide_Modal('<?php echo $chapter_modal['type']; ?>');" style="float: right; padding: 2px 14px 3px 15px !important;">
 			<h4 class="text_size" style="font-weight: bold;">

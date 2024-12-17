@@ -195,7 +195,7 @@ if (file_exists($entries_file) == True) {
 	if ($website["Data"]["title"] != $website_title) {
 		$website_dictionary = $website["Dictionary"][$website_title];
 
-		$link = $website_dictionary["links"]["language"];
+		$link = $website_dictionary["Links"]["Language"];
 
 		if (str_contains($link, "?") == False) {
 			$link .= "?";
@@ -222,6 +222,23 @@ if (file_exists($entries_file) == True) {
 
 	# Update the watched things number
 	$website["tab_content"]["watched_things"]["number"] = $watch_history["Entries"]["Numbers"]["Total"];
+
+	if ($website["Data"]["title"] != $website_title) {
+		# Create the number of media variable with the tab title
+		$number_of_media = $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"].":";
+
+		# Add the icon of the tab
+		$number_of_media .= " ".$website["Icons"]["eye"];
+
+		# Add the number of media
+		$number_of_media .= " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["Style"]["text"]["theme"]["dark"])."<br /><br />";
+
+		# Transform everything into bold style
+		$number_of_media = HTML::Element("b", $number_of_media);
+
+		# Add the number of media text to the tab string content
+		$website["tab_content"]["watched_things"]["string"] .= $number_of_media;
+	}
 
 	$website["tab_content"]["watched_things"]["string"] .= "<!-- Media type headers -->"."\n"."\t\t".
 	$media_type_headers["links"].
@@ -265,11 +282,18 @@ if (file_exists($entries_file) == True) {
 				if (array_key_exists("Item", $entry) == True) {
 					$item = Define_Title($entry["Item"]);
 
+					if (str_contains($item, $title)) {
+						$item = str_replace($title, "", $item);
+					}
+
 					if ($type == "Videos") {
 						$title .= ": ";
 					}
 
-					if ($item[0].$item[1] != ": ") {
+					if (
+						strlen($item) >= 2 and
+						$item[0].$item[1] != ": "
+					) {
 						$title .= " ";
 					}
 

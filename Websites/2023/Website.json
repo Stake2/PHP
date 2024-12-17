@@ -1,14 +1,14 @@
 {
 	"style": {
 		"theme": {
-			"normal": "blue",
+			"normal": "dark_blue",
 			"light": "light_blue",
-			"dark": "dark_blue"
+			"dark": "darker_blue"
 		},
 		"secondary_theme": {
-			"normal": "blue",
+			"normal": "dark_blue",
 			"light": "light_blue",
-			"dark": "dark_blue"
+			"dark": "darker_blue"
 		},
 		"text_highlight": "light_blue"
 	},

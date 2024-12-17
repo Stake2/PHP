@@ -196,7 +196,7 @@ if (file_exists($entries_file) == True) {
 	if ($website["Data"]["title"] != $website_title) {
 		$website_dictionary = $website["Dictionary"][$website_title];
 
-		$link = $website_dictionary["links"]["language"];
+		$link = $website_dictionary["Links"]["Language"];
 
 		if (str_contains($link, "?") == False) {
 			$link .= "?";
@@ -223,6 +223,23 @@ if (file_exists($entries_file) == True) {
 
 	# Update the game sessions number
 	$website["tab_content"]["game_sessions_played"]["number"] = $gameplayer["Entries"]["Numbers"]["Total"];
+
+	if ($website["Data"]["title"] != $website_title) {
+		# Create the number of game sessions variable with the tab title
+		$number_of_game_sessions = $gameplayer["Language texts"]["game_sessions_played_in"]." ".$website["Data"]["Year"].":";
+
+		# Add the icon of the tab
+		$number_of_game_sessions .= " ".$website["Icons"]["gamepad"];
+
+		# Add the number of game sessions
+		$number_of_game_sessions .= " ".HTML::Element("span", $website["tab_content"]["game_sessions_played"]["number"], "", $website["Style"]["text"]["theme"]["dark"])."<br /><br />";
+
+		# Transform everything into bold style
+		$number_of_game_sessions = HTML::Element("b", $number_of_game_sessions);
+
+		# Add the number of game sessions text to the tab string content
+		$website["tab_content"]["game_sessions_played"]["string"] .= $number_of_game_sessions;
+	}
 
 	$website["tab_content"]["game_sessions_played"]["string"] .= "<!-- Game type headers -->"."\n"."\t\t".
 	$type_headers["links"].

@@ -108,6 +108,16 @@ class HTML extends Class_ {
 		return HTML::Element("img", "", 'src="'.$source.'"'.$attributes, $class);
 	}
 
+	public static function Make_Image_Size($image, $width) {
+		global $website;
+
+		$image = str_replace("image_size ", "", $image);
+		#$image = str_replace("height: auto;", "max-width: ".$website_dictionary["JSON"]["image"]["width"]."vw; height: auto;", $image);
+		$image = str_replace('height: auto;"', 'height: auto;" width="'.$width.'%"', $image);
+
+		return $image;
+	}
+
 	public static function Format($text, $parameters) {
 		$parameters = (array)$parameters;
 
@@ -134,14 +144,17 @@ class HTML extends Class_ {
 		);
 	}
 
-	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3", $tab = True) {
+	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3", $tab = True, $bold = True) {
 		global $website;
 
-		$class = $website["Style"]["button"]["theme"]["light"].$class;
+		$class = $website["Style"]["button"]["theme"]["dark"].$class;
 
 		$text_attributes = "";
 
-		if ($heading == "h3") {
+		if (
+			$heading == "h3" and
+			$bold == True
+		) {
 			$text_attributes = 'style="font-weight: bold;"';
 		}
 
@@ -184,7 +197,17 @@ class HTML extends Class_ {
 		global $Language;
 		global $i;
 
-		$show_text = HTML::Element("h2", "\n\t\t\t\t".$website["Icons"]["bars"]."\n\t\t\t", "", "text_size");
+		$open_text = $website["Icons"]["bars"];
+
+		if ($website["Data"]["type"] == "Normal") {
+			$open_text = $website["Language texts"]["click_to_open_the_buttons_menu"]." ".$website["Icons"]["bars"];
+		}
+
+		if ($website["Data"]["type"] == "Story") {
+			$open_text = $website["Language texts"]["click_to_read_story"]." ".$website["Icons"]["reader"];
+		}
+
+		$show_text = HTML::Element("h2", "\n\t\t\t\t".$open_text."\n\t\t\t", "", "text_size");
 		$hide_text = HTML::Element("h4", "\n\t\t\t\t"."X"."\n\t\t\t", 'style="font-weight: bold;"', "text_size");
 
 		$border_color = $website["Style"]["border_color"];

@@ -4,7 +4,7 @@
 	<title><?php echo $website["Data"]["titles"]["language"]; ?></title>
 
 	<!-- Website links -->
-	<link rel="canonical" href="<?php echo $website['Data']['links']['language']; ?>" />
+	<link rel="canonical" href="<?php echo $website['Data']['Links']['Language']; ?>" />
 	<link rel="icon" type="image/<?php echo $website['Data']['image']['format']; ?>" href="<?php echo $website['Data']['image']['link']; ?>" />
 	<link rel="image_src" type="image/<?php echo $website['Data']['image']['format']; ?>" href="<?php echo $website['Data']['image']['link']; ?>" />
 
@@ -18,7 +18,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="<?php echo $website['Meta title']; ?>" />
 	<meta property="og:site_name" content="<?php echo $website['Meta title']; ?>" />
-	<meta property="og:url" content="<?php echo $website['Data']['links']['language']; ?>" />
+	<meta property="og:url" content="<?php echo $website['Data']['Links']['Language']; ?>" />
 	<meta property="og:image" type="image/<?php echo $website['Data']['image']['format']; ?>" content="<?php echo $website['Data']['image']['link']; ?>" />
 	<meta property="og:description" content="<?php echo $website['Data']['description']['html']; ?>" />
 	<meta property="og:locale" content="<?php echo $website['locale']; ?>" />
@@ -32,7 +32,7 @@
 	<meta name="twitter:website" value="@<?php echo $website['Twitter author']; ?>_" />
 	<meta name="twitter:site" value="@<?php echo $website['Twitter author']; ?>_" />
 	<meta name="twitter:creator" content="@<?php echo $website['Twitter author']; ?>_" />
-	<meta name="twitter:url" content="<?php echo $website['Data']['links']['language']; ?>" />
+	<meta name="twitter:url" content="<?php echo $website['Data']['Links']['Language']; ?>" />
 	<meta name="twitter:image" type="image/<?php echo $website['Data']['image']['format']; ?>" content="<?php echo $website['Data']['image']['link']; ?>" />
 
 	<!-- Author related meta tags -->
@@ -54,7 +54,7 @@
 		--spread-btn: 0.5px;
 	}
 
-	.w3-btn, .w3-container, .modal, .modal-content, .w3-input {
+	.modal, .modal-content {
 		box-shadow: 0 -8px 20px var(--spread-btn) var(--shadow-color),
 		0 8px 20px var(--spread-btn) var(--shadow-color),
 		0 6px 20px var(--spread-btn) var(--shadow-color),

@@ -15,7 +15,7 @@ foreach ($modal_types as $type) {
 	if ($type == "comment") {
 		$chapter_modal["text"] = $website["Language texts"]["comment_on_the_chapter"];
 		$chapter_modal["comment_input"] = "\t\t\t"."<!-- Comment input -->"."\n".
-		"\t\t\t".HTML::Element("h2", "\n\t\t\t\t".$website["Language texts"]["comment, title()"].": "."\n\t\t\t", 'style="font-weight: bold;"', "text_size ".$website["Style"]["text_highlight"]." margin_sides_10_cent margin_top_bottom_3_cent")."\n".
+		"\t\t\t".HTML::Element("h2", "\n\t\t\t\t".$website["Language texts"]["comment, title()"].": "."\n\t\t\t", 'style="font-weight: bold;"', "text_size ".$website["Style"]["text_highlight"]." margin_top_bottom_3_cent")."\n".
 		"\t\t\t".HTML::Element("input", "", 'type="text" name="comment" style="width: 100%; font-weight: bold; border-radius: 50px;"', "w3-input text_size ".$website["Style"]["button"]["theme"]["light"])."\n";
 
 		$chapter_modal["icon"] = $website["Icons"]["comment"];

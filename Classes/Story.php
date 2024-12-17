@@ -201,9 +201,10 @@ class Story extends Class_ {
 			$remote_chapter_folder .= $chapter_folder;
 
 			foreach ($website["Image formats"] as $format) {
-				$local_chapter_cover = $local_chapter_folder.$chapter_cover_file_name.".".$format;
+				$chapter_cover = $local_chapter_folder.$chapter_cover_file_name.".".$format;
 
-				if (file_exists($local_chapter_cover) == True) {
+				if (file_exists($chapter_cover) == True) {
+					$local_chapter_cover = $chapter_cover;
 					$image_format = $format;
 				}
 			}
@@ -234,9 +235,17 @@ class Story extends Class_ {
 		if ($local_chapter_cover != "") {
 			$chapter_tab["comment"] = str_replace("button", "button, image,", $chapter_tab["comment"]);
 
+			#$width = $website["Data"]["JSON"]["image"]["width"];
+			$width = "100";
+
+			$style = $website["Style"]["img"]["theme"]["light"];
+			$style = str_replace("image_size ", "", $website["Style"]["img"]["theme"]["light"]);
+
+			$image = HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'" width="100%"', $website["Style"]["box_shadow"]["theme"]["dark"]." ".$style);
+
 			$chapter_cover = "<br />"."<!-- Chapter cover image -->"."\n".
 			"\t\t"."<center>"."\n".
-			"\t\t\t".HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'"', $website["Style"]["box_shadow"]["theme"]["dark"]." ".$website["Style"]["img"]["theme"]["light"])."\n\t\t"."</center>"."\n".
+			"\t\t\t"."\n\t\t".$image."</center>"."\n".
 			"\t\t"."<br />\n\n";
 		}
 
@@ -309,7 +318,7 @@ class Story extends Class_ {
 			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["Style"]["text"]["theme"]["dark"]." margin_sides_10_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($c + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["Style"]["background"]["theme"]["light"]." ".$website["Style"]["border_4px"]["theme"]["dark"]." ".$website["Style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["Style"]["background"]["theme"]["dark"]." ".$website["Style"]["border_4px"]["theme"]["light"]." border_radius_50px");
 
 			if (file_exists($reads_folder) == True) {
 				$div = str_replace("33%", "100%", $div);
@@ -380,14 +389,14 @@ class Story extends Class_ {
 			}
 
 			$text = '<br class="mobile_inline_block" />'.$text;
-			$text .= "<br />";
+			$text .= "<br /><br />";
 			$text .= HTML::Element("b", $website["Language texts"]["in, title()"]).": ".date("H:i d/m/Y", strtotime($read_date));
 			$text .= '<br class="mobile_inline_block" />'.'<br class="mobile_inline_block" />';
 
 			$h4 = "\n"."\t\t".HTML::Element("h4", "\n\t\t\t".$text."\n\t\t", 'style="text-align: left;"', "text_size ".$website["Style"]["text"]["theme"]["dark"]." margin_sides_10_cent margin_top_bottom_2_cent")."\n";
 
 			$div = "\t".'<!-- Chapter read number '.($r + 1).' -->'."\n".
-			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["Style"]["background"]["theme"]["light"]." ".$website["Style"]["border_4px"]["theme"]["dark"]." ".$website["Style"]["box_shadow"]["theme"][$border_color]." border_radius_50px");
+			"\t".HTML::Element("div", $h4."\t", 'style="width: 33%;"', $website["Style"]["background"]["theme"]["dark"]." ".$website["Style"]["border_4px"]["theme"]["light"]." border_radius_50px");
 
 			if (file_exists($comments_folder) == True) {
 				$div = str_replace("33%", "100%", $div);
@@ -491,6 +500,7 @@ class Story extends Class_ {
 
 	public function Chapter_Tab() {
 		global $Folder;
+		global $File;
 		global $website;
 		global $story;
 		global $full_language;
@@ -523,7 +533,7 @@ class Story extends Class_ {
 			"number_leading_zeroes" => Text::Add_Leading_Zeroes($i),
 			"id" => "chapter_".$i,
 			"chapter_title" => $i." - ".$chapter_title,
-			"chapter_title_file" => Text::Add_Leading_Zeroes($i)." - ".$Folder -> Sanitize($chapter_title),
+			"chapter_title_file" => Text::Add_Leading_Zeroes($i)." - ".$File -> Sanitize($chapter_title),
 			"Dictionary" => [],
 			"painted_chapter_title" => $painted_chapter_title,
 			"you_are_reading" => "",
@@ -592,13 +602,15 @@ class Story extends Class_ {
 		$story["chapter_buttons"] .= $chapter_button;
 
 		if ($chapter_title != end($chapter_titles)) {
-			$story["chapter_buttons"] .= "\n";
+			$story["chapter_buttons"] .= "<br />"."\n";
 		}
 
 		# Get the chapter text
 		$array = $this -> Chapter_Text();
 
 		$chapter_tab["chapter_text"] = $array["Text"]."\n";
+
+		$chapter_tab["chapter_text_color"] = " text_white";
 
 		if (isset($website["Style"]["chapter_text_color"]) == True) {
 			$chapter_tab["chapter_text_color"] = " text_".$website["Style"]["chapter_text_color"];
@@ -717,6 +729,12 @@ class Story extends Class_ {
 					"Border" => "light",
 					"Theme" => "secondary_theme"
 				],
+				"Dark" => [
+					"Background" => "dark",
+					"Text" => "dark",
+					"Border" => "light",
+					"Theme" => "theme"
+				],
 				"Stylized" => [
 					"Background" => "dark",
 					"Text" => "light",
@@ -726,9 +744,10 @@ class Story extends Class_ {
 			];
 
 			# Select a theme
-			#$theme = $themes["Story"];
-			$theme = $themes["Light"];
+			$theme = $themes["Story"];
+			#$theme = $themes["Light"];
 			#$theme = $themes["Light (secondary)"];
+			$theme = $themes["Dark"];
 			#$theme = $themes["Stylized"];
 
 			$background_and_text_class = $website["Data"]["Style"]["background"]["theme"][$theme["Background"]]." ".$website["Data"]["Style"]["text"]["theme"][$theme["Text"]];

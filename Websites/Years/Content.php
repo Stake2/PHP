@@ -115,6 +115,10 @@ if (
 
 	foreach ($website["Year buttons"] as $button) {
 		$year_buttons .= $button."\n";
+
+		if ($button != end($website["Year buttons"])) {
+			$year_buttons .= "<br />";
+		}
 	}
 
 	# Add tab keys and templates

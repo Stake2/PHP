@@ -1,9 +1,9 @@
 {
 	"style": {
 		"theme": {
-			"normal": "light_purple_darker",
+			"normal": "dark_purple",
 			"light": "light_purple",
-			"dark": "dark_purple"
+			"dark": "darker_purple"
 		},
 		"secondary_theme": {
 			"normal": "salmon",

@@ -10,6 +10,8 @@
 			"light": "yellow_sand",
 			"dark": "yellow_sand"
 		},
-		"text_highlight": "dark_green_water"
+		"text_highlight": "dark_green_water",
+		"text_color": "dark_green_water",
+		"chapter_text_color": "dark_green_water"
 	}
 }

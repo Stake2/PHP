@@ -28,7 +28,7 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 
 		$text = $website["Language texts"][$number_name];
 
-		$link = $website_data["links"]["element"];
+		$link = $website_data["Links"]["Element"];
 		$link = str_replace('"'.$title.'"', $text, $link);
 
 		if ($website["States"]["Website"]["Generate"] == False) {
@@ -43,7 +43,7 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 
 		$chapter_title = $website_data["Story"]["Information"]["Chapters"]["Titles"][$language][$number - 1];
 
-		$link = $website_data["links"]["language"];
+		$link = $website_data["Links"]["Language"];
 
 		if ($website["States"]["Website"]["Generate"] == False) {
 			$link .= "&";
@@ -64,7 +64,7 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 }
 
 # Define the songs of Variable Inserter
-$website["Variable_Inserter"]["songs"] = [];
+$website["Variable_Inserter"]["Songs"] = [];
 
 $songs = [
 	"Porter_Robinson_Madeon_Shelter_Official_Video_Link" => [
@@ -156,9 +156,9 @@ foreach (array_keys($songs) as $key) {
 	}
 
 	if (isset($song["embed"]) == False) {
-		$website["Variable_Inserter"]["songs"][$key] = HTML::Element("a", $text, 'href="'.$link.'" target="_blank"');
+		$website["Variable_Inserter"]["Songs"][$key] = HTML::Element("a", $text, 'href="'.$link.'" target="_blank"');
 
-		$website["Variable_Inserter"]["songs"][$key."_no_quote"] = HTML::Element("a", str_replace('"', "", $text), 'href="'.$link.'" target="_blank"');
+		$website["Variable_Inserter"]["Songs"][$key."_no_quote"] = HTML::Element("a", str_replace('"', "", $text), 'href="'.$link.'" target="_blank"');
 	}
 
 	if (isset($song["embed"]) == True) {
@@ -166,7 +166,7 @@ foreach (array_keys($songs) as $key) {
 			$text = $text."<br />"."\n";
 		}
 
-		$website["Variable_Inserter"]["songs"][$key] = $text.'<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
+		$website["Variable_Inserter"]["Songs"][$key] = $text.'<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
 	}
 }
 
@@ -219,7 +219,7 @@ while ($i <= $chapter_number) {
 
 			$file["Path"] = str_replace($replace, $with, $file["Path"]);
 
-			$image = "<br />".HTML::Element("img", "", 'src="'.$file["Path"].'" style="max-width: 50%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
+			$image = "<br />".HTML::Element("img", "", 'src="'.$file["Path"].'" style="max-width: 60%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
 
 			$dictionary[$number][$key] = $image;
 		}	
@@ -232,55 +232,82 @@ $website["Variable_Inserter"]["The_Life_of_Littletato"]["Images"]["Chapters"] = 
 
 # Define the "The Life of Littletato" songs
 $songs = [
-	"Yuru_Camp_Solo_Camp_Embed" => [
-		"text" => "Yuru Camp",
-		"id" => "cs4qzCzJTKk",
-		"embed" => True
+	"Yuru_Camp_Solo_Camp_Embed" => [ # Chapter 4
+		"Text" => "Yuru Camp",
+		"ID" => "cs4qzCzJTKk",
+		"Embed" => True
 	],
-	"Yuru_Camp_Solo_Camp_Title" => [
-		"text" => "Yuru Camp OST #04 - Solo Camp Recommendation",
-		"link" => "https://www.youtube.com/watch?v=cs4qzCzJTKk"
+	"Yuru_Camp_Solo_Camp_Title" => [ # Chapter 4
+		"Text" => "Yuru Camp OST #04 - Solo Camp Recommendation",
+		"Link" => "https://www.youtube.com/watch?v=cs4qzCzJTKk"
 	],
-	"Yuru_Camp_Soundtrack" => [
-		"text" => [
+	"Future_Bounce_Playlist_(Stake2)" => [ # Chapter 5
+		"Text" => [
+			"en" => "Future Bounce Playlist",
+			"pt" => "Playlist de Future Bounce"
+		],
+		"ID" => "PLh4DEvPQ2wKNAPTQuHnO19k8B2AQ7Day6",
+		"Embed" => True
+	],
+	"Folk_Songs" => [ # Chapter 11
+		"Text" => [
+			"en" => "folk songs",
+			"pt" => "músicas do gênero Folk"
+		],
+		"Link" => "https://www.youtube.com/watch?v=gRejhGxr69Y"
+	],
+	"Yuru_Camp_Soundtrack" => [ # Chapter 18, 19
+		"Text" => [
 			"en" => "Yuru Camp soundtrack",
 			"pt" => "Trilha sonora de Yuru Camp"
 		],
-		"link" => "https://www.youtube.com/watch?v=cs4qzCzJTKk"
+		"Link" => "https://www.youtube.com/watch?v=cs4qzCzJTKk"
 	],
-	"Folk_Songs" => [
-		"text" => [
-			"en" => "folk songs",
-			"pt" => "músicas do gênero folk"
-		],
-		"link" => "https://www.youtube.com/watch?v=gRejhGxr69Y"
-	],
-	"Take_That_By_RIOT" => [
-		"text" => [
+	"Take_That_By_RIOT" => [ # Chapter 20
+		"Text" => [
 			"en" => '"Take That" by RIOT',
 			"pt" => '"Take That" por RIOT'
 		],
-		"link" => "https://www.youtube.com/watch?v=NpNYYkXxT-A"
-	],
+		"Link" => "https://www.youtube.com/watch?v=NpNYYkXxT-A"
+	]
 ];
 
 foreach (array_keys($songs) as $key) {
 	$song = $songs[$key];
 
-	if (is_array($song["text"]) == True) {
-		$song["text"] = $Language -> Item($song["text"]);
+	if (is_array($song["Text"]) == True) {
+		$song["Text"] = $Language -> Item($song["Text"]);
 	}
 
-	if (isset($song["embed"]) == False) {
-		$website["Variable_Inserter"]["The_Life_of_Littletato"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+	if (isset($song["Embed"]) == False) {
+		$website["Variable_Inserter"]["The_Life_of_Littletato"]["Songs"][$key] = HTML::Element("a", $song["Text"], 'href="'.$song["Link"].'" target="_blank"', $website["Style"]["text_highlight"]);
 	}
 
-	if (isset($song["embed"]) == True) {
-		$link = "https://www.youtube.com/embed/".$song["id"];
+	if (isset($song["Embed"]) == True) {
+		$link = "https://www.youtube.com/embed/";
+
+		if (strstr($key, "Playlist") == False) {
+			$text = '"'.$text.'"';
+			$link .= $song["ID"];
+		}
+
+		if (strstr($key, "Playlist") == True) {
+			if (isset($song["Embed"]) == True) {
+				$link .= "videoseries";
+			}
+
+			if (isset($song["Embed"]) == False) {
+				$link .= "playlist?";
+			}
+		}
 
 		$link .= "?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&";
 
-		$website["Variable_Inserter"]["The_Life_of_Littletato"]["songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
+		if (strstr($key, "Playlist") == True) {
+			$link .= "list=".$song["ID"];
+		}
+
+		$website["Variable_Inserter"]["The_Life_of_Littletato"]["Songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
 	}
 }
 
@@ -371,7 +398,7 @@ foreach (array_keys($songs) as $key) {
 		$song["text"] = $Language -> Item($song["text"]);
 	}
 
-	$website["Variable_Inserter"]["The_Secret_of_the_Crystals"]["songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
+	$website["Variable_Inserter"]["The_Secret_of_the_Crystals"]["Songs"][$key] = HTML::Element("a", $song["text"], 'href="'.$song["link"].'" target="_blank"');
 }
 
 # Define "The Story of the Bulkan Siblings" key of Variable Inserter array
@@ -393,7 +420,7 @@ foreach (array_keys($songs) as $key) {
 	$link = "https://www.youtube.com/embed/".$song["id"];
 	$link .= "?autoplay=0&fs=1&iv_load_policy=1&showinfo=1&rel=0&cc_load_policy=1&start=0&end=0&";
 
-	$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"]["songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
+	$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"]["Songs"][$key] = '<div class="video-container" style="margin-top: 1%; margin-bottom: -6%;"><iframe type="text/html" width="560" height="315" frameborder="0" class="border_radius_5_cent '.$website["Style"]["border_4px"]["secondary_theme"]["light"].'" src="'.$link.'" title="YouTube video player"></iframe></div><br /><br /><br />';
 }
 
 # Define "The Story of the Bulkan Siblings" links
@@ -425,7 +452,7 @@ foreach (array_keys($links) as $key) {
 		$link["link"] = $Language -> Item($link["link"]);
 	}
 
-	$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"]["links"][$key] = HTML::Element("a", $link["text"], 'href="'.$link["link"].'" target="_blank"');
+	$website["Variable_Inserter"]["The_Story_of_the_Bulkan_Siblings"]["Links"][$key] = HTML::Element("a", $link["text"], 'href="'.$link["link"].'" target="_blank"');
 }
 
 # Define "The Story of the Bulkan Siblings" references

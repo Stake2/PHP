@@ -146,7 +146,7 @@ function Generate_Website() {
 	$website["Meta title"] = str_replace('"', "'", $website["Data"]["titles"]["language"]);
 
 	# Define website link
-	$website["Data"]["links"]["language"] = $website["Local URL"]["Index"];
+	$website["Data"]["Links"]["Language"] = $website["Local URL"]["Index"];
 
 	# Remove JavaScript stuff
 	$website["javascript"]["links"] = "";

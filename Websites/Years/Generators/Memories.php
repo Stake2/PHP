@@ -40,7 +40,7 @@ if (file_exists($file) == True) {
 		if (in_array($file["Extension"], $website["Image formats"])) {
 			$class = $website["Data"]["Style"]["background"]["theme"][$tone]." ".$website["Style"]["box_shadow"]["theme"][$tone];
 
-			$class .= " border_4px border_radius_5_cent";
+			$class .= " border_radius_5_cent ".$website["Data"]["Style"]["border_4px"]["theme"]["light"];
 
 			# Make the image text and element centered
 			$image_string = '<center class="'.$class.'">'."\n";
@@ -90,19 +90,22 @@ if (file_exists($file) == True) {
 			# Add some spaces
 			$image_string .= "<p></p>"."\n";
 
+			# Define the text color
+			$text_color = $website["Data"]["Style"]["text"]["theme"]["dark"];
+
 			if ($add_image_title == True) {
 				# Create the image "Title" text
-				$text = $website["Language texts"]["title, title()"].":"."\n".
+				$text = $HTML -> Element("b", $website["Language texts"]["title, title()"].":")."\n".
 				"<br />"."\n";
-
-				# Make the title text bold
-				$text = $HTML -> Element("b", $text)."\n";
 
 				# Make the image title
 				$title = $key.".".$file["Extension"];
 
-				# Add the title text and title to the image string
-				$image_string .= $text.$title;
+				# Make the title text bold
+				$text = $HTML -> Element("span", $text.$title, "", $text_color)."\n";
+
+				# Add the text to the image string
+				$image_string .= $text;
 
 				# Add some spaces
 				$image_string .= "<br />"."\n".
@@ -111,14 +114,14 @@ if (file_exists($file) == True) {
 
 			else {
 				# Create the image "Number" text
-				$text = $website["Language texts"]["number, title()"].":".
+				$text = $HTML -> Element("b", $website["Language texts"]["number, title()"].":")."\n".
 				"<br />"."\n";
 
 				# Make the number text bold
-				$text = $HTML -> Element("b", $text)."\n";
+				$text = $HTML -> Element("span", $text.$i, "", $text_color)."\n";
 
-				# Add the number text and number to the image string
-				$image_string .= $text.$i;
+				# Add the text to the image string
+				$image_string .= $text;
 
 				# Add some spaces
 				$image_string .= "<br />"."\n".
@@ -126,16 +129,16 @@ if (file_exists($file) == True) {
 			}
 
 			# Create the image "Date" text
-			$image_date = $website["Language texts"]["date, title()"].":".
+			$image_date = $HTML -> Element("b", $website["Language texts"]["date, title()"].":").
 			"<br />"."\n";
-
-			# Make the image date text bold
-			$image_date = $HTML -> Element("b", $image_date)."\n";
 
 			# Get the image date
 			if (isset($times[$i - 1])) {
 				$image_date .= $times[$i - 1];
 			}
+
+			# Make the image date text bold
+			$image_date = $HTML -> Element("span", $image_date, "", $text_color)."\n";
 
 			# Add the image date text to the image string
 			$image_string .= $image_date;

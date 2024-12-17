@@ -7,6 +7,7 @@
 		"Black",
 		"Purple",
 		"Dark purple",
+		"Darker purple",
 		"Light purple",
 		"Light purple darker",
 		"Pink",
@@ -23,13 +24,16 @@
 		"Light orange",
 		"Brown",
 		"Dark brown",
+		"Darker brown",
 		"Light brown",
 		"Yellow",
 		"Dark yellow",
+		"Darker yellow",
 		"Light yellow",
 		"Yellow sand",
 		"Green",
 		"Dark green",
+		"Darker green",
 		"Light green",
 		"Green water",
 		"Dark green water",
@@ -75,6 +79,10 @@
 		"Dark purple": {
 			"Name": "Dark purple",
 			"Code": "#4a1254"
+		},
+		"Darker purple": {
+			"Name": "Darker purple",
+			"Code": "#1d0322"
 		},
 		"Light purple": {
 			"Name": "Light purple",
@@ -125,7 +133,7 @@
 			"Code": "#ff1200"
 		},
 		"Orange": {
-			"Name": "Yellow",
+			"Name": "Orange",
 			"Code": "#ffa500"
 		},
 		"Dark orange": {
@@ -144,6 +152,10 @@
 			"Name": "Dark brown",
 			"Code": "#402807"
 		},
+		"Darker brown": {
+			"Name": "Darker brown",
+			"Code": "#221502"
+		},
 		"Light brown": {
 			"Name": "Light brown",
 			"Code": "#e0a448"
@@ -155,6 +167,10 @@
 		"Dark yellow": {
 			"Name": "Dark yellow",
 			"Code": "#c19d15"
+		},
+		"Darker yellow": {
+			"Name": "Darker yellow",
+			"Code": "#594808"
 		},
 		"Light yellow": {
 			"Name": "Light yellow",
@@ -171,6 +187,10 @@
 		"Dark green": {
 			"Name": "Dark green",
 			"Code": "#1C4F1F"
+		},
+		"Darker green": {
+			"Name": "Darker green",
+			"Code": "#052B08"
 		},
 		"Light green": {
 			"Name": "Light green",

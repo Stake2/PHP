@@ -27,7 +27,10 @@
 			"Histórias"
 		]
 	},
-	"Remove from websites tab": [],
+	"Remove from websites tab": [
+		"Rise to Equestria",
+		"The Life of Izaque in Equestria"
+	],
 	"Configuration": {
 		"Friendship Is Magic": {
 			"Parent": {

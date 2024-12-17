@@ -79,10 +79,12 @@ foreach ($keys as $key) {
 	if (in_array($file["Extension"], $website["Image formats"])) {
 		$class = $website["Data"]["Style"]["background"]["theme"][$tone]." ".$website["Style"]["box_shadow"]["theme"][$tone];
 
-		$class .= " border_4px border_radius_5_cent";
+		$class .= " border_radius_5_cent ".$website["Data"]["Style"]["border_4px"]["theme"]["light"];
 
 		# Make the image text and element centered
 		$image_string = '<center class="'.$class.'">'."\n";
+
+		$text_color = "white";
 
 		if ($i != 0) {
 			# Create the "Previous image" button
@@ -127,6 +129,9 @@ foreach ($keys as $key) {
 
 		# Add some spaces
 		$image_string .= "<p></p><br />"."\n";
+
+		# Define the text color
+		$text_color = $website["Data"]["Style"]["text"]["theme"]["dark"];
 
 		if ($add_image_title == True) {
 			# Create the image "Title" text
@@ -209,7 +214,7 @@ foreach ($keys as $key) {
 			}
 
 			# Add the title text and title to the image string
-			$image_string .= $text.$title;
+			$image_string .= $HTML -> Element("span", $text.$title, "", $text_color);
 
 			# Add some spaces
 			$image_string .= "<br />"."\n".
@@ -225,7 +230,7 @@ foreach ($keys as $key) {
 			$text = $HTML -> Element("b", $text)."\n";
 
 			# Add the number text and number to the image string
-			$image_string .= $text.$z;
+			$image_string .= $HTML -> Element("span", $text, "", $text_color).$z;
 
 			# Add some spaces
 			$image_string .= "<br />"."\n".

@@ -503,16 +503,16 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["link"] = $website["URL"].$link."/";
 
 	# Define website links
-	$website_dictionary["links"] = [];
+	$website_dictionary["Links"] = [];
 
 	foreach ($website["small_languages"] as $local_language) {
-		$website_dictionary["links"][$local_language] = $website_dictionary["link"].$local_language."/";
+		$website_dictionary["Links"][$local_language] = $website_dictionary["link"].$local_language."/";
 	}
 
-	$website_dictionary["links"]["language"] = $website_dictionary["link"];
+	$website_dictionary["Links"]["Language"] = $website_dictionary["link"];
 
 	if ($website["language"] != "general") {
-		$website_dictionary["links"]["language"] .= $language."/";
+		$website_dictionary["Links"]["Language"] .= $language."/";
 	}
 
 	if (
@@ -521,12 +521,27 @@ foreach ($websites["List"]["en"] as $website_title) {
 	) {
 		$new_link = $Text -> Format($website["Local URL"]["Code"]["Templates"]["With tab"], $website_dictionary["title"]);
 
-		$website_dictionary["links"]["language"] = explode("&tab=", $new_link)[0];
+		$website_dictionary["Links"]["Language"] = explode("&tab=", $new_link)[0];
 	}
 
-	$website_dictionary["links"]["element"] = HTML::Element("a", '"'.$website_dictionary["titles"]["language"].'"', 'href="'.$website_dictionary["links"]["language"].'" target="_blank"', "text_".$website_dictionary["JSON"]["style"]["theme"]["dark"]);
+	# Define the default text highlight variable if it is present
+	if (isset($website_dictionary["JSON"]["style"]["text_highlight"]) == True) {
+		$text_highlight = "text_".$website_dictionary["JSON"]["style"]["text_highlight"];
+	}
 
-	$website_dictionary["links"]["element_no_quotes"] = HTML::Element("a", $website_dictionary["titles"]["language"], 'href="'.$website_dictionary["links"]["language"].'" target="_blank"', "text_".$website_dictionary["JSON"]["style"]["theme"]["dark"]);
+	# Define the text highlight as the white text if it is not present
+	else {
+		$text_highlight = "text_white";
+	}
+
+	# Define the link element
+	$website_dictionary["Links"]["Element"] = HTML::Element("a", '"'.$website_dictionary["titles"]["language"].'"', 'href="'.$website_dictionary["Links"]["Language"].'" target="_blank"', $text_highlight);
+
+	# Define the link element without quotes
+	$website_dictionary["Links"]["Element (no quotes)"] = HTML::Element("a", $website_dictionary["titles"]["language"], 'href="'.$website_dictionary["Links"]["Language"].'" target="_blank"', $text_highlight);
+
+	# Define the link element without quotes, with no spaces on the key
+	$website_dictionary["Links"]["Element_(no_quotes)"] = $website_dictionary["Links"]["Element (no quotes)"];
 
 	if (isset($website_dictionary["JSON"]["tabs"]) == True) {
 		$website_dictionary["tabs"] = $website_dictionary["JSON"]["tabs"];
@@ -580,8 +595,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["Style"]["border_color"] = "light";
 
 	# Define border color from JSON
-	if (isset($website_dictionary["JSON"]["border_color"]) == True) {
-		$website_dictionary["Style"]["border_color"] = $website_dictionary["JSON"]["border_color"];
+	if (isset($website_dictionary["JSON"]["style"]["border_color"]) == True) {
+		$website_dictionary["Style"]["border_color"] = $website_dictionary["JSON"]["style"]["border_color"];
 	}
 
 	# Define default box shadow
@@ -637,6 +652,16 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 	}
 
+	# Make a backup of the original dark text color
+	$website_dictionary["Style"]["text"]["theme"]["Original dark"] = $website_dictionary["Style"]["text"]["theme"]["dark"];
+
+	$website_dictionary["Style"]["text"]["theme"]["dark"] = "text_white";
+
+	# Define text color from JSON
+	if (isset($website_dictionary["JSON"]["style"]["text_color"]) == True) {
+		$website_dictionary["Style"]["text"]["theme"]["dark"] = $website_dictionary["JSON"]["style"]["text_color"];
+	}
+
 	$website_dictionary["Style"]["text_highlight"] = $website_dictionary["JSON"]["style"]["theme"]["light"];
 
 	if (isset($website_dictionary["JSON"]["style"]["text_highlight"]) == True) {
@@ -647,7 +672,13 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	$website_dictionary["Style"]["text_highlight"] = "text_".$website_dictionary["Style"]["text_highlight"];
 
+	# Define the default body background color
 	$website_dictionary["Style"]["body"] = $website_dictionary["Style"]["background"]["secondary_theme"]["dark"];
+
+	# If the "background_color" key is inside the JSON style dictionary
+	if (isset($website_dictionary["JSON"]["style"]["background_color"]) == True) {
+		$website_dictionary["Style"]["body"] = "background_".$website_dictionary["JSON"]["style"]["background_color"];
+	}
 
 	$types = [
 		"black",
@@ -716,7 +747,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		if (is_array($website_dictionary["Style"]["border_4px"][$type]) === True) {
 			foreach (array_keys($website_dictionary["Style"]["border_4px"][$type]) as $key) {
-				$website_dictionary["Style"]["button"][$type][$key] = $website_dictionary["Style"]["background"][$type][$key]." ".$website_dictionary["Style"]["text"]["theme"]["dark"]." ".$website_dictionary["Style"]["border_4px"][$type]["dark"]." box_shadow_".$website_dictionary["JSON"]["style"][$type][$key]." background_hover_white";
+				$website_dictionary["Style"]["button"][$type][$key] = $website_dictionary["Style"]["background"][$type]["dark"]." ".$website_dictionary["Style"]["text"]["theme"]["dark"]." ".$website_dictionary["Style"]["border_4px"][$type]["light"]." background_hover_black";
 			}
 		}
 	}
@@ -732,11 +763,11 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["Style"]["box_shadow_class"] = $website_dictionary["Style"]["box_shadow"]["theme"][$website_dictionary["Style"]["box_shadow_color"]];
 
 	$website_dictionary["Style"]["tab"] = [
-		"black" => "header_size ".$website_dictionary["Style"]["background"]["black"]." ".$website_dictionary["Style"]["text"]["secondary_theme"]["normal"]." ".$website_dictionary["Style"]["border_4px"]["theme"]["light"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
+		"black" => $website_dictionary["Style"]["background"]["black"]." ".$website_dictionary["Style"]["text"]["secondary_theme"]["normal"]." ".$website_dictionary["Style"]["border_4px"]["theme"]["light"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
-		"theme" => "header_size ".$website_dictionary["Style"]["background"]["theme"]["normal"]." ".$website_dictionary["Style"]["text"]["black"]." ".$website_dictionary["Style"]["border_4px"]["theme"]["light"]." ".$website_dictionary["Style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
+		"theme" => $website_dictionary["Style"]["background"]["theme"]["normal"]." ".$website_dictionary["Style"]["text"]["black"]." ".$website_dictionary["Style"]["border_4px"]["theme"]["light"]." ".$website_dictionary["Style"]["border_radius"]." padding_bottom_1_cent margin_bottom_2_cent height_auto w3-animate-zoom",
 
-		"theme_dark" => "header_size ".$website_dictionary["Style"]["background"]["theme"]["normal"]." ".$website_dictionary["Style"]["text"]["theme"]["dark"]." ".$website_dictionary["Style"]["border_4px"]["theme"][$border_color]." "
+		"theme_dark" => $website_dictionary["Style"]["background"]["theme"]["normal"]." ".$website_dictionary["Style"]["text"]["theme"]["dark"]." ".$website_dictionary["Style"]["border_4px"]["theme"][$border_color]." "
 	];
 
 	if ($website_dictionary["JSON"]["image"]["box_shadow"] == True) {
@@ -854,7 +885,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["image"]["link"] .= ".".$website_dictionary["image"]["format"];
 
 	if (isset($website_dictionary["JSON"]["image"]["width"]) == False) {
-		$website_dictionary["JSON"]["image"]["width"] = "";
+		$website_dictionary["JSON"]["image"]["width"] = "90";
 	}
 
 	# Define the website image link for stories
@@ -862,14 +893,14 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["type"] == "Story" or
 		isset($website_dictionary["JSON"]["story"])
 	) {
-		$website_dictionary["JSON"]["image"]["width"] = "50";
+		$website_dictionary["JSON"]["image"]["width"] = "70";
 	}
 
 	if (
 		in_array($website_title, $website["Years"]) == True or
 		str_contains($website_title, "Diary")
 	) {
-		$website_dictionary["JSON"]["image"]["width"] = "30";
+		$website_dictionary["JSON"]["image"]["width"] = "60";
 	}
 
 	$verbose_text .= "\n"."\t"."Formato: ".'"'.$website_dictionary["image"]["format"].'"'."\n\n";
@@ -904,8 +935,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["image"]["element"] = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class)."<br />"."\n";
 
 	if ($website_dictionary["JSON"]["image"]["width"] != "") {
-		$website_dictionary["image"]["element"] = str_replace("image_size ", "", $website_dictionary["image"]["element"]);
-		$website_dictionary["image"]["element"] = str_replace("height: auto;", "max-width: ".$website_dictionary["JSON"]["image"]["width"]."vw; height: auto;", $website_dictionary["image"]["element"]);
+		$website_dictionary["image"]["element"] = HTML::Make_Image_Size($website_dictionary["image"]["element"], $website_dictionary["JSON"]["image"]["width"]);
 	}
 
 	# Define website image elements for style
@@ -929,8 +959,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class)."<br />"."\n";
 
 			if ($website_dictionary["JSON"]["image"]["width"] != "") {
-				$image = str_replace("image_size ", "", $image);
-				$image = str_replace("height: auto;", "max-width: ".$website_dictionary["JSON"]["image"]["width"]."vw; height: auto;", $image);
+				$image = HTML::Make_Image_Size($image, $website_dictionary["JSON"]["image"]["width"]);
 			}
 
 			$website_dictionary["image"]["elements"][$type] = $image;
@@ -947,8 +976,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class." ".$website_dictionary["Style"]["img"]["theme"][$key])."<br />"."\n";
 
 				if ($website_dictionary["JSON"]["image"]["width"] != "") {
-					$image = str_replace("image_size ", "", $image);
-					$image = str_replace("height: auto;", "max-width: ".$website_dictionary["JSON"]["image"]["width"]."vw; height: auto;", $image);
+					$image = HTML::Make_Image_Size($image, $website_dictionary["JSON"]["image"]["width"]);
 				}
 
 				$website_dictionary["image"]["elements"][$type][$key] = $image;
@@ -1155,7 +1183,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$keys = array_values($keys);
 
 			# Define the empty links string
-			$links = "";
+			$links = "<b>".$website["Language texts"]["the_story_on_other_websites"].":</b>"."<br /><br />";
 
 			# Iterate through the story website links inside the "Links" dictionary
 			foreach ($keys as $key) {
@@ -1169,11 +1197,11 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 					# Add a space if the story website is not the first one
 					if ($key != $keys[0]) {
-						$element .= "<br />"."\n";
+						$element .= "<br />"."\n"."<br />"."\n";
 					}	
 
 					# Add the name of the story website
-					$element .= "\t\t".$key.": "."<br />";
+					$element .= "\t\t".$website["Language texts"]["on, title()"]." ".$key.": "."<br />";
 
 					# Create the link
 					$element .= HTML::Element("a", $link, 'href="'.$link.'" target="_blank"', $website_dictionary["Style"]["text_highlight"]);
@@ -1241,7 +1269,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$h2 = HTML::Element("h2", "\n\t\t\t\t".$website_dictionary["titles"]["icon"]."\n\t\t\t", "", "text_size")."\n";
 
 	# Define the link
-	$link = $website_dictionary["links"]["language"];
+	$link = $website_dictionary["Links"]["Language"];
 
 	if ($website["States"]["Website"]["Generate"] == False) {
 		$link = $Text -> Format($website["Local URL"]["Code"]["Templates"]["With tab"], $website_dictionary["title"]);
@@ -1267,7 +1295,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		$button = str_replace($website_icon_title, $website_icon_title." (".$you_are_here_text.")", $button);
 
-		$button = str_replace('">', '" title="'.$website_dictionary["links"]["language"].'"'.">", $button);
+		$button = str_replace('">', '" title="'.$website_dictionary["Links"]["Language"].'"'.">", $button);
 	}
 
 	# Add the button
@@ -1278,6 +1306,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	if (in_array($website_title, $websites["Remove from websites tab"]) == False) {
 		$website["website_buttons"] .= $button."\n";
+
+		if ($website_title != end($websites["List"]["en"])) {
+			$website["website_buttons"] .= "<br />";
+		}
 	}
 
 	$website["Dictionary"][$website_title] = $website_dictionary;

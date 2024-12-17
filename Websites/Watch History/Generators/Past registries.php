@@ -52,7 +52,8 @@ foreach ($website["Watch History"]["Years list"] as $local_year) {
 	# Add the tab button
 	$website["past_registries_buttons"][$website["Data"]["Year"]] = HTML::Tab_Button($tab)."\n";
 
-	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]]."\n";
+	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]].
+	"<br />"."\n";
 
 	# Define the tab data
 	$content = "";

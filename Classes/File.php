@@ -12,7 +12,16 @@ class File extends Class_ {
 	}
 
 	public function Sanitize($file) {
-		$restricted_characters = [":", "?", '"', "|", "*", "<", ">", "/"];
+		$restricted_characters = [
+			":",
+			"?",
+			'"',
+			"|",
+			"*",
+			"<",
+			">",
+			"/"
+		];
 
 		return str_replace($restricted_characters, "", $file);
 	}

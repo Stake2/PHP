@@ -1,15 +1,16 @@
 {
 	"style": {
 		"theme": {
-			"normal": "brown",
+			"normal": "dark_brown",
 			"light": "light_brown",
 			"dark": "dark_brown"
 		},
 		"secondary_theme": {
-			"normal": "brown",
+			"normal": "dark_brown",
 			"light": "light_brown",
-			"dark": "dark_brown"
+			"dark": "darker_brown"
 		},
-		"text_highlight": "dark_brown"
+		"text_highlight": "light_brown",
+		"chapter_text_color": "light_brown"
 	}
 }
