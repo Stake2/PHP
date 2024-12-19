@@ -2,6 +2,12 @@
 
 # Memories
 
+$language = "pt";
+
+if (isset($website["language"]) == True) {
+	$language = $website["language"];
+}
+
 $tab_content = [
 	"Number" => 0,
 	"Content" => ""
@@ -29,15 +35,42 @@ if (file_exists($file) == True) {
 	# List the file keys
 	$keys = array_keys($contents["File"]["Dictionary"]);
 
+	$number_of_keys = count($keys) - 1;
+
+	if (count(array_keys($contents["Folder"]["Dictionary"])) != 0) {
+		$number_of_keys += count(array_keys($contents["Folder"]["Dictionary"]));
+	}
+
 	# Iterate through the file keys
 	$i = 1;
-	foreach ($keys as $key) {
-		$key = (string)$key;
+	$c = 0;
+	while ($c <= $number_of_keys) {
+		if (isset($keys[$c])) {
+			$key = (string)$keys[$c];
+		}
 
 		# Get the file dictionary
 		$file = $contents["File"]["Dictionary"][$key];
 
-		if (in_array($file["Extension"], $website["Image formats"])) {
+		# Define the default "Is multi-language" switch as False
+		$is_multi_language = False;
+
+		# If the current file number has a folder
+		if (isset($contents["Folder"]["Dictionary"][(string)$i])) {
+			# Change the name of the file to add the language
+			$file["Name"] = $i." ".$full_language;
+
+			# Get the file in the current language
+			$file["Path"] = $contents["Folder"]["Dictionary"][(string)$i]["Path"].$full_language.".png";
+
+			# Change the "Is multi-language" switch to True
+			$is_multi_language = True;
+		}
+
+		if (
+			in_array($file["Extension"], $website["Image formats"]) or
+			$is_multi_language == True
+		) {
 			$class = $website["Data"]["Style"]["background"]["theme"][$tone]." ".$website["Style"]["box_shadow"]["theme"][$tone];
 
 			$class .= " border_radius_5_cent ".$website["Data"]["Style"]["border_4px"]["theme"]["light"];
@@ -58,7 +91,6 @@ if (file_exists($file) == True) {
 				# Add the button to the image string
 				$image_string .= $previous_image_button;
 			}
-
 
 			if ($i != count($keys) - 1) {
 				# Create the "Next image" button
@@ -87,8 +119,16 @@ if (file_exists($file) == True) {
 				$image_string .= "<br />"."\n";
 			}
 
+			if (
+				$i != 1 and
+				$i != count($keys) - 1
+			) {
+				$image_string .= '<br class="mobile_inline_block" /><br class="mobile_inline_block" /><br class="mobile_inline_block" />';
+			}
+
 			# Add some spaces
-			$image_string .= "<p></p>"."\n";
+			$image_string .= "<p></p>"."\n".
+			'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 
 			# Define the text color
 			$text_color = $website["Data"]["Style"]["text"]["theme"]["dark"];
@@ -209,11 +249,21 @@ if (file_exists($file) == True) {
 				$i != count($keys) - 1
 			) {
 				$image_string .= "<br />"."\n".
-				"<p></p>"."\n";
+				"<p></p>"."\n".
+				'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
+			}
+
+			if (
+				$i != 1 and
+				$i != count($keys) - 1
+			) {
+				$image_string .= '<br class="mobile_inline_block" />'.
+				'<br class="mobile_inline_block" /><br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 			}
 
 			if ($i == count($keys) - 1) {
-				$image_string .= "<br />"."\n";
+				$image_string .= "<br />"."\n".
+				'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 			}
 
 			# Create the image link button
@@ -243,6 +293,7 @@ if (file_exists($file) == True) {
 		}
 
 		$i++;
+		$c++;
 	}
 
 	# Add tab to tab templates

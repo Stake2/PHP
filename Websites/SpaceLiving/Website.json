@@ -3,7 +3,7 @@
 		"theme": {
 			"normal": "dark_blue",
 			"light": "cyan",
-			"dark": "dark_blue"
+			"dark": "darker_blue"
 		},
 		"secondary_theme": {
 			"normal": "dark_blue",

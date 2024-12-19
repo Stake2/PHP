@@ -2,14 +2,14 @@
 	"icon": "gamepad",
 	"style": {
 		"theme": {
-			"normal": "green",
+			"normal": "dark_green",
 			"light": "light_green",
-			"dark": "dark_green"
+			"dark": "darker_green"
 		},
 		"secondary_theme": {
-			"normal": "green",
+			"normal": "dark_green",
 			"light": "light_green",
-			"dark": "dark_green"
+			"dark": "darker_green"
 		},
 		"text_highlight": "light_green"
 	},

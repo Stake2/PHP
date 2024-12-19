@@ -8,12 +8,16 @@ if (file_exists($file) == True) {
 	# Read the year summary file
 	$contents = $File -> Contents($file);
 
+	# Define some style templates
 	$span = HTML::Element("span", "{}", "", $website["Style"]["text_highlight"]);
 	$span_bold = HTML::Element("span", "{}", 'style="font-weight: bold;"');
 	$span_bold_color = HTML::Element("span", "{}", 'style="font-weight: bold;"', $website["Style"]["text_highlight"]);
 	$margin = HTML::Element("span", "{}", 'style="margin-left: 3%;"');
 
 	if ($contents["lines"] != []) {
+		# Add a bold style to the first line
+		$contents["lines"][0] = Text::Format($span_bold, $contents["lines"][0]);
+
 		$i = 0;
 		foreach ($contents["lines"] as $line) {
 			# Paint date time text with parenthesis
@@ -43,11 +47,13 @@ if (file_exists($file) == True) {
 		}
 	}
 
+	# Add the lines from the year summary file to the tab content string
 	$contents["string"] = Text::From_Array($contents["lines"]);
 
+	# Linkfy the contents to transform any link texts into actual links
 	$contents["string"] = Linkfy($contents["string"]);
 
-	# Add the tab to the tab templates
+	# Add the tab to the dictionary of tab templates
 	$website["tabs"]["templates"]["summary"] = [
 		"name" => $website["Language texts"]["summary, title()"],
 		"text_style" => "text-align: left;",

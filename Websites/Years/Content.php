@@ -39,6 +39,7 @@ $website["Data"]["Files"] = [
 	"Generators" => []
 ];
 
+# If the website title is inside the list of year websites
 if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$keys = array_keys($website["Data"]["Files"]);
 	$keys = array_diff($keys, ["Generators"]);
@@ -60,6 +61,8 @@ $names = [
 ];
 
 # Replace the names array with an array with more generators
+
+# If the website title is inside the list of year websites
 if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$names = [
 		"Welcome",
@@ -173,9 +176,18 @@ if (
 
 	$website["tabs"]["data"] = $website["tabs"]["data"] + $tabs;
 
+	# Define the title of the tab as "Year websites"
+	$tab_title = $website["Language texts"]["year_websites"];
+
+	# If the website title is inside the list of year websites
+	if (in_array($website["Data"]["title"], $website["Years"]) == True) {
+		# Define the title of the tab as "Other year websites"
+		$tab_title = $website["Language texts"]["other_year_websites"];
+	}
+
 	# Create the years tab template
 	$website["tabs"]["templates"]["years"] = [
-		"name" => $website["Language texts"]["years, title()"],
+		"name" => $tab_title,
 		"add" => " ".HTML::Element("span", count($website["Years"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $year_buttons,
 		"icon" => "calendar_days"

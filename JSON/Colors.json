@@ -3,6 +3,8 @@
 		"White",
 		"Grey",
 		"Dark grey",
+		"Darker grey",
+		"Even darker grey",
 		"Light grey",
 		"Black",
 		"Purple",
@@ -28,14 +30,18 @@
 		"Light brown",
 		"Yellow",
 		"Dark yellow",
+		"Dark yellow 2",
 		"Darker yellow",
+		"Darker yellow 2",
 		"Light yellow",
+		"Dark yellow sand",
 		"Yellow sand",
 		"Green",
 		"Dark green",
 		"Darker green",
 		"Light green",
 		"Green water",
+		"Little dark green water",
 		"Dark green water",
 		"Light green water",
 		"Saturated green",
@@ -43,6 +49,7 @@
 		"Light saturated green",
 		"Cyan",
 		"Dark cyan",
+		"Darker cyan",
 		"Light cyan",
 		"Light cyan darker",
 		"Blue",
@@ -63,6 +70,14 @@
 		"Dark grey": {
 			"Name": "Dark grey",
 			"Code": "#2d2d2d"
+		},
+		"Darker grey": {
+			"Name": "Darker grey",
+			"Code": "#3e3e3e"
+		},
+		"Even darker grey": {
+			"Name": "Even darker grey",
+			"Code": "#1e1e1e"
 		},
 		"Light grey": {
 			"Name": "Light grey",
@@ -168,9 +183,17 @@
 			"Name": "Dark yellow",
 			"Code": "#c19d15"
 		},
+		"Dark yellow 2": {
+			"Name": "Dark yellow 2",
+			"Code": "#ffca00"
+		},
 		"Darker yellow": {
 			"Name": "Darker yellow",
 			"Code": "#594808"
+		},
+		"Darker yellow 2": {
+			"Name": "Darker yellow 2",
+			"Code": "#c89f00"
 		},
 		"Light yellow": {
 			"Name": "Light yellow",
@@ -179,6 +202,10 @@
 		"Yellow sand": {
 			"Name": "Yellow sand",
 			"Code": "#ffffb3"
+		},
+		"Dark yellow sand": {
+			"Name": "Dark yellow sand",
+			"Code": "#bbbb78"
 		},
 		"Green": {
 			"Name": "Green",
@@ -199,6 +226,10 @@
 		"Green water": {
 			"Name": "Green water",
 			"Code": "#86ffe6"
+		},
+		"Little dark green water": {
+			"Name": "Little dark green water",
+			"Code": "#6cceba"
 		},
 		"Dark green water": {
 			"Name": "Dark green water",
@@ -227,6 +258,10 @@
 		"Dark cyan": {
 			"Name": "Dark cyan",
 			"Code": "#005457"
+		},
+		"Darker cyan": {
+			"Name": "Darker cyan",
+			"Code": "#0099ac"
 		},
 		"Light cyan": {
 			"Name": "Light cyan",

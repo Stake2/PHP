@@ -108,7 +108,7 @@ foreach ($website["Task History"]["Years list"] as $local_year) {
 		"text_style" => "text-align: left;",
 		"content" => $content,
 		"icon" => "calendar",
-		"add" => " ".$website["Data"]["Numbers"]["By year"][$local_year]
+		"add" => " ".HTML::Element("span", $website["Data"]["Numbers"]["By year"][$local_year], "", $website["Style"]["text"]["theme"]["dark"])
 	];
 
 	$website["tab_content"]["past_registries"]["number"]++;

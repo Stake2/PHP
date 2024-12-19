@@ -31,7 +31,7 @@ class Story extends Class_ {
 		}
 
 		if (isset($options["text_class"]) == False) {
-			$options["text_class"] = $website["Style"]["text"]["theme"]["dark"];
+			$options["text_class"] = "";
 		}
 
 		if (isset($options["button_class"]) == False) {
@@ -39,7 +39,7 @@ class Story extends Class_ {
 		}
 
 		# Create the chapter button
-		$h3 = HTML::Element("h3", "\n\t\t\t\t".$text."\n\t\t\t", 'style="font-weight: bold;"', "text_size ".$options["text_class"])."\n";
+		$h3 = HTML::Element("h3", "\n\t\t\t\t".$text."\n\t\t\t", 'style="font-weight: bold;"', "text_size")."\n";
 
 		$chapter_button = "\t".$comment."\n".
 		"\t\t".HTML::Element("button", "\n\t\t\t".$h3."\t\t", 'onclick="Open_Chapter(\''.$chapter_number.'\', \''.$chapter_title.'\');" style="border-radius: 50px;'.$add.'"', "w3-btn ".$options["button_class"]);
@@ -422,13 +422,13 @@ class Story extends Class_ {
 		global $website;
 		global $chapter_tab;
 
-		# Create "Comment" button
-		$text = HTML::Element("h3", "\n\t\t".$website["Language texts"]["to_comment"].": ".$website["Icons"]["comment"]."\n\t\t", ' style="font-weight: bold;"', "text_size ".$website["Style"]["text"]["theme"]["dark"])."\n";
+		# Create the "Comment" button
+		$text = HTML::Element("h3", "\n\t\t".$website["Language texts"]["to_comment"].": ".$website["Icons"]["comment"]."\n\t\t", ' style="font-weight: bold;"', "text_size")."\n";
 
 		$buttons = "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'comment\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
 
-		# Create "I read the chapter" button
-		$text = HTML::Element("h3", "\n\t\t".$website["Language texts"]["i_read"].": ".$website["Icons"]["check"]." ".$website["Icons"]["reader"]."\n\t\t", 'style="font-weight: bold;"', "text_size ".$website["Style"]["text"]["theme"]["dark"])."\n";
+		# Create the "I read the chapter" button
+		$text = HTML::Element("h3", "\n\t\t".$website["Language texts"]["i_read"].": ".$website["Icons"]["check"]." ".$website["Icons"]["reader"]."\n\t\t", 'style="font-weight: bold;"', "text_size")."\n";
 
 		$buttons .= "\n\n\t".HTML::Element("button", "\n\t\t".$text."\t", 'onclick="Open_Modal(\'read\', \''.$chapter_tab["chapter_title"].'\')" style="float: right; margin-right: 1%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
 

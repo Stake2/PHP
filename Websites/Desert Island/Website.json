@@ -1,17 +1,20 @@
 {
 	"style": {
 		"theme": {
-			"normal": "light_green_water",
-			"light": "green_water",
+			"normal": "little_dark_green_water",
+			"light": "light_green_water",
 			"dark": "dark_green_water"
 		},
 		"secondary_theme": {
-			"normal": "light_yellow_sand",
+			"normal": "dark_yellow_sand",
 			"light": "yellow_sand",
-			"dark": "yellow_sand"
+			"dark": "dark_green_water"
 		},
 		"text_highlight": "dark_green_water",
 		"text_color": "dark_green_water",
-		"chapter_text_color": "dark_green_water"
+		"button_text": "white",
+		"chapter_text_color": "dark_green_water",
+		"background_color": "dark_yellow_sand",
+		"border_color": "dark"
 	}
 }

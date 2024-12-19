@@ -11,6 +11,10 @@
 		"en": "Websites",
 		"pt": "Sites"
 	},
+	"other_websites": {
+		"en": "Other websites",
+		"pt": "Outros sites"
+	},
 	"website_title": {
 		"en": "Website title",
 		"pt": "Título do site"
@@ -66,6 +70,14 @@
 	"years, title()": {
 		"en": "Years",
 		"pt": "Anos"
+	},
+	"year_websites": {
+		"en": "Year websites",
+		"pt": "Sites de anos"
+	},
+	"other_year_websites": {
+		"en": "Other year websites",
+		"pt": "Outros sites de anos"
 	},
 	"welcome, title()": {
 		"en": "Welcome",
@@ -301,9 +313,9 @@
 			"Em pausa"
 		]
 	},
-	"website_about_my_story_{}_made_by_izaque_sanvezzo_stake2_funkysnipa_cat": {
-		"en": "Website about my story, {}, made by Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
-		"pt": "Site sobre a minha história, {}, feito por Izaque Sanvezzo (Stake2, Funkysnipa Cat)"
+	"website_about_my_story_{}_made_by_{}": {
+		"en": "Website about my story, {}, made by {}",
+		"pt": "Site sobre a minha história, {}, feito por {}"
 	},
 	"tab_menu": {
 		"en": "Tab menu",

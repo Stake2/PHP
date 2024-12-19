@@ -2,14 +2,14 @@
 	"icon": "tasks",
 	"style": {
 		"theme": {
-			"normal": "grey",
+			"normal": "darker_grey",
 			"light": "light_grey",
-			"dark": "dark_grey"
+			"dark": "even_darker_grey"
 		},
 		"secondary_theme": {
-			"normal": "grey",
+			"normal": "darker_grey",
 			"light": "light_grey",
-			"dark": "dark_grey"
+			"dark": "even_darker_grey"
 		},
 		"text_highlight": "light_grey"
 	},

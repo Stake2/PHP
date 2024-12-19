@@ -13,7 +13,7 @@ if ($language == "general") {
 $full_language = $Language -> languages["full"][$language];
 
 # Define the website folders for easier typing
-$website["Data"]["Folders"]["Izaque Sanvezzo"] = $folders["Mega"]["Notepad"]["Izaque Sanvezzo"];
+$website["Data"]["Folders"]["Izaque Sanvezzo"] = $folders["Mega"]["Notepad"]["Izaque"];
 $website["Data"]["Folders"]["About me"] = $website["Data"]["Folders"]["Izaque Sanvezzo"][$language]["About me"];
 $website["Data"]["Folders"]["Social Networks"] = $website["Data"]["Folders"]["Izaque Sanvezzo"]["en"]["Social Networks"];
 

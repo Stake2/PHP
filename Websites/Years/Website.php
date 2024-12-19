@@ -11,10 +11,13 @@ foreach ($website["Year buttons"] as $button) {
 	}
 }
 
+# Define the title of the tab as "Year websites"
+$tab_title = $website["Language texts"]["year_websites"];
+
 # Define the tab templates for the "Yearse" website
 $website["tabs"]["templates"] = [
 	"Years" => [
-		"name" => $website["Language texts"]["years, title()"],
+		"name" => $tab_title,
 		"add" => " ".HTML::Element("span", count($website["Years"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"content" => $year_buttons,
 		"icon" => "calendar",

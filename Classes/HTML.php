@@ -158,7 +158,7 @@ class HTML extends Class_ {
 			$text_attributes = 'style="font-weight: bold;"';
 		}
 
-		$text = HTML::Element($heading, "\n\t\t".$text."\n\t\t", $text_attributes, "text_size ".$website["Style"]["text"]["theme"]["dark"])."\n";
+		$text = HTML::Element($heading, "\n\t\t".$text."\n\t\t", $text_attributes, "text_size")."\n";
 
 		$button = "\n\n";
 		$text = "\n".$text;
@@ -187,7 +187,7 @@ class HTML extends Class_ {
 		}
 
 		$button = '<!-- "'.$tab["name"].'" button -->'."\n".
-		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\t\t".self::Button("\t".$tab["name_icon"]."\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', "w3-btn ".$website["Style"]["button"]["theme"]["light"].$tab["button_class"], "h2")."\n\t"."</span>";
+		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\t\t".self::Button("\t".$tab["name_icon"]."\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', $tab["button_class"], "h2")."\n\t"."</span>";
 
 		return $button;
 	}
@@ -315,6 +315,13 @@ class HTML extends Class_ {
 					$string .= $buttons_list[$number - 1];
 				}
 
+				if (
+					$number -1 != -1 and
+					$number + 1 != count($buttons_list)
+				) {
+					$string .= '<br class="mobile_inline_block" /><p class="mobile_inline_block"></p>';
+				}
+
 				# Next button
 				if ($number + 1 != count($buttons_list)) {
 					$buttons_list[$number + 1] = self::Element("span", $buttons_list[$number + 1], 'style="float: right;"', "margin_sides_5_cent");
@@ -323,6 +330,13 @@ class HTML extends Class_ {
 				}
 
 				$string .= "<br /><br /><br /><br />";
+
+				if (
+					$number -1 != -1 and
+					$number + 1 != count($buttons_list)
+				) {
+					$string .= '';
+				}
 			}
 
 			if ($tab["all_buttons"] == True) {

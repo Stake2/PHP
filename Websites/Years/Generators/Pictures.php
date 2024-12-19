@@ -116,7 +116,7 @@ foreach ($keys as $key) {
 		}
 
 		if (
-			$i != 1 or
+			$i != 0 or
 			$i != count($keys) - 1
 		) {
 			$image_string .= "<br />"."\n".
@@ -127,8 +127,16 @@ foreach ($keys as $key) {
 			$image_string .= "<br />"."\n";
 		}
 
+		if (
+			$i != 0 and
+			$i != count($keys) - 1
+		) {
+			$image_string .= '<br class="mobile_inline_block" /><br class="mobile_inline_block" /><br class="mobile_inline_block" />';
+		}
+
 		# Add some spaces
-		$image_string .= "<p></p><br />"."\n";
+		$image_string .= "<p></p>"."\n".
+		'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 
 		# Define the text color
 		$text_color = $website["Data"]["Style"]["text"]["theme"]["dark"];
@@ -299,11 +307,21 @@ foreach ($keys as $key) {
 			$i != count($keys) - 1
 		) {
 			$image_string .= "<br />"."\n".
-			"<p></p>"."\n";
+			"<p></p>"."\n".
+			'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
+		}
+
+		if (
+			$i != 0 and
+			$i != count($keys) - 1
+		) {
+			$image_string .= '<br class="mobile_inline_block" />'.
+			'<br class="mobile_inline_block" /><br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 		}
 
 		if ($i == count($keys) - 1) {
-			$image_string .= "<br />"."\n";
+			$image_string .= "<br />"."\n".
+			'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 		}
 
 		# Create the image link button

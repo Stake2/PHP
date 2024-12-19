@@ -659,15 +659,31 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	# Define text color from JSON
 	if (isset($website_dictionary["JSON"]["style"]["text_color"]) == True) {
-		$website_dictionary["Style"]["text"]["theme"]["dark"] = $website_dictionary["JSON"]["style"]["text_color"];
+		$website_dictionary["Style"]["text"]["theme"]["dark"] = "text_".$website_dictionary["JSON"]["style"]["text_color"];
 	}
 
+	# Define the text highlight color
 	$website_dictionary["Style"]["text_highlight"] = $website_dictionary["JSON"]["style"]["theme"]["light"];
 
 	if (isset($website_dictionary["JSON"]["style"]["text_highlight"]) == True) {
 		$website_dictionary["Style"]["text_highlight"] = $website_dictionary["JSON"]["style"]["text_highlight"];
 	}
 
+	# Define the button text color
+	$website_dictionary["Style"]["button_text"] = $website_dictionary["Style"]["text"]["theme"]["dark"];
+
+	if (isset($website_dictionary["JSON"]["style"]["button_text"]) == True) {
+		$website_dictionary["Style"]["button_text"] = "text_".$website_dictionary["JSON"]["style"]["button_text"];
+	}
+
+	# Define the background hover color
+	$website_dictionary["Style"]["background_hover"] = "background_hover_black";
+
+	if (isset($website_dictionary["JSON"]["style"]["background_hover"]) == True) {
+		$website_dictionary["Style"]["background_hover"] = "background_hover_".$website_dictionary["JSON"]["style"]["background_hover"];
+	}
+
+	# Define the text hover color
 	$website_dictionary["Style"]["text_hover"] = "text_hover_".$website_dictionary["Style"]["text_highlight"];
 
 	$website_dictionary["Style"]["text_highlight"] = "text_".$website_dictionary["Style"]["text_highlight"];
@@ -747,7 +763,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		if (is_array($website_dictionary["Style"]["border_4px"][$type]) === True) {
 			foreach (array_keys($website_dictionary["Style"]["border_4px"][$type]) as $key) {
-				$website_dictionary["Style"]["button"][$type][$key] = $website_dictionary["Style"]["background"][$type]["dark"]." ".$website_dictionary["Style"]["text"]["theme"]["dark"]." ".$website_dictionary["Style"]["border_4px"][$type]["light"]." background_hover_black";
+				$website_dictionary["Style"]["button"][$type][$key] = $website_dictionary["Style"]["background"][$type]["dark"]." ".$website_dictionary["Style"]["button_text"]." ".$website_dictionary["Style"]["border_4px"][$type]["light"]." ".$website_dictionary["Style"]["background_hover"];
 			}
 		}
 	}
@@ -990,6 +1006,25 @@ foreach ($websites["List"]["en"] as $website_title) {
 		"header" => ""
 	];
 
+	# Define if the painted version of the website author will be used
+	$use_painted_author = True;
+
+	# Define the default website author
+	$author = $website["Author"];
+
+	# Define a list of tab colors to not use the painted version of the website author
+	$tab_colors = [
+		"yellow_sand"
+	];
+
+	if (
+		$use_painted_author == True and
+		in_array($website_dictionary["JSON"]["style"]["theme"]["light"], $tab_colors) == False and
+		in_array($website_dictionary["JSON"]["style"]["secondary_theme"]["light"], $tab_colors) == False
+	) {
+		$author = $stories["Authors (painted)"][$author];
+	}
+
 	# Define the normal website descriptions
 	if ($website_dictionary["type"] == "Normal") {
 		$json_descriptions = True;
@@ -1027,7 +1062,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 
 		if (str_contains($website_dictionary["description"]["html"], "{author}") == True) {
-			$website_dictionary["description"]["html"] = str_replace("{author}", $website["Author"], $website_dictionary["description"]["html"]);
+			$website_dictionary["description"]["html"] = str_replace("{author}", $author, $website_dictionary["description"]["html"]);
 		}
 
 		$descriptions["header"] = [];
@@ -1047,7 +1082,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 			$author_text = $website["Author"];
 		}
 
-		$website_dictionary["description"]["header"] = str_replace($author_text, $website["painted_author"], $website_dictionary["description"]["header"]);
+		# Transform the website author into bold style
+		$author = HTML::Element("b", $author);
+
+		$website_dictionary["description"]["header"] = str_replace($author_text, $author, $website_dictionary["description"]["header"]);
 
 		# Add line separators to the website header descriptions if they were gotten from the "Website.json" file
 		if ($json_descriptions == True) {
@@ -1067,7 +1105,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		isset($website_dictionary["JSON"]["story"])
 	) {
 		# Define website HTML description for story websites
-		$website_dictionary["description"]["html"] = Text::Format($website["Language texts"]["website_about_my_story_{}_made_by_izaque_sanvezzo_stake2_funkysnipa_cat"], $website_dictionary["titles"]["language"]);
+		$website_dictionary["description"]["html"] = Text::Format($website["Language texts"]["website_about_my_story_{}_made_by_{}"], [$website_dictionary["titles"]["language"], $website["Author"]]);
 
 		$language = $Language -> user_language;
 
@@ -1087,12 +1125,15 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Add the painted author of the story
 		$text = $website["Language texts"]["story_author"];
 
+		if (isset($website_dictionary["Story"]["Information"]["Authors"]) == True) {
+			# Get the list of authors
+			$authors_list = $website_dictionary["Story"]["Information"]["Authors"];
+		}
+
 		if (
 			isset($website_dictionary["Story"]["Information"]["Author"]) == True and
 			$website_dictionary["Story"]["Information"]["Author"] != $website["Author"]
 		) {
-			$authors_list = $website_dictionary["Story"]["Information"]["Authors"];
-
 			$last_author = end($authors_list);
 
 			# Add painted authors if there are more than one
@@ -1133,11 +1174,22 @@ foreach ($websites["List"]["en"] as $website_title) {
 			}
 		}
 
-		else {
-			$author = $stories["Authors (painted)"][$website["Author"]];
+		if (isset($website_dictionary["Story"]["Information"]["Authors"]) == True) {
+			# Iterate through the list of authors
+			foreach ($authors_list as $item) {
+				if (str_contains($author, $item)) {
+					# Transform the current author into bold style
+					$author = str_replace($item, HTML::Element("b", $item), $author);
+				}
+			}
 		}
 
-		$website_dictionary["Story"]["Information"]["Author"] = $author;
+		else {
+			# Transform the website author into bold style
+			$author = HTML::Element("b", $author);
+		}
+
+		$website_dictionary["Story"]["Information"]["Author"] = $author."<br />"."\n";
 
 		# Add the author to the header
 		$website_dictionary["description"]["header"] .= "\t\t".$text.": ".$website["Icons"]["pen"]." ".$author."<br />"."\n";
@@ -1185,6 +1237,9 @@ foreach ($websites["List"]["en"] as $website_title) {
 			# Define the empty links string
 			$links = "<b>".$website["Language texts"]["the_story_on_other_websites"].":</b>"."<br /><br />";
 
+			# Define the variable telling that links exist
+			$links_exist = False;
+
 			# Iterate through the story website links inside the "Links" dictionary
 			foreach ($keys as $key) {
 				# If the language link exists
@@ -1208,14 +1263,18 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 					# Add it to the links string
 					$links .= $element;
+
+					$links_exist = True;
 				}
 			}
 
-			# If the links string is not empty, add it to the website header
-			$website_dictionary["description"]["header"] .= "<br />"."\n".
-			"-----"."\n".
-			"<br />"."\n".
-			$links;
+			if ($links_exist == True) {
+				# If the links string is not empty, add it to the website header
+				$website_dictionary["description"]["header"] .= "<br />"."\n".
+				"-----"."\n".
+				"<br />"."\n".
+				$links;
+			}
 		}
 
 		$website_dictionary["description"]["header"] .= "\n";

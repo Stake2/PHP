@@ -5,7 +5,7 @@
 require "Functions.php";
 
 $website = [
-	"Author" => "Izaque Sanvezzo (Stake2, Funkysnipa Cat)",
+	"Author" => "Izaque (Stake2, Funkysnipa Cat)",
 	"Twitter author" => "Stake2",
 	"format" => "https://{}.{}/"
 ];
@@ -16,7 +16,7 @@ foreach (array_keys($json) as $key) {
 	$website[$key] = $json[$key];
 }
 
-$website["painted_author"] = HTML::Element("span", $website["Author"], "", "text_orange");
+$website["painted_author"] = HTML::Element("b", $website["Author"], "", "");
 
 $website["netlify_format"] = "https://{}.".$website["Netlify"]."/";
 
@@ -240,8 +240,8 @@ $stories["Authors (painted)"] = [];
 
 $colors = [
 	"text_orange",
-	"text_green_water",
-	"text_yellow"
+	"text_yellow",
+	"text_green_water"
 ];
 
 $i = 0;
@@ -750,7 +750,7 @@ $website["tabs"]["templates"] = [];
 
 # Create website image button if website data exists
 if (isset($website["Data"]) == True) {
-	$h4 = HTML::Element("h4", $website["Language texts"]["open_image_in_a_new_tab"].": ".$website["Icons"]["images"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+	$h4 = HTML::Element("h4", $website["Language texts"]["open_image_in_a_new_tab"].": ".$website["Icons"]["images"], "", "text_size", ["new_line" => True, "tab" => "\t\t\t"]);
 
 	$website["Data"]["image"]["button"] = "\n".
 	"	<!-- Website image button -->"."\n".
@@ -777,10 +777,13 @@ if (isset($website["Data"]) == True) {
 
 	$website["tabs"]["To remove"] = [];
 
+	# Define the title of the tab as "Other websites"
+	$tab_title = $website["Language texts"]["other_websites"];
+
 	# Create websites tab and add it to the tabs array
 	$website["tabs"]["data"]["websites_tab"] = [
 		"id" => "websites_tab",
-		"name" => $website["Language texts"]["websites, title()"],
+		"name" => $tab_title,
 		"add" => " ".HTML::Element("span", count($websites["List"]["en"]), "", $website["Style"]["text"]["theme"]["dark"]),
 		"class" => $website["Style"]["tab"]["theme_dark"],
 		"icon" => "globe",
