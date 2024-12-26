@@ -45,6 +45,16 @@ foreach ($story_titles as $english_story_title) {
 	# Define the image file
 	$image_file = $images_folder.$website["Dictionary"][$english_story_title]["image"]["local_link"];
 
+	# If the image file does not exist
+	if (
+		file_exists($image_file) == False and
+		$website["States"]["Website"]["Generate"] == False
+	) {
+		# Redefine the image file to be remote
+		$image_file = $website["Dictionary"][$english_story_title]["image"]["local_link"];
+	}
+
+	# If the image file do exist
 	if (file_exists($image_file) == True) {
 		$image = $website_data["image"]["elements"]["theme"]["dark"];
 

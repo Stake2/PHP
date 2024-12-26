@@ -200,6 +200,9 @@ class Story extends Class_ {
 			$local_chapter_folder .= $chapter_folder;
 			$remote_chapter_folder .= $chapter_folder;
 
+			# Define a variable to use the local or remote link
+			$remote_link = False;
+
 			foreach ($website["Image formats"] as $format) {
 				$chapter_cover = $local_chapter_folder.$chapter_cover_file_name.".".$format;
 
@@ -207,11 +210,27 @@ class Story extends Class_ {
 					$local_chapter_cover = $chapter_cover;
 					$image_format = $format;
 				}
+
+				else {
+					$folder = $website["Data"]["Folders"]["Website"]["Images"]["Local"]["root"];
+					$chapter_cover = $folder.$chapter_cover_file_name.".".$format;
+
+					if (file_exists($chapter_cover) == True) {
+						$local_chapter_cover = $chapter_cover;
+						$image_format = $format;
+
+						# Use the remote link
+						$remote_link = True;
+					}
+				}
 			}
 
-			# Replace remote folder with the local PHP images folder
+			# Replace the remote folder with the local PHP images folder
 			# To test if the images appear correctly
-			if ($website["States"]["Website"]["Generate"] == False) {
+			if (
+				$website["States"]["Website"]["Generate"] == False and
+				$remote_link = False
+			) {
 				$php_folder = "Images/".$website["Data"]["title"]."/";
 
 				$remote_folder = "/".$php_folder;

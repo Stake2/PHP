@@ -243,7 +243,8 @@ class HTML extends Class_ {
 
 			$tab = self::Tab_Info($tab, $i);
 
-			$button = self::Tab_Button($tab);
+			$button = self::Tab_Button($tab).
+			"<br />";
 
 			# Add button to buttons array
 			array_push($buttons["list"], $button);

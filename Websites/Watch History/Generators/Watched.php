@@ -424,7 +424,22 @@ if (file_exists($entries_file) == True) {
 								$media_title = Sanitize_Title($entry["Media"]["Original"]);
 							}
 
+							# Define the media folder
 							$media_folder = $media_info_folder.Sanitize_Title($media_title)."/";
+
+							# If the folder does not exist
+							if (file_exists($media_folder) == False) {
+								# Iterate through the list of keys inside the "Media" key
+								foreach (array_keys($entry["Media"]) as $key) {
+									# Define the local media folder
+									$folder = $media_info_folder.Sanitize_Title($entry["Media"][$key])."/";
+
+									# If it exists, update the root media folder
+									if (file_exists($folder) == True) {
+										$media_folder = $folder;
+									}
+								}
+							}
 
 							# Add the media item list folder to the media folder
 							if ($type != $watch_history["Texts"]["videos, title()"]["en"]) {

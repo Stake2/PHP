@@ -59,8 +59,8 @@ if (isset($contents["File"]["Dictionary"]["1 - Happy New Year"]) == True) {
 }
 
 # Update the image title of the "Christmas" image
-if (isset($contents["File"]["Dictionary"]["2 - Christmas"]) == True) {
-	$contents["File"]["Dictionary"]["2 - Christmas"]["Title"] = $website["Language texts"]["christmas, title()"];
+if (isset($contents["File"]["Dictionary"]["2 - Merry Christmas"]) == True) {
+	$contents["File"]["Dictionary"]["2 - Merry Christmas"]["Title"] = $website["Language texts"]["merry_christmas"];
 }
 
 # List the file keys

@@ -426,6 +426,10 @@
 		"pt": "Natal"
 	},
 	"christmas, title(), en - pt": "Christmas - Natal",
+	"merry_christmas": {
+		"en": "Merry Christmas",
+		"pt": "Feliz Natal"
+	},
 	"halloween, title()": {
 		"en": "Halloween",
 		"pt": "Halloween"

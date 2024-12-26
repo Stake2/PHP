@@ -27,28 +27,20 @@ if (file_exists($file) == True) {
 	# List the file dates
 	$times = $File -> Contents($file)["lines"];
 
+	# Define a variable saying if the image title will be added
 	$add_image_title = False;
 
-	# Tone
+	# Define the tone of the images
 	$tone = "dark";
 
-	# List the file keys
+	# List the keys of the files
 	$keys = array_keys($contents["File"]["Dictionary"]);
-
-	$number_of_keys = count($keys) - 1;
-
-	if (count(array_keys($contents["Folder"]["Dictionary"])) != 0) {
-		$number_of_keys += count(array_keys($contents["Folder"]["Dictionary"]));
-	}
+	unset($keys[count($keys) - 1]);
 
 	# Iterate through the file keys
 	$i = 1;
 	$c = 0;
-	while ($c <= $number_of_keys) {
-		if (isset($keys[$c])) {
-			$key = (string)$keys[$c];
-		}
-
+	foreach ($keys as $key) {
 		# Get the file dictionary
 		$file = $contents["File"]["Dictionary"][$key];
 
@@ -280,7 +272,7 @@ if (file_exists($file) == True) {
 			$image_string .= "</center>";
 
 			# Add a line break if it is needed
-			if ($key != array_reverse($keys)[1]) {
+			if ($key != end($keys)) {
 				$image_string .= "<br />"."\n".
 				"<br />"."\n";
 			}

@@ -893,6 +893,20 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$website_dictionary["image"]["format"] = $format;
 				$website_dictionary["image"]["File name"] = $file_name;
 			}
+
+			if (file_exists($local_image) == False) {
+				$local_image_website_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["root"].$file_name.".".$format;
+
+				if (file_exists($local_image_website_folder) == True) {
+					if ($website["States"]["Website"]["Generate"] == False) {
+						# Update the website image link to be remote
+						$website_dictionary["image"]["link"] = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["root"];
+					}
+
+					$website_dictionary["image"]["format"] = $format;
+					$website_dictionary["image"]["File name"] = $file_name;
+				}
+			}
 		}
 	}
 
