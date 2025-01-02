@@ -110,6 +110,9 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 
 		$types_dictionary = $gameplayer["Types"]["Types"];
 
+		# Defina a shortcut for the total number of entries in the year
+		$total_number = $gameplayer["Entries"]["Numbers"]["Total"];
+
 		# Iterate through the English game types list
 		$i = 0;
 		foreach ($types_dictionary["en"] as $type) {
@@ -122,7 +125,10 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 			}
 
 			# If the number is not zero (0)
-			if ($number != 0) {
+			if (
+				$number != 0 or
+				$total_number == 0
+			) {
 				$number_element = HTML::Element("span", $number, "", $text_color);
 
 				$span = $language_type.": ".$number_element;

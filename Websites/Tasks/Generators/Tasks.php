@@ -160,6 +160,9 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 			$tasks["Types dictionary"] = $types_dictionary;
 		}
 
+		# Define a shortcut for the total number of entries in the year
+		$total_number = $tasks["Entries"]["Numbers"]["Total"];
+
 		# Iterate through the English plural task types list
 		$i = 0;
 		foreach ($types_dictionary["en"] as $type) {
@@ -169,7 +172,11 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 				$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
 
 				# If the number is not zero (0)
-				if ($number != 0) {
+				# Or the total number of tasks is zero
+				if (
+					$number != 0 or
+					$total_number == 0
+				) {
 					$span = HTML::Element("span", $number, "", $text_color);
 
 					$b = HTML::Element("b", $language_type.": ".$span);
@@ -253,9 +260,9 @@ if (file_exists($entries_file) == True) {
 		$link .= "tab=".$tab;
 
 		# Add the website button to the top of the page
-		$website["tab_content"]["completed_tasks"]["string"] .= "<br />"."\n".
-		"<center>"."\n".
+		$website["tab_content"]["completed_tasks"]["string"] .= "<center>"."\n".
 		$Text -> Format($website_dictionary["Button template"], $link)."\n".
+		"<p></p>".
 
 		# Add the website image to the top of the tab
 		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
@@ -271,7 +278,10 @@ if (file_exists($entries_file) == True) {
 	# Update the watched things number
 	$website["tab_content"]["completed_tasks"]["number"] = $tasks["Entries"]["Numbers"]["Total"];
 
-	if ($website["Data"]["title"] != $website_title) {
+	if (
+		$website["Data"]["title"] != $website_title or
+		$website["tab_content"]["completed_tasks"]["number"] == 0
+	) {
 		# Create the number of tasks variable with the tab title
 		$number_of_tasks = $tasks["Language texts"]["completed_tasks"].":";
 
@@ -433,7 +443,7 @@ if (file_exists($entries_file) == True) {
 	# Add the tab to the tab templates
 	if (array_key_exists("completed_tasks", $website["tabs"]["templates"]) == False) {
 		$website["tabs"]["templates"]["completed_tasks"] = [
-			"name" => $tasks["Language texts"]["completed_tasks"],
+			"name" => $website["Language texts"]["completed_tasks_in"]." ".$website["Data"]["Year"],
 			"add" => " ".HTML::Element("span", $website["tab_content"]["completed_tasks"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
 			"text_style" => "text-align: left;",
 			"content" => $website["tab_content"]["completed_tasks"]["string"],

@@ -17,7 +17,7 @@ if ($language == "general") {
 
 $story_titles = $stories["Titles"]["en"];
 
-# Add websites to website dictionary
+# Add the websites to the website dictionary
 $website_number = 0;
 foreach ($websites["List"]["en"] as $website_title) {
 	# Define the current Website dictionary
@@ -343,8 +343,31 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$File -> Edit($website_dictionary["Folders"]["PHP"]["Website"], $text, "w");
 	}
 
-	# Read website JSON file
+	# Read the website JSON file
 	$website_dictionary["JSON"] = $JSON -> To_PHP($website_dictionary["Folders"]["PHP"]["Website"]);
+
+	# Add the local website dictionary to the root websites dictionary with the website title as a key
+	$website["Dictionary"][$website_title] = $website_dictionary;
+
+	# Replace the spaces with underscores on the key and add to the website dictionary
+	$website_title_replaced = str_replace(" ", "_", $website_title);
+
+	$website["Dictionary"][$website_title_replaced] = $website_dictionary;
+
+	# Add to the website number
+	$website_number++;
+}
+
+# Re-run the while to define the variables of the websites
+foreach ($websites["List"]["en"] as $website_title) {
+	# Get the website dictionary
+	$website_dictionary = $website["Dictionary"][$website_title];
+
+	# If the website title is "Years"
+	if ($website_dictionary["title"] == "Years") {
+		# Define its style as the style of the website for the current year
+		$website_dictionary["JSON"]["style"] = array_replace($website_dictionary["JSON"]["style"], $website["Dictionary"][$website["current_year"]]["JSON"]["style"]);
+	}
 
 	# Define website Generators folder
 	if ($Folder -> Exist($website_dictionary["Folders"]["PHP"]["root"]."Generators/") == True) {
@@ -1385,16 +1408,15 @@ foreach ($websites["List"]["en"] as $website_title) {
 		}
 	}
 
+	# Add the local website dictionary to the root websites dictionary with the website title as a key
 	$website["Dictionary"][$website_title] = $website_dictionary;
 
-	# Replace spaces with underscores on website title and add the website dictionary
+	# Replace the spaces with underscores on the key and add to the website dictionary
 	$website_title_replaced = str_replace(" ", "_", $website_title);
 
 	$website["Dictionary"][$website_title_replaced] = $website_dictionary;
 
 	$website_dictionary = "";
-
-	$website_number++;
 }
 
 ?>

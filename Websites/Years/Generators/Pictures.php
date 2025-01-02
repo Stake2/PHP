@@ -189,10 +189,20 @@ foreach ($keys as $key) {
 			# Replace "-" with "/" on image titles that have a date
 			$pattern = "/[0-9]{2}-[0-9]{2}-[0-9]{4}/i";
 
-			if (preg_match($pattern, $title)) {
+			if (preg_match($pattern, $title, $matches)) {
 				$title = str_replace("-", "/", $title);
 
 				$title = str_replace(";", ":", $title);
+			}
+
+			$welcome_text = $website["Language texts"]["welcome, title()"];
+			$replaced = str_replace("-", "/", $welcome_text);
+
+			if (
+				$language == "pt" and
+				str_contains($title, $replaced)
+			) {
+				$title = str_replace($replaced, $welcome_text, $title);
 			}
 
 			# Remove "[number] / " of the image title

@@ -111,6 +111,10 @@
 		"en": "Tasks",
 		"pt": "Tarefas"
 	},
+	"completed_tasks_in": {
+		"en": "Completed tasks in",
+		"pt": "Tarefas concluídas em"
+	},
 	"task_description": {
 		"en": "Task description",
 		"pt": "Descrição da tarefa"

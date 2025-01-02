@@ -108,6 +108,9 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 
 		$types_dictionary = $gameplayer["Types"]["Types"];
 
+		# Define a shortcut for the total number of entries in the year
+		$total_number = $gameplayer["Entries"]["Numbers"]["Total"];
+
 		# Iterate through the English game types list
 		$i = 0;
 		foreach ($types_dictionary["en"] as $type) {
@@ -120,7 +123,11 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 			}
 
 			# If the number is not zero (0)
-			if ($number != 0) {
+			# Or the total number of tasks is zero
+			if (
+				$number != 0 or
+				$total_number == 0
+			) {
 				$number_element = HTML::Element("span", $number, "", $text_color);
 
 				$span = $language_type.": ".$number_element;
@@ -209,9 +216,9 @@ if (file_exists($entries_file) == True) {
 		$link .= "tab=".$tab;
 
 		# Add the website button to the top of the page
-		$website["tab_content"]["game_sessions_played"]["string"] .= "<br />"."\n".
-		"<center>"."\n".
+		$website["tab_content"]["game_sessions_played"]["string"] .= "<center>"."\n".
 		$Text -> Format($website_dictionary["Button template"], $link)."\n".
+		"<p></p>".
 
 		# Add the website image to the top of the tab
 		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
@@ -224,7 +231,10 @@ if (file_exists($entries_file) == True) {
 	# Update the game sessions number
 	$website["tab_content"]["game_sessions_played"]["number"] = $gameplayer["Entries"]["Numbers"]["Total"];
 
-	if ($website["Data"]["title"] != $website_title) {
+	if (
+		$website["Data"]["title"] != $website_title or
+		$website["tab_content"]["game_sessions_played"]["number"] == 0
+	) {
 		# Create the number of game sessions variable with the tab title
 		$number_of_game_sessions = $gameplayer["Language texts"]["game_sessions_played_in"]." ".$website["Data"]["Year"].":";
 

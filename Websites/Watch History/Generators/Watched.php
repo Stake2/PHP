@@ -107,6 +107,9 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 
 		$text_color = $website["Style"]["text"]["theme"]["dark"];
 
+		# Define a shortcut for the total number of entries in the year
+		$total_number = $watch_history["Entries"]["Numbers"]["Total"];
+
 		# Iterate through the English media types list
 		$i = 0;
 		foreach ($types_dictionary["en"] as $type) {
@@ -119,7 +122,11 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 			}
 
 			# If the number is not zero (0)
-			if ($number != 0) {
+			# Or the total number of tasks is zero
+			if (
+				$number != 0 or
+				$total_number == 0
+			) {
 				$number_element = HTML::Element("span", $number, "", $text_color);
 
 				$span = $language_type.": ".$number_element;
@@ -208,9 +215,9 @@ if (file_exists($entries_file) == True) {
 		$link .= "tab=".$tab;
 
 		# Add the website button to the top of the page
-		$website["tab_content"]["watched_things"]["string"] .= "<br />"."\n".
-		"<center>"."\n".
+		$website["tab_content"]["watched_things"]["string"] .= "<center>"."\n".
 		$Text -> Format($website_dictionary["Button template"], $link)."\n".
+		"<p></p>".
 
 		# Add the website image to the top of the tab
 		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
@@ -223,7 +230,10 @@ if (file_exists($entries_file) == True) {
 	# Update the watched things number
 	$website["tab_content"]["watched_things"]["number"] = $watch_history["Entries"]["Numbers"]["Total"];
 
-	if ($website["Data"]["title"] != $website_title) {
+	if (
+		$website["Data"]["title"] != $website_title or
+		$website["tab_content"]["watched_things"]["number"] == 0
+	) {
 		# Create the number of media variable with the tab title
 		$number_of_media = $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"].":";
 

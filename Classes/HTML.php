@@ -173,7 +173,7 @@ class HTML extends Class_ {
 		return $button;
 	}
 
-	public static function Tab_Button($tab) {
+	public static function Tab_Button($tab, $space = "<br />") {
 		global $website;
 		global $i;
 
@@ -187,7 +187,7 @@ class HTML extends Class_ {
 		}
 
 		$button = '<!-- "'.$tab["name"].'" button -->'."\n".
-		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\t\t".self::Button("\t".$tab["name_icon"]."\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', $tab["button_class"], "h2")."\n\t"."</span>";
+		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\t\t".self::Button("\t".$tab["name_icon"]."\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', $tab["button_class"], "h2").$space."\n\t"."</span>";
 
 		return $button;
 	}
@@ -243,8 +243,7 @@ class HTML extends Class_ {
 
 			$tab = self::Tab_Info($tab, $i);
 
-			$button = self::Tab_Button($tab).
-			"<br />";
+			$button = self::Tab_Button($tab);
 
 			# Add button to buttons array
 			array_push($buttons["list"], $button);

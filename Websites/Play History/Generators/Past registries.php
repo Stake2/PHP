@@ -48,10 +48,9 @@ foreach ($website["Play History"]["Years list"] as $local_year) {
 	];
 
 	# Add the tab button
-	$website["past_registries_buttons"][$website["Data"]["Year"]] = HTML::Tab_Button($tab)."\n";
+	$website["past_registries_buttons"][$website["Data"]["Year"]] = HTML::Tab_Button($tab, $space = "")."\n";
 
-	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]].
-	"<br />"."\n";
+	$website["tab_content"]["past_registries"]["string"] .= $website["past_registries_buttons"][$website["Data"]["Year"]]."<br />";
 
 	# Define the tab data
 	$content = "";
@@ -67,7 +66,7 @@ foreach ($website["Play History"]["Years list"] as $local_year) {
 			"button_style" => "float: left;"
 		];
 
-		$content .= HTML::Tab_Button($previous_year)."\n";
+		$content .= HTML::Tab_Button($previous_year, $space = "")."\n";
 	}
 
 	if ($local_year != end($website["Play History"]["Years list"])) {
@@ -80,7 +79,7 @@ foreach ($website["Play History"]["Years list"] as $local_year) {
 			"button_style" => "float: right;"
 		];
 
-		$content .= HTML::Tab_Button($next_year)."\n";
+		$content .= HTML::Tab_Button($next_year, $space = "")."\n";
 	}
 
 	if ($content != "") {

@@ -220,7 +220,7 @@ $website["States"] = [
 		"New chapter" => False
 	],
 	"Years" => [
-		"Next year" => True
+		"Next year" => False
 	]
 ];
 
@@ -586,10 +586,16 @@ foreach ($file_names as $file_name) {
 # Define default website data
 $website["Data"] = $website["Dictionary"]["The Life of Littletato"];
 
-# Define website data for the selected website
-if (array_key_exists("website", $website) == True) {
+# Define the website data for the selected website
+if (isset($website["website"]) == True) {
+	# Define the data of the selected website
 	$website["Data"] = $website["Dictionary"][$website["website"]];
+
+	# Define its style dictionary
+	$website["Data"]["Style"] = $website["Dictionary"][$website["website"]]["Style"];
 }
+
+#Text::Show_Variable($website["Data"]["Style"]);
 
 $GLOBALS["link_class"] = $website["Data"]["Style"]["text_highlight"]." ".$website["Data"]["Style"]["text_hover"];
 

@@ -171,6 +171,9 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 			$tasks["Types dictionary"] = $types_dictionary;
 		}
 
+		# Define a shortcut for the total number of entries in the year
+		$total_number = $tasks["Entries"]["Numbers"]["Total"];
+
 		# Iterate through the English plural task types list
 		$i = 0;
 		foreach ($types_dictionary["en"] as $type) {
@@ -180,7 +183,11 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 				$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
 
 				# If the number is not zero (0)
-				if ($number != 0) {
+				# Or the total number of tasks is zero
+				if (
+					$number != 0 or
+					$total_number == 0
+				) {
 					$span = HTML::Element("span", $number, "", $text_color);
 
 					$b = HTML::Element("b", $language_type.": ".$span);

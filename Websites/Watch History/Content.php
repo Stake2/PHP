@@ -109,6 +109,9 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 
 		$types_dictionary = $watch_history["Types"]["Plural"];
 
+		# Define a shortcut for the total number of entries in the year
+		$total_number = $watch_history["Entries"]["Numbers"]["Total"];
+
 		# Iterate through the English media types list
 		$i = 0;
 		foreach ($types_dictionary["en"] as $type) {
@@ -121,7 +124,11 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 			}
 
 			# If the number is not zero (0)
-			if ($number != 0) {
+			# Or the total number of tasks is zero
+			if (
+				$number != 0 or
+				$total_number == 0
+			) {
 				$number_element = HTML::Element("span", $number, "", $text_color);
 
 				$span = $language_type.": ".$number_element;
