@@ -53,7 +53,7 @@ if (isset($tasks) == False) {
 				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
 			]
 		],
-		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
+		"Types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
 		"Entries" => "",
 		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Tasks"]["Texts"]),
 		"Language texts" => []
@@ -61,7 +61,7 @@ if (isset($tasks) == False) {
 
 	$tasks["Language texts"] = $Language -> Item($tasks["Texts"]);
 
-	$types_dictionary = $tasks["Types"]["Plural"];
+	$types_dictionary = $tasks["Types"]["Lists"]["Plural"];
 
 	$website["Data"]["Numbers"] = [
 		"By year" => [],
@@ -120,7 +120,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 		$text_color = $website["Style"]["text"]["theme"]["dark"];
 
 		# Define the default local types dictionary
-		$types_dictionary = $tasks["Types"]["Plural"];
+		$types_dictionary = $tasks["Types"]["Lists"]["Plural"];
 
 		# If the root website title is not "Tasks"
 		if ($website["Data"]["title"] != "Tasks") {

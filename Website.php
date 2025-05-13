@@ -27,9 +27,17 @@ $website["URL"] = Text::Format($website["format"], [$website["Sub-domain"], $web
 
 $website["URL parameters"] = Get_URL_Parameters();
 
-# Define the local URL dictionary
+# Get the request URI
+$request_uri = $_SERVER["REQUEST_URI"];
+
+# If the request URI contains "images"
+if (str_contains($request_uri, "/Images")) {
+	$request_uri = explode("/", $request_uri)[0]."/";
+}
+
+# Define the local URL dictionary with the index URL
 $website["Local URL"] = [
-	"Index" => (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on" ? "https" : "http")."://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]
+	"Index" => (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on" ? "https" : "http")."://".$_SERVER["HTTP_HOST"].$request_uri
 ];
 
 $website["Local URL"]["Index"] = explode("?", $website["Local URL"]["Index"])[0];
@@ -869,7 +877,7 @@ if (
 	}
 }
 
-# Add chapter tabs and chapter number variable to website content
+# Add the chapter tabs and the chapter number variable to the website content string if the website is a story
 if (
 	$website["Data"]["type"] == "Story" or
 	isset($website["Data"]["JSON"]["story"])
@@ -880,6 +888,7 @@ if (
 	"\t"."var last_chapter = ".$story["Information"]["Chapters"]["Numbers"]["Total"]."\n".
 	"</script>";
 
+	# If the "Write" story state is True
 	if ($website["States"]["Story"]["Write"] == True) {
 		# Create the write button
 		$website["Write button"] = "\t".'<!-- Go to the "Write chapter" text area -->'."\n".
@@ -907,7 +916,7 @@ scroll_function = function(event) {
 		"write_button"
 	]
 
-	Check_Page_Scrolling(event, list)
+	window.Check_Page_Scrolling(event, list)
 }
 
 window.addEventListener("scroll", scroll_function)
@@ -915,47 +924,114 @@ window.addEventListener("scroll", scroll_function)
 	}
 }
 
-# Add form if the request is not "generate"
+# Add the form if the "Generate" website state is False
 if ($website["States"]["Website"]["Generate"] == False) {
 	$website["content"] .= "\n\n".
 	"<br />"."<br />"."\n\n".
 	$website["form"];
 }
 
+# Add some scripts if the "Generate" website state is False
 if ($website["States"]["Website"]["Generate"] == False) {
 	$website["content"] .= '<script>
-// Get the URL parameters
-parameters = Object.fromEntries(  
-	new URLSearchParams(window.location.search)
-)
+function Hide_Home_Buttons() {
+	// Define the list of elements to hide
+	var list = [
+		"hamburger_menu",
+		"hamburger_menu_button",
+		"write_button"
+	]
 
-// Define the function to resize text areas
-function Resize_Textarea() {
-	chapter_write_anchor_id = "chapter_" + chapter_number + "_write_anchor"
-	chapter_write_element = document.getElementById(chapter_write_anchor_id)
+	// Iterate through the elements in the list
+	list.forEach(
+		function(id) {
+			// Hide the element
+			w3.hide("#" + id)
+		}
+	)
 
+	// Remove the "scroll" event listener
+	window.removeEventListener("scroll", scroll_function)
+
+	// Define the "Check_Page_Scrolling" function on the "window" object as an empty function
+	window.Check_Page_Scrolling = function() {
+		
+	}
+}'."\n";
+
+	# If the "Write" story state is True
+	if ($website["States"]["Story"]["Write"] == True) {
+		# Hide the home buttons
+		$website["content"] .= "
+// Hides the home buttons for the chapter writing mode
+setTimeout(function () {
+	Hide_Home_Buttons()
+}, 1000)".
+"\n\n";
+	}
+
+	# Continue adding more scripts
+	$website["content"] .= '// Wait for the page to load
+$(document).ready(function () {
+	// Adjust the height of the already filled textareas when the page loads
 	$("textarea").each(function () {
+		// Expands the height of the textarea to show all the content
 		this.style.height = "auto"
-		this.style.height = (this.scrollHeight) + "px;"
-	}).on("input", function () {
-		this.style.height = "auto"
-		this.style.height = (this.scrollHeight) + "px"
+		this.style.height = this.scrollHeight + "px"
 	})
-}
 
-// Resize all text areas if the "chapter" key is present in the URL parameters
-if (Object.keys(parameters).includes("chapter") == true) {
-	window.addEventListener("load", Resize_Textarea)
-}
+	// Run the "keydown" and "input" events listener on all textareas
+	$("textarea").on("keydown input", function () {
+		// Captures the current scroll position
+		var x = window.scrollX
+		var y = window.scrollY
 
-// Resize all text areas
-$("textarea").each(function () {
-	this.style.height = "auto"
-	this.style.height = (this.scrollHeight) + "px;"
-}).on("input", function () {
-	this.style.height = "auto"
-	this.style.height = (this.scrollHeight) + "px"
+		// Restores the previous scroll position
+		setTimeout(function () {
+			window.scrollTo(x, y)
+		}, 0)
+
+		// Expands the height of the textarea to show all the content
+		this.style.height = "auto"
+		this.style.height = this.scrollHeight + "px"
+
+		// Note:
+		// This is to prevent the default behaviour of browsers scrolling to the input position when you press a key
+	})
 })
+
+// Old code
+var run = false
+
+if (run === true) {
+	// Get the URL parameters
+	parameters = Object.fromEntries(  
+		new URLSearchParams(window.location.search)
+	)
+
+	// If the "chapter" key is present in the URL parameters
+	if ("chapter" in parameters) {
+		// Define the function to resize text areas
+		function Resize_Textarea() {
+			// Get the anchor ID of the chapter
+			chapter_write_anchor_id = "chapter_" + chapter_number + "_write_anchor"
+
+			// Get the chapter write element
+			chapter_write_element = document.getElementById(chapter_write_anchor_id)
+
+			// If the element exists
+            if (chapter_write_element) {
+				// Expands the height of the textarea of the chapter to show all the chapter text
+				chapter_write_element.style.height = "auto"
+				chapter_write_element.style.height = chapter_write_element.scrollHeight + "px"
+			}
+		}
+
+		// Add the function to the window "load" event
+		window.addEventListener("load", Resize_Textarea)
+	}
+}
+
 </script>';
 }
 

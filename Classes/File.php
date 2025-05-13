@@ -17,14 +17,47 @@ class File extends Class_ {
 			"?",
 			'"',
 			"|",
+			"｜",
 			"*",
 			"<",
 			">",
-			"/"
+			"/",
+			""
 		];
 
-		return str_replace($restricted_characters, "", $file);
+		return $this -> Remove_Restricted_Characters($file);
 	}
+
+	public function Remove_Restricted_Characters($path) {
+        // Define the list of restricted characters
+        $restricted_characters = [
+            ":",
+            "?",
+            '"',
+            "\\",
+            "/",
+            "|",
+            "｜",
+            "*",
+            "<",
+            ">"
+        ];
+
+        // Iterate through the list of characters
+        foreach ($restricted_characters as $character) {
+            // Remove the character if it exists
+            $path = str_replace($character, "", $path);
+        }
+
+        // Remove leading and trailing spaces
+        $path = trim($path);
+
+        // Replace multiple spaces with a single space
+        $path = preg_replace('/\s+/', ' ', $path);
+
+        // Return the path
+        return $path;
+    }
 
 	public function Exist($file) {
 		if (file_exists($file) == True) {

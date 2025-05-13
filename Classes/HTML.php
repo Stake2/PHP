@@ -212,9 +212,11 @@ class HTML extends Class_ {
 
 		$border_color = $website["Style"]["border_color"];
 
+		# Define the "Open hamburger menu" button
 		$open_hamburger_menu_button = "<!-- Open hamburger menu button -->".
 		HTML::Button("\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom", "h3");
 
+		# Define the "Close hamburger menu" button
 		$close_hamburger_menu_button = "\t".'<!-- Close hamburger menu button -->'.
 		HTML::Button("\t".$hide_text."\t\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
 
@@ -235,27 +237,48 @@ class HTML extends Class_ {
 		# Generate the buttons
 		$i = 0;
 		foreach (array_keys($website["tabs"]["data"]) as $id) {
+			# Get the tab data
 			$tab = $website["tabs"]["data"][$id];
 
-			# Define id and name
+			# Define the id and number of the tab
 			$tab["id"] = $id;
 			$tab["number"] = $i + 1;
 
+			# Get the tab information
 			$tab = self::Tab_Info($tab, $i);
 
+			# Create the tab button
 			$button = self::Tab_Button($tab);
 
-			# Add button to buttons array
+			# Add the button to the list of buttons
 			array_push($buttons["list"], $button);
 
 			$i++;
 		}
 
-		# Add buttons to hamburger menu
-		foreach($buttons["list"] as $button) {
+		# If the "Generate" website state is False
+		# And the website type is "Story"
+		# And the "Write" story state is True
+		if (
+			$website["States"]["Website"]["Generate"] == False and
+			$website["Data"]["type"] == "Story" and
+			$website["States"]["Story"]["Write"] == True
+		) {
+			# Define the function to run
+			$function = "Hide_Home_Buttons()";
+
+			# Define the "Hide home buttons" button
+			$button = self::Button($website["Language texts"]["hide_home_buttons"], ' onclick="'.$function.'" style="border-radius: 50px;"', "", "h2");
+
+			# Add the button to the list of buttons
+			array_push($buttons["list"], $button);
+		}
+
+		# Add the buttons to the hamburger menu
+		foreach($buttons["list"] as $index => $button) {
 			$buttons["hamburger_menu"] .= "\n\t".$button;
 
-			if ($button != end($buttons["list"])) {
+			if ($index != count($buttons["list"]) - 1) {
 				$buttons["hamburger_menu"] .= "\n\n";
 			}
 		}

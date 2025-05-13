@@ -103,6 +103,10 @@
 		"en": "Media unit link",
 		"pt": "Link da unidade de mídia"
 	},
+	"link_of_the_video_on_youtube": {
+		"en": "Link of the video on YouTube",
+		"pt": "Link do vídeo no YouTube"
+	},
 	"task, title()": {
 		"en": "Task",
 		"pt": "Tarefa"
@@ -557,5 +561,9 @@
 	"happy_new_year": {
 		"en": "Happy New Year",
 		"pt": "Feliz Ano Novo"
+	},
+	"hide_home_buttons": {
+		"en": "Hide home buttons",
+		"pt": "Esconder botões de início"
 	}
 }

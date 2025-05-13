@@ -97,7 +97,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["Year"];
+			$header_text = $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"];
 		}
 
 		$array = [

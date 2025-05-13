@@ -400,12 +400,16 @@ $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"] = [
 
 # "Productivity" folders
 $names = [
-	"Data",
-	"Task History"
+	"Task History",
+	"Tipos de tarefas"
 ];
 
 foreach ($names as $key) {
 	$item = $key;
+
+	if ($key == "Tipos de tarefas") {
+		$key = "Task types";
+	}
 
 	$folders["Mega"]["Notepad"]["Data Networks"]["Productivity"][$key] = [
 		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["root"].$item."/"
@@ -413,7 +417,7 @@ foreach ($names as $key) {
 }
 
 # "Types.json" file
-$folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Data"]["Types"] = $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Data"]["root"]."Types.json";
+$folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task types"]["Task types"] = $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task types"]["root"]."Task types.json";
 
 # "Task History" year folders
 foreach ($years_list as $year) {

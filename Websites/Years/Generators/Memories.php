@@ -179,12 +179,22 @@ if (file_exists($file) == True) {
 			$image_string .= "<br />"."\n".
 			"<p></p>"."\n";
 
-			# Replace the remote folder with the local PHP images folder
-			# To test if the images appear correctly
-			if ($website["States"]["Website"]["Generate"] == False) {
-				$php_folder = "/Images/";
+			# Define the local image folder
+			$local_image_folder = $folders["Mega"]["PHP"]["root"];
 
-				$file["Path"] = str_replace($website["Folders"]["Images"]["root"], $php_folder, $file["Path"]);
+			# Define the PHP image
+			$php_image = str_replace($website["Folders"]["Images"]["root"], "Images/", $file["Path"]);
+
+			# If the "Generate" (website) state is False
+			# And the local image folder exists
+			# And the PHP image exists
+			if (
+				$website["States"]["Website"]["Generate"] == False and
+				file_exists($local_image_folder) == True and
+				file_exists($php_image) == True
+			) {
+				# Replace the root image folder link with the local one
+				$file["Path"] = $php_image;
 			}
 
 			# Create the image class

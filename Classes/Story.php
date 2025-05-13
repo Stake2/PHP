@@ -763,7 +763,7 @@ class Story extends Class_ {
 			];
 
 			# Select a theme
-			$theme = $themes["Story"];
+			#$theme = $themes["Story"];
 			#$theme = $themes["Light"];
 			#$theme = $themes["Light (secondary)"];
 			$theme = $themes["Dark"];

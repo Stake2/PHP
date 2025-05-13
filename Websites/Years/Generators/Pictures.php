@@ -255,12 +255,25 @@ foreach ($keys as $key) {
 			"<p></p>"."\n";
 		}
 
-		# Replace remote folder with the local PHP images folder
-		# To test if the images appear correctly
-		if ($website["States"]["Website"]["Generate"] == False) {
-			$php_folder = "/Images/";
+		# Define the local image folder
+		$local_image_folder = $folders["Mega"]["PHP"]["root"]."Images/";
 
-			$file["Path"] = str_replace($website["Folders"]["Images"]["root"], $php_folder, $file["Path"]);
+		# Define the local website image folder
+		$local_website_image_folder = $local_image_folder.$website["Data"]["title"]."/";
+
+		# Define the PHP image
+		$php_image = $local_website_image_folder.str_replace($website["Folders"]["Images"]["root"], "/Images/", $file["Path"]);
+
+		# If the "Generate" (website) state is False
+		# And the local image folder exists
+		# And the PHP image exists
+		if (
+			$website["States"]["Website"]["Generate"] == False and
+			file_exists($local_image_folder) == True and
+			file_exists($php_image) == True
+		) {
+			# Replace the root image folder link with the local one
+			$file["Path"] = $php_image;
 		}
 
 		# Create the image class

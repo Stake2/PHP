@@ -206,12 +206,19 @@ while ($i <= $chapter_number) {
 			$key = str_replace(" ", "_", $file["Name"]);
 
 			$replace = $website["Dictionary"]["The Life of Littletato"]["Folders"]["Website"]["Images"]["Local"]["Chapters"]["root"];
+			;
 
 			$with = $website["Dictionary"]["The Life of Littletato"]["Folders"]["Website"]["Images"]["Remote"]["Chapters"]["root"];
 
-			# Replace remote folder with the local PHP images folder
+			# Define the PHP images folder for the story
+			$php_images_folder = $folders["Mega"]["PHP"]["root"]."Images/The Life of Littletato/";
+
+			# Replace the remote folder with the local PHP images folder
 			# To test if the images appear correctly
-			if ($website["States"]["Website"]["Generate"] == False) {
+			if (
+				$website["States"]["Website"]["Generate"] == False and
+				$Folder -> Exist($php_images_folder)
+			) {
 				$php_folder = "/Images/".$website["Dictionary"]["The Life of Littletato"]["title"]."/Chapters/";
 
 				$with = $php_folder;
@@ -219,7 +226,7 @@ while ($i <= $chapter_number) {
 
 			$file["Path"] = str_replace($replace, $with, $file["Path"]);
 
-			$image = "<br />".HTML::Element("img", "", 'src="'.$file["Path"].'" style="max-width: 60%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["black"])."<br />";
+			$image = "<br />".HTML::Element("img", "", 'src="'.$file["Path"].'" style="max-width: 60%;"', $website["Data"]["Style"]["img"]["secondary_theme"]["light"]." ".$website["Data"]["Style"]["box_shadow"]["theme"]["dark"])."<br />";
 
 			$dictionary[$number][$key] = $image;
 		}	
@@ -255,6 +262,14 @@ $songs = [
 			"pt" => "músicas do gênero Folk"
 		],
 		"Link" => "https://www.youtube.com/watch?v=gRejhGxr69Y"
+	],
+	"Folk_Songs_Embed" => [ # Chapter 11
+		"Text" => [
+			"en" => "folk songs",
+			"pt" => "músicas do gênero Folk"
+		],
+		"ID" => "gRejhGxr69Y",
+		"Embed" => True
 	],
 	"Yuru_Camp_Soundtrack" => [ # Chapter 18, 19
 		"Text" => [

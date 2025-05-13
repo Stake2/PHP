@@ -97,7 +97,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["Language texts"]["watched_things_in"]."".$website["Data"]["Year"];
+			$header_text = $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"];
 		}
 
 		$array = [
@@ -559,8 +559,16 @@ if (file_exists($entries_file) == True) {
 
 				# Add the media unit link
 				if (array_key_exists("Link", $entry) == True) {
+					# Define the link text as "Media unit link"
 					$link_text = $website["Language texts"]["media_unit_link"];
 
+					# If the link contains the "youtube" text
+					if (str_contains($entry["Link"], "youtube")) {
+						# Define the link text as "Link of the video on YouTube"
+						$link_text = $website["Language texts"]["link_of_the_video_on_youtube"];
+					}
+
+					# Add the entry link with the link text to the entry title
 					$title .= " - ".HTML::Element("a", $website["Icons"]["YouTube"], 'href="'.$entry["Link"].'" target="_blank" alt="'.$link_text.'" title="'.$link_text.'"', "text_red");
 				}
 

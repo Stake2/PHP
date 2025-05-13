@@ -523,7 +523,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["titles"]["icon"] .= " ".$website["Icons"][$website_dictionary["JSON"]["icon"]];
 	}
 
-	$website_dictionary["link"] = $website["URL"].$link."/";
+	$website_dictionary["link"] = $website["URL"].$website_title."/";
 
 	# Define website links
 	$website_dictionary["Links"] = [];
@@ -855,128 +855,224 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$local_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["root"];
 	}
 
-	# Replace remote folder with the local PHP images folder
-	# To test if the images appear correctly
-	#if ($website["States"]["Website"]["Generate"] == False) {
-		$php_folder = "Images/".$website_dictionary["title"]."/";
+	# Define a local image folder for the PHP server
+	$php_folder = "Images/".$website_dictionary["title"]."/";
 
-		$remote_folder = "/".$php_folder;
-		$local_folder = $folders["Mega"]["PHP"]["root"].$php_folder;
+	# Define the remote and local PHP and Websites folders
+	$remote_image_folder = "/".$php_folder;
+	$local_php_folder = $folders["Mega"]["PHP"]["root"].$php_folder;
+	$local_websites_folder = $folders["Mega"]["Websites"]["root"].$php_folder;
 
-		if (
-			$website_dictionary["type"] == "Normal" and
-			isset($website_dictionary["JSON"]["story"]) == False
-		) {
-			$remote_folder .= "Icons/";
-			$local_folder .= "Icons/";
+	# If the website type is "Normal"
+	# And the "story" key is not defined in the website JSON Dictionary
+	if (
+		$website_dictionary["type"] == "Normal" and
+		isset($website_dictionary["JSON"]["story"]) == False
+	) {
+		# Iterate through the list of variable parts
+		foreach (["php", "websites"] as $part) {
+			# Get the variable variable
+			$folder_variable_name = "local_".$part."_folder";
+			$folder = ${$folder_variable_name};
+
+			# If the folder plus the "Icons" folder exists
+			if (file_exists($folder."Icons/") == True) {
+				# Add the "Icons" folder to the root folder
+				${$folder_variable_name} .= "Icons/";
+
+				# If the variable part is "php"
+				if ($part == "php") {
+					# Add the "Icons" folder to the remote folder
+					$remote_image_folder .= "Icons/";
+				}
+			}
 		}
+	}
 
-		$website_dictionary["image"]["link"] = $remote_folder;
-	#}
+	# Define the default image link as the remote folder
+	$website_dictionary["image"]["link"] = $remote_image_folder;
 
+	# Define the verbose text with the image texts
 	$verbose_text .= "Imagem:"."\n".
-	"\t"."Pasta local: local_folder"."\n".
-	"\t"."Pasta remota: remote_folder"."\n".
+	"\t"."Pasta local PHP: local_php_folder"."\n".
+	"\t"."Pasta local de Sites: local_websites_folder"."\n".
+	"\t"."Pasta remota: remote_image_folder"."\n".
 	"\n".
 	"\t"."Formatos:"."\n";
 
-	# Create the file names array (list)
+	# Create the list of image file names
 	$file_names = [
 		$website_title,
 		"Foto",
 		"Picture"
 	];
 
+	# If the website contains a parent website
 	if ($website["States"]["Website"]["Parent"] == True) {
+		# Add the parent folder name to the list of file names
 		array_push($file_names, $website_dictionary["Parent"]["Folder name"]."/".$website_title);
 	}
 
-	# Add the "Cover" file name to the file names list
+	# If the website is a story website
+	# Or the "story" key is present inside the website JSON dictionary
 	if (
 		$website_dictionary["type"] == "Story" or
 		isset($website_dictionary["JSON"]["story"])
 	) {
+		# Add the "Cover" file name to the list of file names
 		array_push($file_names, "Cover");
 	}
 
-	# Add the full user language to the file names list
+	# Add the full user language to the list of file names
 	array_push($file_names, $Language -> languages["full"][$language]);
 
-	$website_dictionary["image"]["File name"] = "png";
+	# Define the default file name as an empty string
+	$website_dictionary["image"]["File name"] = "";
 
+	# Iterate through the list of file names
 	foreach ($file_names as $file_name) {
+		# Iterate through the list of image formats
 		foreach ($website["Image formats"] as $format) {
-			$local_image = $local_folder.$file_name.".".$format;
+			# Define the selected folder as the local PHP folder
+			$selected_folder = $local_php_folder;
 
+			# Get the local image path inside the "PHP" images folder
+			$local_image = $selected_folder.$file_name.".".$format;
+
+			# If the file does not exist
+			if (file_exists($local_image) == False) {
+				# Change the selected folder to the local "Websites" folder
+				$selected_folder = $local_websites_folder;
+
+				# Get the local image path inside the "Websites" images folder
+				$local_image = $selected_folder.$file_name.".".$format;
+
+				# Switch the "PHP image exists" switch to True
+				$php_image_exists = True;
+			}
+
+			# If the verbose text does not contain the file format
 			if (str_contains($verbose_text, $format) == False) {
+				# Add it
 				$verbose_text .= "\t\t".'"'.$format.'"'."\n";
 			}
 
+			# If the local image file exists
 			if (file_exists($local_image) == True) {
+				# Define the file format as the current format
 				$website_dictionary["image"]["format"] = $format;
+
+				# Define the file name as the current file name
 				$website_dictionary["image"]["File name"] = $file_name;
-			}
-
-			if (file_exists($local_image) == False) {
-				$local_image_website_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["root"].$file_name.".".$format;
-
-				if (file_exists($local_image_website_folder) == True) {
-					if ($website["States"]["Website"]["Generate"] == False) {
-						# Update the website image link to be remote
-						$website_dictionary["image"]["link"] = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["root"];
-					}
-
-					$website_dictionary["image"]["format"] = $format;
-					$website_dictionary["image"]["File name"] = $file_name;
-				}
 			}
 		}
 	}
 
+	# If the "Generate" (website) state is False
+	if ($website["States"]["Website"]["Generate"] == False) {
+		# Define the local folder
+		$local_folder = $website_dictionary["Folders"]["Website"]["Images"]["Local"]["root"];
+	}
+
+	# Define the default remote folder as the remote image folder
+	$remote_folder = $remote_image_folder;
+
+	# If the "Generate" (website) state is False
+	if ($website["States"]["Website"]["Generate"] == False) {
+		# Define the remote folder as the remote link folder
+		$remote_folder = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["root"];
+	}
+
+	# If the local folder does not contain the "Icons" folder
+	# And the local folder plus the "Icons" folder exists
+	# And the remote folder does not contain the "Icons" folder
+	if (
+		str_contains($local_folder, "Icons/") == False and
+		file_exists($local_folder."Icons/") == True
+	) {
+		# Add the "Icons" folder to the local folder
+		$local_folder .= "Icons/";
+	}
+
+	# If the local folder contains the "Icons" folder
+	# And the local folder exists
+	# And the remote folder does not contain the "Icons" folder
+	if (
+		str_contains($local_folder, "Icons/") == True and
+		file_exists($local_folder) == True and
+		str_contains($remote_folder, "Icons/") == False
+	) {
+		# Add the "Icons" folder to the remote folder
+		$remote_folder .= "Icons/";
+	}
+
+	# Define the image link as the remote folder
+	$website_dictionary["image"]["link"] = $remote_folder;
+
+	# Add the found file name to the image link
 	$website_dictionary["image"]["link"] .= $website_dictionary["image"]["File name"];
 
+	# Add the image format with a dot
 	$website_dictionary["image"]["link"] .= ".".$website_dictionary["image"]["format"];
 
+	# If the image width setting does not exist
 	if (isset($website_dictionary["JSON"]["image"]["width"]) == False) {
+		# Define the image width as 90
 		$website_dictionary["JSON"]["image"]["width"] = "90";
 	}
 
-	# Define the website image link for stories
+	# If the website is a story website
+	# Or the "story" key is present inside the website JSON dictionary
 	if (
 		$website_dictionary["type"] == "Story" or
 		isset($website_dictionary["JSON"]["story"])
 	) {
+		# Define the image width as 70
 		$website_dictionary["JSON"]["image"]["width"] = "70";
 	}
 
+	# If the website is a year website
+	# Or its title contains "Diary"
 	if (
 		in_array($website_title, $website["Years"]) == True or
 		str_contains($website_title, "Diary")
 	) {
+		# Define the image width as 60
 		$website_dictionary["JSON"]["image"]["width"] = "60";
 	}
 
+	# Add the selected image format to the verbose text
 	$verbose_text .= "\n"."\t"."Formato: ".'"'.$website_dictionary["image"]["format"].'"'."\n\n";
 
-	$verbose_text = str_replace("local_folder", $local_folder, $verbose_text);
-	$verbose_text = str_replace("remote_folder", $remote_folder, $verbose_text);
+	# Replace the folder strings in the verbose text with the actual folders
+	$verbose_text = str_replace("local_php_folder", $local_php_folder, $verbose_text);
+	$verbose_text = str_replace("local_websites_folder", $local_websites_folder, $verbose_text);
+	$verbose_text = str_replace("remote_image_folder", $remote_image_folder, $verbose_text);
 
+	# If the website is not a story website
+	# And the website image was not found
 	if (
 		$website_dictionary["type"] != "Story" and
 		$website_dictionary["image"]["format"] == ""
 	) {
+		# Define the local image link as the template image
 		$link = $website["Folders"]["Images"]["Icons"]["root"]."Template.png";
 
+		# Update the image link to be the template image link
 		$website_dictionary["image"]["link"] = $link;
 	}
 
+	# Add the image link to the verbose text
 	$verbose_text .= "\t"."Link: ".$website_dictionary["image"]["link"];
 
+	# If the verbose switch is True
 	if ($website["verbose"] == True) {
+		# Show the verbose text and a line break
 		$Text -> Show_Variable($verbose_text);
-		echo "<br>";
+		echo "<br />";
 	}
 
+	# Define the local image link
 	$website_dictionary["image"]["local_link"] = str_replace($website["URL"], $folders["Mega"]["Websites"]["root"], $website_dictionary["image"]["link"]);
 
 	$class = $website_dictionary["Style"]["img"]["theme"]["normal"];
@@ -1046,8 +1142,9 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define if the painted version of the website author will be used
 	$use_painted_author = True;
 
-	# Define the default website author
+	# Define the default website author and painted author
 	$author = $website["Author"];
+	$painted_author = $website["Author"];
 
 	# Define a list of tab colors to not use the painted version of the website author
 	$tab_colors = [
@@ -1059,7 +1156,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		in_array($website_dictionary["JSON"]["style"]["theme"]["light"], $tab_colors) == False and
 		in_array($website_dictionary["JSON"]["style"]["secondary_theme"]["light"], $tab_colors) == False
 	) {
-		$author = $stories["Authors (painted)"][$author];
+		$painted_author = $stories["Authors (painted)"][$author];
 	}
 
 	# Define the normal website descriptions
@@ -1122,7 +1219,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Transform the website author into bold style
 		$author = HTML::Element("b", $author);
 
-		$website_dictionary["description"]["header"] = str_replace($author_text, $author, $website_dictionary["description"]["header"]);
+		$website_dictionary["description"]["header"] = str_replace($author_text, $painted_author, $website_dictionary["description"]["header"]);
 
 		# Add line separators to the website header descriptions if they were gotten from the "Website.json" file
 		if ($json_descriptions == True) {
@@ -1142,7 +1239,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		isset($website_dictionary["JSON"]["story"])
 	) {
 		# Define website HTML description for story websites
-		$website_dictionary["description"]["html"] = Text::Format($website["Language texts"]["website_about_my_story_{}_made_by_{}"], [$website_dictionary["titles"]["language"], $website["Author"]]);
+		$website_dictionary["description"]["html"] = Text::Format($website["Language texts"]["website_about_my_story_{}_made_by_{}"], [$website_dictionary["titles"]["language"], $author]);
 
 		$language = $Language -> user_language;
 

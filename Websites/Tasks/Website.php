@@ -1,7 +1,7 @@
 <?php 
 
 # Read the "Types.json" file
-$types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Data"]["Types"]);
+$types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task types"]["Task types"]);
 
 $language = "pt";
 
