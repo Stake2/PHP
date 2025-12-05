@@ -16,41 +16,112 @@ class Date extends Class_ {
 		static::$texts = $JSON -> To_PHP($folders["Apps"]["Module files"]["Utility"]["Date"]["Texts"]);
 	}
 
-	public static function Now($string = "", $format = "", $object = "") {
+	public function Get_Readable_Timezone_Abbreviation(DateTime $date): string {
+		# Get the abbreviation
+		$abbr = $date -> format("T");
+
+		# Get the timeozone name
+		$timezone_name = $date -> format("e");
+
+		# Map custom abbreviations for specific timezones when abbreviation is offset
+		$custom_abbr_map = [
+			"America/Sao_Paulo" => "BRT",
+			"America/Argentina/Buenos_Aires" => "ART",
+			"America/Los_Angeles" => "PST",
+			"Europe/London" => "GMT",
+			"Europe/Paris" => "CET"
+		];
+
+		# If the abbreviation is a GMT offset and there is a custom mapping
+		if (
+			preg_match("/^[\+\-]\d{2}$/", $abbr) &&
+			isset($custom_abbr_map[$timezone_name])
+		) {
+			# Return the custom abbreviation
+			return $custom_abbr_map[$timezone_name];
+		}
+
+		# Otherwise, return the original abbreviation
+		return $abbr;
+	}
+
+	public static function Now($string = "", $format = "", $object = "", $timezone = "") {
 		global $website;
 		global $Language;
 
+		# Set the default timezone to "America/Sao_Paulo"
+		date_default_timezone_set("America/Sao_Paulo");
+
+		# Get the timezones
+		$utc_timezone = new DateTimeZone("UTC");
+		$user_timezone = new DateTimeZone("America/Sao_Paulo");
+
+		# If no DateTime object was passed, create one with current time in UTC
 		if ($object == "") {
-			$object = new DateTime();
+			$object = new DateTime("now");
 		}
 
+		# If a date string was provided, parse it using the given format (in UTC)
 		if ($string != "") {
 			if ($format == "") {
 				$format = "H:i d/m/Y";
 			}
 
-			$object = DateTime::createFromFormat($format, $string);
+			if ($format == "Y-m-d\TH:i:s\Z") {
+				$object = DateTime::createFromFormat($format, $string, $utc_timezone);
+			}
+
+			else {
+				$object = DateTime::createFromFormat($format, $string);
+			}
 		}
 
+		# Clone the object to create versions with different time zones
+		$timezone_object = clone $object;
+
+		if ($format == "Y-m-d\TH:i:s\Z") {
+			$timezone_object -> setTimezone($user_timezone);
+		}
+
+		# Create the UTC object
+		$utc_object = clone $object;
+
+		# Create the date dictionary with its keys
 		$date = [
+			"User timezone" => [
+				"String" => $user_timezone -> getName(),
+				"UTC Offset" => $timezone_object -> format("P"),
+				"Name" => Date::Get_Readable_Timezone_Abbreviation($timezone_object)
+			],
+
+			"UTC" => [
+				"String" => $utc_timezone -> getName(),
+				"UTC Offset" => $utc_object -> format("P"),
+				"Name" => $utc_object -> format("T")
+			],
+
 			"Object" => $object,
-			"day" => $object -> format("d"),
-			"month" => $object -> format("m"),
-			"year" => $object -> format("Y"),
-			"formats" => [
-				"HH:MM DD/MM/YYYY" => $object -> format("H:i d/m/Y")
+			"Day" => $timezone_object -> format("d"),
+			"Month" => $timezone_object -> format("m"),
+			"Year" => $timezone_object -> format("Y"),
+
+			"Formats" => [
+				# Local time format
+				"HH:MM DD/MM/YYYY" => $timezone_object -> format("H:i d/m/Y"),
+
+				# UTC format (with "Z" to indicate UTC)
+				"YYYY-MM-DDTHH:MM:SSZ" => $utc_object -> format("Y-m-d\TH:i:s\Z")
 			]
 		];
 
+		// Apply extra user-defined date formats (using local timezone)
 		foreach ($website["Texts"]["date_format"] as $text) {
-			$date[$text] = $object -> format($text);
+			$date[$text] = $timezone_object -> format($text);
 		}
 
 		foreach ($website["Texts"]["date_time_format"] as $text) {
-			$date[$text] = $object -> format($text);
+			$date[$text] = $timezone_object -> format($text);
 		}
-
-		$date["Formats"] = $date["formats"];
 
 		return $date;
 	}
@@ -82,7 +153,7 @@ class Date extends Class_ {
 			];
 		}
 
-		foreach ($website["languages"]["small"] as $language) {
+		foreach ($website["Languages"]["Small"] as $language) {
 			$date["Text"][$language] = "";
 		}
 
@@ -108,10 +179,10 @@ class Date extends Class_ {
 			}
 		}
 
-		$languages = $website["languages"]["small"];
+		$languages = $website["Languages"]["Small"];
 		$languages = array_diff($languages, ["general"]);
 
-		# Make the time texts per language
+		# Make the time texts by language
 		foreach ($keys as $key) {
 			foreach ($languages as $language) {
 				# If the key is the last one and the number of time attributes is 2 or more than 2, add the "and " text
@@ -165,7 +236,7 @@ class Date extends Class_ {
 	public static function Create_Years_List($mode = "array", $start = 2018, $plus = 0, $function = "string", $string_format = Null) {
 		$array = [];
 
-		$current_year = self::Now()["year"] + $plus;
+		$current_year = self::Now()["Year"] + $plus;
 
 		while ($start <= $current_year) {
 			$local_year = $start;

@@ -12,7 +12,7 @@ $full_language = $website["full_language"];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 $story_titles = $stories["Titles"]["en"];
@@ -48,7 +48,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 			if (isset($parent["Titles"]) == False) {
 				$parent["Titles"] = [];
 
-				foreach ($website["small_languages"] as $local_language) {
+				foreach ($website["Languages (small)"] as $local_language) {
 					$parent["Titles"][$local_language] = $parent["Title"];
 				}
 
@@ -68,7 +68,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	# Define the language website titles
-	foreach ($website["small_languages"] as $local_language) {
+	foreach ($website["Languages (small)"] as $local_language) {
 		if (isset($websites["List"][$local_language]) == True) {
 			$title = $websites["List"][$local_language][$website_number];
 
@@ -328,8 +328,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	# Define the language website descriptions files
-	foreach ($website["small_languages"] as $local_language) {
-		$local_full_language = $Language -> languages["full"][$local_language];
+	foreach ($website["Languages (small)"] as $local_language) {
+		$local_full_language = $Language -> languages["Full"][$local_language];
 
 		$website_dictionary["Folders"]["PHP"]["Descriptions"][$local_language] = $website_dictionary["Folders"]["PHP"]["Descriptions"]["root"].$local_full_language.".txt";
 	}
@@ -427,9 +427,9 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Add the story dictionary to the website dictionary
 		$folder = $folders["Mega"]["Notepad"][$key]["Story"]["root"];
 
-		$creation_date_file = $folder.$website["Language texts (Module language)"]["creation_date"].".txt";
+		$creation_date_file = $folder.$website["Language texts (module language)"]["creation_date"].".txt";
 		$story_file = $folder."Story.json";
-		$readers_file = $folders["Mega"]["Notepad"][$key]["Story"]["Readers"]["root"].$website["Language texts (Module language)"]["readers, title()"].".txt";
+		$readers_file = $folders["Mega"]["Notepad"][$key]["Story"]["Readers"]["root"].$website["Language texts (module language)"]["readers, title()"].".txt";
 		$titles_file = $folder."Titles.json";
 
 		$website_dictionary["Story"] = [
@@ -440,8 +440,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Add the story synopsis
 		$website_dictionary["Story"]["Information"]["Synopsis"] = [];
 
-		foreach ($website["small_languages"] as $local_language) {
-			$local_full_language = $Language -> languages["full"][$local_language];
+		foreach ($website["Languages (small)"] as $local_language) {
+			$local_full_language = $Language -> languages["Full"][$local_language];
 
 			$file = $folders["Mega"]["Notepad"][$key]["Story"]["Synopsis"]["root"].$local_full_language.".txt";
 
@@ -465,15 +465,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 		array_push($stories["List"], $english_story_title);
 
 		# Add each language story title to the specific language array of the Stories "titles" dictionary
-		foreach ($website["small_languages"] as $local_language) {
+		foreach ($website["Languages (small)"] as $local_language) {
 			$language_story_title = $website_dictionary["Story"]["Titles"][$local_language];
 
 			array_push($stories["Titles"][$local_language], $language_story_title);
-		}
-
-		# Add each language story title to the "All" array of the Stories "titles" dictionary
-		foreach (array_values($website_dictionary["Story"]["Titles"]) as $story_title) {
-			array_push($stories["Titles"]["All"], $story_title);
 		}
 	}
 
@@ -485,7 +480,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	if (isset($website_dictionary["JSON"]["titles"]) == True) {
-		foreach ($website["small_languages"] as $local_language) {
+		foreach ($website["Languages (small)"] as $local_language) {
 			if (isset($website_dictionary["JSON"]["titles"][$local_language]) == True) {
 				$website_dictionary["titles"][$local_language] = $website_dictionary["JSON"]["titles"][$local_language];
 			}
@@ -528,7 +523,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define website links
 	$website_dictionary["Links"] = [];
 
-	foreach ($website["small_languages"] as $local_language) {
+	foreach ($website["Languages (small)"] as $local_language) {
 		$website_dictionary["Links"][$local_language] = $website_dictionary["link"].$local_language."/";
 	}
 
@@ -924,7 +919,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	# Add the full user language to the list of file names
-	array_push($file_names, $Language -> languages["full"][$language]);
+	array_push($file_names, $Language -> languages["Full"][$language]);
 
 	# Define the default file name as an empty string
 	$website_dictionary["image"]["File name"] = "";
@@ -1038,7 +1033,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		str_contains($website_title, "Diary")
 	) {
 		# Define the image width as 60
-		$website_dictionary["JSON"]["image"]["width"] = "60";
+		$website_dictionary["JSON"]["image"]["width"] = "40";
 	}
 
 	# Add the selected image format to the verbose text
@@ -1175,7 +1170,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 			];
 		
 			# Define the language website descriptions files
-			foreach ($website["small_languages"] as $local_language) {
+			foreach ($website["Languages (small)"] as $local_language) {
 				$descriptions["html"][$local_language] = $File -> Contents($website_dictionary["Folders"]["PHP"]["Descriptions"][$local_language])["string"];
 			}
 

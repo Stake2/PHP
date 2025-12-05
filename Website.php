@@ -2,35 +2,43 @@
 
 # Website.php
 
+# Require the "Functions.php" file to define the functions
 require "Functions.php";
 
+# Define the initial "website" dictionary with the website author, Twitter author, and "Variable_Inserter" dictionary
 $website = [
 	"Author" => "Izaque (Stake2, Funkysnipa Cat)",
 	"Twitter author" => "Stake2",
-	"format" => "https://{}.{}/"
+	"Variable_Inserter" => []
 ];
 
-$json = $JSON -> To_PHP($folders["Mega"]["Websites"]["Website"]);
+# Get the JSON dictionary of the "Website.json" file
+$website_json = $JSON -> To_PHP($folders["Mega"]["Websites"]["Website"]);
 
-foreach (array_keys($json) as $key) {
-	$website[$key] = $json[$key];
+# Get the keys of the JSON dictionary above and import them to the root "website" dictionary
+foreach (array_keys($website_json) as $key) {
+	$website[$key] = $website_json[$key];
 }
 
-$website["painted_author"] = HTML::Element("b", $website["Author"], "", "");
+# If there is no URL, define it
+if (isset($website["URL"]) == False) {
+	# Format the website URL with the website sub-domain and domain
+	$website["URL"] = Text::Format($website["URL format"], [$website["Sub-domain"], $website["Domain"]]);
 
-$website["netlify_format"] = "https://{}.".$website["Netlify"]."/";
+	# Define the "URL" key inside the local "website JSON" dictionary
+	$website_json["URL"] = $website["URL"];
 
-$website["Variable_Inserter"] = [];
+	# Edit the "Website.json" file to add the local "website JSON" dictionary to it
+	$JSON -> Edit($folders["Mega"]["Websites"]["Website"], $website_json);
+}
 
-# Define Netlify url
-$website["URL"] = Text::Format($website["format"], [$website["Sub-domain"], $website["Netlify"]]);
-
+# Get the URL parameters from the URL
 $website["URL parameters"] = Get_URL_Parameters();
 
 # Get the request URI
 $request_uri = $_SERVER["REQUEST_URI"];
 
-# If the request URI contains "images"
+# If the request URI contains "/Images"
 if (str_contains($request_uri, "/Images")) {
 	$request_uri = explode("/", $request_uri)[0]."/";
 }
@@ -40,6 +48,7 @@ $website["Local URL"] = [
 	"Index" => (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on" ? "https" : "http")."://".$_SERVER["HTTP_HOST"].$request_uri
 ];
 
+# Remove the parameters from the index URL
 $website["Local URL"]["Index"] = explode("?", $website["Local URL"]["Index"])[0];
 
 # Remove the "generate" text from the index URL
@@ -71,13 +80,13 @@ if (str_contains($website["Local URL"]["Generate"]["Link"], "generate") == False
 	$website["Local URL"]["Generate"]["Link"] .= "generate";
 }
 
-# Add URL templates
+# Add the URL templates
 $website["Local URL"]["Generate"]["Templates"]["Normal"] = $website["Local URL"]["Generate"]["Link"]."?website={}";
 
 $website["Local URL"]["Generate"]["Templates"]["With language"] = $website["Local URL"]["Generate"]["Link"]."?website={}&language={}";
 
-# Edit the "URL.json" file
-$JSON -> Edit($folders["PHP"]["JSON"]["URL"], $website["Local URL"], "w");
+# Edit the "URL.json" file to add the "Local URL" dictionary to it
+$JSON -> Edit($folders["PHP"]["JSON"]["URL"], $website["Local URL"]);
 
 $website["Local URL"]["Code"]["Templates"]["With tab"] = $website["Local URL"]["Code"]["Link"]."?website={}";
 
@@ -200,11 +209,11 @@ if (isset($website["method"]) == True) {
 # Define user language (website language)
 $Language -> Define_User_Language();
 
-$website["languages"] = $Language -> languages;
+$website["Languages"] = $Language -> languages;
 
-# Create the "small_languages" list and remove the "general" language from it
-$website["small_languages"] = $Language -> languages["small"];
-$website["small_languages"] = array_diff($website["small_languages"], ["general"]);
+# Create the "Languages (small)" list and remove the "general" language from it
+$website["Languages (small)"] = $Language -> languages["Small"];
+$website["Languages (small)"] = array_diff($website["Languages (small)"], ["general"]);
 
 # Load the "Additional folders.php" file to define the additional folders that require the classes to be defined
 require "Additional folders.php";
@@ -265,7 +274,7 @@ foreach ($stories["Authors"]["List"] as $author) {
 $websites = [
 	"List" => [],
 	"Dictionary" => [],
-	"Per type" => [],
+	"By type" => [],
 	"Remove from websites tab" => [],
 	"Configuration" => [],
 	"Settings" => []
@@ -296,7 +305,7 @@ foreach ($keys as $language) {
 }
 
 # Add the "Years" website to the websites list
-foreach ($Language -> languages["small"] as $language) {
+foreach ($Language -> languages["Small"] as $language) {
 	if (isset($websites["List"][$language]) == True) {
 		array_push($websites["List"][$language], $website["Texts"]["years, title()"][$language]);
 	}
@@ -316,7 +325,7 @@ $website["Years"] = Date::Create_Years_List($mode = "array", $start = 2018, $plu
 
 # Add the year websites to the websites list
 foreach ($website["Years"] as $year) {
-	foreach ($Language -> languages["small"] as $language) {
+	foreach ($Language -> languages["Small"] as $language) {
 		if (isset($websites["List"][$language]) == True) {
 			array_push($websites["List"][$language], $year);
 		}
@@ -326,24 +335,24 @@ foreach ($website["Years"] as $year) {
 # Define the current year key
 $website["current_year"] = ((int)end($website["Years"])) - $plus;
 
-# Add the websites to the the "Per type" dictionary inside the "Websites" dictionary
+# Add the websites to the the "By type" dictionary inside the "Websites" dictionary
 
-# Redefine the "Per type" dictionary to add its keys
-$websites["Per type"] = [
+# Redefine the "By type" dictionary to add its keys
+$websites["By type"] = [
 	"Normal" => [],
 	"Story" => [],
 	"Year" => []
 ];
 
 # Get the correct list of per type keys to add language dictionaries to their dictionary
-$keys = array_keys($websites["Per type"]);
+$keys = array_keys($websites["By type"]);
 $keys = array_diff($keys, ["Year"]);
 
 # Create the language dictionaries inside the per type dictionaries
-foreach ($Language -> languages["small"] as $language) {
+foreach ($Language -> languages["Small"] as $language) {
 	if ($language != "general") {
 		foreach ($keys as $key) {
-			$websites["Per type"][$key][$language] = [];
+			$websites["By type"][$key][$language] = [];
 		}
 	}
 }
@@ -356,7 +365,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		"Titles" => []
 	];
 
-	foreach ($Language -> languages["small"] as $language) {
+	foreach ($Language -> languages["Small"] as $language) {
 		if (isset($websites["List"][$language]) == True) {
 			# Get the language website title
 			$language_website_title = $websites["List"][$language][$i];
@@ -371,7 +380,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 				in_array($website_title, $stories["Titles"]["en"]) == False and
 				in_array($website_title, $website["Years"]) == False
 			) {
-				array_push($websites["Per type"]["Normal"][$language], $language_website_title);
+				array_push($websites["By type"]["Normal"][$language], $language_website_title);
 			}
 
 			# Add the story websites to the "Story" dictionary
@@ -379,7 +388,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$website_title == "Stories" or
 				in_array($website_title, $stories["Titles"]["en"])
 			) {
-				array_push($websites["Per type"]["Story"][$language], $language_website_title);
+				array_push($websites["By type"]["Story"][$language], $language_website_title);
 			}
 
 			# Add the year websites to the "Year" dictionary
@@ -388,8 +397,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$language == "en" or
 				in_array($website_title, $website["Years"])
 			) {
-				if (in_array($language_website_title, $websites["Per type"]["Year"]) == False) {
-					array_push($websites["Per type"]["Year"], $language_website_title);
+				if (in_array($language_website_title, $websites["By type"]["Year"]) == False) {
+					array_push($websites["By type"]["Year"], $language_website_title);
 				}
 			}
 		}
@@ -450,7 +459,7 @@ if (isset($website["language"]) == True) {
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 $website["locale"] = $Language -> languages["Language with country"][$language];
@@ -485,8 +494,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 $languages_string = "";
 
-foreach (array_values($Language -> languages["small"]) as $language) {
-	$full_language = $Language -> languages["full"][$language];
+foreach (array_values($Language -> languages["Small"]) as $language) {
+	$full_language = $Language -> languages["Full"][$language];
 
 	$item = Text::Format($option_template, [$language, $full_language]);
 
@@ -494,7 +503,7 @@ foreach (array_values($Language -> languages["small"]) as $language) {
 		$item = str_replace('">', '" selected>', $item);
 	}
 
-	if ($language != end($Language -> languages["small"])) {
+	if ($language != end($Language -> languages["Small"])) {
 		$item .= "\n";
 	}
 
@@ -756,7 +765,7 @@ if ($language == "general") {
 	$language = "en";
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 # Define the empty lists and dictionaries
 $website["Additional buttons"] = [];
@@ -944,6 +953,7 @@ function Hide_Home_Buttons() {
 
 	// Iterate through the elements in the list
 	list.forEach(
+		// Pass the element ID to a function
 		function(id) {
 			// Hide the element
 			w3.hide("#" + id)
@@ -954,23 +964,23 @@ function Hide_Home_Buttons() {
 	window.removeEventListener("scroll", scroll_function)
 
 	// Define the "Check_Page_Scrolling" function on the "window" object as an empty function
-	window.Check_Page_Scrolling = function() {
-		
-	}
+	window.Check_Page_Scrolling = function() {}
 }'."\n";
 
 	# If the "Write" story state is True
 	if ($website["States"]["Story"]["Write"] == True) {
 		# Hide the home buttons
-		$website["content"] .= "
-// Hides the home buttons for the chapter writing mode
-setTimeout(function () {
-	Hide_Home_Buttons()
-}, 1000)".
-"\n\n";
+		$website["content"] .= '
+// If the list of URL parameters include the "chapter" key
+if (parameter_keys.includes("chapter") == true) {
+	// Hides the home buttons for the chapter writing mode
+	setTimeout(function () {
+		Hide_Home_Buttons()
+	}, 1000)
+}'."\n\n";
 	}
 
-	# Continue adding more scripts
+	# Add scripts to resize the textarea where the user writes the chapter
 	$website["content"] .= '// Wait for the page to load
 $(document).ready(function () {
 	// Adjust the height of the already filled textareas when the page loads
@@ -981,6 +991,7 @@ $(document).ready(function () {
 	})
 
 	// Run the "keydown" and "input" events listener on all textareas
+	/*
 	$("textarea").on("keydown input", function () {
 		// Captures the current scroll position
 		var x = window.scrollX
@@ -998,40 +1009,8 @@ $(document).ready(function () {
 		// Note:
 		// This is to prevent the default behaviour of browsers scrolling to the input position when you press a key
 	})
+	*/
 })
-
-// Old code
-var run = false
-
-if (run === true) {
-	// Get the URL parameters
-	parameters = Object.fromEntries(  
-		new URLSearchParams(window.location.search)
-	)
-
-	// If the "chapter" key is present in the URL parameters
-	if ("chapter" in parameters) {
-		// Define the function to resize text areas
-		function Resize_Textarea() {
-			// Get the anchor ID of the chapter
-			chapter_write_anchor_id = "chapter_" + chapter_number + "_write_anchor"
-
-			// Get the chapter write element
-			chapter_write_element = document.getElementById(chapter_write_anchor_id)
-
-			// If the element exists
-            if (chapter_write_element) {
-				// Expands the height of the textarea of the chapter to show all the chapter text
-				chapter_write_element.style.height = "auto"
-				chapter_write_element.style.height = chapter_write_element.scrollHeight + "px"
-			}
-		}
-
-		// Add the function to the window "load" event
-		window.addEventListener("load", Resize_Textarea)
-	}
-}
-
 </script>';
 }
 

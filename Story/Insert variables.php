@@ -41,7 +41,7 @@ function Create_Chapter_Link_And_Button($numbers, $website_title) {
 
 		$website["Variable_Inserter"][$key]["chapter_".$number] = $link;
 
-		$chapter_title = $website_data["Story"]["Information"]["Chapters"]["Titles"][$language][$number - 1];
+		$chapter_title = $website_data["Story"]["Information"]["Chapters"]["Lists"]["Titles"][$language][$number - 1];
 
 		$link = $website_data["Links"]["Language"];
 

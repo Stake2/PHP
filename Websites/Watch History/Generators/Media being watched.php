@@ -56,16 +56,16 @@ foreach ($types_dictionary["en"] as $type) {
 		"Number" => 0
 	];
 
-	if ($watch_history["Media information"]["Information"]["Numbers"][$type] != 0) {
+	if ($watch_history["Media information"]["Information"]["Media numbers"]["By media type"][$type] != 0) {
 		$media_information_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["root"].$language_type."/";
 
 		$information = $media_information_folder."Information.json";
 
 		$media = $JSON -> To_PHP($information);
 
-		$watch_history["Media information"]["Information"]["Numbers"][$type] = 0;
+		$watch_history["Media information"]["Information"]["Media numbers"]["By media type"][$type] = 0;
 
-		foreach ($media["Titles"] as $media) {
+		foreach ($media["Media titles"] as $media) {
 			$media_folder = $media_information_folder.Sanitize_Title($media)."/";
 			$details_file = $media_folder.$website["Texts"]["details, title()"][$Language -> modules_language].".txt";
 			$details = $File -> Dictionary($details_file);
@@ -77,7 +77,7 @@ foreach ($types_dictionary["en"] as $type) {
 
 				$media = " - ".$span." - (".$status.")";
 
-				$number = ($watch_history["Media information"]["Information"]["Numbers"][$type] + 1);
+				$number = ($watch_history["Media information"]["Information"]["Media numbers"]["By media type"][$type] + 1);
 
 				$text = $number.$media;
 
@@ -85,7 +85,7 @@ foreach ($types_dictionary["en"] as $type) {
 
 				$media_list[$type]["String"] .= $line."<br />";
 
-				$watch_history["Media information"]["Information"]["Numbers"][$type]++;
+				$watch_history["Media information"]["Information"]["Media numbers"]["By media type"][$type]++;
 				$media_list[$type]["Number"]++;
 				$website["tab_content"]["media_being_watched"]["number"]++;
 			}

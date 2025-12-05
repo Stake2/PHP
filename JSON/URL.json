@@ -1,17 +1,17 @@
 {
-    "Index": "http:\/\/php.stake2.site:8080\/",
+    "Index": "http://php.stake2.site:8080/",
     "Code": {
-        "Link": "http:\/\/php.stake2.site:8080\/",
+        "Link": "http://php.stake2.site:8080/",
         "Templates": {
-            "Normal": "http:\/\/php.stake2.site:8080\/?website={}",
-            "With language": "http:\/\/php.stake2.site:8080\/?website={}&language={}"
+            "Normal": "http://php.stake2.site:8080/?website={}",
+            "With language": "http://php.stake2.site:8080/?website={}&language={}"
         }
     },
     "Generate": {
-        "Link": "http:\/\/php.stake2.site:8080\/generate",
+        "Link": "http://php.stake2.site:8080/generate",
         "Templates": {
-            "Normal": "http:\/\/php.stake2.site:8080\/generate?website={}",
-            "With language": "http:\/\/php.stake2.site:8080\/generate?website={}&language={}"
+            "Normal": "http://php.stake2.site:8080/generate?website={}",
+            "With language": "http://php.stake2.site:8080/generate?website={}&language={}"
         }
     }
 }

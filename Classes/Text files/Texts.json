@@ -89,7 +89,7 @@
 	},
 	"this_year_i": {
 		"en": "This Year I",
-		"pt": "Este Ano Eu"
+		"pt": "Esse Ano Eu"
 	},
 	"watched_things_in": {
 		"en": "Watched things in",
@@ -99,9 +99,9 @@
 		"en": "Past registries",
 		"pt": "Registros passados"
 	},
-	"media_unit_link": {
-		"en": "Media unit link",
-		"pt": "Link da unidade de mídia"
+	"episode_link": {
+		"en": "Episode link",
+		"pt": "Link do episódio"
 	},
 	"link_of_the_video_on_youtube": {
 		"en": "Link of the video on YouTube",
@@ -207,21 +207,29 @@
 		"en": "Other stories",
 		"pt": "Outras histórias"
 	},
-	"chapter_written_in": {
-		"en": "Chapter written in",
+	"chapter_written_on": {
+		"en": "Chapter written om",
 		"pt": "Capítulo escrito em"
 	},
-	"chapter_revised_in": {
-		"en": "Chapter revised in",
-		"pt": "Capítulo revisado em"
+	"chapter_last_revised_on": {
+		"en": "Chapter last revised on",
+		"pt": "Capítulo revisado pela última vez em"
 	},
-	"chapter_translated_in": {
-		"en": "Chapter translated to English in",
-		"pt": "Capítulo traduzido para o Inglês em"
+	"chapter_last_translated_into_english_on": {
+		"en": "Chapter last translated into English on",
+		"pt": "Capítulo traduzido pela última vez para o Inglês em"
 	},
-	"words, title()": {
-		"en": "Words",
-		"pt": "Palavras"
+	"chapter_words": {
+		"en": "Chapter words",
+		"pt": "Palavras do capítulo"
+	},
+	"word": {
+		"en": "word",
+		"pt": "palavra"
+	},
+	"words": {
+		"en": "words",
+		"pt": "palavras"
 	},
 	"story_creation_date": {
 		"en": "Story creation date",
@@ -399,7 +407,7 @@
 	},
 	"this_file_does_not_exist_{}": {
 		"en": "This file does not exist:<br />\n{}",
-		"pt": "Este arquivo não existe:<br />\n{}"
+		"pt": "Esse arquivo não existe:<br />\n{}"
 	},
 	"little_biography": {
 		"en": "Little biography",
@@ -424,6 +432,18 @@
 	"games, title()": {
 		"en": "Games",
 		"pt": "Jogos"
+	},
+	"gaming_sessions_played_in": {
+		"en": "Gaming sessions played in",
+		"pt": "Sessões de jogatina jogadas em"
+	},
+	"gaming_sessions_played_since_{}_until_{}": {
+		"en": "Gaming sessions played since {} until {}",
+		"pt": "Sessões de jogatina jogadas desde {} até {}"
+	},
+	"number_of_played_times": {
+		"en": "Number of played times",
+		"pt": "Número de vezes jogadas"
 	},
 	"anime, title()": {
 		"en": "Anime",
@@ -470,8 +490,8 @@
 		"en": "First task in the year",
 		"pt": "Primeira tarefa no ano"
 	},
-	"first_task_per_task_type_in_the_year": {
-		"en": "First task per task type in the year",
+	"first_task_by_task_type_in_the_year": {
+		"en": "First task by task type in the year",
 		"pt": "Primeira tarefa por tipo de tarefa no ano"
 	},
 	"downloading_media": {
@@ -510,13 +530,13 @@
 		"en": "Programming",
 		"pt": "Programação"
 	},
-	"done_tasks": {
-		"en": "Done tasks",
-		"pt": "Tarefas feitas"
+	"completed_tasks": {
+		"en": "Completed tasks",
+		"pt": "Tarefas concluídas"
 	},
 	"watched_media": {
 		"en": "Watched media",
-		"pt": "Mídia assistida"
+		"pt": "Mídias assistidas"
 	},
 	"source, title()": {
 		"en": "Source",

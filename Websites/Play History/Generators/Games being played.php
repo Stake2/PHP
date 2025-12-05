@@ -59,14 +59,14 @@ foreach ($types_dictionary["en"] as $type) {
 		"Number" => 0
 	];
 
-	if ($gameplayer["Information"]["Information"]["Numbers"][$type] != 0) {
-		$game_information_folder = $network_folder["Information"]["root"].$language_type."/";
+	if ($gameplayer["Game information"]["Information"]["Numbers"][$type] != 0) {
+		$game_information_folder = $network_folder["Game information"]["root"].$language_type."/";
 
 		$information = $game_information_folder."Information.json";
 
 		$games = $JSON -> To_PHP($information);
 
-		$gameplayer["Information"]["Information"]["Numbers"][$type] = 0;
+		$gameplayer["Game information"]["Information"]["Numbers"][$type] = 0;
 
 		foreach ($games["Titles"] as $game) {
 			$game_folder = $game_information_folder.Sanitize_Title($game)."/";
@@ -80,7 +80,7 @@ foreach ($types_dictionary["en"] as $type) {
 
 				$game = " - ".$span." - (".$status.")";
 
-				$number = ($gameplayer["Information"]["Information"]["Numbers"][$type] + 1);
+				$number = ($gameplayer["Game information"]["Information"]["Numbers"][$type] + 1);
 
 				$text = $number.$game;
 
@@ -88,7 +88,7 @@ foreach ($types_dictionary["en"] as $type) {
 
 				$game_list[$type]["String"] .= $line."<br />";
 
-				$gameplayer["Information"]["Information"]["Numbers"][$type]++;
+				$gameplayer["Game information"]["Information"]["Numbers"][$type]++;
 				$game_list[$type]["Number"]++;
 				$website["tab_content"]["games_being_played"]["number"]++;
 			}

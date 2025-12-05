@@ -12,19 +12,6 @@ class File extends Class_ {
 	}
 
 	public function Sanitize($file) {
-		$restricted_characters = [
-			":",
-			"?",
-			'"',
-			"|",
-			"｜",
-			"*",
-			"<",
-			">",
-			"/",
-			""
-		];
-
 		return $this -> Remove_Restricted_Characters($file);
 	}
 
@@ -119,6 +106,7 @@ class File extends Class_ {
 	}
 
 	public function Contents($file, $add_br = True, $add_n = True) {
+		# Define the contents dictionary
 		$contents = [
 			"lines" => [],
 			"string" => "",

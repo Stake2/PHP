@@ -9,12 +9,12 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
 
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 # Require the "Task History" website content PHP file to define the "completed_tasks" and "past_registries" tab templates

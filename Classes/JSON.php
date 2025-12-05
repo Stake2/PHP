@@ -60,7 +60,7 @@ class JSON extends Class_ {
 	}
 
 	public function From_PHP($json) {
-		return json_encode($json, JSON_PRETTY_PRINT);
+		return json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 	}
 }
 

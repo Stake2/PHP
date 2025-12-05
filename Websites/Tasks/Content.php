@@ -8,11 +8,11 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 # Define the website "Generators" folder
@@ -38,7 +38,7 @@ foreach ($names as $item) {
 }
 
 if (isset($website["Data"]["Year"]) == False) {
-	$website["Data"]["Year"] = Date::Now()["year"];
+	$website["Data"]["Year"] = Date::Now()["Year"];
 }
 
 if (in_array($website["Data"]["title"], $website["Years"]) == True) {
@@ -51,8 +51,8 @@ $network_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"];
 # Define the "Tasks" array
 $tasks = [
 	"Files" => [
-		"Per Task Type" => [
-			"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
+		"By task type" => [
+			"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 		]
 	],
 	"Types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
@@ -89,8 +89,8 @@ if (isset($tasks) == False) {
 	# Define the "Tasks" array
 	$tasks = [
 		"Files" => [
-			"Per Task Type" => [
-				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
+			"By task type" => [
+				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 			]
 		],
 		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
@@ -102,9 +102,9 @@ if (isset($tasks) == False) {
 	$tasks["Language texts"] = $Language -> Item($tasks["Texts"]);
 }
 
-# Update the "Per Task Type" folder
-$tasks["Files"]["Per Task Type"] = [
-	"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
+# Update the "By task type" folder
+$tasks["Files"]["By task type"] = [
+	"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 ];
 
 $tasks["Types dictionary"] = $types_dictionary;
@@ -141,7 +141,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 
 		$tasks["language_types"] = $types_dictionary[$language];
 
-		foreach (array_keys($tasks["Entries"]["Numbers"]["Per Task Type"]) as $task_type) {
+		foreach (array_keys($tasks["Entries"]["Numbers"]["By task type"]) as $task_type) {
 			if (in_array($task_type, $types_dictionary["en"]) == False) {
 				array_push($types_dictionary["en"], $task_type);
 
@@ -179,8 +179,8 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 		foreach ($types_dictionary["en"] as $type) {
 			$language_type = $tasks["language_types"][$i];
 
-			if (array_key_exists($type, $tasks["Entries"]["Numbers"]["Per Task Type"])) {
-				$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
+			if (array_key_exists($type, $tasks["Entries"]["Numbers"]["By task type"])) {
+				$number = $tasks["Entries"]["Numbers"]["By task type"][$type];
 
 				# If the number is not zero (0)
 				# Or the total number of tasks is zero
@@ -205,7 +205,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 
 					$array["links"] .= $a."<br />"."\n\t\t";
 
-					$tasks["Files"]["Per Task Type"][$type] = $JSON -> To_PHP($tasks["Files"]["Per Task Type"]["root"].$type."/Tasks.json");
+					$tasks["Files"]["By task type"][$type] = $JSON -> To_PHP($tasks["Files"]["By task type"]["root"].$type."/Tasks.json");
 
 					$span = HTML::Element("span", $number, "", $text_color);
 
@@ -227,9 +227,9 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 }
 
 foreach ($website["Task History"]["Years list"] as $local_year) {
-	# Update the "Per Task Type" folder
-	$tasks["Files"]["Per Task Type"] = [
-		"root" => $network_folder["Task History"][$local_year]["Per Task Type"]["root"]
+	# Update the "By task type" folder
+	$tasks["Files"]["By task type"] = [
+		"root" => $network_folder["Task History"][$local_year]["By task type"]["root"]
 	];
 
 	# Define the Entries file

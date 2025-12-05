@@ -14,6 +14,7 @@
 		<br /><br /><br />
 
 		<?php if( isset($chapter_tab['chapter_cover']) ){ ?>
+		<!-- Chapter cover -->
 <?php echo $chapter_tab["chapter_cover"]; ?>
 <?php } ?>
 		<!-- Chapter text -->

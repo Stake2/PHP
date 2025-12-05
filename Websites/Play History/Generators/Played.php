@@ -8,15 +8,15 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 # Generate "watched things" tab content
-$website["tab_content"]["game_sessions_played"] = [
+$website["tab_content"]["gaming_sessions_played"] = [
 	"string" => "",
 	"number" => 0
 ];
@@ -29,7 +29,7 @@ if (array_key_exists("additional_tabs", $website) == False) {
 }
 
 if (isset($website["Data"]["Year"]) == False) {
-	$website["Data"]["Year"] = Date::Now()["year"];
+	$website["Data"]["Year"] = Date::Now()["Year"];
 }
 
 if (in_array($website["Data"]["title"], $website["Years"]) == True) {
@@ -49,16 +49,16 @@ if (isset($gameplayer) == False) {
 	# Define the "GamePlayer" array
 	$gameplayer = [
 		"Files" => [
-			"Per Game Type" => [
-				"root" => $network_folder["Play History"][$website["Data"]["Year"]]["Per Game Type"]["root"]
+			"By game type" => [
+				"root" => $network_folder["Play History"][$website["Data"]["Year"]]["By game type"]["root"]
 			]
 		],
 		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
 		"Entries" => $JSON -> To_PHP($network_folder["Play History"][$website["Data"]["Year"]]["Entries"]),
 		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["GamePlayer"]["Texts"]),
 		"Language texts" => [],
-		"Information" => [
-			"Information" => $JSON -> To_PHP($network_folder["Information"]["Information"])
+		"Game information" => [
+			"Information" => $JSON -> To_PHP($network_folder["Game information"]["Information"])
 		]
 	];
 
@@ -96,7 +96,7 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $gameplayer["Language texts"]["game_sessions_played_in"]."".$website["Data"]["Year"];
+			$header_text = $website["Language texts"]["gaming_sessions_played_in"]."".$website["Data"]["Year"];
 		}
 
 		$array = [
@@ -116,10 +116,10 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 		foreach ($types_dictionary["en"] as $type) {
 			$language_type = $types_dictionary[$language][$i];
 
-			$number = $gameplayer["Entries"]["Numbers"]["Per Game Type"][$type];
+			$number = $gameplayer["Entries"]["Numbers"]["By game type"][$type];
 
 			if ($header_text == $gameplayer["Language texts"]["games_being_played"]) {
-				$number = $gameplayer["Information"]["Information"]["Numbers"][$type];
+				$number = $gameplayer["Game information"]["Information"]["Numbers"][$type];
 			}
 
 			# If the number is not zero (0)
@@ -147,7 +147,7 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 
 				$array["links"] .= $a."<br />"."\n\t\t";
 
-				$gameplayer["Files"]["Per Game Type"][$type] = $JSON -> To_PHP($gameplayer["Files"]["Per Game Type"]["root"].$type."/Sessions.json");
+				$gameplayer["Files"]["By game type"][$type] = $JSON -> To_PHP($gameplayer["Files"]["By game type"]["root"].$type."/Sessions.json");
 
 				$number_element = HTML::Element("span", $number, "", $text_color);
 
@@ -169,9 +169,9 @@ if (function_exists("Generate_Game_Type_Headers") == False) {
 	}
 }
 
-# Update the "Per Game Type" folder
-$gameplayer["Files"]["Per Game Type"] = [
-	"root" => $network_folder["Play History"][$website["Data"]["Year"]]["Per Game Type"]["root"]
+# Update the "By game type" folder
+$gameplayer["Files"]["By game type"] = [
+	"root" => $network_folder["Play History"][$website["Data"]["Year"]]["By game type"]["root"]
 ];
 
 # Define the Entries file for easier typing
@@ -195,9 +195,9 @@ if (file_exists($entries_file) == True) {
 	$tab = "past_registry_".$website["Data"]["Year"];
 
 	# If the local year is the current year
-	# Then, the tab that needs to be used is the "game_sessions_played" tab
+	# Then, the tab that needs to be used is the "gaming_sessions_played" tab
 	if ($website["Data"]["Year"] == $website["current_year"]) {
-		$tab = "game_sessions_played";
+		$tab = "gaming_sessions_played";
 	}
 
 	if ($website["Data"]["title"] != $website_title) {
@@ -216,7 +216,7 @@ if (file_exists($entries_file) == True) {
 		$link .= "tab=".$tab;
 
 		# Add the website button to the top of the page
-		$website["tab_content"]["game_sessions_played"]["string"] .= "<center>"."\n".
+		$website["tab_content"]["gaming_sessions_played"]["string"] .= "<center>"."\n".
 		$Text -> Format($website_dictionary["Button template"], $link)."\n".
 		"<p></p>".
 
@@ -228,30 +228,30 @@ if (file_exists($entries_file) == True) {
 
 	$type_headers = Generate_Game_Type_Headers();
 
-	# Update the game sessions number
-	$website["tab_content"]["game_sessions_played"]["number"] = $gameplayer["Entries"]["Numbers"]["Total"];
+	# Update the number of gaming sessions played
+	$website["tab_content"]["gaming_sessions_played"]["number"] = $gameplayer["Entries"]["Numbers"]["Total"];
 
 	if (
 		$website["Data"]["title"] != $website_title or
-		$website["tab_content"]["game_sessions_played"]["number"] == 0
+		$website["tab_content"]["gaming_sessions_played"]["number"] == 0
 	) {
-		# Create the number of game sessions variable with the tab title
-		$number_of_game_sessions = $gameplayer["Language texts"]["game_sessions_played_in"]." ".$website["Data"]["Year"].":";
+		# Create the number of gaming sessions variable with the tab title
+		$number_of_gaming_sessions = $website["Language texts"]["gaming_sessions_played_in"]." ".$website["Data"]["Year"].":";
 
 		# Add the icon of the tab
-		$number_of_game_sessions .= " ".$website["Icons"]["gamepad"];
+		$number_of_gaming_sessions .= " ".$website["Icons"]["gamepad"];
 
-		# Add the number of game sessions
-		$number_of_game_sessions .= " ".HTML::Element("span", $website["tab_content"]["game_sessions_played"]["number"], "", $website["Style"]["text"]["theme"]["dark"])."<br /><br />";
+		# Add the number of gaming sessions
+		$number_of_gaming_sessions .= " ".HTML::Element("span", $website["tab_content"]["gaming_sessions_played"]["number"], "", $website["Style"]["text"]["theme"]["dark"])."<br /><br />";
 
 		# Transform everything into bold style
-		$number_of_game_sessions = HTML::Element("b", $number_of_game_sessions);
+		$number_of_gaming_sessions = HTML::Element("b", $number_of_gaming_sessions);
 
-		# Add the number of game sessions text to the tab string content
-		$website["tab_content"]["game_sessions_played"]["string"] .= $number_of_game_sessions;
+		# Add the number of gaming sessions text to the tab string content
+		$website["tab_content"]["gaming_sessions_played"]["string"] .= $number_of_gaming_sessions;
 	}
 
-	$website["tab_content"]["game_sessions_played"]["string"] .= "<!-- Game type headers -->"."\n"."\t\t".
+	$website["tab_content"]["gaming_sessions_played"]["string"] .= "<!-- Game type headers -->"."\n"."\t\t".
 	$type_headers["links"].
 	"\n"."\t\t"."<br />"."\n\n";
 
@@ -266,29 +266,29 @@ if (file_exists($entries_file) == True) {
 
 		$modules_language = $types_dictionary[$Language -> modules_language][$i];
 
-		$number = $gameplayer["Entries"]["Numbers"]["Per Game Type"][$type];
+		$number = $gameplayer["Entries"]["Numbers"]["By game type"][$type];
 
 		$website["Data"]["Numbers"]["By type"][$type] += $number;
 
 		if ($number != 0) {
-			$website["tab_content"]["game_sessions_played"]["string"] .= $type_headers["headers"][$type];
+			$website["tab_content"]["gaming_sessions_played"]["string"] .= $type_headers["headers"][$type];
 
-			$entries = $gameplayer["Files"]["Per Game Type"][$type]["Entries"];
+			$entries = $gameplayer["Files"]["By game type"][$type]["Entries"];
 
 			# Iterate through the game type Entries list
-			foreach ($gameplayer["Files"]["Per Game Type"][$type]["Entries"] as $entry) {
+			foreach ($gameplayer["Files"]["By game type"][$type]["Entries"] as $entry) {
 				$entry = $gameplayer["Entries"]["Dictionary"][$entry];
 
 				# Add the game title
-				$title = Define_Title($entry["Titles"]);
+				$title = Define_Title($entry["Game titles"]);
 
 				$item = "";
 
 				$entry_title = $title;
 
 				# Add the sub-game title if it exists
-				if (isset($entry["Sub-game"])) {
-					$sub_game_title = Define_Title($entry["Sub-game"]);
+				if (isset($entry["Sub-game titles"])) {
+					$sub_game_title = Define_Title($entry["Sub-game titles"]);
 
 					if ($sub_game_title[0].$sub_game_title[1] != ": ") {
 						$title .= ": ";
@@ -297,45 +297,65 @@ if (file_exists($entries_file) == True) {
 					$title .= $sub_game_title;
 				}
 
-				# Define the date
-				$format = "Y-m-d\TH:i:s\Z";
+				# ---------- #
 
-				if (strlen($entry["Date"]) == 4) {
-					$format = "Y";
+				# Define the default date format
+				$datetime_format = "Y-m-d\TH:i:s\Z";
+
+				# Initialize the finished playing time output
+				$finished_playing_time = "";
+
+				# Define the time key
+				$time_key = "Finished playing";
+
+				# If the time key is present
+				if (isset($entry["Times"][$time_key])) {
+					# Get the raw time (UTC)
+					$raw_time = $entry["Times"][$time_key." (UTC)"];
+
+					# If the raw time has four characters
+					if (strlen($raw_time) == 4) {
+						# Define the datetime format as the year format
+						$datetime_format = "Y";
+
+						# Make a "Date" dictionary from the date using the datetime format
+						$parsed_date = Date::Now($raw_time, $datetime_format);
+
+						# Get the year from the parsed date
+						$finished_playing_time = $parsed_date["Year"];
+					}
+
+					# If the raw time is a string and not empty
+					elseif ($raw_time !== "") {
+						# Make a "Date" dictionary from the date using the datetime format
+						$parsed_time = Date::Now($raw_time, $datetime_format);
+
+						# Get the time in the user format
+						$finished_playing_time = $parsed_time["Formats"]["HH:MM DD/MM/YYYY"];
+					}
 				}
 
-				$time = $entry["Date"];
+				# ---------- #
 
-				if ($time != "") {
-					$time = Date::Now($time, $format);
-				}
+				# Create the text with the gaming session number as the initial data
+				$text = $entry["Gaming session number"]." -";
 
-				if (strlen($entry["Date"]) != 4) {
-					$time = $time["formats"]["HH:MM DD/MM/YYYY"];
-				}
-
-				if (strlen($entry["Date"]) == 4) {
-					$time = $time["year"];
-				}
-
-				$text = $entry["Number"]." -";
-
-				# Add the States
-				if (array_key_exists("States", $entry) == True) {
-					if (array_key_exists("Re-played", $entry["States"]) == True) {
-						$times_text = $gameplayer["Language texts"]["number_of_played_times"].": ".($entry["States"]["Re-played"]["Times"] + 1)."x";
+				# Add the game states
+				if (isset($entry["States"]) == True) {
+					if (isset($entry["States"]["Re-played"]) == True) {
+						$times_text = $website["Language texts"]["number_of_played_times"].": ".($entry["States"]["Re-played"]["Times"] + 1)."x";
 
 						$text .= " ".HTML::Element("span", ($entry["States"]["Re-played"]["Times"] + 1)."x ".$website["Icons"]["gamepad"], 'alt="'.$times_text.'" title="'.$times_text.'"', $website["Style"]["text_highlight"]." underline_on_hover");
 					}
 
-					if (array_key_exists("First game session in year", $entry["States"]) == True) {
-						$first_text = $gameplayer["Language texts"]["first_game_session_in_year"];
+					if (isset($entry["States"]["First gaming session in the year"]) == True) {
+						$first_text = $gameplayer["Language texts"]["first_gaming_session_in_the_year"];
 
 						$text .= " ".HTML::Element("span", "1# ".$website["Icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["Style"]["text_highlight"]." underline_on_hover");
 					}
 
-					if (array_key_exists("First game type session in year", $entry["States"]) == True) {
-						$first_text = Text::Format($gameplayer["Language texts"]["first_game_session_of_the_{}_category_in_year"], $language_type);
+					if (isset($entry["States"]["First gaming session by game type in the year"]) == True) {
+						$first_text = Text::Format($gameplayer["Language texts"]["first_gaming_session_of_the_{}_game_category_in_the_year"], $language_type);
 
 						$first_text_replaced = str_replace('"', "'", $first_text);
 
@@ -343,9 +363,9 @@ if (file_exists($entries_file) == True) {
 					}
 
 					if (
-						array_key_exists("Re-played", $entry["States"]) == True or
-						array_key_exists("First entry in year", $entry["States"]) == True or
-						array_key_exists("First game type session in year", $entry["States"]) == True
+						isset($entry["States"]["Re-played"]) == True or
+						isset($entry["States"]["First gaming session in the year"]) == True or
+						isset($entry["States"]["First gaming session by game type in the year"]) == True
 					) {
 						$text .= " - ";
 					}
@@ -354,68 +374,80 @@ if (file_exists($entries_file) == True) {
 				# Add quotes to the game title
 				$title = '"'.$title.'"';
 
-				# Add the platform where the game was played
-				$platform = $entry["Platform"];
+				# ---------- #
 
-				$text_key = str_replace(" ", "_", strtolower($platform));
+				# Get the original platform
+				$original_platform = $entry["Platform"];
+
+				# Define a text key to the platform
+				$text_key = str_replace(" ", "_", strtolower($original_platform));
 
 				if (str_contains($text_key, "_") == False) {
 					$text_key .= ", title()";
 				}
 
+				# Define a default language platform as the original platform
+				$language_platform = $original_platform;
+
+				# Get the language platform if the text key exists
 				if (isset($website["Language texts"][$text_key])) {
-					$platform = $website["Language texts"][$text_key];
+					$language_platform = $website["Language texts"][$text_key];
 				}
 
-				# If the platform where the game was played is not "PC", add it to the title
-				if ($platform != "PC") {
-					$title .= " (".$platform.")";
+				# If the platform where the game was played is not "Computer", add the language platform to the game title
+				if ($original_platform != "Computer") {
+					$title .= " (".$language_platform.")";
 				}
 
-				# Add the duration of the session
-				$duration = $entry["Session duration"];
-				unset($duration["Text"]);
+				# ---------- #
 
-				$duration = Date::Make_Time_Text($duration)[$language];
+				# Get the session duration dictionary
+				$session_duration = $entry["Times"]["Gaming session duration"];
 
-				$title .= ", ".$gameplayer["Language texts"]["session_duration"].": ".$duration;
+				# Remove the text key
+				unset($session_duration["Text"]);
+
+				# Get the text duration
+				$session_duration = Date::Make_Time_Text($session_duration)[$language];
+
+				$title .= ", ".$website["Language texts"]["gaming_session_duration"].": ".$session_duration;
 
 				# Paint the title
 				$title = HTML::Element("span", $title, "", $text_color." ".$website["Style"]["text_hover"]);
 
-				# Update the text
-				$text .= " ".$title." (".$time.")";
+				# Add the finished playing time and the title to the text
+				$text .= " ".$title." (".$finished_playing_time.")";
 
 				$text = HTML::Element("span", $text, 'style="margin-left: 3%;"', $website["Style"]["text_hover"]);
 
-				$website["tab_content"]["game_sessions_played"]["string"] .= $text."<br />"."\n";
+				$website["tab_content"]["gaming_sessions_played"]["string"] .= $text."<br />"."\n";
 			}
 
 			if ($type != end($types_dictionary[$language])) {
-				$website["tab_content"]["game_sessions_played"]["string"] .= "\t\t"."<br />"."\n\n";
+				$website["tab_content"]["gaming_sessions_played"]["string"] .= "\t\t"."<br />"."\n\n";
 			}
 		}
 
 		$i++;
 	}
 
-	$website["tab_content"]["game_sessions_played"]["string"] .= "<br /><br />";
+	$website["tab_content"]["gaming_sessions_played"]["string"] .= "<br /><br />";
 
 	# Add the tab to the tab templates
-	if (array_key_exists("game_sessions_played", $website["tabs"]["templates"]) == False) {
-		$website["tabs"]["templates"]["game_sessions_played"] = [
-			"name" => $gameplayer["Language texts"]["game_sessions_played_in"]." ".$website["Data"]["Year"],
-			"add" => " ".HTML::Element("span", $website["tab_content"]["game_sessions_played"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
+	if (isset($website["tabs"]["templates"]["gaming_sessions_played"]) == False) {
+		$website["tabs"]["templates"]["gaming_sessions_played"] = [
+			"name" => $website["Language texts"]["gaming_sessions_played_in"]." ".$website["Data"]["Year"],
+			"add" => " ".HTML::Element("span", $website["tab_content"]["gaming_sessions_played"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
 			"text_style" => "text-align: left;",
-			"content" => $website["tab_content"]["game_sessions_played"]["string"],
+			"content" => $website["tab_content"]["gaming_sessions_played"]["string"],
 			"icon" => "gamepad"
 		];
 	}
 }
 
 else {
-	# Define the "Game sessions" tab to be removed if it does not contain game sessions
-	array_push($website["tabs"]["To remove"], "game_sessions_played");
+	# Define the "Gaming sessions" tab to be removed if it does not contain gaming sessions
+	array_push($website["tabs"]["To remove"], "gaming_sessions_played");
 }
 
 ?>

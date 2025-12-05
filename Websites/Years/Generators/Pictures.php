@@ -12,7 +12,7 @@ $full_language = $website["full_language"];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 $tab_content = [

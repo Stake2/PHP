@@ -8,11 +8,11 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 $website["tab_content"]["past_registries"] = [

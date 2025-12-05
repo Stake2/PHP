@@ -10,7 +10,7 @@ if ($language == "general") {
 	$language = "en";
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 # Define the website folders for easier typing
 $website["Data"]["Folders"]["Izaque Sanvezzo"] = $folders["Mega"]["Notepad"]["Izaque"];
@@ -276,7 +276,7 @@ foreach ($identities as $identity) {
 	$website["Data"]["description"]["header"] = str_replace($identity, $element, $website["Data"]["description"]["header"]);
 }
 
-# Define tab template for Social Networks
+# Define the tab template for the social networks
 $website["tabs"]["templates"]["Social Networks"] = [
 	"name" => $website["Language texts"]["social_networks"],
 	"icon" => "globe",
@@ -285,7 +285,7 @@ $website["tabs"]["templates"]["Social Networks"] = [
 
 $social_networks_json = $JSON -> To_PHP($website["Data"]["Files"]["Social Networks"]);
 
-# Iterate through Social Network categories
+# Iterate through the social network categories
 foreach (array_keys($social_networks_json["Categories"]) as $category) {
 	$key = str_replace(" ", "_", strtolower($category));
 

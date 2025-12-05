@@ -226,8 +226,8 @@ $names = [
 ];
 
 $texts = [
-	"en" => "Little biography",
-	"pt" => "Pequena biografia"
+	"en" => "Biography",
+	"pt" => "Biografia"
 ];
 
 foreach (array_keys($names) as $local_language) {
@@ -290,7 +290,7 @@ foreach (array_keys($texts) as $local_language) {
 
 # Data Networks "Audiovisual Media" folder
 $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"] = [
-	"root" => $folders["Mega"]["Notepad"]["Data Networks"]["root"]."Mídia Audiovisual/"
+	"root" => $folders["Mega"]["Notepad"]["Data Networks"]["root"]."Mídias Audiovisuais/"
 ];
 
 # "Audiovisual Media" folders
@@ -303,8 +303,12 @@ $names = [
 foreach ($names as $key) {
 	$item = $key;
 
+	if ($item == "Data") {
+		$item = "Dados";
+	}
+
 	if ($item == "Media information") {
-		$item = "Informações de mídia";
+		$item = "Informações de mídias";
 	}
 
 	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"][$key] = [
@@ -332,14 +336,14 @@ foreach ($years_list as $year) {
 	# "Entries.json" file
 	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["Entries"] = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["root"]."Entries.json";
 
-	# "Per Media Type" folder of the Watched folder of the current year
-	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["Per Media Type"] = [
-		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["root"]."Per Media Type/"
+	# "By media type" folder of the Watched folder of the current year
+	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["By media type"] = [
+		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["root"]."By media type/"
 	];
 
-	# "Per Media Type" files folder of the Watched folder of the current year
-	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["Per Media Type"]["Files"] = [
-		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["Per Media Type"]["root"]."Files/"
+	# "By media type" files folder of the Watched folder of the current year
+	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["By media type"]["Files"] = [
+		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Watch History"][$year]["By media type"]["root"]."Files/"
 	];
 }
 
@@ -353,12 +357,20 @@ $folders["Mega"]["Notepad"]["Data Networks"]["Games"] = [
 # "Games" folders
 $names = [
 	"Data",
-	"Information",
+	"Game information",
 	"Play History"
 ];
 
 foreach ($names as $key) {
 	$item = $key;
+
+	if ($item == "Data") {
+		$item = "Dados";
+	}
+
+	if ($item == "Game information") {
+		$item = "Informações de jogos";
+	}
 
 	$folders["Mega"]["Notepad"]["Data Networks"]["Games"][$key] = [
 		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["root"].$item."/"
@@ -369,7 +381,7 @@ foreach ($names as $key) {
 $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Data"]["Types"] = $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Data"]["root"]."Types.json";
 
 # Games "Information" folder
-$folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Information"]["Information"] = $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Information"]["root"]."Information.json";
+$folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Game information"]["Information"] = $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Game information"]["root"]."Information.json";
 
 # Games "Play History" folder
 $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Play History"] = [
@@ -385,9 +397,9 @@ foreach ($years_list as $year) {
 	# "Entries.json" file
 	$folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Play History"][$year]["Entries"] = $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Play History"][$year]["root"]."Sessions.json";
 
-	# "Per Game Type" folder of the Played folder of the current year
-	$folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Play History"][$year]["Per Game Type"] = [
-		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Play History"][$year]["root"]."Per Game Type/"
+	# "By game type" folder of the Played folder of the current year
+	$folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Play History"][$year]["By game type"] = [
+		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Games"]["Play History"][$year]["root"]."By game type/"
 	];
 }
 
@@ -426,9 +438,9 @@ foreach ($years_list as $year) {
 		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"]["root"].$year."/"
 	];
 
-	# "Per Task Type" folder
-	$folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"][$year]["Per Task Type"] = [
-		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"][$year]["root"]."Per Task Type/"
+	# "By task type" folder
+	$folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"][$year]["By task type"] = [
+		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task History"][$year]["root"]."By task type/"
 	];
 
 	# "Tasks.json" file

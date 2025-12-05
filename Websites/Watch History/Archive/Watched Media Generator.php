@@ -28,7 +28,7 @@ if (isset($run_as_module) == True) {
 	}
 }
 
-# Used per media type reader
+# Used by media type reader
 
 $i = 0;
 while ($i <= 4) {

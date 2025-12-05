@@ -8,11 +8,11 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 $website["tab_content"]["past_registries"] = [
@@ -87,16 +87,16 @@ foreach ($website["Play History"]["Years list"] as $local_year) {
 		HTML::Element("hr", "", "", $website["Data"]["Style"]["border_1px"]["theme"]["light"]);
 	}
 
-	# Require the "Played" generator to generate the "Game sessions" elements and information
+	# Require the "Played" generator to generate the elements and information of the gaming sessions played in the local year
 	$website["Data"]["Year"] = $local_year;
 
 	require $website["Data"]["Files"]["Generators"]["Played"];
 
-	$content .= $website["tab_content"]["game_sessions_played"]["string"];
+	$content .= $website["tab_content"]["gaming_sessions_played"]["string"];
 
 	$website["additional_tabs"]["data"][$local_year] = [
 		"id" => $id,
-		"name" => $gameplayer["Language texts"]["game_sessions_played_in"]." ".$local_year,
+		"name" => $website["Language texts"]["gaming_sessions_played_in"]." ".$local_year,
 		"text_style" => "text-align: left;",
 		"content" => $content,
 		"icon" => "calendar",

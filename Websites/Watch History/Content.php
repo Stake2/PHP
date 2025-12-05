@@ -8,11 +8,11 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 # Define the website "Generators" folder
@@ -39,7 +39,7 @@ foreach ($names as $item) {
 }
 
 if (isset($website["Data"]["Year"]) == False) {
-	$website["Data"]["Year"] = Date::Now()["year"];
+	$website["Data"]["Year"] = Date::Now()["Year"];
 }
 
 if (in_array($website["Data"]["title"], $website["Years"]) == True) {
@@ -51,8 +51,8 @@ $folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
 
 $watch_history = [
 	"Files" => [
-		"Per Media Type" => [
-			"root" => $folder["Watch History"][$website["Data"]["Year"]]["Per Media Type"]["root"]
+		"By media type" => [
+			"root" => $folder["Watch History"][$website["Data"]["Year"]]["By media type"]["root"]
 		]
 	],
 	"Types" => $JSON -> To_PHP($folder["Data"]["Types"]),
@@ -117,10 +117,10 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		foreach ($types_dictionary["en"] as $type) {
 			$language_type = $types_dictionary[$language][$i];
 
-			$number = $watch_history["Entries"]["Numbers"]["Per Media Type"][$type];
+			$number = $watch_history["Entries"]["Numbers"]["By media type"][$type];
 
 			if ($header_text == $watch_history["Language texts"]["media_being_watched"]) {
-				$number = $watch_history["Media information"]["Information"]["Numbers"][$type];
+				$number = $watch_history["Media information"]["Information"]["Media numbers"]["By media type"][$type];
 			}
 
 			# If the number is not zero (0)
@@ -148,7 +148,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 
 				$array["links"] .= $a."<br />"."\n\t\t";
 
-				$watch_history["Files"]["Per Media Type"][$type] = $JSON -> To_PHP($watch_history["Files"]["Per Media Type"]["root"].$type."/Entries.json");
+				$watch_history["Files"]["By media type"][$type] = $JSON -> To_PHP($watch_history["Files"]["By media type"]["root"].$type."/Entries.json");
 
 				$number_element = HTML::Element("span", $number, "", $text_color);
 

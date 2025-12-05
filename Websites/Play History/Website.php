@@ -9,12 +9,12 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
 
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 # Require the "Play History" website content PHP file to define the "games_being_played" and "past_registries" tab templates
@@ -32,7 +32,7 @@ $number = number_format($website["Data"]["Numbers"]["Total"], 0, ',', '.');
 $first_year = $website["Play History"]["Years list"][0];
 $last_year = $website["current_year"];
 
-$language_text = $gameplayer["Language texts"]["game_sessions_played_since_{}_until_{}"];
+$language_text = $website["Language texts"]["gaming_sessions_played_since_{}_until_{}"];
 
 $text = $number." ".HTML::format($language_text, [$first_year, $last_year]);
 
@@ -64,7 +64,7 @@ foreach ($years_list as $local_year) {
 	$number = $array[$local_year];
 
 	# Add to the HTML description
-	$website["Data"]["description"]["html"] .= $gameplayer["Language texts"]["game_sessions_played_in"]." ".$local_year.": ".$number;
+	$website["Data"]["description"]["html"] .= $website["Language texts"]["gaming_sessions_played_in"]." ".$local_year.": ".$number;
 
 	# Add to the header description
 	$span = HTML::Element("span", $local_year, "", $website["Style"]["text_highlight"]);
@@ -74,16 +74,16 @@ foreach ($years_list as $local_year) {
 	$tab_id = "past_registry_".$local_year;
 
 	# If the local year is the current year
-	# Then, the tab that needs to be used is the "Game sessions played" tab
+	# Then, the tab that needs to be used is the "Gaming sessions played" tab
 	if ($local_year == $website["current_year"]) {
-		$tab_id = "game_sessions_played";
+		$tab_id = "gaming_sessions_played";
 	}
 
 	$colored_year = HTML::Element("a", $span, 'onclick="'."Open_Tab('".$tab_id."')".'"'." ".$style, $website["Style"]["text_highlight"]);
 
 	$painted_number = HTML::Element("span", $number, "", $website["Style"]["text_highlight"]);
 
-	$website["Data"]["description"]["header"] .= $gameplayer["Language texts"]["game_sessions_played_in"]." ".$colored_year.": ".$painted_number;
+	$website["Data"]["description"]["header"] .= $website["Language texts"]["gaming_sessions_played_in"]." ".$colored_year.": ".$painted_number;
 
 	if ($local_year != end($years_list)) {
 		$website["Data"]["description"]["html"] .= "\n";

@@ -19,8 +19,8 @@
 	},
 	"tabs": {
 		"data": {
-			"game_sessions_played": {
-				"template": "game_sessions_played"
+			"gaming_sessions_played": {
+				"template": "gaming_sessions_played"
 			},
 			"games_being_played": {
 				"template": "games_being_played"

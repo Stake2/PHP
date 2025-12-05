@@ -8,11 +8,11 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 # Define the custom website folders
@@ -140,18 +140,19 @@ if (
 		array_push($tab_titles, "this_year_i");
 	}
 
-	# Add tabs that all year websites should have
+	# Add the tabs that all year websites should have
 	$more_tabs = [
 		"pictures",
 		"memories",
 		"watched_things"
 	];
 
-	# Add the "Game sessions played" tab for years after the year 2021
+	# Add the "Gaming sessions played" tab for years after the year 2021
 	if ((int)$website["Data"]["title"] >= 2021) {
-		array_push($more_tabs, "game_sessions_played");
+		array_push($more_tabs, "gaming_sessions_played");
 	}
 
+	# Add the "Completed tasks" tab
 	array_push($more_tabs, "completed_tasks");
 
 	# Add the "Goodbye" tab for years after the year 2022
@@ -159,8 +160,10 @@ if (
 		array_push($more_tabs, "goodbye");
 	}
 
+	# Add the "Years" tab at the end of the list
 	array_push($more_tabs, "years");
 
+	# Add the tabs in the "more tabs" list to the root "tab titles" list
 	$tab_titles = array_merge($tab_titles, $more_tabs);
 
 	# Create the dictionaries of the tabs

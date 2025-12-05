@@ -21,25 +21,25 @@ class Language extends Class_ {
 		global $folders;
 
 		$this -> languages = self::JSON_To_PHP($folders["Apps"]["Module files"]["Utility"]["Language"]["Languages"]);
-		$this -> languages["small"] = array_insert($this -> languages["small"], 0, "general");
+		$this -> languages["Small"] = array_insert($this -> languages["Small"], 0, "general");
 
-		$array = $this -> languages["full"];
+		$array = $this -> languages["Full"];
 
-		$this -> languages["full"] = [
+		$this -> languages["Full"] = [
 			"general" => "General"
 		];
 
 		foreach (array_keys($array) as $key) {
-			$this -> languages["full"][$key] = $array[$key];
+			$this -> languages["Full"][$key] = $array[$key];
 		}
 
-		foreach ($this -> languages["small"] as $key) {
+		foreach ($this -> languages["Small"] as $key) {
 			if (
-				in_array($key, $this -> languages["supported"]) == False and
+				in_array($key, $this -> languages["Supported"]) == False and
 				$key != "general"
 			) {
-				$this -> languages["small"] = array_diff($this -> languages["small"], [$key]);
-				unset($this -> languages["full"][$key]);
+				$this -> languages["Small"] = array_diff($this -> languages["Small"], [$key]);
+				unset($this -> languages["Full"][$key]);
 			}
 		}
 
@@ -58,8 +58,8 @@ class Language extends Class_ {
 		$website["full_language"] = $this -> user_language;
 
 		$i = 0;
-		foreach ($this -> languages["small"] as $language) {
-			$full_language = $this -> languages["full"][$language];
+		foreach ($this -> languages["Small"] as $language) {
+			$full_language = $this -> languages["Full"][$language];
 
 			if ($this -> user_language == $full_language) {
 				$this -> user_language = $language;
@@ -68,8 +68,8 @@ class Language extends Class_ {
 			}
 
 			$c = 0;
-			foreach (array_keys($this -> languages["full_translated"]) as $key) {
-				foreach (array_values($this -> languages["full_translated"][$key]) as $full_translated_language) {
+			foreach (array_keys($this -> languages["Translated"]) as $key) {
+				foreach (array_values($this -> languages["Translated"][$key]) as $full_translated_language) {
 					if ($this -> user_language == $full_translated_language) {
 						$this -> user_language = $key;
 
@@ -83,7 +83,7 @@ class Language extends Class_ {
 			$i++;
 		}
 
-		$this -> full_user_language = $this -> languages["full"][$this -> user_language];
+		$this -> full_user_language = $this -> languages["Full"][$this -> user_language];
 
 		$website["language"] = $this -> user_language;
 		$website["full_language"] = $this -> full_user_language;
@@ -109,7 +109,7 @@ class Language extends Class_ {
 		];
 
 		# Define the language texts but with the module language
-		$website["Language texts (Module language)"] = self::Item($website["Texts"], $website["Languages"]["Module"]);
+		$website["Language texts (module language)"] = self::Item($website["Texts"], $website["Languages"]["Module"]);
 	}
 
 	public static function Item($item, $parameter_language = "") {

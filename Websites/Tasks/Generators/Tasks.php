@@ -8,11 +8,11 @@ if (isset($website["language"]) == True) {
 	$language = $website["language"];
 }
 
-$full_language = $Language -> languages["full"][$language];
+$full_language = $Language -> languages["Full"][$language];
 
 if ($language == "general") {
 	$language = "en";
-	$full_language = $Language -> languages["full"][$language];
+	$full_language = $Language -> languages["Full"][$language];
 }
 
 # Generate tasks tab content
@@ -29,7 +29,7 @@ if (array_key_exists("additional_tabs", $website) == False) {
 }
 
 if (isset($website["Data"]["Year"]) == False) {
-	$website["Data"]["Year"] = Date::Now()["year"];
+	$website["Data"]["Year"] = Date::Now()["Year"];
 }
 
 if (in_array($website["Data"]["title"], $website["Years"]) == True) {
@@ -49,8 +49,8 @@ if (isset($tasks) == False) {
 	# Define the "Tasks" array
 	$tasks = [
 		"Files" => [
-			"Per Task Type" => [
-				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
+			"By task type" => [
+				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 			]
 		],
 		"Types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
@@ -75,9 +75,9 @@ if (isset($tasks) == False) {
 	}
 }
 
-# Update the "Per Task Type" folder
-$tasks["Files"]["Per Task Type"] = [
-	"root" => $network_folder["Task History"][$website["Data"]["Year"]]["Per Task Type"]["root"]
+# Update the "By task type" folder
+$tasks["Files"]["By task type"] = [
+	"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 ];
 
 # Define the Entries file
@@ -130,7 +130,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 
 		$tasks["language_types"] = $types_dictionary[$language];
 
-		foreach (array_keys($tasks["Entries"]["Numbers"]["Per Task Type"]) as $task_type) {
+		foreach (array_keys($tasks["Entries"]["Numbers"]["By task type"]) as $task_type) {
 			if (in_array($task_type, $types_dictionary["en"]) == False) {
 				array_push($types_dictionary["en"], $task_type);
 
@@ -168,8 +168,8 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 		foreach ($types_dictionary["en"] as $type) {
 			$language_type = $tasks["language_types"][$i];
 
-			if (array_key_exists($type, $tasks["Entries"]["Numbers"]["Per Task Type"])) {
-				$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
+			if (array_key_exists($type, $tasks["Entries"]["Numbers"]["By task type"])) {
+				$number = $tasks["Entries"]["Numbers"]["By task type"][$type];
 
 				# If the number is not zero (0)
 				# Or the total number of tasks is zero
@@ -194,7 +194,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 
 					$array["links"] .= $a."<br />"."\n\t\t";
 
-					$tasks["Files"]["Per Task Type"][$type] = $JSON -> To_PHP($tasks["Files"]["Per Task Type"]["root"].$type."/Tasks.json");
+					$tasks["Files"]["By task type"][$type] = $JSON -> To_PHP($tasks["Files"]["By task type"]["root"].$type."/Tasks.json");
 
 					$span = HTML::Element("span", $number, "", $text_color);
 
@@ -311,8 +311,8 @@ if (file_exists($entries_file) == True) {
 		# Get the language type
 		$language_type = $tasks["language_types"][$i];
 
-		if (array_key_exists($type, $tasks["Entries"]["Numbers"]["Per Task Type"]) == True) {
-			$number = $tasks["Entries"]["Numbers"]["Per Task Type"][$type];
+		if (array_key_exists($type, $tasks["Entries"]["Numbers"]["By task type"]) == True) {
+			$number = $tasks["Entries"]["Numbers"]["By task type"][$type];
 
 			if (isset($website["Data"]["Numbers"]["By type"][$type]) == False) {
 				$website["Data"]["Numbers"]["By type"][$type] = 0;
@@ -324,31 +324,69 @@ if (file_exists($entries_file) == True) {
 				$website["tab_content"]["completed_tasks"]["string"] .= $task_type_headers["headers"][$type];
 
 				# Iterate through the task type Entries list
-				foreach ($tasks["Files"]["Per Task Type"][$type]["Entries"] as $entry) {
+				foreach ($tasks["Files"]["By task type"][$type]["Entries"] as $entry) {
 					$entry = $tasks["Entries"]["Dictionary"][$entry];
 
-					# Add the task title
-					$format = "Y-m-d\TH:i:s\Z";
+					# ---------- #
 
-					if (strlen($entry["Date"]) == 4) {
-						$format = "Y";
+					# Define the default date format
+					$datetime_format = "Y-m-d\TH:i:s\Z";
+
+					# Initialize the time output
+					$time = "";
+
+					# Define the list of time keys
+					$time_keys = [
+						"Date",
+						"Times"
+					];
+
+					# Iterate through the list of time keys
+					foreach ($time_keys as $time_key) {
+						# If the time key is present inside the entry dictionary
+						if (isset($entry[$time_key])) {
+							# Define the raw time as the value in the time key (Date)
+							$raw_time = $entry[$time_key];
+
+							if ($time_key == "Times") {
+								# Define the raw time as the value in the "Completed task (UTC)" key
+								$raw_time = $raw_time["Completed task (UTC)"];
+							}
+							#Text::Show_Variable($raw_time);
+							# If the raw time has four characters
+							if (strlen($raw_time) == 4) {
+								# Define the datetime format as the year format
+								$datetime_format = "Y";
+
+								# Make a "Date" dictionary from the date using the datetime format
+								$parsed_date = Date::Now($raw_time, $datetime_format);
+
+								# Get the year from the parsed date
+								$time = $parsed_date["Year"];
+							}
+
+							# If the raw time is a string and not empty
+							elseif ($raw_time !== "") {
+								# Make a "Date" dictionary from the date using the datetime format
+								$parsed_time = Date::Now($raw_time, $datetime_format);
+
+								# Get the time in the user format
+								$time = $parsed_time["Formats"]["HH:MM DD/MM/YYYY"];
+							}
+						}
 					}
 
-					$time = $entry["Date"];
+					# ---------- #
 
-					if ($time != "") {
-						$time = Date::Now($time, $format);
+					# If the "Number" key is inside the entry dictionary
+					if (isset($entry["Number"])) {
+						$text = $entry["Number"]." -";
 					}
 
-					if (strlen($entry["Date"]) != 4) {
-						$time = $time["formats"]["HH:MM DD/MM/YYYY"];
+					# Else if the "Total task number" key is in the entry dictionary
+					elseif (isset($entry["Total task number"])) {
+						$text = $entry["Total task number"]." -";
 					}
-
-					if (strlen($entry["Date"]) == 4) {
-						$time = $time["year"];
-					}
-
-					$text = $entry["Number"]." -";
 
 					# Add the States
 					if (array_key_exists("States", $entry) == True) {
@@ -359,7 +397,7 @@ if (file_exists($entries_file) == True) {
 						}
 
 						if (array_key_exists("First task type task in year", $entry["States"]) == True) {
-							$first_text = $website["Language texts"]["first_task_per_task_type_in_the_year"];
+							$first_text = $website["Language texts"]["first_task_by_task_type_in_the_year"];
 
 							$text .= " ".HTML::Element("span", "1# ".$website["Icons"]["list_check"]." ".$website["Icons"]["calendar"], 'alt="'.$first_text.'" title="'.$first_text.'"', $website["Style"]["text_highlight"]." underline_on_hover");
 						}
@@ -391,7 +429,7 @@ if (file_exists($entries_file) == True) {
 						$tab_title = $entry["Number"]." - ".$entry["Titles"][$language]." (".$time.")";
 
 						# Get the task description file
-						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["Year"]][$language]["done_tasks"]["root"].$language_type."/";
+						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["Year"]][$language]["completed_tasks"]["root"].$language_type."/";
 
 						$local_entry = str_replace(":", ";", $entry["Entry"]);
 						$local_entry = str_replace("/", "-", $local_entry);
