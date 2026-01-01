@@ -1,7 +1,5 @@
 <?php 
 
-# Content
-
 $language = "pt";
 
 if (isset($website["language"]) == True) {

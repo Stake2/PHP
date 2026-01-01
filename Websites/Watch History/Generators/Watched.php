@@ -15,8 +15,8 @@ if ($language == "general") {
 	$full_language = $Language -> languages["Full"][$language];
 }
 
-# Generate "watched things" tab content
-$website["tab_content"]["watched_things"] = [
+# Generate the tab content of the "Watched media" tab
+$website["tab_content"]["watched_media"] = [
 	"string" => "",
 	"number" => 0
 ];
@@ -97,7 +97,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"];
+			$header_text = $website["Language texts"]["watched_media_in"]." ".$website["Data"]["Year"];
 		}
 
 		$array = [
@@ -194,9 +194,9 @@ if (file_exists($entries_file) == True) {
 	$tab = "past_registry_".$website["Data"]["Year"];
 
 	# If the local year is the current year
-	# Then, the tab that needs to be used is the "watched_things" tab
+	# Then, the tab that needs to be used is the "watched_media" tab
 	if ($website["Data"]["Year"] == $website["current_year"]) {
-		$tab = "watched_things";
+		$tab = "watched_media";
 	}
 
 	if ($website["Data"]["title"] != $website_title) {
@@ -215,9 +215,11 @@ if (file_exists($entries_file) == True) {
 		$link .= "tab=".$tab;
 
 		# Add the website button to the top of the page
-		$website["tab_content"]["watched_things"]["string"] .= "<center>"."\n".
+		$website["tab_content"]["watched_media"]["string"] .= "<center>"."\n".
+		'<br class="mobile_inline_block" />'."\n".
 		$Text -> Format($website_dictionary["Button template"], $link)."\n".
-		"<p></p>".
+		"<p></p>"."\n".
+		'<br class="mobile_inline_block" />'."\n".
 
 		# Add the website image to the top of the tab
 		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
@@ -227,30 +229,30 @@ if (file_exists($entries_file) == True) {
 
 	$media_type_headers = Generate_Media_Type_Headers();
 
-	# Update the watched things number
-	$website["tab_content"]["watched_things"]["number"] = $watch_history["Entries"]["Numbers"]["Total"];
+	# Update the number of watched media
+	$website["tab_content"]["watched_media"]["number"] = $watch_history["Entries"]["Numbers"]["Total"];
 
 	if (
 		$website["Data"]["title"] != $website_title or
-		$website["tab_content"]["watched_things"]["number"] == 0
+		$website["tab_content"]["watched_media"]["number"] == 0
 	) {
 		# Create the number of media variable with the tab title
-		$number_of_media = $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"].":";
+		$number_of_media = $website["Language texts"]["watched_media_in"]." ".$website["Data"]["Year"].":";
 
 		# Add the icon of the tab
 		$number_of_media .= " ".$website["Icons"]["eye"];
 
 		# Add the number of media
-		$number_of_media .= " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["Style"]["text"]["theme"]["dark"])."<br /><br />";
+		$number_of_media .= " ".HTML::Element("span", $website["tab_content"]["watched_media"]["number"], "", $website["Style"]["text"]["theme"]["dark"])."<br /><br />";
 
 		# Transform everything into bold style
 		$number_of_media = HTML::Element("b", $number_of_media);
 
 		# Add the number of media text to the tab string content
-		$website["tab_content"]["watched_things"]["string"] .= $number_of_media;
+		$website["tab_content"]["watched_media"]["string"] .= $number_of_media;
 	}
 
-	$website["tab_content"]["watched_things"]["string"] .= "<!-- Media type headers -->"."\n"."\t\t".
+	$website["tab_content"]["watched_media"]["string"] .= "<!-- Media type headers -->"."\n"."\t\t".
 	$media_type_headers["links"].
 	"\n"."\t\t"."<br />"."\n\n";
 
@@ -270,7 +272,7 @@ if (file_exists($entries_file) == True) {
 		$website["Data"]["Numbers"]["By type"][$type] += $number;
 
 		if ($number != 0) {
-			$website["tab_content"]["watched_things"]["string"] .= $media_type_headers["headers"][$type];
+			$website["tab_content"]["watched_media"]["string"] .= $media_type_headers["headers"][$type];
 
 			$entries = $watch_history["Files"]["By media type"][$type]["Entries"];
 
@@ -410,10 +412,14 @@ if (file_exists($entries_file) == True) {
 					$title .= " ".HTML::Element("span", $website["Icons"]["comment"], "", $website["Style"]["text_highlight"]);
 				}
 
-				# If the entry tabs are activated
+				# If the "State" dictionary is present
+				# And the "Commented" state is present
+				# And it is True
+				# And the Watch History "Entry tabs" state is activated
 				if (
 					isset($entry["States"]) == True and
 					isset($entry["States"]["Commented"]) and
+					$entry["States"]["Commented"] == True and
 					$website["States"]["Watch History"]["Entry tabs"] == True
 				) {
 					# If the past history entry tabs are activated
@@ -426,7 +432,7 @@ if (file_exists($entries_file) == True) {
 						# Add the description tab link and create the tab
 						$link_text = $website["Language texts"]["entry_description"];
 
-						$tab_id = "watched_thing_".$website["Data"]["Year"]."_".$entry["Watched media number"];
+						$tab_id = "watched_media_".$website["Data"]["Year"]."_".$entry["Watched media number"];
 
 						$style = 'style="text-decoration: underline; cursor: pointer;"';
 
@@ -514,11 +520,20 @@ if (file_exists($entries_file) == True) {
 							$comments_folder = $media_folder.$comment_text."/";
 							$comments_files_folder = $comments_folder.$website["Texts"]["files, title()"][$Language -> modules_language]."/";
 
-							# Define the media unit text
+							# Define the media unit text using the "Media titles" key
 							$media_unit_title = Define_Title($entry["Media titles"]);
 
+							# Define the media unit text using the "Episode" key
 							if (isset($entry["Episode"]) == True) {
 								$media_unit_title = Define_Title($entry["Episode"]["Titles"]);
+							}
+
+							# Define the media unit text using the "Media item titles" key
+							if (
+								isset($entry["Media item titles"]) == True and
+								isset($entry["Episode"]) == False
+							) {
+								$media_unit_title = Define_Title($entry["Media item titles"]);
 							}
 
 							# Define the "Comments.json" file
@@ -580,7 +595,7 @@ if (file_exists($entries_file) == True) {
 							"text_style" => "text-align: left;",
 							"content" => $tab_content,
 							"icon" => "eye",
-							"only_button" => "watched_things"
+							"only_button" => "watched_media"
 						];
 
 						if (isset($website["past_registries_buttons"]) == True) {
@@ -628,34 +643,34 @@ if (file_exists($entries_file) == True) {
 
 				$text = HTML::Element("span", $text, 'style="margin-left: 3%;"', $website["Style"]["text_hover"]);
 
-				$website["tab_content"]["watched_things"]["string"] .= $text."<br />"."\n";
+				$website["tab_content"]["watched_media"]["string"] .= $text."<br />"."\n";
 			}
 
 			if ($type != end($types_dictionary[$language])) {
-				$website["tab_content"]["watched_things"]["string"] .= "\t\t"."<br />"."\n\n";
+				$website["tab_content"]["watched_media"]["string"] .= "\t\t"."<br />"."\n\n";
 			}
 		}
 
 		$i++;
 	}
 
-	$website["tab_content"]["watched_things"]["string"] .= "<br /><br />";
+	$website["tab_content"]["watched_media"]["string"] .= "<br /><br />";
 
 	# Add the tab to the tab templates
-	if (array_key_exists("watched_things", $website["tabs"]["templates"]) == False) {
-		$website["tabs"]["templates"]["watched_things"] = [
-			"name" => $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"],
-			"add" => " ".HTML::Element("span", $website["tab_content"]["watched_things"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
+	if (array_key_exists("watched_media", $website["tabs"]["templates"]) == False) {
+		$website["tabs"]["templates"]["watched_media"] = [
+			"name" => $website["Language texts"]["watched_media_in"]." ".$website["Data"]["Year"],
+			"add" => " ".HTML::Element("span", $website["tab_content"]["watched_media"]["number"], "", $website["Style"]["text"]["theme"]["dark"]),
 			"text_style" => "text-align: left;",
-			"content" => $website["tab_content"]["watched_things"]["string"],
+			"content" => $website["tab_content"]["watched_media"]["string"],
 			"icon" => "eye"
 		];
 	}
 }
 
 else {
-	# Define the "Watched things" tab to be removed if it does not contain watched things
-	array_push($website["tabs"]["To remove"], "watched_things");
+	# Add the "Watched media" tab to be removed if it does not contain watched media
+	array_push($website["tabs"]["To remove"], "watched_media");
 }
 
 ?>

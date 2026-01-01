@@ -89,16 +89,16 @@ foreach ($website["Watch History"]["Years list"] as $local_year) {
 		HTML::Element("hr", "", "", $website["Data"]["Style"]["border_1px"]["theme"]["light"]);
 	}
 
-	# Require the "Watched" generator to generate the "Watched things" elements and information
+	# Require the "Watched" generator to generate the "Watched media" elements and information
 	$website["Data"]["Year"] = $local_year;
 
 	require $website["Data"]["Files"]["Generators"]["Watched"];
 
-	$content .= $website["tab_content"]["watched_things"]["string"];
+	$content .= $website["tab_content"]["watched_media"]["string"];
 
 	$website["additional_tabs"]["data"][$local_year] = [
 		"id" => $id,
-		"name" => $website["Language texts"]["watched_things_in"]." ".$local_year,
+		"name" => $website["Language texts"]["watched_media_in"]." ".$local_year,
 		"text_style" => "text-align: left;",
 		"content" => $content,
 		"icon" => "calendar",

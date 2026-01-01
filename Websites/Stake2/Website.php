@@ -100,22 +100,30 @@ foreach ($identities as $identity) {
 			"Cover" => []
 		];
 
-		$style = "width: 40%; height: auto;";
+		$style = "";
 
 		$link = $remote_folder.$identity.".png";
 
 		# Add the "Stake2" profile picture
 		if ($identity == "Stake2") {
+			# Chaneg the 100% border radius to 5%
+			$class = str_replace("border_radius_100_cent", "border_radius_5_cent", $website["Style"]["img"]["theme"]["normal"]);
+
 			# Identity image
-			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.' border-radius: 100%;"', $website["Style"]["img"]["theme"]["normal"])."</center>";
+			$image = "<center>"."\n".
+			HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class)."\n".
+			"</center>";
 		}
 
 		# Add the "Funkysnipa Cat" profile picture
 		if ($identity == "Funkysnipa Cat") {
-			$class = str_replace("border_radius_100_cent", "border_radius_5_cent", $website["Style"]["img"]["theme"]["light"]);
+			# Chaneg the 100% border radius to 5%
+			$class = str_replace("border_radius_100_cent", "border_radius_5_cent", $website["Style"]["img"]["theme"]["normal"]);
 
 			# Identity image
-			$image = "<center>".HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $website["Style"]["box_shadow"]["theme"]["light"]." ".$class)."</center>";
+			$image = "<center>"."\n".
+			HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class)."\n".
+			"</center>";
 		}
 
 		array_push($images["Profile"], $image);
@@ -123,7 +131,8 @@ foreach ($identities as $identity) {
 		# Add the first image of the Digital Identity
 		$website["tabs"]["templates"][$identity]["content"] .= $image;
 
-		$style = "width: 25%; height: auto;";
+		# Define the default style
+		$style = "width: auto; height: 50vh;";
 
 		if (
 			$identity == "Stake2" or
@@ -132,17 +141,19 @@ foreach ($identities as $identity) {
 			$remote_folder .= $identity."/";
 			$local_folder .= $identity."/";
 
-			$style .= "border-radius: 5%;";
-			$class = $website["Style"]["box_shadow"]["theme"]["light"]." ".$website["Style"]["img"]["theme"]["light"];
+			# add border radius to the style
+			$style .= "border-radius: 5%; margin: 10px;";
+
+			$class = $website["Style"]["img"]["theme"]["light"]." ".$website["Style"]["border_4px"]["theme"]["light"];
 
 			$number_of_images = 7;
 
-			# Change the number of images for "Funkysnipa Cat"
+			# Change the number of images for the "Funkysnipa Cat" digital identity
 			if ($identity == "Funkysnipa Cat") {
 				$number_of_images = 8;
 			}
 
-			# Add the profile pictures of the Digital Identities
+			# Add the profile pictures of the digital identities
 			$i = 1;
 			while ($i <= $number_of_images) {
 				$right_format = "png";
@@ -156,12 +167,15 @@ foreach ($identities as $identity) {
 				$link = $remote_folder.$i.".".$right_format;
 
 				# Identity image
-				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
+				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class, $tab = [], $display = "inline");
 
 				array_push($images["Versions"], $image);
 
 				$i++;
 			}
+
+			# Update the default style
+			$style = "border-radius: 5%;";
 
 			# Define the "Christmas" image
 			$text = "Christmas";
@@ -170,7 +184,9 @@ foreach ($identities as $identity) {
 				$link = $remote_folder.$text.".png";
 
 				# Identity image
-				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
+				$image = "<center>"."\n".
+				HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class)."\n".
+				"</center>";
 
 				array_push($images["Special"], $image);
 			}
@@ -182,7 +198,9 @@ foreach ($identities as $identity) {
 				$link = $remote_folder.$text.".png";
 
 				# Identity image
-				$image = HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class);
+				$image = "<center>"."\n".
+				HTML::Element("img", "", 'src="'.$link.'" style="'.$style.'"', $class)."\n".
+				"</center>";
 
 				array_push($images["Special"], $image);
 			}
@@ -193,7 +211,9 @@ foreach ($identities as $identity) {
 			$link = $folder.$full_language.".png";
 
 			# Identity image
-			$image = HTML::Element("img", "", 'src="'.$link.'" style="border-radius: 4%; height: auto;"', "image_size"." ".$website["Style"]["box_shadow"]["theme"]["light"]);
+			$image = "<center>"."\n".
+			HTML::Element("img", "", 'src="'.$link.'" style="border-radius: 4%; height: auto;"', "image_size"." ".$website["Style"]["box_shadow"]["theme"]["light"])."\n".
+			"</center>";
 
 			array_push($images["Cover"], $image);
 		}
@@ -212,10 +232,16 @@ foreach ($identities as $identity) {
 
 		$website["tabs"]["templates"][$identity]["content"] .= $center;
 
+		# Open a "center" tag
+		$website["tabs"]["templates"][$identity]["content"] .= "<center>";
+
 		# Add the images versions
 		foreach ($images["Versions"] as $image) {
 			$website["tabs"]["templates"][$identity]["content"] .= $image;
 		}
+
+		# Close the "center" tag
+		$website["tabs"]["templates"][$identity]["content"] .= "</center>";
 
 		# Add a HR separator
 		$website["tabs"]["templates"][$identity]["content"] .= $website["elements"]["hr_1px_no_margin"]["theme"]["light"]."\n";

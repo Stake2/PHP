@@ -15,7 +15,7 @@ if ($language == "general") {
 	$full_language = $Language -> languages["Full"][$language];
 }
 
-# Generate "watched things" tab content
+# Generate the tab content of the "Gaming sessions played"
 $website["tab_content"]["gaming_sessions_played"] = [
 	"string" => "",
 	"number" => 0
@@ -217,8 +217,10 @@ if (file_exists($entries_file) == True) {
 
 		# Add the website button to the top of the page
 		$website["tab_content"]["gaming_sessions_played"]["string"] .= "<center>"."\n".
+		'<br class="mobile_inline_block" />'."\n".
 		$Text -> Format($website_dictionary["Button template"], $link)."\n".
-		"<p></p>".
+		"<p></p>"."\n".
+		'<br class="mobile_inline_block" />'."\n".
 
 		# Add the website image to the top of the tab
 		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".

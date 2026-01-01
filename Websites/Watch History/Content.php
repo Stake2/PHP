@@ -73,7 +73,7 @@ $website["Data"]["Numbers"] = [
 	"By type" => []
 ];
 
-# Define all watched things by type as zero (0)
+# Define all watched media numbers by type as zero (0)
 $i = 0;
 foreach ($types_dictionary["en"] as $type) {
 	$website["Data"]["Numbers"]["By type"][$type] = 0;
@@ -97,7 +97,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 		}
 
 		if ($header_text == "") {
-			$header_text = $website["Language texts"]["watched_things_in"]." ".$website["Data"]["Year"];
+			$header_text = $website["Language texts"]["watched_media_in"]." ".$website["Data"]["Year"];
 		}
 
 		$array = [

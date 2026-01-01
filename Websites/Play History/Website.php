@@ -20,7 +20,7 @@ if ($language == "general") {
 # Require the "Play History" website content PHP file to define the "games_being_played" and "past_registries" tab templates
 require $website["Data"]["Folders"]["PHP"]["root"]."Content.php";
 
-# Add all played things numbers of all years
+# Add all played games numbers of all years
 $website["Data"]["Numbers"]["Total"] = 0;
 
 foreach ($website["Data"]["Numbers"]["By year"] as $number) {
@@ -32,11 +32,11 @@ $number = number_format($website["Data"]["Numbers"]["Total"], 0, ',', '.');
 $first_year = $website["Play History"]["Years list"][0];
 $last_year = $website["current_year"];
 
-$language_text = $website["Language texts"]["gaming_sessions_played_since_{}_until_{}"];
+$language_text = strtolower($website["Language texts"]["gaming_sessions_played_since_{}_until_{}"]);
 
 $text = $number." ".HTML::format($language_text, [$first_year, $last_year]);
 
-# Add played things number to the language and header website title with the text
+# Add played games number to the language and header website title with the text
 $website["Data"]["titles"]["language"] .= ": ".$text;
 
 # Change the text color of the number

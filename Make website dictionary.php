@@ -621,8 +621,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["Style"]["box_shadow_color"] = "light";
 
 	# Define box shadow from JSON
-	if (isset($website_dictionary["JSON"]["box_shadow_color"]) == True) {
-		$website_dictionary["Style"]["box_shadow_color"] = $website_dictionary["JSON"]["box_shadow_color"];
+	if (isset($website_dictionary["JSON"]["style"]["box_shadow_color"]) == True) {
+		$website_dictionary["Style"]["box_shadow_color"] = $website_dictionary["JSON"]["style"]["box_shadow_color"];
 	}
 
 	# Define each type of each style item
@@ -688,10 +688,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	# Define the button text color
-	$website_dictionary["Style"]["button_text"] = $website_dictionary["Style"]["text"]["theme"]["dark"];
+	$website_dictionary["Style"]["button_text_color"] = $website_dictionary["Style"]["text"]["theme"]["dark"];
 
-	if (isset($website_dictionary["JSON"]["style"]["button_text"]) == True) {
-		$website_dictionary["Style"]["button_text"] = "text_".$website_dictionary["JSON"]["style"]["button_text"];
+	if (isset($website_dictionary["JSON"]["style"]["button_text_color"]) == True) {
+		$website_dictionary["Style"]["button_text_color"] = "text_".$website_dictionary["JSON"]["style"]["button_text_color"];
 	}
 
 	# Define the background hover color
@@ -725,7 +725,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define website image themes
 	foreach ($types as $type) {
 		if (is_array($website_dictionary["Style"]["border_4px"][$type]) === False) {
-			$website_dictionary["Style"]["img"][$type] = "image_size";
+			$website_dictionary["Style"]["img"][$type] = "";
 
 			$text = " ".$website_dictionary["Style"]["border_4px"][$type];
 
@@ -748,7 +748,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		if (is_array($website_dictionary["Style"]["border_4px"][$type]) === True) {
 			foreach (array_keys($website_dictionary["Style"]["border_4px"][$type]) as $key) {
-				$website_dictionary["Style"]["img"][$type][$key] = "image_size";
+				$website_dictionary["Style"]["img"][$type][$key] = "";
 
 				$text = " ".$website_dictionary["Style"]["border_4px"][$type][$key];
 
@@ -781,7 +781,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		if (is_array($website_dictionary["Style"]["border_4px"][$type]) === True) {
 			foreach (array_keys($website_dictionary["Style"]["border_4px"][$type]) as $key) {
-				$website_dictionary["Style"]["button"][$type][$key] = $website_dictionary["Style"]["background"][$type]["dark"]." ".$website_dictionary["Style"]["button_text"]." ".$website_dictionary["Style"]["border_4px"][$type]["light"]." ".$website_dictionary["Style"]["background_hover"];
+				$website_dictionary["Style"]["button"][$type][$key] = $website_dictionary["Style"]["background"][$type]["dark"]." ".$website_dictionary["Style"]["button_text_color"]." ".$website_dictionary["Style"]["border_4px"][$type]["light"]." ".$website_dictionary["Style"]["background_hover"];
 			}
 		}
 	}
@@ -924,6 +924,9 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define the default file name as an empty string
 	$website_dictionary["image"]["File name"] = "";
 
+	# Define a local "PHP image exists" switch initially as False
+	$php_image_exists = False;
+
 	# Iterate through the list of file names
 	foreach ($file_names as $file_name) {
 		# Iterate through the list of image formats
@@ -941,8 +944,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 				# Get the local image path inside the "Websites" images folder
 				$local_image = $selected_folder.$file_name.".".$format;
+			}
 
-				# Switch the "PHP image exists" switch to True
+			else {
+				# Change the local "PHP image exists" switch initially to True
 				$php_image_exists = True;
 			}
 
@@ -972,8 +977,12 @@ foreach ($websites["List"]["en"] as $website_title) {
 	# Define the default remote folder as the remote image folder
 	$remote_folder = $remote_image_folder;
 
-	# If the "Generate" (website) state is False
-	if ($website["States"]["Website"]["Generate"] == False) {
+	# If the "Generate" (website) state is True
+	# Or the local "PHP image exists" switch is False
+	if (
+		$website["States"]["Website"]["Generate"] == True or
+		$php_image_exists == False
+	) {
 		# Define the remote folder as the remote link folder
 		$remote_folder = $website_dictionary["Folders"]["Website"]["Images"]["Remote"]["root"];
 	}
@@ -1076,7 +1085,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$class .= " ".$website_dictionary["Style"]["box_shadow"]["theme"][$website_dictionary["Style"]["box_shadow_color"]];
 	}
 
-	$website_dictionary["image"]["element"] = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class)."<br />"."\n";
+	$website_dictionary["image"]["element"] = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class, $tab = [], $display = "block", $height = "70")."<br />"."\n";
 
 	if ($website_dictionary["JSON"]["image"]["width"] != "") {
 		$website_dictionary["image"]["element"] = HTML::Make_Image_Size($website_dictionary["image"]["element"], $website_dictionary["JSON"]["image"]["width"]);
@@ -1100,7 +1109,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 				$class .= " ".$website_dictionary["Style"]["box_shadow"]["theme"]["light"];
 			}
 
-			$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class)."<br />"."\n";
+			$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class, $tab = [], $display = "block", $height = "70")."<br />"."\n";
 
 			if ($website_dictionary["JSON"]["image"]["width"] != "") {
 				$image = HTML::Make_Image_Size($image, $website_dictionary["JSON"]["image"]["width"]);
@@ -1117,7 +1126,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 					$class .= " ".$website_dictionary["Style"]["box_shadow"]["theme"][$key];
 				}
 
-				$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class." ".$website_dictionary["Style"]["img"]["theme"][$key])."<br />"."\n";
+				$image = HTML::Element("img", "", 'src="'.$website_dictionary["image"]["link"].'" style="height: auto;"', $class." ".$website_dictionary["Style"]["img"]["theme"][$key], $tab = [], $display = "block", $height = "70")."<br />"."\n";
 
 				if ($website_dictionary["JSON"]["image"]["width"] != "") {
 					$image = HTML::Make_Image_Size($image, $website_dictionary["JSON"]["image"]["width"]);
@@ -1143,15 +1152,42 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 	# Define a list of tab colors to not use the painted version of the website author
 	$tab_colors = [
-		"yellow_sand"
+		"yellow_sand",
+		"light_orange"
 	];
 
-	if (
-		$use_painted_author == True and
-		in_array($website_dictionary["JSON"]["style"]["theme"]["light"], $tab_colors) == False and
-		in_array($website_dictionary["JSON"]["style"]["secondary_theme"]["light"], $tab_colors) == False
-	) {
-		$painted_author = $stories["Authors (painted)"][$author];
+	# Define a shortcut to the JSON style dictionary
+	$json_style = $website_dictionary["JSON"]["style"];
+
+	# If the "use painted author" switch is True
+	if ($use_painted_author == True) {
+		# Get the light color of the primary theme
+		$primary_theme_light_color = $json_style["theme"]["light"];
+
+		# Get the painted author
+		$painted_author_shortcut = $stories["Authors (painted)"][$author];
+
+		# If the light color of the primary or secondary theme is not inside the list of tab colors
+		if (
+			in_array($primary_theme_light_color, $tab_colors) == False and
+			in_array($json_style["secondary_theme"]["light"], $tab_colors) == False
+		) {
+			# Change the painted author variable to the painted version of the author
+			$painted_author = $painted_author_shortcut;
+		}
+
+		# Remove "light_" from the primary theme light color and add "text_"
+		$primary_theme_light_color = str_replace("light_", "text_", $primary_theme_light_color);
+
+		# If the light color of the primary theme is the same as the text color
+		# For example: "text_orange" in painted author
+		if (str_contains($painted_author_shortcut, $primary_theme_light_color)) {
+			# Change the text color to black
+			$painted_author_shortcut = str_replace($primary_theme_light_color, "text_black", $painted_author_shortcut);
+
+			# Change the painted author variable to the painted version of the author
+			$painted_author = $painted_author_shortcut;
+		}
 	}
 
 	# Define the normal website descriptions
@@ -1440,6 +1476,21 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$span = HTML::Element("span", $website_title_text, "", $website_dictionary["Style"]["text_highlight"]);
 
 	$website_dictionary["description"]["header"] = str_replace($find_text, $span, $website_dictionary["description"]["header"]);
+
+	# If the "Bold website title" JSON style key is present
+	# And it is True
+	# Or the website is a year website
+	if (
+		isset($json_style["Bold website title"]) == True and
+		$json_style["Bold website title"] == True or
+		in_array($website_title, $website["Years"]) == True
+	) {
+		# Make the website title bold
+		$bold_website_title = HTML::Element("b", $website_dictionary["titles"]["language"]);
+
+		# Replace the normal website title with the bold one inside the website header description
+		$website_dictionary["description"]["header"] = str_replace($website_dictionary["titles"]["language"], $bold_website_title, $website_dictionary["description"]["header"]);
+	}
 
 	# Define website color
 	$website_dictionary["color"] = "#";

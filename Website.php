@@ -97,6 +97,7 @@ if (isset($website["URL parameters"]["tab"])) {
 	$website["Local URL"]["Code"]["Templates"]["With tab"] .= "&tab=".$tab;
 }
 
+# Define the list of "Image format"
 $website["Image formats"] = [
 	"png",
 	"jpeg",
@@ -218,12 +219,14 @@ $website["Languages (small)"] = array_diff($website["Languages (small)"], ["gene
 # Load the "Additional folders.php" file to define the additional folders that require the classes to be defined
 require "Additional folders.php";
 
+# Define the root "States" dictionary
 $website["States"] = [
 	"Website" => [
 		"Parent" => False,
 		"Generate" => False,
 		"Change website link" => True,
-		"Privacy" => False
+		"Privacy" => False,
+		"Tab buttons" => True
 	],
 	"Watch History" => [
 		"Entry tabs" => True,
@@ -241,6 +244,16 @@ $website["States"] = [
 	]
 ];
 
+# If the "next_year" parameter is inside the URL
+# And it is True
+if (
+	isset($_GET["next_year"]) and
+	$_GET["next_year"] == True
+) {
+	# Change the years "Next year" state to True
+	$website["States"]["Years"]["Next year"] = True;
+}
+
 # Define the "parse" with the URI path
 $parse = parse_url($_SERVER["REQUEST_URI"])["path"];
 
@@ -252,21 +265,26 @@ if ($parse == "/generate") {
 # Define the stories array
 $stories = $JSON -> To_PHP($folders["Mega"]["Stories"]["Stories"]);
 
-# Define the story painted authors
+# Define the story painted authors dictionary
 $stories["Authors (painted)"] = [];
 
+# Define the colors to use to paint the authors
 $colors = [
 	"text_orange",
 	"text_yellow",
 	"text_green_water"
 ];
 
+# Iterate through the list of authors
 $i = 0;
 foreach ($stories["Authors"]["List"] as $author) {
+	# Get the color
 	$color = $colors[$i];
 
+	# Paint the author
 	$stories["Authors (painted)"][$author] = HTML::Element("span", $author, "", $color);
 
+	# Add one to the "i" number
 	$i++;
 }
 
@@ -612,8 +630,6 @@ if (isset($website["website"]) == True) {
 	$website["Data"]["Style"] = $website["Dictionary"][$website["website"]]["Style"];
 }
 
-#Text::Show_Variable($website["Data"]["Style"]);
-
 $GLOBALS["link_class"] = $website["Data"]["Style"]["text_highlight"]." ".$website["Data"]["Style"]["text_hover"];
 
 $website["Style"]["background_image"] = "";
@@ -818,7 +834,7 @@ if (isset($website["Data"]) == True) {
 	}
 }
 
-# Define the story of website and run the "Story.php" file to define the story variables
+# Define the story of the website and run the "Story.php" file to define the story variables
 if (
 	$website["Data"]["type"] == "Story" or
 	isset($website["Data"]["JSON"]["story"])
@@ -854,7 +870,7 @@ $website["buttons"] = $buttons["hamburger_menu"]."\n";
 $website["buttons_list"] = $buttons["list"];
 
 # Create website tabs
-$website["tabs"]["array"] = HTML::Generate_Tabs();
+$website["tabs"]["array"] = HTML::Generate_Tabs($tabs_data = Null, $buttons = $website["States"]["Website"]["Tab buttons"]);
 
 # Add tabs to website content
 foreach ($website["tabs"]["array"]["List"] as $tab) {

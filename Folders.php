@@ -161,10 +161,13 @@ $diaries = [
 # Define the list of years
 $years_list = range(2018, date("Y"));
 
+# If the "next_year" parameter is inside the URL
+# And it is True
 if (
 	isset($_GET["next_year"]) == True and
 	$_GET["next_year"] == True
 ) {
+	# Add the next year to the local list of years
 	array_push($years_list, (int)date("Y") + 1);
 }
 

@@ -15,14 +15,17 @@ if ($language == "general") {
 	$full_language = $Language -> languages["Full"][$language];
 }
 
-# Define the custom website folders
+# If the website title is inside the list of year websites
 if (in_array($website["Data"]["title"], $website["Years"]) == True) {
-	$website["Data"]["Folders"]["Year"] = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["title"]];
+	# If the year text folder exists
+	#if (isset($folders["Mega"]["Notepad"]["Years"][$website["Data"]["title"]]) == True) {
+		$website["Data"]["Folders"]["Year"] = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["title"]];
 
-	# Define the language folder
-	$website["Data"]["Folders"]["Year"]["Language"] = [
-		"root" => $website["Data"]["Folders"]["Year"]["root"].$full_language."/"
-	];
+		# Define the language folder
+		$website["Data"]["Folders"]["Year"]["Language"] = [
+			"root" => $website["Data"]["Folders"]["Year"]["root"].$full_language."/"
+		];
+	#}
 }
 
 # Define the generators folder
@@ -144,7 +147,7 @@ if (
 	$more_tabs = [
 		"pictures",
 		"memories",
-		"watched_things"
+		"watched_media"
 	];
 
 	# Add the "Gaming sessions played" tab for years after the year 2021

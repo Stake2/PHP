@@ -15,4 +15,9 @@
 	<h2 class="text_size margin_sides_5_cent" style="{if="isset($tab['text_style'])"}{$tab["text_style"]}{/if}">
 		{$tab["content"]}
 	</h2>
+
+	{if="$tab['buttons'] == True"}
+		{$website["elements"]["hr_1px"]["theme"][$website["Style"]["border_color"]]}
+		{function="HTML::Generate_Buttons_List($tab, $tab['name'], $center = False, $last_separator = False)"}
+	{/if}
 </div>

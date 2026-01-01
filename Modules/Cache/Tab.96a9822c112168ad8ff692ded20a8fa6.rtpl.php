@@ -15,4 +15,9 @@
 	<h2 class="text_size margin_sides_5_cent" style="<?php if( isset($tab['text_style']) ){ ?><?php echo $tab["text_style"]; ?><?php } ?>">
 		<?php echo $tab["content"]; ?>
 	</h2>
+
+	<?php if( $tab['buttons'] == True ){ ?>
+		<?php echo $website["elements"]["hr_1px"]["theme"][$website["Style"]["border_color"]]; ?>
+		<?php echo HTML::Generate_Buttons_List($tab, $tab['name'], $center = False, $last_separator = False); ?>
+	<?php } ?>
 </div>

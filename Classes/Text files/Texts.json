@@ -91,9 +91,9 @@
 		"en": "This Year I",
 		"pt": "Esse Ano Eu"
 	},
-	"watched_things_in": {
-		"en": "Watched things in",
-		"pt": "Coisas assistidas em"
+	"watched_media_in": {
+		"en": "Watched media in",
+		"pt": "Mídias assistidas em"
 	},
 	"past_registries": {
 		"en": "Past registries",
@@ -150,6 +150,10 @@
 	"open_image_in_a_new_tab": {
 		"en": "Open image in a new tab",
 		"pt": "Abrir imagem em uma nova guia"
+	},
+	"date, title()": {
+		"en": "Date",
+		"pt": "Data"
 	},
 	"date_time_format": {
 		"en": "H:i d/m/Y",
@@ -208,7 +212,7 @@
 		"pt": "Outras histórias"
 	},
 	"chapter_written_on": {
-		"en": "Chapter written om",
+		"en": "Chapter written on",
 		"pt": "Capítulo escrito em"
 	},
 	"chapter_last_revised_on": {

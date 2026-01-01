@@ -273,20 +273,14 @@ class Story extends Class_ {
 			# Replace "button" by "button, image," in the chapter tab comment
 			$chapter_tab["comment"] = str_replace("button", "button, image,", $chapter_tab["comment"]);
 
-			# Define the image width as 100%
-			$image_width = "100";
-
 			# Define the image style as the light theme
 			$image_style = $website["Style"]["img"]["theme"]["light"];
-
-			# Remove the "image_size" class from the image style
-			$image_style = str_replace("image_size ", "", $image_style);
 
 			# Add the dark box shadow to the image style
 			$image_style = $website["Style"]["box_shadow"]["theme"]["dark"]." ".$image_style;
 
 			# Create the image element of the chapter cover
-			$image = HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'" width="'.$image_width.'%"', $image_style);
+			$image = HTML::Element("img", "", 'id="chapter_cover_'.$i.'" src="'.$remote_chapter_cover.'"', $image_style, $tab = [], $display = "block", $height = "70");
 
 			$chapter_cover = "<br />"."<!-- Chapter cover image -->"."\n".
 			"\t\t"."<center>"."\n".

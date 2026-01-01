@@ -7,7 +7,7 @@ class HTML extends Class_ {
 		parent::__construct(self::class);
 	}
 
-	public static function Element($element, $text = "", $attributes = "", $class = "", $tab = []) {
+	public static function Element($element, $text = "", $attributes = "", $class = "", $tab = [], $display = "block", $height = "90") {
 		$self_closing_elements = [
 			"embed",
 			"hr",
@@ -77,6 +77,12 @@ class HTML extends Class_ {
 			$attributes = " ".$attributes;
 		}
 
+		# If the element is an image
+		if ($element == "img") {
+			# Add some classes
+			$class .= " max_width_100_percent max_height_100_percent height_auto";
+		}
+
 		# Add classes if they exist
 		if ($class != "") {
 			$class = ' class="'.$class.'"';
@@ -95,7 +101,21 @@ class HTML extends Class_ {
 			array_push($parameters, $element);
 		}
 
-		return self::Format($template, $parameters);
+		# Format the text template with the list of parameters to create the element
+		$element_code = self::Format($template, $parameters);
+
+		# If the element is an image
+		if ($element == "img") {
+			# Add a sizing div
+			$element_code = '<div class="height_'.$height.'_view_height width_auto" style="display: '.$display.';">'.
+			"\n".
+			$element_code.
+			"\n".
+			"</div>";
+		}
+
+		# Return the element
+		return $element_code;
 	}
 
 	public static function Image($source, $class = "", $attributes = "") {
@@ -111,9 +131,9 @@ class HTML extends Class_ {
 	public static function Make_Image_Size($image, $width) {
 		global $website;
 
-		$image = str_replace("image_size ", "", $image);
+		#$image = str_replace("image_size ", "", $image);
 		#$image = str_replace("height: auto;", "max-width: ".$website_dictionary["JSON"]["image"]["width"]."vw; height: auto;", $image);
-		$image = str_replace('height: auto;"', 'height: auto;" width="'.$width.'%"', $image);
+		#$image = str_replace('height: auto;"', 'height: auto;" width="'.$width.'%"', $image);
 
 		return $image;
 	}
@@ -212,9 +232,12 @@ class HTML extends Class_ {
 
 		$border_color = $website["Style"]["border_color"];
 
-		# Define the "Open hamburger menu" button
+		# Create the "Open hamburger menu" button
 		$open_hamburger_menu_button = "<!-- Open hamburger menu button -->".
-		HTML::Button("\t".$show_text, 'id="hamburger_menu_button" onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom", "h3");
+		'<div id="hamburger_menu_button">'."\n".
+		HTML::Button("\t".$show_text, 'onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom", "h3")."\n".
+		'<br /><br /><br /><br />'."\n".
+		"</div>";
 
 		# Define the "Close hamburger menu" button
 		$close_hamburger_menu_button = "\t".'<!-- Close hamburger menu button -->'.
@@ -290,7 +313,7 @@ class HTML extends Class_ {
 		return $buttons;
 	}
 
-	public static function Generate_Buttons_List($tab = [], $remove = "", $center = True) {
+	public static function Generate_Buttons_List($tab = [], $remove = "", $center = True, $last_separator = True) {
 		global $website;
 
 		if ($tab == []) {
@@ -303,11 +326,8 @@ class HTML extends Class_ {
 			$tab["Buttons list"] = [];
 		}
 
+		# Initalize the string
 		$string = "";
-
-		if ($center == True) {
-			$string .= "<center>";
-		}
 
 		$buttons_list = $website["buttons_list"];
 
@@ -315,8 +335,20 @@ class HTML extends Class_ {
 			$buttons_list = $buttons_list + $website["Additional buttons"];
 		}
 
+		# If the list of buttons is not empty
 		if ($tab["Buttons list"] != []) {
+			# Define it as the local list of buttons
 			$buttons_list = $tab["Buttons list"];
+		}
+
+		# If the list of buttons is not empty
+		# And the center parameter is True
+		if (
+			$buttons_list != [] and
+			$center == True
+		) {
+			# Add the opening center tag to the string
+			$string .= "<center>";
 		}
 
 		if ($tab["only_button"] == Null) {
@@ -352,13 +384,18 @@ class HTML extends Class_ {
 					$string .= $buttons_list[$number + 1];
 				}
 
-				$string .= "<br /><br /><br /><br />";
+				# If the list of buttons is not empty
+				if ($buttons_list != []) {
+					# Add four line breaks to the string
+					$string .= "<br /><br /><br /><br />";
+				}
 
 				if (
-					$number -1 != -1 and
+					$number != 0 and
 					$number + 1 != count($buttons_list)
 				) {
-					$string .= '';
+					# Add a mobile space separator
+					$string .= '<br class="mobile_inline_block" />';
 				}
 			}
 
@@ -383,9 +420,23 @@ class HTML extends Class_ {
 			$string .= $tab["button"];
 		}
 
-		$string .= $website["elements"]["hr_1px"]["theme"][$website["Style"]["border_color"]];
+		# If the list of buttons is not empty
+		# And the "last separator" parameter is True
+		if (
+			$buttons_list != [] and
+			$last_separator == True
+		) {
+			# Add the hr separator to the string
+			$string .= $website["elements"]["hr_1px"]["theme"][$website["Style"]["border_color"]];
+		}
 
-		if ($center == True) {
+		# If the list of buttons is not empty
+		# And the center parameter is True
+		if (
+			$buttons_list != [] and
+			$center == True
+		) {
+			# Add the closing center tag to the string
 			$string .= "</center>";
 		}
 
@@ -518,7 +569,7 @@ class HTML extends Class_ {
 		return $tpl -> draw("Tab", $toString = True);
 	}
 
-	public static function Generate_Tabs($tabs_data = Null, $buttons = True, $all_buttons = False) {
+	public static function Generate_Tabs($tabs_data = Null, $buttons = False, $all_buttons = False) {
 		global $website;
 
 		$tabs = [

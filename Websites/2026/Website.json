@@ -8,30 +8,15 @@
 		"secondary_theme": {
 			"normal": "orange",
 			"light": "light_red",
-			"dark": "dark_red"
+			"dark": "darker_red"
 		},
-		"text_highlight": "dark_orange"
+		"text_color": "black",
+		"button_text_color": "white",
+		"text_highlight": "black",
+		"box_shadow_color": "dark"
 	},
-	"tabs": {
-		"data": {
-			"first_tab": {
-				"name": {
-					"en": "First tab",
-					"pt": "Primeira aba"
-				},
-				"icon": "user_circle"
-			}
-		}
-	},
-	"descriptions": {
-		"html": {
-			"en": "",
-			"pt": ""
-		},
-		"header": {
-			"en": "",
-			"pt": ""
-		}
+	"Year": {
+		"Text color": "white"
 	},
 	"color": "ffa500"
 }

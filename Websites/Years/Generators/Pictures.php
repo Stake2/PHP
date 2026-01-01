@@ -27,8 +27,14 @@ $remote_folder = $website["Data"]["Folders"]["Website"]["Images"]["Remote"]["Pic
 # List the folder contents
 $contents = $Folder -> Contents($local_folder, $remote_folder);
 
-# Tone
+# Define the tone
 $tone = "dark";
+
+# If the "Tone" key is defined inside the website JSON "Year" dictionary
+if (isset($website["Data"]["JSON"]["Year"]["Tone"]) == True) {
+	# Use that tone as the local Tone
+	$tone = $website["Data"]["JSON"]["Year"]["Tone"];
+}
 
 $add_image_title = True;
 
@@ -68,6 +74,15 @@ $keys = array_keys($contents["File"]["Dictionary"]);
 
 $images = $keys;
 
+# Define the text color as the dark theme one
+$text_color = $website["Data"]["Style"]["text"]["theme"]["dark"];
+
+# If the "Text color" key is defined inside the website JSON "Year" dictionary
+if (isset($website["Data"]["JSON"]["Year"]["Text color"]) == True) {
+	# Use that color as the text color
+	$text_color = "text_".$website["Data"]["JSON"]["Year"]["Text color"];
+}
+
 $i = 0;
 $z = 1;
 foreach ($keys as $key) {
@@ -84,11 +99,9 @@ foreach ($keys as $key) {
 		# Make the image text and element centered
 		$image_string = '<center class="'.$class.'">'."\n";
 
-		$text_color = "white";
-
 		if ($i != 0) {
 			# Create the "Previous image" button
-			$h4 = HTML::Element("h4", $website["Icons"]["arrow_left"]." ".$website["Language texts"]["previous_image"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Icons"]["arrow_left"]." ".$website["Language texts"]["previous_image"], "", "text_size ".$text_color, ["new_line" => True, "tab" => "\t\t\t"]);
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
@@ -102,7 +115,7 @@ foreach ($keys as $key) {
 
 		if ($i != count($keys) - 1) {
 			# Create the "Next image" button
-			$h4 = HTML::Element("h4", $website["Language texts"]["next_image"]." ".$website["Icons"]["arrow_right"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Language texts"]["next_image"]." ".$website["Icons"]["arrow_right"], "", "text_size ".$text_color, ["new_line" => True, "tab" => "\t\t\t"]);
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
@@ -138,19 +151,12 @@ foreach ($keys as $key) {
 		$image_string .= "<p></p>"."\n".
 		'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 
-		# Define the text color
-		$text_color = $website["Data"]["Style"]["text"]["theme"]["dark"];
-
 		if ($add_image_title == True) {
-			# Create the image "Title" text
-			$text = $website["Language texts"]["title, title()"].":"."\n".
-			"<br />"."\n";
-
-			# Make the title text bold
-			$text = $HTML -> Element("b", $text)."\n";
-
-			# Make the image title
+			# Create a shortcut to the file title
 			$title = $file["Title"];
+
+			# Define the text initially as "Title"
+			$text = $website["Language texts"]["title, title()"];
 
 			$numbers = [
 				"1",
@@ -160,15 +166,41 @@ foreach ($keys as $key) {
 
 			foreach ($numbers as $number) {
 				# Remove the "[number].[sub_number] - " text of the image title if it exists
-				if (str_contains($title, $i.".".$number." - ")) {
+				if (
+					str_contains($title, $i.".".$number." - ") or
+					str_contains($title, $i.",".$number." - ")
+				) {
 					$title = str_replace($i.".".$number." - ", "", $title);
+					$title = str_replace($i.",".$number." - ", "", $title);
+				}
+
+				foreach ($numbers as $second_number) {
+					if (
+						str_contains($title, $number.".".$second_number." - ") or
+						str_contains($title, $number.",".$second_number." - ")
+					) {
+						$title = str_replace($number.".".$second_number." - ", "", $title);
+						$title = str_replace($number.",".$second_number." - ", "", $title);
+					}
+				}
+
+				if (
+					str_contains($title, $number.".".$number." - ") or
+					str_contains($title, $number.",".$number." - ")
+				) {
+					$title = str_replace($number.".".$number." - ", "", $title);
+					$title = str_replace($number.",".$number." - ", "", $title);
 				}
 
 				# Remove the "[number] - " text of the image title if it exists
 				else {
 					# Remove the "[number].1 - " text of the image title if it exists
-					if (str_contains($title, $z.".".$number." - ")) {
+					if (
+						str_contains($title, $z.".".$number." - ") or
+						str_contains($title, $z.",".$number." - ")
+					) {
 						$title = str_replace($z.".".$number." - ", "", $title);
+						$title = str_replace($z.",".$number." - ", "", $title);
 					}
 
 					if (str_contains($title, $i." - ")) {
@@ -176,6 +208,25 @@ foreach ($keys as $key) {
 					}
 				}
 			}
+
+			# Find a file title that is only the date
+			$pattern = "/^[0-9]{2};[0-9]{2} [0-9]{2}-[0-9]{2}-[0-9]{4}$/i";
+
+			# Split the file title
+			$new_title = explode(".", $title)[0];
+
+			# If it is found
+			if (preg_match($pattern, $new_title, $matches)) {
+				# Change the text to "Date"
+				$text = $website["Language texts"]["date, title()"];
+			}
+
+			# Create the image "Title" text
+			$text = $text.":"."\n".
+			"<br />"."\n";
+
+			# Make the title text bold
+			$text = $HTML -> Element("b", $text)."\n";
 
 			# Remove the ".[extension]" of the image title if it exists
 			foreach ($website["Image formats"] as $extension) {
@@ -195,6 +246,8 @@ foreach ($keys as $key) {
 				$title = str_replace(";", ":", $title);
 			}
 
+			# ---------- #
+
 			$welcome_text = $website["Language texts"]["welcome, title()"];
 			$replaced = str_replace("-", "/", $welcome_text);
 
@@ -205,7 +258,17 @@ foreach ($keys as $key) {
 				$title = str_replace($replaced, $welcome_text, $title);
 			}
 
-			# Remove "[number] / " of the image title
+			# ---------- #
+
+			foreach (array_values($website["Texts"]["happy_new_year"]) as $language_text) {
+				if (str_contains($title, $language_text)) {
+					$title = str_replace($language_text, $website["Language texts"]["happy_new_year"], $title);
+				}
+			}
+
+			# ---------- #
+
+			# Remove the "[number] / " text of the image title
 			$date = "/\b[0-9]{2}\/[0-9]{2}\/[0-9]{4}\b/i";
 			$time = "/\b[0-9]{2}:[0-9]{2}/i";
 
@@ -256,13 +319,10 @@ foreach ($keys as $key) {
 		}
 
 		# Define the local image folder
-		$local_image_folder = $folders["Mega"]["PHP"]["root"]."Images/";
-
-		# Define the local website image folder
-		$local_website_image_folder = $local_image_folder.$website["Data"]["title"]."/";
+		$local_image_folder = $folders["Mega"]["PHP"]["root"];
 
 		# Define the PHP image
-		$php_image = $local_website_image_folder.str_replace($website["Folders"]["Images"]["root"], "/Images/", $file["Path"]);
+		$php_image = str_replace($website["Folders"]["Images"]["root"], "Images/", $file["Path"]);
 
 		# If the "Generate" (website) state is False
 		# And the local image folder exists
@@ -282,11 +342,8 @@ foreach ($keys as $key) {
 		# Remove the border-radius
 		$class = str_replace("border_radius_8_cent", "border_radius_1_cent", $class);
 
-		# Define the attributes
-		$attributes = 'style="max-width: 70%;"';
-
-		# Add an alt text
-		$attributes .= ' alt="'.$file["Title"].'"';
+		# Define the attributes with the alt text
+		$attributes = ' alt="'.$file["Title"].'"';
 
 		# Add a title text
 		$attributes .= ' title="'.$file["Title"].'"';
@@ -300,9 +357,19 @@ foreach ($keys as $key) {
 		# Add some spaces
 		$image_string .= "<br />"."\n";
 
+		# Create the image link button
+		$h4 = HTML::Element("h4", $website["Language texts"]["open_image_in_a_new_tab"].": ".$website["Icons"]["images"], "", "text_size ".$text_color, ["new_line" => True, "tab" => "\t\t\t"]);
+
+		$button = HTML::Element("button", $h4, 'onclick="window.open('."'".$file["Path"]."'".')" style="margin-bottom: 10px; margin-bottom: 10px;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
+
+		# Add the image link button to the image string
+		$image_string .= $button;
+
+		$image_string .= "<p></p>"."\n";
+
+		# Create the "previous image" button
 		if ($i != 0) {
-			# Create the "Previous image" button
-			$h4 = HTML::Element("h4", $website["Icons"]["arrow_left"]." ".$website["Language texts"]["previous_image"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Icons"]["arrow_left"]." ".$website["Language texts"]["previous_image"], "", "text_size ".$text_color, ["new_line" => True, "tab" => "\t\t\t"]);
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
@@ -312,9 +379,9 @@ foreach ($keys as $key) {
 			$image_string .= $previous_image_button;
 		}
 
+		# Create the "next image" button
 		if ($i != count($keys) - 1) {
-			# Create the "Next image" button
-			$h4 = HTML::Element("h4", $website["Language texts"]["next_image"]." ".$website["Icons"]["arrow_right"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
+			$h4 = HTML::Element("h4", $website["Language texts"]["next_image"]." ".$website["Icons"]["arrow_right"], "", "text_size ".$text_color, ["new_line" => True, "tab" => "\t\t\t"]);
 
 			$button = HTML::Element("button", $h4, "", "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
 
@@ -325,6 +392,7 @@ foreach ($keys as $key) {
 			"<br />"."\n";
 		}
 
+		# Add some spaces to the second or penultimate middle image
 		if (
 			$i != 0 or
 			$i != count($keys) - 1
@@ -334,6 +402,7 @@ foreach ($keys as $key) {
 			'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 		}
 
+		# Add some spaces to the middle image
 		if (
 			$i != 0 and
 			$i != count($keys) - 1
@@ -342,20 +411,11 @@ foreach ($keys as $key) {
 			'<br class="mobile_inline_block" /><br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 		}
 
+		# Add some spaces to the last image
 		if ($i == count($keys) - 1) {
 			$image_string .= "<br />"."\n".
 			'<br class="mobile_inline_block" /><br class="mobile_inline_block" />';
 		}
-
-		# Create the image link button
-		$h4 = HTML::Element("h4", $website["Language texts"]["open_image_in_a_new_tab"].": ".$website["Icons"]["images"], "", "text_size ".$website["Style"]["text"]["theme"]["dark"], ["new_line" => True, "tab" => "\t\t\t"]);
-
-		$button = HTML::Element("button", $h4, 'onclick="window.open('."'".$file["Path"]."'".')" style="margin-bottom: 10px; margin-bottom: 10px;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"], ["new_line" => True]);
-
-		# Add the image link button to the image string
-		$image_string .= $button;
-
-		$image_string .= "<p></p>"."\n";
 
 		# Close the "center" tag
 		$image_string .= "</center>";

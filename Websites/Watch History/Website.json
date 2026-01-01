@@ -14,12 +14,12 @@
 	},
 	"color": "2196F3",
 	"image": {
-		"width": "30"
+		"width": "40"
 	},
 	"tabs": {
 		"data": {
-			"watched_things": {
-				"template": "watched_things"
+			"watched_media": {
+				"template": "watched_media"
 			},
 			"media_being_watched": {
 				"template": "media_being_watched"

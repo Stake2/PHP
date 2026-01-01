@@ -20,6 +20,7 @@
 		"Light salmon",
 		"Red",
 		"Dark red",
+		"Darker red",
 		"Light red",
 		"Orange",
 		"Dark orange",
@@ -142,6 +143,10 @@
 		"Dark red": {
 			"Name": "Dark red",
 			"Code": "#820900"
+		},
+		"Darker red": {
+			"Name": "Darker red",
+			"Code": "#280300"
 		},
 		"Light red": {
 			"Name": "Light red",

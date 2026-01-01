@@ -12,5 +12,8 @@
 		},
 		"text_highlight": "white"
 	},
+	"image": {
+		"box_shadow": true
+	},
 	"color": "00bcd4"
 }

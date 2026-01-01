@@ -12,7 +12,7 @@
 		},
 		"text_highlight": "dark_green_water",
 		"text_color": "dark_green_water",
-		"button_text": "white",
+		"button_text_color": "white",
 		"chapter_text_color": "dark_green_water",
 		"background_color": "dark_yellow_sand",
 		"border_color": "dark"

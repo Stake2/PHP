@@ -1,5 +1,8 @@
 <?php 
 
+# Change the website "Tab buttons" state to True
+$website["States"]["Website"]["Tab buttons"] = True;
+
 # Read the "Types.json" file
 $types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["Types"]);
 
@@ -42,7 +45,7 @@ $website["Data"]["description"]["header"] = str_replace("{media_types}", $styled
 # Require the "Watch History" website content PHP file to define the "media_being_watched" and "past_registries" tab templates
 require $website["Data"]["Folders"]["PHP"]["root"]."Content.php";
 
-# Add all watched things numbers of all years
+# Add all watched media numbers of all years
 $website["Data"]["Numbers"]["Total"] = 0;
 
 foreach ($website["Data"]["Numbers"]["By year"] as $number) {
@@ -54,9 +57,9 @@ $number = number_format($website["Data"]["Numbers"]["Total"], 0, ',', '.');
 $first_year = $website["Watch History"]["Years list"][0];
 $last_year = $website["current_year"];
 
-$text = $number." ".HTML::format($watch_history["Language texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
+$text = $number." ".HTML::format($watch_history["Language texts"]["media_watched_since_{}_until_{}"], [$first_year, $last_year]);
 
-# Add watched things number to the language and header website title with the text
+# Add the watched media number to the language and header website title with the text
 $website["Data"]["titles"]["language"] .= ": ".$text;
 
 # Change the text color of the number
@@ -65,7 +68,7 @@ $first_year = HTML::Element("span", $first_year, "", $website["Style"]["text"]["
 $last_year = HTML::Element("span", $last_year, "", $website["Style"]["text"]["theme"]["dark"]);
 
 # Update the description text
-$text = $number." ".HTML::format($watch_history["Language texts"]["things_watched_since_{}_until_{}"], [$first_year, $last_year]);
+$text = $number." ".HTML::format($watch_history["Language texts"]["media_watched_since_{}_until_{}"], [$first_year, $last_year]);
 
 $website["Data"]["titles"]["icon"] .= "<br />"."\n".
 $text;
@@ -84,7 +87,7 @@ foreach ($years_list as $local_year) {
 	$number = $array[$local_year];
 
 	# Add to the HTML description
-	$website["Data"]["description"]["html"] .= $watch_history["Language texts"]["things_watched_in"]." ".$local_year.": ".$number;
+	$website["Data"]["description"]["html"] .= $watch_history["Language texts"]["media_watched_in"]." ".$local_year.": ".$number;
 
 	# Add to the header description
 	$span = HTML::Element("span", $local_year, "", $website["Style"]["text_highlight"]);
@@ -94,14 +97,14 @@ foreach ($years_list as $local_year) {
 	$tab_id = "past_registry_".$local_year;
 
 	if ($local_year == $website["current_year"]) {
-		$tab_id = "watched_things";
+		$tab_id = "watched_media";
 	}
 
 	$colored_year = HTML::Element("a", $span, 'onclick="'."Open_Tab('".$tab_id."')".'"'." ".$style, $website["Style"]["text_highlight"]);
 
 	$painted_number = HTML::Element("span", $number, "", $website["Style"]["text_highlight"]);
 
-	$website["Data"]["description"]["header"] .= $watch_history["Language texts"]["things_watched_in"]." ".$colored_year.": ".$painted_number;
+	$website["Data"]["description"]["header"] .= $watch_history["Language texts"]["media_watched_in"]." ".$colored_year.": ".$painted_number;
 
 	if ($local_year != end($years_list)) {
 		$website["Data"]["description"]["html"] .= "\n";

@@ -68,7 +68,7 @@ if (isset($tasks) == False) {
 		"By type" => []
 	];
 
-	# Iterate through the English media types list
+	# Iterate through the English task types list
 	$i = 0;
 	foreach ($types_dictionary["en"] as $type) {
 		$website["Data"]["Numbers"]["By type"][$type] = 0;
@@ -261,8 +261,10 @@ if (file_exists($entries_file) == True) {
 
 		# Add the website button to the top of the page
 		$website["tab_content"]["completed_tasks"]["string"] .= "<center>"."\n".
+		'<br class="mobile_inline_block" />'."\n".
 		$Text -> Format($website_dictionary["Button template"], $link)."\n".
-		"<p></p>".
+		"<p></p>"."\n".
+		'<br class="mobile_inline_block" />'."\n".
 
 		# Add the website image to the top of the tab
 		$website_dictionary["image"]["elements"]["theme"]["dark"]."\n".
@@ -275,7 +277,7 @@ if (file_exists($entries_file) == True) {
 	# Define the local types dictionary as the root types dictionary inside the "Tasks" dictionary
 	$types_dictionary = $tasks["Types dictionary"];
 
-	# Update the watched things number
+	# Update the "Completed tasks" number
 	$website["tab_content"]["completed_tasks"]["number"] = $tasks["Entries"]["Numbers"]["Total"];
 
 	if (
@@ -352,7 +354,7 @@ if (file_exists($entries_file) == True) {
 								# Define the raw time as the value in the "Completed task (UTC)" key
 								$raw_time = $raw_time["Completed task (UTC)"];
 							}
-							#Text::Show_Variable($raw_time);
+
 							# If the raw time has four characters
 							if (strlen($raw_time) == 4) {
 								# Define the datetime format as the year format
