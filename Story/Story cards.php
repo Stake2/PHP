@@ -43,7 +43,7 @@ foreach ($story_titles as $english_story_title) {
 	$images_folder = substr($images_folder, 0, strlen($images_folder) - 1);
 
 	# Define the image file
-	$image_file = $images_folder.$website["Dictionary"][$english_story_title]["image"]["local_link"];
+	$image_file = $website["Dictionary"][$english_story_title]["image"]["Local link"];
 
 	# If the image file does not exist
 	if (
@@ -51,7 +51,13 @@ foreach ($story_titles as $english_story_title) {
 		$website["States"]["Website"]["Generate"] == False
 	) {
 		# Redefine the image file to be remote
-		$image_file = $website["Dictionary"][$english_story_title]["image"]["local_link"];
+		$image_file = $website["Dictionary"][$english_story_title]["image"]["Local link"];
+	}
+
+	# If the beginning of the image file path is "/Images/"	
+	if (strpos($image_file, "/Images/") == 0) {
+		# Add the images folder to it
+		$image_file = $images_folder.$image_file;
 	}
 
 	# If the image file do exist
@@ -65,10 +71,9 @@ foreach ($story_titles as $english_story_title) {
 			$image = str_replace("height: auto;", "height: auto; width: 70%;", $image);
 		}
 
-		#$image = str_replace("image_size ", "", $image);
 		$image = str_replace("border_radius_8_cent", "border_radius_5_cent", $image);
 		$image = str_replace($website_data["Style"]["box_shadow"]["theme"]["dark"]." ", "", $image);
-		$image = '<!-- Story card image -->'."\n".
+		$image = "\n".'<!-- Story card image -->'."\n".
 		"\t\t\t".$image;
 	}
 
@@ -77,7 +82,6 @@ foreach ($story_titles as $english_story_title) {
 
 	# Define the text color for the story title
 	$text_color = $website_data["Style"]["text"]["theme"]["Original dark"];
-	#$text_color = "text_black";
 
 	$h2 = "\t\t\t".HTML::Element("h2", "\n\t\t\t\t".$text."\n\t\t\t", "", "text_size ".$text_color."\n");
 

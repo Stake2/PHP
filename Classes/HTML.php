@@ -164,32 +164,52 @@ class HTML extends Class_ {
 		);
 	}
 
-	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3", $tab = True, $bold = True) {
+	public static function Button($text = "", $attributes = "", $class = "", $heading = "h3", $tab = True, $bold = True, $add_class = False) {
 		global $website;
 
-		$class = $website["Style"]["button"]["theme"]["dark"].$class;
+		# If the "add class" parameter is True
+		if ($add_class == True) {
+			# Add the website button class
+			$class = $website["Style"]["button"]["theme"]["dark"]." ".$class;
+		}
 
+		# Define the text attributes initially as an empty string
 		$text_attributes = "";
 
+		# If the heading is "h3"
+		# And the "bold" parameter is True
 		if (
 			$heading == "h3" and
 			$bold == True
 		) {
+			# Define the font-weight as "bold"
 			$text_attributes = 'style="font-weight: bold;"';
 		}
 
+		# Define the text of the button with the text, text attributes, and the "text_size" class
 		$text = HTML::Element($heading, "\n\t\t".$text."\n\t\t", $text_attributes, "text_size")."\n";
 
+		# Define the button and text with their line breaks
 		$button = "\n\n";
 		$text = "\n".$text;
 
+		# If the "tab" parameter is True
 		if ($tab == True) {
+			# Add tabs to the button and text
 			$button .= "\t";
 			$text = "\t\t".$text."\t";
 		}
 
-		$button .= HTML::Element("button", $text, $attributes, "w3-btn ".$class);
+		# If the "w3-btn" class is not present in the button class
+		if (str_contains($class, "w3-btn") == False) {
+			# Add it
+			$class = "w3-btn ".$class;
+		}
 
+		# Create the button using the "Element" method and passing to it the "button" element, the text, attributes, and the class
+		$button .= HTML::Element("button", $text, $attributes, $class);
+
+		# Return the button to the caller
 		return $button;
 	}
 
@@ -197,17 +217,18 @@ class HTML extends Class_ {
 		global $website;
 		global $i;
 
-		# Generate tab button
-		if (array_key_exists("button_style", $tab) == False) {
+		# Define the "Button style" as empty if its key is not present
+		if (isset($tab["button_style"]) == False) {
 			$tab["button_style"] = "";
 		}
 
-		if (array_key_exists("button_class", $tab) == False) {
+		# Define the "Button class" as empty if its key is not present
+		if (isset($tab["button_class"]) == False) {
 			$tab["button_class"] = "";
 		}
 
 		$button = '<!-- "'.$tab["name"].'" button -->'."\n".
-		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\t\t".self::Button("\t".$tab["name_icon"]."\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', $tab["button_class"], "h2").$space."\n\t"."</span>";
+		"\t".'<span id="button_'.($i + 1).'" class="tab_button">'."\t\t".self::Button("\t".$tab["name_icon"]."\t\t\t", ' onclick="Open_Tab(\''.strtolower($tab["id"]).'\');" style="border-radius: 50px;'.$tab["button_style"].'"', $tab["button_class"], "h2", $tab = True, $bold = True, $add_class = True).$space."\n\t"."</span>";
 
 		return $button;
 	}
@@ -235,7 +256,10 @@ class HTML extends Class_ {
 		# Create the "Open hamburger menu" button
 		$open_hamburger_menu_button = "<!-- Open hamburger menu button -->".
 		'<div id="hamburger_menu_button">'."\n".
-		HTML::Button("\t".$show_text, 'onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom", "h3")."\n".
+		HTML::Button("\t".$show_text, 'onclick="Show_Hamburger_Menu();" style="position: fixed; left: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom", $heading = "h3")."\n".
+		# Add a placeholder for the additional buttons
+		"[Additional buttons]".
+		# Add some spaces after the button
 		'<br /><br /><br /><br />'."\n".
 		"</div>";
 
@@ -243,10 +267,14 @@ class HTML extends Class_ {
 		$close_hamburger_menu_button = "\t".'<!-- Close hamburger menu button -->'.
 		HTML::Button("\t".$hide_text."\t\t", ' onclick="Hide_Hamburger_Menu();" style="float: right; padding: 2px 14px 3px 14px !important;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]);
 
+		# Define the local buttons dictionary
 		$buttons = [
+			# Define the empty list of buttons
 			"list" => [],
 
-			"hamburger_menu" => "\n".$open_hamburger_menu_button.
+			# Define the "Hamburger menu" key
+			"hamburger_menu" => # Add the "Open hamburger menu" button
+			"\n".$open_hamburger_menu_button.
 			"\n\n".
 			"\n"."<!--- Hamburger menu -->"."\n".
 			'<div id="hamburger_menu" class="w3-container w3-animate-left '.$website["Style"]["background"]["theme"]["normal"]." ".$website["Style"]["border_4px"]["theme"][$border_color]." ".$website["Style"]["border_radius"].'" style="padding: 1%; position: fixed; display: none;">'.
@@ -254,17 +282,52 @@ class HTML extends Class_ {
 			$close_hamburger_menu_button."\n\n".
 			"\t".HTML::Element("h2", $website["Language texts"]["tab_menu"].": ", 'style="font-weight: bold;"', "text_size ".$website["Style"]["text_highlight"])."\n\n".
 			"\t"."<br />".
-			'<div style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">'."\n"
+			'<div style="overflow-y: auto; overflow-x: hidden; max-height: 80vh;">'."\n",
+
+			# Define an dictionary to store additional buttons
+			"Additional buttons" => []
 		];
 
-		# Generate the buttons
-		$i = 0;
-		foreach (array_keys($website["tabs"]["data"]) as $id) {
-			# Get the tab data
-			$tab = $website["tabs"]["data"][$id];
+		# If the "Generate" website state is False
+		# And the website type is "Story"
+		# And the "Write" story state is True
+		if (
+			$website["States"]["Website"]["Generate"] == False and
+			$website["Data"]["type"] == "Story" and
+			$website["States"]["Story"]["Write"] == True
+		) {
+			# Add the "Write" button to the dictionary of "Additional buttons"
+			$buttons["Additional buttons"]["Write"] = "\t".'<!-- Button to go to the "Write chapter" text area -->'."\n".
+			# Add the "Write" button
+			"\t".HTML::Button($website["Language texts"]["write, title()"].": ".$website["Icons"]["pen"], ' id="write_button" onclick="Jump_To_Write_Section()" style="position: fixed; right: 0%;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"]." w3-animate-zoom", $heading = "h2", $tab = True, $bold = False)."\n";
+		}
 
-			# Define the id and number of the tab
-			$tab["id"] = $id;
+		# Define a variable to store the additional Buttons
+		$additional_buttons = "\n\n";
+
+		# Iterate through the list of additional buttons
+		foreach($buttons["Additional buttons"] as $index => $additional_button) {
+			# Add the current additional button to the additional buttons variable
+			$additional_buttons .= "\n\t".$additional_button;
+
+			# If the additional button is not the last one
+			if ($index != count($buttons["list"]) - 1) {
+				# Add two line breaks
+				$additional_buttons .= "\n\n";
+			}
+		}
+
+		# Add the additional buttons to the "Hamburger menu"
+		$buttons["hamburger_menu"] = str_replace("[Additional buttons]", $additional_buttons, $buttons["hamburger_menu"]);
+
+		# Generate the tab buttons using the tabs "Data" dictionary to get the tab IDs
+		$i = 0;
+		foreach (array_keys($website["tabs"]["data"]) as $tab_id) {
+			# Get the tab data
+			$tab = $website["tabs"]["data"][$tab_id];
+
+			# Define the ID and number of the tab
+			$tab["id"] = $tab_id;
 			$tab["number"] = $i + 1;
 
 			# Get the tab information
@@ -273,7 +336,7 @@ class HTML extends Class_ {
 			# Create the tab button
 			$button = self::Tab_Button($tab);
 
-			# Add the button to the list of buttons
+			# Add the tab button to the list of buttons
 			array_push($buttons["list"], $button);
 
 			$i++;
@@ -287,21 +350,36 @@ class HTML extends Class_ {
 			$website["Data"]["type"] == "Story" and
 			$website["States"]["Story"]["Write"] == True
 		) {
-			# Define the function to run
+			# Define the "Hide_Home_Buttons" function as the function to run
 			$function = "Hide_Home_Buttons()";
 
 			# Define the "Hide home buttons" button
-			$button = self::Button($website["Language texts"]["hide_home_buttons"], ' onclick="'.$function.'" style="border-radius: 50px;"', "", "h2");
+			$button = self::Button($website["Language texts"]["hide_home_buttons"], ' onclick="'.$function.'" style="border-radius: 50px;"', "", "h2", $tab = True, $bold = True, $add_class = True);
 
 			# Add the button to the list of buttons
 			array_push($buttons["list"], $button);
+
+			# Iterate through the list of additional buttons
+			foreach($buttons["Additional buttons"] as $index => $additional_button) {
+				# Remove the "position: fixed" and "right: 0%" styles
+				$additional_button = str_replace('style="position: fixed; right: 0%;"', "", $additional_button);
+
+				# Remove the "write_button" ID if it exists
+				$additional_button = str_replace('id="write_button"', "", $additional_button);
+
+				# Add the additional button to the list of buttons
+				array_push($buttons["list"], "<br />".$additional_button);
+			}
 		}
 
-		# Add the buttons to the hamburger menu
+		# Iterate through the list of buttons
 		foreach($buttons["list"] as $index => $button) {
+			# Add the current button to the hamburger menu
 			$buttons["hamburger_menu"] .= "\n\t".$button;
 
+			# If the button is not the last one
 			if ($index != count($buttons["list"]) - 1) {
+				# Add two line breaks
 				$buttons["hamburger_menu"] .= "\n\n";
 			}
 		}

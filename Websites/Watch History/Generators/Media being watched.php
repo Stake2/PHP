@@ -44,7 +44,7 @@ $statuses = [
 
 $media_list = [];
 
-$types_dictionary = $watch_history["Types"]["Plural"];
+$types_dictionary = $watch_history["Media types"]["Plural"];
 
 # Iterate through the English plural media types list
 $i = 0;

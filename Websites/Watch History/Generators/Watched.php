@@ -42,29 +42,29 @@ if (isset($website["Watch History"]) == False) {
 	];
 }
 
-# Define the data network folder for easier typing
-$network_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
+# Create a shortcut to the root "Audiovisual Media" data network folders dictionary
+$data_network_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
 
 if (isset($watch_history) == False) {
-	# Define the "Watch History" array
+	# Define the "Watch History" dictionary
 	$watch_history = [
 		"Files" => [
 			"By media type" => [
-				"root" => $network_folder["Watch History"][$website["Data"]["Year"]]["By media type"]["root"]
+				"root" => $data_network_folder["Watch History"][$website["Data"]["Year"]]["By media type"]["root"]
 			]
 		],
-		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
-		"Entries" => $JSON -> To_PHP($network_folder["Watch History"][$website["Data"]["Year"]]["Entries"]),
-		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Watch History"]["Texts"]),
+		"Media types" => $JSON -> To_PHP($data_network_folder["Media types"]["Media types"]),
+		"Entries" => $JSON -> To_PHP($data_network_folder["Watch History"][$website["Data"]["Year"]]["Entries"]),
+		"Texts" => $JSON -> To_PHP($folders["Python"]["Files"]["Watch History"]["Texts"]),
 		"Language texts" => [],
 		"Media information" => [
-			"Information" => $JSON -> To_PHP($network_folder["Media information"]["Information"])
+			"Information" => $JSON -> To_PHP($data_network_folder["Media information"]["Information"])
 		]
 	];
 
 	$watch_history["Language texts"] = $Language -> Item($watch_history["Texts"]);
 
-	$types_dictionary = $watch_history["Types"]["Plural"];
+	$types_dictionary = $watch_history["Media types"]["Plural"];
 
 	$website["Data"]["Numbers"] = [
 		"By year" => [],
@@ -170,11 +170,11 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 
 # Update the "By media type" folder
 $watch_history["Files"]["By media type"] = [
-	"root" => $network_folder["Watch History"][$website["Data"]["Year"]]["By media type"]["root"]
+	"root" => $data_network_folder["Watch History"][$website["Data"]["Year"]]["By media type"]["root"]
 ];
 
 # Define the Entries file for easier typing
-$entries_file = $network_folder["Watch History"][$website["Data"]["Year"]]["Entries"];
+$entries_file = $data_network_folder["Watch History"][$website["Data"]["Year"]]["Entries"];
 
 if (file_exists($entries_file) == True) {
 	$watch_history["Entries"] = $JSON -> To_PHP($entries_file);
@@ -258,7 +258,7 @@ if (file_exists($entries_file) == True) {
 
 	$text_color = $website["Style"]["text"]["theme"]["dark"];
 
-	$types_dictionary = $watch_history["Types"]["Plural"];
+	$types_dictionary = $watch_history["Media types"]["Plural"];
 
 	# Iterate through the English media types list
 	$i = 0;
@@ -459,7 +459,7 @@ if (file_exists($entries_file) == True) {
 						# Add the comment text to the entry description text
 						if (isset($entry["Comment"]) == True) {
 							# Get the media folder
-							$media_info_folder = $network_folder["Media information"]["root"].$modules_language."/";
+							$media_info_folder = $data_network_folder["Media information"]["root"].$modules_language."/";
 
 							$media_title = Sanitize_Title(Define_Title($entry["Media titles"]));
 

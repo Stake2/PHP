@@ -7,7 +7,10 @@ require "Functions.php";
 
 # Define the initial "website" dictionary with the website author, Twitter author, and "Variable_Inserter" dictionary
 $website = [
-	"Author" => "Izaque (Stake2, Funkysnipa Cat)",
+	"Author" => [
+		"en" => "Stake2 and Funkysnipa Cat",
+		"pt" => "Stake2 e Funkysnipa Cat"
+	],
 	"Twitter author" => "Stake2",
 	"Variable_Inserter" => []
 ];
@@ -268,21 +271,33 @@ $stories = $JSON -> To_PHP($folders["Mega"]["Stories"]["Stories"]);
 # Define the story painted authors dictionary
 $stories["Authors (painted)"] = [];
 
-# Define the colors to use to paint the authors
+# Define the dictionary of colors to use to paint the authors
 $colors = [
-	"text_orange",
-	"text_yellow",
-	"text_green_water"
+	"Orange" => "text_orange",
+	"Yellow" => "text_yellow",
+	"Green water" => "text_green_water"
 ];
 
-# Iterate through the list of authors
-$i = 0;
-foreach ($stories["Authors"]["List"] as $author) {
-	# Get the color
-	$color = $colors[$i];
+# Require the "Hidden data.php" file
+require "Hidden data.php";
 
-	# Paint the author
-	$stories["Authors (painted)"][$author] = HTML::Element("span", $author, "", $color);
+# Iterate through the local list of authors
+$i = 0;
+foreach ($authors_list as $author) {
+	# Iterate through the list of colors
+	foreach (array_keys($colors) as $color) {
+		# Get the list of authors that have the current color
+		$local_authors = $colors_and_authors[$color];
+
+		# If the current author is in the current list of authors of the current color
+		if (in_array($author, $local_authors) == True) {
+			# Define the correct color as the current one
+			$correct_color = $color;
+		}
+	}
+
+	# Paint the author with the correct color for it
+	$stories["Authors (painted)"][$author] = HTML::Element("span", $author, "", $correct_color);
 
 	# Add one to the "i" number
 	$i++;
@@ -480,7 +495,7 @@ if ($language == "general") {
 	$full_language = $Language -> languages["Full"][$language];
 }
 
-$website["locale"] = $Language -> languages["Language with country"][$language];
+$website["locale"] = $Language -> languages["With country"][$language];
 
 if (is_array($website["locale"]) == True) {
 	$website["locale_alternate"] = $website["locale"][1];
@@ -834,11 +849,13 @@ if (isset($website["Data"]) == True) {
 	}
 }
 
-# Define the story of the website and run the "Story.php" file to define the story variables
+# If the website type is "Story"
+# Or the website JSON dictionary contains the "story" key
 if (
 	$website["Data"]["type"] == "Story" or
 	isset($website["Data"]["JSON"]["story"])
 ) {
+	# Create a shortcut to the "Story" dictionary
 	$story = $website["Data"]["Story"];
 
 	if (
@@ -855,7 +872,7 @@ if (
 		$website["unselectable_chapter_text"] = "";
 	}
 
-	# Require the "Story.php" file to define story website variables
+	# Require the "Story.php" file to define the variables of the story website
 	require $folders["PHP"]["Story"];
 }
 
@@ -907,20 +924,16 @@ if (
 	$website["Data"]["type"] == "Story" or
 	isset($website["Data"]["JSON"]["story"])
 ) {
+	# Add the chapter tabs to the website content
 	$website["content"] .= $story["chapters"]."\n\n";
 
+	# Add the last chapter number to the JavaScript environment 
 	$website["content"] .= "<script>"."\n".
 	"\t"."var last_chapter = ".$story["Information"]["Chapters"]["Numbers"]["Total"]."\n".
 	"</script>";
 
 	# If the "Write" story state is True
 	if ($website["States"]["Story"]["Write"] == True) {
-		# Create the write button
-		$website["Write button"] = "\t".'<!-- Go to the "Write chapter" text area -->'."\n".
-		'<div style="float: right;">'."\n".
-		"\t".HTML::Button($website["Language texts"]["write, title()"].": ".$website["Icons"]["pen"], ' id="write_button" onclick="Jump_To_Write_Section()" style="position: fixed; right: 0;"', "w3-btn ".$website["Style"]["button"]["theme"]["light"], "h2", $tab = True, $bold = False)."\n".
-		"</div>";
-
 		# Add the "Jump_To_Write_Section" function
 		$website["content"] .= '<script>
 function Jump_To_Write_Section() {
@@ -951,13 +964,12 @@ window.addEventListener("scroll", scroll_function)
 
 # Add the form if the "Generate" website state is False
 if ($website["States"]["Website"]["Generate"] == False) {
+	# Add the website form
 	$website["content"] .= "\n\n".
 	"<br />"."<br />"."\n\n".
 	$website["form"];
-}
 
-# Add some scripts if the "Generate" website state is False
-if ($website["States"]["Website"]["Generate"] == False) {
+	# Add the "Hide_Home_Buttons" JavaScript function
 	$website["content"] .= '<script>
 function Hide_Home_Buttons() {
 	// Define the list of elements to hide
@@ -985,18 +997,25 @@ function Hide_Home_Buttons() {
 
 	# If the "Write" story state is True
 	if ($website["States"]["Story"]["Write"] == True) {
-		# Hide the home buttons
+		# Hide the home buttons based on URL parameters
 		$website["content"] .= '
 // If the list of URL parameters include the "chapter" key
-if (parameter_keys.includes("chapter") == true) {
+// And it also includes the "hide_home_buttons" key
+if (
+	parameter_keys.includes("chapter") == true &&
+	parameter_keys.includes("hide_home_buttons") == true
+) {
 	// Hides the home buttons for the chapter writing mode
 	setTimeout(function () {
 		Hide_Home_Buttons()
 	}, 1000)
 }'."\n\n";
+
+		# Run the "Remove_Zoom" JavaScript function again
+		$website["content"] .= "Remove_Zoom()"."\n\n";
 	}
 
-	# Add scripts to resize the textarea where the user writes the chapter
+	# Add JavaScript scripts to resize the textarea where the user writes the chapter
 	$website["content"] .= '// Wait for the page to load
 $(document).ready(function () {
 	// Adjust the height of the already filled textareas when the page loads

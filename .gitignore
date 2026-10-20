@@ -1,11 +1,14 @@
 # Root folders
-Rubbish
+Archive/
 Other
 Images
 CSS
 JavaScript
+Rubbish
 
 # Root files
-desktop.ini
 Websites/Diary Slim/Website.php
+Hidden data.php
+desktop.ini
+.megaignore
 *.rar

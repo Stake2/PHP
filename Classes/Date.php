@@ -13,7 +13,7 @@ class Date extends Class_ {
 		parent::__construct(self::class);
 
 		# Read the "Texts.json" file of the "Date" Python module
-		static::$texts = $JSON -> To_PHP($folders["Apps"]["Module files"]["Utility"]["Date"]["Texts"]);
+		static::$texts = $JSON -> To_PHP($folders["Python"]["Files"]["Utility"]["Date"]["Texts"]);
 	}
 
 	public function Get_Readable_Timezone_Abbreviation(DateTime $date): string {

@@ -8,7 +8,7 @@ class Language extends Class_ {
 
 		parent::__construct(self::class);
 
-		$this -> settings = self::JSON_To_PHP($folders["Apps"]["Settings"]);
+		$this -> settings = self::JSON_To_PHP($folders["Python"]["Settings"]);
 
 		$this -> Define_Languages();
 	}
@@ -20,7 +20,7 @@ class Language extends Class_ {
 	private function Define_Languages() {
 		global $folders;
 
-		$this -> languages = self::JSON_To_PHP($folders["Apps"]["Module files"]["Utility"]["Language"]["Languages"]);
+		$this -> languages = self::JSON_To_PHP($folders["Python"]["Files"]["Utility"]["Language"]["Languages"]);
 		$this -> languages["Small"] = array_insert($this -> languages["Small"], 0, "general");
 
 		$array = $this -> languages["Full"];
@@ -92,7 +92,7 @@ class Language extends Class_ {
 		$website["Texts"] = $JSON -> To_PHP($folders["PHP"]["Classes"]["Text files"]["Texts"]);
 
 		# Mix it with the PHP "Texts.json" file
-		$website["Texts"] = array_merge($website["Texts"], $JSON -> To_PHP($folders["Apps"]["Module files"]["Utility"]["Language"]["Texts"]));
+		$website["Texts"] = array_merge($website["Texts"], $JSON -> To_PHP($folders["Python"]["Files"]["Utility"]["Language"]["Texts"]));
 
 		$website["Language texts"] = self::Item($website["Texts"]);
 

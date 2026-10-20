@@ -493,6 +493,10 @@ foreach ($websites["List"]["en"] as $website_title) {
 		$website_dictionary["titles"]["language"] = $website_dictionary["JSON"]["title"];
 	}
 
+	if (isset($website_dictionary["JSON"]["titles"]) == True) {
+		$website_dictionary["titles"]["language"] = $website_dictionary["JSON"]["titles"][$language];
+	}
+
 	$website_dictionary["titles"]["sanitized"] = str_replace('"', "'", $website_dictionary["titles"]["language"]);
 
 	# Define website title with icon
@@ -775,11 +779,11 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$website_dictionary["Style"]["button"] = [];
 
 	foreach ($types as $type) {
-		if (is_array($website_dictionary["Style"]["border_4px"][$type]) === False) {
+		if (is_array($website_dictionary["Style"]["border_4px"][$type]) == False) {
 			$website_dictionary["Style"]["button"][$type] = $website_dictionary["Style"]["background"]["theme"]["normal"]." ".$website_dictionary["Style"]["text"]["black"]." ".$website_dictionary["Style"]["border_4px"]["black"]." background_hover_white";
 		}
 
-		if (is_array($website_dictionary["Style"]["border_4px"][$type]) === True) {
+		if (is_array($website_dictionary["Style"]["border_4px"][$type]) == True) {
 			foreach (array_keys($website_dictionary["Style"]["border_4px"][$type]) as $key) {
 				$website_dictionary["Style"]["button"][$type][$key] = $website_dictionary["Style"]["background"][$type]["dark"]." ".$website_dictionary["Style"]["button_text_color"]." ".$website_dictionary["Style"]["border_4px"][$type]["light"]." ".$website_dictionary["Style"]["background_hover"];
 			}
@@ -1077,7 +1081,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 	}
 
 	# Define the local image link
-	$website_dictionary["image"]["local_link"] = str_replace($website["URL"], $folders["Mega"]["Websites"]["root"], $website_dictionary["image"]["link"]);
+	$website_dictionary["image"]["Local link"] = str_replace($website["URL"], $folders["Mega"]["Websites"]["root"], $website_dictionary["image"]["link"]);
 
 	$class = $website_dictionary["Style"]["img"]["theme"]["normal"];
 
@@ -1147,8 +1151,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 	$use_painted_author = True;
 
 	# Define the default website author and painted author
-	$author = $website["Author"];
-	$painted_author = $website["Author"];
+	$author = $website["Author"][$language];
+	$painted_author = $website["Author"][$language];
 
 	# Define a list of tab colors to not use the painted version of the website author
 	$tab_colors = [
@@ -1243,8 +1247,8 @@ foreach ($websites["List"]["en"] as $website_title) {
 		# Replace the website author text with a painted version
 		$author_text = "{author}";
 
-		if (str_contains($website_dictionary["description"]["header"], $website["Author"]) == True) {
-			$author_text = $website["Author"];
+		if (str_contains($website_dictionary["description"]["header"], $website["Author"][$language]) == True) {
+			$author_text = $website["Author"][$language];
 		}
 
 		# Transform the website author into bold style
@@ -1297,7 +1301,7 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		if (
 			isset($website_dictionary["Story"]["Information"]["Author"]) == True and
-			$website_dictionary["Story"]["Information"]["Author"] != $website["Author"]
+			$website_dictionary["Story"]["Information"]["Author"] != $website["Author"][$language]
 		) {
 			$last_author = end($authors_list);
 
@@ -1378,16 +1382,20 @@ foreach ($websites["List"]["en"] as $website_title) {
 
 		$website_dictionary["description"]["header"] .= HTML::Element("span", $date, "", $website_dictionary["Style"]["text_highlight"])."<br />"."\n";
 
-		# Add the status of the story
-		$status_number = $website_dictionary["Story"]["Information"]["Status"]["Number"];
-		$status = $website["Language texts"]["writing_statuses, type: list"][$status_number];
+		# Get the writing status number
+		$writing_status_number = $website_dictionary["Story"]["Information"]["Writing status"]["Number"];
 
-		$website_dictionary["description"]["header"] .= "\t\t".$website["Language texts"]["status, title()"].": ".$website["Icons"]["status_map"][$status_number]." ";
+		# Get the writing status
+		$writing_status = $website["Language texts"]["writing_statuses, type: list"][$writing_status_number];
 
-		$website_dictionary["description"]["header"] .= HTML::Element("span", $status, "", $website_dictionary["Style"]["text_highlight"]);
+		# Add the "Status" text and icon to the header description
+		$website_dictionary["description"]["header"] .= "\t\t".$website["Language texts"]["writing_status"].": ".$website["Icons"]["status_map"][$writing_status_number]." ";
 
-		# Update the website title with the story status icon
-		$website_dictionary["titles"]["icon"] .= " ".$website["Icons"]["status_map"][$status_number];
+		# Add the writing status to the header description
+		$website_dictionary["description"]["header"] .= HTML::Element("span", $writing_status, "", $website_dictionary["Style"]["text_highlight"]);
+
+		# Update the website title with the story writing status icon
+		$website_dictionary["titles"]["icon"] .= " ".$website["Icons"]["status_map"][$writing_status_number];
 
 		# Add the external links of the story if they exist
 		if (

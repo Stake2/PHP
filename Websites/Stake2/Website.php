@@ -13,18 +13,18 @@ if ($language == "general") {
 $full_language = $Language -> languages["Full"][$language];
 
 # Define the website folders for easier typing
-$website["Data"]["Folders"]["Izaque Sanvezzo"] = $folders["Mega"]["Notepad"]["Izaque"];
-$website["Data"]["Folders"]["About me"] = $website["Data"]["Folders"]["Izaque Sanvezzo"][$language]["About me"];
-$website["Data"]["Folders"]["Social Networks"] = $website["Data"]["Folders"]["Izaque Sanvezzo"]["en"]["Social Networks"];
+$website["Data"]["Folders"]["Me"] = $folders["Mega"]["Notepad"]["Me"];
+$website["Data"]["Folders"]["About me"] = $website["Data"]["Folders"]["Me"][$language]["About me"];
+$website["Data"]["Folders"]["Social networks"] = $website["Data"]["Folders"]["Me"]["en"]["Social networks"];
 
 # Define website files
 $website["Data"]["Files"] = [
-	"Social Networks" => $website["Data"]["Folders"]["Social Networks"]["Social Networks"]
+	"Social Networks" => $website["Data"]["Folders"]["Social networks"]["Social networks"]
 ];
 
 # Define the identities array
 $identities = [
-	"Izaque",
+	"Me",
 	"Stake2",
 	"Funkysnipa Cat"
 ];
@@ -41,40 +41,67 @@ foreach ($identities as $identity) {
 }
 
 foreach ($identities as $identity) {
-	# Define identity folder and text file
-	$folder = $website["Data"]["Folders"]["About me"]["Little biography"];
-	$file_name = $website["Language texts"]["text, title()"];
+	# If the identity is not "Me"
+	if ($identity != "Me") {
+		# Define the local folder as the identity folder in the user language
+		$folder = $website["Data"]["Folders"]["Me"][$language][$identity];
 
-	if ($identity != "Izaque") {
-		$folder = $website["Data"]["Folders"]["Izaque Sanvezzo"][$language][$identity];
+		# Define the local file name as the "Text" text in the user language
+		$file_name = $website["Language texts"]["text, title()"];
+	}
+
+	# If the identity is "Me"
+	if ($identity == "Me") {
+		# Change the local folder to be the about me "Biography" folder
+		$folder = $website["Data"]["Folders"]["About me"]["Biography"];
+
+		# Change the local file name to be the "Text (version for the website)" text
+		$file_name = $website["Language texts"]["text_version_for_the_website"];
 	}
 
 	$file = $folder["root"].$file_name.".txt";
 
 	$title = $website["Language texts"]["person, title()"];
 
-	if ($identity != "Izaque") {
+	# If the identity is not "Me"
+	if ($identity != "Me") {
 		$title = $website["Language texts"]["digital_identity"];
 	}
 
-	$title .= ": ".$identity;
+	# Define the identity name initially as the identity
+	$identity_name = $identity;
+
+	# If the identity is "Me"
+	if ($identity == "Me") {
+		# Change the identity name into the "Me" text but in the user language
+		$identity_name = $website["Language texts"]["me, title()"];
+	}
+
+	# Add a colon, a space, and the identity name to the tab title
+	$title .= ": ".$identity_name;
 
 	# Define tab template for identity
 	$website["tabs"]["templates"][$identity] = [
-		"name" => $identity,
+		"name" => $identity_name,
 		"title" => $title,
 		"add" => " ".$website["Icons"]["user_circle"],
 		"icon" => "user_circle",
 		"text_style" => "text-align: left;"
 	];
 
+	# Read the identity text file to get its biography or explanation text
 	$string = $File -> Contents($file)["string"];
 
+	# Iterate through the list of local identities
 	foreach ($identities as $local_identity) {
-		# Replace identity text with colored identity text
+		# Replace the identity name with its bold colored text highlight version
 		$element = HTML::Element("b", $local_identity, "", $website["Data"]["Style"]["text_highlight"]);
 
-		$string = str_replace($local_identity, $element, $string);
+		# If the local identity is not "Me"
+		if ($local_identity != "Me") {
+			# Replace the local identity in the file string with its bold colored text highlight version
+			$string = str_replace($local_identity, $element, $string);
+		}
 	}
 
 	# Define the content of the tab
@@ -92,7 +119,8 @@ foreach ($identities as $identity) {
 		$local_folder = $folders["Mega"]["PHP"]["root"].$php_folder;
 	}
 
-	if ($identity != "Izaque") {
+	# If the identity is not "Me"
+	if ($identity != "Me") {
 		$images = [
 			"Profile" => [],
 			"Versions" => [],
@@ -290,7 +318,8 @@ foreach ($identities as $identity) {
 		$website["tabs"]["templates"][$identity]["content"] .= "</center>";
 	}
 
-	if ($identity == "Izaque") {
+	# If the identity is "Me"
+	if ($identity == "Me") {
 		$website["tabs"]["templates"][$identity]["content"] .= $string;
 	}
 }
@@ -335,7 +364,7 @@ foreach (array_keys($social_networks_json["Categories"]) as $category) {
 			$social_network .= " ".$website["Icons"][$social_network];
 		}
 
-		$website["tabs"]["templates"]["Social Networks"]["content"] .= "\t\t".HTML::Button($social_network, 'onclick="window.open(\''.$link.'\');"', " margin_top_bottom_2_cent");
+		$website["tabs"]["templates"]["Social Networks"]["content"] .= "\t\t".HTML::Button($social_network, 'onclick="window.open(\''.$link.'\');"', " margin_top_bottom_2_cent", $heading = "h3", $tab = True, $bold = True, $add_class = True);
 	}
 
 	$website["tabs"]["templates"]["Social Networks"]["content"] .= "\t"."</div>";

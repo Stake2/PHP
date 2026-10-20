@@ -87,6 +87,15 @@ require $folders["PHP"]["SQL"];
 # Assign the website array and the Language class instance variables to RainTPL
 $tpl -> assign("website", $website);
 $tpl -> assign("Language", $Language);
+
+# Define the correct language
+$language = $Language -> user_language;
+
+if ($language == "general") {
+	$language = "en";
+}
+
+$tpl -> assign("user_language", $language);
 $tpl -> assign("parse", $parse);
 $tpl -> assign("website", $website);
 

@@ -53,15 +53,15 @@ $tasks = [
 			"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 		]
 	],
-	"Types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
+	"Task types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
 	"Entries" => "",
-	"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Tasks"]["Texts"]),
+	"Texts" => $JSON -> To_PHP($folders["Python"]["Files"]["Tasks"]["Texts"]),
 	"Language texts" => []
 ];
 
 $tasks["Language texts"] = $Language -> Item($tasks["Texts"]);
 
-$types_dictionary = $tasks["Types"]["Lists"]["Plural"];
+$types_dictionary = $tasks["Task types"]["Lists"]["Plural"];
 
 $website["Data"]["Numbers"] = [
 	"By year" => [],
@@ -91,9 +91,9 @@ if (isset($tasks) == False) {
 				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 			]
 		],
-		"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
+		"Task types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
 		"Entries" => "",
-		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Tasks"]["Texts"]),
+		"Texts" => $JSON -> To_PHP($folders["Python"]["Files"]["Tasks"]["Texts"]),
 		"Language texts" => []
 	];
 

@@ -57,7 +57,7 @@ $gameplayer = [
 	],
 	"Types" => $JSON -> To_PHP($network_folder["Data"]["Types"]),
 	"Entries" => $JSON -> To_PHP($network_folder["Play History"][$website["Data"]["Year"]]["Entries"]),
-	"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["GamePlayer"]["Texts"]),
+	"Texts" => $JSON -> To_PHP($folders["Python"]["Files"]["GamePlayer"]["Texts"]),
 	"Language texts" => [],
 	"Game information" => [
 		"Information" => $JSON -> To_PHP($network_folder["Game information"]["Information"])

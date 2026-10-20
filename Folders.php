@@ -2,14 +2,14 @@
 
 # Folders.php
 
-# folders array
+# Define the root folders array
 $folders = [
 	"Hard drive letter" => substr(__FILE__, 0, 2)."/"
 ];
 
-# Root folders
+# Define the root folders
 $names = [
-	"Apps",
+	"Python",
 	"Mega",
 	"Media",
 	"Games"
@@ -37,20 +37,20 @@ foreach ($names as $item) {
 	];
 }
 
-# Apps folders
+# Define the Python folders
 $names = [
-	"Module files",
-	"Modules"
+	"Modules",
+	"Files"
 ];
 
 foreach ($names as $item) {
-	$folders["Apps"][$item] = [
-		"root" => $folders["Apps"]["root"].$item."/"
+	$folders["Python"][$item] = [
+		"root" => $folders["Python"]["root"].$item."/"
 	];
 }
 
 # "Apps" files
-$folders["Apps"]["Settings"] = $folders["Apps"]["root"]."Settings.json";
+$folders["Python"]["Settings"] = $folders["Python"]["root"]."Settings.json";
 
 # "Module files" folders
 $modules = [
@@ -63,8 +63,8 @@ $modules = [
 foreach ($modules as $item) {
 	$key = str_replace("_", " ", $item);
 
-	$folders["Apps"]["Module files"][$key] = [
-		"root" => $folders["Apps"]["Module files"]["root"].$item."/"
+	$folders["Python"]["Files"][$key] = [
+		"root" => $folders["Python"]["Files"]["root"].$item."/"
 	];
 }
 
@@ -75,13 +75,13 @@ $utility_modules = [
 ];
 
 foreach ($utility_modules as $item) {
-	$folders["Apps"]["Module files"]["Utility"][$item] = [
-		"root" => $folders["Apps"]["Module files"]["Utility"]["root"].$item."/"
+	$folders["Python"]["Files"]["Utility"][$item] = [
+		"root" => $folders["Python"]["Files"]["Utility"]["root"].$item."/"
 	];
 }
 
 # "Languages.json" file
-$folders["Apps"]["Module files"]["Utility"]["Language"]["Languages"] = $folders["Apps"]["Module files"]["Utility"]["Language"]["root"]."Languages.json";
+$folders["Python"]["Files"]["Utility"]["Language"]["Languages"] = $folders["Python"]["Files"]["Utility"]["Language"]["root"]."Languages.json";
 
 # Add each utility module to the "modules" list
 foreach ($utility_modules as $module) {
@@ -93,19 +93,19 @@ foreach ($modules as $item) {
 	$key = str_replace("_", " ", $item);
 
 	# "Texts.json" file
-	if (isset($folders["Apps"]["Module files"][$key]) == True) {
-		$folders["Apps"]["Module files"][$key]["Texts"] = $folders["Apps"]["Module files"][$key]["root"]."Texts.json";
+	if (isset($folders["Python"]["Files"][$key]) == True) {
+		$folders["Python"]["Files"][$key]["Texts"] = $folders["Python"]["Files"][$key]["root"]."Texts.json";
 	}
 
 	else {
-		$folders["Apps"]["Module files"]["Utility"][$key]["Texts"] = $folders["Apps"]["Module files"]["Utility"][$key]["root"]."Texts.json";
+		$folders["Python"]["Files"]["Utility"][$key]["Texts"] = $folders["Python"]["Files"]["Utility"][$key]["root"]."Texts.json";
 	}
 }
 
 # Mega folders
 $names = [
 	"Notepad",
-	"Image",
+	"Images",
 	"PHP",
 	"Stories",
 	"Websites"
@@ -115,11 +115,19 @@ foreach ($names as $item) {
 	$key = $item;
 
 	if ($item == "Notepad") {
-		$item = "Bloco De Notas";
+		$item = "Bloco de notas";
+	}
+
+	if ($item == "Images") {
+		$item = "Imagens";
 	}
 
 	if ($item == "Stories") {
 		$item = "Histórias";
+	}
+
+	if ($item == "Websites") {
+		$item = "Sites";
 	}
 
 	$folders["Mega"][$key] = [
@@ -131,7 +139,7 @@ foreach ($names as $item) {
 $names = [
 	"Diary" => "Diário",
 	"Diary Slim" => "Diário Slim",
-	"Izaque" => "",
+	"Me" => "",
 	"Data Networks" => "Redes de Dados",
 	"Years" => "Anos"
 ];
@@ -143,8 +151,10 @@ foreach (array_keys($names) as $key) {
 		$item = $names[$item];
 	}
 
-	if ($item == "Izaque") {
-		$item .= "\40\123\141\x6e\166\x65\172\172\x6f";
+	# If the item is "Me"
+	if ($item == "Me") {
+		# Require the "Hidden data.php" file
+		require "Hidden data.php";
 	}
 
 	$folders["Mega"]["Notepad"][$key] = [
@@ -208,7 +218,7 @@ foreach ($diaries as $diary) {
 	}
 }
 
-# Notepad "Izaque" folders
+# Notepad "Me" folders
 $names = [
 	"en" => "English",
 	"pt" => "Português"
@@ -217,8 +227,8 @@ $names = [
 foreach (array_keys($names) as $key) {
 	$item = $names[$key];
 
-	$folders["Mega"]["Notepad"]["Izaque"][$key] = [
-		"root" => $folders["Mega"]["Notepad"]["Izaque"]["root"].$item."/"
+	$folders["Mega"]["Notepad"]["Me"][$key] = [
+		"root" => $folders["Mega"]["Notepad"]["Me"]["root"].$item."/"
 	];
 }
 
@@ -238,35 +248,35 @@ foreach (array_keys($names) as $local_language) {
 	$item = $names[$local_language];
 
 	# "About me" folder
-	$folders["Mega"]["Notepad"]["Izaque"][$local_language][$key] = [
-		"root" => $folders["Mega"]["Notepad"]["Izaque"][$local_language]["root"].$item."/"
+	$folders["Mega"]["Notepad"]["Me"][$local_language][$key] = [
+		"root" => $folders["Mega"]["Notepad"]["Me"][$local_language]["root"].$item."/"
 	];
 
-	# "Little biography" folder
-	$folders["Mega"]["Notepad"]["Izaque"][$local_language][$key]["Little biography"] = [
-		"root" => $folders["Mega"]["Notepad"]["Izaque"][$local_language][$key]["root"].$texts[$local_language]."/"
+	# "Biography" folder
+	$folders["Mega"]["Notepad"]["Me"][$local_language][$key]["Biography"] = [
+		"root" => $folders["Mega"]["Notepad"]["Me"][$local_language][$key]["root"].$texts[$local_language]."/"
 	];
 }
 
-# "Izaque Sanvezzo" Social Networks folders
+# "Me" Social networks folders
 $names = [
-	"en" => "Social Networks",
-	"pt" => "Redes Sociais"
+	"en" => "Social networks",
+	"pt" => "Redes sociais"
 ];
 
 foreach (array_keys($names) as $local_language) {
-	$key = "Social Networks";
+	$key = "Social networks";
 	$item = $names[$local_language];
 
-	$folders["Mega"]["Notepad"]["Izaque"][$local_language][$key] = [
-		"root" => $folders["Mega"]["Notepad"]["Izaque"][$local_language]["root"].$item."/"
+	$folders["Mega"]["Notepad"]["Me"][$local_language][$key] = [
+		"root" => $folders["Mega"]["Notepad"]["Me"][$local_language]["root"].$item."/"
 	];
 }
 
 # "Social Networks.json" file
-$folders["Mega"]["Notepad"]["Izaque"]["en"]["Social Networks"]["Social Networks"] = $folders["Mega"]["Notepad"]["Izaque"]["en"]["Social Networks"]["root"]."Social Networks.json";
+$folders["Mega"]["Notepad"]["Me"]["en"]["Social networks"]["Social networks"] = $folders["Mega"]["Notepad"]["Me"]["en"]["Social networks"]["root"]."Social networks.json";
 
-# Izaque Sanvezzo "Digital Identities" folders
+# Me "Digital identities" folders
 $names = [
 	"Stake2",
 	"Funkysnipa Cat"
@@ -280,12 +290,12 @@ $texts = [
 foreach (array_keys($texts) as $local_language) {
 	foreach ($names as $key) {
 		# Digital Identity folder
-		$folders["Mega"]["Notepad"]["Izaque"][$local_language][$key] = [
-			"root" => $folders["Mega"]["Notepad"]["Izaque"][$local_language]["root"].$key."/"
+		$folders["Mega"]["Notepad"]["Me"][$local_language][$key] = [
+			"root" => $folders["Mega"]["Notepad"]["Me"][$local_language]["root"].$key."/"
 		];
 
 		# Text file
-		$folders["Mega"]["Notepad"]["Izaque"][$local_language][$key]["Text"] = $folders["Mega"]["Notepad"]["Izaque"][$local_language][$key]["root"].$texts[$local_language].".txt";
+		$folders["Mega"]["Notepad"]["Me"][$local_language][$key]["Text"] = $folders["Mega"]["Notepad"]["Me"][$local_language][$key]["root"].$texts[$local_language].".txt";
 	}
 }
 
@@ -296,31 +306,39 @@ $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"] = [
 	"root" => $folders["Mega"]["Notepad"]["Data Networks"]["root"]."Mídias Audiovisuais/"
 ];
 
-# "Audiovisual Media" folders
-$names = [
+# Define and create the "Audiovisual Media" folders
+$folder_names = [
 	"Data",
+	"Media types",
 	"Media information",
 	"Watch History"
 ];
 
-foreach ($names as $key) {
-	$item = $key;
 
-	if ($item == "Data") {
-		$item = "Dados";
+foreach ($folder_names as $key) {
+	# Define the folder name as the key
+	$folder_name = $key;
+
+	# If the folder name is "Media types"
+	if ($folder_name == "Media types") {
+		# Define the folder name as its user language version
+		$folder_name = "Tipos de mídias";
 	}
 
-	if ($item == "Media information") {
-		$item = "Informações de mídias";
+	# If the folder name is "Media information"
+	if ($folder_name == "Media information") {
+		# Define the folder name as its user language version
+		$folder_name = "Informações de mídias";
 	}
 
+	# Define the folder inside the "Audiovisual Media" folders dictionary
 	$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"][$key] = [
-		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["root"].$item."/"
+		"root" => $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["root"].$folder_name."/"
 	];
 }
 
-# "Types.json" file
-$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["Types"] = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["root"]."Types.json";
+# Define the "Media types.json" file
+$folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media types"]["Media types"] = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media types"]["root"]."Media types.json";
 
 # Audiovisual Media "Information" folder
 $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["Information"] = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media information"]["root"]."Information.json";
@@ -415,15 +433,15 @@ $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"] = [
 
 # "Productivity" folders
 $names = [
-	"Task History",
-	"Tipos de tarefas"
+	"Task types",
+	"Task History"
 ];
 
 foreach ($names as $key) {
 	$item = $key;
 
-	if ($key == "Tipos de tarefas") {
-		$key = "Task types";
+	if ($key == "Task types") {
+		$item = "Tipos de tarefas";
 	}
 
 	$folders["Mega"]["Notepad"]["Data Networks"]["Productivity"][$key] = [
@@ -431,7 +449,7 @@ foreach ($names as $key) {
 	];
 }
 
-# "Types.json" file
+# Define the "Task types.json" file
 $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task types"]["Task types"] = $folders["Mega"]["Notepad"]["Data Networks"]["Productivity"]["Task types"]["root"]."Task types.json";
 
 # "Task History" year folders

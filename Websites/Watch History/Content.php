@@ -46,27 +46,28 @@ if (in_array($website["Data"]["title"], $website["Years"]) == True) {
 	$website["Data"]["Year"] = $website["Data"]["title"];
 }
 
-# Define the "Watch History" array
-$folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
+# Create a shortcut to the root "Audiovisual Media" folders dictionary
+$data_network_folder = $folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"];
 
+# Define the "Watch History" dictionary
 $watch_history = [
 	"Files" => [
 		"By media type" => [
-			"root" => $folder["Watch History"][$website["Data"]["Year"]]["By media type"]["root"]
+			"root" => $data_network_folder["Watch History"][$website["Data"]["Year"]]["By media type"]["root"]
 		]
 	],
-	"Types" => $JSON -> To_PHP($folder["Data"]["Types"]),
-	"Entries" => $JSON -> To_PHP($folder["Watch History"][$website["Data"]["Year"]]["Entries"]),
-	"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Watch History"]["Texts"]),
+	"Media types" => $JSON -> To_PHP($data_network_folder["Media types"]["Media types"]),
+	"Entries" => $JSON -> To_PHP($data_network_folder["Watch History"][$website["Data"]["Year"]]["Entries"]),
+	"Texts" => $JSON -> To_PHP($folders["Python"]["Files"]["Watch History"]["Texts"]),
 	"Language texts" => [],
 	"Media information" => [
-		"Information" => $JSON -> To_PHP($folder["Media information"]["Information"])
+		"Information" => $JSON -> To_PHP($data_network_folder["Media information"]["Information"])
 	]
 ];
 
 $watch_history["Language texts"] = $Language -> Item($watch_history["Texts"]);
 
-$types_dictionary = $watch_history["Types"]["Plural"];
+$types_dictionary = $watch_history["Media types"]["Plural"];
 
 $website["Data"]["Numbers"] = [
 	"By year" => [],
@@ -107,7 +108,7 @@ if (function_exists("Generate_Media_Type_Headers") == False) {
 
 		$text_color = $website["Style"]["text"]["theme"]["dark"];
 
-		$types_dictionary = $watch_history["Types"]["Plural"];
+		$types_dictionary = $watch_history["Media types"]["Plural"];
 
 		# Define a shortcut for the total number of entries in the year
 		$total_number = $watch_history["Entries"]["Numbers"]["Total"];

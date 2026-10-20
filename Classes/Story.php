@@ -227,7 +227,7 @@ class Story extends Class_ {
 			$local_chapter_folder .= $chapter_folder;
 			$remote_chapter_folder .= $chapter_folder;
 
-			# Define a variable to use the local or remote link
+			# Define the "remote link" switch as False
 			$remote_link = False;
 
 			# Define the image format as an empty string
@@ -249,7 +249,7 @@ class Story extends Class_ {
 			}
 
 			# If the website "Generate" state is True
-			# And the remote link variable is False
+			# And the "remote link" switch is False
 			if (
 				$website["States"]["Website"]["Generate"] == False and
 				$remote_link = False
@@ -667,8 +667,13 @@ class Story extends Class_ {
 		# Get the chapter text dictionary
 		$chapter_text_dictionary = $this -> Chapter_Text();
 
+		# Store the number of chapter lines
+		$chapter_tab["Number of chapter lines"] = $chapter_text_dictionary["Lines"];
+
+		# Store the chapter text
 		$chapter_tab["chapter_text"] = $chapter_text_dictionary["Text"]."\n";
 
+		# Define the chapter text color
 		$chapter_tab["chapter_text_color"] = " text_white";
 
 		if (isset($website["Style"]["chapter_text_color"]) == True) {
@@ -692,7 +697,7 @@ class Story extends Class_ {
 		$date_type_text_keys = [
 			"Writing" => "chapter_written_on",
 			"Revisions" => "chapter_last_revised_on",
-			"Translations" => "chapter_last_translated_into_english_on"
+			"Translations" => "chapter_last_translated_from_portuguese_into_english_on"
 		];
 
 		# If the chapter dictionary exists
@@ -798,8 +803,11 @@ class Story extends Class_ {
 			$added_dates = True;
 		}
 
-		# Define an "added word count" state
+		# Define a default "added word count" switch
 		$added_word_count = False;
+
+		# Define a default "added line count" switch
+		$added_line_count = False;
 
 		# If the "Write chapter" mode is off
 		# Or it is on
@@ -838,8 +846,33 @@ class Story extends Class_ {
 			"<br />"."\n".
 			$words." ".$word_text."<br />"."<br />"."\n";
 
-			# Change the "added word count" state to True
+			# Switch the "added word count" switch to True
 			$added_word_count = True;
+
+			# ---------- #
+
+			# Get the line count of the chapter
+			$line_count = $chapter_tab["Number of chapter lines"];
+
+			# Define the singular line text
+			$singular = $website["Language texts"]["line"];
+
+			# Define the plural lines text
+			$plural = $website["Language texts"]["lines"];
+
+			# Get the line number text based on the number of lines
+			$line_text = Text::By_Number($line_count, $singular, $plural);
+
+			# Format the line count of the chapter
+			$lines = number_format($line_count, 0, ".", ".");
+
+			# Add the number of lines with its text
+			$chapter_tab["chapter_text"] .= "\t\t".$website["Language texts"]["chapter_lines"].":"."\n".
+			"<br />"."\n".
+			$lines." ".$line_text."<br />"."<br />"."\n";
+
+			# Switch the "added line count" switch to True
+			$added_line_count = True;
 		}
 
 		# If the "Write chapter" mode is on
@@ -903,8 +936,11 @@ class Story extends Class_ {
 
 			$style = "width: 100%; height: 800px; border: none; overflow-y: auto; resize: vertical;";
 
-			$write_text = "<p><br /><b>".$website["Language texts"]["write, title()"].": ".$website["Icons"]["pen"]."<br />".
-			$chapter_tab["chapter_title"]."</b><br /><br /><p>";
+			# Format the "You are writing" text with the story title and chapter
+			$you_are_writing_text = Text::Format($website["Language texts"][$text_key], [$painted_story_title, $painted_chapter_title]);
+
+			# Create the write text
+			$write_text = "<p><br /><b>".$you_are_writing_text."</b><br /><br /><p>";
 
 			$h2 = HTML::Element("h2", $write_text, "", $chapter_tab["chapter_text_color"])."\n";
 
@@ -930,7 +966,8 @@ class Story extends Class_ {
 			if (
 				$chapter_text_dictionary["Text backup"] != "" and
 				$added_dates == False and
-				$added_word_count == False
+				$added_word_count == False and
+				$added_line_count == False
 			) {
 				# Add some space to the chapter text
 				$chapter_tab["chapter_text"] .= "<br />";

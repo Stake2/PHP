@@ -3,8 +3,8 @@
 # Change the website "Tab buttons" state to True
 $website["States"]["Website"]["Tab buttons"] = True;
 
-# Read the "Types.json" file
-$types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Data"]["Types"]);
+# Read the "Media types.json" file
+$media_types = $JSON -> To_PHP($folders["Mega"]["Notepad"]["Data Networks"]["Audiovisual Media"]["Media types"]["Media types"]);
 
 $language = "pt";
 
@@ -24,8 +24,8 @@ if ($language == "general") {
 $string = "";
 $styled_string = "";
 
-foreach ($types["Plural"][$language] as $type) {
-	if ($type == end($types["Plural"][$language])) {
+foreach ($media_types["Plural"][$language] as $type) {
+	if ($type == end($media_types["Plural"][$language])) {
 		$string .= $website["Language texts"]["and"]." ";
 		$styled_string .= $website["Language texts"]["and"]." ";
 	}
@@ -33,7 +33,7 @@ foreach ($types["Plural"][$language] as $type) {
 	$string .= $type;
 	$styled_string .= HTML::Element("span", $type, "", $website["Style"]["text_highlight"]);
 
-	if ($type != end($types["Plural"][$language])) {
+	if ($type != end($media_types["Plural"][$language])) {
 		$string .= ", ";
 		$styled_string .= ", ";
 	}
@@ -123,11 +123,11 @@ $watch_history["Language texts"]["media_types_watched_in_all_years"].":"."<br />
 
 $array = $website["Data"]["Numbers"]["By type"];
 
-$types_dictionary = $watch_history["Types"]["Plural"];
+$local_media_types = $watch_history["Media types"]["Plural"];
 
 $i = 0;
-foreach ($types_dictionary["en"] as $type) {
-	$language_type = $types_dictionary[$language][$i];
+foreach ($local_media_types["en"] as $type) {
+	$language_type = $local_media_types[$language][$i];
 
 	$number = $array[$type];
 
@@ -141,7 +141,7 @@ foreach ($types_dictionary["en"] as $type) {
 
 		$website["Data"]["description"]["header"] .= $language_type.": ".$painted_number;
 
-		if ($type != end($types_dictionary["en"])) {
+		if ($type != end($local_media_types["en"])) {
 			$website["Data"]["description"]["html"] .= "\n";
 
 			$website["Data"]["description"]["header"] .= "<br />"."\n";

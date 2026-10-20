@@ -1,5 +1,8 @@
 {
-	"title": "Izaque, Stake2, Funkysnipa Cat",
+	"titles": {
+		"en": "Stake2 and Funkysnipa Cat",
+		"pt": "Stake2 e Funkysnipa Cat"
+	},
 	"icon": "user_circle",
 	"style": {
 		"theme": {
@@ -22,8 +25,8 @@
 	},
 	"tabs": {
 		"data": {
-			"Izaque": {
-				"template": "Izaque"
+			"Me": {
+				"template": "Me"
 			},
 			"Stake2": {
 				"template": "Stake2"

@@ -1,9 +1,0 @@
-<?php 
-
-# Date
-
-class Date {
-	
-}
-
-?>

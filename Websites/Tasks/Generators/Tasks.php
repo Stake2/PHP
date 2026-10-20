@@ -53,15 +53,15 @@ if (isset($tasks) == False) {
 				"root" => $network_folder["Task History"][$website["Data"]["Year"]]["By task type"]["root"]
 			]
 		],
-		"Types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
+		"Task types" => $JSON -> To_PHP($network_folder["Task types"]["Task types"]),
 		"Entries" => "",
-		"Texts" => $JSON -> To_PHP($folders["Apps"]["Module files"]["Tasks"]["Texts"]),
+		"Texts" => $JSON -> To_PHP($folders["Python"]["Files"]["Tasks"]["Texts"]),
 		"Language texts" => []
 	];
 
 	$tasks["Language texts"] = $Language -> Item($tasks["Texts"]);
 
-	$types_dictionary = $tasks["Types"]["Lists"]["Plural"];
+	$types_dictionary = $tasks["Task types"]["Lists"]["Plural"];
 
 	$website["Data"]["Numbers"] = [
 		"By year" => [],
@@ -120,7 +120,7 @@ if (function_exists("Generate_Task_Type_Headers") == False) {
 		$text_color = $website["Style"]["text"]["theme"]["dark"];
 
 		# Define the default local types dictionary
-		$types_dictionary = $tasks["Types"]["Lists"]["Plural"];
+		$types_dictionary = $tasks["Task types"]["Lists"]["Plural"];
 
 		# If the root website title is not "Tasks"
 		if ($website["Data"]["title"] != "Tasks") {
@@ -430,12 +430,19 @@ if (file_exists($entries_file) == True) {
 						# Create the tab title
 						$tab_title = $entry["Number"]." - ".$entry["Titles"][$language]." (".$time.")";
 
-						# Get the task description file
+						# Get the task description folder
 						$folder = $folders["Mega"]["Notepad"]["Years"][$website["Data"]["Year"]][$language]["completed_tasks"]["root"].$language_type."/";
 
-						$local_entry = str_replace(":", ";", $entry["Entry"]);
+						# Replace the task type with the language task type
+						$local_entry = str_replace($entry["Type"], $language_type, $entry["Entry"]);
+
+						# Replace colons with semicolons
+						$local_entry = str_replace(":", ";", $local_entry);
+
+						# Replace slashes with dashes
 						$local_entry = str_replace("/", "-", $local_entry);
 
+						# Get the task description file
 						$file = $folder.$local_entry.".txt";
 
 						# Create the tab array and content

@@ -91,6 +91,10 @@
 		"en": "This Year I",
 		"pt": "Esse Ano Eu"
 	},
+	"me, title()": {
+		"en": "Me",
+		"pt": "Eu"
+	},
 	"watched_media_in": {
 		"en": "Watched media in",
 		"pt": "Mídias assistidas em"
@@ -219,9 +223,9 @@
 		"en": "Chapter last revised on",
 		"pt": "Capítulo revisado pela última vez em"
 	},
-	"chapter_last_translated_into_english_on": {
-		"en": "Chapter last translated into English on",
-		"pt": "Capítulo traduzido pela última vez para o Inglês em"
+	"chapter_last_translated_from_portuguese_into_english_on": {
+		"en": "Chapter last translated from Portuguese into English on",
+		"pt": "Capítulo traduzido pela última vez do Português para o Inglês em"
 	},
 	"chapter_words": {
 		"en": "Chapter words",
@@ -234,6 +238,18 @@
 	"words": {
 		"en": "words",
 		"pt": "palavras"
+	},
+	"chapter_lines": {
+		"en": "Chapter lines",
+		"pt": "Linhas do capítulo"
+	},
+	"line": {
+		"en": "line",
+		"pt": "linha"
+	},
+	"lines": {
+		"en": "lines",
+		"pt": "linhas"
 	},
 	"story_creation_date": {
 		"en": "Story creation date",
@@ -291,9 +307,9 @@
 		"en": "Send",
 		"pt": "Enviar"
 	},
-	"status, title()": {
-		"en": "Status",
-		"pt": "Status"
+	"writing_status": {
+		"en": "Writing status",
+		"pt": "Status de escrita"
 	},
 	"and": {
 		"en": "and",
@@ -413,17 +429,13 @@
 		"en": "This file does not exist:<br />\n{}",
 		"pt": "Esse arquivo não existe:<br />\n{}"
 	},
-	"little_biography": {
-		"en": "Little biography",
-		"pt": "Pequena biografia"
-	},
 	"digital_identity": {
-		"en": "Digital Identity",
-		"pt": "Identidade Digital"
+		"en": "Digital identity",
+		"pt": "Identidade digital"
 	},
 	"social_networks": {
-		"en": "Social Networks",
-		"pt": "Redes Sociais"
+		"en": "Social networks",
+		"pt": "Redes sociais"
 	},
 	"art, title()": {
 		"en": "Art",
@@ -482,6 +494,10 @@
 		"en": "Texts",
 		"pt": "Textos"
 	},
+	"text_version_for_the_website": {
+		"en": "Text (version for the website)",
+		"pt": "Texto (versão para o site)"
+	},
 	"stories, title()": {
 		"en": "Stories",
 		"pt": "Histórias"
@@ -515,8 +531,8 @@
 		"pt": "Registrar coisas"
 	},
 	"social_media": {
-		"en": "Social Media",
-		"pt": "Redes Sociais"
+		"en": "Social media",
+		"pt": "Redes sociais"
 	},
 	"gaming, title()": {
 		"en": "Gaming",
